@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>DApp项目-基于truffle的简单投票合约-1 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介基于以太坊开发投票系统DApp，在基础投票功能的基础上，增加了基于自定义token进行投票的功能；另外还涉及到了以太坊开发框架truffle的使用。 通过一个完整的DApp的开发，将以太坊理论和实践紧密结合起来，可以使学习者对以太坊上的DApp开发有更加全面充分的认识，进而对整个区块链技术有更深刻的理解。 基础准备需先掌握以下基础知识：  truffle框架环境的搭建 geth启动以太坊私链">
+  <meta name="description" content="简介基于以太坊开发投票系统DApp，在基础投票功能的基础上，增加了基于自定义token进行投票的功能；另外还涉及到了以太坊开发框架truffle的使用。 通过一个完整的DApp的开发，将以太坊理论和实践紧密结合起来，可以使学习者对以太坊上的DApp开发有更加全面充分的认识，进而对整个区块链技术有更深刻的理解。 基础准备需先掌握以下基础知识：  truffle框架环境的搭建 geth启动以太坊私链以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DApp项目-基于truffle的简单投票合约-1">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2020/09/03/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A1%B9%E7%9B%AE/DApp%E9%A1%B9%E7%9B%AE-%E5%9F%BA%E4%BA%8Etruffle%E7%9A%84%E7%AE%80%E5%8D%95%E6%8A%95%E7%A5%A8%E5%90%88%E7%BA%A6-1/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="简介基于以太坊开发投票系统DApp，在基础投票功能的基础上，增加了基于自定义token进行投票的功能；另外还涉及到了以太坊开发框架truffle的使用。 通过一个完整的DApp的开发，将以太坊理论和实践紧密结合起来，可以使学习者对以太坊上的DApp开发有更加全面充分的认识，进而对整个区块链技术有更深刻的理解。 基础准备需先掌握以下基础知识：  truffle框架环境的搭建 geth启动以太坊私链">
+<meta property="og:description" content="简介基于以太坊开发投票系统DApp，在基础投票功能的基础上，增加了基于自定义token进行投票的功能；另外还涉及到了以太坊开发框架truffle的使用。 通过一个完整的DApp的开发，将以太坊理论和实践紧密结合起来，可以使学习者对以太坊上的DApp开发有更加全面充分的认识，进而对整个区块链技术有更深刻的理解。 基础准备需先掌握以下基础知识：  truffle框架环境的搭建 geth启动以太坊私链以">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903010953.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903013006.png">
@@ -28,8 +28,23 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903020145.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903020514.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903021354.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903101417.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903110015.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903110325.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903111837.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125445.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125536.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125601.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125659.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125833.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125850.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903131656.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903131732.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903132102.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903132856.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903132938.png">
 <meta property="article:published_time" content="2020-09-02T16:58:40.000Z">
-<meta property="article:modified_time" content="2020-09-02T18:14:06.895Z">
+<meta property="article:modified_time" content="2020-09-03T05:32:46.786Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="DApp">
 <meta name="twitter:card" content="summary">
@@ -87,7 +102,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 173
+			总文章数 176
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -226,7 +241,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">955字</span>
+        <span class="post-count">1.6k字</span>
       </span>
     </span>
 
@@ -235,7 +250,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">7分</span>
       </span>
     </span>
 </div>
@@ -252,9 +267,10 @@
 <h1 id="基础准备"><a href="#基础准备" class="headerlink" title="基础准备"></a>基础准备</h1><p>需先掌握以下基础知识：</p>
 <ol>
 <li>truffle框架环境的搭建</li>
-<li>geth启动以太坊私链</li>
+<li>geth启动以太坊私链以及操作</li>
 <li>web3js</li>
 <li>solidity智能合约编程语言的掌握</li>
+<li>简单DApp开发流程</li>
 </ol>
 <p>可以在博客中搜索到以上详细的知识</p>
 <a id="more"></a>
@@ -313,8 +329,54 @@
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903020514.png" alt=""></p>
 <p>注意，第一个合约部署过后就不会再部署了。</p>
 <p>truffle 部署的好处在于：<strong>它会检测是否修改了合约，如果合约内容没有变化，那么部署成功后以后都不会去重复部署了。</strong></p>
-<h2 id="控制台使用合约"><a href="#控制台使用合约" class="headerlink" title="控制台使用合约"></a>控制台使用合约</h2><p>truffle包装了web3麻烦的根据abi和字节码创建合约实例一系列复杂的操作，在其控制台，对于已经部署的合约输入合约名字可以直接使用！</p>
+<h2 id="控制台使用合约"><a href="#控制台使用合约" class="headerlink" title="控制台使用合约"></a>控制台使用合约</h2><p>truffle包装了web3麻烦的根据abi和字节码部署一系列复杂的操作，在其控制台，对于已经部署的合约可以使用其特殊语法创建实例。（部署完合约之后，truffle就会帮我们记住合约的abi和地址，我们可以直接创建实例）</p>
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903021354.png" alt=""></p>
+<p>使用合约语法：</p>
+<p>创建合约实例给Alice投票。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Voting.deployed().then(<span class="function"><span class="keyword">function</span>(<span class="params">votingInstance</span>)</span>&#123;votingInstance.vote(<span class="string">'Alice'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;<span class="built_in">console</span>.log(v)&#125;)&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>异步运行，一开始运行提示undefind，需要手动挖矿后显示收据：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903101417.png" alt=""></p>
+<p>查询Alice的票数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Voting.deployed().then(<span class="function"><span class="keyword">function</span>(<span class="params">votingInstance</span>)</span>&#123;votingInstance.totalVotesFor(<span class="string">'Alice'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;<span class="built_in">console</span>.log(v.toString())&#125;)&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903110015.png" alt=""></p>
+<p>再次投票、查询观察票数变化</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903110325.png" alt=""></p>
+<p>测试合约功能无误。</p>
+<h2 id="网页使用合约"><a href="#网页使用合约" class="headerlink" title="网页使用合约"></a>网页使用合约</h2><p>truffle会把app文件夹中的前端文件压缩/处理到build中输出：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903111837.png" alt=""></p>
+<p>所以，我们修改box中已有的前端页面为自己的即可</p>
+<p>修改app/index.html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>投票DApp<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'</span> <span class="attr">rel</span>=<span class="string">'stylesheet'</span> <span class="attr">type</span>=<span class="string">'text/css'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>简单区块链投票系统<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  address : <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"address"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"table-responsive"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-bordered"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 表头 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">th</span>&gt;</span>候选人<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">th</span>&gt;</span>得票数<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 内容 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span>Alice<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span> <span class="attr">id</span>=<span class="string">"candidate-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span>Bob<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span> <span class="attr">id</span>=<span class="string">"candidate-2"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span>Cary<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span> <span class="attr">id</span>=<span class="string">"candidate-3"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span>					</span><br><span class="line">				<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    msg <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"candidate"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onclick</span>=<span class="string">"voteForCandidate()"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>投票<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://libs.baidu.com/jquery/2.1.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"app.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>修改app/javascripts/app.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>部署到build命令：</p>
+<p><code>npm run dev</code></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125445.png" alt=""></p>
+<p>其实就是运行webpack-dev-server，webpack封装的一个服务器（nodejs）</p>
+<p>如果这里报错的话，例如：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125536.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125601.png" alt=""></p>
+<p>那么很有可能启动需要的依赖包没有安装，安装的方式是在项目文件夹下：</p>
+<p><code>npm install</code> </p>
+<p>那么就会把package.json文件中要依赖的所有的包都安装上了：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125659.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125833.png" alt=""></p>
+<p>再次启动<code>npm run dev</code>：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125850.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903131656.png" alt=""></p>
+<p>监听端口8080，可以在浏览器中打开了。</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903131732.png" alt=""></p>
+<p>但是没有读取到数据，原因是在于我的浏览器开了MetaMask，自带了provider，但是这个Voting合约在MetaMask中的Ropsten环境中是没有的，所以报错。</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903132102.png" alt=""></p>
+<p>换到本地8545：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903132856.png" alt=""></p>
+<p>ok查询结果出来了：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903132938.png" alt=""></p>
 
       
       
@@ -508,6 +570,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/09/03/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0064/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          日记_0064
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/09/02/%E6%8A%80%E6%9C%AF%E8%B4%B4/java%E5%AD%A6%E4%B9%A0/JDBC%E7%9F%A5%E8%AF%86%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">JDBC知识点</div>
@@ -537,7 +608,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础准备"><span class="toc-number">2.</span> <span class="toc-text">基础准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发步骤"><span class="toc-number">3.</span> <span class="toc-text">开发步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#打造自己的truffle-box"><span class="toc-number">3.1.</span> <span class="toc-text">打造自己的truffle-box</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译合约"><span class="toc-number">3.2.</span> <span class="toc-text">编译合约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署合约"><span class="toc-number">3.3.</span> <span class="toc-text">部署合约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制台使用合约"><span class="toc-number">3.4.</span> <span class="toc-text">控制台使用合约</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基础准备"><span class="toc-number">2.</span> <span class="toc-text">基础准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发步骤"><span class="toc-number">3.</span> <span class="toc-text">开发步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#打造自己的truffle-box"><span class="toc-number">3.1.</span> <span class="toc-text">打造自己的truffle-box</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译合约"><span class="toc-number">3.2.</span> <span class="toc-text">编译合约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署合约"><span class="toc-number">3.3.</span> <span class="toc-text">部署合约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#控制台使用合约"><span class="toc-number">3.4.</span> <span class="toc-text">控制台使用合约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网页使用合约"><span class="toc-number">3.5.</span> <span class="toc-text">网页使用合约</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -837,6 +908,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MysQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">geth</a>
               </li>
             
             <div class="clearfix"></div>

@@ -32,8 +32,18 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903004822.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903013740.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903021354.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903101417.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903110015.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125445.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125536.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125601.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125659.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125833.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125850.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903131656.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200903131732.png">
 <meta property="article:published_time" content="2020-08-23T11:44:41.000Z">
-<meta property="article:modified_time" content="2020-09-02T18:14:03.991Z">
+<meta property="article:modified_time" content="2020-09-03T05:32:44.991Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="block_chain">
 <meta name="twitter:card" content="summary">
@@ -91,7 +101,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 173
+			总文章数 176
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -230,7 +240,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
+        <span class="post-count">1.4k字</span>
       </span>
     </span>
 
@@ -239,7 +249,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -340,8 +350,34 @@
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903013740.png" alt=""></p>
 <p><code>truffle migrate</code></p>
 <p>truffle 部署的好处在于：<strong>它会检测是否修改了合约，如果合约内容没有变化，那么部署成功后以后都不会去重复部署了。</strong></p>
-<h3 id="控制台使用合约"><a href="#控制台使用合约" class="headerlink" title="控制台使用合约"></a>控制台使用合约</h3><p>truffle包装了web3麻烦的根据abi和字节码创建合约实例一系列复杂的操作，在其控制台，对于已经部署的合约输入合约名字可以直接使用！</p>
+<h3 id="控制台使用合约"><a href="#控制台使用合约" class="headerlink" title="控制台使用合约"></a>控制台使用合约</h3><p>truffle包装了web3麻烦的根据abi和字节码部署一系列复杂的操作，在其控制台，对于已经部署的合约可以使用其特殊语法创建实例。（部署完合约之后，truffle就会帮我们记住合约的abi和地址，我们可以直接创建实例）</p>
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903021354.png" alt=""></p>
+<p>例子：</p>
+<p>创建合约实例给Alice投票。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Voting.deployed().then(<span class="function"><span class="keyword">function</span>(<span class="params">votingInstance</span>)</span>&#123;votingInstance.vote(<span class="string">'Alice'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;<span class="built_in">console</span>.log(v)&#125;)&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>异步运行，一开始运行提示undefind，需要手动挖矿后显示收据：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903101417.png" alt=""></p>
+<p>查询Alice的票数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Voting.deployed().then(<span class="function"><span class="keyword">function</span>(<span class="params">votingInstance</span>)</span>&#123;votingInstance.totalVotesFor(<span class="string">'Alice'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;<span class="built_in">console</span>.log(v.toString())&#125;)&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903110015.png" alt=""></p>
+<h3 id="部署页面"><a href="#部署页面" class="headerlink" title="部署页面"></a>部署页面</h3><p><code>npm run dev</code></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125445.png" alt=""></p>
+<p>其实就是运行webpack-dev-server，webpack封装的一个服务器（nodejs）</p>
+<p>如果这里报错的话，例如：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125536.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125601.png" alt=""></p>
+<p>那么很有可能启动需要的依赖包没有安装，安装的方式是在项目文件夹下：</p>
+<p><code>npm install</code> </p>
+<p>那么就会把package.json文件中要依赖的所有的包都安装上了：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125659.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125833.png" alt=""></p>
+<p>再次启动<code>npm run dev</code>：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903125850.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903131656.png" alt=""></p>
+<p>监听端口8080，可以在浏览器中打开了。</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200903131732.png" alt="">`</p>
 
       
       
@@ -573,7 +609,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#环境安装"><span class="toc-number">2.</span> <span class="toc-text">环境安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化方式"><span class="toc-number">3.1.</span> <span class="toc-text">初始化方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">3.2.</span> <span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-truffle-init报错"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. truffle init报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-truffle-unbox报错"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. truffle unbox报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试环境"><span class="toc-number">3.3.</span> <span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack的目录结构"><span class="toc-number">3.4.</span> <span class="toc-text">webpack的目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作"><span class="toc-number">3.5.</span> <span class="toc-text">操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动控制台"><span class="toc-number">3.5.1.</span> <span class="toc-text">启动控制台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译"><span class="toc-number">3.5.2.</span> <span class="toc-text">编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署"><span class="toc-number">3.5.3.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制台使用合约"><span class="toc-number">3.5.4.</span> <span class="toc-text">控制台使用合约</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#环境安装"><span class="toc-number">2.</span> <span class="toc-text">环境安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化方式"><span class="toc-number">3.1.</span> <span class="toc-text">初始化方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">3.2.</span> <span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-truffle-init报错"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. truffle init报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-truffle-unbox报错"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. truffle unbox报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试环境"><span class="toc-number">3.3.</span> <span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack的目录结构"><span class="toc-number">3.4.</span> <span class="toc-text">webpack的目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作"><span class="toc-number">3.5.</span> <span class="toc-text">操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动控制台"><span class="toc-number">3.5.1.</span> <span class="toc-text">启动控制台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译"><span class="toc-number">3.5.2.</span> <span class="toc-text">编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署"><span class="toc-number">3.5.3.</span> <span class="toc-text">部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制台使用合约"><span class="toc-number">3.5.4.</span> <span class="toc-text">控制台使用合约</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署页面"><span class="toc-number">3.5.5.</span> <span class="toc-text">部署页面</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -873,6 +909,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MysQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">geth</a>
               </li>
             
             <div class="clearfix"></div>
