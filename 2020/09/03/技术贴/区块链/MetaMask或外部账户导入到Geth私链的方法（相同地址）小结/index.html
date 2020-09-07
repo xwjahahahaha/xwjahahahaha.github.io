@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>MetaMask或外部账户导入到Geth私链的方法（相同地址）小结 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="获取MetaMask上账户的私钥 点击账户详情，导出私钥：  拿到私钥以后，创建一个文本文件例如fk.txt放进去 然后输入geth account import 你的私钥文件路径 会提示你输入密码，这个密码是在geth控制台使用的密码  发现生成的账户就是在MetaMask上的账户。 此时查看当前生成密钥文件位置：geth account list 找到对应账户后面的存储位置，把文件放到项目中的">
+  <meta name="description" content="获取MetaMask上账户的私钥 点击账户详情，导出私钥：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MetaMask或外部账户导入到Geth私链的方法（相同地址）小结">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2020/09/03/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/MetaMask%E6%88%96%E5%A4%96%E9%83%A8%E8%B4%A6%E6%88%B7%E5%AF%BC%E5%85%A5%E5%88%B0Geth%E7%A7%81%E9%93%BE%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E7%9B%B8%E5%90%8C%E5%9C%B0%E5%9D%80%EF%BC%89%E5%B0%8F%E7%BB%93/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="获取MetaMask上账户的私钥 点击账户详情，导出私钥：  拿到私钥以后，创建一个文本文件例如fk.txt放进去 然后输入geth account import 你的私钥文件路径 会提示你输入密码，这个密码是在geth控制台使用的密码  发现生成的账户就是在MetaMask上的账户。 此时查看当前生成密钥文件位置：geth account list 找到对应账户后面的存储位置，把文件放到项目中的">
+<meta property="og:description" content="获取MetaMask上账户的私钥 点击账户详情，导出私钥：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwOTAzMjE1NDAzLnBuZw?x-oss-process=image/format,png">
 <meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwOTAzMjE1NDQ4LnBuZw?x-oss-process=image/format,png">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwOTAzMjIwNjA5LnBuZw?x-oss-process=image/format,png">
 <meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwOTAzMjIwNjU4LnBuZw?x-oss-process=image/format,png">
 <meta property="article:published_time" content="2020-09-03T12:45:41.000Z">
-<meta property="article:modified_time" content="2020-09-03T14:11:56.786Z">
+<meta property="article:modified_time" content="2020-09-07T01:49:07.077Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="geth">
 <meta name="twitter:card" content="summary">
@@ -80,7 +80,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 178
+			总文章数 179
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -242,6 +242,8 @@
       
         <h1 id="获取MetaMask上账户的私钥"><a href="#获取MetaMask上账户的私钥" class="headerlink" title="获取MetaMask上账户的私钥"></a>获取MetaMask上账户的私钥</h1><p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwOTAzMjE1NDAzLnBuZw?x-oss-process=image/format,png" alt=""></p>
 <p>点击账户详情，导出私钥：</p>
+<a id="more"></a>
+
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwOTAzMjE1NDQ4LnBuZw?x-oss-process=image/format,png" alt=""></p>
 <p>拿到私钥以后，创建一个文本文件例如fk.txt放进去</p>
 <p>然后输入<code>geth account import 你的私钥文件路径</code></p>
@@ -276,7 +278,7 @@
     2020-09-03
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-09-03
+    2020-09-07
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/09/03/技术贴/区块链/MetaMask或外部账户导入到Geth私链的方法（相同地址）小结/" title="MetaMask或外部账户导入到Geth私链的方法（相同地址）小结" target="_blank">MetaMask或外部账户导入到Geth私链的方法（相同地址）小结</a>
