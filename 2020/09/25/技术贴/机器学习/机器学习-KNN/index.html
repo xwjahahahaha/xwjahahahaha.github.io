@@ -15,11 +15,14 @@
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="K-临近算法">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200927192340.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200927193322.png">
 <meta property="article:published_time" content="2020-09-25T06:36:51.000Z">
-<meta property="article:modified_time" content="2020-09-25T13:28:57.868Z">
+<meta property="article:modified_time" content="2020-09-27T11:39:37.548Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="machine_learn">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200927192340.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -73,7 +76,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 192
+			总文章数 196
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -212,7 +215,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">45字</span>
+        <span class="post-count">591字</span>
       </span>
     </span>
 
@@ -221,7 +224,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -237,10 +240,69 @@
 
 
 
-<h2 id="理论部分"><a href="#理论部分" class="headerlink" title="理论部分"></a>理论部分</h2><h2 id="实战部分"><a href="#实战部分" class="headerlink" title="实战部分"></a>实战部分</h2><h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ol>
-<li>交叉验证并不能提高模型的准确率，只能够提高对模型性能评估的准确性</li>
-</ol>
+<h2 id="一、理论部分"><a href="#一、理论部分" class="headerlink" title="一、理论部分"></a>一、理论部分</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><p>K Nearest Neighbor算法又叫KNN算法</p>
+<p>指如果一个样本在特征空间中的<strong>k个最相似(即特征空间中最邻近)的样本中的大多数属于某一个类别</strong>，则该样本也属于这个类别。</p>
+<p>例：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200927192340.png" alt=""></p>
+<p>判断小明所属的区名称，可以找和小明距离最小的人的区域来判断</p>
+<h3 id="2-距离公式"><a href="#2-距离公式" class="headerlink" title="2. 距离公式"></a>2. 距离公式</h3><h4 id="2-1-欧氏距离"><a href="#2-1-欧氏距离" class="headerlink" title="2.1 欧氏距离"></a>2.1 欧氏距离</h4><p>欧氏距离是最容易直观理解的距离度量方法，我们小学、初中和高中接触到的两个点在空间中的距离一般都是指欧氏距离。</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200927193322.png" alt=""></p>
+<p>举例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X&#x3D;[[1,1],[2,2],[3,3],[4,4]];</span><br><span class="line">经计算得:</span><br><span class="line">d &#x3D; 1.4142    2.8284    4.2426    1.4142    2.8284    1.4142</span><br></pre></td></tr></table></figure>
 
+
+
+<h4 id="2-2-小结"><a href="#2-2-小结" class="headerlink" title="2.2  小结"></a>2.2  小结</h4><ul>
+<li>1.欧式距离(Euclidean Distance)【知道】：<ul>
+<li>通过距离平方值进行计算</li>
+</ul>
+</li>
+<li>2.曼哈顿距离(Manhattan Distance)【知道】：<ul>
+<li>通过距离的绝对值进行计算</li>
+</ul>
+</li>
+<li>3.切比雪夫距离 (Chebyshev Distance)【知道】：<ul>
+<li>维度的最大值进行计算</li>
+</ul>
+</li>
+<li>4.闵可夫斯基距离(Minkowski Distance)【知道】：<ul>
+<li>当p=1时，就是曼哈顿距离；</li>
+<li>当p=2时，就是欧氏距离；</li>
+<li>当p→∞时，就是切比雪夫距离。</li>
+</ul>
+</li>
+<li><strong>前四个距离公式小结:前面四个距离公式都是把单位相同看待了,所以计算过程不是很科学</strong></li>
+<li>5.标准化欧氏距离 (Standardized EuclideanDistance)【知道】：<ul>
+<li>在计算过程中添加了标准差,对量刚数据进行处理</li>
+</ul>
+</li>
+<li>6.余弦距离(Cosine Distance)【知道】：<ul>
+<li>通过cos思想完成</li>
+</ul>
+</li>
+<li>7.汉明距离(Hamming Distance)【了解】：<ul>
+<li>一个字符串到另一个字符串需要变换几个字母,进行统计</li>
+</ul>
+</li>
+<li>8.杰卡德距离(Jaccard Distance)【了解】：<ul>
+<li>通过交并集进行统计</li>
+</ul>
+</li>
+<li>9.马氏距离(Mahalanobis Distance)【了解】<ul>
+<li>通过样本分布进行计算</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-算法流程"><a href="#3-算法流程" class="headerlink" title="3. 算法流程"></a>3. 算法流程</h3><p>1）计算已知类别数据集中的点与当前点之间的距离</p>
+<p>2）按距离递增次序排序</p>
+<p>3）选取与当前点距离最小的k个点</p>
+<p>4）统计前k个点所在的类别出现的频率</p>
+<p>5）返回前k个点出现频率最高的类别作为当前点的预测分类</p>
+<h2 id="二、实战部分"><a href="#二、实战部分" class="headerlink" title="二、实战部分"></a>二、实战部分</h2><h3 id="1-API"><a href="#1-API" class="headerlink" title="1. API"></a>1. API</h3><p>sklearn.neighbors.KNeighborsClassifier(n_neighbors=5)</p>
+<ul>
+<li>n_neighbors：int,可选（默认= 5），k_neighbors查询默认使用的邻居数</li>
+</ul>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2>
       
       
       <!-- 《添加版权声明 -->
@@ -261,7 +323,7 @@
     2020-09-25
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-09-25
+    2020-09-27
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/09/25/技术贴/机器学习/机器学习-KNN/" title="机器学习_KNN" target="_blank">机器学习_KNN</a>
@@ -471,7 +533,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#K-临近算法"><span class="toc-number">1.</span> <span class="toc-text">K-临近算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#理论部分"><span class="toc-number">1.1.</span> <span class="toc-text">理论部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战部分"><span class="toc-number">1.2.</span> <span class="toc-text">实战部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tips"><span class="toc-number">1.3.</span> <span class="toc-text">Tips</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#K-临近算法"><span class="toc-number">1.</span> <span class="toc-text">K-临近算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、理论部分"><span class="toc-number">1.1.</span> <span class="toc-text">一、理论部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-概念"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-距离公式"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 距离公式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-欧氏距离"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">2.1 欧氏距离</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-小结"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">2.2  小结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-算法流程"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. 算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实战部分"><span class="toc-number">1.2.</span> <span class="toc-text">二、实战部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-API"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tips"><span class="toc-number">1.3.</span> <span class="toc-text">Tips</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
