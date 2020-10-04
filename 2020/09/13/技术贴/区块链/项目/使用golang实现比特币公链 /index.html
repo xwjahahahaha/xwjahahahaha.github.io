@@ -6,20 +6,51 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>日记_0075 | 知识与头发不可兼得</title>
+  <title>使用golang写一条区块链 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今日待办任务：  Go区块链链编程  钱包功能  复习整理密码学   密码学DES的实现  机器学习算法 线性回归  看区块链专利  读写译英语作业  读写译ppt演讲准备  计网ppt演讲  Linux    今日完成的任务：  ~  ~ ~  ~ ~  ~ ~  ~">
+  <meta name="description" content="项目来自视频教学：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1kE411W7aD? 文章底部有完整代码链接 Go基础一、Go基础G252o环境安装Go语言去官网下载并安装配置好全局变量即可，记得配置GOROOT和GOPATH 编程IDE：GOLand的安装与破解详情见：https:&#x2F;&#x2F;tech.souyunku.com&#x2F;?p&#x3D;16189">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日记_0075">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/02/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0075/index.html">
+<meta property="og:title" content="使用golang写一条区块链">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2020/09/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A1%B9%E7%9B%AE/%E4%BD%BF%E7%94%A8golang%E5%AE%9E%E7%8E%B0%E6%AF%94%E7%89%B9%E5%B8%81%E5%85%AC%E9%93%BE%20/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="今日待办任务：  Go区块链链编程  钱包功能  复习整理密码学   密码学DES的实现  机器学习算法 线性回归  看区块链专利  读写译英语作业  读写译ppt演讲准备  计网ppt演讲  Linux    今日完成的任务：  ~  ~ ~  ~ ~  ~ ~  ~">
+<meta property="og:description" content="项目来自视频教学：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1kE411W7aD? 文章底部有完整代码链接 Go基础一、Go基础G252o环境安装Go语言去官网下载并安装配置好全局变量即可，记得配置GOROOT和GOPATH 编程IDE：GOLand的安装与破解详情见：https:&#x2F;&#x2F;tech.souyunku.com&#x2F;?p&#x3D;16189">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-02T01:06:15.000Z">
-<meta property="article:modified_time" content="2020-10-02T01:48:51.079Z">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200914183432.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200914200555511.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200914200743.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200915120936.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200915121426.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200915135850.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200916100049.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200926001757.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200926151535.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200927164131.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200927164205.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200928100122.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200928150723.png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTgzMTU2LnBuZw?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTgzODM4LnBuZw?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTgzOTMyLnBuZw?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTg0MDIwLnBuZw?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTg0NDIxLnBuZw?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTg0NjQxLnBuZw?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTg0NzM2LnBuZw?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTg0OTAyLnBuZw?x-oss-process=image/format,png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201002110121.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201002110121.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201002143318.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201002151153.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201002155201.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201002155409.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201002160334.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201002213923.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200913205823.png">
+<meta property="article:published_time" content="2020-09-13T12:54:04.000Z">
+<meta property="article:modified_time" content="2020-10-04T01:40:37.866Z">
 <meta property="article:author" content="DDDemons hide">
-<meta property="article:tag" content="每日一记">
+<meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200914183432.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -73,7 +104,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 196
+			总文章数 197
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -184,26 +215,26 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-随笔/每日一记/日记/2020-10/日记-0075" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/区块链/项目/使用golang实现比特币公链 " class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      日记_0075
+      使用golang写一条区块链
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/02/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0075/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/09/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A1%B9%E7%9B%AE/%E4%BD%BF%E7%94%A8golang%E5%AE%9E%E7%8E%B0%E6%AF%94%E7%89%B9%E5%B8%81%E5%85%AC%E9%93%BE%20/" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2020/10/02/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0075/" class="archive-article-date">
-  	<time datetime="2020-10-02T01:06:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-02</time>
+        <a href="/2020/09/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A1%B9%E7%9B%AE/%E4%BD%BF%E7%94%A8golang%E5%AE%9E%E7%8E%B0%E6%AF%94%E7%89%B9%E5%B8%81%E5%85%AC%E9%93%BE%20/" class="archive-article-date">
+  	<time datetime="2020-09-13T12:54:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-13</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +243,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">83字</span>
+        <span class="post-count">4.2k字</span>
       </span>
     </span>
 
@@ -221,7 +252,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">16分</span>
       </span>
     </span>
 </div>
@@ -233,47 +264,217 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="今日待办任务："><a href="#今日待办任务：" class="headerlink" title="今日待办任务："></a>今日待办任务：</h2><blockquote>
-<ol>
-<li><p>Go区块链链编程  钱包功能</p>
-</li>
-<li><p>复习整理密码学 </p>
-</li>
-<li><p>密码学DES的实现</p>
-</li>
-<li><p>机器学习算法 线性回归</p>
-</li>
-<li><p>看区块链专利</p>
-</li>
-<li><p>读写译英语作业</p>
-</li>
-<li><p>读写译ppt演讲准备</p>
-</li>
-<li><p>计网ppt演讲</p>
-</li>
-<li><p>Linux</p>
-</li>
-</ol>
-</blockquote>
-<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
-<ol>
-<li><del>~  ~</del></li>
-<li><del>~  ~</del></li>
-<li><del>~  ~</del></li>
-<li><del>~  ~</del></li>
-</ol>
-</blockquote>
+        <p>项目来自视频教学：<a href="https://www.bilibili.com/video/BV1kE411W7aD" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1kE411W7aD</a>?</p>
+<p>文章底部有完整代码链接</p>
+<h1 id="Go基础"><a href="#Go基础" class="headerlink" title="Go基础"></a>Go基础</h1><h1 id="一、Go基础"><a href="#一、Go基础" class="headerlink" title="一、Go基础"></a>一、Go基础</h1><h2 id="G252o环境安装"><a href="#G252o环境安装" class="headerlink" title="G252o环境安装"></a>G252o环境安装</h2><h3 id="Go语言"><a href="#Go语言" class="headerlink" title="Go语言"></a>Go语言</h3><p>去官网下载并安装配置好全局变量即可，记得配置GOROOT和GOPATH</p>
+<h3 id="编程IDE：GOLand的安装与破解"><a href="#编程IDE：GOLand的安装与破解" class="headerlink" title="编程IDE：GOLand的安装与破解"></a>编程IDE：GOLand的安装与破解</h3><p>详情见：<a href="https://tech.souyunku.com/?p=16189" target="_blank" rel="noopener">https://tech.souyunku.com/?p=16189</a></p>
 <a id="more"></a>
 
-<h2 id="明日任务："><a href="#明日任务：" class="headerlink" title="明日任务："></a>明日任务：</h2><blockquote>
+<h2 id="Go项目的目录结构"><a href="#Go项目的目录结构" class="headerlink" title="Go项目的目录结构"></a>Go项目的目录结构</h2><p>项目目录结构如何组织，一般语言都是没有规定。但Go语言这方面做了规定，这样可以保持一致性，做到统一、规则化比较明确。</p>
+<h4 id="1、一般的，一个Go项目在GOPATH下，会有如下三个目录："><a href="#1、一般的，一个Go项目在GOPATH下，会有如下三个目录：" class="headerlink" title="1、一般的，一个Go项目在GOPATH下，会有如下三个目录："></a>1、一般的，一个Go项目在GOPATH下，会有如下三个目录：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|--bin</span><br><span class="line"></span><br><span class="line">|--pkg</span><br><span class="line"></span><br><span class="line">|--src</span><br></pre></td></tr></table></figure>
+
+<p>其中，bin存放编译后的可执行文件；pkg存放编译后的包文件；src存放项目源文件。</p>
+<p>对于pkg目录，曾经有人问：我把Go中的包放入pkg下面，怎么不行啊？他直接把Go包的源文件放入了pkg中。</p>
+<p>这显然是不对的。pkg中的文件是Go编译生成的，而不是手动放进去的。（一般文件后缀.a）</p>
+<p>对于src目录，存放源文件，<strong>Go中源文件以包（package）的形式组织</strong>。通常，新建一个包就在src目录中新建一个文件夹。</p>
+<h1 id="二、项目中的数据库Blot"><a href="#二、项目中的数据库Blot" class="headerlink" title="二、项目中的数据库Blot"></a>二、项目中的数据库Blot</h1><h2 id="1-Blot简介与实例"><a href="#1-Blot简介与实例" class="headerlink" title="1.Blot简介与实例"></a>1.Blot简介与实例</h2><p>简介：一个小型的key-value数据库，没有sql，轻便快捷高效。</p>
+<p>操作demo详情见：<a href="https://blog.csdn.net/yang731227/article/details/82974575" target="_blank" rel="noopener">https://blog.csdn.net/yang731227/article/details/82974575</a></p>
+<p>结构：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200914183432.png" alt=""></p>
+<p>demo：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"itcast_Go/bolt"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	<span class="comment">//1. 打开数据库</span></span><br><span class="line">	<span class="comment">//第一个参数是名字，第二个参数是权限6代表允许读写</span></span><br><span class="line">	db, err := bolt.Open(<span class="string">"test.db"</span>, <span class="number">0600</span>, <span class="literal">nil</span>)</span><br><span class="line">	<span class="keyword">defer</span> db.Close()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">		log.Panic(<span class="string">"打开数据库失败！"</span> , err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//操作数据库</span></span><br><span class="line">	db.Update(<span class="function"><span class="keyword">func</span><span class="params">(tx *bolt.Tx)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">		<span class="comment">//2. 打开抽屉(没有就创建)</span></span><br><span class="line">		<span class="keyword">var</span> bucketName []<span class="keyword">byte</span> = []<span class="keyword">byte</span>(<span class="string">"b1"</span>)</span><br><span class="line">		bucket := tx.Bucket(bucketName)</span><br><span class="line">		<span class="keyword">if</span> bucket == <span class="literal">nil</span>&#123;</span><br><span class="line">			<span class="comment">//没有就创建</span></span><br><span class="line">			bucket, err = tx.CreateBucket(bucketName)</span><br><span class="line">			<span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">				log.Panic(err)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//操作抽屉中的数据，添加数据</span></span><br><span class="line">		<span class="comment">//3. 写数据</span></span><br><span class="line">		bucket.Put([]<span class="keyword">byte</span>(<span class="string">"1111"</span>), []<span class="keyword">byte</span>(<span class="string">"hello"</span>))</span><br><span class="line">		bucket.Put([]<span class="keyword">byte</span>(<span class="string">"2222"</span>), []<span class="keyword">byte</span>(<span class="string">"world"</span>))</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//4. 读数据</span></span><br><span class="line">	db.View(<span class="function"><span class="keyword">func</span><span class="params">(tx *bolt.Tx)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">		<span class="comment">//找到抽屉</span></span><br><span class="line">		bucket := tx.Bucket([]<span class="keyword">byte</span>(<span class="string">"b1"</span>))</span><br><span class="line">		<span class="keyword">if</span> bucket != <span class="literal">nil</span>&#123;</span><br><span class="line">			<span class="comment">//如果存在就读取</span></span><br><span class="line">			v1 := bucket.Get([]<span class="keyword">byte</span>(<span class="string">"1111"</span>))</span><br><span class="line">			v2 := bucket.Get([]<span class="keyword">byte</span>(<span class="string">"2222"</span>))</span><br><span class="line">			<span class="comment">//输出</span></span><br><span class="line">			fmt.Printf(<span class="string">"'1111'-&gt; %s\n"</span>, v1)</span><br><span class="line">			fmt.Printf(<span class="string">"'2222'-&gt; %s\n"</span>, v2)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-项目存储结构分析"><a href="#2-项目存储结构分析" class="headerlink" title="2.项目存储结构分析"></a>2.项目存储结构分析</h2><p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200914200555511.png" alt="image-20200914200555511"></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200914200743.png" alt=""></p>
+<h1 id="三、项目中go语言的区块序列化与反序列化"><a href="#三、项目中go语言的区块序列化与反序列化" class="headerlink" title="三、项目中go语言的区块序列化与反序列化"></a>三、项目中go语言的区块序列化与反序列化</h1><p>对于较为复杂的数据，采用序列化作为value存储在k/v数据库（blot）中，那么go语言的序列化与反序列化的基本操作是怎样的呢？</p>
+<p>使用<strong>gob</strong>来简化操作，看完demo就懂：</p>
+<p>demo：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">   <span class="string">"bytes"</span></span><br><span class="line">   <span class="string">"encoding/gob"</span></span><br><span class="line">   <span class="string">"fmt"</span></span><br><span class="line">   <span class="string">"log"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建“人”结构体</span></span><br><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span> &#123;</span><br><span class="line">   Name <span class="keyword">string</span></span><br><span class="line">   Age <span class="keyword">uint</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">   <span class="comment">//定义一个“人”结构</span></span><br><span class="line">   <span class="keyword">var</span> xiaoming Person</span><br><span class="line">   xiaoming.Name = <span class="string">"小明"</span></span><br><span class="line">   xiaoming.Age = <span class="number">18</span></span><br><span class="line">   <span class="comment">//编码的数据放进buffer</span></span><br><span class="line">   <span class="keyword">var</span> buffle bytes.Buffer</span><br><span class="line"></span><br><span class="line">   <span class="comment">//使用gob序列化得到字节流</span></span><br><span class="line">   <span class="comment">//定义一个编码器encoder</span></span><br><span class="line">   encoder := gob.NewEncoder(&amp;buffle)</span><br><span class="line">   <span class="comment">//编码结构体</span></span><br><span class="line">   err := encoder.Encode(&amp;xiaoming)</span><br><span class="line">   <span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">      log.Panic(err)</span><br><span class="line">   &#125;</span><br><span class="line">   fmt.Printf(<span class="string">"小明编码后的结果为：%v\n"</span>, buffle.Bytes())</span><br><span class="line"></span><br><span class="line">   <span class="comment">//使用gob反序列化得到结构体</span></span><br><span class="line">   <span class="comment">//创建byte读input流,然后创建解码器</span></span><br><span class="line">   decoder := gob.NewDecoder(bytes.NewReader(buffle.Bytes()))</span><br><span class="line">   <span class="keyword">var</span> daming Person</span><br><span class="line">   <span class="comment">//解码</span></span><br><span class="line">   err = decoder.Decode(&amp;daming)</span><br><span class="line">   <span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">      log.Panic(err)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   fmt.Printf(<span class="string">"解码后的小明: %v\n"</span>, daming)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="四、Go语言迭代器原理与区块链的特殊迭代"><a href="#四、Go语言迭代器原理与区块链的特殊迭代" class="headerlink" title="四、Go语言迭代器原理与区块链的特殊迭代"></a>四、Go语言迭代器原理与区块链的特殊迭代</h1><p>range内部其实就是指针的迭代指向，然后赋值使用：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200915120936.png" alt=""></p>
+<p>但是由于区块链指针的特殊性，所以迭代需要<strong>从后向前</strong>迭代：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200915121426.png" alt=""></p>
+<h1 id="五、Go语言命令行的使用"><a href="#五、Go语言命令行的使用" class="headerlink" title="五、Go语言命令行的使用"></a>五、Go语言命令行的使用</h1><p>很简单</p>
+<p>demo:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="comment">//go命令行测试</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">   <span class="string">"fmt"</span></span><br><span class="line">   <span class="string">"os"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//go命令行练习</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">   len1 := <span class="built_in">len</span>(os.Args)</span><br><span class="line">   fmt.Printf(<span class="string">"命令长度为：%d\n"</span>, len1)</span><br><span class="line">   <span class="keyword">for</span> i, cmd := <span class="keyword">range</span> os.Args&#123;</span><br><span class="line">      fmt.Printf(<span class="string">"arg[%d]: %s\n"</span>, i, cmd)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200915135850.png" alt=""></p>
+<h1 id="六、项目添加转账功能"><a href="#六、项目添加转账功能" class="headerlink" title="六、项目添加转账功能"></a>六、项目添加转账功能</h1><p>转账重要的两点：</p>
 <ol>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li>每一笔交易能支配的钱都来自于上一个交易的输出</li>
+<li>每一个花费的输出要一次性花完，有剩余的都要转给自己</li>
 </ol>
+<p>首先需要熟悉下比特币交易脚本的三种模式介绍：</p>
+<p><a href="https://myblog.gumptlu.work/2020/06/24/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8C%97%E5%A4%A7%E8%82%96%E8%87%BB%E3%80%8A%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E7%AC%94%E8%AE%B0/%E5%8C%97%E5%A4%A7%E8%82%96%E8%87%BB-%E7%AC%AC9%E8%AE%B2-%E6%AF%94%E7%89%B9%E5%B8%81%E8%84%9A%E6%9C%AC/" target="_blank" rel="noopener">北大肖臻-第9讲-比特币脚本</a></p>
+<p>项目交易的结构：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200916100049.png" alt=""></p>
+<h1 id="七、账户余额UTXO计算细节"><a href="#七、账户余额UTXO计算细节" class="headerlink" title="七、账户余额UTXO计算细节"></a>七、账户余额UTXO计算细节</h1><h3 id="1-计算账户余额时统计UTXO"><a href="#1-计算账户余额时统计UTXO" class="headerlink" title="1. 计算账户余额时统计UTXO"></a>1. 计算账户余额时统计UTXO</h3><p>遍历UTXO去统计某个账户的余额，如果只是简单的遍历则效率太低，而区块链中的交易都是相关联的，所以利用这一特点可以使用一些小技巧：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200926001757.png" alt=""></p>
+<p>图中黄色是已消费的输出，蓝色是还未消费的输出</p>
+<h3 id="2-转账时计算UTXO中的账户余额"><a href="#2-转账时计算UTXO中的账户余额" class="headerlink" title="2. 转账时计算UTXO中的账户余额"></a>2. 转账时计算UTXO中的账户余额</h3><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200926151535.png" alt=""></p>
+<p>项目中并没有优化计算最合适的将零钱拼装，而是简单的遍历逐步统计，满足要求了就转账</p>
+<h1 id="八、blotDB数据库的可视化"><a href="#八、blotDB数据库的可视化" class="headerlink" title="八、blotDB数据库的可视化"></a>八、blotDB数据库的可视化</h1><ol>
+<li><p>下载工具：运行<code>go get github.com/boltdb/boltd</code></p>
+</li>
+<li><p>就会下载到GOPATH目录中，查看GOPATH方法：<code>go env</code></p>
+</li>
+<li><p>找到cmd文件夹中的main文件编译其成为可执行文件，编译<code>go build main.go</code></p>
+</li>
+<li><p>把可执行文件放到和blot的db类文件相同的目录下，运行：<code>main.exe -- xxx.db</code></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200927164131.png" alt=""></p>
+</li>
+<li><p>显示结果：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200927164205.png" alt=""></p>
+</li>
+</ol>
+<h1 id="九、公私钥"><a href="#九、公私钥" class="headerlink" title="九、公私钥"></a>九、公私钥</h1><p>比特币公私钥与地址的关系</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200928100122.png" alt=""></p>
+<p>公钥生成地址的流程：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200928150723.png" alt=""> </p>
+<p>最后一步要用到base58算法，一般都没有这个包，可以通过以下命令引入比特币源码官方的提供的包：</p>
+<p><code>go get github.com/btcsuite/btcutil/base58</code></p>
+<h1 id="十、P2PKH的检验方式"><a href="#十、P2PKH的检验方式" class="headerlink" title="十、P2PKH的检验方式"></a>十、P2PKH的检验方式</h1><h2 id="1-比特币的几种校验方式"><a href="#1-比特币的几种校验方式" class="headerlink" title="1. 比特币的几种校验方式"></a>1. 比特币的几种校验方式</h2><p><a href="https://blog.csdn.net/weixin_43988498/article/details/107958185" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43988498/article/details/107958185</a>  三种比特币的校验方式</p>
+<p>贴出P2PKH的校验流程：</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTgzMTU2LnBuZw?x-oss-process=image/format,png" alt="img"></p>
+<p>这一种是较为常见的一种形式，<strong>输出脚本中输出的是公钥的Hash，而输入脚本中要除了签名还要包含公钥</strong></p>
+<p>除了这些，其他的DUP、HASH160都是一些验证操作。</p>
+<p>脚本执行过程：</p>
+<p>同样的为了方便看，将输入与输出拼接到一起，从上往下执行。</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTgzODM4LnBuZw?x-oss-process=image/format,png" alt="img"></p>
+<p>前两步操作相同，将输入中的签名和公钥压入栈</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTgzOTMyLnBuZw?x-oss-process=image/format,png" alt="img"></p>
+<p>第三步操作DUP是将栈顶的公钥复制一份</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTg0MDIwLnBuZw?x-oss-process=image/format,png" alt="img"></p>
+<p>第四步操作HASH160是将复制的公钥取HASH值，然后压入栈中。</p>
+<p>第五步，将输出脚本里面的公钥Hash压入栈，这时栈里面出现了两个公钥的Hash值</p>
+<p>搞清楚这个Hash值的来源：</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTg0NDIxLnBuZw?x-oss-process=image/format,png" alt="img"></p>
+<p>第六步，EQUALVERIFY是弹出栈顶的两个Hash值，比较两者是否相等。</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTg0NjQxLnBuZw?x-oss-process=image/format,png" alt="img"></p>
+<p>最后一步，和之前一样，分别弹出，检查公钥与签名是否配对（正确）。</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTg0NzM2LnBuZw?x-oss-process=image/format,png" alt="img"></p>
+<p>整个过程如果两个Hash对不上，或者公钥与私钥签名对不上，那么这个交易就是错误的，非法的</p>
+<p>实例：</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3h3anBpY3MuZ3VtcHRsdS53b3JrL3Fpbml1X3BpY0dvLzIwMjAwNjI2MTg0OTAyLnBuZw?x-oss-process=image/format,png" alt="img"></p>
+<p><strong>重点：</strong></p>
+<blockquote>
+<p><strong>两个保证：</strong></p>
+<p><strong>1. 输入中的公钥和上一个输出的公钥的hash进行校验，使input与output连接起来，保证使用者的身份的统一</strong></p>
+<p><strong>2. 输出入中的私钥签名与输出的公钥进行验证，保证使用者使用此笔钱的权利，必须本人签名了这个input才能被使用</strong></p>
 </blockquote>
-<h2 id="今日随记"><a href="#今日随记" class="headerlink" title="今日随记"></a>今日随记</h2>
+<h2 id="2-项目中的逻辑"><a href="#2-项目中的逻辑" class="headerlink" title="2. 项目中的逻辑"></a>2. 项目中的逻辑</h2><p>采用P2PKH的校验方式，输入要包含公钥和私钥签名，而输出则需要包含公钥的hash</p>
+<p>公钥的hash可以通过地址倒推：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201002110121.png" alt=""></p>
+<p>这里的公钥hash并不是简单的最原始公钥做一次SHA256，从图中可以看出还经过了RIPEMD160的加密</p>
+<p>代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//地址转其公钥的hash函数</span></span><br><span class="line"><span class="comment">//（地址是由公钥计算过来的, 可以逆推回去到公钥的hash，但是无法逆推到原公钥，原公钥无法逆推到私钥，因为hash函数不可逆）</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(Output *TxOutput)</span><span class="title">Lock</span><span class="params">(address <span class="keyword">string</span>)</span></span>  &#123;</span><br><span class="line">   <span class="comment">// 1.base58函数的解码</span></span><br><span class="line">   bytes25Data := base58.Decode(address)</span><br><span class="line">   <span class="comment">// 2.去除尾部添加的4byte校验码和首部添加的1byte版本号</span></span><br><span class="line">   addressHash := bytes25Data[<span class="number">1</span>: <span class="built_in">len</span>(bytes25Data)<span class="number">-4</span>]</span><br><span class="line">   <span class="comment">// 3.赋值给Output</span></span><br><span class="line">   Output.PubKeyHash = addressHash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="十一、地址String到公钥hash的分场景安全策略"><a href="#十一、地址String到公钥hash的分场景安全策略" class="headerlink" title="十一、地址String到公钥hash的分场景安全策略"></a>十一、地址String到公钥hash的分场景安全策略</h1><ol>
+<li>在NewTransaction函数中，我们使用地址，不采用反推公钥Hash，因为涉及转账，此地址不一定是自己钱包中管理的地址，所以需要通过在本地钱包中读取公私钥，并且读取的另一个目的就是接下来要使用私钥</li>
+<li>在getBalance函数中，获取某个账户的余额，需要使用地址查询UTXO，此时我们可以使用函数反推的方式去查询，而不需要查询本地钱包。因为对于区块链系统来说，查询余额功能是全网都可以使用的，不仅限于本地钱包账户。</li>
+</ol>
+<h1 id="十二、对于地址使用之前的校验细节"><a href="#十二、对于地址使用之前的校验细节" class="headerlink" title="十二、对于地址使用之前的校验细节"></a>十二、对于地址使用之前的校验细节</h1><p>不论是getBalacne还是Send转账，都需要对用户输入的地址进行校验。</p>
+<p>因为通过string逆推得到公钥hash的方式会截去尾部的4字节还有前面的四字节，所以即使是后面几位不同的地址不做检测就查询的话可能会查出一样的结果</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201002110121.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201002143318.png" alt=""></p>
+<p>所以在查询之前一定要做校验</p>
+<p><strong>校验的原理来自于那个四字节的分支！</strong></p>
+<p>校验流程思路:  （先反向走在正向走岔路回来）</p>
+<ol>
+<li>根据地址反推出25byte的数据。截断后4字节得到21字节的数据</li>
+<li>将这21byte数据进行两次SHA256，再截取4字节的校验码</li>
+<li>通过校验码与原本的25字节数据后四位比对</li>
+</ol>
+<p>代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//校验地址</span></span><br><span class="line"><span class="comment">//校验流程思路:  （先反向走在正向走岔路回来）</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">checkAddress</span><span class="params">(address <span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">   <span class="comment">//1. 根据地址反推出25byte的数据。截断后4字节得到21字节的数据</span></span><br><span class="line">   bytes25Data := base58.Decode(address)</span><br><span class="line">   <span class="keyword">if</span> <span class="built_in">len</span>(bytes25Data) &lt; <span class="number">4</span> &#123;     <span class="comment">//地址长度不够直接返回</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">   &#125;</span><br><span class="line">   this4Bytes := bytes25Data[: <span class="number">4</span>]</span><br><span class="line">   <span class="comment">//2. 将这21byte数据进行两次SHA256，再截取4字节的校验码</span></span><br><span class="line">   org4Bytes := CheckSum(adsToPubKeyHash(address))</span><br><span class="line">   <span class="comment">//3. 通过校验码与原本的25字节数据后四位比对</span></span><br><span class="line">   <span class="keyword">return</span> bytes.Equal(this4Bytes, org4Bytes)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>加上校验后效果:</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201002151153.png" alt=""></p>
+<h1 id="十三、-签名验证"><a href="#十三、-签名验证" class="headerlink" title="十三、 签名验证"></a>十三、 签名验证</h1><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201002155201.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201002155409.png" alt=""></p>
+<h2 id="1-签名需要的内容："><a href="#1-签名需要的内容：" class="headerlink" title="1. 签名需要的内容："></a>1. 签名需要的内容：</h2><ul>
+<li>被签名的数据</li>
+<li>私钥</li>
+</ul>
+<h2 id="2-验证需要的内容"><a href="#2-验证需要的内容" class="headerlink" title="2. 验证需要的内容 :"></a>2. 验证需要的内容 :</h2><ul>
+<li>已签名的数据</li>
+<li>公钥</li>
+<li>数字签名</li>
+</ul>
+<h2 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3. 注意事项"></a>3. 注意事项</h2><ol>
+<li><p>一个交易中同一个人的每一个input都需要签名</p>
+</li>
+<li><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201002160334.png" alt=""></p>
+<p>具体签名的数据需要能够包含整个交易详细内容</p>
+</li>
+<li><p>验证时也是每个input都要验证一次</p>
+</li>
+<li><p><strong>签名是由创建交易的节点完成，而校验是验证交易的节点完成</strong></p>
+</li>
+</ol>
+<h2 id="4-对于每个input的签名过程"><a href="#4-对于每个input的签名过程" class="headerlink" title="4. 对于每个input的签名过程"></a>4. 对于每个input的签名过程</h2><p>每个input都有其对应的唯一的output，复制一份input，获取其output的pubKeyHash赋值到input的pubKey中</p>
+<p>对于每个交易中的input其自己生成的output就在同交易中并且其中自带pubKeyHash和转账金额</p>
+<p>对这个整体交易做hash，赋值到input的签名中</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201002213923.png" alt=""></p>
+<p><strong>1. 为什么不直接用创建新交易时打开的钱包中的公钥去计算签名hash，而是使用如此复杂的过程去寻找前一个hash？</strong></p>
+<p>因为直接用那个公钥签名的话那么验证一定是成功的，因为公私钥是一起那出来的。根据input中的前一个交易hash和outputindex找出来其关联的output的pubKeyhash才是正确的做法，也是为了后面的验证。</p>
+<p><strong>2. 注意对于每个input的签名，在当前交易中与其无关的其他input的pubKey和ScriptSig都应该是空</strong></p>
+<p>代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//签名的实现</span></span><br><span class="line"><span class="comment">//参数：账户的私钥</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(tx *Transaction)</span> <span class="title">Signature</span><span class="params">(privateKey *ecdsa.PrivateKey, bc *BlockChain)</span></span>  &#123;</span><br><span class="line">   <span class="comment">// 1.复制一份input，获取其output的pubKeyHash赋值到input的pubKey中(只是为了计算签名)</span></span><br><span class="line">   trimmedCopyTx := TrimmedCopy(tx, bc)</span><br><span class="line">   <span class="comment">//对于每个交易中的input其自己生成的output就在同交易中并且其中自带pubKeyHash和转账金额</span></span><br><span class="line">   <span class="comment">// 2.对这个整体交易做hash，赋值到input的签名中</span></span><br><span class="line">   <span class="keyword">for</span> i, input := <span class="keyword">range</span> trimmedCopyTx.Vin&#123;</span><br><span class="line">      <span class="comment">//2.1 找到每个input关联的上一个output的公钥hash，并添加到当前的input的pubKey中</span></span><br><span class="line">      <span class="comment">//获取上一个交易</span></span><br><span class="line">      preTx, err := FindTxByTxHash(input.TxHash, bc)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">         log.Panic(<span class="string">"签名时查找相关输出交易出错！"</span>, err)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//获取该交易中的output中的公钥hash</span></span><br><span class="line">      prePubKeyHash := preTx.Vout[input.OutputIndex].PubKeyHash</span><br><span class="line">      <span class="comment">//注意！在这里直接对input赋值是无效的！！！</span></span><br><span class="line">      trimmedCopyTx.Vin[i].PubKey = prePubKeyHash</span><br><span class="line">      <span class="comment">//2.2 签名需要的数据都具备了,做hash处理</span></span><br><span class="line">      trimmedCopyTx.SetTxHash()  <span class="comment">//交易的hash就是需要的签名数据</span></span><br><span class="line">      signDataHash := trimmedCopyTx.TxHash</span><br><span class="line">      <span class="comment">//2.3 重要的一步！把当前交易中的这个input的pubKey还原为空，保证不影响其他input的签名</span></span><br><span class="line">      trimmedCopyTx.Vin[i].PubKey = <span class="literal">nil</span></span><br><span class="line">      <span class="comment">//2.4 执行签名动作得到r，s字节流</span></span><br><span class="line">      r, s, err := ecdsa.Sign(rand.Reader, privateKey, signDataHash)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">         log.Panic(err)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//2.5 把签名放到原本交易的ScriptSig中</span></span><br><span class="line">      signnature := <span class="built_in">append</span>(r.Bytes(), s.Bytes()...)</span><br><span class="line">      tx.Vin[i].ScriptSig = signnature</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>签名的验证</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//验证交易</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(tx *Transaction)</span> <span class="title">Verify</span><span class="params">(bc *BlockChain)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">   <span class="keyword">if</span> tx.isCoinbaseTx()&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>          <span class="comment">//铸币交易无需验证</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//1. 获取验证所需要的数据</span></span><br><span class="line">   <span class="comment">// 1.1 Data</span></span><br><span class="line">   trimmedCopy := tx.TrimmedCopy(bc)</span><br><span class="line">   <span class="keyword">for</span> i, input := <span class="keyword">range</span> tx.Vin&#123;  <span class="comment">//注意，遍历的是原本的交易</span></span><br><span class="line">      preTx, err := FindTxByTxHash(input.TxHash, bc)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span>&#123;</span><br><span class="line">         log.Panic(err)</span><br><span class="line">      &#125;</span><br><span class="line">      trimmedCopy.Vin[i].PubKey = preTx.Vout[input.OutputIndex].PubKeyHash</span><br><span class="line">      <span class="comment">//计算hash</span></span><br><span class="line">      trimmedCopy.SetTxHash()</span><br><span class="line">      <span class="comment">//a. Data得到</span></span><br><span class="line">      dataHash := trimmedCopy.TxHash</span><br><span class="line">      <span class="comment">// 还原</span></span><br><span class="line">      trimmedCopy.Vin[i].PubKey = <span class="literal">nil</span></span><br><span class="line">      <span class="comment">//b. 签名得到</span></span><br><span class="line">      signature := input.ScriptSig</span><br><span class="line">      <span class="comment">//c. 公钥</span></span><br><span class="line">      <span class="comment">//拆解PubKey， X, Y得到原生公钥</span></span><br><span class="line">      PubKey := input.PubKey</span><br><span class="line"></span><br><span class="line">      <span class="comment">//拆开签名，得到r和s</span></span><br><span class="line">      r1 := big.Int&#123;&#125;</span><br><span class="line">      s1 := big.Int&#123;&#125;</span><br><span class="line">      <span class="comment">//r是前半部分，s是后半部分</span></span><br><span class="line">      r1.SetBytes(signature[:<span class="built_in">len</span>(signature)/<span class="number">2</span>])</span><br><span class="line">      s1.SetBytes(signature[<span class="built_in">len</span>(signature)/<span class="number">2</span>:])</span><br><span class="line"></span><br><span class="line">      <span class="comment">//拆开公钥，得到x和y</span></span><br><span class="line">      x := big.Int&#123;&#125;</span><br><span class="line">      y := big.Int&#123;&#125;</span><br><span class="line">      <span class="comment">//r是前半部分，s是后半部分</span></span><br><span class="line">      x.SetBytes(PubKey[:<span class="built_in">len</span>(PubKey)/<span class="number">2</span>])</span><br><span class="line">      y.SetBytes(PubKey[<span class="built_in">len</span>(PubKey)/<span class="number">2</span>:])</span><br><span class="line">      <span class="comment">//得到公钥原型</span></span><br><span class="line">      pubKeyOrigin := ecdsa.PublicKey&#123;elliptic.P256(), &amp;x, &amp;y&#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//1.2 verify</span></span><br><span class="line">      <span class="keyword">if</span> !ecdsa.Verify(&amp;pubKeyOrigin, dataHash, &amp;r1, &amp;s1)&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="literal">false</span>         <span class="comment">//一旦有一个input验证错误就失败</span></span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="十四、项目总结"><a href="#十四、项目总结" class="headerlink" title="十四、项目总结"></a>十四、项目总结</h1><h2 id="1-项目完成的功能"><a href="#1-项目完成的功能" class="headerlink" title="1. 项目完成的功能"></a>1. 项目完成的功能</h2><ul>
+<li>区块的创建</li>
+<li>交易的打包</li>
+<li>用户余额的查询</li>
+<li>pow挖矿算法</li>
+<li>钱包功能，增加账户、管理账户等</li>
+<li>转账功能</li>
+<li>公私钥签名以及验证</li>
+</ul>
+<h2 id="2-项目的待完善地方（缺点）"><a href="#2-项目的待完善地方（缺点）" class="headerlink" title="2. 项目的待完善地方（缺点）"></a>2. 项目的待完善地方（缺点）</h2><ul>
+<li>每个区块都是只能打包一个交易就直接发布了，没有区块链网络体系去获取交易</li>
+<li>梅克尔树root的计算，目前项目只是简单的拼接字节</li>
+<li>签名机制待完善，项目使用的签名验证方式是P2PKH，还有P2SH、多重签名等可以完善</li>
+<li>远程访问rpc调用，类似于geth的远程访问</li>
+<li>客户端的构建</li>
+</ul>
+<h1 id="十五、项目代码地址"><a href="#十五、项目代码地址" class="headerlink" title="十五、项目代码地址"></a>十五、项目代码地址</h1><p><a href="https://github.com/xwjahahahaha/simpleBitCoin/tree/main/version9" target="_blank" rel="noopener">https://github.com/xwjahahahaha/simpleBitCoin/tree/main/version9</a></p>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><h2 id="1-Go语言语法"><a href="#1-Go语言语法" class="headerlink" title="1.Go语言语法"></a>1.Go语言语法</h2><ol>
+<li>在同一个包下的go文件不需要使用import导入</li>
+<li>使用命令<code>go run xxx.go</code>命令运行main主函数的时候，如果同个包下的go文件互相调用函数，单独<code>go build main.go</code>（编译），<code>go run main.go</code>（运行）是不对的：</li>
+</ol>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200913205823.png" alt=""></p>
+<p>解决办法：</p>
+<ol>
+<li>linux下：<code>go build *.go</code> <code>go run *.go</code></li>
+<li>windows下: <code>go build./</code> <code>go run ./</code></li>
+</ol>
+<h2 id="2-Goland的使用技巧"><a href="#2-Goland的使用技巧" class="headerlink" title="2.Goland的使用技巧"></a>2.Goland的使用技巧</h2><p><code>ctrl + b</code> 进入查看函数实现</p>
+<h2 id="3-Blot中要注意的细节"><a href="#3-Blot中要注意的细节" class="headerlink" title="3.Blot中要注意的细节"></a>3.Blot中要注意的细节</h2><p>bucket.Put()方法如果bucket不存在那么就是直接的添加，但是如果已经存在了，那么就是<strong>更新</strong>，所以不存在Key重复的问题</p>
+<h2 id="4-go结构体内字段命名不规范导致使用gob出错！！！！Golang大坑！"><a href="#4-go结构体内字段命名不规范导致使用gob出错！！！！Golang大坑！" class="headerlink" title="4.go结构体内字段命名不规范导致使用gob出错！！！！Golang大坑！"></a>4.go结构体内字段命名不规范导致使用gob出错！！！！Golang大坑！</h2><p>注意：go语言中的结构体内的字段都必须<strong>首字母大写</strong>，不然会报如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gob: type main.Person has no exported fields</span><br></pre></td></tr></table></figure>
+
+<p><strong>记住，Golang的结构体命名字段必须要大写，不然序列化都可能不行！！！！！</strong></p>
+<h2 id="5-go循环修改数组值无效"><a href="#5-go循环修改数组值无效" class="headerlink" title="5. go循环修改数组值无效"></a>5. go循环修改数组值无效</h2><p>注意Go语言和python一样循环修改数据的值必须使用索引！！！！</p>
+<p>例: 错误示范:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _, output := <span class="keyword">range</span> outputArray&#123;</span><br><span class="line">   output.TxHash = newTxHash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正确做法:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i := <span class="keyword">range</span> outputArray&#123;</span><br><span class="line">   outputArray[i].TxHash = newTxHash</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-关于golang-org-x包问题"><a href="#6-关于golang-org-x包问题" class="headerlink" title="6. 关于golang.org/x包问题"></a>6. 关于golang.org/x包问题</h2><p>由于谷歌被墙，跟谷歌相关的模块无法通过go get来下载，解决方法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/golang/net.git $GOPATH/src/github.com/golang/net</span><br><span class="line"></span><br><span class="line">git clone https://github.com/golang/sys.git $GOPATH/src/github.com/golang/sys</span><br><span class="line"></span><br><span class="line">git clone https://github.com/golang/tools.git $GOPATH/src/github.com/golang/tools</span><br><span class="line"></span><br><span class="line">ln -s $GOPATH/src/github.com/golang $GOPATH/src/golang.org/x</span><br></pre></td></tr></table></figure>
+
+<p>上面三条命令会把所要用到的官方辅助包都下载到<code>$GOPATH/src/github.com/golang中，在windows下软连接不好弄，我的方法就是下载好了以后把这些复制一份到``$GOPATH/src/golang.org/x</code>下，使用的时候就优先使用golang.org/x下的包。</p>
+<h2 id="7-使用gob进行编码"><a href="#7-使用gob进行编码" class="headerlink" title="7. 使用gob进行编码"></a>7. 使用gob进行编码</h2><p>使用gob进行编码的时候，如果字节流中或者自定义的结构有interface（）对象那么需要提前注册</p>
+<p>编码解码的时候都需要添加！</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
       
       
       <!-- 《添加版权声明 -->
@@ -284,7 +485,33 @@
 
 <!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare" style="margin-top: 50px; background-color: #f6f6f6; margin: 10px;">
+    <strong class="author">本文作者：</strong>
+    
+      DDDemons hide
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-09-13
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-10-04
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="https://xwjahahahaha.github.io/2020/09/13/技术贴/区块链/项目/使用golang实现比特币公链 /" title="使用golang写一条区块链" target="_blank">使用golang写一条区块链</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="https://xwjahahahaha.github.io/2020/09/13/技术贴/区块链/项目/使用golang实现比特币公链 /" title="使用golang写一条区块链" target="_blank">https://xwjahahahaha.github.io/2020/09/13/技术贴/区块链/项目/使用golang实现比特币公链 /</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="http://xwjpics.gumptlu.work/qiniu_picGo/20200806212345.png"/></a>
+    
+  </div>
 
 <!-- 添加版权声明》 -->
       
@@ -352,7 +579,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -364,11 +591,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
+        			<a href="/categories/technical/block-chain//" class="article-tag-list-link color2">block_chain</a>
         		</li>
       		
 		</ul>
@@ -423,7 +650,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/10/02/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0075/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/09/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A1%B9%E7%9B%AE/%E4%BD%BF%E7%94%A8golang%E5%AE%9E%E7%8E%B0%E6%AF%94%E7%89%B9%E5%B8%81%E5%85%AC%E9%93%BE%20/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -440,9 +667,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/python%E5%AD%A6%E4%B9%A0/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python数据分析
+        
+      </div>
+    </a>
   
-    <a href="/2020/09/30/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0074/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日记_0074</div>
+  
+    <a href="/2020/09/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/g/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">技术贴/GoLang/g</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -469,7 +705,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#今日待办任务："><span class="toc-number">1.</span> <span class="toc-text">今日待办任务：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#今日完成的任务："><span class="toc-number">2.</span> <span class="toc-text">今日完成的任务：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#明日任务："><span class="toc-number">3.</span> <span class="toc-text">明日任务：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#今日随记"><span class="toc-number">4.</span> <span class="toc-text">今日随记</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Go基础"><span class="toc-number">1.</span> <span class="toc-text">Go基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Go基础"><span class="toc-number">2.</span> <span class="toc-text">一、Go基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#G252o环境安装"><span class="toc-number">2.1.</span> <span class="toc-text">G252o环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Go语言"><span class="toc-number">2.1.1.</span> <span class="toc-text">Go语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编程IDE：GOLand的安装与破解"><span class="toc-number">2.1.2.</span> <span class="toc-text">编程IDE：GOLand的安装与破解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go项目的目录结构"><span class="toc-number">2.2.</span> <span class="toc-text">Go项目的目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、一般的，一个Go项目在GOPATH下，会有如下三个目录："><span class="toc-number">2.2.0.1.</span> <span class="toc-text">1、一般的，一个Go项目在GOPATH下，会有如下三个目录：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、项目中的数据库Blot"><span class="toc-number">3.</span> <span class="toc-text">二、项目中的数据库Blot</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Blot简介与实例"><span class="toc-number">3.1.</span> <span class="toc-text">1.Blot简介与实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目存储结构分析"><span class="toc-number">3.2.</span> <span class="toc-text">2.项目存储结构分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、项目中go语言的区块序列化与反序列化"><span class="toc-number">4.</span> <span class="toc-text">三、项目中go语言的区块序列化与反序列化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Go语言迭代器原理与区块链的特殊迭代"><span class="toc-number">5.</span> <span class="toc-text">四、Go语言迭代器原理与区块链的特殊迭代</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、Go语言命令行的使用"><span class="toc-number">6.</span> <span class="toc-text">五、Go语言命令行的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、项目添加转账功能"><span class="toc-number">7.</span> <span class="toc-text">六、项目添加转账功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、账户余额UTXO计算细节"><span class="toc-number">8.</span> <span class="toc-text">七、账户余额UTXO计算细节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-计算账户余额时统计UTXO"><span class="toc-number">8.0.1.</span> <span class="toc-text">1. 计算账户余额时统计UTXO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-转账时计算UTXO中的账户余额"><span class="toc-number">8.0.2.</span> <span class="toc-text">2. 转账时计算UTXO中的账户余额</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、blotDB数据库的可视化"><span class="toc-number">9.</span> <span class="toc-text">八、blotDB数据库的可视化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、公私钥"><span class="toc-number">10.</span> <span class="toc-text">九、公私钥</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十、P2PKH的检验方式"><span class="toc-number">11.</span> <span class="toc-text">十、P2PKH的检验方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-比特币的几种校验方式"><span class="toc-number">11.1.</span> <span class="toc-text">1. 比特币的几种校验方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目中的逻辑"><span class="toc-number">11.2.</span> <span class="toc-text">2. 项目中的逻辑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一、地址String到公钥hash的分场景安全策略"><span class="toc-number">12.</span> <span class="toc-text">十一、地址String到公钥hash的分场景安全策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二、对于地址使用之前的校验细节"><span class="toc-number">13.</span> <span class="toc-text">十二、对于地址使用之前的校验细节</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三、-签名验证"><span class="toc-number">14.</span> <span class="toc-text">十三、 签名验证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-签名需要的内容："><span class="toc-number">14.1.</span> <span class="toc-text">1. 签名需要的内容：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-验证需要的内容"><span class="toc-number">14.2.</span> <span class="toc-text">2. 验证需要的内容 :</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-注意事项"><span class="toc-number">14.3.</span> <span class="toc-text">3. 注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-对于每个input的签名过程"><span class="toc-number">14.4.</span> <span class="toc-text">4. 对于每个input的签名过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十四、项目总结"><span class="toc-number">15.</span> <span class="toc-text">十四、项目总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-项目完成的功能"><span class="toc-number">15.1.</span> <span class="toc-text">1. 项目完成的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目的待完善地方（缺点）"><span class="toc-number">15.2.</span> <span class="toc-text">2. 项目的待完善地方（缺点）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十五、项目代码地址"><span class="toc-number">16.</span> <span class="toc-text">十五、项目代码地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tips"><span class="toc-number">17.</span> <span class="toc-text">Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Go语言语法"><span class="toc-number">17.1.</span> <span class="toc-text">1.Go语言语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Goland的使用技巧"><span class="toc-number">17.2.</span> <span class="toc-text">2.Goland的使用技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Blot中要注意的细节"><span class="toc-number">17.3.</span> <span class="toc-text">3.Blot中要注意的细节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-go结构体内字段命名不规范导致使用gob出错！！！！Golang大坑！"><span class="toc-number">17.4.</span> <span class="toc-text">4.go结构体内字段命名不规范导致使用gob出错！！！！Golang大坑！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-go循环修改数组值无效"><span class="toc-number">17.5.</span> <span class="toc-text">5. go循环修改数组值无效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-关于golang-org-x包问题"><span class="toc-number">17.6.</span> <span class="toc-text">6. 关于golang.org&#x2F;x包问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-使用gob进行编码"><span class="toc-number">17.7.</span> <span class="toc-text">7. 使用gob进行编码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">18.</span> <span class="toc-text"></span></a></li></ol>
                     </div>
                 </span>
             </div>
