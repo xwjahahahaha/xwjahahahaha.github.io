@@ -6,19 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>技术贴/GoLang/g | 知识与头发不可兼得</title>
+  <title>Docker的学习-2 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="菜鸟滴博客，感谢大佬关注">
+  <meta name="description" content="二、Docker的基本操作2.1 安装Docker12# 1. 安装Docker的依赖环境yum install yum-utils device-mapper-persistent-data lvm2  12# 2. 设置一下下载Docker的镜像源yum-config-manager --add-repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;ce">
 <meta property="og:type" content="article">
-<meta property="og:title" content="技术贴&#x2F;GoLang&#x2F;g">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2020/09/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/g/index.html">
+<meta property="og:title" content="Docker的学习-2">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-2-Docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="菜鸟滴博客，感谢大佬关注">
+<meta property="og:description" content="二、Docker的基本操作2.1 安装Docker12# 1. 安装Docker的依赖环境yum install yum-utils device-mapper-persistent-data lvm2  12# 2. 设置一下下载Docker的镜像源yum-config-manager --add-repo http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;ce">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-13T12:51:48.170Z">
-<meta property="article:modified_time" content="2020-09-13T12:52:19.201Z">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005210546.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005212206.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005212256.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005214154.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005214225.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005214347.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005215422.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005215447.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005215537.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005215344.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005220056.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005220413.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005220912.png">
+<meta property="article:published_time" content="2020-10-05T14:13:56.000Z">
+<meta property="article:modified_time" content="2020-10-05T14:14:56.798Z">
 <meta property="article:author" content="DDDemons hide">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005210546.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -72,7 +87,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 198
+			总文章数 202
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,26 +198,26 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/GoLang/g" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/Docker/Docker的学习-2-Docker的基本操作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      技术贴/GoLang/g
+      Docker的学习-2
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/09/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/g/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-2-Docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2020/09/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/g/" class="archive-article-date">
-  	<time datetime="2020-09-13T12:51:48.170Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-13</time>
+        <a href="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-2-Docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+  	<time datetime="2020-10-05T14:13:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-05</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -211,7 +226,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">0字</span>
+        <span class="post-count">629字</span>
       </span>
     </span>
 
@@ -220,7 +235,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -232,7 +247,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="二、Docker的基本操作"><a href="#二、Docker的基本操作" class="headerlink" title="二、Docker的基本操作"></a>二、Docker的基本操作</h1><h2 id="2-1-安装Docker"><a href="#2-1-安装Docker" class="headerlink" title="2.1 安装Docker"></a>2.1 安装Docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 安装Docker的依赖环境</span></span><br><span class="line">yum install yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 2. 设置一下下载Docker的镜像源</span></span><br><span class="line">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 3. 安装Docker</span></span><br><span class="line">yum makacache fast   # 安装makacache fast的缓存</span><br><span class="line">yum -y install docker-ce 	#安装Docker服务</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 4. 启动，并设置为开机自启动，测试</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动Docker服务</span></span><br><span class="line">systemctl start docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置开机自启动</span></span><br><span class="line">systemctl enable docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试</span></span><br><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005210546.png" alt=""></p>
+<h2 id="2-2-Docker的中央仓库"><a href="#2-2-Docker的中央仓库" class="headerlink" title="2.2 Docker的中央仓库"></a>2.2 Docker的中央仓库</h2><ol>
+<li>Docker官方镜像中央仓库，特点：镜像全下载慢（服务器在国外）    <a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a></li>
+<li>国内的镜像网站：网易蜂巢、daoCloud。。。     <a href="http://hub.daocloud.io/" target="_blank" rel="noopener">http://hub.daocloud.io/</a></li>
+<li>公司内部会采用私服的方式拉取镜像（添加配置）</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 在/etc/docker/daemon.json</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attr">"registry-mirrors"</span>: [<span class="string">"https://registry.docker-cn.com"</span>],</span><br><span class="line">    <span class="attr">"insecure-registries"</span>: [<span class="string">"ip:port"</span>]  #这里写内部的ip和端口</span><br><span class="line">&#125;</span><br><span class="line"># 重启两个服务</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-镜像的操作"><a href="#2-3-镜像的操作" class="headerlink" title="2.3 镜像的操作"></a>2.3 镜像的操作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 拉取镜像到本地</span></span><br><span class="line">docker pull 镜像名称[:tag]</span><br><span class="line"><span class="meta">#</span><span class="bash"> 例</span></span><br><span class="line">docker pull daocloud.io/library/tomcat:8.5.15-jre8</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 查看全部本地镜像</span></span><br><span class="line">docker images </span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 删除本地镜像</span></span><br><span class="line">docker rmi 镜像的唯一标识</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. 镜像的导入与导出（不规范）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将本地的镜像导出</span></span><br><span class="line">docker save -o 导出的路径 镜像id</span><br><span class="line"><span class="meta">#</span><span class="bash"> 加载本地镜像文件</span></span><br><span class="line">docker load -i 镜像文件</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改名称</span></span><br><span class="line">docker tag 标识id 新名称:Taget（版本）</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005212206.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005212256.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005214154.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005214225.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005214347.png" alt=""></p>
+<h2 id="2-4-容器的操作"><a href="#2-4-容器的操作" class="headerlink" title="2.4 容器的操作"></a>2.4 容器的操作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 运行容器</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 简单操作</span></span><br><span class="line">docker run 镜像的标识|镜像名称[:tag]</span><br><span class="line"><span class="meta">#</span><span class="bash"> 常用操作</span></span><br><span class="line">docker run -d -p 宿主机端口:容器端口 --name 容器名称 镜像的标识|镜像名称[:tag]</span><br><span class="line"><span class="meta">#</span><span class="bash"> -d 代表后台运行容器</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -p 宿主机端口：容器端口  为了映射当前Linux的端口和容器的端口  例如tomcat默认是8080，linux的给的端口是8081 则需要映射： 8081：8080</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> --name 指定容器的名称</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 2. 查看正在运行的容器</span></span><br><span class="line">docker ps [-qa]</span><br><span class="line"><span class="meta">#</span><span class="bash"> -a 查看全部的容器，包括没有运行的容器</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -q 只查看容器的标识其他的不查看</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005215422.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005215447.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005215537.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005215344.png" alt=""></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 3. 查看容器的日志</span></span><br><span class="line">docker logs -f 容器id</span><br><span class="line"><span class="meta">#</span><span class="bash"> -f 可以滚动查看日志的最后几行</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005220056.png" alt=""></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 4. 进入到容器内部</span></span><br><span class="line">docker exec -it 容器id /bin/bash</span><br><span class="line">exit #返回</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005220413.png" alt=""></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 5. 删除容器 （删除容器前需要先停止容器）</span></span><br><span class="line">docker stop 容器id</span><br><span class="line">docker stop $(docker ps -qa) #停止全部容器</span><br><span class="line">docker rm 容器id</span><br><span class="line">docker rm $(docker ps -qa)  #删除全部容器</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005220912.png" alt=""></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 6. 重新启动容器</span></span><br><span class="line">docker start 容器id</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
       
       
       <!-- 《添加版权声明 -->
@@ -243,7 +307,33 @@
 
 <!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare" style="margin-top: 50px; background-color: #f6f6f6; margin: 10px;">
+    <strong class="author">本文作者：</strong>
+    
+      DDDemons hide
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-10-05
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-10-05
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/Docker/Docker的学习-2-Docker的基本操作/" title="Docker的学习-2" target="_blank">Docker的学习-2</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/Docker/Docker的学习-2-Docker的基本操作/" title="Docker的学习-2" target="_blank">https://xwjahahahaha.github.io/2020/10/05/技术贴/Docker/Docker的学习-2-Docker的基本操作/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="http://xwjpics.gumptlu.work/qiniu_picGo/20200806212345.png"/></a>
+    
+  </div>
 
 <!-- 添加版权声明》 -->
       
@@ -306,7 +396,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/docker//" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -356,7 +472,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/09/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/g/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-2-Docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -373,18 +489,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/python%E5%AD%A6%E4%B9%A0/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          python数据分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/07/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0010/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">周记_0010</div>
+    <a href="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-1-Docker%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Docker的学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -403,6 +510,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Docker的基本操作"><span class="toc-number">1.</span> <span class="toc-text">二、Docker的基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-安装Docker"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 安装Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Docker的中央仓库"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 Docker的中央仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-镜像的操作"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 镜像的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-容器的操作"><span class="toc-number">1.4.</span> <span class="toc-text">2.4 容器的操作</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -714,6 +834,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">每日一记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Fabric</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ipfs</a>
               </li>
             
             <div class="clearfix"></div>
