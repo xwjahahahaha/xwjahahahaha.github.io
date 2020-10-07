@@ -6,34 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>Fabric框架的学习 | 知识与头发不可兼得</title>
+  <title>Docker的学习-3-Docker的应用 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="# 一、Shell脚本基础1.1 概念一系列的shell命令的集合，还可以加入一些逻辑操作 （if else for）将这些命令放入一个脚本文件中 1.2 基本格式命名格式：xxx.sh  (一般后缀为sh，也可不写) 书写格式： 123456# test.sh  #是shell脚本的注释#！&#x2F;bin&#x2F;bash  # 指定解析shell脚本使用的命令解释器  &#x2F;bin&#x2F;sh也可以这是不写这一行的默">
+  <meta name="description" content="三、Docker自定义镜像中央仓库的镜像也是Docker的用户自己上传上去的。 123456# 1. 创建一个Dockerfile文件（无后缀名），并且指定自定义镜像信息# Dockerfile文件中常用的内容from: 指定当前自定义镜像依赖的环境copy: 将相对路径（相对于dockerfile文件）下的内容复制到自定义镜像中workdir: 申明镜像的默认工作目录cmd： 需要执行的命令（在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fabric框架的学习">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="Docker的学习-3-Docker的应用">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-3-Docker%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F%E3%80%81Docker-Compose%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="# 一、Shell脚本基础1.1 概念一系列的shell命令的集合，还可以加入一些逻辑操作 （if else for）将这些命令放入一个脚本文件中 1.2 基本格式命名格式：xxx.sh  (一般后缀为sh，也可不写) 书写格式： 123456# test.sh  #是shell脚本的注释#！&#x2F;bin&#x2F;bash  # 指定解析shell脚本使用的命令解释器  &#x2F;bin&#x2F;sh也可以这是不写这一行的默">
+<meta property="og:description" content="三、Docker自定义镜像中央仓库的镜像也是Docker的用户自己上传上去的。 123456# 1. 创建一个Dockerfile文件（无后缀名），并且指定自定义镜像信息# Dockerfile文件中常用的内容from: 指定当前自定义镜像依赖的环境copy: 将相对路径（相对于dockerfile文件）下的内容复制到自定义镜像中workdir: 申明镜像的默认工作目录cmd： 需要执行的命令（在">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005150929.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005151017.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005150951.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005151703.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005152427.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005152702.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005154552.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155043.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155131.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155245.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155338.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005162800.png">
-<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201005163357020.png">
-<meta property="article:published_time" content="2020-10-05T02:16:55.000Z">
-<meta property="article:modified_time" content="2020-10-05T14:18:54.207Z">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006111102.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006120520.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006134422.png">
+<meta property="article:published_time" content="2020-10-06T02:19:11.000Z">
+<meta property="article:modified_time" content="2020-10-06T07:14:37.669Z">
 <meta property="article:author" content="DDDemons hide">
-<meta property="article:tag" content="Fabric">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005150929.png">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006111102.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -87,7 +77,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 202
+			总文章数 207
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -198,26 +188,26 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/区块链/Fabric框架的学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/Docker/Docker的学习-3-Docker自定义镜像、Docker-Compose的使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Fabric框架的学习
+      Docker的学习-3-Docker的应用
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-3-Docker%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F%E3%80%81Docker-Compose%E7%9A%84%E4%BD%BF%E7%94%A8/" class="pageViews">0</span>次
   </a>
 
         
-        <a href="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-10-05T02:16:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-05</time>
+        <a href="/2020/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-3-Docker%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F%E3%80%81Docker-Compose%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-10-06T02:19:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-06</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -226,7 +216,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.2k字</span>
+        <span class="post-count">993字</span>
       </span>
     </span>
 
@@ -247,138 +237,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#</p>
-<h1 id="一、Shell脚本基础"><a href="#一、Shell脚本基础" class="headerlink" title="一、Shell脚本基础"></a>一、Shell脚本基础</h1><h2 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a>1.1 概念</h2><p>一系列的shell命令的集合，还可以加入一些逻辑操作 （if else for）将这些命令放入一个脚本文件中</p>
-<h2 id="1-2-基本格式"><a href="#1-2-基本格式" class="headerlink" title="1.2 基本格式"></a>1.2 基本格式</h2><p>命名格式：xxx.sh  (一般后缀为sh，也可不写)</p>
-<p>书写格式：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> test.sh  <span class="comment">#是shell脚本的注释</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">！/bin/bash  <span class="comment"># 指定解析shell脚本使用的命令解释器  /bin/sh也可以这是不写这一行的默认解释器</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 一系列的shell命令</span></span><br><span class="line">ls </span><br><span class="line">pwd</span><br><span class="line">echo "hello world"</span><br></pre></td></tr></table></figure>
+        <h1 id="三、Docker自定义镜像"><a href="#三、Docker自定义镜像" class="headerlink" title="三、Docker自定义镜像"></a>三、Docker自定义镜像</h1><p>中央仓库的镜像也是Docker的用户自己上传上去的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 创建一个Dockerfile文件（无后缀名），并且指定自定义镜像信息</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Dockerfile文件中常用的内容</span></span><br><span class="line">from: 指定当前自定义镜像依赖的环境</span><br><span class="line">copy: 将相对路径（相对于dockerfile文件）下的内容复制到自定义镜像中</span><br><span class="line">workdir: 申明镜像的默认工作目录</span><br><span class="line">cmd： 需要执行的命令（在workdir下执行，cmd可以写多个，但是只以最后一个为准）</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-3-shell脚本的执行"><a href="#1-3-shell脚本的执行" class="headerlink" title="1.3 shell脚本的执行"></a>1.3 shell脚本的执行</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> shell脚本的编写完之后，必须添加执行权限</span></span><br><span class="line">chmod u+x xxx.sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行脚本</span></span><br><span class="line">./xxx.sh</span><br><span class="line">sh xxx./sh</span><br></pre></td></tr></table></figure>
-
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201006111102.png" alt=""></p>
 <a id="more"></a>
 
-<p>shell脚本从上至下依次执行，中途有错误则中断</p>
-<h2 id="1-4-shell脚本中的变量"><a href="#1-4-shell脚本中的变量" class="headerlink" title="1.4 shell脚本中的变量"></a>1.4 shell脚本中的变量</h2><ul>
-<li><p>变量的定义</p>
-<ol>
-<li><p>普通变量(本地变量)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 定义变量，定义变量必须要赋值， =前后不允许有空格，有空格是比较（类似于==）</span></span><br><span class="line">temp=999</span><br><span class="line"><span class="meta">#</span><span class="bash"> 普通变量只能在当前进程中使用</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>环境变量（一般大写）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 可以理解为全局变量，在当前操作系统中可全局访问</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 分类</span></span><br><span class="line">	- 系统自带</span><br><span class="line">		例如： -PWD  -PATH</span><br><span class="line">	- 用户自定义</span><br><span class="line">		- 将普通变量提升为系统变量  前面加个set或export</span><br><span class="line">		GOPATH=/home/zoro/go/src -&gt;普通环境变量</span><br><span class="line">		set GOPATH=/home/zoro/go/src -&gt;系统环境变量</span><br><span class="line">		export GOPATH=/home/zore/go/src -&gt;系统环境变量</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>位置变量</p>
-<blockquote>
-<p>执行脚本的时候，可以给脚本传递参数，脚本内部使用这些参数就需要使用这些位置变量</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 执行脚本</span></span><br><span class="line">./test.sh aa bb cc dd ...</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 2. 将准备好的Dockfile和相应的文件拖拽到Linux系统中，通过docker命令制作镜像</span></span><br><span class="line">docker build -t 镜像名称:[tag] .     # 注意最后一个.表示当前目录</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>$0: 执行的文件名</li>
-<li>$1: 第一个参数，aa</li>
-<li>$2: 第二个参数，bb</li>
-<li>….</li>
-</ul>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005150929.png" alt=""></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005151017.png" alt=""></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005150951.png" alt=""></p>
-<p><strong>注意多余的参数也传进去了，只是没有使用</strong></p>
-</li>
-<li><p>特殊变量</p>
-<ul>
-<li><p>$#: 获取传递的参数的个数</p>
-</li>
-<li><p>$@: 给脚本传递的所有参数</p>
-</li>
-<li><p>$?: 脚本执行完成之后的状态，成功==0 or 失败！=0</p>
-</li>
-<li><p>$$: 脚本进制执行之后对应的进程ID</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">echo "Hello World"</span><br><span class="line">echo "第一个参数: $0"</span><br><span class="line">echo "第二个参数: $1"</span><br><span class="line">echo "第三个参数: $2"</span><br><span class="line">echo "第四个参数: $3"</span><br><span class="line">echo "第五个参数: $4"</span><br><span class="line">echo "传递的所有参数的个数: $#"</span><br><span class="line">echo "传递的所有参数: $@"</span><br><span class="line">echo "脚本执行完的状态: $?"</span><br><span class="line">echo "脚本执行的进程编号: $$"</span><br></pre></td></tr></table></figure>
+<h1 id="四、Docker-Compose"><a href="#四、Docker-Compose" class="headerlink" title="四、Docker-Compose"></a>四、Docker-Compose</h1><p>运行一个镜像，需要添加大量的参数，可以通过Docker-Compose编写这些参数</p>
+<p>Docker-Compose可以帮我们批量的管理容器，只需要使用docker-compose.yml文件去维护即可</p>
+<h2 id="4-1-下载Docker-Compose"><a href="#4-1-下载Docker-Compose" class="headerlink" title="4.1 下载Docker-Compose"></a>4.1 下载Docker-Compose</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 在github上下载</span></span><br><span class="line">https://github.com/docker/compose/releases/download/1.24.1/docker-compose-Linux-x86_64  # 1.24.1版本链接</span><br><span class="line">https://github.com/docker/compose/tags   # 各版本目录</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 将下载好的文件拖拽进linux系统中</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 修改文件文件名称，并给予可执行的权限</span></span><br><span class="line">mv docker-compose-Linux-x86_64 docker-compose</span><br><span class="line">chmod u+x ./docker_compose </span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. 方便后期操作，配置环境变量</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将docker-compose移动到/usr/<span class="built_in">local</span>/bin目录下 </span></span><br><span class="line">vim /etc/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加目录</span></span><br><span class="line">export PATH=/usr/local/bin</span><br><span class="line">source /etc/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5. 测试</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在任意目录下输入</span></span><br><span class="line">docker-compose</span><br></pre></td></tr></table></figure>
 
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201006120520.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201006134422.png" alt=""></p>
+<h2 id="4-2-yml文件格式"><a href="#4-2-yml文件格式" class="headerlink" title="4.2 yml文件格式"></a>4.2 yml文件格式</h2><p>yml文件以key: value方式来指定配置信息，多个配置信息以换行+缩进的方式区分</p>
+<p><strong>注意：yml文件key:空格value，之间有个空格</strong>， <strong>yml的缩进是两个空格构成的</strong>，<strong>在yml文件中不要使用制表符（不识别）！</strong></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.1"</span></span><br><span class="line"><span class="attr">services:</span> </span><br><span class="line">  <span class="attr">mysql:</span>              <span class="comment"># 服务的名称</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span>   <span class="comment"># 代表只要docker启动，这个容器就跟着启动</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">daocloud.io/library/mysql:5.7.4</span>   <span class="comment"># 指定镜像的路径</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">test_mysql</span>  <span class="comment"># 指定容器的名称，docker ps可以看到的名字，也就是--name参数</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">3306</span><span class="string">:3306</span>     <span class="comment"># 端口号映射，多个映射照样在下方同格式添加,也就是-p参数</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">root</span>   <span class="comment"># 指定MySql的Root用户登录密码</span></span><br><span class="line">      <span class="attr">TZ:</span> <span class="string">Asia/Shanghai</span>           <span class="comment"># 指定时区</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/opt/docker_mysql_tomcat/mysql_data:/var/lib/mysql</span>       <span class="comment"># 映射数据卷</span></span><br><span class="line">  <span class="attr">tomcat:</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">daocloud.io/library/tomcat:8.5.15-jre8</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">test_tomcat</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8080</span><span class="string">:8080</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">TZ:</span> <span class="string">Asia/Shanghai</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/gump/myProjects/docker/docker_mysql_tomcat/tomcat_webapps:/usr/local/tomcat/webapps</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/gump/myProjects/docker/docker_mysql_tomcat/tomcat_logs:/usr/local/tomcat/logs</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="4-3-使用docker-compose命令管理容器"><a href="#4-3-使用docker-compose命令管理容器" class="headerlink" title="4.3 使用docker-compose命令管理容器"></a>4.3 使用docker-compose命令管理容器</h2><p>使用docker-compose命令时，默认会在当前目录下找docker-compose.yml文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 使用yml文件启动管理的容器</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 关闭并删除容器</span></span><br><span class="line">docker-compose down</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 开启|关闭|重启由yml维护的容器</span></span><br><span class="line">docker-compose start|stop|restart</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. 查看yml管理的容器</span></span><br><span class="line">docker-compose ps</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5. 查看日志</span></span><br><span class="line">docker-compose logs -f</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-</li>
-</ul>
-<p>  <img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005151703.png" alt=""></p>
-<p>  直接输入<code>echo $?</code>查看的是上一个进程的状态</p>
-<ul>
-<li><p>普通变量取值</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 变量定义</span></span><br><span class="line">value=123  #默认以字符串处理</span><br><span class="line">echo $value #打印变量前面要加$</span><br><span class="line">echo $&#123;value&#125; #这样也可以，但是相对麻烦</span><br></pre></td></tr></table></figure>
+<h2 id="4-4-使用docker-compose配置Dockerfile"><a href="#4-4-使用docker-compose配置Dockerfile" class="headerlink" title="4.4 使用docker-compose配置Dockerfile"></a>4.4 使用docker-compose配置Dockerfile</h2><p>使用yml配置使用自定义镜像</p>
+<p><strong>使用yml文件以及Dockerfile文件在生成自定义镜像的同时启动当前镜像，并且由docker-compose去管理容器</strong></p>
+<p>以自定义镜像ssm项目为例：</p>
+<h3 id="docker-compose-yml文件"><a href="#docker-compose-yml文件" class="headerlink" title="docker_compose.yml文件"></a>docker_compose.yml文件</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.1"</span></span><br><span class="line"><span class="attr">services:</span> </span><br><span class="line">  <span class="attr">ssm:</span>              <span class="comment"># 服务的名称</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span>   <span class="comment"># 代表只要docker启动，这个容器就跟着启动</span></span><br><span class="line">    <span class="attr">build:</span>           <span class="comment"># 构建自定义镜像</span></span><br><span class="line">      <span class="attr">context:</span> <span class="string">../</span>   <span class="comment">#指定dockerfile文件的路径</span></span><br><span class="line">      <span class="attr">dockerfile:</span> <span class="string">Dockerfile</span>   <span class="comment"># 指定dockerfile的文件名字</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">sm:1.0.1</span>       <span class="comment"># 镜像就是上方build构建的，指定名称即可</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ssm</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8081</span><span class="string">:8080</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">TZ:</span> <span class="string">Asia/Shanghai</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005152427.png" alt=""></p>
-</li>
-<li><p>取命令执行结果的两种方式</p>
-<p>把命令执行的结果用变量保存：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var=$(shell命令)</span><br><span class="line">var=`shell命令`</span><br></pre></td></tr></table></figure>
+<h3 id="Dockerfile文件"><a href="#Dockerfile文件" class="headerlink" title="Dockerfile文件"></a>Dockerfile文件</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> daocloud.io/library/tomcat:<span class="number">8.5</span>.<span class="number">15</span>-jre8		<span class="comment">#依赖的环境</span></span><br><span class="line"><span class="keyword">copy</span><span class="bash"> ssm.var /usr/<span class="built_in">local</span>/tomcat/webapps     <span class="comment"># 环境自添加的数据</span></span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 可以直接基于这两个文件构建自定义镜像并管理</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果自定义镜像不存在，会帮助我们创建，如果已经存在会直接运行这个镜像</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果想重新构建</span></span><br><span class="line">docker-compose build</span><br><span class="line"><span class="meta">#</span><span class="bash"> 运行时重新构建</span></span><br><span class="line">docker-compose up -d --build</span><br></pre></td></tr></table></figure>
 
-
-</li>
-</ul>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005152702.png" alt=""></p>
-<ul>
-<li><p>引号的使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 双引号</span></span><br><span class="line">echo "xxxx $var"  #会将其中变量的值打印输出</span><br><span class="line"><span class="meta">#</span><span class="bash"> 单引号</span></span><br><span class="line">echo 'xxxx $var'  #会原样输出，不会取变量值</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<h2 id="1-5-条件判断和循环"><a href="#1-5-条件判断和循环" class="headerlink" title="1.5 条件判断和循环"></a>1.5 条件判断和循环</h2><ul>
-<li><p>shell脚本的if条件判断</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">if</span>语句</span></span><br><span class="line">if [ 条件判断 ];then</span><br><span class="line">	逻辑处理 -&gt; shell命令</span><br><span class="line">	xxxx</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span><span class="bash"> =====================或</span></span><br><span class="line">if [ 条件判断 ]</span><br><span class="line">then</span><br><span class="line">	逻辑处理 -&gt; shell命令</span><br><span class="line">	xxxx</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">if</span> ... <span class="keyword">elif</span> ... <span class="keyword">fi</span></span></span><br><span class="line">if [ 条件判断 ];then</span><br><span class="line">	逻辑处理 -&gt; shell命令</span><br><span class="line">	xxxx</span><br><span class="line">elif [ 条件判断 ];then</span><br><span class="line">	shell命令</span><br><span class="line">	xxx</span><br><span class="line">elif [ 条件判断 ];then</span><br><span class="line">    shell命令</span><br><span class="line">    xxx</span><br><span class="line">else</span><br><span class="line">	shell命令</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-<p>注意：if和中括号中间有空格，中括号中的条件判断与中括号两边都有空格</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">对传递到脚本内部的文件名做判断</span></span><br><span class="line">if [ -d $1 ];then</span><br><span class="line">        echo "$1 是一个目录"</span><br><span class="line">elif [ -s $1 ];then</span><br><span class="line">        echo "$1 是一个文件,且文件不为空"</span><br><span class="line">else</span><br><span class="line">        echo "$1 不是一个文件也不是一个目录"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-<p>常用判断条件：</p>
-<ul>
-<li>关于文件属性</li>
-</ul>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005154552.png" alt=""></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155043.png" alt=""></p>
-<ul>
-<li>关于字符串的判定</li>
-</ul>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155131.png" alt=""></p>
-<ul>
-<li><p>常见数值判定</p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155245.png" alt=""></p>
-</li>
-<li><p>逻辑运算操作符</p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155338.png" alt=""></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>shell脚本for循环</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> shell中有<span class="keyword">for</span>、<span class="built_in">where</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 语法： <span class="keyword">for</span> 变量 <span class="keyword">in</span> 集合; <span class="keyword">do</span>; <span class="keyword">done</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 对当前目录下的文件进行遍历</span></span><br><span class="line">list=$(ls)</span><br><span class="line">for var in $list;do</span><br><span class="line">        echo "当前文件: $var"</span><br><span class="line">done</span><br><span class="line">~</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="1-6-shell脚本中的函数"><a href="#1-6-shell脚本中的函数" class="headerlink" title="1.6 shell脚本中的函数"></a>1.6 shell脚本中的函数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 没有函数的修饰，也没有参数也没有返回值</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 格式</span></span><br><span class="line">funcName()&#123;</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 得到第一个参数</span></span><br><span class="line">	arg1=$1</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 得到第二个参数</span></span><br><span class="line">	arg2=$2</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 得到第三个参数</span></span><br><span class="line">	arg3=$3</span><br><span class="line">	函数体 -&gt;一系列的shell命令  逻辑循环和判断</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 没有参数列表，但是可以传参</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 函数调用</span></span><br><span class="line">funcName aa bb cc dd</span><br><span class="line"><span class="meta">#</span><span class="bash"> 函数调用之后的状态</span></span><br><span class="line">0：成功</span><br><span class="line">非0：失败</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 判断传递进来的文件名是不是目录，如果不是就创建</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义函数</span></span><br><span class="line">funcIsDir()&#123;</span><br><span class="line">        if [ -d $1 ];then</span><br><span class="line">                echo "$1是一个目录"</span><br><span class="line">        else</span><br><span class="line">                # 创建这个目录</span><br><span class="line">                mkdir $1</span><br><span class="line">                if [ 0 -ne $? ];then</span><br><span class="line">                        echo "目录创建失败"</span><br><span class="line">                        exit</span><br><span class="line">                fi</span><br><span class="line">                echo "目录创建成功"</span><br><span class="line">                ls -a</span><br><span class="line">        fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 函数的调用</span></span><br><span class="line">funcIsDir $1</span><br></pre></td></tr></table></figure>
-
-<h1 id="二、Fabric基本概念"><a href="#二、Fabric基本概念" class="headerlink" title="二、Fabric基本概念"></a>二、Fabric基本概念</h1><ul>
-<li>准备工作</li>
-</ul>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005162800.png" alt=""></p>
-<ul>
-<li><p>作用</p>
-<p>docker  =&gt; 类似于虚拟机，为了区块链中的多节点模拟</p>
-<p>docker-compose =&gt; docker的管理工具</p>
-<p>go =&gt;  开发区块链</p>
-<p>nodejs =&gt; 写客户端</p>
-<p>python =&gt; 部分部件需要使用</p>
-</li>
-</ul>
-<h2 id="2-1-安装docker"><a href="#2-1-安装docker" class="headerlink" title="2.1 安装docker"></a>2.1 安装docker</h2><p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201005163357020.png" alt="image-20201005163357020"></p>
 
       
       
@@ -397,16 +285,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-10-05
+    2020-10-06
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-10-05
+    2020-10-06
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/区块链/Fabric框架的学习/" title="Fabric框架的学习" target="_blank">Fabric框架的学习</a>
+    <a href="https://xwjahahahaha.github.io/2020/10/06/技术贴/Docker/Docker的学习-3-Docker自定义镜像、Docker-Compose的使用/" title="Docker的学习-3-Docker的应用" target="_blank">Docker的学习-3-Docker的应用</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/区块链/Fabric框架的学习/" title="Fabric框架的学习" target="_blank">https://xwjahahahaha.github.io/2020/10/05/技术贴/区块链/Fabric框架的学习/</a>
+    <a href="https://xwjahahahaha.github.io/2020/10/06/技术贴/Docker/Docker的学习-3-Docker自定义镜像、Docker-Compose的使用/" title="Docker的学习-3-Docker的应用" target="_blank">https://xwjahahahaha.github.io/2020/10/06/技术贴/Docker/Docker的学习-3-Docker自定义镜像、Docker-Compose的使用/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -484,7 +372,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Fabric</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -500,7 +388,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/Fabric//" class="article-tag-list-link color2">Fabric</a>
+        			<a href="/categories/technical/docker//" class="article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -555,7 +443,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-3-Docker%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F%E3%80%81Docker-Compose%E7%9A%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -572,18 +460,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-1-Docker%E4%BB%8B%E7%BB%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Docker的学习
+          Fabric框架的学习-2
         
       </div>
     </a>
   
   
-    <a href="/2020/10/05/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0077/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日记_0077</div>
+    <a href="/2020/10/06/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0078/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">日记_0078</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -610,7 +498,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Shell脚本基础"><span class="toc-number">1.</span> <span class="toc-text">一、Shell脚本基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-概念"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-基本格式"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 基本格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-shell脚本的执行"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 shell脚本的执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-shell脚本中的变量"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 shell脚本中的变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-条件判断和循环"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 条件判断和循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-shell脚本中的函数"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 shell脚本中的函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Fabric基本概念"><span class="toc-number">2.</span> <span class="toc-text">二、Fabric基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-安装docker"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装docker</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Docker自定义镜像"><span class="toc-number">1.</span> <span class="toc-text">三、Docker自定义镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Docker-Compose"><span class="toc-number">2.</span> <span class="toc-text">四、Docker-Compose</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-下载Docker-Compose"><span class="toc-number">2.1.</span> <span class="toc-text">4.1 下载Docker-Compose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-yml文件格式"><span class="toc-number">2.2.</span> <span class="toc-text">4.2 yml文件格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-使用docker-compose命令管理容器"><span class="toc-number">2.3.</span> <span class="toc-text">4.3 使用docker-compose命令管理容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-使用docker-compose配置Dockerfile"><span class="toc-number">2.4.</span> <span class="toc-text">4.4 使用docker-compose配置Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-compose-yml文件"><span class="toc-number">2.4.1.</span> <span class="toc-text">docker_compose.yml文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dockerfile文件"><span class="toc-number">2.4.2.</span> <span class="toc-text">Dockerfile文件</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -938,6 +826,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ipfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
             
             <div class="clearfix"></div>

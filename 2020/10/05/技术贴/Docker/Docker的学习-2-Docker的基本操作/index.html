@@ -28,8 +28,11 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005220056.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005220413.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005220912.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006104835.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006105026.png">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201006110128788.png">
 <meta property="article:published_time" content="2020-10-05T14:13:56.000Z">
-<meta property="article:modified_time" content="2020-10-05T14:14:56.798Z">
+<meta property="article:modified_time" content="2020-10-06T03:04:11.845Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -87,7 +90,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 202
+			总文章数 207
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -226,7 +229,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">629字</span>
+        <span class="post-count">965字</span>
       </span>
     </span>
 
@@ -235,7 +238,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">3分</span>
       </span>
     </span>
 </div>
@@ -291,11 +294,16 @@
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005220912.png" alt=""></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 6. 重新启动容器</span></span><br><span class="line">docker start 容器id</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 7. 将宿宿主机的内容复制到容器内部</span></span><br><span class="line">docker cp 文件名称 容器id:容器内部路径</span><br><span class="line"><span class="meta">#</span><span class="bash"> 例</span></span><br><span class="line">docker cp ssm.war fe:/usr/local/tomcat/webapps/</span><br></pre></td></tr></table></figure>
 
+<h2 id="2-5-数据卷"><a href="#2-5-数据卷" class="headerlink" title="2.5 数据卷"></a>2.5 数据卷</h2><p>将宿主机的文件复制到容器内部去使用，这对于数据的维护十分的困难，可以采用数据卷来解决这个问题。</p>
+<p>数据卷： 将宿主机的一个目录<strong>映射</strong>到容器的一个目录中</p>
+<p>可以在宿主机中操作目录中的内容，那么容器内部映射的文件也会随之改变</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 创建数据卷</span></span><br><span class="line">docker volume create 数据卷名称</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建数据卷之后，默认会存放在一个目录下   /var/lib/docker/volumes/数据卷名称/_data</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 查看数据卷的详细信息</span></span><br><span class="line">docker volume inspect 数据卷名称</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 查看全部数据卷</span></span><br><span class="line">docker volume ls</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. 删除数据卷</span></span><br><span class="line">docker volume rm 数据卷名称</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5. 应用数据卷</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 当映射时你的数据卷不存在，docker会帮你创建， 会将容器内部自带的文件存储在默认的存放路径中</span></span><br><span class="line">docker run -v 数据卷名称：容器内部的路径 镜像id</span><br><span class="line"><span class="meta">#</span><span class="bash"> 直接指定一个路径为数据卷的存放位置，这个路径下是空的</span></span><br><span class="line">docker run -v 路径：容器内部路径 镜像id</span><br></pre></td></tr></table></figure>
 
-
-
-
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201006104835.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201006105026.png" alt=""></p>
+<p><img src="C:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201006110128788.png" alt="image-20201006110128788"></p>
 
       
       
@@ -317,7 +325,7 @@
     2020-10-05
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-10-05
+    2020-10-06
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/Docker/Docker的学习-2-Docker的基本操作/" title="Docker的学习-2" target="_blank">Docker的学习-2</a>
@@ -489,6 +497,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/10/06/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0078/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          日记_0078
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-1-Docker%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Docker的学习</div>
@@ -518,7 +535,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Docker的基本操作"><span class="toc-number">1.</span> <span class="toc-text">二、Docker的基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-安装Docker"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 安装Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Docker的中央仓库"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 Docker的中央仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-镜像的操作"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 镜像的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-容器的操作"><span class="toc-number">1.4.</span> <span class="toc-text">2.4 容器的操作</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Docker的基本操作"><span class="toc-number">1.</span> <span class="toc-text">二、Docker的基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-安装Docker"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 安装Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Docker的中央仓库"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 Docker的中央仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-镜像的操作"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 镜像的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-容器的操作"><span class="toc-number">1.4.</span> <span class="toc-text">2.4 容器的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-数据卷"><span class="toc-number">1.5.</span> <span class="toc-text">2.5 数据卷</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -846,6 +863,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ipfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
             
             <div class="clearfix"></div>
