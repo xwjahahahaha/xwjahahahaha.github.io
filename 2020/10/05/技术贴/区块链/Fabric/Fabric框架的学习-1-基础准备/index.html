@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>Fabric框架的学习 | 知识与头发不可兼得</title>
+  <title>Fabric框架的学习-1-基础准备 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、Shell脚本基础1.1 概念一系列的shell命令的集合，还可以加入一些逻辑操作 （if else for）将这些命令放入一个脚本文件中 1.2 基本格式命名格式：xxx.sh  (一般后缀为sh，也可不写) 书写格式： 123456# test.sh  #是shell脚本的注释#！&#x2F;bin&#x2F;bash  # 指定解析shell脚本使用的命令解释器  &#x2F;bin&#x2F;sh也可以这是不写这一行的默认解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fabric框架的学习">
+<meta property="og:title" content="Fabric框架的学习-1-基础准备">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-1-%E5%9F%BA%E7%A1%80%E5%87%86%E5%A4%87/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="一、Shell脚本基础1.1 概念一系列的shell命令的集合，还可以加入一些逻辑操作 （if else for）将这些命令放入一个脚本文件中 1.2 基本格式命名格式：xxx.sh  (一般后缀为sh，也可不写) 书写格式： 123456# test.sh  #是shell脚本的注释#！&#x2F;bin&#x2F;bash  # 指定解析shell脚本使用的命令解释器  &#x2F;bin&#x2F;sh也可以这是不写这一行的默认解">
@@ -26,6 +26,8 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155131.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155245.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005155338.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201010220540.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201010220831.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005162800.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201007090856.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006152452.png">
@@ -40,7 +42,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006185347.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006190515.png">
 <meta property="article:published_time" content="2020-10-05T02:16:55.000Z">
-<meta property="article:modified_time" content="2020-10-08T02:29:37.669Z">
+<meta property="article:modified_time" content="2020-10-12T05:06:22.660Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="Fabric">
 <meta name="twitter:card" content="summary">
@@ -98,7 +100,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 209
+			总文章数 211
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -216,7 +218,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Fabric框架的学习
+      Fabric框架的学习-1-基础准备
     </h1>
   
 
@@ -237,7 +239,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.5k字</span>
+        <span class="post-count">2.6k字</span>
       </span>
     </span>
 
@@ -375,7 +377,11 @@
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 判断传递进来的文件名是不是目录，如果不是就创建</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义函数</span></span><br><span class="line">funcIsDir()&#123;</span><br><span class="line">        if [ -d $1 ];then</span><br><span class="line">                echo "$1是一个目录"</span><br><span class="line">        else</span><br><span class="line">                # 创建这个目录</span><br><span class="line">                mkdir $1</span><br><span class="line">                if [ 0 -ne $? ];then</span><br><span class="line">                        echo "目录创建失败"</span><br><span class="line">                        exit</span><br><span class="line">                fi</span><br><span class="line">                echo "目录创建成功"</span><br><span class="line">                ls -a</span><br><span class="line">        fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 函数的调用</span></span><br><span class="line">funcIsDir $1</span><br></pre></td></tr></table></figure>
 
-<h1 id="二、Fabric基本概念"><a href="#二、Fabric基本概念" class="headerlink" title="二、Fabric基本概念"></a>二、Fabric基本概念</h1><ul>
+<h1 id="二、Fabric基本概念"><a href="#二、Fabric基本概念" class="headerlink" title="二、Fabric基本概念"></a>二、Fabric基本概念</h1><p><strong>hyperledger 超级账本的生态图：</strong></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201010220540.png" alt=""></p>
+<p>Fabric</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201010220831.png" alt=""></p>
+<ul>
 <li>准备工作</li>
 </ul>
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005162800.png" alt=""></p>
@@ -386,6 +392,8 @@
 <p>go =&gt;  开发区块链</p>
 <p>nodejs =&gt; 写客户端</p>
 <p>python =&gt; 部分部件需要使用</p>
+</li>
+<li><p><strong>所有安装配置可见下方，或者见<a href="https://blog.csdn.net/qq_40632760/article/details/94594177" target="_blank" rel="noopener">https://blog.csdn.net/qq_40632760/article/details/94594177</a></strong></p>
 </li>
 </ul>
 <h2 id="2-1-安装docker"><a href="#2-1-安装docker" class="headerlink" title="2.1 安装docker"></a>2.1 安装docker</h2><p>环境是Ubuntu18，具体安装文档可见文章<a href="https://blog.csdn.net/qq_40632760/article/details/94594177" target="_blank" rel="noopener">https://blog.csdn.net/qq_40632760/article/details/94594177</a></p>
@@ -398,7 +406,7 @@
 <h2 id="2-2-安装docker-compose"><a href="#2-2-安装docker-compose" class="headerlink" title="2.2 安装docker-compose"></a>2.2 安装docker-compose</h2><p>方法一：</p>
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201007090919.png" alt=""></p>
 <p>方法二：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载1.25.0 docker compose</span></span><br><span class="line">sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加可执行权限</span></span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试安装</span></span><br><span class="line">sudo docker-compose --version</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载1.25.0 docker compose</span></span><br><span class="line">sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加可执行权限ls</span></span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试安装</span></span><br><span class="line">sudo docker-compose --version</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-3-go环境的安装"><a href="#2-3-go环境的安装" class="headerlink" title="2.3 go环境的安装"></a>2.3 go环境的安装</h2><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201006154317.png" alt=""></p>
 <p>GOROOT就是go的安装路径</p>
@@ -409,7 +417,7 @@
 </ol>
 <h2 id="2-4-nodejs的安装"><a href="#2-4-nodejs的安装" class="headerlink" title="2.4 nodejs的安装"></a>2.4 nodejs的安装</h2><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201007090934.png" alt=""></p>
 <p>环境变量配置方法二：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v8.11.4/node-v8.11.4-linux-x64.tar.xz</span><br><span class="line">sudo tar xvf node-v8.11.4-linux-x64.tar.xz -C /opt</span><br><span class="line">sudo mv node-v8.11.4-linux-x64/ node-v8.11.4  # 更名</span><br><span class="line">vim ~/.bashrc  				# .bashrc文件的配置仅当前用户生效</span><br><span class="line">sudo vim /etc/profile		#/etc/profile文件的配置对所有用户生效</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在文件下面加两行</span></span><br><span class="line">export NODEJS_HOME=/opt/node-v8.11.4</span><br><span class="line">export PATH=$PATH:$NODEJS_HOME/bin</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重新加载</span></span><br><span class="line">source ~/.bashrc	</span><br><span class="line">. /etc/profile </span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v8.11.4/node-v8.11.4-linux-x64.tar.xz</span><br><span class="line">sudo tar xvf node-v8.11.4-linux-x64.tar.xz -C /opt</span><br><span class="line">cd /opt</span><br><span class="line">sudo mv node-v8.11.4-linux-x64/ node-v8.11.4  # 更名</span><br><span class="line">vim ~/.bashrc  				# .bashrc文件的配置仅当前用户生效</span><br><span class="line">sudo vim /etc/profile		#/etc/profile文件的配置对所有用户生效</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在文件下面加两行</span></span><br><span class="line">export NODEJS_HOME=/opt/node-v8.11.4</span><br><span class="line">export PATH=$PATH:$NODEJS_HOME/bin</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重新加载</span></span><br><span class="line">source ~/.bashrc	</span><br><span class="line">. /etc/profile </span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
 
 <p><strong>.bashrc文件的配置仅当前用户生效</strong></p>
 <p><strong>/etc/profile文件的配置对所有用户生效</strong></p>
@@ -430,7 +438,7 @@
 <p>再次输入该命令应该就OK了</p>
 <h3 id="下载过慢的解决方法"><a href="#下载过慢的解决方法" class="headerlink" title="下载过慢的解决方法"></a>下载过慢的解决方法</h3><p>给docker添加镜像</p>
 <p>添加阿里云镜像：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 有就修改，没有就创建</span></span><br><span class="line">vi /etc/docker/daemon.json</span><br><span class="line"><span class="meta">#</span><span class="bash"> 文件内编辑配置  注意：这里yourID需要自行注册替换</span></span><br><span class="line">&#123;</span><br><span class="line">          "registry-mirrors": ["https://&#123;yourId&#125;.mirror.aliyuncs.com"]</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 写完保存，重启docker</span></span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意阿里的镜像需要你先注册阿里云账户，详细地址https://www.aliyun.com/product/acr?spm=5176.10695662.1362911.1.3ae2262cdaoPFB</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 有就修改，没有就创建</span></span><br><span class="line">vi /etc/docker/daemon.json</span><br><span class="line"><span class="meta">#</span><span class="bash"> 文件内编辑配置  注意：这里yourID需要自行注册替换</span></span><br><span class="line">&#123;</span><br><span class="line">          "registry-mirrors": ["https://&#123;yourId&#125;.mirror.aliyuncs.com"]</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 写完保存，重启docker</span></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 注意阿里的镜像需要你先注册阿里云账户，详细地址https://www.aliyun.com/product/acr?spm=5176.10695662.1362911.1.3ae2262cdaoPFB</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 检查是否配置好</span></span><br><span class="line">docker info</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在底部看到你的加速地址则说明ok</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="下载内容"><a href="#下载内容" class="headerlink" title="下载内容"></a>下载内容</h3><p>这个命令下载的内容分为三个部分：</p>
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201006170745.png" alt=""></p>
@@ -461,6 +469,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd hyperledger-fabric/fabric-samples/bin</span><br><span class="line">sudo cp * /usr/local/bin</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果/usr/<span class="built_in">local</span>/bin已经在PATH中了就已经完成了，没有的话加入到PATH中</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看PATH</span></span><br><span class="line">echo $PATH</span><br></pre></td></tr></table></figure>
 
 <h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><h2 id="1-重新登录"><a href="#1-重新登录" class="headerlink" title="1. 重新登录"></a>1. 重新登录</h2><p>重新登录了以后可能会导致没有权限，这时再把自己添加到docker用户组中即可=&gt;  <code>newgrp - docker</code></p>
+<h2 id="2-安装Fabric出现错误"><a href="#2-安装Fabric出现错误" class="headerlink" title="2. 安装Fabric出现错误"></a>2. 安装Fabric出现错误</h2><p>如果这个bug一直无法解决，最好的办法就是重新装系统，重新安装环境，多来几次就可以了（微笑.jpg）。</p>
+<p>（ps: 说多了都是泪）</p>
 
       
       
@@ -482,13 +492,13 @@
     2020-10-05
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-10-08
+    2020-10-12
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/区块链/Fabric/Fabric框架的学习-1-基础准备/" title="Fabric框架的学习" target="_blank">Fabric框架的学习</a>
+    <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/区块链/Fabric/Fabric框架的学习-1-基础准备/" title="Fabric框架的学习-1-基础准备" target="_blank">Fabric框架的学习-1-基础准备</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/区块链/Fabric/Fabric框架的学习-1-基础准备/" title="Fabric框架的学习" target="_blank">https://xwjahahahaha.github.io/2020/10/05/技术贴/区块链/Fabric/Fabric框架的学习-1-基础准备/</a>
+    <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/区块链/Fabric/Fabric框架的学习-1-基础准备/" title="Fabric框架的学习-1-基础准备" target="_blank">https://xwjahahahaha.github.io/2020/10/05/技术贴/区块链/Fabric/Fabric框架的学习-1-基础准备/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -692,7 +702,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Shell脚本基础"><span class="toc-number">1.</span> <span class="toc-text">一、Shell脚本基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-概念"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-基本格式"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 基本格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-shell脚本的执行"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 shell脚本的执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-shell脚本中的变量"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 shell脚本中的变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-条件判断和循环"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 条件判断和循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-shell脚本中的函数"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 shell脚本中的函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Fabric基本概念"><span class="toc-number">2.</span> <span class="toc-text">二、Fabric基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-安装docker"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-安装docker-compose"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 安装docker-compose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-go环境的安装"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 go环境的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-nodejs的安装"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 nodejs的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-部署hyperledger-Fabric"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 部署hyperledger Fabric</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#拒绝访问的解决方法"><span class="toc-number">2.5.1.</span> <span class="toc-text">拒绝访问的解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#step-1"><span class="toc-number">2.5.1.1.</span> <span class="toc-text">step-1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#step-2"><span class="toc-number">2.5.1.2.</span> <span class="toc-text">step-2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载过慢的解决方法"><span class="toc-number">2.5.2.</span> <span class="toc-text">下载过慢的解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载内容"><span class="toc-number">2.5.3.</span> <span class="toc-text">下载内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-配置环境变量"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 配置环境变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tips"><span class="toc-number">3.</span> <span class="toc-text">Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-重新登录"><span class="toc-number">3.1.</span> <span class="toc-text">1. 重新登录</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Shell脚本基础"><span class="toc-number">1.</span> <span class="toc-text">一、Shell脚本基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-概念"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-基本格式"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 基本格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-shell脚本的执行"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 shell脚本的执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-shell脚本中的变量"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 shell脚本中的变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-条件判断和循环"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 条件判断和循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-shell脚本中的函数"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 shell脚本中的函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Fabric基本概念"><span class="toc-number">2.</span> <span class="toc-text">二、Fabric基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-安装docker"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-安装docker-compose"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 安装docker-compose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-go环境的安装"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 go环境的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-nodejs的安装"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 nodejs的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-部署hyperledger-Fabric"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 部署hyperledger Fabric</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#拒绝访问的解决方法"><span class="toc-number">2.5.1.</span> <span class="toc-text">拒绝访问的解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#step-1"><span class="toc-number">2.5.1.1.</span> <span class="toc-text">step-1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#step-2"><span class="toc-number">2.5.1.2.</span> <span class="toc-text">step-2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载过慢的解决方法"><span class="toc-number">2.5.2.</span> <span class="toc-text">下载过慢的解决方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载内容"><span class="toc-number">2.5.3.</span> <span class="toc-text">下载内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-配置环境变量"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 配置环境变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tips"><span class="toc-number">3.</span> <span class="toc-text">Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-重新登录"><span class="toc-number">3.1.</span> <span class="toc-text">1. 重新登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装Fabric出现错误"><span class="toc-number">3.2.</span> <span class="toc-text">2. 安装Fabric出现错误</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
