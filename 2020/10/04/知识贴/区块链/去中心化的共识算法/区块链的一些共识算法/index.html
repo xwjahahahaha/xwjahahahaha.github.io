@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/94bc470403fe60b64c220473409ff1c0.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/e1c0ff24789120dded076c6616e3d47d.png">
 <meta property="article:published_time" content="2020-10-04T03:10:48.000Z">
-<meta property="article:modified_time" content="2020-10-12T08:01:12.356Z">
+<meta property="article:modified_time" content="2020-10-19T08:39:26.486Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="block_chain">
 <meta name="twitter:card" content="summary">
@@ -255,8 +255,8 @@
 <p>在分布式系统中，特别是在区块链网络环境中，也和拜占庭将军的环境类似，有运行正常的服务器（类似忠诚的拜占庭将军），有故障的服务器，还有破坏者的服务器（类似叛变的拜占庭将军）。<strong>共识算法的核心是在正常的节点间形成对网络状态的共识。</strong></p>
 <p>通常，这些发生故障节点被称为<strong>拜占庭节点</strong>，而正常的节点即为<strong>非拜占庭节点</strong>。</p>
 <p>拜占庭容错系统是一个拥有n台节点的系统，整个系统对于每一个请求，满足以下条件：</p>
-<p>1）所有非拜占庭节点使用相同的输入信息，产生同样的结果；</p>
-<p>2）如果输入的信息正确，那么所有非拜占庭节点<u>必须接收这个信息</u>，并计算相应的结果。</p>
+<p>1）所有非拜占庭节点<strong>使用相同的输入信息，产生同样的结果</strong>；</p>
+<p>2）如果输入的信息正确，那么所有非拜占庭节点<strong><u>必须接收这个信息</u></strong>，并计算相应的结果。</p>
 <p>拜占庭系统普遍采用的假设条件包括：</p>
 <p>1）拜占庭节点的行为可以是任意的，拜占庭节点之间可以共谋；</p>
 <p>2）节点之间的错误是不相关的；</p>
@@ -281,7 +281,7 @@
 <li>新Primary当选时，根据自己收集的View-Change消息，发送View-New信息，让其它节点同步数据</li>
 <li>Primary与所有的其它节点维系心跳</li>
 </ol>
-<p><u>Primary节点地位和follower节点一样，并没有什么特权</u></p>
+<p><font color='orange'><u>Primary节点地位和follower节点一样，并没有什么特权</u></font></p>
 <ol>
 <li><p>如果Primary宕机，会因为心跳超时，而触发重新选举，保证系统运行稳定</p>
 </li>
@@ -339,7 +339,7 @@
 <p>　　4）以后通过心跳进行记账的通知。</p>
 <p>　　5）一旦这个leader崩溃了，那么follower中有一个成为候选者，并发出邀票选举。</p>
 <p>　　6）follower同意后，其成为leader，继续承担记账等指导工作。</p>
-<h3 id="3-2-Log-Replication"><a href="#3-2-Log-Replication" class="headerlink" title="3.2 Log Replication"></a>3.2 Log Replication</h3><p>Raft的记账过程按以下步骤完成：</p>
+<h2 id="3-2-Log-Replication"><a href="#3-2-Log-Replication" class="headerlink" title="3.2 Log Replication"></a>3.2 Log Replication</h2><p>Raft的记账过程按以下步骤完成：</p>
 <p>　　1）假设leader领导人已经选出，这时客户端发出增加一个日志的要求；</p>
 <p>　　2）leader要求follower遵从他的指令，都将这个新的日志内容追加到他们各自日志中；</p>
 <p>　　3）大多数follower服务器将交易记录写入账本后，确认追加成功，发出确认成功信息；</p>
@@ -409,7 +409,7 @@
     2020-10-04
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-10-12
+    2020-10-19
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/10/04/知识贴/区块链/去中心化的共识算法/区块链的一些共识算法/" title="区块链的一些共识算法" target="_blank">区块链的一些共识算法</a>
@@ -619,7 +619,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#共识机制"><span class="toc-number">1.</span> <span class="toc-text">共识机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-拜占庭容错技术（Byzantine-Fault-Tolerance，BFT）拜占庭容错技术"><span class="toc-number">1.1.</span> <span class="toc-text">1. 拜占庭容错技术（Byzantine Fault Tolerance，BFT）拜占庭容错技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-PBFT（Practical-Byzantine-Fault-Tolerance）实用拜占庭容错算法"><span class="toc-number">1.2.</span> <span class="toc-text">2. PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#节点角色："><span class="toc-number">1.2.1.</span> <span class="toc-text">节点角色：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法介绍"><span class="toc-number">1.2.2.</span> <span class="toc-text">算法介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容错率"><span class="toc-number">1.3.</span> <span class="toc-text">容错率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Raft协议"><span class="toc-number">1.4.</span> <span class="toc-text">3. Raft协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Leader-Election"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 Leader Election</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Log-Replication"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2 Log Replication</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-POW（Proof-of-Work）工作量证明"><span class="toc-number">1.5.</span> <span class="toc-text">4. POW（Proof of Work）工作量证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-POS（Proof-of-Stake）权益证明-股权证明"><span class="toc-number">1.6.</span> <span class="toc-text">5. POS（Proof of Stake）权益证明&#x2F;股权证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-DPOS-Delegated-Proof-of-Stake-委任权益证明"><span class="toc-number">1.7.</span> <span class="toc-text">6. DPOS(Delegated Proof of Stake) 委任权益证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Ripple共识算法"><span class="toc-number">1.8.</span> <span class="toc-text">7. Ripple共识算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法的选择"><span class="toc-number">2.</span> <span class="toc-text">算法的选择</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#共识机制"><span class="toc-number">1.</span> <span class="toc-text">共识机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-拜占庭容错技术（Byzantine-Fault-Tolerance，BFT）拜占庭容错技术"><span class="toc-number">1.1.</span> <span class="toc-text">1. 拜占庭容错技术（Byzantine Fault Tolerance，BFT）拜占庭容错技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-PBFT（Practical-Byzantine-Fault-Tolerance）实用拜占庭容错算法"><span class="toc-number">1.2.</span> <span class="toc-text">2. PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#节点角色："><span class="toc-number">1.2.1.</span> <span class="toc-text">节点角色：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法介绍"><span class="toc-number">1.2.2.</span> <span class="toc-text">算法介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容错率"><span class="toc-number">1.3.</span> <span class="toc-text">容错率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Raft协议"><span class="toc-number">1.4.</span> <span class="toc-text">3. Raft协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Leader-Election"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 Leader Election</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Log-Replication"><span class="toc-number">1.5.</span> <span class="toc-text">3.2 Log Replication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-POW（Proof-of-Work）工作量证明"><span class="toc-number">1.6.</span> <span class="toc-text">4. POW（Proof of Work）工作量证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-POS（Proof-of-Stake）权益证明-股权证明"><span class="toc-number">1.7.</span> <span class="toc-text">5. POS（Proof of Stake）权益证明&#x2F;股权证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-DPOS-Delegated-Proof-of-Stake-委任权益证明"><span class="toc-number">1.8.</span> <span class="toc-text">6. DPOS(Delegated Proof of Stake) 委任权益证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Ripple共识算法"><span class="toc-number">1.9.</span> <span class="toc-text">7. Ripple共识算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#算法的选择"><span class="toc-number">2.</span> <span class="toc-text">算法的选择</span></a></li></ol>
                     </div>
                 </span>
             </div>
