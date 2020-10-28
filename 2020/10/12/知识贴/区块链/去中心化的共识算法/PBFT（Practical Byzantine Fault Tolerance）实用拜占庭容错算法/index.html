@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法实用拜占庭容错系统（PBFT）降低了拜占庭协议的运行复杂度，从指数级别降低到多项式级别（Polynomial），使拜占庭协议在分布式系统中应用成为可能。 节点角色：Primary节点和普通节点，PBFT系统的Primary是轮流当选的，这和zab、raft不一样  主节点 p &#x3D; v mod |R|">
+  <meta name="description" content="PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法相关视频：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1B64y1c7Vf?from&#x3D;search&amp;seid&#x3D;11829146549223774066 实用拜占庭容错系统（PBFT）降低了拜占庭协议的运行复杂度，从指数级别降低到多项式级别（Polynomial），使拜占">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/12/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/PBFT%EF%BC%88Practical%20Byzantine%20Fault%20Tolerance%EF%BC%89%E5%AE%9E%E7%94%A8%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%AE%B9%E9%94%99%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法实用拜占庭容错系统（PBFT）降低了拜占庭协议的运行复杂度，从指数级别降低到多项式级别（Polynomial），使拜占庭协议在分布式系统中应用成为可能。 节点角色：Primary节点和普通节点，PBFT系统的Primary是轮流当选的，这和zab、raft不一样  主节点 p &#x3D; v mod |R|">
+<meta property="og:description" content="PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法相关视频：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1B64y1c7Vf?from&#x3D;search&amp;seid&#x3D;11829146549223774066 实用拜占庭容错系统（PBFT）降低了拜占庭协议的运行复杂度，从指数级别降低到多项式级别（Polynomial），使拜占">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-12T07:42:54.000Z">
-<meta property="article:modified_time" content="2020-10-12T07:53:26.223Z">
+<meta property="article:modified_time" content="2020-10-24T07:02:15.467Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="block_chain">
 <meta name="twitter:card" content="summary">
@@ -73,7 +73,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 222
+			总文章数 226
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -212,7 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">636字</span>
+        <span class="post-count">651字</span>
       </span>
     </span>
 
@@ -233,7 +233,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="PBFT（Practical-Byzantine-Fault-Tolerance）实用拜占庭容错算法"><a href="#PBFT（Practical-Byzantine-Fault-Tolerance）实用拜占庭容错算法" class="headerlink" title="PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法"></a>PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法</h1><p>实用拜占庭容错系统（PBFT）降低了拜占庭协议的运行复杂度，<strong>从指数级别降低到多项式级别（Polynomial）</strong>，使拜占庭协议在分布式系统中应用成为可能。</p>
+        <h1 id="PBFT（Practical-Byzantine-Fault-Tolerance）实用拜占庭容错算法"><a href="#PBFT（Practical-Byzantine-Fault-Tolerance）实用拜占庭容错算法" class="headerlink" title="PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法"></a>PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法</h1><p>相关视频：<a href="https://www.bilibili.com/video/BV1B64y1c7Vf?from=search&amp;seid=11829146549223774066" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1B64y1c7Vf?from=search&amp;seid=11829146549223774066</a></p>
+<p>实用拜占庭容错系统（PBFT）降低了拜占庭协议的运行复杂度，<strong>从指数级别降低到多项式级别（Polynomial）</strong>，使拜占庭协议在分布式系统中应用成为可能。</p>
 <h3 id="节点角色："><a href="#节点角色：" class="headerlink" title="节点角色："></a>节点角色：</h3><p>Primary节点和普通节点，PBFT系统的Primary是轮流当选的，这和zab、raft不一样</p>
 <ul>
 <li>主节点 p = v mod |R|</li>
@@ -294,7 +295,7 @@
     2020-10-12
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-10-12
+    2020-10-24
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/10/12/知识贴/区块链/去中心化的共识算法/PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法/" title="PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法" target="_blank">PBFT（Practical Byzantine Fault Tolerance）实用拜占庭容错算法</a>
