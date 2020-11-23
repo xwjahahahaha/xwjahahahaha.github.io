@@ -8,16 +8,33 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>Go语言基础-2 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="三、Go进阶总结1. goroutine1.1 进程与线程：">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Go语言基础-2">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2020/11/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-2/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
+<meta property="og:description" content="三、Go进阶总结1. goroutine1.1 进程与线程：">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193733.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193959.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122194040.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122194855.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122201217.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122201831.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122202016.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122202033.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122202508.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122204102.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122205458.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122210208.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122211012.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122213233.png">
 <meta property="article:published_time" content="2020-11-16T08:26:40.000Z">
-<meta property="article:modified_time" content="2020-11-16T08:28:55.803Z">
+<meta property="article:modified_time" content="2020-11-22T13:53:19.144Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193733.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -71,7 +88,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 243
+			总文章数 249
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -216,7 +233,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">0字</span>
+        <span class="post-count">2.5k字</span>
       </span>
     </span>
 
@@ -225,7 +242,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">9分</span>
       </span>
     </span>
 </div>
@@ -237,7 +254,157 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><a id="more"></a>
+        <h1 id="三、Go进阶总结"><a href="#三、Go进阶总结" class="headerlink" title="三、Go进阶总结"></a>三、Go进阶总结</h1><h3 id="1-goroutine"><a href="#1-goroutine" class="headerlink" title="1. goroutine"></a>1. goroutine</h3><h4 id="1-1-进程与线程："><a href="#1-1-进程与线程：" class="headerlink" title="1.1 进程与线程："></a>1.1 进程与线程：</h4><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193733.png" alt=""></p>
+<a id="more"></a>
+
+<h4 id="1-2-并发与并行"><a href="#1-2-并发与并行" class="headerlink" title="1.2 并发与并行"></a>1.2 并发与并行</h4><p>1) 多线程程序在<strong>单核</strong>上运行，就是<strong>并发</strong><br>2) 多线程程序在<strong>多核</strong>上运行，就是<strong>并行</strong></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193959.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122194040.png" alt=""></p>
+<h4 id="1-3-Go协程（goroutine）和Go主线程"><a href="#1-3-Go协程（goroutine）和Go主线程" class="headerlink" title="1.3 Go协程（goroutine）和Go主线程"></a>1.3 Go协程（goroutine）和Go主线程</h4><p>Go 主线程(有程序员直接称为线程/也可以理解成进程): 一个Go 线程上，可以起多个协程，可以这样理解，<strong>协程是轻量级的线程[编译器做优化]。</strong></p>
+<p>理解： <strong>Go主线程  类比于  进程   Go协程  类比于  优化后的线程</strong></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122194855.png" alt=""></p>
+<p><strong><font color='red'>Go 协程的特点：</font></strong></p>
+<p>1) <strong>有独立的栈空间</strong><br>2) <strong>共享程序堆空间</strong><br>3) <strong>调度由用户控制</strong><br>4) 协程是轻量级的线程</p>
+<h4 id="1-4-进程、线程、协程的进一步理解"><a href="#1-4-进程、线程、协程的进一步理解" class="headerlink" title="1.4 进程、线程、协程的进一步理解"></a>1.4 进程、线程、协程的进一步理解</h4><p>进程、线程、协程对比</p>
+<p>通俗描述</p>
+<p>有一个老板想要开个工厂进行生产某件商品（例如剪子）<br>他需要花一些财力物力制作一条生产线，这个生产线上有很多的器件以及材料这些所有的 为了能够<u>生产剪子而准备的资源称之为：进程</u></p>
+<p>只有生产线是不能够进行生产的，所以老板的找个工人来进行生产，这个工人能够利用这些材料最终一步步的将剪子做出来，这个<u>来做事情的工人称之为：线程</u></p>
+<p>这个老板为了提高生产率，想到3种办法：</p>
+<blockquote>
+<p>方式1</p>
+<p> 在这条生产线上多招些工人，一起来做剪子，这样效率是成倍増长，即<font color='red'>单进程 多线程</font></p>
+<p>方式 2<br>老板发现这条生产线上的工人不是越多越好，因为一条生产线的资源以及材料毕竟有限，所以老板又花了些财力物力购置了另外一条生产线，然后再招些工人这样效率又再一步提高了，即<font color='red'>多进程 多线程</font></p>
+<p>方式 3<br>老板发现，现在已经有了很多条生产线，并且每条生产线上已经有很多工人了（即程序是多进程的，每个进程中又有多个线程），为了再次提高效率，老板想了个损招，<br>规定：如果某个员工在上班时临时没事或者再等待某些条件（比如等待另一个工人生产完谋道工序 之后他才能再次工作） ，那么这个员工就利用这个时间去做其它的事情， 那么也就是说：<strong>如果一个线程等待某些条件，可以充分利用这个时间去做其它事情</strong>，其实这就是：<font color='red'>协程</font>方式</p>
+</blockquote>
+<p>简单总结<br>1 <strong>进程是资源分配的单位</strong><br>2 <strong>线程是操作系统调度的单位</strong><br>3 进程切换需要的资源很最大，效率很低<br>4 线程切换需要的资源一般，效率一般<br>5 <strong>协程切换任务资源很小，效率高</strong><br>6 <strong>多进程、多线程根据cpu核数不一样可能是并行的 也可能是并发的</strong>。<font color='green'><strong>协程的本质就是使用当前进程在不同的函数代码中切换执行，可以理解为并行</strong></font>。 协程是一个用户层面的概念，<strong>不同协程的模型实现可能是单线程，也可能是多线程</strong>。</p>
+<p><strong>进程拥有自己独立的堆和栈，既不共享堆，亦不共享栈</strong>，<strong>进程由操作系统调度</strong>。（全局变量保存在堆中，局部变量及函数保存在栈中）</p>
+<p><strong>线程拥有自己独立的栈和共享的堆，共享堆，<u>不共享栈</u></strong>，<strong>线程亦由操作系统调度</strong>(标准线程是这样的)。</p>
+<p><strong>协程和线程一样共享堆，<u>不共享栈</strong></u>，<font color='red'><strong>协程由程序员在协程的代码里显式调度</strong>。</font></p>
+<p><strong>一个应用程序一般对应一个进程，一个进程一般有一个主线程，还有若干个辅助线程，<u>线程之间是平行运行的，在线程里面可以开启协程</u>，让程序在特定的时间内运行。</strong></p>
+<p>协程和线程的区别是：</p>
+<p><strong>协程避免了无意义的调度，由此可以提高性能，但也因此，<u>程序员必须自己承担调度的责任</u>，同时，<u>协程也失去了标准线程使用多CPU的能力</u>。</strong></p>
+<h4 id="1-5-协程的使用："><a href="#1-5-协程的使用：" class="headerlink" title="1.5 协程的使用："></a>1.5 协程的使用：</h4><p>传统的写法，会先执行test，在执行主线程下面的内容</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;=<span class="number">10</span>; i++ &#123;</span><br><span class="line">		fmt.Println(<span class="string">"test : Hello"</span>)</span><br><span class="line">		time.Sleep(time.Second)	<span class="comment">//每一秒休眠一次</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	test()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;=<span class="number">10</span>; i++ &#123;</span><br><span class="line">		fmt.Println(<span class="string">"main : Hello"</span>)</span><br><span class="line">		time.Sleep(time.Second)	<span class="comment">//每一秒休眠一次</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用协程的写法：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;=<span class="number">10</span>; i++ &#123;</span><br><span class="line">		fmt.Println(<span class="string">"test : Hello"</span>)</span><br><span class="line">		time.Sleep(time.Second)	<span class="comment">//每一秒休眠一次</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">go</span> test()  <span class="comment">//只需要加个go  开启一个协程</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;=<span class="number">10</span>; i++ &#123;</span><br><span class="line">		fmt.Println(<span class="string">"main : Hello"</span>)</span><br><span class="line">		time.Sleep(time.Second)	<span class="comment">//每一秒休眠一次</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//交替调用  test与主线程同时执行</span></span><br><span class="line">test : Hello <span class="number">0</span></span><br><span class="line">main : Hello <span class="number">0</span></span><br><span class="line">main : Hello <span class="number">1</span></span><br><span class="line">test : Hello <span class="number">1</span></span><br><span class="line">test : Hello <span class="number">2</span></span><br><span class="line">main : Hello <span class="number">2</span></span><br><span class="line">main : Hello <span class="number">3</span></span><br><span class="line">test : Hello <span class="number">3</span></span><br><span class="line">test : Hello <span class="number">4</span></span><br><span class="line">main : Hello <span class="number">4</span></span><br><span class="line">test : Hello <span class="number">5</span></span><br><span class="line">main : Hello <span class="number">5</span></span><br><span class="line">test : Hello <span class="number">6</span></span><br><span class="line">main : Hello <span class="number">6</span></span><br><span class="line">test : Hello <span class="number">7</span></span><br><span class="line">main : Hello <span class="number">7</span></span><br><span class="line">test : Hello <span class="number">8</span></span><br><span class="line">main : Hello <span class="number">8</span></span><br><span class="line">test : Hello <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<p>程序执行的流程图：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122201217.png" alt=""></p>
+<p><font color='red'><strong>协程的结束与否以主线程的运行为准</strong></font></p>
+<ol>
+<li><p>主线程是一个物理线程，直接作用在cpu 上（操作系统控制）的。是重量级的，<strong>非常耗费cpu 资源</strong>。</p>
+</li>
+<li><p>协程从主线程开启的，是轻量级的线程，是逻辑态。对资源消耗相对小。</p>
+</li>
+<li><p>Golang 的协程机制是重要的特点，<strong>可以轻松的开启上万个协程</strong>。<u>其它编程语言的并发机制是一般基于线程的</u>，开启过多的线程，资源耗费大，这里就突显Golang 在并发上的优势了</p>
+</li>
+</ol>
+<p>理解：<font color='green'>其实协程就是轻量级的线程，golang通过程序员控制这样的协程去避免大量线程的创建，从而实现强大的并发功能</font></p>
+<h4 id="1-6-goroutine的调度模型"><a href="#1-6-goroutine的调度模型" class="headerlink" title="1.6 goroutine的调度模型"></a>1.6 goroutine的调度模型</h4><p>MPG 模式基本介绍：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122201831.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122202016.png" alt=""></p>
+<h5 id="MPG-模式运行的状态1"><a href="#MPG-模式运行的状态1" class="headerlink" title="MPG 模式运行的状态1"></a>MPG 模式运行的状态1</h5><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122202033.png" alt=""></p>
+<h5 id="MPG-模式运行的状态2"><a href="#MPG-模式运行的状态2" class="headerlink" title="MPG 模式运行的状态2"></a>MPG 模式运行的状态2</h5><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122202508.png" alt=""></p>
+<p>理解：<font color='red'>动态的为单个线程中的协程队列切换其他线程（在线程池中取）执行</font></p>
+<h4 id="1-7-设置Golang-运行的cpu-数"><a href="#1-7-设置Golang-运行的cpu-数" class="headerlink" title="1.7 设置Golang 运行的cpu 数"></a>1.7 设置Golang 运行的cpu 数</h4><p>学习包：<strong><font color='red'>runtime</font></strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//获取当前系统逻辑CPU个数</span></span><br><span class="line">	numCPU := runtime.NumCPU()</span><br><span class="line">	fmt.Println(numCPU)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//设置最多运行的cpu个数</span></span><br><span class="line">	runtime.GOMAXPROCS(runtime.NumCPU() - <span class="number">1</span>)</span><br><span class="line">	fmt.Println(<span class="string">"ok"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122204102.png" alt=""></p>
+<h2 id="2-channel管道"><a href="#2-channel管道" class="headerlink" title="2.channel管道"></a>2.channel管道</h2><h3 id="2-1-协程资源共享问题"><a href="#2-1-协程资源共享问题" class="headerlink" title="2.1 协程资源共享问题"></a>2.1 协程资源共享问题</h3><p>例子：需求：现在要计算1-200 的各个数的阶乘，并且把各个数的阶乘放入到map 中。最后显示出来。要求使用goroutine 完成</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newMap = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">int</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Cal</span><span class="params">(a <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> res <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= a; i++ &#123;</span><br><span class="line">		res *= i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//写入</span></span><br><span class="line">	newMap[a] = res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">1</span>; i&lt;=<span class="number">200</span>; i++ &#123;</span><br><span class="line">		<span class="comment">//多协程计算</span></span><br><span class="line">		<span class="keyword">go</span> Cal(i)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> i, v := <span class="keyword">range</span> newMap &#123;</span><br><span class="line">		fmt.Println(i,<span class="string">" : "</span>, v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码逻辑上没有问题，但是程序执行起来就会出现问题：<strong><font color='red'>资源竞争</font></strong></p>
+<p><strong>go判断是否会出现资源竞争问题：在go run 运行的时候添加参数 -race</strong></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122205458.png" alt=""></p>
+<p>1) 使用goroutine 来完成，效率高，但是会<strong>出现并发/并行安全问题</strong>.<br>2) 这里就提出了<strong>不同goroutine 如何通信的问题</strong></p>
+<p><strong>多个协程同时对一个map空间写入：</strong></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122210208.png" alt=""></p>
+<h3 id="2-2-解决方法："><a href="#2-2-解决方法：" class="headerlink" title="2.2 解决方法："></a>2.2 解决方法：</h3><h5 id="2-2-1-全局变量锁"><a href="#2-2-1-全局变量锁" class="headerlink" title="2.2.1 全局变量锁"></a>2.2.1 全局变量锁</h5><p>加入<strong>全局变量锁</strong>机制</p>
+<p>包：<font color='red'><strong>sync</strong></font></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122211012.png" alt=""></p>
+<p>代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	newMap = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">int</span>, <span class="number">100</span>)</span><br><span class="line">	lock sync.Mutex</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Cal</span><span class="params">(a <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	res := <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= a; i++ &#123;</span><br><span class="line">		res *= i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//写入</span></span><br><span class="line">	lock.Lock()  <span class="comment">//锁住资源</span></span><br><span class="line">	newMap[a] = res</span><br><span class="line">	lock.Unlock() <span class="comment">//写入完毕后，解锁</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">1</span>; i&lt;=<span class="number">10</span>; i++ &#123;</span><br><span class="line">		<span class="comment">//多协程计算</span></span><br><span class="line">		<span class="keyword">go</span> Cal(i)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	time.Sleep(time.Second * <span class="number">5</span>) <span class="comment">//添加睡眠，让主线程等待协程结束</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i, v := <span class="keyword">range</span> newMap &#123;</span><br><span class="line">		fmt.Println(i,<span class="string">" : "</span>, v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这种方法不是推荐的方法，因为不知道主进程要等多久，channel是更好的办法</strong></p>
+<p>1.<strong>主线程在等待所有goroutine 全部完成的时间很难确定</strong>，我们这里设置10 秒，仅仅是估算。</p>
+<p>2.如果主线程休眠时间长了，会加长等待时间，如果等待时间短了，可能还有goroutine 处于工作<br>状态，这时也会随主线程的退出而销毁</p>
+<p>3.<strong>通过全局变量加锁同步来实现通讯，也并不利用多个协程对全局变量的读写操作。</strong></p>
+<p>4.上面种种分析都在呼唤一个新的通讯机制-channel</p>
+<h3 id="2-3-channel"><a href="#2-3-channel" class="headerlink" title="2.3 channel"></a>2.3 channel</h3><h4 id="2-3-1-概念"><a href="#2-3-1-概念" class="headerlink" title="2.3.1 概念"></a>2.3.1 概念</h4><p>1) channle 本质就是一个<strong>数据结构-队列</strong>【示意图】<br>2) 数据是先进先出<strong>【FIFO : first in first out】</strong><br>3) <font color='red'>线程安全，多goroutine 访问时，不需要加锁</font>，就是说<strong>channel 本身就是线程安全</strong>的。<font color='red'><strong>不管多少协程通过管道去操作共享资源都可以认为是安全的，由底层编译器实现</strong></font><br>4) <strong>channel 有类型</strong>的，一个string 的channel 只能存放string 类型数据。</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122213233.png" alt=""></p>
+<h4 id="2-3-2-基本语法"><a href="#2-3-2-基本语法" class="headerlink" title="2.3.2 基本语法"></a>2.3.2 基本语法</h4><ul>
+<li>var 变量名 chan 数据类型</li>
+<li>举例：<br>var intChan chan int (intChan 用于存放int 数据)<br>var mapChan chan map[int]string (mapChan 用于存放map[int]string 类型)<br>var perChan chan Person<br>var perChan2 chan *Person<br>…</li>
+</ul>
+<p>说明：</p>
+<ol>
+<li><p>channel 是引用类型</p>
+</li>
+<li><p><strong>channel 必须初始化（make）才能写入数据, 即make 后才能使用</strong></p>
+</li>
+<li><p>管道是有类型的，intChan 只能写入整数int</p>
+</li>
+<li><p><font color='red'><strong>channel是在创建时固定大小的，不能够自动扩容（能自动扩容点的目前就是map）</strong></font></p>
+</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//创建一个channel</span></span><br><span class="line">	<span class="keyword">var</span> intChannel <span class="keyword">chan</span> <span class="keyword">int</span></span><br><span class="line">	<span class="comment">//初始化</span></span><br><span class="line">	intChannel = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">3</span>)</span><br><span class="line">	<span class="comment">//输出一下</span></span><br><span class="line">	fmt.Println(intChannel)</span><br><span class="line">	fmt.Println(<span class="string">"容量:"</span>,<span class="built_in">cap</span>(intChannel), <span class="built_in">len</span>(intChannel)) <span class="comment">//3 0</span></span><br><span class="line">	<span class="comment">//加入数据进管道</span></span><br><span class="line">	intChannel&lt;- <span class="number">1</span></span><br><span class="line">	num := <span class="number">55</span></span><br><span class="line">	intChannel&lt;- num</span><br><span class="line">	<span class="comment">//输出容量</span></span><br><span class="line">	fmt.Println(<span class="string">"容量:"</span>,<span class="built_in">cap</span>(intChannel), <span class="built_in">len</span>(intChannel))<span class="comment">// 3 2</span></span><br><span class="line">	<span class="comment">//取管道，读取数据</span></span><br><span class="line">	num2 := &lt;-intChannel</span><br><span class="line">	fmt.Println(num2)		<span class="comment">//1</span></span><br><span class="line">	num3 := &lt;-intChannel</span><br><span class="line">	fmt.Println(num3)		<span class="comment">//55</span></span><br><span class="line">    <span class="comment">//先进先出， 多取会报错</span></span><br><span class="line">	fmt.Println(<span class="string">"容量:"</span>,<span class="built_in">cap</span>(intChannel), <span class="built_in">len</span>(intChannel))<span class="comment">// 3 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
       
@@ -260,7 +427,7 @@
     2020-11-16
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-11-16
+    2020-11-22
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/11/16/技术贴/GoLang/Go语言基础-2/" title="Go语言基础-2" target="_blank">Go语言基础-2</a>
@@ -432,11 +599,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/11/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0096/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/11/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          日记_0096
+          406-根据身高重建队列
         
       </div>
     </a>
@@ -470,7 +637,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Go进阶总结"><span class="toc-number">1.</span> <span class="toc-text">三、Go进阶总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-goroutine"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. goroutine</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-进程与线程："><span class="toc-number">1.0.1.1.</span> <span class="toc-text">1.1 进程与线程：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-并发与并行"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">1.2 并发与并行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-Go协程（goroutine）和Go主线程"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">1.3 Go协程（goroutine）和Go主线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-进程、线程、协程的进一步理解"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">1.4 进程、线程、协程的进一步理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-协程的使用："><span class="toc-number">1.0.1.5.</span> <span class="toc-text">1.5 协程的使用：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-goroutine的调度模型"><span class="toc-number">1.0.1.6.</span> <span class="toc-text">1.6 goroutine的调度模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#MPG-模式运行的状态1"><span class="toc-number">1.0.1.6.1.</span> <span class="toc-text">MPG 模式运行的状态1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MPG-模式运行的状态2"><span class="toc-number">1.0.1.6.2.</span> <span class="toc-text">MPG 模式运行的状态2</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-设置Golang-运行的cpu-数"><span class="toc-number">1.0.1.7.</span> <span class="toc-text">1.7 设置Golang 运行的cpu 数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-channel管道"><span class="toc-number">1.1.</span> <span class="toc-text">2.channel管道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-协程资源共享问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">2.1 协程资源共享问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-解决方法："><span class="toc-number">1.1.2.</span> <span class="toc-text">2.2 解决方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-1-全局变量锁"><span class="toc-number">1.1.2.0.1.</span> <span class="toc-text">2.2.1 全局变量锁</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-channel"><span class="toc-number">1.1.3.</span> <span class="toc-text">2.3 channel</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-概念"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">2.3.1 概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-基本语法"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">2.3.2 基本语法</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

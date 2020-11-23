@@ -23,13 +23,14 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201014151215.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201014153852.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201014154156.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201119111205.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201014160849.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201014161920.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201014162016.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201008095209.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201014161734.png">
 <meta property="article:published_time" content="2020-10-14T07:16:48.000Z">
-<meta property="article:modified_time" content="2020-10-14T09:30:11.162Z">
+<meta property="article:modified_time" content="2020-11-19T03:18:53.922Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="fabric">
 <meta name="twitter:card" content="summary">
@@ -87,7 +88,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 243
+			总文章数 249
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -232,7 +233,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.4k字</span>
+        <span class="post-count">2.7k字</span>
       </span>
     </span>
 
@@ -241,7 +242,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">12分</span>
+        <span class="post-count">13分</span>
       </span>
     </span>
 </div>
@@ -300,15 +301,29 @@
 <h5 id="GetStateByPartialCompositeKey-SplitCompositeKey"><a href="#GetStateByPartialCompositeKey-SplitCompositeKey" class="headerlink" title="GetStateByPartialCompositeKey/SplitCompositeKey"></a>GetStateByPartialCompositeKey/SplitCompositeKey</h5><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201014151215.png" alt=""></p>
 <h4 id="3-交易管理相关的方法"><a href="#3-交易管理相关的方法" class="headerlink" title="3. 交易管理相关的方法"></a>3. 交易管理相关的方法</h4><h5 id="GetTxTimestamp"><a href="#GetTxTimestamp" class="headerlink" title="GetTxTimestamp"></a>GetTxTimestamp</h5><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201014153852.png" alt=""></p>
 <h4 id="4-调用其他chaincode的方法"><a href="#4-调用其他chaincode的方法" class="headerlink" title="4. 调用其他chaincode的方法"></a>4. 调用其他chaincode的方法</h4><h5 id="InvokeChaincode"><a href="#InvokeChaincode" class="headerlink" title="InvokeChaincode"></a>InvokeChaincode</h5><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201014154156.png" alt=""></p>
-<h2 id="6-3-chaincode交易的背书策略（endorse）"><a href="#6-3-chaincode交易的背书策略（endorse）" class="headerlink" title="6.3 chaincode交易的背书策略（endorse）"></a>6.3 chaincode交易的背书策略（endorse）</h2><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201014160849.png" alt=""></p>
-<h3 id="6-3-1背书策略的指定-设置"><a href="#6-3-1背书策略的指定-设置" class="headerlink" title="6.3.1背书策略的指定/设置"></a>6.3.1背书策略的指定/设置</h3><p>背书策略在<strong>链码初始化</strong>的时候就需要指定：</p>
+<h2 id="6-3-fabric链码的实现逻辑"><a href="#6-3-fabric链码的实现逻辑" class="headerlink" title="6.3 fabric链码的实现逻辑"></a>6.3 fabric链码的实现逻辑</h2><p><a href="https://www.cnblogs.com/xdyixia/p/11776617.html" target="_blank" rel="noopener">https://www.cnblogs.com/xdyixia/p/11776617.html</a></p>
+<p><strong>链码（chaincode）</strong> 会对 <strong>Fabric应用程序</strong> 发送的交易做出响应，执行代码逻辑，与 <strong>账本</strong> 进行交互。</p>
+<blockquote>
+<p>再复习下他们之间的逻辑关系：<br><font color='red'>Hyperledger Fabric 中，Chaincode 默认运行在 Docker 容器中。Peer 通过调用 Docker API 来创建和启动 Chaincode 容器。Chaincode 容器启动后跟 Peer 之间创建 gRPC 连接，双方通过发送 ChaincodeMessage 来进行交互通信。Chaincode 容器利用 core.chaincode.shim 包提供的接口来向 Peer 发起请求。</font></p>
+</blockquote>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201119111205.png" alt=""></p>
+<p>每个chaincode程序都必须实现<strong>chaincode接口，</strong>接口中的方法会在响应传来的交易时被调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type Chaincode interface &#123;</span><br><span class="line">     Init (stub ChaincodeStubInterface) pb.Response</span><br><span class="line">     Invoke (stub ChaincodeStubInterface)  pb.Response       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Init（初始化）方法</strong>会在chaincode接收到instantiate（实例化）或者upgrade(升级)交易时被调用，进而使得chaincode顺利执行必要的初始化操作，包括初始化应用的状态。</li>
+<li><strong>Invoke（调用）方法</strong>会在响应invoke（调用）交易时被调用以执行交易。</li>
+</ul>
+<p>现在，Fabric支持多种计算机语言实现的链码，包括Golang、JavaScript、Java等。</p>
+<h2 id="6-4-chaincode交易的背书策略（endorse）"><a href="#6-4-chaincode交易的背书策略（endorse）" class="headerlink" title="6.4 chaincode交易的背书策略（endorse）"></a>6.4 chaincode交易的背书策略（endorse）</h2><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201014160849.png" alt=""></p>
+<h3 id="6-4-1背书策略的指定-设置"><a href="#6-4-1背书策略的指定-设置" class="headerlink" title="6.4.1背书策略的指定/设置"></a>6.4.1背书策略的指定/设置</h3><p>背书策略在<strong>链码初始化</strong>的时候就需要指定：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">peer chaincode instantiate -o orderer.xwj.com:7050 --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/xwj.com/orderers/orderer.xwj.com/msp/tlscacerts/tlsca.xwj.com-cert.pem -C xwjchannel -n testcc -l golang -v 1.0 -c '&#123;"Args":["init","a","100","b","200"]&#125;' -P "AND ('OrgGoMSP.member', 'OrgCppMSP.member')"</span><br><span class="line"><span class="meta">#</span><span class="bash"> -P <span class="string">"AND ('OrgGoMASP.member', 'OrgCppMSP.member')"</span>    	</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> AND表示这两个组织中的成员都需要参与，member表示组织中任一节点均可。如果是“OR”则表示任何一个组织成员都可以</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201014161920.png" alt=""></p>
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201014162016.png" alt=""></p>
 <p><font color='red'>背书规则只对chaincode中写入数据的操作进行校验，对于查询类操作不进行背书</font></p>
 <p><font color='red'>Fabric的背书是发生在客户端的，需要进行相关的代码的编写才能完成整个背书的操作</font></p>
-<h3 id="6-3-2-背书策略的调用"><a href="#6-3-2-背书策略的调用" class="headerlink" title="6.3.2 背书策略的调用"></a>6.3.2 背书策略的调用</h3><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201008095209.png" alt=""></p>
+<h3 id="6-4-2-背书策略的调用"><a href="#6-4-2-背书策略的调用" class="headerlink" title="6.4.2 背书策略的调用"></a>6.4.2 背书策略的调用</h3><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201008095209.png" alt=""></p>
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201014161734.png" alt=""></p>
 <p>上面显示的invoke函数调用指定了两个peer背书节点（可以指定任意数量的节点），那么执行时就会先给这个两个节点执行，返回结果后再由orderer节点写进区块中。</p>
 <h1 id="七、链码"><a href="#七、链码" class="headerlink" title="七、链码"></a>七、链码</h1><hr>
@@ -349,7 +364,7 @@
     2020-10-14
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-10-14
+    2020-11-19
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/10/14/技术贴/区块链/Fabric/Fabric框架的学习-4-链码与背书策略/" title="Fabric框架的学习-4-链码与背书策略" target="_blank">Fabric框架的学习-4-链码与背书策略</a>
@@ -559,7 +574,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#六-智能合约"><span class="toc-number">1.</span> <span class="toc-text">六. 智能合约</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-Golang版本的ChainCode的代码结构"><span class="toc-number">1.1.</span> <span class="toc-text">6.1 Golang版本的ChainCode的代码结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-shim包的核心方法"><span class="toc-number">1.2.</span> <span class="toc-text">6.2 shim包的核心方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-1-Response结构"><span class="toc-number">1.2.1.</span> <span class="toc-text">6.2.1 Response结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-2-Success"><span class="toc-number">1.2.2.</span> <span class="toc-text">6.2.2 Success</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-3-Error"><span class="toc-number">1.2.3.</span> <span class="toc-text">6.2.3 Error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-4-LogLevel-设置日志级别"><span class="toc-number">1.2.4.</span> <span class="toc-text">6.2.4 LogLevel  设置日志级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-5-ChaincodeStubInterface接口中的核心方法"><span class="toc-number">1.2.5.</span> <span class="toc-text">6.2.5 ChaincodeStubInterface接口中的核心方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-系统管理常用方法"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">1. 系统管理常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#GetFunctionAndParameters"><span class="toc-number">1.2.5.1.1.</span> <span class="toc-text">GetFunctionAndParameters</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-存储管理相关的方法"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">2. 存储管理相关的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#PutState"><span class="toc-number">1.2.5.2.1.</span> <span class="toc-text">PutState</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GetState"><span class="toc-number">1.2.5.2.2.</span> <span class="toc-text">GetState</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GetStateByRange"><span class="toc-number">1.2.5.2.3.</span> <span class="toc-text">GetStateByRange</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GetHistoryForKey"><span class="toc-number">1.2.5.2.4.</span> <span class="toc-text">GetHistoryForKey</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DelState"><span class="toc-number">1.2.5.2.5.</span> <span class="toc-text">DelState</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CreateCompositeKey"><span class="toc-number">1.2.5.2.6.</span> <span class="toc-text">CreateCompositeKey</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GetStateByPartialCompositeKey-SplitCompositeKey"><span class="toc-number">1.2.5.2.7.</span> <span class="toc-text">GetStateByPartialCompositeKey&#x2F;SplitCompositeKey</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-交易管理相关的方法"><span class="toc-number">1.2.5.3.</span> <span class="toc-text">3. 交易管理相关的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#GetTxTimestamp"><span class="toc-number">1.2.5.3.1.</span> <span class="toc-text">GetTxTimestamp</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-调用其他chaincode的方法"><span class="toc-number">1.2.5.4.</span> <span class="toc-text">4. 调用其他chaincode的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#InvokeChaincode"><span class="toc-number">1.2.5.4.1.</span> <span class="toc-text">InvokeChaincode</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-chaincode交易的背书策略（endorse）"><span class="toc-number">1.3.</span> <span class="toc-text">6.3 chaincode交易的背书策略（endorse）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-1背书策略的指定-设置"><span class="toc-number">1.3.1.</span> <span class="toc-text">6.3.1背书策略的指定&#x2F;设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-2-背书策略的调用"><span class="toc-number">1.3.2.</span> <span class="toc-text">6.3.2 背书策略的调用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、链码"><span class="toc-number">2.</span> <span class="toc-text">七、链码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例链码解析"><span class="toc-number">2.1.</span> <span class="toc-text">示例链码解析</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#六-智能合约"><span class="toc-number">1.</span> <span class="toc-text">六. 智能合约</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-Golang版本的ChainCode的代码结构"><span class="toc-number">1.1.</span> <span class="toc-text">6.1 Golang版本的ChainCode的代码结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-shim包的核心方法"><span class="toc-number">1.2.</span> <span class="toc-text">6.2 shim包的核心方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-1-Response结构"><span class="toc-number">1.2.1.</span> <span class="toc-text">6.2.1 Response结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-2-Success"><span class="toc-number">1.2.2.</span> <span class="toc-text">6.2.2 Success</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-3-Error"><span class="toc-number">1.2.3.</span> <span class="toc-text">6.2.3 Error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-4-LogLevel-设置日志级别"><span class="toc-number">1.2.4.</span> <span class="toc-text">6.2.4 LogLevel  设置日志级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-5-ChaincodeStubInterface接口中的核心方法"><span class="toc-number">1.2.5.</span> <span class="toc-text">6.2.5 ChaincodeStubInterface接口中的核心方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-系统管理常用方法"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">1. 系统管理常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#GetFunctionAndParameters"><span class="toc-number">1.2.5.1.1.</span> <span class="toc-text">GetFunctionAndParameters</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-存储管理相关的方法"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">2. 存储管理相关的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#PutState"><span class="toc-number">1.2.5.2.1.</span> <span class="toc-text">PutState</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GetState"><span class="toc-number">1.2.5.2.2.</span> <span class="toc-text">GetState</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GetStateByRange"><span class="toc-number">1.2.5.2.3.</span> <span class="toc-text">GetStateByRange</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GetHistoryForKey"><span class="toc-number">1.2.5.2.4.</span> <span class="toc-text">GetHistoryForKey</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#DelState"><span class="toc-number">1.2.5.2.5.</span> <span class="toc-text">DelState</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CreateCompositeKey"><span class="toc-number">1.2.5.2.6.</span> <span class="toc-text">CreateCompositeKey</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GetStateByPartialCompositeKey-SplitCompositeKey"><span class="toc-number">1.2.5.2.7.</span> <span class="toc-text">GetStateByPartialCompositeKey&#x2F;SplitCompositeKey</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-交易管理相关的方法"><span class="toc-number">1.2.5.3.</span> <span class="toc-text">3. 交易管理相关的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#GetTxTimestamp"><span class="toc-number">1.2.5.3.1.</span> <span class="toc-text">GetTxTimestamp</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-调用其他chaincode的方法"><span class="toc-number">1.2.5.4.</span> <span class="toc-text">4. 调用其他chaincode的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#InvokeChaincode"><span class="toc-number">1.2.5.4.1.</span> <span class="toc-text">InvokeChaincode</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-fabric链码的实现逻辑"><span class="toc-number">1.3.</span> <span class="toc-text">6.3 fabric链码的实现逻辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-chaincode交易的背书策略（endorse）"><span class="toc-number">1.4.</span> <span class="toc-text">6.4 chaincode交易的背书策略（endorse）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-1背书策略的指定-设置"><span class="toc-number">1.4.1.</span> <span class="toc-text">6.4.1背书策略的指定&#x2F;设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-2-背书策略的调用"><span class="toc-number">1.4.2.</span> <span class="toc-text">6.4.2 背书策略的调用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、链码"><span class="toc-number">2.</span> <span class="toc-text">七、链码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例链码解析"><span class="toc-number">2.1.</span> <span class="toc-text">示例链码解析</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
