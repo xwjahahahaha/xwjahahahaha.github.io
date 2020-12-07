@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006105026.png">
 <meta property="og:image" content="c:%5CUsers%5CAdministrator%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201006110128788.png">
 <meta property="article:published_time" content="2020-10-05T14:13:56.000Z">
-<meta property="article:modified_time" content="2020-10-17T08:16:20.908Z">
+<meta property="article:modified_time" content="2020-12-05T05:35:45.513Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -90,7 +90,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 257
+			总文章数 259
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -302,8 +302,7 @@
 
 <h3 id="2-4-7-将宿宿主机的内容复制到容器内部"><a href="#2-4-7-将宿宿主机的内容复制到容器内部" class="headerlink" title="2.4.7 将宿宿主机的内容复制到容器内部"></a>2.4.7 将宿宿主机的内容复制到容器内部</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker cp 文件名称 容器id:容器内部路径</span><br><span class="line"><span class="meta">#</span><span class="bash"> 例</span></span><br><span class="line">docker cp ssm.war fe:/usr/local/tomcat/webapps/</span><br></pre></td></tr></table></figure>
 
-<p>2.4.8 保存容器中的修改</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器id 新的镜像名:tag版本号</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-8-保存容器中的修改"><a href="#2-4-8-保存容器中的修改" class="headerlink" title="2.4.8 保存容器中的修改"></a>2.4.8 保存容器中的修改</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器id 新的镜像名:tag版本号</span><br></pre></td></tr></table></figure>
 
 
 
@@ -360,7 +359,7 @@
     2020-10-05
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-10-17
+    2020-12-05
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/Linux/Docker/Docker的学习-2-Docker的基本操作/" title="Docker的学习-2" target="_blank">Docker的学习-2</a>
@@ -570,7 +569,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Docker的基本操作"><span class="toc-number">1.</span> <span class="toc-text">二、Docker的基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-安装Docker"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 安装Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Docker的中央仓库"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 Docker的中央仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-镜像的操作"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 镜像的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-容器的操作"><span class="toc-number">1.4.</span> <span class="toc-text">2.4 容器的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-运行容器"><span class="toc-number">1.4.1.</span> <span class="toc-text">2.4.1 运行容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-查看正在运行的容器"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.4.2 查看正在运行的容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-查看容器的日志"><span class="toc-number">1.4.3.</span> <span class="toc-text">2.4.3 查看容器的日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-进入到容器内部"><span class="toc-number">1.4.4.</span> <span class="toc-text">2.4.4 进入到容器内部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-5-删除容器-（删除容器前需要先停止容器）"><span class="toc-number">1.4.5.</span> <span class="toc-text">2.4.5 删除容器 （删除容器前需要先停止容器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-6-重新启动容器"><span class="toc-number">1.4.6.</span> <span class="toc-text">2.4.6 重新启动容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-7-将宿宿主机的内容复制到容器内部"><span class="toc-number">1.4.7.</span> <span class="toc-text">2.4.7 将宿宿主机的内容复制到容器内部</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-数据卷"><span class="toc-number">1.5.</span> <span class="toc-text">2.5 数据卷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-docker清理"><span class="toc-number">1.6.</span> <span class="toc-text">2.6 docker清理</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Docker的基本操作"><span class="toc-number">1.</span> <span class="toc-text">二、Docker的基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-安装Docker"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 安装Docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Docker的中央仓库"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 Docker的中央仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-镜像的操作"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 镜像的操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-容器的操作"><span class="toc-number">1.4.</span> <span class="toc-text">2.4 容器的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-运行容器"><span class="toc-number">1.4.1.</span> <span class="toc-text">2.4.1 运行容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-查看正在运行的容器"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.4.2 查看正在运行的容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-查看容器的日志"><span class="toc-number">1.4.3.</span> <span class="toc-text">2.4.3 查看容器的日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-进入到容器内部"><span class="toc-number">1.4.4.</span> <span class="toc-text">2.4.4 进入到容器内部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-5-删除容器-（删除容器前需要先停止容器）"><span class="toc-number">1.4.5.</span> <span class="toc-text">2.4.5 删除容器 （删除容器前需要先停止容器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-6-重新启动容器"><span class="toc-number">1.4.6.</span> <span class="toc-text">2.4.6 重新启动容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-7-将宿宿主机的内容复制到容器内部"><span class="toc-number">1.4.7.</span> <span class="toc-text">2.4.7 将宿宿主机的内容复制到容器内部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-8-保存容器中的修改"><span class="toc-number">1.4.8.</span> <span class="toc-text">2.4.8 保存容器中的修改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-数据卷"><span class="toc-number">1.5.</span> <span class="toc-text">2.5 数据卷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-docker清理"><span class="toc-number">1.6.</span> <span class="toc-text">2.6 docker清理</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -925,6 +924,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">bcos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
               </li>
             
             <div class="clearfix"></div>

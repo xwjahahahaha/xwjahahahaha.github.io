@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>FISCO_BCOS联盟链架构-1-部署星形拓扑多节点集群 | 知识与头发不可兼得</title>
+  <title>FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、部署重点官网文档很详细，本片主要记录心得与重点 多群组部署 — FISCO BCOS v2.7.0 文档 (fisco-bcos-documentation.readthedocs.io)">
+  <meta name="description" content="一、部署多群组星型网络官网文档很详细，本片主要记录心得与重点 多群组部署 — FISCO BCOS v2.7.0 文档 (fisco-bcos-documentation.readthedocs.io)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FISCO_BCOS联盟链架构-1-部署星形拓扑多节点集群">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO-BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-1-%E9%83%A8%E7%BD%B2%E6%98%9F%E5%BD%A2%E6%8B%93%E6%89%91%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/index.html">
+<meta property="og:title" content="FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO_BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-%E6%98%9F%E5%9E%8B%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%9D%97%E9%93%BE%E5%B7%A5%E4%BD%9C%E8%AF%81%E7%B3%BB%E7%BB%9F-1.md/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="一、部署重点官网文档很详细，本片主要记录心得与重点 多群组部署 — FISCO BCOS v2.7.0 文档 (fisco-bcos-documentation.readthedocs.io)">
+<meta property="og:description" content="一、部署多群组星型网络官网文档很详细，本片主要记录心得与重点 多群组部署 — FISCO BCOS v2.7.0 文档 (fisco-bcos-documentation.readthedocs.io)">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201129211656.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201130120817.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201201103026.png">
 <meta property="article:published_time" content="2020-11-29T13:06:49.000Z">
-<meta property="article:modified_time" content="2020-11-29T14:36:27.140Z">
+<meta property="article:modified_time" content="2020-12-05T00:54:21.994Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="bcos">
 <meta name="twitter:card" content="summary">
@@ -75,7 +77,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 257
+			总文章数 259
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -186,21 +188,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/区块链/FISCO_BCOS/FISCO-BCOS联盟链架构-1-部署星形拓扑多节点集群" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/区块链/FISCO_BCOS/FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1.md" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      FISCO_BCOS联盟链架构-1-部署星形拓扑多节点集群
+      FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO-BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-1-%E9%83%A8%E7%BD%B2%E6%98%9F%E5%BD%A2%E6%8B%93%E6%89%91%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO_BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-%E6%98%9F%E5%9E%8B%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%9D%97%E9%93%BE%E5%B7%A5%E4%BD%9C%E8%AF%81%E7%B3%BB%E7%BB%9F-1.md/" class="pageViews">0</span>次
   </a>
 
         
@@ -210,7 +212,7 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO-BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-1-%E9%83%A8%E7%BD%B2%E6%98%9F%E5%BD%A2%E6%8B%93%E6%89%91%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/" class="archive-article-date">
+<a href="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO_BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-%E6%98%9F%E5%9E%8B%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%9D%97%E9%93%BE%E5%B7%A5%E4%BD%9C%E8%AF%81%E7%B3%BB%E7%BB%9F-1.md/" class="archive-article-date">
   	<time datetime="2020-11-29T13:06:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
 </a>
         <!-- 开始添加字数统计-->
@@ -220,7 +222,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">92字</span>
+        <span class="post-count">1.1k字</span>
       </span>
     </span>
 
@@ -229,7 +231,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -241,7 +243,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、部署重点"><a href="#一、部署重点" class="headerlink" title="一、部署重点"></a>一、部署重点</h1><p>官网文档很详细，本片主要记录心得与重点</p>
+        <h1 id="一、部署多群组星型网络"><a href="#一、部署多群组星型网络" class="headerlink" title="一、部署多群组星型网络"></a>一、部署多群组星型网络</h1><p>官网文档很详细，<strong>本片主要记录心得与重点</strong></p>
 <p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/group_use_cases.html#id10" target="_blank" rel="noopener">多群组部署 — FISCO BCOS v2.7.0 文档 (fisco-bcos-documentation.readthedocs.io)</a></p>
 <a id="more"></a>
 
@@ -251,45 +253,118 @@
 <th>云服务器IP</th>
 <th>名称</th>
 <th>节点</th>
-<th>开放端口</th>
-<th>channel_listen_port</th>
-<th></th>
+<th>nodeID前五位</th>
+<th>channel_listen_portonnect</th>
+<th>connnect_point</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>47.103.203.133</td>
 <td>Wenjie</td>
-<td>node0、node1</td>
+<td>node0</td>
+<td>e9553</td>
+<td>20200</td>
+<td>30300</td>
+</tr>
+<tr>
 <td></td>
-<td>20200、20201</td>
-<td></td>
+<td>Wenjie</td>
+<td>node1</td>
+<td>ee4f8</td>
+<td>20201</td>
+<td>30301</td>
 </tr>
 <tr>
 <td>121.196.41.126</td>
 <td>rz</td>
-<td>node2、node3</td>
+<td>node2</td>
+<td>840ee</td>
+<td>20200</td>
+<td>30300</td>
+</tr>
+<tr>
 <td></td>
-<td>20200、20201</td>
-<td></td>
+<td>rz</td>
+<td>node3</td>
+<td>9efa1</td>
+<td>20201</td>
+<td>30301</td>
 </tr>
 <tr>
 <td>121.196.149.14</td>
 <td>sy</td>
-<td>node4、node5</td>
+<td>node4</td>
+<td>8a36a</td>
+<td>20200</td>
+<td>30300</td>
+</tr>
+<tr>
 <td></td>
-<td></td>
-<td></td>
+<td>sy</td>
+<td>node5</td>
+<td>a9fa9</td>
+<td>20201</td>
+<td>30301</td>
 </tr>
 <tr>
 <td>123.56.163.105</td>
 <td>Daniel</td>
-<td>node6、node7</td>
+<td>node6</td>
+<td>bce46</td>
+<td>20200</td>
+<td>30300</td>
+</tr>
+<tr>
 <td></td>
-<td></td>
-<td></td>
+<td>Daniel</td>
+<td>node7</td>
+<td>c5e43</td>
+<td>20201</td>
+<td>30301</td>
 </tr>
 </tbody></table>
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201129211656.png" alt=""></p>
+<h2 id="1-2-部署重点"><a href="#1-2-部署重点" class="headerlink" title="1.2 部署重点"></a>1.2 部署重点</h2><h1 id="二、Java-SDK重点"><a href="#二、Java-SDK重点" class="headerlink" title="二、Java-SDK重点"></a>二、Java-SDK重点</h1><h3 id="2-1-使用Maven引入SDK"><a href="#2-1-使用Maven引入SDK" class="headerlink" title="2.1 使用Maven引入SDK"></a>2.1 使用Maven引入SDK</h3><p>创建maven项目，修改文件如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">.....</span></span></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.fisco-bcos.java-sdk<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>java-sdk<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后按照官网文档走就ok：<a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/java_sdk/quick_start.html#gradle" target="_blank" rel="noopener">快速入门 — FISCO BCOS v2.7.0 文档 (fisco-bcos-documentation.readthedocs.io)</a></p>
+<p>=&gt; 安装证书，编译合约………….</p>
+<p>下一步：把编译后的.java文件放入应用中：</p>
+<ul>
+<li><p>坑/重点：要把<strong>编译得到的HelloWorld.java放入应用中。</strong></p>
+<p>注意：<font color='red'>在应用中所放的位置要与我们设定的包名相同。</font></p>
+</li>
+</ul>
+<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/_images/prepare_contract.gif" target="_blank" rel="noopener">官方文档gif</a></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201130120817.png" alt=""></p>
+<p><code>sol2java.sh</code>脚本的使用方法</p>
+<p>控制台<code>v2.6+</code>提供了<code>sol2java.sh</code>脚本可将<code>solidity</code>转换为<code>java</code>代码, <code>sol2java.sh</code>使用方法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> bash sol2java.sh -h</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Compile Solidity Tool</span></span><br><span class="line">./sol2java.sh [packageName] [solidityFilePath] [javaCodeOutputDir]</span><br><span class="line"> 	 packageName:</span><br><span class="line"> 		 the package name of the generated Java class file</span><br><span class="line"> 	 solidityFilePath:</span><br><span class="line"> 		 (optional) the solidity file path or the directory where solidity files located, default: contracts/solidity</span><br><span class="line"> 	 javaCodeOutputDir:</span><br><span class="line"> 		 (optional) the directory where the generated Java files located, default: contracts/sdk/java</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、AMOP-链上信使协议-重点"><a href="#三、AMOP-链上信使协议-重点" class="headerlink" title="三、AMOP(链上信使协议)重点"></a>三、AMOP(链上信使协议)重点</h1><p>链上信使协议AMOP（Advanced Messages Onchain Protocol）系统旨在为联盟链提供一个<strong>安全高效的消息信道</strong>，联盟链中的各个机构，只要部署了区块链节点，<strong>无论是共识节点还是观察节点，均可使用AMOP进行通讯，</strong>AMOP有如下优势：</p>
+<ul>
+<li>实时：AMOP消息不依赖区块链交易和共识，消息在节点间实时传输，延时在毫秒级。</li>
+<li>可靠：AMOP消息传输时，自动寻找区块链网络中所有可行的链路进行通讯，只要收发双方至少有一个链路可用，消息就保证可达。</li>
+<li>高效：AMOP消息结构简洁、处理逻辑高效，仅需少量cpu占用，能充分利用网络带宽。</li>
+<li>安全：AMOP的所有通讯链路使用SSL加密，加密算法可配置,支持身份认证机制。</li>
+<li>易用：使用AMOP时，无需在SDK做任何额外配置。</li>
+</ul>
+<p><strong>分类：普通话题、私有话题</strong></p>
+<h2 id="3-1-私有话题认证流程"><a href="#3-1-私有话题认证流程" class="headerlink" title="3.1 私有话题认证流程"></a>3.1 私有话题认证流程</h2><p>假定链外系统1是话题消息发送者（消息发送端），链外系统2是话题订阅者（消息接收端）。私有话题的认证流程如下：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201201103026.png" alt=""></p>
+<ul>
+<li>1：链外系统2连接Node2,宣称订阅T1,Node2将T1加入到话题列表，并将seq加1。同时每5秒同步seq到其他节点。</li>
+<li>2：Node1收到seq之后，对比本地seq和同步过来的seq，发现不一致，则从Node2获取最新的话题列表，并将话题列表更新到p2p的话题列表，对于还没认证的私有话题，状态置为待认证。Node1遍历列表。针对每一个待认证的私有话题,进行如下操作：<ul>
+<li>2.1：Node1往Node1推送消息(消息类型0x37)，请求链外系统1发起私有话题认证流程。</li>
+<li>2.2：链外系统1接收到消息之后，生成随机数，并使用amop消息(消息类型0x30)将消息发送出去，并监听回包。</li>
+<li>2.3：消息经过 链外系统1–&gt;Node1–&gt;Node2–&gt;链外系统2的路由，链外系统2接收到消息后解析出随机数并使用私钥签名随机数。</li>
+<li>2.4：签名包(消息类型0x31)经过 链外系统2–&gt;Node2–&gt;Node1-&gt;链外系统1的路由，链外系统1接收到签名包之后，解析出签名并使用公钥验证签名。</li>
+<li>2.5：链外系统1验证签名后，发送消息(消息类型0x38)，请求节点更新topic状态（认证成功或者认证失败）。</li>
+</ul>
+</li>
+<li>3：如果认证成功，链外系统的一条消息到达Node1之后，Node1会将这条消息转发给Node2,Node2会将消息推送给链外系统2。</li>
+</ul>
+<p><font color='green'>理解：其实整个过程就是通过私钥签名，公钥认证在两个节点间形成快速通路</font></p>
 
       
       
@@ -311,13 +386,13 @@
     2020-11-29
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-11-29
+    2020-12-05
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/11/29/技术贴/区块链/FISCO_BCOS/FISCO-BCOS联盟链架构-1-部署星形拓扑多节点集群/" title="FISCO_BCOS联盟链架构-1-部署星形拓扑多节点集群" target="_blank">FISCO_BCOS联盟链架构-1-部署星形拓扑多节点集群</a>
+    <a href="https://xwjahahahaha.github.io/2020/11/29/技术贴/区块链/FISCO_BCOS/FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1.md/" title="FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1" target="_blank">FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/11/29/技术贴/区块链/FISCO_BCOS/FISCO-BCOS联盟链架构-1-部署星形拓扑多节点集群/" title="FISCO_BCOS联盟链架构-1-部署星形拓扑多节点集群" target="_blank">https://xwjahahahaha.github.io/2020/11/29/技术贴/区块链/FISCO_BCOS/FISCO-BCOS联盟链架构-1-部署星形拓扑多节点集群/</a>
+    <a href="https://xwjahahahaha.github.io/2020/11/29/技术贴/区块链/FISCO_BCOS/FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1.md/" title="FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1" target="_blank">https://xwjahahahaha.github.io/2020/11/29/技术贴/区块链/FISCO_BCOS/FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1.md/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -466,7 +541,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO-BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-1-%E9%83%A8%E7%BD%B2%E6%98%9F%E5%BD%A2%E6%8B%93%E6%89%91%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO_BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-%E6%98%9F%E5%9E%8B%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%9D%97%E9%93%BE%E5%B7%A5%E4%BD%9C%E8%AF%81%E7%B3%BB%E7%BB%9F-1.md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -482,6 +557,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/12/02/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/uni-app%E7%9A%84%E5%AD%A6%E4%B9%A0-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          uni-app的学习-1
+        
+      </div>
+    </a>
   
   
     <a href="/2020/11/29/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0102/" id="article-nav-older" class="article-nav-link-wrap">
@@ -512,7 +596,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、部署重点"><span class="toc-number">1.</span> <span class="toc-text">一、部署重点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-集群规划"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 集群规划</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、部署多群组星型网络"><span class="toc-number">1.</span> <span class="toc-text">一、部署多群组星型网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-集群规划"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 集群规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-部署重点"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 部署重点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Java-SDK重点"><span class="toc-number">2.</span> <span class="toc-text">二、Java-SDK重点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-使用Maven引入SDK"><span class="toc-number">2.0.1.</span> <span class="toc-text">2.1 使用Maven引入SDK</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、AMOP-链上信使协议-重点"><span class="toc-number">3.</span> <span class="toc-text">三、AMOP(链上信使协议)重点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-私有话题认证流程"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 私有话题认证流程</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -867,6 +951,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">bcos</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
               </li>
             
             <div class="clearfix"></div>
