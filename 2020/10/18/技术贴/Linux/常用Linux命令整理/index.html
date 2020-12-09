@@ -16,7 +16,7 @@
 <meta property="og:description" content="1.Ubuntu开启SSH服务1234567891011121314# 检查ssh服务是否开启sudo ps -e | grep ssh# 如果出现“xxxx? 00:00:00 sshd”,代表服务开启# 如果没反应则开始配置# 尝试开启服务，如果显示找不到命令，则安装openssh-serversudo &#x2F;etc&#x2F;init.d&#x2F;ssh startsudo apt-get updatesudo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-18T13:13:50.000Z">
-<meta property="article:modified_time" content="2020-11-06T07:04:07.461Z">
+<meta property="article:modified_time" content="2020-12-09T08:59:52.789Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -73,7 +73,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 259
+			总文章数 262
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -218,7 +218,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">162字</span>
+        <span class="post-count">1.2k字</span>
       </span>
     </span>
 
@@ -227,7 +227,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -253,7 +253,82 @@
 </li>
 </ul>
 <h1 id="3-修改主机名"><a href="#3-修改主机名" class="headerlink" title="3.修改主机名"></a>3.修改主机名</h1><p><code>hostnamectl set-hostname 新主机名</code></p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+<h1 id="4-Tmux分屏的使用"><a href="#4-Tmux分屏的使用" class="headerlink" title="4.Tmux分屏的使用"></a>4.Tmux分屏的使用</h1><p><strong>Tmux 就是会话与窗口的”解绑”工具，将它们彻底分离。</strong></p>
+<blockquote>
+<p>（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。</p>
+<p>（2） 它可以让新窗口”接入”已经存在的会话。</p>
+<p>（3）它允许每个会话有多个连接窗口，因此可以多人实时共享会话。</p>
+<p>（4）它还支持窗口任意的垂直和水平拆分。</p>
+</blockquote>
+<p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Ubuntu 或 Debian</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install tmux</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> CentOS 或 Fedora</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install tmux</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Mac</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew install tmux</span></span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> tmux   <span class="comment">#启动</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">exit</span>  <span class="comment">#退出或者ctrl+d </span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux new -s &lt;session-name&gt; <span class="comment"># 新建会话</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux detach  	<span class="comment"># 分离回话 Ctrl+b d  上面命令执行后，就会退出当前 Tmux 窗口，但是会话和里面的进程仍然在后台运行。</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux ls		<span class="comment"># 显示所有会话</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux <span class="built_in">kill</span>-session -t &lt;session-name&gt;   <span class="comment"># 命令用于杀死某个会话。</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux switch -t &lt;session-name&gt;			<span class="comment"># 切换会话</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 划分上下两个窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux split-window</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 划分左右两个窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux split-window -h</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到上方窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -U</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到下方窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -D</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到左边窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -L</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到右边窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -R</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 当前窗格上移</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux swap-pane -U</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 当前窗格下移</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux swap-pane -D</span></span><br></pre></td></tr></table></figure>
+
+<p>快捷键</p>
+<ul>
+<li><p><code>Ctrl+b d</code>：分离当前会话。</p>
+</li>
+<li><p><code>Ctrl+b s</code>：列出所有会话。</p>
+</li>
+<li><p><code>Ctrl+b $</code>：重命名当前会话。</p>
+</li>
+<li><p><code>Ctrl+b %</code>：划分左右两个窗格。</p>
+</li>
+<li><p><code>Ctrl+b &quot;</code>：划分上下两个窗格。</p>
+</li>
+<li><p><code>Ctrl+b &lt;arrow key&gt;</code>：光标切换到其他窗格。<code>&lt;arrow key&gt;</code>是指向要切换到的窗格的方向键，比如切换到下方窗格，就按方向键<code>↓</code>。</p>
+</li>
+<li><p><code>Ctrl+b ;</code>：光标切换到上一个窗格。</p>
+</li>
+<li><p><code>Ctrl+b o</code>：光标切换到下一个窗格。</p>
+</li>
+<li><p><code>Ctrl+b {</code>：当前窗格与上一个窗格交换位置。</p>
+</li>
+<li><p><code>Ctrl+b }</code>：当前窗格与下一个窗格交换位置。</p>
+</li>
+<li><p><code>Ctrl+b Ctrl+o</code>：所有窗格向前移动一个位置，第一个窗格变成最后一个窗格。</p>
+</li>
+<li><p><code>Ctrl+b Alt+o</code>：所有窗格向后移动一个位置，最后一个窗格变成第一个窗格。</p>
+</li>
+<li><p><code>Ctrl+b x</code>：关闭当前窗格。</p>
+</li>
+<li><p><code>Ctrl+b !</code>：将当前窗格拆分为一个独立窗口。</p>
+</li>
+<li><p><code>Ctrl+b z</code>：当前窗格全屏显示，再使用一次会变回原来大小。</p>
+</li>
+<li><p><code>Ctrl+b Ctrl+&lt;arrow key&gt;</code>：按箭头方向调整窗格大小。</p>
+</li>
+<li><p><code>Ctrl+b q</code>：显示窗格编号。</p>
+</li>
+</ul>
+<h1 id="5-SCP命令"><a href="#5-SCP命令" class="headerlink" title="5. SCP命令"></a>5. SCP命令</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp [-1246BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]</span><br><span class="line">[-l limit] [-o ssh_option] [-P port] [-S program]</span><br><span class="line">[[user@]host1:]file1 [...] [[user@]host2:]file2</span><br></pre></td></tr></table></figure>
+
+<p>简易写法:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp [可选参数] file_source file_target</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明：</strong></p>
+<ul>
+<li>-1： 强制scp命令使用协议ssh1</li>
+<li>-2： 强制scp命令使用协议ssh2</li>
+<li>-4： 强制scp命令只使用IPv4寻址</li>
+<li>-6： 强制scp命令只使用IPv6寻址</li>
+<li>-B： 使用批处理模式（传输过程中不询问传输口令或短语）</li>
+<li>-C： 允许压缩。（将-C标志传递给ssh，从而打开压缩功能）</li>
+<li>-p：保留原文件的修改时间，访问时间和访问权限。</li>
+<li>-q： 不显示传输进度条。</li>
+<li>-r： 递归复制整个目录。</li>
+<li>-v：详细方式显示输出。scp和ssh(1)会显示出整个过程的调试信息。这些信息用于调试连接，验证和配置问题。</li>
+<li>-c cipher： 以cipher将数据传输进行加密，这个选项将直接传递给ssh。</li>
+<li>-F ssh_config： 指定一个替代的ssh配置文件，此参数直接传递给ssh。</li>
+<li>-i identity_file： 从指定文件中读取传输时使用的密钥文件，此参数直接传递给ssh。</li>
+<li>-l limit： 限定用户所能使用的带宽，以Kbit/s为单位。</li>
+<li>-o ssh_option： 如果习惯于使用ssh_config(5)中的参数传递方式，</li>
+<li>-P port：注意是大写的P, port是指定数据传输用到的端口号</li>
+<li>-S program： 指定加密传输时所使用的程序。此程序必须能够理解ssh(1)的选项。</li>
+</ul>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
       
       
       <!-- 《添加版权声明 -->
@@ -274,7 +349,7 @@
     2020-10-18
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-11-06
+    2020-12-09
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/10/18/技术贴/Linux/常用Linux命令整理/" title="常用Linux命令整理" target="_blank">常用Linux命令整理</a>
@@ -484,7 +559,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Ubuntu开启SSH服务"><span class="toc-number">1.</span> <span class="toc-text">1.Ubuntu开启SSH服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Ubuntu操作本机MAC地址"><span class="toc-number">2.</span> <span class="toc-text">2.Ubuntu操作本机MAC地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-修改主机名"><span class="toc-number">3.</span> <span class="toc-text">3.修改主机名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">3.0.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Ubuntu开启SSH服务"><span class="toc-number">1.</span> <span class="toc-text">1.Ubuntu开启SSH服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Ubuntu操作本机MAC地址"><span class="toc-number">2.</span> <span class="toc-text">2.Ubuntu操作本机MAC地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-修改主机名"><span class="toc-number">3.</span> <span class="toc-text">3.修改主机名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Tmux分屏的使用"><span class="toc-number">4.</span> <span class="toc-text">4.Tmux分屏的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-SCP命令"><span class="toc-number">5.</span> <span class="toc-text">5. SCP命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">6.</span> <span class="toc-text"></span></a></li></ol>
                     </div>
                 </span>
             </div>
