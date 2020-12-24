@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200525161742.png">
 <meta property="article:published_time" content="2020-05-25T08:02:54.000Z">
-<meta property="article:modified_time" content="2020-07-05T00:35:23.153Z">
+<meta property="article:modified_time" content="2020-12-20T09:34:23.351Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="c语言">
@@ -76,7 +76,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 270
+			总文章数 282
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -221,7 +221,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">548字</span>
+        <span class="post-count">877字</span>
       </span>
     </span>
 
@@ -230,7 +230,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -258,7 +258,9 @@
 <p><strong>时间复杂度: 平均O(nlogn) 最好O(nlogn) 最差O(n*n)</strong></p>
 <p><strong>空间复杂度：O(nlogn)</strong></p>
 <p><strong>不稳定</strong></p>
-<h3 id="4-插入排序"><a href="#4-插入排序" class="headerlink" title="4. 插入排序"></a>4. 插入排序</h3><h3 id="5-希尔排序"><a href="#5-希尔排序" class="headerlink" title="5. 希尔排序"></a>5. 希尔排序</h3><h3 id="6-归并排序"><a href="#6-归并排序" class="headerlink" title="6. 归并排序"></a>6. 归并排序</h3><h3 id="7-堆排序"><a href="#7-堆排序" class="headerlink" title="7. 堆排序"></a>7. 堆排序</h3>
+<h3 id="4-插入排序"><a href="#4-插入排序" class="headerlink" title="4. 插入排序"></a>4. 插入排序</h3><h3 id="5-希尔排序"><a href="#5-希尔排序" class="headerlink" title="5. 希尔排序"></a>5. 希尔排序</h3><h3 id="6-归并排序"><a href="#6-归并排序" class="headerlink" title="6. 归并排序"></a>6. 归并排序</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//划分函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Division</span><span class="params">(nums []<span class="keyword">int</span>, temp []<span class="keyword">int</span>, left <span class="keyword">int</span> ,right <span class="keyword">int</span>)</span></span>  &#123;</span><br><span class="line">	<span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">		mid := (left + right) / <span class="number">2</span>  				<span class="comment">//计算中间值</span></span><br><span class="line">		Division(nums, temp, left, mid)			<span class="comment">//划分左边</span></span><br><span class="line">		Division(nums, temp, mid+<span class="number">1</span>, right)		<span class="comment">//划分右边</span></span><br><span class="line">		<span class="comment">//划分结束后，合并</span></span><br><span class="line">		Merge(nums, temp, left, mid, right)		<span class="comment">//划分后将这两个部分合并</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//合并函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Merge</span><span class="params">(nums []<span class="keyword">int</span>, temp []<span class="keyword">int</span>, left <span class="keyword">int</span> ,mid <span class="keyword">int</span>, right <span class="keyword">int</span>)</span></span>  &#123;</span><br><span class="line">	<span class="comment">//设置两个指针</span></span><br><span class="line">	l_pos := left		<span class="comment">//范围left ~ mid</span></span><br><span class="line">	r_pos := mid+<span class="number">1</span>		<span class="comment">//范围mid+1 ~ right</span></span><br><span class="line">	p := left			<span class="comment">//temp临时数组的指针</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//比较大小，合并</span></span><br><span class="line">	<span class="keyword">for</span> ; l_pos &lt;= mid &amp;&amp; r_pos &lt;= right; &#123;</span><br><span class="line">		<span class="comment">//小的按需排在临时数组前面</span></span><br><span class="line">		<span class="keyword">if</span> nums[l_pos] &lt; nums[r_pos] &#123;</span><br><span class="line">			temp[p] = nums[l_pos]</span><br><span class="line">			l_pos ++</span><br><span class="line">			p ++</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			temp[p] = nums[r_pos]</span><br><span class="line">			r_pos ++</span><br><span class="line">			p ++</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//当有一方指针到底，那么就把剩下来的直接复制填充，因为本来就是有序的</span></span><br><span class="line">	<span class="keyword">if</span> l_pos &gt; mid &#123;</span><br><span class="line">		<span class="keyword">for</span> ; r_pos &lt;= right; r_pos++&#123;</span><br><span class="line">			temp[p] = nums[r_pos]</span><br><span class="line">			p ++</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">for</span> ; l_pos &lt;= mid; l_pos++&#123;</span><br><span class="line">			temp[p] = nums[l_pos]</span><br><span class="line">			p ++</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//最后一步，把temp复制给原来的数组</span></span><br><span class="line">	<span class="comment">//注意，不是全部复制，而是对于这一小段</span></span><br><span class="line">	<span class="keyword">for</span> ; left &lt;= right; left ++ &#123;</span><br><span class="line">		nums[left] = temp[left]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//归并排序</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MergeSort</span><span class="params">(nums []<span class="keyword">int</span>, temp []<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	Division(nums, temp, <span class="number">0</span>, <span class="built_in">len</span>(nums)<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	nums := [<span class="number">9</span>]<span class="keyword">int</span>&#123;<span class="number">9</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">12</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">11</span>&#125;</span><br><span class="line">	temp := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">9</span>)</span><br><span class="line">	MergeSort(nums[:], temp)</span><br><span class="line">	fmt.Println(nums)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-堆排序"><a href="#7-堆排序" class="headerlink" title="7. 堆排序"></a>7. 堆排序</h3>
       
       
       <!-- 添加版权声明 -->
@@ -806,6 +808,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
             
             <div class="clearfix"></div>
