@@ -15,11 +15,13 @@
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="一、vue.js正确的放置位置vue报错：vue.js:634 [Vue warn]: Cannot find element: #app 一般来说，这个问题就是new Vue({})定位ID的js代码位置在html ID元素之前构建的结果。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20210125124410.png">
 <meta property="article:published_time" content="2020-11-08T13:26:56.000Z">
-<meta property="article:modified_time" content="2020-11-08T13:31:19.855Z">
+<meta property="article:modified_time" content="2021-01-25T05:56:23.967Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20210125124410.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -73,7 +75,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 287
+			总文章数 293
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -218,7 +220,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">302字</span>
+        <span class="post-count">526字</span>
       </span>
     </span>
 
@@ -227,7 +229,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -245,8 +247,13 @@
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/vue-router/dist/vue-router.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 自己写的vuejs要放在底下 放在这里是错误的--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/test01.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello App!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 使用 router-link 组件来导航. --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 通过传入 `to` 属性指定链接. --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- &lt;router-link&gt; 默认会被渲染成一个 `&lt;a&gt;` 标签 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/foo"</span>&gt;</span>Go to Foo<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/bar"</span>&gt;</span>Go to Bar<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span>      </span><br><span class="line">  <span class="comment">&lt;!-- 路由出口 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 路由匹配到的组件将渲染在这里 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 正确的位置 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/test01.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="二、This和That"><a href="#二、This和That" class="headerlink" title="二、This和That"></a>二、This和That</h2><p>当在某一个函数中需要改变当前data中的某个字段，让页面改变时，获取变量需要使用this或者that引用。</p>
+<p>具体的使用方法是：<font color='green'><strong>对于调用api的返回函数时，返回函数内部要使用that，因为this指代的对象已经改变，其他情况使用this</strong></font></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">			<span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    		<span class="built_in">console</span>.log(<span class="string">"orgThis"</span>, <span class="keyword">this</span>)  					<span class="comment">//打印全局的this</span></span><br><span class="line">			<span class="comment">//实例化高得地图插件</span></span><br><span class="line">			<span class="keyword">this</span>.amapPlugin = <span class="keyword">new</span> amap.AMapWX(&#123;<span class="attr">key</span>:<span class="keyword">this</span>.amapKey&#125;);</span><br><span class="line">			<span class="keyword">this</span>.amapPlugin.getRegeo(&#123;</span><br><span class="line">			  success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">				<span class="comment">//成功回调</span></span><br><span class="line">                <span class="comment">//在这里要使用that，因为这里的this不在是全局的this</span></span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"funcThis:"</span>, <span class="keyword">this</span>)				<span class="comment">//打印函数内的this</span></span><br><span class="line">				that.address_city = data[<span class="number">0</span>].regeocodeData.addressComponent.city</span><br><span class="line">			  &#125;,</span><br><span class="line">			  fail: <span class="function"><span class="keyword">function</span>(<span class="params">info</span>)</span>&#123;</span><br><span class="line">				<span class="comment">//失败回调</span></span><br><span class="line">				<span class="built_in">console</span>.log(info)</span><br><span class="line">			  &#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 
-
+<p>两个this的打印结果：</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20210125124410.png" alt=""></p>
+<p>显然是不同的，所以如果在返回函数中使用this是无法改变数据值的。</p>
 
       
       
@@ -268,7 +275,7 @@
     2020-11-08
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-11-08
+    2021-01-25
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/11/08/技术贴/前端/VUE/vue遇到的错误总结/" title="vue遇到的错误总结" target="_blank">vue遇到的错误总结</a>
@@ -478,7 +485,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、vue-js正确的放置位置"><span class="toc-number">1.</span> <span class="toc-text">一、vue.js正确的放置位置</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、vue-js正确的放置位置"><span class="toc-number">1.</span> <span class="toc-text">一、vue.js正确的放置位置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二、This和That"><span class="toc-number">1.1.</span> <span class="toc-text">二、This和That</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -832,6 +839,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
             
             <div class="clearfix"></div>
