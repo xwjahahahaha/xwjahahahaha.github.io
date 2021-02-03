@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>Go语言-3-进阶 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="四、golang的IDE使用4.1 goland4.1.1 使用goland调试项目https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;0d728cc25402">
+  <meta name="description" content="四、golang的IDE使用4.1 goland4.1.1 使用goland调试项目https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;0d728cc25402 4.2 go的包管理此部分内容来源于：http:&#x2F;&#x2F;c.biancheng.net&#x2F;view&#x2F;5712.html Go Modulego module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go语言-3-进阶">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E8%BF%9B%E9%98%B6/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="四、golang的IDE使用4.1 goland4.1.1 使用goland调试项目https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;0d728cc25402">
+<meta property="og:description" content="四、golang的IDE使用4.1 goland4.1.1 使用goland调试项目https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;0d728cc25402 4.2 go的包管理此部分内容来源于：http:&#x2F;&#x2F;c.biancheng.net&#x2F;view&#x2F;5712.html Go Modulego module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-19T14:17:17.000Z">
-<meta property="article:modified_time" content="2021-01-19T07:40:02.662Z">
+<meta property="article:modified_time" content="2021-01-26T11:52:01.177Z">
 <meta property="article:author" content="DDDemons hide">
 <meta name="twitter:card" content="summary">
   
@@ -72,7 +72,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 293
+			总文章数 297
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -217,7 +217,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">21字</span>
+        <span class="post-count">996字</span>
       </span>
     </span>
 
@@ -226,7 +226,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">3分</span>
       </span>
     </span>
 </div>
@@ -239,8 +239,85 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="四、golang的IDE使用"><a href="#四、golang的IDE使用" class="headerlink" title="四、golang的IDE使用"></a>四、golang的IDE使用</h1><h2 id="4-1-goland"><a href="#4-1-goland" class="headerlink" title="4.1 goland"></a>4.1 goland</h2><h3 id="4-1-1-使用goland调试项目"><a href="#4-1-1-使用goland调试项目" class="headerlink" title="4.1.1 使用goland调试项目"></a>4.1.1 使用goland调试项目</h3><p><a href="https://www.jianshu.com/p/0d728cc25402" target="_blank" rel="noopener">https://www.jianshu.com/p/0d728cc25402</a></p>
+<h2 id="4-2-go的包管理"><a href="#4-2-go的包管理" class="headerlink" title="4.2 go的包管理"></a>4.2 go的包管理</h2><p>此部分内容来源于：<a href="http://c.biancheng.net/view/5712.html" target="_blank" rel="noopener">http://c.biancheng.net/view/5712.html</a></p>
+<h4 id="Go-Module"><a href="#Go-Module" class="headerlink" title="Go Module"></a>Go Module</h4><p>go module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。</p>
+<p>Modules 官方定义为：</p>
+<p>Modules 是相关 Go 包的集合，是源代码交换和版本控制的单元。Go语言命令直接支持使用 Modules，包括记录和解析对其他模块的依赖性，Modules 替换旧的基于 GOPATH 的方法，来指定使用哪些源文件。</p>
+<h5 id="如何使用-Modules？"><a href="#如何使用-Modules？" class="headerlink" title="如何使用 Modules？"></a>如何使用 Modules？</h5><p>1) 首先需要把 golang 升级到 1.11 版本以上（现在 1.13 已经发布了，建议使用 1.13）。</p>
+<p>2) 设置 GO111MODULE。</p>
+<h5 id="GO111MODULE"><a href="#GO111MODULE" class="headerlink" title="GO111MODULE"></a>GO111MODULE</h5><p>在Go语言 1.12 版本之前，要启用 go module 工具首先要设置环境变量 GO111MODULE，不过在Go语言 1.13 及以后的版本则不再需要设置环境变量。通过 GO111MODULE 可以开启或关闭 go module 工具。</p>
+<ul>
+<li>GO111MODULE=off 禁用 go module，编译时会从 GOPATH 和 vendor 文件夹中查找包；</li>
+<li>GO111MODULE=on 启用 go module，编译时会忽略 GOPATH 和 vendor 文件夹，只根据 go.mod下载依赖；</li>
+<li>GO111MODULE=auto（默认值），当项目在 GOPATH/src 目录之外，并且项目根目录有 go.mod 文件时，开启 go module。</li>
+</ul>
+<p>Windows 下开启 GO111MODULE 的命令为：</p>
+<p><code>set GO111MODULE=on 或者 set GO111MODULE=auto</code></p>
+<p>MacOS 或者 Linux 下开启 GO111MODULE 的命令为：</p>
+<p><code>export GO111MODULE=on 或者 export GO111MODULE=auto</code></p>
+<p>在开启 GO111MODULE 之后就可以使用 go module 工具了，也就是说在以后的开发中就没有必要在 GOPATH 中创建项目了，并且还能够很好的管理项目依赖的第三方包信息。</p>
+<p>go mod 的常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>go mod download</td>
+<td>下载依赖包到本地（默认为 GOPATH/pkg/mod 目录）</td>
+</tr>
+<tr>
+<td>go mod edit</td>
+<td>编辑 go.mod 文件</td>
+</tr>
+<tr>
+<td>go mod graph</td>
+<td>打印模块依赖图</td>
+</tr>
+<tr>
+<td>go mod init</td>
+<td>初始化当前文件夹，创建 go.mod 文件</td>
+</tr>
+<tr>
+<td>go mod tidy</td>
+<td>增加缺少的包，删除无用的包</td>
+</tr>
+<tr>
+<td>go mod vendor</td>
+<td>将依赖复制到 vendor 目录下</td>
+</tr>
+<tr>
+<td>go mod verify</td>
+<td>校验依赖</td>
+</tr>
+<tr>
+<td>go mod why</td>
+<td>解释为什么需要依赖</td>
+</tr>
+</tbody></table>
 <a id="more"></a>
 
+<h4 id="GOPROXY"><a href="#GOPROXY" class="headerlink" title="GOPROXY"></a>GOPROXY</h4><p>proxy 顾名思义就是代理服务器的意思。大家都知道，国内的网络有防火墙的存在，这导致有些Go语言的第三方包我们无法直接通过<code>go get</code>命令获取。GOPROXY 是Go语言官方提供的一种通过中间代理商来为用户提供包下载服务的方式。要使用 GOPROXY 只需要设置环境变量 GOPROXY 即可。</p>
+<p>目前公开的代理服务器的地址有：</p>
+<ul>
+<li>goproxy.io；</li>
+<li>goproxy.cn：（推荐）由国内的七牛云提供。</li>
+</ul>
+<p>Windows 下设置 GOPROXY 的命令为：</p>
+<p>go env -w GOPROXY=<a href="https://goproxy.cn,direct" target="_blank" rel="noopener">https://goproxy.cn,direct</a></p>
+<p>MacOS 或 Linux 下设置 GOPROXY 的命令为：</p>
+<p>export GOPROXY=<a href="https://goproxy.cn" target="_blank" rel="noopener">https://goproxy.cn</a></p>
+<p>Go语言在 1.13 版本之后 GOPROXY 默认值为 <a href="https://proxy.golang.org，在国内可能会存在下载慢或者无法访问的情况，所以十分建议大家将" target="_blank" rel="noopener">https://proxy.golang.org，在国内可能会存在下载慢或者无法访问的情况，所以十分建议大家将</a> GOPROXY 设置为国内的 goproxy.cn。</p>
+<h4 id="Go-Get"><a href="#Go-Get" class="headerlink" title="Go Get"></a>Go Get</h4><p>使用go get命令下载指定版本的依赖包</p>
+<p>执行<code>go get</code>命令，在下载依赖包的同时还可以指定依赖包的版本。</p>
+<ul>
+<li>运行<code>go get -u</code>命令会将项目中的包升级到最新的次要版本或者修订版本；</li>
+<li>运行<code>go get -u=patch</code>命令会将项目中的包升级到最新的修订版本；</li>
+<li>运行<code>go get [包名]@[版本号]</code>命令会下载对应包的指定版本或者将对应包升级到指定的版本。</li>
+</ul>
+<p>提示：<code>go get [包名]@[版本号]</code>命令中版本号可以是 x.y.z 的形式，例如 go get <a href="mailto:foo@v1.2.3">foo@v1.2.3</a>，也可以是 git 上的分支或 tag，例如 go get foo@master，还可以是 git 提交时的哈希值，例如 go get foo@e3702bed2。</p>
 
       
       
@@ -262,7 +339,7 @@
     2020-12-19
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-01-19
+    2021-01-26
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-进阶/" title="Go语言-3-进阶" target="_blank">Go语言-3-进阶</a>
@@ -457,7 +534,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#四、golang的IDE使用"><span class="toc-number">1.</span> <span class="toc-text">四、golang的IDE使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-goland"><span class="toc-number">1.1.</span> <span class="toc-text">4.1 goland</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-使用goland调试项目"><span class="toc-number">1.1.1.</span> <span class="toc-text">4.1.1 使用goland调试项目</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#四、golang的IDE使用"><span class="toc-number">1.</span> <span class="toc-text">四、golang的IDE使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-goland"><span class="toc-number">1.1.</span> <span class="toc-text">4.1 goland</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-使用goland调试项目"><span class="toc-number">1.1.1.</span> <span class="toc-text">4.1.1 使用goland调试项目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-go的包管理"><span class="toc-number">1.2.</span> <span class="toc-text">4.2 go的包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Module"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">Go Module</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#如何使用-Modules？"><span class="toc-number">1.2.0.1.1.</span> <span class="toc-text">如何使用 Modules？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GO111MODULE"><span class="toc-number">1.2.0.1.2.</span> <span class="toc-text">GO111MODULE</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GOPROXY"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">GOPROXY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Get"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">Go Get</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -815,6 +892,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>

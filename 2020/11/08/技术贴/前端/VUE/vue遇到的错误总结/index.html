@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20210125124410.png">
 <meta property="article:published_time" content="2020-11-08T13:26:56.000Z">
-<meta property="article:modified_time" content="2021-01-25T05:56:23.967Z">
+<meta property="article:modified_time" content="2021-01-27T08:11:00.225Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -75,7 +75,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 293
+			总文章数 297
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -220,7 +220,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">526字</span>
+        <span class="post-count">800字</span>
       </span>
     </span>
 
@@ -229,7 +229,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">3分</span>
       </span>
     </span>
 </div>
@@ -254,6 +254,16 @@
 <p>两个this的打印结果：</p>
 <p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20210125124410.png" alt=""></p>
 <p>显然是不同的，所以如果在返回函数中使用this是无法改变数据值的。</p>
+<h1 id="三、父页面异步调用接口数据通过props传参给子组件无法响应"><a href="#三、父页面异步调用接口数据通过props传参给子组件无法响应" class="headerlink" title="三、父页面异步调用接口数据通过props传参给子组件无法响应"></a>三、父页面异步调用接口数据通过props传参给子组件无法响应</h1><p><strong>症状描述：子组件得到的一直是空值，不管是否写了witch监听</strong></p>
+<p>原因：异步函数请求未结束就已经开始渲染组件了</p>
+<p>解决方法：通过async与await变成同步</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>  <span class="title">Xxxx</span>(<span class="params">A, B</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//这里要变成同步请求！不然子组件无法获得数据</span></span><br><span class="line">	<span class="keyword">await</span> ajax.get(&#123;<span class="attr">url</span>: url&#125;)</span><br><span class="line">	.then(<span class="function"><span class="params">res</span> =&gt;</span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(err);</span><br><span class="line">	&#125;);</span><br><span class="line">    <span class="keyword">return</span> xxx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>改成同步的缺点就是有等待延迟，那么就使用v-if来让组件加载之前同步获取好数据，得到之后再渲染组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;categoryBar :categoryList&#x3D;&quot;categoryList&quot; v-if&#x3D;&quot;loading&quot;&gt;&lt;&#x2F;categoryBar&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">		data() &#123;</span><br><span class="line">			return &#123;</span><br><span class="line">				categoryList:[],</span><br><span class="line">				loading: false,</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		async onLoad() &#123;</span><br><span class="line">			console.log(&quot;onload&quot;)</span><br><span class="line">			this.categoryList &#x3D; await getAllCategory(0, 0);</span><br><span class="line">			this.loading&#x3D;true</span><br><span class="line">		&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>当然这种方法也有缺点：不适用于一些必要的显示组件，自行选择使用。</p>
+<p>另一种方法见：<a href="https://www.jianshu.com/p/4450b63a27fe" target="_blank" rel="noopener">https://www.jianshu.com/p/4450b63a27fe</a>  中的方法二</p>
 
       
       
@@ -275,7 +285,7 @@
     2020-11-08
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-01-25
+    2021-01-27
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/11/08/技术贴/前端/VUE/vue遇到的错误总结/" title="vue遇到的错误总结" target="_blank">vue遇到的错误总结</a>
@@ -485,7 +495,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、vue-js正确的放置位置"><span class="toc-number">1.</span> <span class="toc-text">一、vue.js正确的放置位置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二、This和That"><span class="toc-number">1.1.</span> <span class="toc-text">二、This和That</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、vue-js正确的放置位置"><span class="toc-number">1.</span> <span class="toc-text">一、vue.js正确的放置位置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二、This和That"><span class="toc-number">1.1.</span> <span class="toc-text">二、This和That</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、父页面异步调用接口数据通过props传参给子组件无法响应"><span class="toc-number">2.</span> <span class="toc-text">三、父页面异步调用接口数据通过props传参给子组件无法响应</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -843,6 +853,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
             
             <div class="clearfix"></div>
