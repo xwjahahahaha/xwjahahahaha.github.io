@@ -16,9 +16,10 @@
 <meta property="og:description" content="这里将记录个人刷题时的总结与注意事项">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20210202102002.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/3c7dkX.jpg">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20210202124259.png">
 <meta property="article:published_time" content="2020-07-03T08:16:25.000Z">
-<meta property="article:modified_time" content="2021-02-13T07:49:16.161Z">
+<meta property="article:modified_time" content="2021-02-16T02:58:39.127Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="python">
@@ -78,7 +79,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 307
+			总文章数 309
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -223,7 +224,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">902字</span>
+        <span class="post-count">1k字</span>
       </span>
     </span>
 
@@ -259,20 +260,40 @@
 <h2 id="1-2-翻转一个数x的二进制位"><a href="#1-2-翻转一个数x的二进制位" class="headerlink" title="1.2 翻转一个数x的二进制位"></a>1.2 翻转一个数x的二进制位</h2><ol>
 <li>取最后一位（x &amp; 1），然后移位，最后添加到前面。</li>
 </ol>
-<h1 id="二、字符串处理"><a href="#二、字符串处理" class="headerlink" title="二、字符串处理"></a>二、字符串处理</h1><h2 id="2-1-翻转字符串中的字符"><a href="#2-1-翻转字符串中的字符" class="headerlink" title="2.1 翻转字符串中的字符"></a>2.1 翻转字符串中的字符</h2><ul>
-<li>java可用的api：</li>
-</ul>
-<p>StringBuffer实例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> StringBuffer <span class="title">reverse</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="comment">//将此字符序列用其反转形式取代。返回其翻转后的结果</span></span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>手写实现的两种思路：</li>
-</ul>
+<h1 id="二、数组"><a href="#二、数组" class="headerlink" title="二、数组"></a>二、数组</h1><p><strong>数组是存放在连续内存空间的相同数据类型的集合</strong>，所以<strong>易查询不易增删</strong>（空间连续需要移动元素）</p>
+<p>二维数组在空间中<strong>不是连续的</strong>，它是由多条连续的一维数组空间以及一个一维数组存放各个首地址。</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/3c7dkX.jpg" alt="3c7dkX"></p>
+<h2 id="1-二分法查询"><a href="#1-二分法查询" class="headerlink" title="1. 二分法查询"></a>1. 二分法查询</h2><p>前提：有序数组，且数组中无重复元素（如果有的话结果可能不唯一）</p>
+<p>题目中数组是有序的 =&gt; 二分法</p>
+<p>二分法的边界处理问题要抓住<strong>循环不变量</strong> =&gt;区间</p>
+<h1 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h1><h2 id="3-1-翻转字符串中的字符"><a href="#3-1-翻转字符串中的字符" class="headerlink" title="3.1 翻转字符串中的字符"></a>3.1 翻转字符串中的字符</h2><p>手写实现的两种思路：</p>
 <ol>
 <li><strong>较短或确定长度的字符串</strong>：循环字符串的0 ~ len/2个字符,交换字符str[i]与str[len-1-i]</li>
 <li><strong>较长的字符串</strong>: 分段，每个小段翻转，整体交换实现翻转。(分治)</li>
 </ol>
-<h2 id="2-2-Character类单字符处理"><a href="#2-2-Character类单字符处理" class="headerlink" title="2.2 Character类单字符处理"></a>2.2 Character类单字符处理</h2><p>java:</p>
+<h1 id="DFS与BFS"><a href="#DFS与BFS" class="headerlink" title="DFS与BFS"></a>DFS与BFS</h1><h2 id="3-1-DFS"><a href="#3-1-DFS" class="headerlink" title="3.1 DFS"></a>3.1 DFS</h2><p>DFS深度优先用<font color='orange'>栈</font>，注意栈溢出</p>
+<h2 id="3-2-BFS"><a href="#3-2-BFS" class="headerlink" title="3.2 BFS"></a>3.2 BFS</h2><p>BFS广度优先用<font color='orange'>队列</font>。</p>
+<h1 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h1><p><strong>使用场景：复杂数据结构的排序</strong></p>
+<p><a href="https://leetcode-cn.com/problems/k-closest-points-to-origin/" target="_blank" rel="noopener">973. 最接近原点的 K 个点</a></p>
+<p>在优先队列中，<strong>元素被赋予优先级</strong>。当访问元素时，<strong>具有最高优先级的元素最先删除。</strong>优先队列具有最高级先出 （first in, largest out）的行为特征。通常采用<strong>堆</strong>数据结构来实现。</p>
+<h1 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h1><h4 id="例题：131-分割回文串"><a href="#例题：131-分割回文串" class="headerlink" title="例题：131. 分割回文串"></a>例题：<a href="https://leetcode-cn.com/problems/palindrome-partitioning/" target="_blank" rel="noopener">131. 分割回文串</a></h4><p><strong>搜索问题</strong>主要使用回溯法。</p>
+<p>回溯法思考的步骤：</p>
+<p>1、画递归树；</p>
+<p>2、根据自己画的递归树编码。</p>
+<h1 id="java-Go数据结构重要api"><a href="#java-Go数据结构重要api" class="headerlink" title="java/Go数据结构重要api"></a>java/Go数据结构重要api</h1><h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><h3 id="1-复制数组"><a href="#1-复制数组" class="headerlink" title="1. 复制数组"></a>1. 复制数组</h3><p>System包下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">arraycopy</span><span class="params">(Object src,<span class="keyword">int</span> srcPos,Object dest,<span class="keyword">int</span> destPos,<span class="keyword">int</span> length)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>从指定源数组中复制一个数组，复制从指定的位置开始，到目标数组的指定位置结束。从 src 引用的源数组到 dest 引用的目标数组，数组组件的一个子序列被复制下来。被复制的组件的编号等于 length 参数。源数组中位置在 srcPos 到 srcPos+length-1 之间的组件被分别复制到目标数组中的 destPos 到 destPos+length-1 位置。 </p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20210202124259.png" alt=""></p>
+<p><font color='green'><strong>使用：</strong></font></p>
+<p><code>System.arraycopy(原数组, 原数组复制开始下标, 目的数组, 目的数组开始下表, 复制总长度);</code></p>
+<h3 id="2-字符串处理"><a href="#2-字符串处理" class="headerlink" title="2. 字符串处理"></a>2. 字符串处理</h3><p>StringBuffer实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> StringBuffer <span class="title">reverse</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="comment">//将此字符序列用其反转形式取代。返回其翻转后的结果</span></span></span><br></pre></td></tr></table></figure>
+
+<p>频繁的动态添加字符应当考虑StringBuffer</p>
+<p>SringBuffer类和String一样，也用来代表字符串，相比String, StringBuffer在进行字符串处理时，不生成新的对象，在内存使用上要优于String类。当遇到插入、删除等字符串操作时，可以考虑用StringBuffer</p>
+<hr>
+<p>单字符处理：</p>
 <ul>
 <li><p>判断是否为数字与字母</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isDigit</span><span class="params">(<span class="keyword">char</span> ch)</span></span></span><br></pre></td></tr></table></figure>
@@ -288,34 +309,16 @@
 
 </li>
 </ul>
-<h2 id="2-3-StringBuffer-java"><a href="#2-3-StringBuffer-java" class="headerlink" title="2.3 StringBuffer (java)"></a>2.3 StringBuffer (java)</h2><p>频繁的动态添加字符应当考虑StringBuffer</p>
-<p>SringBuffer类和String一样，也用来代表字符串，相比String, StringBuffer在进行字符串处理时，不生成新的对象，在内存使用上要优于String类。当遇到插入、删除等字符串操作时，可以考虑用StringBuffer。</p>
-<h2 id="2-4-字符串取子串"><a href="#2-4-字符串取子串" class="headerlink" title="2.4 字符串取子串"></a>2.4 字符串取子串</h2><ul>
-<li><p>Java中直接使用subString</p>
-</li>
-<li><p>Go因为没有substring， 所以直接采用切片方式即可，例如<code>s[2:len(s)-1]</code></p>
-</li>
-</ul>
-<h1 id="三、DFS与BFS"><a href="#三、DFS与BFS" class="headerlink" title="三、DFS与BFS"></a>三、DFS与BFS</h1><h2 id="3-1-DFS"><a href="#3-1-DFS" class="headerlink" title="3.1 DFS"></a>3.1 DFS</h2><p>DFS深度优先用<font color='orange'>栈</font>，注意栈溢出</p>
-<h2 id="3-2-BFS"><a href="#3-2-BFS" class="headerlink" title="3.2 BFS"></a>3.2 BFS</h2><p>BFS广度优先用<font color='orange'>队列</font>。</p>
-<h1 id="四、优先队列"><a href="#四、优先队列" class="headerlink" title="四、优先队列"></a>四、优先队列</h1><p><strong>使用场景：复杂数据结构的排序</strong></p>
-<p><a href="https://leetcode-cn.com/problems/k-closest-points-to-origin/" target="_blank" rel="noopener">973. 最接近原点的 K 个点</a></p>
-<p>在优先队列中，<strong>元素被赋予优先级</strong>。当访问元素时，<strong>具有最高优先级的元素最先删除。</strong>优先队列具有最高级先出 （first in, largest out）的行为特征。通常采用<strong>堆</strong>数据结构来实现。</p>
-<h1 id="五、回溯"><a href="#五、回溯" class="headerlink" title="五、回溯"></a>五、回溯</h1><h4 id="例题：131-分割回文串"><a href="#例题：131-分割回文串" class="headerlink" title="例题：131. 分割回文串"></a>例题：<a href="https://leetcode-cn.com/problems/palindrome-partitioning/" target="_blank" rel="noopener">131. 分割回文串</a></h4><p><strong>搜索问题</strong>主要使用回溯法。</p>
-<p>回溯法思考的步骤：</p>
-<p>1、画递归树；</p>
-<p>2、根据自己画的递归树编码。</p>
-<h1 id="java-Go数据结构重要api"><a href="#java-Go数据结构重要api" class="headerlink" title="java/Go数据结构重要api"></a>java/Go数据结构重要api</h1><h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><h3 id="1-复制数组"><a href="#1-复制数组" class="headerlink" title="1. 复制数组"></a>1. 复制数组</h3><p>System包下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">arraycopy</span><span class="params">(Object src,<span class="keyword">int</span> srcPos,Object dest,<span class="keyword">int</span> destPos,<span class="keyword">int</span> length)</span></span></span><br></pre></td></tr></table></figure>
-
-<p>从指定源数组中复制一个数组，复制从指定的位置开始，到目标数组的指定位置结束。从 src 引用的源数组到 dest 引用的目标数组，数组组件的一个子序列被复制下来。被复制的组件的编号等于 length 参数。源数组中位置在 srcPos 到 srcPos+length-1 之间的组件被分别复制到目标数组中的 destPos 到 destPos+length-1 位置。 </p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20210202124259.png" alt=""></p>
-<p><font color='green'><strong>使用：</strong></font></p>
-<p><code>System.arraycopy(原数组, 原数组复制开始下标, 目的数组, 目的数组开始下表, 复制总长度);</code></p>
-<h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><h3 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h3><p>Go中可以采用切片来处理需要类似栈的数据结构：</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><h3 id="1-栈、队列"><a href="#1-栈、队列" class="headerlink" title="1.栈、队列"></a>1.栈、队列</h3><p>Go中可以采用<strong>切片</strong>来处理需要类似栈\队列的数据结构：</p>
+<p>栈：</p>
 <ul>
 <li>入栈slice =  append（slice, item）</li>
 <li>出栈slice = slice[ : len(slice)-1]</li>
+</ul>
+<p>队列：</p>
+<ul>
+<li>入队slice = append(slice, item)</li>
+<li>出队 item = slice[0]; slice = slice[1:]</li>
 </ul>
 
       
@@ -526,7 +529,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面试算法题型"><span class="toc-number">1.</span> <span class="toc-text">面试算法题型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#预处理"><span class="toc-number">2.</span> <span class="toc-text">预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组排序"><span class="toc-number">2.1.</span> <span class="toc-text">数组排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入特殊值直接消除"><span class="toc-number">2.2.</span> <span class="toc-text">输入特殊值直接消除</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、位运算"><span class="toc-number">3.</span> <span class="toc-text">一、位运算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-技巧记录"><span class="toc-number">3.1.</span> <span class="toc-text">1.1 技巧记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-翻转一个数x的二进制位"><span class="toc-number">3.2.</span> <span class="toc-text">1.2 翻转一个数x的二进制位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、字符串处理"><span class="toc-number">4.</span> <span class="toc-text">二、字符串处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-翻转字符串中的字符"><span class="toc-number">4.1.</span> <span class="toc-text">2.1 翻转字符串中的字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Character类单字符处理"><span class="toc-number">4.2.</span> <span class="toc-text">2.2 Character类单字符处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-StringBuffer-java"><span class="toc-number">4.3.</span> <span class="toc-text">2.3 StringBuffer (java)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-字符串取子串"><span class="toc-number">4.4.</span> <span class="toc-text">2.4 字符串取子串</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、DFS与BFS"><span class="toc-number">5.</span> <span class="toc-text">三、DFS与BFS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-DFS"><span class="toc-number">5.1.</span> <span class="toc-text">3.1 DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-BFS"><span class="toc-number">5.2.</span> <span class="toc-text">3.2 BFS</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、优先队列"><span class="toc-number">6.</span> <span class="toc-text">四、优先队列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、回溯"><span class="toc-number">7.</span> <span class="toc-text">五、回溯</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题：131-分割回文串"><span class="toc-number">7.0.0.1.</span> <span class="toc-text">例题：131. 分割回文串</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-Go数据结构重要api"><span class="toc-number">8.</span> <span class="toc-text">java&#x2F;Go数据结构重要api</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java"><span class="toc-number">8.1.</span> <span class="toc-text">java</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-复制数组"><span class="toc-number">8.1.1.</span> <span class="toc-text">1. 复制数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go"><span class="toc-number">8.2.</span> <span class="toc-text">Go</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-栈"><span class="toc-number">8.2.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面试算法题型"><span class="toc-number">1.</span> <span class="toc-text">面试算法题型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#预处理"><span class="toc-number">2.</span> <span class="toc-text">预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组排序"><span class="toc-number">2.1.</span> <span class="toc-text">数组排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入特殊值直接消除"><span class="toc-number">2.2.</span> <span class="toc-text">输入特殊值直接消除</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、位运算"><span class="toc-number">3.</span> <span class="toc-text">一、位运算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-技巧记录"><span class="toc-number">3.1.</span> <span class="toc-text">1.1 技巧记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-翻转一个数x的二进制位"><span class="toc-number">3.2.</span> <span class="toc-text">1.2 翻转一个数x的二进制位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、数组"><span class="toc-number">4.</span> <span class="toc-text">二、数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-二分法查询"><span class="toc-number">4.1.</span> <span class="toc-text">1. 二分法查询</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串处理"><span class="toc-number">5.</span> <span class="toc-text">字符串处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-翻转字符串中的字符"><span class="toc-number">5.1.</span> <span class="toc-text">3.1 翻转字符串中的字符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DFS与BFS"><span class="toc-number">6.</span> <span class="toc-text">DFS与BFS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-DFS"><span class="toc-number">6.1.</span> <span class="toc-text">3.1 DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-BFS"><span class="toc-number">6.2.</span> <span class="toc-text">3.2 BFS</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优先队列"><span class="toc-number">7.</span> <span class="toc-text">优先队列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#回溯"><span class="toc-number">8.</span> <span class="toc-text">回溯</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例题：131-分割回文串"><span class="toc-number">8.0.0.1.</span> <span class="toc-text">例题：131. 分割回文串</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-Go数据结构重要api"><span class="toc-number">9.</span> <span class="toc-text">java&#x2F;Go数据结构重要api</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java"><span class="toc-number">9.1.</span> <span class="toc-text">java</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-复制数组"><span class="toc-number">9.1.1.</span> <span class="toc-text">1. 复制数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-字符串处理"><span class="toc-number">9.1.2.</span> <span class="toc-text">2. 字符串处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">9.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go"><span class="toc-number">9.3.</span> <span class="toc-text">Go</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-栈、队列"><span class="toc-number">9.3.1.</span> <span class="toc-text">1.栈、队列</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
