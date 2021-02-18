@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xwjahahahaha.github.io/2021/02/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/</loc>
+    
+    <lastmod>2021-02-18</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xwjahahahaha.github.io/2021/02/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-02/%E6%97%A5%E8%AE%B0-0130/</loc>
     
     <lastmod>2021-02-18</lastmod>
@@ -2432,6 +2439,13 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://xwjahahahaha.github.io/tags/git/</loc>
+    <lastmod>2021-02-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -2716,6 +2730,13 @@
   
   <url>
     <loc>https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E5%91%A8%E4%B8%80%E8%AE%B0/</loc>
+    <lastmod>2021-02-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xwjahahahaha.github.io/categories/technical/git/</loc>
     <lastmod>2021-02-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
