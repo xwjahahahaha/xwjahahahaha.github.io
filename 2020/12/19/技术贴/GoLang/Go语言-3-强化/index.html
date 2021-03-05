@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>Go语言-3-进阶 | 知识与头发不可兼得</title>
+  <title>技术贴/GoLang/Go语言-3-强化 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="四、golang基础巩固加强4.1 go的包管理此部分内容来源于：http:&#x2F;&#x2F;c.biancheng.net&#x2F;view&#x2F;5712.html Go Modulego module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。 Modules 官方定义为： Modules 是相关 Go 包的集合，是源代">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go语言-3-进阶">
+<meta property="og:title" content="技术贴&#x2F;GoLang&#x2F;Go语言-3-强化">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E5%BC%BA%E5%8C%96/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="四、golang基础巩固加强4.1 go的包管理此部分内容来源于：http:&#x2F;&#x2F;c.biancheng.net&#x2F;view&#x2F;5712.html Go Modulego module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。 Modules 官方定义为： Modules 是相关 Go 包的集合，是源代">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/AczrFm.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/7alfFI.png">
 <meta property="article:published_time" content="2020-12-19T14:17:17.000Z">
-<meta property="article:modified_time" content="2021-02-18T05:26:34.024Z">
+<meta property="article:modified_time" content="2021-03-04T09:01:58.509Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -81,7 +81,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 313
+			总文章数 322
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -199,7 +199,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Go语言-3-进阶
+      技术贴/GoLang/Go语言-3-强化
     </h1>
   
 
@@ -226,7 +226,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.9k字</span>
+        <span class="post-count">2.3k字</span>
       </span>
     </span>
 
@@ -235,7 +235,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">7分</span>
+        <span class="post-count">9分</span>
       </span>
     </span>
 </div>
@@ -328,6 +328,30 @@
 <li>运行<code>go get [包名]@[版本号]</code>命令会下载对应包的指定版本或者将对应包升级到指定的版本。</li>
 </ul>
 <p>提示：<code>go get [包名]@[版本号]</code>命令中版本号可以是 x.y.z 的形式，例如 go get <a href="mailto:foo@v1.2.3">foo@v1.2.3</a>，也可以是 git 上的分支或 tag，例如 go get foo@master，还可以是 git 提交时的哈希值，例如 go get foo@e3702bed2。</p>
+<h4 id="go-mod与go-sum文件"><a href="#go-mod与go-sum文件" class="headerlink" title="go.mod与go.sum文件"></a>go.mod与go.sum文件</h4><p>go.mod 提供了 module、require、replace 和 exclude 四个命令：</p>
+<ul>
+<li>module 语句指定包的名字（路径）；</li>
+<li>require 语句指定的依赖项模块；</li>
+<li>replace 语句可以替换依赖项模块；</li>
+<li>exclude 语句可以忽略依赖项模块。</li>
+</ul>
+<p>示例:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module hello</span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> <span class="number">1.13</span></span><br><span class="line"></span><br><span class="line">require (</span><br><span class="line">    github.com/labstack/echo v3<span class="number">.3</span><span class="number">.10</span>+incompatible <span class="comment">// indirect</span></span><br><span class="line">    github.com/labstack/gommon v0<span class="number">.3</span><span class="number">.0</span> <span class="comment">// indirect</span></span><br><span class="line">    golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20191206172530</span>-e9b2fee46413 <span class="comment">// indirect</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>go module 安装 package 的原则是先拉取最新的 release tag，若无 tag 则拉取最新的 commit，详见<a href="https://github.com/golang/go/wiki/Modules" target="_blank" rel="noopener"> Modules 官方</a>介绍。</p>
+<p>go 会自动生成一个 go.sum 文件来<strong>记录</strong> dependency tree：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">github.com/davecgh/<span class="keyword">go</span>-spew v1<span class="number">.1</span><span class="number">.0</span>/<span class="keyword">go</span>.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=</span><br><span class="line">github.com/labstack/echo v3<span class="number">.3</span><span class="number">.10</span>+incompatible h1:pGRcYk231ExFAyoAjAfD85kQzRJCRI8bbnE7CX5OEgg=</span><br><span class="line">github.com/labstack/echo v3<span class="number">.3</span><span class="number">.10</span>+incompatible/<span class="keyword">go</span>.mod h1:<span class="number">0</span>INS7j/VjnFxD4E2wkz67b8cVwCLbBmJyDaka6Cmk1s=</span><br><span class="line">github.com/labstack/gommon v0<span class="number">.3</span><span class="number">.0</span> h1:JEeO0bvc78PKdyHxloTKiF8BD5iGrH8T6MSeGvSgob0=</span><br><span class="line">github.com/labstack/gommon v0<span class="number">.3</span><span class="number">.0</span>/<span class="keyword">go</span>.mod h1:MULnywXg0yavhxWKc+lOruYdAhDwPK9wf0OL7NoOu+k=</span><br><span class="line">github.com/mattn/<span class="keyword">go</span>-colorable v0<span class="number">.1</span><span class="number">.2</span> h1:/bC9yWikZXAL9uJdulbSfyVNIR3n3trXl+v8+<span class="number">1</span>sx8mU=</span><br><span class="line">... 省略很多行</span><br></pre></td></tr></table></figure>
+
+<p>可以使用命令<code>go list -m -u all</code>来检查可以升级的 package，使用<code>go get -u need-upgrade-package</code>升级后会将新的依赖版本更新到 go.mod * 也可以使用<code>go get -u</code>升级所有依赖。</p>
+<p><strong>使用 replace 替换无法直接获取的 package</strong></p>
+<p>由于某些已知的原因，并不是所有的 package 都能成功下载，比如：golang.org 下的包。</p>
+<p>modules 可以通过在 go.mod 文件中使用 replace 指令替换成 github 上对应的库，比如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">replace (</span><br><span class="line">  golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a =&gt; github.com/golang/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replace golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a =&gt; github.com/golang/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a</span><br></pre></td></tr></table></figure>
+
+<h4 id="下载位置"><a href="#下载位置" class="headerlink" title="下载位置"></a>下载位置</h4><p>一般的下载位置在<code>GOPATH/pkg</code>目录下,使用<code>go module</code>下载位置在<code>GOPATH/src/mod</code>下</p>
 <h2 id="4-2-Go指针"><a href="#4-2-Go指针" class="headerlink" title="4.2 Go指针"></a>4.2 Go指针</h2><p>指针能够操作内存，这是指针最大的优势之一。</p>
 <p>go语言的指针介于java与C/C++之间，即没有像java那样取消了代码对指针的操作能力，也没有像C/C++那样滥用指针而造成安全性和可靠性的问题。</p>
 <p>但是go语言的指针并没有达到C/C++那样的自由度。</p>
@@ -403,13 +427,13 @@
     2020-12-19
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-02-18
+    2021-03-04
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-强化/" title="Go语言-3-进阶" target="_blank">Go语言-3-进阶</a>
+    <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-强化/" title="技术贴/GoLang/Go语言-3-强化" target="_blank">技术贴/GoLang/Go语言-3-强化</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-强化/" title="Go语言-3-进阶" target="_blank">https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-强化/</a>
+    <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-强化/" title="技术贴/GoLang/Go语言-3-强化" target="_blank">https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-强化/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -613,7 +637,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#四、golang基础巩固加强"><span class="toc-number">1.</span> <span class="toc-text">四、golang基础巩固加强</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-go的包管理"><span class="toc-number">1.1.</span> <span class="toc-text">4.1 go的包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Module"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">Go Module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GOPROXY"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">GOPROXY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Get"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">Go Get</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-Go指针"><span class="toc-number">1.2.</span> <span class="toc-text">4.2 Go指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-函数运行的内存解析与栈帧"><span class="toc-number">1.2.1.</span> <span class="toc-text">4.2.1 函数运行的内存解析与栈帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-注意事项"><span class="toc-number">1.2.2.</span> <span class="toc-text">4.2.2 注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#空指针与野指针"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">空指针与野指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#new赋值给指针"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">new赋值给指针</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-变量的左值右值"><span class="toc-number">1.2.3.</span> <span class="toc-text">4.2.3 变量的左值右值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-指针的函数传参"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.2.4 指针的函数传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-5-内存申请释放"><span class="toc-number">1.2.5.</span> <span class="toc-text">4.2.5 内存申请释放</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-切片"><span class="toc-number">1.3.</span> <span class="toc-text">4.3 切片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么用切片："><span class="toc-number">1.3.1.</span> <span class="toc-text">为什么用切片：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切片的本质："><span class="toc-number">1.3.2.</span> <span class="toc-text">切片的本质：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切片的使用："><span class="toc-number">1.3.3.</span> <span class="toc-text">切片的使用：</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#四、golang基础巩固加强"><span class="toc-number">1.</span> <span class="toc-text">四、golang基础巩固加强</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-go的包管理"><span class="toc-number">1.1.</span> <span class="toc-text">4.1 go的包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Module"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">Go Module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GOPROXY"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">GOPROXY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Get"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">Go Get</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#go-mod与go-sum文件"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">go.mod与go.sum文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下载位置"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">下载位置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-Go指针"><span class="toc-number">1.2.</span> <span class="toc-text">4.2 Go指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-函数运行的内存解析与栈帧"><span class="toc-number">1.2.1.</span> <span class="toc-text">4.2.1 函数运行的内存解析与栈帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-注意事项"><span class="toc-number">1.2.2.</span> <span class="toc-text">4.2.2 注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#空指针与野指针"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">空指针与野指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#new赋值给指针"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">new赋值给指针</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-变量的左值右值"><span class="toc-number">1.2.3.</span> <span class="toc-text">4.2.3 变量的左值右值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-指针的函数传参"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.2.4 指针的函数传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-5-内存申请释放"><span class="toc-number">1.2.5.</span> <span class="toc-text">4.2.5 内存申请释放</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-切片"><span class="toc-number">1.3.</span> <span class="toc-text">4.3 切片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么用切片："><span class="toc-number">1.3.1.</span> <span class="toc-text">为什么用切片：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切片的本质："><span class="toc-number">1.3.2.</span> <span class="toc-text">切片的本质：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切片的使用："><span class="toc-number">1.3.3.</span> <span class="toc-text">切片的使用：</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
