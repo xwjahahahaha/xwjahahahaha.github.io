@@ -6,20 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>cosmos | 知识与头发不可兼得</title>
+  <title>cosmos-2-开发基础 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="二、开发基础2.1. Cosmos SDKCosmos  SDK是方便区块链应用开发的基础框架,方便程序员实现基于Tendermint的安全状态机.它将实现多重数据的持久化存储以及交易处理的路由功能. 2.1.1 application-specific blockchains就是尽量让一个区块链应用使用单独的一条链,不会与其他的应用共享资源,拥有对该条链的完全主权. 12345678910111">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cosmos">
+<meta property="og:title" content="cosmos-2-开发基础">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2021/02/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-2-%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="二、开发基础2.1. Cosmos SDKCosmos  SDK是方便区块链应用开发的基础框架,方便程序员实现基于Tendermint的安全状态机.它将实现多重数据的持久化存储以及交易处理的路由功能. 2.1.1 application-specific blockchains就是尽量让一个区块链应用使用单独的一条链,不会与其他的应用共享资源,拥有对该条链的完全主权. 12345678910111">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/pYgbSb.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/bCt32L.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/zlJ78C.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/yaarO9.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/6b9lkS.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/3bXHTB.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/asR993.png">
 <meta property="article:published_time" content="2021-02-28T06:39:07.000Z">
-<meta property="article:modified_time" content="2021-03-04T07:37:59.662Z">
+<meta property="article:modified_time" content="2021-03-13T04:46:51.325Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="cosmos">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/pYgbSb.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -73,7 +81,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 323
+			总文章数 331
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -191,7 +199,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      cosmos
+      cosmos-2-开发基础
     </h1>
   
 
@@ -218,7 +226,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
+        <span class="post-count">10.3k字</span>
       </span>
     </span>
 
@@ -227,7 +235,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
+        <span class="post-count">49分</span>
       </span>
     </span>
 </div>
@@ -299,6 +307,578 @@
 <li><code>x/bank</code>: Used to enable tokens and token transfers.</li>
 <li><code>x/staking</code> + <code>x/slashing</code>: Used to build Proof-Of-Stake blockchains.</li>
 </ul>
+<h2 id="2-2-starport"><a href="#2-2-starport" class="headerlink" title="2.2 starport"></a>2.2 starport</h2><h3 id="2-2-1-Introduction"><a href="#2-2-1-Introduction" class="headerlink" title="2.2.1 Introduction"></a>2.2.1 Introduction</h3><h4 id="什么是starport"><a href="#什么是starport" class="headerlink" title="什么是starport"></a>什么是starport</h4><p>搭建cosmos的脚手架工具</p>
+<p>只需几个命令，您就可以创建区块链、启动区块链、在云上提供服务，并准备好一个 GUI 开始测试您的应用程序。</p>
+<p>There are many projects already showcasing that the Tendermint BFT Consensus Engine and the Cosmos SDK.</p>
+<p>The following projects are using the technology:</p>
+<ul>
+<li><a href="https://github.com/cosmos/gaia" target="_blank" rel="noopener">Cosmos</a> (Main IBC Hub and “Rolemodel” of the Cosmos SDK)</li>
+<li><a href="https://github.com/binance-chain" target="_blank" rel="noopener">Binance Chain</a> (DEX and utility token)</li>
+<li><a href="https://github.com/crypto-com/chain-main" target="_blank" rel="noopener">Crypto.com Chain</a> (Payments, DeFi, and utility token)</li>
+<li><a href="https://github.com/irisnet" target="_blank" rel="noopener">IRIS</a> (IBC Hub and developer oriented)</li>
+<li><a href="https://github.com/Kava-Labs/kava" target="_blank" rel="noopener">Kava</a> (DeFi and Stable Coins)</li>
+<li><a href="https://docs.chain.aragon.org/" target="_blank" rel="noopener">Aragon</a> (DAO catalyst)</li>
+<li><a href="https://cosmwasm.com/" target="_blank" rel="noopener">CosmWasm</a> (smart contracts using WASM)</li>
+<li>==<a href="https://ethermint.zone/" target="_blank" rel="noopener">Ethermint</a> (Ethereum virtual machine)==</li>
+</ul>
+<p><a href="https://cosmonauts.world/" target="_blank" rel="noopener">See the full list here</a>.</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><a href="https://github.com/tendermint/starport/blob/develop/docs/1%20Introduction/2%20Install.md" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/1%20Introduction/2%20Install.md</a></p>
+<h4 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h4><p>With <code>starport</code> installed on your machine, you can now build your very first blockchain!</p>
+<p><strong>创建项目的命令格式:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starport app github.com&#x2F;username&#x2F;myapp &amp;&amp; cd myapp:</span><br></pre></td></tr></table></figure>
+
+<p>This command will create a directory <code>myapp</code> and scaffold a Cosmos SDK blockchain.</p>
+<hr>
+<p><strong>下面的命令开启服务:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starport serve</span><br></pre></td></tr></table></figure>
+
+<p><code>serve</code> will install dependencies, build, initialise and run your blokchain.</p>
+<hr>
+<p><strong>创建类型 , starport会自动对应的创建CRUD的操作</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starport type post title body</span><br></pre></td></tr></table></figure>
+
+<p><code>type</code> scaffolds functionality to create, read, update and delete for a custom type.</p>
+<h4 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h4><h5 id="config-yaml"><a href="#config-yaml" class="headerlink" title="config.yaml"></a>config.yaml</h5><p>When creating a new app with starport, you will see a <code>config.yml</code> file in your blockchain folder. This file defines the genesis file, the network you will be using and the first validators of your blockchain.</p>
+<p><code>config.yaml</code>文件定义了创世文件, 需要使用的网络以及网络中的第一个Validator</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当前的版本</span></span><br><span class="line"><span class="attr">version:</span> <span class="number">1</span></span><br><span class="line"><span class="comment"># 定义区块链上代币的初始分布, 这些账户被定义在创世块中, 并且这些账户会在区块链中生成对应的公私钥对,在命令行中可以访问</span></span><br><span class="line"></span><br><span class="line"><span class="attr">accounts:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">user1</span></span><br><span class="line">    <span class="attr">coins:</span> <span class="string">["1000token",</span> <span class="string">"100000000stake"</span><span class="string">]</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">user2</span></span><br><span class="line">  <span class="comment"># coins在区块链上标明coin的数量和面额。你可以在这里列出你的区块链上使用的各种面值的硬币和它们各自的金额。</span></span><br><span class="line">    <span class="attr">coins:</span> <span class="string">["500token"]</span></span><br><span class="line"><span class="comment"># 定义验证者的时候可以直接使用上面的账户,并且绑定权益</span></span><br><span class="line"><span class="comment"># 绑定权益即stake必须等于或小于accounts参数中给出的权益。</span></span><br><span class="line"><span class="attr">validator:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">user1</span></span><br><span class="line">  <span class="attr">staked:</span> <span class="string">"100000000stake"</span></span><br></pre></td></tr></table></figure>
+
+<p><code>config.yaml</code>可选字段:</p>
+<ul>
+<li><p>genesis</p>
+<p>可以直接定义创世纪文件中的参数，例如链ID：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">genesis:</span><br><span class="line">  chain_id: &quot;foobar&quot;</span><br></pre></td></tr></table></figure>
+
+<p>您还可以操作不同模块的参数。例如，如果您想要更改模块，其中包含标注参数，例如哪个令牌被押注，您将向”config.yml”添加以下内容<code>staking</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">genesis:</span><br><span class="line">  app_state:</span><br><span class="line">    staking:</span><br><span class="line">      params:</span><br><span class="line">        bond_denom: &quot;denom&quot;</span><br></pre></td></tr></table></figure>
+
+<p>运行<code>starport serve</code>后, 这些配置参数将会创建于创世文件中, 其创建（或覆盖）位于用户目录下的文件夹</p>
+</li>
+</ul>
+<p>This will create (or override) the folder located at your user homefolder <code>~/.myappd</code> (the name of your application with a <code>d</code> for <code>daemon</code> attached) and initiate your blockchain with the genesis file. </p>
+<p>创世文件的目录结构:</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/pYgbSb.png" alt="pYgbSb"></p>
+<p>其他的一些文件创建在<code>~/.[你的app名]cli</code>下,其中包含当前命令行接口的配置文件,如<code>chain-id</code>，一些输出参数,如<code>json</code>或<code>indent</code>模式(排版模式)。</p>
+<p>如果您想确保从区块链设置中删除所有数据，请务必删除该文件夹和文件夹。<code>~/.myappd</code> <code>~/.myappcli</code></p>
+<h5 id="账户地址前缀"><a href="#账户地址前缀" class="headerlink" title="账户地址前缀"></a>账户地址前缀</h5><p>您可以更改区块链应用程序中的地址外观。即他们在开头附加其他的内容。在cosmos Main Hub地址前面有一个地址前缀，例如<code>cosmos12fjzdtqfrrve7zyg9sv8j25azw2ua6tvu07ypf</code></p>
+<p>您可以通过更改创建的application的<code>/app/prefix.go</code>中的<code>AccountAddressPrefix</code>变量来更改第一个前缀。建议您保留其他变量，因为它们是Cosmos SDK链中使用的标准，因此可以被识别。这有安全隐患，如不发送到可能无法使用它的地址。</p>
+<p>要让您的前端正确地使用新命名，您需要更改<code>/vue/.env</code>中的<code>VUE_APP_ADDRESS_PREFIX</code>变量。</p>
+<p>为了自动完成这一切，<strong>在使用命令<code>starport app github.com/foo/bar</code>创建应用程序时，只需添加<code>--address-prefix</code>前缀参数。</strong></p>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>定义您的起源帐户和验证器。<code>config.yml</code></li>
+<li>它允许您使用不同的代币激励区块链，并指定第一个区块中每个初始帐户的金额。</li>
+<li>更改地址的前缀可以在文件<code>/app/prefix.go</code>中完成。或者在启动时添加前缀参数</li>
+</ul>
+<h4 id="创世文件genesis-json"><a href="#创世文件genesis-json" class="headerlink" title="创世文件genesis.json"></a>创世文件genesis.json</h4><p>创世块是区块链的第一个区块,创世区块通常是区块链中唯一无法在您即将启动的同一 P2P 网络上找到的块，它必须以不同的方式共享 - 我们将查看在另一个教程中共享生成文件的方法</p>
+<p>因为它是区块链的起点，尤其是在风险证明POS区块链中，它包含初始地址和余额列表。此外，大多数情况下，创世块定义了区块链使用的区块链网络。</p>
+<p>使用 Starport，您将从您的文件中创建一个创世纪文件<code>.myappd/config/genesis.json</code>，它通常看起来类似于此：<code>config.yml</code></p>
+<p>具体文件见项目;</p>
+<p>仔细观察创世纪文件，您可以观察到它包含区块链应用程序的初始状态参数，此外还包含您正在使用的模块的定义和参数。</p>
+<p>除了模块定义和配置外，<strong>生成文件还保留区块链初始利益相关者和验证者的地址</strong>。<strong>这些位于<code>gentx</code>参数中，这是<code>genutil</code>的一部分</strong>。启动区块链时，<strong>这些验证器应是网络的一部分，以便让网络运行。或者至少 66% 的验证器应该可用</strong>，以便启动 BFT 共识。</p>
+<p>为了正确设置您的起源文件，重要的是要了解<code>config.yml</code>，下面将会详细的介绍.</p>
+<h4 id="Starport-IBC"><a href="#Starport-IBC" class="headerlink" title="Starport IBC"></a>Starport IBC</h4><p>区块链之间的通行协议是IBC, IBC 允许两个链条之间可靠且安全的连接，可用于传输令牌、多链智能合约、原子交换或数据以及任何类型的代码分片。</p>
+<p>为了在链条之间进行通信，使用 Starport 引导两个区块链将让我们了解其工作原理以及通信过程中每个区块链应用程序上发生的情况。在此教程中，我们将创建两个区块链，连接这些区块链并通过 IBC 传输令牌。</p>
+<h6 id="Scaffolding-chain-foo"><a href="#Scaffolding-chain-foo" class="headerlink" title="Scaffolding chain foo"></a>Scaffolding chain <code>foo</code></h6><p><strong>在在线环境创建第一个项目foo</strong></p>
+<p>To start using IBC with Starport open up a <a href="https://gitpod.io/#https://github.com/tendermint/starport/" target="_blank" rel="noopener">web-based development environment</a>, then scaffold and launch a Stargate chain:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">starport app github.com&#x2F;foo&#x2F;foo</span><br><span class="line"></span><br><span class="line">cd foo</span><br><span class="line"></span><br><span class="line">starport serve</span><br></pre></td></tr></table></figure>
+
+<p>You now have a blockchain <code>foo</code> running, but it’s not connected to anything yet.</p>
+<h6 id="Scaffolding-chain-bar"><a href="#Scaffolding-chain-bar" class="headerlink" title="Scaffolding chain bar"></a>Scaffolding chain <code>bar</code></h6><p>要将此区块链连接到另一个区块链，请打开另一个<a href="https://gitpod.io/#https://github.com/tendermint/starport/" target="_blank" rel="noopener">基于 Web 的开发环境</a>实例，并按照上面的步骤设置脚手架并启动另一个链条（让我们称之为）<code>bar</code></p>
+<p>为了连接我们的区块链，我们将使用<a href="https://github.com/cosmos/ics/tree/master/spec/ics-018-relayer-algorithms" target="_blank" rel="noopener">中继器</a>。中继器是我们两个区块链之间的”物理”连接。它负责监控两个区块链，在它们之间中继数据，构建适当的图表，并在两个区块链上相应地执行它们。链条运行后，您将在终端输出中看到”中继器信息”字符串（您的字符串将有所不同）：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/bCt32L.png" alt="bCt32L"></p>
+<p>这是一个<code>base64</code>编码的 JSON，包含有关链 ID、中继器帐户 mnemonic 和 RPC URL 的信息。 </p>
+<p>==如果没有Relayer输出, 原因是relayer的版本太低! (官方文档中给的在线环境版本是开发版,如果relayer版本太低不会报错!), 检查starport的版本(使用0.14.0), 如果是本地环境,那么就手动下载rly==</p>
+<p>问题详细见: <a href="https://github.com/tendermint/starport/pull/385" target="_blank" rel="noopener">https://github.com/tendermint/starport/pull/385</a></p>
+<p>安装rly: <a href="https://stackoverflow.com/questions/64651914/how-to-install-relayer-for-cosmos-sdk-starport-chain" target="_blank" rel="noopener">https://stackoverflow.com/questions/64651914/how-to-install-relayer-for-cosmos-sdk-starport-chain</a></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/zlJ78C.png" alt="zlJ78C"></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">✨ Relayer info: eyJDaGFpbklEIjoiYmFyIiwiTW5lbW9uaWMiOiJhbW9uZyBibHVyIG5lc3QgYm9keSBmcm9udCBicmlkZ2Ugc25ha2UgYmFsYW5jZSB5b3VuZyBzeW1ib2wgdHJpbSBjaGVmIHByb3BlcnR5IGZyb3plbiB3ZWVrZW5kIG1pZG5pZ2h0IGJyYXZlIHdpbmcgZGVwYXJ0IGh1YiBoYW1zdGVyIHN1cGVyIHZlbmRvciByZWFsIiwiUlBDQWRkcmVzcyI6Imh0dHBzOi8vMjY2NTctY3JpbXNvbi1zcXVpZC1janFkeWQ0YS53cy11czAzLmdpdHBvZC5pbzo0NDMifQ</span><br></pre></td></tr></table></figure>
+
+<h6 id="Connecting-foo-with-bar"><a href="#Connecting-foo-with-bar" class="headerlink" title="Connecting foo with bar"></a>Connecting <code>foo</code> with <code>bar</code></h6><p>To connect these chains together, copy the relayer info of chain <code>bar</code>, switch to the terminal of chain <code>foo</code> and run the following command (use your own string):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starport chain add eyJDaGFpbklEIjoiYmFyIiwiTW5lbW9uaWMiOiJhbW9uZyBibHVyIG5lc3QgYm9keSBmcm9udCBicmlkZ2Ugc25ha2UgYmFsYW5jZSB5b3VuZyBzeW1ib2wgdHJpbSBjaGVmIHByb3BlcnR5IGZyb3plbiB3ZWVrZW5kIG1pZG5pZ2h0IGJyYXZlIHdpbmcgZGVwYXJ0IGh1YiBoYW1zdGVyIHN1cGVyIHZlbmRvciByZWFsIiwiUlBDQWRkcmVzcyI6Imh0dHBzOi8vMjY2NTctY3JpbXNvbi1zcXVpZC1janFkeWQ0YS53cy11czAzLmdpdHBvZC5pbzo0NDMifQ</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/yaarO9.png" alt="yaarO9"></p>
+<p>Chain <code>foo</code> will now restart and you should see information about two being connected:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Detected chains, linking them...</span><br><span class="line">Linked foo &lt;--&gt; bar</span><br></pre></td></tr></table></figure>
+
+<p>The two chains are now connected via IBC and you have successfully created a relayer.</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/6b9lkS.png" alt="6b9lkS"></p>
+<h6 id="Sending-tokens-from-foo-to-bar"><a href="#Sending-tokens-from-foo-to-bar" class="headerlink" title="Sending tokens from foo to bar"></a>Sending tokens from <code>foo</code> to <code>bar</code></h6><p><strong>跨链发送代币foo =&gt; bar</strong>, 使用<code>rly</code>客户端创建一个IBC Token</p>
+<p>Once the chains are connected, you can use a <a href="https://github.com/cosmos/relayer" target="_blank" rel="noopener">relayer</a> CLI <code>rly</code> to create an IBC token send transaction:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rly tx transfer foo bar 5token $(rly chains address bar)</span><br></pre></td></tr></table></figure>
+
+<p>After a transaction is successfully created, you can now relay it to a connected chain:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rly tx relay foo-bar</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/3bXHTB.png" alt="3bXHTB"></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/asR993.png" alt="asR993"></p>
+<h6 id="Checking-token-balances-on-chain-bar"><a href="#Checking-token-balances-on-chain-bar" class="headerlink" title="Checking token balances on chain bar"></a>Checking token balances on chain <code>bar</code></h6><p>To verify that an IBC transaction was relayed correctly, let’s check the balances of our relayer account:</p>
+<p><strong>要验证 IBC 交易的中继正确，让我们检查我们的中继器帐户的余额：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bard q bank balances $(bard keys show bar -a --keyring-backend test)</span><br></pre></td></tr></table></figure>
+
+<p>This command will output token balances for the relayer account and you should see 5 token transferred with IBC.</p>
+<p>此命令将输出中继器帐户的令牌余额，您应该看到5个token通过IBC传输。</p>
+<p><u><em>提示没有bard命令???</em></u></p>
+<h4 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h4><p>Inside your chain’s project directory you will see <code>secret.yml</code>. This file contains information about the local chain’s relayer account (under <code>accounts</code> property) and relayer accounts of connected chains (under <code>relayer</code> property).</p>
+<p>此文件包含有关本地链的中继器帐户和连接链中继器帐户的信息。</p>
+<p>foo下的secret.yaml文件</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">accounts:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">foo</span></span><br><span class="line">  <span class="attr">coins:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">800token</span></span><br><span class="line">  <span class="attr">mnemonic:</span> <span class="string">fly</span> <span class="string">nerve</span> <span class="string">endless</span> <span class="string">pistol</span> <span class="string">spread</span> <span class="string">harsh</span> <span class="string">derive</span> <span class="string">assume</span> <span class="string">grass</span> <span class="string">hybrid</span> <span class="string">pink</span> <span class="string">ancient</span> <span class="string">number</span> <span class="string">monster</span> <span class="string">dice</span> <span class="string">error</span> <span class="string">diagram</span> <span class="string">discover</span> <span class="string">ribbon</span> <span class="string">hold</span> <span class="string">drink</span> <span class="string">vast</span> <span class="string">toy</span> <span class="string">animal</span></span><br><span class="line"><span class="attr">relayer:</span></span><br><span class="line">  <span class="attr">accounts:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">bar</span></span><br><span class="line">    <span class="attr">mnemonic:</span> <span class="string">among</span> <span class="string">blur</span> <span class="string">nest</span> <span class="string">body</span> <span class="string">front</span> <span class="string">bridge</span> <span class="string">snake</span> <span class="string">balance</span> <span class="string">young</span> <span class="string">symbol</span> <span class="string">trim</span> <span class="string">chef</span> <span class="string">property</span> <span class="string">frozen</span> <span class="string">weekend</span> <span class="string">midnight</span> <span class="string">brave</span> <span class="string">wing</span> <span class="string">depart</span> <span class="string">hub</span> <span class="string">hamster</span> <span class="string">super</span> <span class="string">vendor</span> <span class="string">real</span></span><br><span class="line">    <span class="attr">rpc_address:</span> <span class="string">https://26657-crimson-squid-cjqdyd4a.ws-us03.gitpod.io:443</span></span><br></pre></td></tr></table></figure>
+
+<p>bar下的secret.yaml文件</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">accounts:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">bar</span></span><br><span class="line">  <span class="attr">coins:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">800token</span></span><br><span class="line">  <span class="attr">mnemonic:</span> <span class="string">among</span> <span class="string">blur</span> <span class="string">nest</span> <span class="string">body</span> <span class="string">front</span> <span class="string">bridge</span> <span class="string">snake</span> <span class="string">balance</span> <span class="string">young</span> <span class="string">symbol</span> <span class="string">trim</span> <span class="string">chef</span> <span class="string">property</span> <span class="string">frozen</span> <span class="string">weekend</span> <span class="string">midnight</span> <span class="string">brave</span> <span class="string">wing</span> <span class="string">depart</span> <span class="string">hub</span> <span class="string">hamster</span> <span class="string">super</span> <span class="string">vendor</span> <span class="string">real</span></span><br><span class="line"><span class="attr">relayer:</span></span><br><span class="line">  <span class="attr">accounts:</span> <span class="string">[]</span></span><br></pre></td></tr></table></figure>
+
+<p>Once the chain is launched with <code>starport serve</code>, Starport uses information from <code>secret.yml</code> to create a relayer config in <code>~/.relayer/</code>. Every time the chain is restarted relayer config is reset, and connections are re-established.</p>
+<h3 id="2-2-2-Architecture"><a href="#2-2-2-Architecture" class="headerlink" title="2.2.2 Architecture"></a>2.2.2 Architecture</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p><strong>需要提前安装golang和starport, 对于运行的机器没有特别的要求, Linux或者Mac操作系统或者树莓派均可</strong></p>
+<p>Starport creates a blockchain for you in Golang. Requirements for this is to have Golang installed. You can get all the information here <a href="https://golang.org/doc/install" target="_blank" rel="noopener">https://golang.org/doc/install</a>.</p>
+<p>Starport installation instructions can be found here: <a href="https://github.com/tendermint/starport#install" target="_blank" rel="noopener">https://github.com/tendermint/starport#install</a></p>
+<p>To the machine you are executing on there are not many requirements. It runs on Linux or Mac Operating Systems and can be run from a Raspberry Pi.</p>
+<h5 id="Your-blockchain-application"><a href="#Your-blockchain-application" class="headerlink" title="Your blockchain application"></a>Your blockchain application</h5><p>To create a blockchain application we use the command <code>app</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starport app github.com&#x2F;username&#x2F;myapp</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>--address-prefix</code></td>
+<td><code>cosmos</code></td>
+<td>Prefix, used for addresses <strong>指定地址前缀</strong></td>
+</tr>
+<tr>
+<td><code>--sdk-version</code></td>
+<td><code>stargate</code></td>
+<td>Version of Cosmos SDK: <code>launchpad</code> or <code>stargate</code><strong>指定CosmosSDK</strong></td>
+</tr>
+</tbody></table>
+<p>This will create the folder <code>myapp</code> and is a usable blockchain blueprint. If you want to dive directly into looking at the details of your blockchain you can run it with entering your <code>myapp</code> folder and use the command <code>serve</code> to initialise your blockchain and start it.</p>
+<h5 id="Serve"><a href="#Serve" class="headerlink" title="Serve"></a>Serve</h5><p><code>starport serve</code></p>
+<p><strong>以上命令会安装依赖,编译以及初始化</strong></p>
+<p>To start the server, go into you application’s directory and run <code>starport serve</code>. This commands installs dependencies, builds and initializes the app and runs both Tendermint RPC server (by default on <code>localhost:26657</code>) as well as LCD (by default on <code>localhost:1317</code>) with hot reloading enabled.</p>
+<p><strong><code>starport serve</code> uses <code>config.yml</code> to initialize your application, make sure you have it in your project directory (see [Configure](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/1 Introduction.md#configure)).</strong></p>
+<p><strong>项目启动会使用config.yml文件,必须存在</strong></p>
+<p>Note: depending on your OS and firewall settings, you may have to accept a prompt asking if your application’s binary (<code>blogd</code> in this case) can accept external connections.</p>
+<p>根据您的操作系统和防火墙设置，您可能需要接受提示，询问您的申请的二进制（在此例中<code>blogd</code>）是否可以接受外部连接。</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>--verbose</code></td>
+<td><code>false</code></td>
+<td>Enable verbose output from processes <strong>输出运行细节 -v</strong></td>
+</tr>
+<tr>
+<td><code>--path</code></td>
+<td></td>
+<td>Path to the project <strong>路径</strong></td>
+</tr>
+</tbody></table>
+<p>The first step of your own blockchain is already done. Using the default settings, a blockchain that has networking, consensus protocol with an own token is hereby established. From here on, you can implement logic that makes your own blockchain unique.</p>
+<h5 id="The-Key-Value-Store-KV"><a href="#The-Key-Value-Store-KV" class="headerlink" title="The Key-Value Store (KV)"></a>The Key-Value Store (KV)</h5><h6 id="How-to-use-types"><a href="#How-to-use-types" class="headerlink" title="==How to use types=="></a>==<strong>How to use types</strong>==</h6><p>In the SDK, data is stored in the multistore(多重存储). Key-Value pairs are saved in the KVStores. Multiple stores can be created and managed at the same time. We will use the store to save our data to the blockchain. Starport assists us in setting up the Key-Value Store with the command <code>type</code>. In order to use <code>type</code> we should give our type a fitting <code>typeName</code> with the intended fields that we want to use. If we wanted to store user with username and age, we would use the command</p>
+<p>多样的存储可以同时的创建和管理, 使用type创建KV数据库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starport type [typeName] [field1] [field2:bool] ...More specific</span><br></pre></td></tr></table></figure>
+
+<p>以user结构体举例</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> user <span class="keyword">struct</span> &#123;</span><br><span class="line">  username <span class="keyword">string</span>,	<span class="comment">// 默认是string</span></span><br><span class="line">  age <span class="keyword">int</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starport type user username age:int</span><br></pre></td></tr></table></figure>
+
+<p><strong>This command generates messages, handlers, keepers, CLI and REST clients and type definition for <code>typeName</code> type</strong>. A type can have any number of <code>field</code> arguments. <strong>By default fields are strings, but <code>bool</code> and <code>int</code> are supported.</strong></p>
+<p>==<strong>默认创建的field是string类型,但是支持bool和int类型</strong>==</p>
+<p>Now a Key-Value Store for the user with fields username and age is created. We can create a new user with the command</p>
+<p><strong>创建user实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myappcli tx myapp create-user &quot;my-first-username&quot; 35</span><br></pre></td></tr></table></figure>
+
+<p>Which creates the user with username <code>my-first-username</code> and age of <code>35</code>.</p>
+<p>Another example,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starport type post title body</span><br></pre></td></tr></table></figure>
+
+<p>This command generates a type <code>Post</code> with two fields: <code>title</code> and <code>body</code>.</p>
+<p>To add a post run <code>blogcli tx blog create-post &quot;My title&quot; &quot;This is a blog&quot; --from=user1</code>.</p>
+<p>These are the basic commands for getting started with starport. From creating a first blockchain to adding your own data types and accessing the User Interface. In the next two chapters, we will be looking closer at th<u>e initial setup for starport and how to configure it</u>. Afterwards, we will be looking into more complex usecases, where each of the commands and more will be explained in detail.</p>
+<h6 id="Accounts-on-your-blockchain"><a href="#Accounts-on-your-blockchain" class="headerlink" title="==Accounts on your blockchain=="></a>==Accounts on your blockchain==</h6><p>An account on the blockchain is a <strong>keypair(密钥对)</strong> of private and public keys. <strong>When you start your blockchain with starport, you can define the name of the keys and the amount of coins they start with.</strong> The keys are created for you and displayed on startup. You can use these keys when interacting with your blockchain. <strong>A list of user accounts is created during genesis of your application</strong>. You can define them as follows in your <code>config.yml</code> file. See an example in chapter <a href="https://github.com/tendermint/starport/blob/develop/docs/03_configuration/03_configuration.md" target="_blank" rel="noopener">configuration</a>.<br>*<em>账户的体现是一对公私钥, 在开始启动区块链的时候可以定义你的账户keys以及初始coins, 初始化可以创建一系列的账户,你可以在config.yaml中进行定义.  *</em></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>Y</td>
+<td>String</td>
+<td>Local name of the key pair</td>
+</tr>
+<tr>
+<td>coins</td>
+<td>Y</td>
+<td>List of Strings</td>
+<td>Initial coins with denominations (e.g. “100coin”)</td>
+</tr>
+</tbody></table>
+<h6 id="The-initial-validator"><a href="#The-initial-validator" class="headerlink" title="The initial validator"></a>The initial validator</h6><p>Blocks on a tendermint blockchain are created and <strong>validated</strong> by the so called <code>validators</code>. You can define the set of validators your blockchain starts with in your <code>config.yml</code>. The validator property describes your set of validators. Use a <code>name</code> that you have specified in the <code>accounts</code> array. The account should have enough tokens for staking purposes. See an example in chapter <a href="https://github.com/tendermint/starport/blob/develop/docs/03_configuration/03_configuration.md" target="_blank" rel="noopener">configuration</a>.</p>
+<p><strong>项目初始化也可以创建Validator, 同样的在config.yaml中定义,该帐户应有足够的tokens用于投注目的</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>Y</td>
+<td>String</td>
+<td>Name of one the accounts</td>
+</tr>
+<tr>
+<td>staked</td>
+<td>Y</td>
+<td>String</td>
+<td>Amount of coins staked by your validator, should be &gt;= 10^6 (e.g. “100000000stake”)</td>
+</tr>
+</tbody></table>
+<h5 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h5><ul>
+<li>With the command <code>starport app</code> a new blockchain can be initialised.</li>
+<li>A combination <code>starport app</code> and <code>starport serve</code> already let’s you manage your blockchain out of the box.</li>
+<li>The default blockchain includes networking and a consensus protocol with your own token.</li>
+<li>Data is managed with the Key-Value Store and data types can be added with <code>starport type</code>.</li>
+<li>Accounts are created during genesis of the application. These can be configured in the <code>config.yml</code>.</li>
+</ul>
+<h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">x/&#123;module&#125;</span><br><span class="line">├── client</span><br><span class="line">│   ├── cli</span><br><span class="line">│   │   ├── query.go</span><br><span class="line">│   │   └── tx.go</span><br><span class="line">│   └── rest</span><br><span class="line">│       ├── query.go</span><br><span class="line">│       └── tx.go</span><br><span class="line">├── exported</span><br><span class="line">│   └── exported.go</span><br><span class="line">├── keeper</span><br><span class="line">│   ├── invariants.go</span><br><span class="line">│   ├── genesis.go</span><br><span class="line">│   ├── keeper.go</span><br><span class="line">│   ├── ...</span><br><span class="line">│   └── querier.go</span><br><span class="line">│   └── grpc_query.go</span><br><span class="line">├── types</span><br><span class="line">│   ├── codec.go</span><br><span class="line">│   ├── errors.go</span><br><span class="line">│   ├── events.go</span><br><span class="line">│   ├── expected_keepers.go</span><br><span class="line">│   ├── genesis.go</span><br><span class="line">│   ├── keys.go</span><br><span class="line">│   ├── msgs.go</span><br><span class="line">│   ├── params.go</span><br><span class="line">│   ├── types.proto</span><br><span class="line">│   ├── ...</span><br><span class="line">│   └── querier.go</span><br><span class="line">│   └── &#123;module_name&#125;.pb.go</span><br><span class="line">│   └── query.pb.go</span><br><span class="line">│   └── genesis.pb.go</span><br><span class="line">├── simulation</span><br><span class="line">│   ├── decoder.go</span><br><span class="line">│   ├── genesis.go</span><br><span class="line">│   ├── operations.go</span><br><span class="line">│   ├── params.go</span><br><span class="line">│   └── proposals.go</span><br><span class="line">├── abci.go</span><br><span class="line">├── handler.go</span><br><span class="line">├── ...</span><br><span class="line">└── module.go</span><br></pre></td></tr></table></figure>
+
+<p><code>abci.go</code>: The module’s BeginBlocker and EndBlocker implementations (if any).<strong>模块的开始块与结束块实现</strong></p>
+<p><code>client/</code>: The module’s CLI and REST client functionality implementation and testing.<strong>客户端</strong></p>
+<p><code>exported/</code>: The module’s exported types – typically type interfaces. <strong>If a module relies on other module keepers, it is expected to receive them as interface contracts through the expected_keepers.go</strong> (which are detailed below下文详述) design to <strong>avoid having a direct dependency on the implementing module</strong>. However, these contracts can define methods that operate on and/or return types that are specific to the contract’s implementing module and this is where exported/ comes into play. Types defined here allow for expected_keepers.go in other modules to define contracts that use single canonical types. This pattern allows for code to remain DRY and also alleviates import cycle chaos.</p>
+<p><strong>如果当前模块依赖其他模块的keeper,那么通过expected_keepers.go使之相关联,以此来避免直接依赖模块,然而，这些契约可以定义对特定于契约实现模块的和/或返回类型进行操作的方法，这就是export /comes发挥作用的地方。这里定义的类型允许使用expected_keepers。在其他模块中定义使用单一规范类型的契约。这种模式允许代码保持整洁，并且还减轻了导入周期的混乱。</strong></p>
+<p><code>handler.go</code>: The module’s message handlers.</p>
+<p><code>keeper/</code>: The module’s keeper implementation along with any auxiliary implementations such as the querier and invariants.</p>
+<p><code>types/</code>: The module’s type definitions such as *<em>messages, KVStore keys, parameter types, Protocol Buffer definitions, and expected_keepers.go contracts.  *</em></p>
+<p><code>module.go</code>: The module’s implementation of the <strong>AppModule and AppModuleBasic interfaces.</strong></p>
+<h4 id="标准模块"><a href="#标准模块" class="headerlink" title="标准模块"></a>标准模块</h4><h5 id="What-are-modules"><a href="#What-are-modules" class="headerlink" title="What are modules"></a>What are modules</h5><p>In the Cosmos SDK modules are the basis for the logic of your blockchain. Each module serves specific purposes and functions. The Cosmos SDK offers a variety of native modules to make a blockchain work. These modules handle authentication for users, token transfers, governance functions, staking of tokens, supply of tokens and many more.</p>
+<p>If you want to change the default functionality of a module or just change certain hardcoded parameter, you can fork a module and change it, therefore owning your own logic for your blockchain. While forking and editing a module should be done carefully, this approach marks the Cosmos SDK as especially powerful, as you can experiment with different parameters as the standard implementation suggests.</p>
+<p>Modules do not need to be created by a specific company or individual. They can be created by anyone and offered for general use to the public. Although there do exist standards that projects look into before integrating a module to their blockchain. It is recommended that a module has understandable specifications, handles one thing good and is well tested - optimally battle-tested on a live blockchain. When growing more complex, sometimes it makes more sense to have two modules instead of one module trying to “solve-it-all”, this consideration can make it more attractive for other projects to use a module in their blockchain project.</p>
+<p>在Cosmos中，SDK模块是区块链逻辑的基础。每个模块都有特定的用途和功能。Cosmos SDK提供了各种原生模块来让区块链工作。这些模块处理用户身份验证、令牌传输、治理功能、令牌权益、令牌供应等等。</p>
+<p>如果你想改变一个模块的默认功能或者只是改变某个硬编码的参数，<strong>你可以分叉一个模块并改变它，因此拥有你自己的区块链逻辑</strong>。分叉和编辑模块应该小心，但这种方法标志着Cosmos SDK特别强大，因为你可以试验标准实现建议的不同参数。</p>
+<p>模块不需要由特定的公司或个人创建。它们可以由任何人创建并提供给公众使用。尽管项目在将模块集成到他们的区块链之前确实存在一些标准。建议一个模块有可理解的规格，能很好地处理一件事，并且经过了很好的测试——最好是在实时的区块链上进行战斗测试。当变得更复杂时，有时使用两个模块比一个模块试图“解决所有问题”更有意义，这种考虑可以使其他项目在区块链项目中使用一个模块更有吸引力。</p>
+<h5 id="Standard-modules"><a href="#Standard-modules" class="headerlink" title="Standard modules"></a>Standard modules</h5><p>When creating a blockchain with starport or manually with the Cosmos SDK, there is a set of modules that you should be using in order to have a set of rules that define a blockchain in the first place. These modules are</p>
+<p><strong>目录</strong></p>
+<ul>
+<li>What are modules<ul>
+<li>[Standard modules](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#standard-modules)</li>
+<li>[Auth](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#auth)</li>
+<li>[Bank](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#bank)</li>
+<li>[Capability](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#capability)</li>
+<li>[Staking](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#staking)</li>
+<li>[Mint](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#mint)</li>
+<li>[Distribution](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#distribution)</li>
+<li>[Params](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#params)</li>
+<li>[Governance](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#governance)</li>
+<li>[Crisis](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#crisis)</li>
+<li>[Slashing](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#slashing)</li>
+<li>[IBC](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#ibc)</li>
+<li>[Upgrade](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#upgrade)</li>
+<li>[Evidence](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#evidence)</li>
+<li>[Using modules](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#using-modules)</li>
+<li>[Summary](<a href="https://github.com/tendermint/starport/blob/develop/docs/2" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/2</a> Architecture/3 Standard Modules.md#summary)</li>
+</ul>
+</li>
+</ul>
+<h6 id="Auth"><a href="#Auth" class="headerlink" title="Auth"></a>Auth</h6><p>The <code>auth</code> module is responsible for accounts on the blockchain and basic transaction types that accounts can use.</p>
+<p><strong>该模块负责处理区块链上的帐户和帐户可以使用的基本交易类型</strong></p>
+<p>It introduces Gas and Fees as concepts in order to prevent the blockchain to bloat by not-identifyable accounts, as on public blockchains you do not have more information about accounts as the public key or balance of an account or the previous transaction history.</p>
+<p>它引入Gas和费用作为概念，以防止区块链因无法识别的账户而膨胀，因为在公共区块链上，您没有更多关于账户的信息，如公钥、账户余额或以前的交易历史。</p>
+<p>帐户的接口定义为</p>
+<p>The interface of an Account is defined as</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BaseAccount defines a base account type. It contains all the necessary fields</span></span><br><span class="line"><span class="comment">// for basic account functionality. Any custom account type should extend this</span></span><br><span class="line"><span class="comment">// 基本的账户函数, 没一个特定的账户类型都继承于此</span></span><br><span class="line"><span class="comment">// type for additional functionality (e.g. vesting).</span></span><br><span class="line">message BaseAccount &#123;</span><br><span class="line">  option (gogoproto.goproto_getters)  = <span class="literal">false</span>;</span><br><span class="line">  option (gogoproto.goproto_stringer) = <span class="literal">false</span>;</span><br><span class="line">  option (gogoproto.equal)            = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  option (cosmos_proto.implements_interface) = <span class="string">"AccountI"</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">string</span>              address = <span class="number">1</span>;</span><br><span class="line">  google.protobuf.Any pub_key = <span class="number">2</span></span><br><span class="line">      [(gogoproto.jsontag) = <span class="string">"public_key,omitempty"</span>, (gogoproto.moretags) = <span class="string">"yaml:\"public_key\""</span>];</span><br><span class="line">  <span class="keyword">uint64</span> account_number = <span class="number">3</span> [(gogoproto.moretags) = <span class="string">"yaml:\"account_number\""</span>];</span><br><span class="line">  <span class="keyword">uint64</span> sequence       = <span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>auth</code> module exposes the account keeper where accounts can be stored or changed. Furthermore it exposes the types for Standard transactions, fees, signatures or replay-prevention. It also allows for vesting accounts, as that certain coins can be made accessible over a period of time to an entity. The vesting logic is mostly used for unbonding of staking but can also be used for other purposes.</p>
+<p>auth模块公开帐户管理员，<strong>帐户可以存储或更改</strong>。此外，它还公开了标准事务、费用、签名或重放预防的类型。它还允许对账户进行归属，因为某个实体可以在一段时间内访问某些货币。归属逻辑主要用于权益的解绑定，但也可以用于其他目的。</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/auth/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="Bank"><a href="#Bank" class="headerlink" title="Bank"></a>Bank</h6><p>The <code>bank</code> module has its name because it acts as the module that allows for token transfers and checks for the validity of each transfer. Furthermore, it is responsible for checking the whole supply of the chain, the sum of all account balances.</p>
+<p>bank模块之所以有自己的名称，是因为它充当了允许令牌转账和检查每个转账有效性的模块。此外，它还负责检查整个供应链，即所有帐户余额的总和。</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/bank/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="Capability"><a href="#Capability" class="headerlink" title="Capability"></a>Capability</h6><p>Full implementation of the IBC specification requires the ability to <strong>create and authenticate object-capability keys at runtime</strong> (i.e., during transaction execution), as described in ICS 5. In the IBC specification, capability keys are created for each newly initialised port &amp; channel, and are used to authenticate future usage of the port or channel. Since channels and potentially ports can be initialised during transaction execution, the state machine must be able to create object-capability keys at this time.</p>
+<p>IBC规范的完整实现需要在运行时(即交易执行期间)创建和验证对象功能键的能力，如ICS 5中所述。在IBC规范中，将为每个新初始化的端口和通道创建功能键，并用于验证端口port或通道channel未来的使用情况。由于通道和潜在的端口可以在事务执行期间初始化，因此状态机必须能够在此时创建对象功能键。</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/capability/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="Staking"><a href="#Staking" class="headerlink" title="Staking"></a>Staking</h6><p>The <code>staking</code> module allows for an advanced Proof of Stake system, where validators can be created and tokens delegated to validators.</p>
+<p><strong>权益模块支持高级的权益证明POS系统，在该系统中可以创建验证器Validator，并将令牌委托给验证器。</strong></p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/staking/spec/02_state_transitions.md#slashing" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="Mint"><a href="#Mint" class="headerlink" title="Mint"></a>Mint</h6><p>The minting mechanism is designed to allow for a flexible inflation rate determined by market demand targeting a particular bonded-stake ratio effect a balance between market liquidity and staked supply.</p>
+<p>It can be broken down in the following way:</p>
+<p>If the inflation rate is below the goal %-bonded the inflation rate will increase until a maximum value is reached If the goal % bonded (67% in Cosmos-Hub) is maintained, then the inflation rate will stay constant If the inflation rate is above the goal %-bonded the inflation rate will decrease until a minimum value is reached</p>
+<p>铸币机制的目的是允许由市场需求决定的灵活通货膨胀率，以特定的债券比率为目标，以平衡市场流动性和债券供应。</p>
+<p>它可以通过以下方式进行分解:</p>
+<p>如果通货膨胀率低于%保税目标通货膨胀率会增加,直到达到最大值,如果目标%保税Cosmos-Hub(67%),那么通货膨胀率将保持不变,如果通货膨胀率高于目标%保税通货膨胀率会降低,直到达到最小值</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/mint/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="Distribution"><a href="#Distribution" class="headerlink" title="Distribution"></a>Distribution</h6><p>The <code>distribution</code> module is responsible to distribute the inflation of a Token. When new Tokens get created, they get distributed to the validators and their respective delegators, with a potential commission the validator takes. Each validator can choose a commission of those Token when creating a validator, this commission is editable.</p>
+<p>分发模块负责分发令牌的膨胀。当新的令牌被创建时，它们被分发给验证器和它们各自的委托者，验证器接受潜在的委托。当创建一个验证器时，这个验证器是可编辑的。</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/distribution/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="Params"><a href="#Params" class="headerlink" title="Params"></a>Params</h6><p>The <code>params</code> module allows for a global parameter store in your blockchain application. It is designed to hold the chain parameters so that they can be changed during runtime by governance. It allows to upgrade the blockchain parameters via the <code>government</code> module and take effect on an agreed upon time when the majority of the shareholders decide to make a change.</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/params/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<p>Those modules are typically installed on default when using starport. There are a range of modules that are also part of the Cosmos SDK, additionally some other public modules have already reached a major level of usage and acceptance. We will look at more advanced modules in the next Chapter.</p>
+<p><strong>params模块允许在区块链应用程序中存储全局参数</strong>。<strong>它被设计用来保存链参数</strong>，以便在运行时通过治理更改它们。它允许通过政府模块升级区块链参数，并在多数股东决定更改时约定时间生效。</p>
+<p>这些模块通常在使用starport时默认安装。还有一系列模块也是Cosmos SDK的一部分，另外一些公共模块已经达到了主要的使用和接受水平。我们将在下一章讨论更高级的模块。</p>
+<h6 id="Governance"><a href="#Governance" class="headerlink" title="Governance"></a>Governance</h6><p>The module enables Cosmos-SDK based blockchains to support an on-chain governance system. In this system, holders of the native staking token of the chain can vote on proposals on a 1 token 1 vote basis (from there it can be parameterized). Next is a list of features the module currently supports:</p>
+<ul>
+<li>Proposal submission: Users can submit proposals with a deposit. Once the minimum deposit is reached, proposal enters voting period</li>
+<li>Vote: Participants can vote on proposals that reached MinDeposit</li>
+<li>Inheritance and penalties: Delegators inherit their validator’s vote if they don’t vote themselves.</li>
+<li>Claiming deposit: Users that deposited on proposals can recover their deposits if the proposal was accepted OR if the proposal never entered voting period.</li>
+</ul>
+<p>该模块使基于Cosmos-SDK的区块链能够支持链上治理系统。在这个系统中，链上本地下注令牌的持有者可以在1个令牌1个投票的基础上对提议投票(从那里可以参数化它)。下面是该模块当前支持的特性列表:</p>
+<ul>
+<li><p>提案提交:用户可以提交提交提案的定金。一旦最低存款达到，提案进入表决期</p>
+</li>
+<li><p>投票:参与者可以对达到最低存款的提案进行投票</p>
+</li>
+<li><p>继承和惩罚:委托者如果自己不投票，就继承验证者的投票。</p>
+</li>
+<li><p>认领押金:如果提案被接受或者提案从未进入投票期，对提案进行押金认领的用户可以收回押金。</p>
+</li>
+</ul>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/gov/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="Crisis"><a href="#Crisis" class="headerlink" title="Crisis"></a>Crisis</h6><p>The crisis module halts the blockchain under the circumstance that a blockchain invariant is broken. Invariants can be registered with the application during the application initialization process.</p>
+<p>危机模块在区块链不变式被打破的情况下<strong>停止区块链</strong>。在应用程序初始化过程中，可以向应用程序注册不变量。</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/crisis/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="Slashing"><a href="#Slashing" class="headerlink" title="Slashing"></a>Slashing</h6><p>The slashing module enables Cosmos SDK-based blockchains to disincentivize any attributable action by a protocol-recognized actor with value at stake by penalizing them (“slashing”).</p>
+<p>Penalties may include, but are not limited to:</p>
+<p>Burning some amount of their stake Removing their ability to vote on future blocks for a period of time. This module will be used by the Cosmos Hub, the first hub in the Cosmos ecosystem.</p>
+<p>削减模块使Cosmos基于sdk的区块链能够通过<strong>惩罚协议认可的参与者(“削减”)来阻止任何可归责的行为。</strong></p>
+<p>罚款可包括但不限于:</p>
+<p>烧了一些他们的股份，在一段时间内取消他们对未来区块的投票能力。这个模块将被宇宙中心Hub使用，宇宙生态系统中的第一个中心。</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/slashing/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="IBC"><a href="#IBC" class="headerlink" title="IBC"></a>IBC</h6><p>IBC allows to relay packets between chains and could be used with any compatible modules between two chains. The <code>IBC</code> module, as Inter-blockchain Communication, enables for example sending native tokens between blockchains. It is divided by a subset of specifications.</p>
+<p>IBC允许<strong>在链之间中继信息包</strong>，可以与<strong>两个链之间的任何兼容模块一起使用</strong>。作为区块链间通信，IBC模块支持在区块链之间发送本地令牌。它被规范的子集所分割。</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/ibc/spec/README.md" target="_blank" rel="noopener">specifications</a></em></p>
+<h6 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h6><p><code>x/upgrade</code> is an implementation of a Cosmos SDK module that facilitates smoothly upgrading a live Cosmos chain to a new (breaking) software version. It accomplishes this by providing a BeginBlocker hook that prevents the blockchain state machine from proceeding once a pre-defined upgrade block time or height has been reached.</p>
+<p>x/upgrade是Cosmos SDK模块的一个实现，它有助于将一个活生生的Cosmos链顺利<strong>升级</strong>到<strong>一个新的(中断的)软件版本</strong>。它通过提供一个BeginBlocker钩子来实现这一点，一旦达到预定义的升级块时间或高度，它就阻止区块链状态机继续运行。</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/upgrade/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="Evidence"><a href="#Evidence" class="headerlink" title="Evidence"></a>Evidence</h6><p><code>x/evidence</code> is an implementation of a Cosmos SDK module, per ADR 009, that allows for the submission and handling of arbitrary evidence of misbehavior such as equivocation and counterfactual signing.</p>
+<p>The evidence module differs from standard evidence handling which typically expects the underlying consensus engine, e.g. Tendermint, to automatically submit evidence when it is discovered by allowing clients and foreign chains to submit more complex evidence directly.</p>
+<p>x/evidence是Cosmos SDK模块的一个实现，根据ADR 009，<strong>允许提交和处理不当行为的任意证据</strong>，如含糊入词和反事实签署。</p>
+<p>证据模块不同于标准的证据处理，后者通常期望底层的共识引擎(如Tendermint)在证据被发现时自动提交证据，允许客户和外国链直接提交更复杂的证据。</p>
+<p><em>Read the <a href="https://github.com/cosmos/cosmos-sdk/blob/master/x/evidence/spec/README.md" target="_blank" rel="noopener">specification</a></em></p>
+<h6 id="Using-modules"><a href="#Using-modules" class="headerlink" title="==Using modules=="></a>==Using modules==</h6><p>With starport you can add a module with the command <code>starport module create modulename</code>. When adding a module manually to a blockchain application, it requires to edit the <code>app/app.go</code> and the <code>myappcli/main.go</code> with the according entries. Starport manages the code edits and additions for you conveniently.</p>
+<p>使用starport，<strong>==您可以使用<code>starport module create modulename</code>命令添加模块。==</strong>当手动添加一个模块到区块链应用程序时，它需要编辑<code>app/app.go</code>和<code>myappcli/main.go</code>,按照相应的条目去做。Starport为您方便地管理代码编辑和添加。</p>
+<h5 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h5><ul>
+<li>Importing modules in a Cosmos SDK built blockchain exposes new functionalities for the blockchain.</li>
+<li>Any combination of modules is allowed.</li>
+<li>The modules define what can be done on the blockchain.</li>
+<li>Modules are editable, but the success of your blockchain will be dependend on choosing the correct modules for your blockchain, for functionality and security sake.</li>
+<li>==<strong><code>starport module import &lt;modulename&gt;</code> lets you import modules into your blockchain application.</strong>==</li>
+</ul>
+<h4 id="编写自定义模块"><a href="#编写自定义模块" class="headerlink" title="编写自定义模块"></a><strong>编写自定义模块</strong></h4><h5 id="Writing-custom-modules"><a href="#Writing-custom-modules" class="headerlink" title="Writing custom modules"></a>Writing custom modules</h5><p>Starport allows you to jump directly into creating your own module. With the before described <code>type</code> function you can add new transaction types to your application. Under the hood, starport creates a handler, types and messages for you.</p>
+<p><strong>Starport允许你直接创建你自己的模块。使用前面描述的<code>type</code>类型函数，您可以向应用程序添加新的交易类型。在底层，starport为您创建一个处理程序、类型和消息。</strong></p>
+<p>Without using starport, you would need to manipulate these functions yourself. Here is what starport does when you add a <code>type</code>. Understanding what starport does might help in order to either add more complex structures or debug in case something does not work as it should.</p>
+<p><strong>如果不使用starport，您将需要自己操作这些函数。以下是starport在添加类型时所做的。理解starport所做的可能有助于添加更复杂的结构或调试，以防某些东西不能正常工作。</strong></p>
+<h6 id="Proto"><a href="#Proto" class="headerlink" title="Proto"></a>Proto</h6><p>When using the type command a Protobuffer definition is created for you in the <code>proto</code> directory.</p>
+<p>当使用type命令时，将在proto目录中为您创建一个Protobuffer定义。</p>
+<p>It contains messages for full CRUD (Create, Read, Update, Delete) operations for your created transaction type.</p>
+<p>它包含针对您创建的事务类型的完整CRUD(创建、读取、更新、删除)操作的消息。</p>
+<h6 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h6><p>Once you have created your starport blockchain application, you will have your own module resident of <code>yourapp/x/yourmodule</code>, it comes predefined with a couple of files and folders which define types, functions and messages of your module.</p>
+<p>一旦你创建了你的starport区块链应用程序，你就会在<code>yourapp/x/yourmodule</code>中拥有自己的模块，它预先定义了一些文件和文件夹，这些文件和文件夹定义了你的模块的类型、函数和消息。</p>
+<h6 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h6><p>The <code>types</code> folder defines structures of your golang blockchain application. Here you can define your basic or more advanced types which will later be data and functions usable on your blockchain.</p>
+<p>The message types are defined in the file <code>types/messages_type</code>, or other functions that you are planning to use.</p>
+<p><code>types</code><strong>文件夹定义了golang区块链应用程序的结构</strong>。在这里，你可以定义你的基本类型或更高级的类型，这些类型以后会成为区块链上可用的数据和函数。</p>
+<p>消息类型message types在文件<code>types/messages_type</code>中定义，或者在计划使用的其他函数中定义。</p>
+<h6 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h6><p>There is a <code>rest</code> folder that takes care of the rest API that your module exposes.</p>
+<p>The <code>cli</code> folder with the contents take care of the Command line interface commands that will be available to the user.</p>
+<p>有一个rest文件夹负责模块<strong>公开的rest API</strong></p>
+<p>包含内容的命令行文件夹负责<strong>用户可以使用的命令行接口命令。</strong></p>
+<h6 id="Frontend"><a href="#Frontend" class="headerlink" title="Frontend"></a>Frontend</h6><p>Currently starport provides a basic Vue User-Interface that you can get inspired by or build ontop on. The source code is available in the <code>vue</code> folder. Written in JavaScript you can hop directly into writing the frontend for your application.</p>
+<p>目前starport提供了一个基本的Vue用户界面，你可以从中得到启发，也可以在此基础上进行构建。源代码可以在vue文件夹中找到。用JavaScript编写，您可以直接跳到编写应用程序的前端。</p>
+<p><a href="https://vuejs.org/" target="_blank" rel="noopener">Learn more about Vue.</a></p>
+<h5 id="Summary-2"><a href="#Summary-2" class="headerlink" title="Summary"></a>Summary</h5><ul>
+<li>Starport bootstraps a module for you.</li>
+<li>You can change a module by modifying the files in <code>yourapp/x/</code> or the <code>proto</code> diretory.</li>
+<li>Starport has a Vue frontend where you can start to work immediately.</li>
+</ul>
+<h4 id="config-yaml配置"><a href="#config-yaml配置" class="headerlink" title="config.yaml配置"></a>config.yaml配置</h4><p>With Starport your blockchain can be configured with <code>config.yml</code>.</p>
+<h5 id="accounts"><a href="#accounts" class="headerlink" title="accounts"></a><code>accounts</code></h5><p>A list of user accounts created during genesis of your application.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>Y</td>
+<td>String</td>
+<td>Local name of a key pair</td>
+</tr>
+<tr>
+<td>coins</td>
+<td>Y</td>
+<td>List of Strings</td>
+<td>Initial coins with denominations (e.g. “100coin”)</td>
+</tr>
+<tr>
+<td>address</td>
+<td>N</td>
+<td>String</td>
+<td>Address of the account in bech32</td>
+</tr>
+</tbody></table>
+<p>Example</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">accounts:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">alice</span></span><br><span class="line">    <span class="attr">coins:</span> <span class="string">["1000token",</span> <span class="string">"100000000stake"</span><span class="string">]</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">bob</span></span><br><span class="line">    <span class="attr">coins:</span> <span class="string">["500token"]</span></span><br><span class="line">    <span class="attr">address:</span> <span class="string">cosmos1adn9gxjmrc3hrsdx5zpc9sj2ra7kgqkmphf8yw</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="build"><a href="#build" class="headerlink" title="build"></a><code>build</code></h5><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>binary</td>
+<td>N</td>
+<td>String</td>
+<td>Name of the node binary that will be built and used by Starport。 <strong>Starport将构建和使用的节点二进制文件的名称</strong></td>
+</tr>
+</tbody></table>
+<p>Example</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">build:</span><br><span class="line">  binary: &quot;mychaind&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="build-proto"><a href="#build-proto" class="headerlink" title="build.proto"></a><code>build.proto</code></h5><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>path</td>
+<td>N</td>
+<td>String</td>
+<td>Path to protocol buffer files (default: <code>&quot;proto&quot;</code>)</td>
+</tr>
+<tr>
+<td>third_party_paths</td>
+<td>N</td>
+<td>List of Strings</td>
+<td>Path to thid-party protocol buffer files (default: <code>[&quot;third_party/proto&quot;, &quot;proto_vendor&quot;]</code>)</td>
+</tr>
+</tbody></table>
+<h5 id="faucet"><a href="#faucet" class="headerlink" title="faucet"></a><code>faucet</code></h5><p>A faucet service that <strong>sends tokens to addresses</strong>. Web UI is available by default on <a href="http://localhost:4500/" target="_blank" rel="noopener">http://localhost:4500</a>.</p>
+<p><strong>给用户拿初始货币的水龙头服务</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>Y</td>
+<td>String</td>
+<td>Name of a key pair. <code>name</code> must be in <code>accounts</code></td>
+</tr>
+<tr>
+<td>coins</td>
+<td>Y</td>
+<td>List of Strings</td>
+<td>Coins with denominations sent per request  <strong>每次给节点对应需要的coins值</strong></td>
+</tr>
+<tr>
+<td>coins_max</td>
+<td>N</td>
+<td>List of Strings</td>
+<td>Maximum amount of tokens sent per address  <strong>每个节点所要的token最大值</strong></td>
+</tr>
+<tr>
+<td>port</td>
+<td>N</td>
+<td>Integer</td>
+<td>Port number (default: <code>4500</code>)。端口号</td>
+</tr>
+</tbody></table>
+<p>Example</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">faucet:</span><br><span class="line">  name: faucet</span><br><span class="line">  coins: [&quot;100token&quot;, &quot;5foo&quot;]</span><br><span class="line">  coins_max: [&quot;2000token&quot;, &quot;1000foo&quot;]</span><br><span class="line">  port: 4500</span><br></pre></td></tr></table></figure>
+
+<h5 id="validator"><a href="#validator" class="headerlink" title="validator"></a><code>validator</code></h5><p>A blockchain has to <strong>have at least one validator-node.</strong> <code>validator</code> specifies the account that will be used to initialize the validator and parameters of the validator.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>Y</td>
+<td>String</td>
+<td>Name of a key pair. <code>name</code> must be in <code>accounts</code></td>
+</tr>
+<tr>
+<td>staked</td>
+<td>Y</td>
+<td>String</td>
+<td>Amount of coins to bond质押. Must be less or equal to the amount of coins account has</td>
+</tr>
+</tbody></table>
+<p>Example</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">accounts:</span><br><span class="line">  - name: alice</span><br><span class="line">    coins: [&quot;1000token&quot;, &quot;100000000stake&quot;]</span><br><span class="line">validator:</span><br><span class="line">  name: user1</span><br><span class="line">  staked: &quot;100000000stake&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="init-home"><a href="#init-home" class="headerlink" title="init.home"></a><code>init.home</code></h5><p>A blockchain stores data and configuration in a data directory. This property specifies a path to the data directory.</p>
+<p><strong>区块存储数据位置配置</strong></p>
+<p>Example</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">init:</span><br><span class="line">  home: &quot;~&#x2F;.myblockchain&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="init-config"><a href="#init-config" class="headerlink" title="init.config"></a><code>init.config</code></h5><p>Overwrites properties in <code>config/config.toml</code> in the data directory.</p>
+<p><strong>重写<code>config/config.toml</code>的参数</strong></p>
+<h5 id="init-app"><a href="#init-app" class="headerlink" title="init.app"></a><code>init.app</code></h5><p>Overwrites properties in <code>config/app.toml</code> in the data directory.</p>
+<p><strong>重写<code>config/app.toml</code>的参数</strong></p>
+<h5 id="init-keyring-backend"><a href="#init-keyring-backend" class="headerlink" title="init.keyring-backend"></a><code>init.keyring-backend</code></h5><p>Specifies a <a href="https://docs.cosmos.network/master/run-node/keyring.html" target="_blank" rel="noopener">keyring backend</a>.</p>
+<p><strong>初始化钥匙串</strong></p>
+<p>钥匙圈具有用于与节点交互的私钥/公共密钥调配。例如，<strong>在运行区块链节点之前需要设置验证器密钥，以便正确签名块。</strong>私钥可以存储在不同的位置，称为”后端”，例如文件或操作系统自己的密钥存储。</p>
+<p>从 v0.38.0 版本开始，Cosmos SDK 附带了一个新的钥匙圈实现，它提供了一组命令，以安全的方式管理加密密钥。新的钥匙圈支持多个存储后端，其中一些可能不适用于所有操作系统。</p>
+<p>Example</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">init:</span><br><span class="line">  keyring-backend: &quot;os&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="genesis"><a href="#genesis" class="headerlink" title="genesis"></a><code>genesis</code></h5><p>Overwrites properties in <code>config.genesis.json</code> in the data directory.</p>
+<p>重写 <code>config.genesis.json</code> 的所有参数</p>
+<p>Example</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">genesis:</span><br><span class="line">  chain-id: &quot;foobar&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="starport"><a href="#starport" class="headerlink" title="starport"></a>starport</h4><h5 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h5><p>Scaffolding a project using Starport is done with the <code>starport app</code> command.</p>
+<p>Currently, there are two versions of projects that can be scaffolded, which include a Launchpad version, or a Stargate version. The version can be specified by passing the <code>sdk-version</code> flag, followed by either <code>stargate</code> or <code>launchpad</code>.</p>
+<p>目前，有两个版本的项目可以搭建，其中包括一个发射台版本，或一个星际之门版本。版本可以通过传递sdk-version标志来指定，然后是stargate或launchpad。</p>
+<p>ie.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starport app github.com&#x2F;user&#x2F;app --sdk-version&#x3D;stargate</span><br></pre></td></tr></table></figure>
+
+<p>==<strong>SDK版本:</strong>==</p>
+<p><strong>Scaffolding a Stargate app currently uses version <code>^0.40</code> of the Cosmos SDK. ==星际之门使用0.40的cosmos版本==</strong></p>
+<p><strong>Scaffolding a Launchpad app is currently the default that is being used by Starport, and uses version <code>0.39.x</code> of the Cosmos SDK.==发射台使用0.39.x版本==</strong></p>
+<p>具体的架构是不同的, <strong>开发注意版本</strong>, 具体架构见:<a href="https://github.com/tendermint/starport/blob/develop/docs/3%20Starport/2%20Project%20Scaffolding.md" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/3%20Starport/2%20Project%20Scaffolding.md</a></p>
+<h5 id="Type架构"><a href="#Type架构" class="headerlink" title="Type架构"></a>Type架构</h5><p>You can scaffold types within Starport by running a command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">starport type [type-name] [field1:type1] [field2:type2] ...</span><br></pre></td></tr></table></figure>
+
+<p>具体文件架构见:<a href="https://github.com/tendermint/starport/blob/develop/docs/3%20Starport/3%20Type%20Scaffolding.md" target="_blank" rel="noopener">https://github.com/tendermint/starport/blob/develop/docs/3%20Starport/3%20Type%20Scaffolding.md</a></p>
 
       
       
@@ -500,7 +1080,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二、开发基础"><span class="toc-number">1.</span> <span class="toc-text">二、开发基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Cosmos-SDK"><span class="toc-number">1.1.</span> <span class="toc-text">2.1. Cosmos SDK</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-application-specific-blockchains"><span class="toc-number">1.1.1.</span> <span class="toc-text">2.1.1 application-specific blockchains</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-BlockChain-Architecture"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.1.2 BlockChain Architecture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-Main-Components-of-the-Cosmos-SDK"><span class="toc-number">1.1.3.</span> <span class="toc-text">2.1.3 Main Components of the Cosmos SDK</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#baseapp"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">baseapp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Multistore"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">Multistore</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Modules"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">Modules</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二、开发基础"><span class="toc-number">1.</span> <span class="toc-text">二、开发基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Cosmos-SDK"><span class="toc-number">1.1.</span> <span class="toc-text">2.1. Cosmos SDK</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-application-specific-blockchains"><span class="toc-number">1.1.1.</span> <span class="toc-text">2.1.1 application-specific blockchains</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-BlockChain-Architecture"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.1.2 BlockChain Architecture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-Main-Components-of-the-Cosmos-SDK"><span class="toc-number">1.1.3.</span> <span class="toc-text">2.1.3 Main Components of the Cosmos SDK</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#baseapp"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">baseapp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Multistore"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">Multistore</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Modules"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">Modules</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-starport"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 starport</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-Introduction"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.2.1 Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是starport"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">什么是starport</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#快速开始"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">快速开始</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">构造</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#config-yaml"><span class="toc-number">1.2.1.4.1.</span> <span class="toc-text">config.yaml</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#账户地址前缀"><span class="toc-number">1.2.1.4.2.</span> <span class="toc-text">账户地址前缀</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#总结"><span class="toc-number">1.2.1.4.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创世文件genesis-json"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">创世文件genesis.json</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Starport-IBC"><span class="toc-number">1.2.1.6.</span> <span class="toc-text">Starport IBC</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Scaffolding-chain-foo"><span class="toc-number">1.2.1.6.0.1.</span> <span class="toc-text">Scaffolding chain foo</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Scaffolding-chain-bar"><span class="toc-number">1.2.1.6.0.2.</span> <span class="toc-text">Scaffolding chain bar</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Connecting-foo-with-bar"><span class="toc-number">1.2.1.6.0.3.</span> <span class="toc-text">Connecting foo with bar</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Sending-tokens-from-foo-to-bar"><span class="toc-number">1.2.1.6.0.4.</span> <span class="toc-text">Sending tokens from foo to bar</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Checking-token-balances-on-chain-bar"><span class="toc-number">1.2.1.6.0.5.</span> <span class="toc-text">Checking token balances on chain bar</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Configuration"><span class="toc-number">1.2.1.7.</span> <span class="toc-text">Configuration</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-Architecture"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2.2 Architecture</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#介绍"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Your-blockchain-application"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">Your blockchain application</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Serve"><span class="toc-number">1.2.2.1.2.</span> <span class="toc-text">Serve</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#The-Key-Value-Store-KV"><span class="toc-number">1.2.2.1.3.</span> <span class="toc-text">The Key-Value Store (KV)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#How-to-use-types"><span class="toc-number">1.2.2.1.3.1.</span> <span class="toc-text">&#x3D;&#x3D;How to use types&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Accounts-on-your-blockchain"><span class="toc-number">1.2.2.1.3.2.</span> <span class="toc-text">&#x3D;&#x3D;Accounts on your blockchain&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#The-initial-validator"><span class="toc-number">1.2.2.1.3.3.</span> <span class="toc-text">The initial validator</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Summary"><span class="toc-number">1.2.2.1.4.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#目录结构"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#标准模块"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">标准模块</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#What-are-modules"><span class="toc-number">1.2.2.3.1.</span> <span class="toc-text">What are modules</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Standard-modules"><span class="toc-number">1.2.2.3.2.</span> <span class="toc-text">Standard modules</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Auth"><span class="toc-number">1.2.2.3.2.1.</span> <span class="toc-text">Auth</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Bank"><span class="toc-number">1.2.2.3.2.2.</span> <span class="toc-text">Bank</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Capability"><span class="toc-number">1.2.2.3.2.3.</span> <span class="toc-text">Capability</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Staking"><span class="toc-number">1.2.2.3.2.4.</span> <span class="toc-text">Staking</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Mint"><span class="toc-number">1.2.2.3.2.5.</span> <span class="toc-text">Mint</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Distribution"><span class="toc-number">1.2.2.3.2.6.</span> <span class="toc-text">Distribution</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Params"><span class="toc-number">1.2.2.3.2.7.</span> <span class="toc-text">Params</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Governance"><span class="toc-number">1.2.2.3.2.8.</span> <span class="toc-text">Governance</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Crisis"><span class="toc-number">1.2.2.3.2.9.</span> <span class="toc-text">Crisis</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Slashing"><span class="toc-number">1.2.2.3.2.10.</span> <span class="toc-text">Slashing</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#IBC"><span class="toc-number">1.2.2.3.2.11.</span> <span class="toc-text">IBC</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Upgrade"><span class="toc-number">1.2.2.3.2.12.</span> <span class="toc-text">Upgrade</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Evidence"><span class="toc-number">1.2.2.3.2.13.</span> <span class="toc-text">Evidence</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Using-modules"><span class="toc-number">1.2.2.3.2.14.</span> <span class="toc-text">&#x3D;&#x3D;Using modules&#x3D;&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Summary-1"><span class="toc-number">1.2.2.3.3.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编写自定义模块"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">编写自定义模块</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Writing-custom-modules"><span class="toc-number">1.2.2.4.1.</span> <span class="toc-text">Writing custom modules</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Proto"><span class="toc-number">1.2.2.4.1.1.</span> <span class="toc-text">Proto</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Module"><span class="toc-number">1.2.2.4.1.2.</span> <span class="toc-text">Module</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Types"><span class="toc-number">1.2.2.4.1.3.</span> <span class="toc-text">Types</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Client"><span class="toc-number">1.2.2.4.1.4.</span> <span class="toc-text">Client</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Frontend"><span class="toc-number">1.2.2.4.1.5.</span> <span class="toc-text">Frontend</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Summary-2"><span class="toc-number">1.2.2.4.2.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#config-yaml配置"><span class="toc-number">1.2.2.5.</span> <span class="toc-text">config.yaml配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#accounts"><span class="toc-number">1.2.2.5.1.</span> <span class="toc-text">accounts</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#build"><span class="toc-number">1.2.2.5.2.</span> <span class="toc-text">build</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#build-proto"><span class="toc-number">1.2.2.5.3.</span> <span class="toc-text">build.proto</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#faucet"><span class="toc-number">1.2.2.5.4.</span> <span class="toc-text">faucet</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#validator"><span class="toc-number">1.2.2.5.5.</span> <span class="toc-text">validator</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#init-home"><span class="toc-number">1.2.2.5.6.</span> <span class="toc-text">init.home</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#init-config"><span class="toc-number">1.2.2.5.7.</span> <span class="toc-text">init.config</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#init-app"><span class="toc-number">1.2.2.5.8.</span> <span class="toc-text">init.app</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#init-keyring-backend"><span class="toc-number">1.2.2.5.9.</span> <span class="toc-text">init.keyring-backend</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#genesis"><span class="toc-number">1.2.2.5.10.</span> <span class="toc-text">genesis</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#starport"><span class="toc-number">1.2.2.6.</span> <span class="toc-text">starport</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#项目架构"><span class="toc-number">1.2.2.6.1.</span> <span class="toc-text">项目架构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Type架构"><span class="toc-number">1.2.2.6.2.</span> <span class="toc-text">Type架构</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -870,6 +1450,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
             
             <div class="clearfix"></div>

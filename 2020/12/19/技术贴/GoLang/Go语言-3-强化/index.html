@@ -16,14 +16,14 @@
 <meta property="og:description" content="四、golang基础巩固加强4.1 go的包管理此部分内容来源于：http:&#x2F;&#x2F;c.biancheng.net&#x2F;view&#x2F;5712.html Go Modulego module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。 Modules 官方定义为： Modules 是相关 Go 包的集合，是源代">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/OnTiL2.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/etjFcV.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/uYi8o2.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/jjguqX.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/oQnga5.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/p1edob.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/AczrFm.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/7alfFI.png">
 <meta property="article:published_time" content="2020-12-19T14:17:17.000Z">
-<meta property="article:modified_time" content="2021-03-04T09:01:58.509Z">
+<meta property="article:modified_time" content="2021-03-20T10:47:26.664Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -81,7 +81,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 323
+			总文章数 331
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -226,7 +226,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.3k字</span>
+        <span class="post-count">2.4k字</span>
       </span>
     </span>
 
@@ -359,10 +359,11 @@
 <p><em>p 叫做*</em>解引用**也叫间接引用</p>
 <h3 id="4-2-1-函数运行的内存解析与栈帧"><a href="#4-2-1-函数运行的内存解析与栈帧" class="headerlink" title="4.2.1 函数运行的内存解析与栈帧"></a>4.2.1 函数运行的内存解析与栈帧</h3><p>​    栈帧：用来给函数运行<strong>提供内存空间</strong>。取内存于stack上。当函数调用时，产生栈帧，当函数调用结束时，释放栈帧。</p>
 <p>​    栈帧存储：1.局部变量 2.形参（与局部变量地位等同） 3. 内存字段描述值</p>
-<p>​    <strong>一个函数就对应一个栈帧</strong> </p>
+<p>​    ==<strong>一个函数就对应一个栈帧</strong>== </p>
 <p>​    以32位的内存4G的空间为例</p>
 <p>​    <img src="http://xwjpics.gumptlu.work/qinniu_uPic/OnTiL2.png" alt="OnTiL2"></p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/etjFcV.png" alt="etjFcV"></p>
+<p><strong>当函数调用完毕后,空间释放/回收其实就是指针的归位,但是其中的数据是不会清空删除的,也就是说系统会当作无效的旧数据覆盖处理</strong></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/uYi8o2.png" alt="uYi8o2"></p>
 <h3 id="4-2-2-注意事项"><a href="#4-2-2-注意事项" class="headerlink" title="4.2.2 注意事项"></a>4.2.2 注意事项</h3><h4 id="空指针与野指针"><a href="#空指针与野指针" class="headerlink" title="空指针与野指针"></a>空指针与野指针</h4><p>空指针：未被初始化的指针 var p *int </p>
 <p>野指针：被一片无效的空间地址初始化的指针 var p *int = 0x989798</p>
 <h4 id="new赋值给指针"><a href="#new赋值给指针" class="headerlink" title="new赋值给指针"></a>new赋值给指针</h4><p>new的内存空间都在堆中!</p>
@@ -427,7 +428,7 @@
     2020-12-19
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-03-04
+    2021-03-20
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-强化/" title="技术贴/GoLang/Go语言-3-强化" target="_blank">技术贴/GoLang/Go语言-3-强化</a>
@@ -1007,6 +1008,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
             
             <div class="clearfix"></div>

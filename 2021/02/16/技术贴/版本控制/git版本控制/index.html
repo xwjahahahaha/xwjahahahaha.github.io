@@ -15,6 +15,8 @@
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="[TOC] 一、引言   在单人开发过程中，需要进行版本管理，以利于开发进度的控制。  在多人开发过程中，不仅需要版本管理，还需要进行多人协同控制。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/a47KLR.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/sFMn91.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/sLzrdk.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/PU8ELh.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/xO3NjM.png">
@@ -49,11 +51,11 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/6fFLr8.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/Iey1TN.png">
 <meta property="article:published_time" content="2021-02-16T12:30:18.000Z">
-<meta property="article:modified_time" content="2021-03-05T16:49:32.118Z">
+<meta property="article:modified_time" content="2021-03-18T12:16:47.847Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/sLzrdk.png">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/a47KLR.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -107,7 +109,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 323
+			总文章数 331
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -252,7 +254,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">3.7k字</span>
+        <span class="post-count">4.1k字</span>
       </span>
     </span>
 
@@ -261,7 +263,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">13分</span>
+        <span class="post-count">15分</span>
       </span>
     </span>
 </div>
@@ -300,7 +302,7 @@
 <h4 id="3-2-安装"><a href="#3-2-安装" class="headerlink" title="3.2 安装"></a>3.2 安装</h4><blockquote>
 <p>安装，除了安装位置外，其他一直下一步即可</p>
 </blockquote>
-<h4 id="3-3-基本配置（设置全局变量）"><a href="#3-3-基本配置（设置全局变量）" class="headerlink" title="3.3 基本配置（设置全局变量）"></a>3.3 基本配置（设置全局变量）</h4><blockquote>
+<h4 id="3-3-基本配置（设置全局变量和密钥对）"><a href="#3-3-基本配置（设置全局变量和密钥对）" class="headerlink" title="3.3 基本配置（设置全局变量和密钥对）"></a>3.3 基本配置（设置全局变量和密钥对）</h4><blockquote>
 <ul>
 <li><p>安装后，打开git的cmd窗口 ，自报家门</p>
 </li>
@@ -310,6 +312,13 @@
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "Your Name"  #用户名</span><br><span class="line">git config --global user.email "email@example.com"  #邮箱</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看信息</span></span><br><span class="line">git config -l</span><br></pre></td></tr></table></figure>
 
+<p>设置公钥匙钥对</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C "email@example.com"</span><br></pre></td></tr></table></figure>
+
+<p>一直回车,出现Y按Y, 会在/Users/***/路径下生成一个.ssh文件夹，密钥就存储在其中。</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/a47KLR.png" alt="a47KLR"></p>
+<p>到git仓库添加密钥</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/sFMn91.png" alt="sFMn91"></p>
 <h4 id="3-4-测试"><a href="#3-4-测试" class="headerlink" title="3.4 测试"></a>3.4 测试</h4><blockquote>
 <p>测试：cmd中执行 ,查看git版本</p>
 </blockquote>
@@ -482,6 +491,8 @@
 </tbody></table>
 <h5 id="7-3-5-克隆远程仓库"><a href="#7-3-5-克隆远程仓库" class="headerlink" title="7.3.5 克隆远程仓库"></a>7.3.5 克隆远程仓库</h5><blockquote>
 <p>如果仓库已经由别人创建完毕，我们需要其中的内容，则可以通过 <a href="">git clone</a> 将其复制到本地。</p>
+<p>==<code>git clone xxxx.git</code>默认克隆的master分支,并且只有master分支，可以通过<code>git fetch</code>获取所有的分支==</p>
+<p> ==<code>git clone -b [分支名] xxxx.git</code>指定克隆的分支==</p>
 </blockquote>
 <table>
 <thead>
@@ -519,8 +530,12 @@
 <td>从远程仓库下载内容到本地仓库</td>
 </tr>
 <tr>
-<td>git   clone  远程地址</td>
+<td>git   clone  [-b 分支名] 远程地址</td>
 <td>将远程仓库复制到本地，并自动形成一个本地仓库</td>
+</tr>
+<tr>
+<td>git fetch</td>
+<td>获取所有的分支</td>
 </tr>
 </tbody></table>
 <p>==git clone 与 git pull 的区别在于：当本地为空的时候初始<strong>第一次</strong>使用时使用git clone，以后每次更新都采用git pull==</p>
@@ -898,7 +913,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="十一、经典问题"><a href="#十一、经典问题" class="headerlink" title="十一、经典问题"></a>十一、经典问题</h3><hr>
+<h3 id="十一、经典问题"><a href="#十一、经典问题" class="headerlink" title="十一、经典问题"></a>十一、经典问题</h3><h4 id="1-密码权限问题"><a href="#1-密码权限问题" class="headerlink" title="1. 密码权限问题"></a>1. 密码权限问题</h4><hr>
 <blockquote>
 <p>在使用https协议做push时，如果曾经使用过码云，但密码有过改动，此时会报错</p>
 <p>之前的账号凭证与新的git账号凭证对不上，所以会出现以下问题：</p>
@@ -917,6 +932,21 @@
 <p>解决方案:  <a href="">控制面板  》 凭据管理器 》</a> 删除对应凭证，再次使用时会提示重新输入密码。</p>
 <p>删除之前的码云凭证，然后重新push即可</p>
 </blockquote>
+<h4 id="2-Updates-were-rejected-because-the-tip-of-your-current-branch-is-behind"><a href="#2-Updates-were-rejected-because-the-tip-of-your-current-branch-is-behind" class="headerlink" title="2. Updates were rejected because the tip of your current branch is behind"></a>2. Updates were rejected because the tip of your current branch is behind</h4><p>! [rejected]        master -&gt; master (non-fast-forward)<br>error: failed to push some refs to ‘git@github.com:xxxxxxx.git’<br>hint: Updates were rejected because the tip of your current branch is behind<br>hint: its remote counterpart. Integrate the remote changes (e.g.<br>hint: ‘git pull …’) before pushing again.<br>hint: See the ‘Note about fast-forwards’ in ‘git push –help’ for details.</p>
+<p>解决:</p>
+<p>有如下几种解决方法：</p>
+<p>1.使用强制push的方法：</p>
+<p><code>$ git push -u origin master -f</code></p>
+<p>这样会使远程修改丢失，一般是不可取的，尤其是多人协作开发的时候。</p>
+<p>2.push前先将远程repository修改pull下来</p>
+<p><code>$ git pull origin master</code>切换</p>
+<p><code>$ git push -u origin master</code></p>
+<p>3.若不想merge远程和本地修改，可以先创建新的分支：</p>
+<p><code>$ git branch [name]</code></p>
+<p>然后push</p>
+<p><code>$ git push -u origin [name]</code></p>
+<h4 id="3-error-pathspec-‘master’-did-not-match-any-file-s-known-to-git"><a href="#3-error-pathspec-‘master’-did-not-match-any-file-s-known-to-git" class="headerlink" title="3. error: pathspec ‘master’ did not match any file(s) known to git"></a>3. error: pathspec ‘master’ did not match any file(s) known to git</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch   # 查看自己的分支,检查master是否在自己分支</span><br><span class="line">git fetch		 # 构建所有的分支</span><br><span class="line">git checkout mast # 转换分支</span><br></pre></td></tr></table></figure>
+
 
       
       
@@ -938,7 +968,7 @@
     2021-02-16
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-03-06
+    2021-03-18
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/02/16/技术贴/版本控制/git版本控制/" title="git版本控制" target="_blank">git版本控制</a>
@@ -1148,7 +1178,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、引言"><span class="toc-number">1.</span> <span class="toc-text">一、引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、介绍"><span class="toc-number">2.</span> <span class="toc-text">二、介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、Git安装"><span class="toc-number">3.</span> <span class="toc-text">三、Git安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-下载Git"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 下载Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-安装"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-基本配置（设置全局变量）"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 基本配置（设置全局变量）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-测试"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、架构"><span class="toc-number">4.</span> <span class="toc-text">四、架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、仓库"><span class="toc-number">5.</span> <span class="toc-text">五、仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-新建仓库"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 新建仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-工作区"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 工作区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-暂存区"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 暂存区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-分支"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 分支</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、基本操作"><span class="toc-number">6.</span> <span class="toc-text">六、基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-查看仓库状态"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 查看仓库状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-暂存文件"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 暂存文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-提交文件"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 提交文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、远程仓库"><span class="toc-number">7.</span> <span class="toc-text">七、远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-远程仓库工作模式"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 远程仓库工作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2-远程仓库选型"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 远程仓库选型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-基本操作"><span class="toc-number">7.3.</span> <span class="toc-text">7.3 基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-1-注册git服务器账号"><span class="toc-number">7.3.1.</span> <span class="toc-text">7.3.1 注册git服务器账号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-2-新建远程仓库"><span class="toc-number">7.3.2.</span> <span class="toc-text">7.3.2 新建远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-3-本地关联远程仓库"><span class="toc-number">7.3.3.</span> <span class="toc-text">7.3.3 本地关联远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#推送文件到远程仓库"><span class="toc-number">7.3.4.</span> <span class="toc-text">推送文件到远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-5-克隆远程仓库"><span class="toc-number">7.3.5.</span> <span class="toc-text">7.3.5 克隆远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-6-代码共享"><span class="toc-number">7.3.6.</span> <span class="toc-text">7.3.6 代码共享</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-7-命令汇总"><span class="toc-number">7.3.7.</span> <span class="toc-text">7.3.7 命令汇总</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-8-origin"><span class="toc-number">7.3.8.</span> <span class="toc-text">7.3.8 origin</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八、分支"><span class="toc-number">8.</span> <span class="toc-text">八、分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1-分支简介"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 分支简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-分支操作"><span class="toc-number">8.2.</span> <span class="toc-text">8.2 分支操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2-1-查看分支"><span class="toc-number">8.2.1.</span> <span class="toc-text">8.2.1 查看分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2-2-创建分支"><span class="toc-number">8.2.2.</span> <span class="toc-text">8.2.2 创建分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2-3-切换分支"><span class="toc-number">8.2.3.</span> <span class="toc-text">8.2.3 切换分支</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-新建分支细节"><span class="toc-number">8.3.</span> <span class="toc-text">8.3 新建分支细节</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-1-新分支初始内容"><span class="toc-number">8.3.1.</span> <span class="toc-text">8.3.1 新分支初始内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-多分支走向"><span class="toc-number">8.3.2.</span> <span class="toc-text">8.3.2 多分支走向</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-3-分支提交日志"><span class="toc-number">8.3.3.</span> <span class="toc-text">8.3.3 分支提交日志</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-分支合并"><span class="toc-number">8.4.</span> <span class="toc-text">8.4 分支合并</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-4-1-快速合并"><span class="toc-number">8.4.1.</span> <span class="toc-text">8.4.1 快速合并</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-4-2-三方合并"><span class="toc-number">8.4.2.</span> <span class="toc-text">8.4.2 三方合并</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-4-3-合并冲突"><span class="toc-number">8.4.3.</span> <span class="toc-text">8.4.3 合并冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#8-4-3-1-冲突演示"><span class="toc-number">8.4.3.1.</span> <span class="toc-text">8.4.3.1 冲突演示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8-4-3-2-冲突解决"><span class="toc-number">8.4.3.2.</span> <span class="toc-text">8.4.3.2 冲突解决</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九、IDE关联Git（以goland为例）"><span class="toc-number">9.</span> <span class="toc-text">九、IDE关联Git（以goland为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-1-关联Git"><span class="toc-number">9.1.</span> <span class="toc-text">9.1 关联Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-2-创建仓库"><span class="toc-number">9.2.</span> <span class="toc-text">9.2 创建仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3-提交-commit"><span class="toc-number">9.3.</span> <span class="toc-text">9.3 提交-commit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-4-创建分支"><span class="toc-number">9.4.</span> <span class="toc-text">9.4 创建分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-5-上传到远程仓库-push"><span class="toc-number">9.5.</span> <span class="toc-text">9.5 上传到远程仓库(push)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-6-复制到本地仓库-clone"><span class="toc-number">9.6.</span> <span class="toc-text">9.6 复制到本地仓库(clone)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-7-更新本地项目"><span class="toc-number">9.7.</span> <span class="toc-text">9.7 更新本地项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-8-冲突解决"><span class="toc-number">9.8.</span> <span class="toc-text">9.8 冲突解决</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十、多人协同开发"><span class="toc-number">10.</span> <span class="toc-text">十、多人协同开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-1-项目管理员-项目经理"><span class="toc-number">10.1.</span> <span class="toc-text">10.1 项目管理员( 项目经理 )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-2-开发人员"><span class="toc-number">10.2.</span> <span class="toc-text">10.2 开发人员</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十一、经典问题"><span class="toc-number">11.</span> <span class="toc-text">十一、经典问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、引言"><span class="toc-number">1.</span> <span class="toc-text">一、引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、介绍"><span class="toc-number">2.</span> <span class="toc-text">二、介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、Git安装"><span class="toc-number">3.</span> <span class="toc-text">三、Git安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-下载Git"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 下载Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-安装"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-基本配置（设置全局变量和密钥对）"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 基本配置（设置全局变量和密钥对）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-测试"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、架构"><span class="toc-number">4.</span> <span class="toc-text">四、架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、仓库"><span class="toc-number">5.</span> <span class="toc-text">五、仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-新建仓库"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 新建仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-工作区"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 工作区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-暂存区"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 暂存区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-分支"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 分支</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、基本操作"><span class="toc-number">6.</span> <span class="toc-text">六、基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-查看仓库状态"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 查看仓库状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-暂存文件"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 暂存文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-提交文件"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 提交文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#七、远程仓库"><span class="toc-number">7.</span> <span class="toc-text">七、远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-远程仓库工作模式"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 远程仓库工作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2-远程仓库选型"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 远程仓库选型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-基本操作"><span class="toc-number">7.3.</span> <span class="toc-text">7.3 基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-1-注册git服务器账号"><span class="toc-number">7.3.1.</span> <span class="toc-text">7.3.1 注册git服务器账号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-2-新建远程仓库"><span class="toc-number">7.3.2.</span> <span class="toc-text">7.3.2 新建远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-3-本地关联远程仓库"><span class="toc-number">7.3.3.</span> <span class="toc-text">7.3.3 本地关联远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#推送文件到远程仓库"><span class="toc-number">7.3.4.</span> <span class="toc-text">推送文件到远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-5-克隆远程仓库"><span class="toc-number">7.3.5.</span> <span class="toc-text">7.3.5 克隆远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-6-代码共享"><span class="toc-number">7.3.6.</span> <span class="toc-text">7.3.6 代码共享</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-7-命令汇总"><span class="toc-number">7.3.7.</span> <span class="toc-text">7.3.7 命令汇总</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-3-8-origin"><span class="toc-number">7.3.8.</span> <span class="toc-text">7.3.8 origin</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#八、分支"><span class="toc-number">8.</span> <span class="toc-text">八、分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1-分支简介"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 分支简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-分支操作"><span class="toc-number">8.2.</span> <span class="toc-text">8.2 分支操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2-1-查看分支"><span class="toc-number">8.2.1.</span> <span class="toc-text">8.2.1 查看分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2-2-创建分支"><span class="toc-number">8.2.2.</span> <span class="toc-text">8.2.2 创建分支</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2-3-切换分支"><span class="toc-number">8.2.3.</span> <span class="toc-text">8.2.3 切换分支</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-新建分支细节"><span class="toc-number">8.3.</span> <span class="toc-text">8.3 新建分支细节</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-1-新分支初始内容"><span class="toc-number">8.3.1.</span> <span class="toc-text">8.3.1 新分支初始内容</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-2-多分支走向"><span class="toc-number">8.3.2.</span> <span class="toc-text">8.3.2 多分支走向</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-3-3-分支提交日志"><span class="toc-number">8.3.3.</span> <span class="toc-text">8.3.3 分支提交日志</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-分支合并"><span class="toc-number">8.4.</span> <span class="toc-text">8.4 分支合并</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-4-1-快速合并"><span class="toc-number">8.4.1.</span> <span class="toc-text">8.4.1 快速合并</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-4-2-三方合并"><span class="toc-number">8.4.2.</span> <span class="toc-text">8.4.2 三方合并</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-4-3-合并冲突"><span class="toc-number">8.4.3.</span> <span class="toc-text">8.4.3 合并冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#8-4-3-1-冲突演示"><span class="toc-number">8.4.3.1.</span> <span class="toc-text">8.4.3.1 冲突演示</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8-4-3-2-冲突解决"><span class="toc-number">8.4.3.2.</span> <span class="toc-text">8.4.3.2 冲突解决</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九、IDE关联Git（以goland为例）"><span class="toc-number">9.</span> <span class="toc-text">九、IDE关联Git（以goland为例）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-1-关联Git"><span class="toc-number">9.1.</span> <span class="toc-text">9.1 关联Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-2-创建仓库"><span class="toc-number">9.2.</span> <span class="toc-text">9.2 创建仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3-提交-commit"><span class="toc-number">9.3.</span> <span class="toc-text">9.3 提交-commit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-4-创建分支"><span class="toc-number">9.4.</span> <span class="toc-text">9.4 创建分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-5-上传到远程仓库-push"><span class="toc-number">9.5.</span> <span class="toc-text">9.5 上传到远程仓库(push)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-6-复制到本地仓库-clone"><span class="toc-number">9.6.</span> <span class="toc-text">9.6 复制到本地仓库(clone)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-7-更新本地项目"><span class="toc-number">9.7.</span> <span class="toc-text">9.7 更新本地项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-8-冲突解决"><span class="toc-number">9.8.</span> <span class="toc-text">9.8 冲突解决</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十、多人协同开发"><span class="toc-number">10.</span> <span class="toc-text">十、多人协同开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-1-项目管理员-项目经理"><span class="toc-number">10.1.</span> <span class="toc-text">10.1 项目管理员( 项目经理 )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-2-开发人员"><span class="toc-number">10.2.</span> <span class="toc-text">10.2 开发人员</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#十一、经典问题"><span class="toc-number">11.</span> <span class="toc-text">十一、经典问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-密码权限问题"><span class="toc-number">11.1.</span> <span class="toc-text">1. 密码权限问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Updates-were-rejected-because-the-tip-of-your-current-branch-is-behind"><span class="toc-number">11.2.</span> <span class="toc-text">2. Updates were rejected because the tip of your current branch is behind</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-error-pathspec-‘master’-did-not-match-any-file-s-known-to-git"><span class="toc-number">11.3.</span> <span class="toc-text">3. error: pathspec ‘master’ did not match any file(s) known to git</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1518,6 +1548,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
               </li>
             
             <div class="clearfix"></div>
