@@ -27,10 +27,11 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/Pyg6Tr.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/Xfujcl.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/NfXcPe.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/E4sePc.png">
 <meta property="article:published_time" content="2021-03-20T07:41:05.000Z">
-<meta property="article:modified_time" content="2021-03-24T14:07:30.134Z">
+<meta property="article:modified_time" content="2021-03-28T07:55:39.583Z">
 <meta property="article:author" content="DDDemons hide">
-<meta property="article:tag" content="machine_learning">
+<meta property="article:tag" content="federated_learing">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/qSQV3b.png">
   
@@ -86,7 +87,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 340
+			总文章数 352
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -231,7 +232,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">5.3k字</span>
+        <span class="post-count">9.4k字</span>
       </span>
     </span>
 
@@ -240,7 +241,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">19分</span>
+        <span class="post-count">33分</span>
       </span>
     </span>
 </div>
@@ -398,13 +399,58 @@
 <p>表格一与表格二展示了详细的过程:</p>
 <p>表一: 垂直联邦学习的<strong>训练</strong>过程</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/Xfujcl.png" alt="Xfujcl"></p>
-<p>表二:垂直联邦学习的<strong>评估</strong>过程</p>
+<p>表二:垂直联邦学习的<strong>评估/预测</strong>过程</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/NfXcPe.png" alt="NfXcPe"></p>
 <p>在实体对齐和模型训练过程中，A和B的数据都保存在本地，训练过程中的数据交互不会导致数据隐私泄露</p>
 <p>请注意，潜在的信息泄漏给C可能被认为是隐私侵犯，也可能不被认为是隐私侵犯</p>
-<p>在此案例中,为了在未来阻止C在A和B中学习/获取信息数据,A和B可以通过<strong>添加加密随机掩</strong>码(即表中第三部的RA和RB)计算梯度给C</p>
+<p>在此案例中,为了在未来阻止C在A和B中学习/获取信息数据,A和B可以通过<strong>添加加密随机掩码</strong>(即表中第三部的RA和RB)计算梯度给C</p>
 <p>所以，双方在联合学习的帮助下合作实现了一个共同模型的训练。因为，在训练过程中，如果在没有隐私约束的情况下，将从一个地方收集的数据联合构建一个模型，那么各方接收到的损失和梯度与他们将接收到的损失和梯度完全相同，即该模型是无损的.</p>
-<p>该模型的有效性取决于加密数据的通信代价和计算代价, 在每一个循环, A和B之间发送的信息与重叠样本的数量成正比。<font color='red'>因此，采用<strong>分布式并行计算技术</strong>可以进一步提高该算法的性能    </font></p>
+<p>该模型的有效性取决于加密数据的通信代价和计算代价, 在每一个循环, A和B之间发送的信息与重叠样本的数量成正比。<font color='red'>因此，采用<strong>分布式并行计算技术(distributed parallel computing techniques.)</strong>可以进一步提高该算法的性能    </font></p>
+<p><strong>安全性分析:</strong></p>
+<p>表1所示的训练协议并没有向C透露任何信息，因为C学习到的都是添加掩码的梯度，并且掩码矩阵的随机性和保密性都得到了保证[16]。</p>
+<p>在上述协议中，A在每一步中学习其梯度，但这不足以使A根据式:</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/E4sePc.png" alt="E4sePc"></p>
+<p>从B中学习到任何信息。</p>
+<p>因为点积协议(scalar product protocol)的安全性是建立在不能求解n个方程中超过n个未知数的基础上的[16,65]。<font color='green'> (线性代数中,未知数个数大于方程个数,解有无数个, 这里保存疑问???)</font> .也就是这里，我们假设样本的数量$N_A$要比特征的数量$n_A$大得多.</p>
+<p>同样，B也无法从A处获取任何信息，从而证明了协议的安全性。</p>
+<p>注意:我们假设双方之间都是半诚实的.</p>
+<p>如果一方是恶意的，并且通过伪造输入来欺骗系统——例如，一方只提交了一个非零的输入，并且只有一个非零的特征——它就可以告诉这个样本的特征的值为$u_i^B$,但是他仍然无法告知$X_i^B$或者$\Theta_B$.然而，这种偏差会扭曲下一次迭代的结果，使另一方警觉，他们将终止学习过程。</p>
+<p>直到训练过程的最后，每一方(A或B)都不知道另一方的数据结构，只获得与自己的特征相关的模型参数。在推断时，双方需要按照表2所示的步骤协同计算预测结果，仍然不会导致信息泄露.</p>
+<h3 id="2-4-3-Federated-Transfer-Learning"><a href="#2-4-3-Federated-Transfer-Learning" class="headerlink" title="2.4,3 Federated Transfer Learning"></a>2.4,3 Federated Transfer Learning</h3><p>联邦迁移学习</p>
+<p>假设在上述垂直联邦学习示例中，A方和B方只有非常小的重叠样本集，我们有兴趣学习A方整个数据集的标签。以上部分中描述的架构到目前为止只适用于<strong>重叠较多的数据集</strong>。为了将其覆盖范围扩展到整个样本空间，我们引入了迁移学习。</p>
+<p>这不会改变图4中所示的整体架构，但是会改变在<strong>A和B双方之间交换的中间结果的细节。</strong></p>
+<p>特别的,迁移学习通常包括学习A方和B方特征之间的共同表征并且通过利用源域方(此案例中的B)的标签来最小化预测目标域方标签的错误(<font color='green'><strong>最小化损失</strong>    </font>)</p>
+<p>因此，A方和B方的梯度计算与垂直联邦学习场景下的梯度计算不同。在预测时，仍然需要双方计算预测结果</p>
+<h3 id="2-4-4-Incentives-Mechanism-激励机制"><a href="#2-4-4-Incentives-Mechanism-激励机制" class="headerlink" title="2.4.4 Incentives Mechanism 激励机制"></a>2.4.4 Incentives Mechanism 激励机制</h3><p>​    为了充分商业化不同组织之间的联合学习，需要建立一个公平的平台和激励机制. 模型建立后，模型的性能将在实际应用中得到体现。这种性能可以在一个永久的数据记录机制(如区块链)中记录下来。提供更多数据的组织会更好，模型的有效性取决于数据提供者对系统的贡献。这些模型的有效性是基于联合机制的分布式部分，并继续激励更多的组织加入数据联合.</p>
+<p>​    上述体系结构的实现不仅考虑了多组织间的隐私保护和协同建模的有效性，而且考虑了如何奖励贡献更多数据的组织，以及如何通过共识机制实施激励。因此，联邦学习是一种<strong>“闭环”</strong>学习机制。</p>
+<h1 id="3-Related-Works-相关工作"><a href="#3-Related-Works-相关工作" class="headerlink" title="3 Related Works 相关工作"></a>3 Related Works 相关工作</h1><p>联合学习使多方能够协作构建机器学习模型，同时保持他们的私人训练数据的私密性。作为一种新颖的技术，联合学习有几个创意线索，其中一些植根于现有的领域。下面，我们从多个角度解释联邦学习与其他相关概念之间的关系。</p>
+<h2 id="3-1-Privacy-Preserving-Machine-Learning"><a href="#3-1-Privacy-Preserving-Machine-Learning" class="headerlink" title="3.1 Privacy-Preserving Machine Learning"></a>3.1 Privacy-Preserving Machine Learning</h2><p>联邦学习可以看作是一种保护隐私、分布式协同的机器学习. 因此，它与多方保护隐私的机器学习紧密相关.过去在这一领域进行了许多研究工作。</p>
+<p>例如，[17,67]的作者提出了用于垂直划分数据的安全多方决策树算法。</p>
+<p>Vaidya和Clifton提出了用于垂直分割数据的安全关联挖掘规则[65]、安全k-means[66]和朴素贝叶斯分类器[64]</p>
+<p>[31]的作者提出了水平分区数据关联规则的算法。</p>
+<p>安全支持向量机算法已经被开发用于垂直分区数据[73]和水平分区数据[74]。</p>
+<p>[16]的作者提出了针对多方线性回归和分类的安全协议</p>
+<p>[68]的作者提出了安全的多方梯度下降方法。这些作品都使用SMC[25,72]来保证隐私</p>
+<p>Nikolaenko等人的[48]使用同态加密和Yao的混淆电路(Garbled Circuits)实现了水平分割数据的线性回归的隐私保护协议。[22,24]的作者提出了一种垂直划分数据的线性回归方法。这些系统直接解决了线性回归问题。[47]的作者利用SGD解决了这一问题，并提出了逻辑回归和神经网络的隐私保护协议。最近，一个三服务器模型的后续工作被提出[44]。Aono等人[4]提出了一种使用同态加密的安全逻辑回归协议。Shokri和Shmatikov[58]提出了利用更新参数交换水平分区数据的神经网络训练方法。[51]的作者使用了附加同态加密来保留梯度的隐私性，提高了系统的安全性。随着深度学习的最新进展，隐私保护神经网络推理也受到了大量的研究兴趣[10,11,14,28,40,52,54]。</p>
+<h2 id="3-2-Federated-Learning-versus-Distributed-Machine-Learning"><a href="#3-2-Federated-Learning-versus-Distributed-Machine-Learning" class="headerlink" title="3.2 Federated Learning versus Distributed Machine Learning"></a>3.2 Federated Learning versus Distributed Machine Learning</h2><p><strong>联邦学习与分布式机器学习的对比</strong></p>
+<p>横向联合学习乍一看与分布式机器学习有些相似.分布式机器学习涉及多个方面，包括训练数据的分布式存储、计算任务的分布式操作和模型结果的分布式分发。</p>
+<p>参数服务器[30]是分布式机器学习中的一个典型元素。作为一种加速训练过程的工具，参数服务器将数据存储在分布式工作节点上，并通过一个中央调度节点分配数据和计算资源，以更高效地训练模型.</p>
+<p>对于横向联合学习，工作节点表示数据所有者。它对本地数据具有<strong>完全的自治性</strong>；它可以决定何时以及如何加入联邦学习。在参数服务器中，中心节点总是进行控制；因此，联邦学习面临更复杂的学习环境。另外，联邦学习强调在模型训练过程中对数据所有者的数据隐私保护。有效的数据隐私保护措施可以更好地应对未来日益严格的数据隐私和数据安全监管环境。</p>
+<p>与分布式机器学习设置一样，联合学习也需要处理非IID数据。文献[77]的作者指出，使用非本地数据，联邦学习的性能会大大降低。针对这一问题，作者提出了一种类似于迁移学习的新方法。</p>
+<h2 id="3-3-Federated-Learning-versus-Edge-Computing"><a href="#3-3-Federated-Learning-versus-Edge-Computing" class="headerlink" title="3.3 Federated Learning versus Edge Computing"></a>3.3 Federated Learning versus Edge Computing</h2><p><strong>联邦学习与边缘计算的对比</strong></p>
+<p>联邦学习可以看作是边缘计算的一个操作系统，因为它为协调和安全提供了学习协议。文献[69]的作者考虑了一类通用的机器学习模型，这些模型使用基于梯度下降的方法进行训练。他们从理论上分析了分布梯度下降法的收敛界，在此基础上提出了一种控制算法，在给定资源预算的情况下，通过确定局部更新和全局参数聚集之间的最佳权衡，使损失函数最小化</p>
+<h2 id="3-4-Federated-Learning-versus-Federated-Database-Systems"><a href="#3-4-Federated-Learning-versus-Federated-Database-Systems" class="headerlink" title="3.4 Federated Learning versus Federated Database Systems"></a>3.4 Federated Learning versus Federated Database Systems</h2><p><strong>联邦学习与联邦数据库系统的对比</strong></p>
+<p>联邦数据库系统[57]是集成多个数据库单元并作为一个整体管理集成系统的系统。为了实现多个独立数据库的互操作性，提出了联邦数据库的概念。联邦数据库系统通常对数据库单元使用分布式存储，而实际上，每个数据库单元中的数据是异构的。因此，它在数据类型和存储方面与联邦学习有许多相似之处。然而，<strong>联邦数据库系统在交互过程中不涉及任何隐私保护机制</strong>，所有的数据库单元对管理系统都是完全可见的。另外，联邦数据库系统的重点是数据的插入、删除、搜索、合并等基本操作，而联邦学习的目的是在保护数据隐私的前提下，为每个数据拥有者建立一个联合模型，使数据所包含的各种价值和规律为我们服务更好。</p>
+<h1 id="4-Applications"><a href="#4-Applications" class="headerlink" title="4. Applications"></a>4. Applications</h1><p>​    作为一种创新的建模机制，可以在不损害这些数据的隐私和安全性的前提下，训练多方数据的统一模型，联合学习在<strong>销售、财务</strong>等领域有着广阔的应用前景，以及许多其他行业，由于知识产权、隐私保护和数据安全等因素，无法直接聚合数据来训练机器学习模型。</p>
+<p>​    以智能零售为例。其目的是利用机器学习技术为客户提供个性化的服务，主要包括产品推荐和销售服务。智能零售业务涉及的数据特征主要包括用户购买力、用户个人偏好和产品特征。在实际应用中，这三种数据特征很可能分散在三个不同的部门或企业中。例如，用户的购买力可以从用户的银行储蓄中推断出来，个人偏好可以从用户的社交网络中分析出来，而产品的特性则由电子商店记录下来。在这种情况下，我们面临两个问题。首先，为了保护数据隐私和数据安全，银行、社交网站和电子购物网站之间的数据壁垒很难打破。因此，不能直接聚合数据来训练模型。第二，三方存储的数据通常是异构的，传统的机器学习模型不能直接处理异构数据。目前，传统的机器学习方法还没有有效地解决这些问题，阻碍了人工智能在更多领域的推广应用.</p>
+<p><font color='green'><strong>传统的人工智能领域无法在异构数据领域进行直接的学习,而异构数据化为同构数据的过程又涉及到数据隐私的保护</strong> </font></p>
+<p>​    联邦学习和迁移学习是解决这些问题的关键。首先，利用联邦学习的特点，我们可以为第三方建立一个机器学习模型并且不需要导出企业的数据,它不仅充分保护了数据隐私和数据安全，而且为客户提供了个性化、针对性的服务，实现了双赢！同时，我们可以利用迁移学习来解决数据异构问题，突破传统人工智能技术的局限性。因此，联邦学习为我们构建跨企业、跨数据、跨领域的大数据和人工智能生态圈提供了良好的技术支持。</p>
+<p>​    可以使用联邦学习框架进行多方数据库查询，而无需提供数据。例如，假设在一个商业应用我们感兴趣的是检测多方借贷，这一直是银行业的一个主要风险因素。当某些用户恶意从一家银行借款以支付另一家银行的贷款时，就会发生这种情况。多方借贷对我们金融稳定是个威胁，作为一个庞大的非法行为可能会导致整个金融体系崩溃。为了查找这样的用户，而不必在银行A和B之间相互公开用户列表,我们可以开发一个联邦学习框架. 特别的，我们可以使用联邦学习的加密机制，对每一方的用户列表进行加密，然后在联邦中取加密列表的交集。解密的最终结果提供多方借款人的列表，而不会将其他“好”用户暴露给其他部分用户。我们将在下面看到，这个操作对应于垂直联合学习框架</p>
+<p>​    智能医疗是另一个领域，我们预计将大大受益于联邦学习技术的崛起。疾病症状、基因序列和医学报告等医学数据非常敏感和保密，然而医学数据集很难收集，并且存在于孤立的医疗中心和医院中。数据源的不足和标签的缺乏导致机器学习模型的性能不理想，成为当前智能医疗的瓶颈。我们设想，如果所有医疗机构联合起来，共享数据，形成一个大型医疗数据集，那么在这个大型医疗数据集上训练的机器学习模型的性能将得到显著提高。联邦学习与迁移学习相结合是实现这一愿景的主要途径。迁移学习可以用来填补缺失的标签，从而扩大可用数据的规模，进一步提高训练模型的性能。因此，联邦迁移学习将在智能医疗的发展中发挥关键作用，并可能将人类医疗提升到一个全新的水平.</p>
+<h1 id="5-Federated-Learning-and-Data-Alliance-of-Enterprises"><a href="#5-Federated-Learning-and-Data-Alliance-of-Enterprises" class="headerlink" title="5. Federated Learning and Data Alliance of Enterprises"></a>5. Federated Learning and Data Alliance of Enterprises</h1><p><strong>联邦学习和企业数据联盟</strong></p>
+<p>联合学习不仅是一种技术标准，也是一种商业模式。当人们重新认识到大数据的影响时，他们想到的第一个想法是聚合数据.</p>
+<p>​    通过远程处理器计算模型，然后下载结果供进一步使用。云计算就是在这样的需求下应运而生的。也就是说，随着数据隐私和数据安全的重要性日益提高，企业利润与数据的关系日益密切，云计算模式受到了挑战。然而，联邦学习的商业模式为大数据的应用提供了新的范例。当各个机构所占用的孤立数据不能产生理想的模型时，<strong>联邦学习机制使得机构和企业可以共享一个统一的模型而不需要数据交换</strong>。此外，<font color='red'>联邦学习可以借助区块链技术的共识机制制定公平的利润分配规则 </font>数据拥有者，不管他们拥有的数据规模有多大，都会被激励加入数据联盟并赚取自己的利润。我们认为，数据联盟商业模式的建立和联合学习技术机制的建立应该结合起来进行。我们还将为联邦政府制定标准使其在各个领域学习并尽快投入使用。</p>
+<h1 id="6-Conclusions-and-prospects"><a href="#6-Conclusions-and-prospects" class="headerlink" title="6.Conclusions and prospects"></a>6.Conclusions and prospects</h1><p>​    近年来，数据的隔离和对数据隐私的重视成为人工智能面临的下一个挑战，而联合学习给我们带来了新的希望。它可以为多个企业建立一个统一的模型，同时对本地数据进行保护，使企业能够在数据安全方面协同工作。本文概述了联邦学习的基本概念、体系结构和技术，并讨论了它在各种应用中的潜力。预计在不久的将来，联合学习将打破行业之间的壁垒，建立一个安全共享数据和知识的社区，并根据每个参与者的贡献公平分配利益。人工智能的好处最终会带到我们生活的每一个角落。</p>
 
       
       
@@ -426,7 +472,7 @@
     2021-03-20
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-03-24
+    2021-03-28
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/03/20/知识贴/论文/《Federated-Machine-Learning-Concept-and-Applications》/" title="《Federated_Machine_Learning:Concept_and_Applications》" target="_blank">《Federated_Machine_Learning:Concept_and_Applications》</a>
@@ -510,7 +556,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine_learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">federated_learing</a>
         		</li>
       		
 		</ul>
@@ -526,7 +572,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge/machine-learning//" class="article-tag-list-link color2">machine_learning</a>
+        			<a href="/categories/knowledge/federated-learing//" class="article-tag-list-link color3">federated_learing</a>
         		</li>
       		
 		</ul>
@@ -636,7 +682,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#《Federated-Machine-Learning-Concept-and-Applications》"><span class="toc-number">1.</span> <span class="toc-text">《Federated_Machine_Learning:Concept_and_Applications》</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基本信息"><span class="toc-number">2.</span> <span class="toc-text">一、基本信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">2.1.</span> <span class="toc-text">基本概念:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Honest-but-Curious-HBC"><span class="toc-number">2.1.1.</span> <span class="toc-text">Honest-but-Curious(HBC)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同态加密"><span class="toc-number">2.1.2.</span> <span class="toc-text">同态加密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#概念"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同态分类"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">同态分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同态加密算法"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">同态加密算法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、学习记录"><span class="toc-number">3.</span> <span class="toc-text">二、学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Introduction"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-An-overview-of-federated-learning"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 An overview of federated learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-Definition-of-Federated-Learning"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.2.1 Definition of Federated Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-Privacy-of-Federated-Learning"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2.2 Privacy of Federated Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-SMC-Secure-Multiparty-Computation-安全多方计算"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">1.SMC(Secure Multiparty Computation 安全多方计算)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Differential-Private-差分隐私"><span class="toc-number">3.2.2.2.</span> <span class="toc-text">2.Differential Private 差分隐私</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Homomorphic-Encryption-同态加密"><span class="toc-number">3.2.2.3.</span> <span class="toc-text">3.Homomorphic Encryption 同态加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-间接数据泄露"><span class="toc-number">3.2.2.4.</span> <span class="toc-text">4.间接数据泄露</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-The-Categorization-of-Federated-Learning"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 The Categorization of Federated Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-Horizontal-Federated-Learning"><span class="toc-number">3.3.1.</span> <span class="toc-text">2.3.1 Horizontal Federated Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-Vertical-Federated-Learning"><span class="toc-number">3.3.2.</span> <span class="toc-text">2.3.2 Vertical Federated Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-Federated-Transfer-Learning-FTL"><span class="toc-number">3.3.3.</span> <span class="toc-text">2.3.3 Federated Transfer Learning(FTL)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-Architecture-for-a-Federated-Learning-System"><span class="toc-number">3.4.</span> <span class="toc-text">2.4 Architecture for a Federated Learning System</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-Horizontal-Federated-Learning"><span class="toc-number">3.4.1.</span> <span class="toc-text">2.4.1 Horizontal Federated Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-Vertical-Federated-Learning"><span class="toc-number">3.4.2.</span> <span class="toc-text">2.4.2 Vertical Federated Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#部分1-Encrypted-model-alignment"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">部分1: Encrypted model alignment</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部分2-Encrypted-model-training"><span class="toc-number">3.4.2.2.</span> <span class="toc-text">部分2: Encrypted model training</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#《Federated-Machine-Learning-Concept-and-Applications》"><span class="toc-number">1.</span> <span class="toc-text">《Federated_Machine_Learning:Concept_and_Applications》</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基本信息"><span class="toc-number">2.</span> <span class="toc-text">一、基本信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">2.1.</span> <span class="toc-text">基本概念:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Honest-but-Curious-HBC"><span class="toc-number">2.1.1.</span> <span class="toc-text">Honest-but-Curious(HBC)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同态加密"><span class="toc-number">2.1.2.</span> <span class="toc-text">同态加密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#概念"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同态分类"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">同态分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#同态加密算法"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">同态加密算法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、学习记录"><span class="toc-number">3.</span> <span class="toc-text">二、学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Introduction"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-An-overview-of-federated-learning"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 An overview of federated learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-Definition-of-Federated-Learning"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.2.1 Definition of Federated Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-Privacy-of-Federated-Learning"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2.2 Privacy of Federated Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-SMC-Secure-Multiparty-Computation-安全多方计算"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">1.SMC(Secure Multiparty Computation 安全多方计算)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Differential-Private-差分隐私"><span class="toc-number">3.2.2.2.</span> <span class="toc-text">2.Differential Private 差分隐私</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Homomorphic-Encryption-同态加密"><span class="toc-number">3.2.2.3.</span> <span class="toc-text">3.Homomorphic Encryption 同态加密</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-间接数据泄露"><span class="toc-number">3.2.2.4.</span> <span class="toc-text">4.间接数据泄露</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-The-Categorization-of-Federated-Learning"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 The Categorization of Federated Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-Horizontal-Federated-Learning"><span class="toc-number">3.3.1.</span> <span class="toc-text">2.3.1 Horizontal Federated Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-Vertical-Federated-Learning"><span class="toc-number">3.3.2.</span> <span class="toc-text">2.3.2 Vertical Federated Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-Federated-Transfer-Learning-FTL"><span class="toc-number">3.3.3.</span> <span class="toc-text">2.3.3 Federated Transfer Learning(FTL)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-Architecture-for-a-Federated-Learning-System"><span class="toc-number">3.4.</span> <span class="toc-text">2.4 Architecture for a Federated Learning System</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-Horizontal-Federated-Learning"><span class="toc-number">3.4.1.</span> <span class="toc-text">2.4.1 Horizontal Federated Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-Vertical-Federated-Learning"><span class="toc-number">3.4.2.</span> <span class="toc-text">2.4.2 Vertical Federated Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#部分1-Encrypted-model-alignment"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">部分1: Encrypted model alignment</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部分2-Encrypted-model-training"><span class="toc-number">3.4.2.2.</span> <span class="toc-text">部分2: Encrypted model training</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-Federated-Transfer-Learning"><span class="toc-number">3.4.3.</span> <span class="toc-text">2.4,3 Federated Transfer Learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-Incentives-Mechanism-激励机制"><span class="toc-number">3.4.4.</span> <span class="toc-text">2.4.4 Incentives Mechanism 激励机制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Related-Works-相关工作"><span class="toc-number">4.</span> <span class="toc-text">3 Related Works 相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Privacy-Preserving-Machine-Learning"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 Privacy-Preserving Machine Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Federated-Learning-versus-Distributed-Machine-Learning"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 Federated Learning versus Distributed Machine Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-Federated-Learning-versus-Edge-Computing"><span class="toc-number">4.3.</span> <span class="toc-text">3.3 Federated Learning versus Edge Computing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-Federated-Learning-versus-Federated-Database-Systems"><span class="toc-number">4.4.</span> <span class="toc-text">3.4 Federated Learning versus Federated Database Systems</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Applications"><span class="toc-number">5.</span> <span class="toc-text">4. Applications</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Federated-Learning-and-Data-Alliance-of-Enterprises"><span class="toc-number">6.</span> <span class="toc-text">5. Federated Learning and Data Alliance of Enterprises</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Conclusions-and-prospects"><span class="toc-number">7.</span> <span class="toc-text">6.Conclusions and prospects</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1009,7 +1055,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
+                <a href="javascript:void(0)" class="js-tag color3">federated_learing</a>
               </li>
             
             <div class="clearfix"></div>

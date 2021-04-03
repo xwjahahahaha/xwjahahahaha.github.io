@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 340
+			总文章数 352
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/Hexo博客搭建/构建博客（四）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/java/java实现一个简单的c-s文件上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E5%9B%9B%EF%BC%89/">构建博客（四）</a>
+      <a class="article-title" href="/2020/05/30/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/java%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84c-s%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">java实现一个简单的c/s文件上传</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E5%9B%9B%EF%BC%89/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/05/30/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/java%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84c-s%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E5%9B%9B%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-25T08:51:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+<a href="/2020/05/30/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/java%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84c-s%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="archive-article-date">
+  	<time datetime="2020-05-30T07:43:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">902字</span>
+        <span class="post-count">818字</span>
       </span>
     </span>
 
@@ -233,154 +233,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="四、博客后续添加的内容"><a href="#四、博客后续添加的内容" class="headerlink" title="四、博客后续添加的内容"></a>四、博客后续添加的内容</h2><h3 id="1-对于hexo-new-XXX默认生成头部前缀的修改"><a href="#1-对于hexo-new-XXX默认生成头部前缀的修改" class="headerlink" title="1.对于hexo new XXX默认生成头部前缀的修改"></a>1.对于<code>hexo new XXX</code>默认生成头部前缀的修改</h3><p>每次new新的md都会默认在前面添加前缀：</p>
-<pre><code>---
-title: {{ title }}
-date: {{ date }}
-tags:
----</code></pre><p>但是我个人希望有一个分类<code>categories</code>还有<code>toc</code>（是否开启目录），所以修改方法如下：</p>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/blog//" class="article-tag-list-link color5">blog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E5%9B%9B%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-技术贴/算法/排序算法合集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%90%88%E9%9B%86/">排序算法合集</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%90%88%E9%9B%86/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%90%88%E9%9B%86/" class="archive-article-date">
-  	<time datetime="2020-05-25T08:02:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">877字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="经典排序算法总结（持续更新…）"><a href="#经典排序算法总结（持续更新…）" class="headerlink" title="经典排序算法总结（持续更新…）"></a>经典排序算法总结（持续更新…）</h2><p>先贴一个总览<br><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200525161742.png" alt=""></p>
+        <p><strong>一个简单的图片文件c/s模拟上传</strong></p>
+<blockquote>
+<p>主要使用的内容：</p>
+</blockquote>
+<blockquote>
+<p>Socket、ServerSocket、多线程</p>
+</blockquote>
         
       
       
@@ -415,19 +274,30 @@ tags:
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c语言</a>
-        		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%90%88%E9%9B%86/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/30/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/java%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84c-s%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">展开全文 >></a>
         </p>
       
 
@@ -461,27 +331,27 @@ tags:
 
 
   
-    <article id="post-技术贴/算法/树/对称二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/算法/爬楼梯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%A0%91/%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">对称二叉树</a>
+      <a class="article-title" href="/2020/05/30/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E7%88%AC%E6%A5%BC%E6%A2%AF/">爬楼梯</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%A0%91/%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/05/30/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%A0%91/%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-05-25T07:38:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+<a href="/2020/05/30/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E7%88%AC%E6%A5%BC%E6%A2%AF/" class="archive-article-date">
+  	<time datetime="2020-05-30T03:50:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -490,7 +360,7 @@ tags:
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">446字</span>
+        <span class="post-count">598字</span>
       </span>
     </span>
 
@@ -511,9 +381,8 @@ tags:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，检查它是否是镜像对称的。</p>
-<p>例如，二叉树 <code>[1,2,2,3,4,4,3]</code> 是对称的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    1</span><br><span class="line">   &#x2F; \</span><br><span class="line">  2   2</span><br><span class="line"> &#x2F; \ &#x2F; \</span><br><span class="line">3  4 4  3</span><br></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
+<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
         
       
       
@@ -564,6 +433,10 @@ tags:
         		<li class="article-tag-list-item">
         			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/leetcode/动态规划//" class="article-tag-list-link color5">动态规划</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -571,7 +444,7 @@ tags:
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%A0%91/%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/30/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E7%88%AC%E6%A5%BC%E6%A2%AF/">展开全文 >></a>
         </p>
       
 
@@ -605,27 +478,27 @@ tags:
 
 
   
-    <article id="post-技术贴/Hexo博客搭建/构建博客（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2020-5/日记-0005" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89/">构建博客（三）</a>
+      <a class="article-title" href="/2020/05/30/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-5/%E6%97%A5%E8%AE%B0-0005/">日记_0005</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/05/30/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-5/%E6%97%A5%E8%AE%B0-0005/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-05-24T16:58:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+<a href="/2020/05/30/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-5/%E6%97%A5%E8%AE%B0-0005/" class="archive-article-date">
+  	<time datetime="2020-05-30T01:49:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -634,7 +507,7 @@ tags:
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">224字</span>
+        <span class="post-count">68字</span>
       </span>
     </span>
 
@@ -655,8 +528,15 @@ tags:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="三、收尾工作"><a href="#三、收尾工作" class="headerlink" title="三、收尾工作"></a>三、收尾工作</h2><h3 id="1-yilia增加字数统计和阅读时长"><a href="#1-yilia增加字数统计和阅读时长" class="headerlink" title="1.yilia增加字数统计和阅读时长"></a>1.yilia增加字数统计和阅读时长</h3><p>网上搜索一下很简单，具体就放链接了：<br><a href="https://www.jianshu.com/p/40a247c61cb0" target="_blank" rel="noopener">https://www.jianshu.com/p/40a247c61cb0</a></p>
-<p>（ps：阅读时长感觉不准啊）</p>
+        <h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
+<ol>
+<li><del>leetcode 每日一题</del></li>
+<li><del>快排的练习</del></li>
+<li><del>毕业论文答辩</del></li>
+<li><del>python字典</del></li>
+<li><del>java小项目</del></li>
+</ol>
+</blockquote>
         
       
       
@@ -689,7 +569,7 @@ tags:
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
         		</li>
       		
 		</ul>
@@ -701,11 +581,11 @@ tags:
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/blog//" class="article-tag-list-link color5">blog</a>
+        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
         		</li>
       		
 		</ul>
@@ -714,7 +594,7 @@ tags:
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%9E%84%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/30/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-5/%E6%97%A5%E8%AE%B0-0005/">展开全文 >></a>
         </p>
       
 
@@ -748,27 +628,27 @@ tags:
 
 
   
-    <article id="post-技术贴/算法/树/验证二叉搜索树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/算法/数组/求最大子序列和" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/24/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%A0%91/%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/">验证二叉搜索树</a>
+      <a class="article-title" href="/2020/05/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84/%E6%B1%82%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%88%97%E5%92%8C/">求最大子序列和</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/05/24/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%A0%91/%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/05/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84/%E6%B1%82%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%88%97%E5%92%8C/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/05/24/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%A0%91/%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-05-24T07:16:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
+<a href="/2020/05/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84/%E6%B1%82%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%88%97%E5%92%8C/" class="archive-article-date">
+  	<time datetime="2020-05-29T07:26:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -777,7 +657,7 @@ tags:
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">888字</span>
+        <span class="post-count">978字</span>
       </span>
     </span>
 
@@ -786,7 +666,7 @@ tags:
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -798,14 +678,11 @@ tags:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><blockquote>
-<p>给定一个二叉树，判断其是否是一个有效的二叉搜索树。</p>
-</blockquote>
-<p>假设一个二叉搜索树具有如下特征：</p>
-<ul>
-<li>节点的左子树只包含小于当前节点的数。</li>
-<li>节点的右子树只包含大于当前节点的数。</li>
-<li>所有左子树和右子树自身必须也是二叉搜索树。
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+<p>示例:</p>
+<p>输入: <code>[-2,1,-3,4,-1,2,1,-5,4]</code>,</p>
+<p>输出: 6</p>
+<p>解释: 连续子数组 <code>[4,-1,2,1]</code> 的和最大，为 6。</p>
         
       
       
@@ -852,9 +729,152 @@ tags:
         		<li class="article-tag-list-item">
         			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
         		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%95%B0%E7%BB%84/%E6%B1%82%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%88%97%E5%92%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-随笔/每日一记/日记/2020-5/日记-0004" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/29/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-5/%E6%97%A5%E8%AE%B0-0004/">日记_0004</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/05/29/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-5/%E6%97%A5%E8%AE%B0-0004/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/05/29/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-5/%E6%97%A5%E8%AE%B0-0004/" class="archive-article-date">
+  	<time datetime="2020-05-29T07:08:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">64字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
+<ol>
+<li><del>leetcode一题</del></li>
+<li><del>准备毕业答辩</del></li>
+</ol>
+</blockquote>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
+        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
         		</li>
       		
 		</ul>
@@ -863,7 +883,7 @@ tags:
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/24/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%A0%91/%E9%AA%8C%E8%AF%81%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/05/29/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-5/%E6%97%A5%E8%AE%B0-0004/">展开全文 >></a>
         </p>
       
 
@@ -899,7 +919,7 @@ tags:
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/66/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/65/">65</a><a class="page-number" href="/page/66/">66</a><span class="page-number current">67</span><a class="page-number" href="/page/68/">68</a><a class="extend next" rel="next" href="/page/68/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/66/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/65/">65</a><a class="page-number" href="/page/66/">66</a><span class="page-number current">67</span><a class="page-number" href="/page/68/">68</a><a class="page-number" href="/page/69/">69</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/">71</a><a class="extend next" rel="next" href="/page/68/">下一页</a>
     </nav>
   
 
@@ -1236,7 +1256,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine_learning</a>
+                <a href="javascript:void(0)" class="js-tag color3">federated_learing</a>
               </li>
             
             <div class="clearfix"></div>
