@@ -332,26 +332,26 @@
 
 
   
-    <article id="post-技术贴/GoLang/Go语言-3-强化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/Go语言-3-网络编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E5%BC%BA%E5%8C%96/">技术贴/GoLang/Go语言-3-强化</a>
+      <a class="article-title" href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">Go语言-3-网络编程</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E5%BC%BA%E5%8C%96/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E5%BC%BA%E5%8C%96/" class="archive-article-date">
+<a href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="archive-article-date">
   	<time datetime="2020-12-19T14:17:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-19</time>
 </a>
         <!-- 开始添加字数统计-->
@@ -361,7 +361,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.7k字</span>
+        <span class="post-count">1.5k字</span>
       </span>
     </span>
 
@@ -370,7 +370,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">10分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -382,67 +382,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="四、golang基础巩固加强"><a href="#四、golang基础巩固加强" class="headerlink" title="四、golang基础巩固加强"></a>四、golang基础巩固加强</h1><h2 id="4-1-go的包管理"><a href="#4-1-go的包管理" class="headerlink" title="4.1 go的包管理"></a>4.1 go的包管理</h2><p>此部分内容来源于：<a href="http://c.biancheng.net/view/5712.html" target="_blank" rel="noopener">http://c.biancheng.net/view/5712.html</a></p>
-<h4 id="Go-Module"><a href="#Go-Module" class="headerlink" title="Go Module"></a>Go Module</h4><p>go module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。</p>
-<p>Modules 官方定义为：</p>
-<p>Modules 是相关 Go 包的集合，是源代码交换和版本控制的单元。Go语言命令直接支持使用 Modules，包括记录和解析对其他模块的依赖性，Modules 替换旧的基于 GOPATH 的方法，来指定使用哪些源文件。</p>
-<p>==如何使用 Modules？==</p>
-<p>1) 首先需要把 golang 升级到 1.11 版本以上（现在 1.13 已经发布了，建议使用 1.13）。</p>
-<p>2) 设置 GO111MODULE。</p>
-<p>==GO111MODULE==</p>
-<p>在Go语言 1.12 版本之前，要启用 go module 工具首先要设置环境变量 GO111MODULE，不过在Go语言 1.13 及以后的版本则不再需要设置环境变量。通过 GO111MODULE 可以开启或关闭 go module 工具。</p>
-<ul>
-<li>GO111MODULE=off 禁用 go module，编译时会从 GOPATH 和 vendor 文件夹中查找包；</li>
-<li>GO111MODULE=on 启用 go module，编译时会忽略 GOPATH 和 vendor 文件夹，只根据 go.mod下载依赖；</li>
-<li>GO111MODULE=auto（默认值），当项目在 GOPATH/src 目录之外，并且项目根目录有 go.mod 文件时，开启 go module。</li>
+        <h1 id="四、golang网络编程"><a href="#四、golang网络编程" class="headerlink" title="四、golang网络编程"></a>四、golang网络编程</h1><h2 id="1-理论基础知识"><a href="#1-理论基础知识" class="headerlink" title="1.理论基础知识"></a>1.理论基础知识</h2><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/WSdurz.png" alt="WSdurz"></p>
+<h2 id="4-Tcp编程"><a href="#4-Tcp编程" class="headerlink" title="4. Tcp编程"></a>4. Tcp编程</h2><h3 id="4-1-网络编程的两种模式"><a href="#4-1-网络编程的两种模式" class="headerlink" title="4.1 网络编程的两种模式"></a>4.1 网络编程的两种模式</h3><ul>
+<li><strong>TCP socket 编程</strong>，是网络编程的主流。之所以叫Tcp socket 编程，是因为底层是基于TCP/IP 协议的. 比如: QQ 聊天[示意图]</li>
+<li>b/s 结构的<strong>http 编程</strong>，我们使用浏览器去访问服务器时，使用的就是http 协议，而http 底层依旧是用tcp socket 实现的。[示意图] 比如: 京东商城【这属于go web 开发范畴】</li>
 </ul>
-<p>Windows 下开启 GO111MODULE 的命令为：</p>
-<p><code>set GO111MODULE=on 或者 set GO111MODULE=auto</code></p>
-<p>MacOS 或者 Linux 下开启 GO111MODULE 的命令为：</p>
-<p><code>export GO111MODULE=on 或者 export GO111MODULE=auto</code></p>
-<p>在开启 GO111MODULE 之后就可以使用 go module 工具了，也就是说在以后的开发中就没有必要在 GOPATH 中创建项目了，并且还能够很好的管理项目依赖的第三方包信息。</p>
-<p>go mod 的常用命令：</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>go mod download</td>
-<td>下载依赖包到本地（默认为 GOPATH/pkg/mod 目录）</td>
-</tr>
-<tr>
-<td>go mod edit</td>
-<td>编辑 go.mod 文件</td>
-</tr>
-<tr>
-<td>go mod graph</td>
-<td>打印模块依赖图</td>
-</tr>
-<tr>
-<td>go mod init</td>
-<td>初始化当前文件夹，创建 go.mod 文件</td>
-</tr>
-<tr>
-<td>go mod tidy</td>
-<td>增加缺少的包，删除无用的包</td>
-</tr>
-<tr>
-<td>go mod vendor</td>
-<td>将依赖复制到 vendor 目录下</td>
-</tr>
-<tr>
-<td>go mod verify</td>
-<td>校验依赖</td>
-</tr>
-<tr>
-<td>go mod why</td>
-<td>解释为什么需要依赖</td>
-</tr>
-</tbody></table>
-        
+<p>tcp socket 编程，简称<strong>socket 编程</strong>.下图为Golang socket 编程中客户端和服务器的网络分布:</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201129124110.png" alt=""></p>
+<h3 id="4-2-Socket编程小Demo"><a href="#4-2-Socket编程小Demo" class="headerlink" title="4.2 Socket编程小Demo"></a>4.2 Socket编程小Demo</h3><h4 id="4-2-1-net包学习"><a href="#4-2-1-net包学习" class="headerlink" title="4.2.1 net包学习"></a>4.2.1 net包学习</h4><p><strong>package net</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &quot;net&quot;</span><br></pre></td></tr></table></figure>
+
+<p>net包提供了可移植的网络I/O接口，包括TCP/IP、UDP、域名解析和Unix域socket。</p>
+<p>虽然本包提供了对网络原语的访问，大部分使用者只需要Dial、Listen和Accept函数提供的基本接口；以及相关的Conn和Listener接口。crypto/tls包提供了相同的接口和类似的Dial和Listen函数。</p>
+<p><strong>Dial函数</strong>和服务端建立连接：<font color='green'>（客户端）</font></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">conn, err := net.Dial(<span class="string">"tcp"</span>, <span class="string">"google.com:80"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	<span class="comment">// handle error</span></span><br><span class="line">&#125;</span><br><span class="line">fmt.Fprintf(conn, <span class="string">"GET / HTTP/1.0\r\n\r\n"</span>)</span><br><span class="line">status, err := bufio.NewReader(conn).ReadString(<span class="string">'\n'</span>)</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+<p>Listen函数创建的<font color='green'>服务端</font>：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ln, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">":8080"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	<span class="comment">// handle error</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">	conn, err := ln.Accept()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="comment">// handle error</span></span><br><span class="line">		<span class="keyword">continue</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> handleConnection(conn)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>type <a href="https://github.com/golang/go/blob/master/src/net/net.go?name=release#266" target="_blank" rel="noopener">Listener</a></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Listener <span class="keyword">interface</span> &#123;</span><br><span class="line">    <span class="comment">// Addr返回该接口的网络地址</span></span><br><span class="line">    Addr() Addr</span><br><span class="line">    <span class="comment">// Accept等待并返回下一个连接到该接口的连接</span></span><br><span class="line">    Accept() (c Conn, err error)</span><br><span class="line">    <span class="comment">// Close关闭该接口，并使任何阻塞的Accept操作都会不再阻塞并返回错误。</span></span><br><span class="line">    Close() error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>func <a href="https://github.com/golang/go/blob/master/src/net/dial.go?name=release#261" target="_blank" rel="noopener">Listen</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func Listen(net, laddr string) (Listener, error)</span><br></pre></td></tr></table></figure>
+
+<p>返回在一个本地网络地址laddr上监听的Listener。网络类型参数net必须是面向流的网络：</p>
+<p>“tcp”、”tcp4”、”tcp6”、”unix”或”unixpacket”。参见Dial函数获取laddr的语法。</p>
+<p>type <a href="https://github.com/golang/go/blob/master/src/net/net.go?name=release#62" target="_blank" rel="noopener">Conn</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">type Conn interface &#123;</span><br><span class="line">    &#x2F;&#x2F; Read从连接中读取数据</span><br><span class="line">    &#x2F;&#x2F; Read方法可能会在超过某个固定时间限制后超时返回错误，该错误的Timeout()方法返回真</span><br><span class="line">    Read(b []byte) (n int, err error)</span><br><span class="line">    &#x2F;&#x2F; Write从连接中写入数据</span><br><span class="line">    &#x2F;&#x2F; Write方法可能会在超过某个固定时间限制后超时返回错误，该错误的Timeout()方法返回真</span><br><span class="line">    Write(b []byte) (n int, err error)</span><br><span class="line">    &#x2F;&#x2F; Close方法关闭该连接</span><br><span class="line">    &#x2F;&#x2F; 并会导致任何阻塞中的Read或Write方法不再阻塞并返回错误</span><br><span class="line">    Close() error</span><br><span class="line">    &#x2F;&#x2F; 返回本地网络地址</span><br><span class="line">    LocalAddr() Addr</span><br><span class="line">    &#x2F;&#x2F; 返回远端网络地址</span><br><span class="line">    RemoteAddr() Addr</span><br><span class="line">    &#x2F;&#x2F; 设定该连接的读写deadline，等价于同时调用SetReadDeadline和SetWriteDeadline</span><br><span class="line">    &#x2F;&#x2F; deadline是一个绝对时间，超过该时间后I&#x2F;O操作就会直接因超时失败返回而不会阻塞</span><br><span class="line">    &#x2F;&#x2F; deadline对之后的所有I&#x2F;O操作都起效，而不仅仅是下一次的读或写操作</span><br><span class="line">    &#x2F;&#x2F; 参数t为零值表示不设置期限</span><br><span class="line">    SetDeadline(t time.Time) error</span><br><span class="line">    &#x2F;&#x2F; 设定该连接的读操作deadline，参数t为零值表示不设置期限</span><br><span class="line">    SetReadDeadline(t time.Time) error</span><br><span class="line">    &#x2F;&#x2F; 设定该连接的写操作deadline，参数t为零值表示不设置期限</span><br><span class="line">    &#x2F;&#x2F; 即使写入超时，返回值n也可能&gt;0，说明成功写入了部分数据</span><br><span class="line">    SetWriteDeadline(t time.Time) error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Conn接口代表通用的面向流的网络连接。多个线程可能会同时调用同一个Conn的方法。</p>
+<h4 id="4-2-2-demo要求"><a href="#4-2-2-demo要求" class="headerlink" title="4.2.2 demo要求"></a>4.2.2 demo要求</h4><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201129133540.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201129133522.png" alt=""></p>
+<ul>
+<li><p>服务器端</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"服务器开始监听...."</span>)</span><br><span class="line">	<span class="comment">//第一个参数: 网络协议名</span></span><br><span class="line">	<span class="comment">//第二个参数: IP + 端口</span></span><br><span class="line">	listener, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">"0.0.0.0:8888"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"服务器开启失败！"</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//fmt.Println(listener)</span></span><br><span class="line">	<span class="keyword">defer</span> listener.Close()	<span class="comment">//演示关闭</span></span><br><span class="line">	<span class="comment">//Accept函数始终帮助我们等待连接，而不会一下就结束</span></span><br><span class="line">	<span class="comment">// Accept等待并返回下一个连接到该接口的连接</span></span><br><span class="line">	<span class="keyword">for</span>  &#123;</span><br><span class="line">		fmt.Println(<span class="string">"等待客户端连接....."</span>)</span><br><span class="line">		conn, err := listener.Accept()</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(<span class="string">"连接失败！"</span>)</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			fmt.Printf(<span class="string">"----------连接成功！客户端IP:%v----------\n"</span>, conn.RemoteAddr().String())</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//这里启动协程为客户端服务</span></span><br><span class="line">		<span class="keyword">go</span> Process(conn)		<span class="comment">//每一个连接都是新的conn</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//协程工作</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Process</span><span class="params">(conn net.Conn)</span></span>  &#123;</span><br><span class="line">	<span class="keyword">defer</span> conn.Close()	<span class="comment">//延迟关闭</span></span><br><span class="line">	<span class="keyword">for</span>  &#123;</span><br><span class="line">		<span class="comment">//创建一个新的切片</span></span><br><span class="line">		buf := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">2048</span>)</span><br><span class="line">		<span class="comment">//等待客户端通过conn发送信息</span></span><br><span class="line">		<span class="comment">//如果客户端没有write【发送】, 那么协程就阻塞在这！</span></span><br><span class="line">		<span class="comment">//如果客户端宕机，这里的conn也会发现，并报错</span></span><br><span class="line">		<span class="comment">//fmt.Printf("服务器在等待客户端[%v]的输入....\n", conn.RemoteAddr().String())</span></span><br><span class="line">		n, err := conn.Read(buf)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(<span class="string">"客户端已退出！连接结束"</span>, err)</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//数据显示到服务器终端</span></span><br><span class="line">		<span class="comment">//注意：</span></span><br><span class="line">		<span class="comment">// 1. 使用Print而不是Println,因为客户端的\n也是读取过来的</span></span><br><span class="line">		<span class="comment">// 2. buf[:n]必须要进行切片到n（n是读取到的字节数），不然缓冲buf的大小是2048，后面的字段可能未知</span></span><br><span class="line">		info := <span class="keyword">string</span>(buf[:n])</span><br><span class="line">		fmt.Print(conn.RemoteAddr().String(), <span class="string">"说："</span>, info)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">"--------------连接结束-------------"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>客户端</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">//参数与服务器端一致</span></span><br><span class="line">   conn, err := net.Dial(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:8888"</span>)</span><br><span class="line">   <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">      fmt.Println(<span class="string">"连接失败！"</span>, err)</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//fmt.Println(conn)</span></span><br><span class="line">   <span class="comment">//1. 发送单行数据，然后退出</span></span><br><span class="line">   reader := bufio.NewReader(os.Stdin) <span class="comment">//os.Stdin终端输入</span></span><br><span class="line">   <span class="keyword">for</span>  &#123;</span><br><span class="line">      fmt.Println(<span class="string">"请输入:"</span>)</span><br><span class="line">      <span class="comment">//从终端读取用户的数据，并发送给服务器</span></span><br><span class="line">      line, err := reader.ReadString(<span class="string">'\n'</span>)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         fmt.Println(<span class="string">"读取输入失败！"</span>, err)</span><br><span class="line">         <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> <span class="string">"exit"</span> == strings.Trim(line, <span class="string">" \r\n"</span>)&#123; <span class="comment">//去除掉回车换行空格与exit, Trim不会修改原字符串</span></span><br><span class="line">         fmt.Println(<span class="string">"Bye！"</span>)</span><br><span class="line">         <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      fmt.Println(line)</span><br><span class="line">      <span class="comment">//发送Line终端输入给服务器</span></span><br><span class="line">      n, err := conn.Write([]<span class="keyword">byte</span>(line))</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         fmt.Println(<span class="string">"向服务器写失败！"</span>, err)</span><br><span class="line">         <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      fmt.Printf(<span class="string">"成功传输%d个字节\n"</span>, n)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
       
       
       <!-- 添加版权声明 -->
@@ -499,7 +480,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E5%BC%BA%E5%8C%96/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">展开全文 >></a>
         </p>
       
 

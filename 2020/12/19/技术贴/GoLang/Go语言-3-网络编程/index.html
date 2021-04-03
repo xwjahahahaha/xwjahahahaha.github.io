@@ -6,28 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>技术贴/GoLang/Go语言-3-强化 | 知识与头发不可兼得</title>
+  <title>Go语言-3-网络编程 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="四、golang基础巩固加强4.1 go的包管理此部分内容来源于：http:&#x2F;&#x2F;c.biancheng.net&#x2F;view&#x2F;5712.html Go Modulego module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。 Modules 官方定义为： Modules 是相关 Go 包的集合，是源代">
+  <meta name="description" content="四、golang网络编程1.理论基础知识 4. Tcp编程4.1 网络编程的两种模式 TCP socket 编程，是网络编程的主流。之所以叫Tcp socket 编程，是因为底层是基于TCP&#x2F;IP 协议的. 比如: QQ 聊天[示意图] b&#x2F;s 结构的http 编程，我们使用浏览器去访问服务器时，使用的就是http 协议，而http 底层依旧是用tcp socket 实现的。[示意图] 比如: 京">
 <meta property="og:type" content="article">
-<meta property="og:title" content="技术贴&#x2F;GoLang&#x2F;Go语言-3-强化">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E5%BC%BA%E5%8C%96/index.html">
+<meta property="og:title" content="Go语言-3-网络编程">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="四、golang基础巩固加强4.1 go的包管理此部分内容来源于：http:&#x2F;&#x2F;c.biancheng.net&#x2F;view&#x2F;5712.html Go Modulego module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。 Modules 官方定义为： Modules 是相关 Go 包的集合，是源代">
+<meta property="og:description" content="四、golang网络编程1.理论基础知识 4. Tcp编程4.1 网络编程的两种模式 TCP socket 编程，是网络编程的主流。之所以叫Tcp socket 编程，是因为底层是基于TCP&#x2F;IP 协议的. 比如: QQ 聊天[示意图] b&#x2F;s 结构的http 编程，我们使用浏览器去访问服务器时，使用的就是http 协议，而http 底层依旧是用tcp socket 实现的。[示意图] 比如: 京">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/OnTiL2.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/uYi8o2.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/jjguqX.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/oQnga5.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/p1edob.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/AczrFm.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/7alfFI.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/WSdurz.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201129124110.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201129133540.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201129133522.png">
 <meta property="article:published_time" content="2020-12-19T14:17:17.000Z">
-<meta property="article:modified_time" content="2021-03-29T10:56:05.538Z">
+<meta property="article:modified_time" content="2021-04-03T14:15:53.395Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/OnTiL2.png">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/WSdurz.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -192,21 +189,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/GoLang/Go语言-3-强化" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/GoLang/Go语言-3-网络编程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      技术贴/GoLang/Go语言-3-强化
+      Go语言-3-网络编程
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E5%BC%BA%E5%8C%96/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="pageViews">0</span>次
   </a>
 
         
@@ -216,7 +213,7 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E5%BC%BA%E5%8C%96/" class="archive-article-date">
+<a href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="archive-article-date">
   	<time datetime="2020-12-19T14:17:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-19</time>
 </a>
         <!-- 开始添加字数统计-->
@@ -226,7 +223,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.7k字</span>
+        <span class="post-count">1.5k字</span>
       </span>
     </span>
 
@@ -235,7 +232,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">10分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -247,168 +244,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="四、golang基础巩固加强"><a href="#四、golang基础巩固加强" class="headerlink" title="四、golang基础巩固加强"></a>四、golang基础巩固加强</h1><h2 id="4-1-go的包管理"><a href="#4-1-go的包管理" class="headerlink" title="4.1 go的包管理"></a>4.1 go的包管理</h2><p>此部分内容来源于：<a href="http://c.biancheng.net/view/5712.html" target="_blank" rel="noopener">http://c.biancheng.net/view/5712.html</a></p>
-<h4 id="Go-Module"><a href="#Go-Module" class="headerlink" title="Go Module"></a>Go Module</h4><p>go module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。</p>
-<p>Modules 官方定义为：</p>
-<p>Modules 是相关 Go 包的集合，是源代码交换和版本控制的单元。Go语言命令直接支持使用 Modules，包括记录和解析对其他模块的依赖性，Modules 替换旧的基于 GOPATH 的方法，来指定使用哪些源文件。</p>
-<p>==如何使用 Modules？==</p>
-<p>1) 首先需要把 golang 升级到 1.11 版本以上（现在 1.13 已经发布了，建议使用 1.13）。</p>
-<p>2) 设置 GO111MODULE。</p>
-<p>==GO111MODULE==</p>
-<p>在Go语言 1.12 版本之前，要启用 go module 工具首先要设置环境变量 GO111MODULE，不过在Go语言 1.13 及以后的版本则不再需要设置环境变量。通过 GO111MODULE 可以开启或关闭 go module 工具。</p>
-<ul>
-<li>GO111MODULE=off 禁用 go module，编译时会从 GOPATH 和 vendor 文件夹中查找包；</li>
-<li>GO111MODULE=on 启用 go module，编译时会忽略 GOPATH 和 vendor 文件夹，只根据 go.mod下载依赖；</li>
-<li>GO111MODULE=auto（默认值），当项目在 GOPATH/src 目录之外，并且项目根目录有 go.mod 文件时，开启 go module。</li>
+        <h1 id="四、golang网络编程"><a href="#四、golang网络编程" class="headerlink" title="四、golang网络编程"></a>四、golang网络编程</h1><h2 id="1-理论基础知识"><a href="#1-理论基础知识" class="headerlink" title="1.理论基础知识"></a>1.理论基础知识</h2><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/WSdurz.png" alt="WSdurz"></p>
+<h2 id="4-Tcp编程"><a href="#4-Tcp编程" class="headerlink" title="4. Tcp编程"></a>4. Tcp编程</h2><h3 id="4-1-网络编程的两种模式"><a href="#4-1-网络编程的两种模式" class="headerlink" title="4.1 网络编程的两种模式"></a>4.1 网络编程的两种模式</h3><ul>
+<li><strong>TCP socket 编程</strong>，是网络编程的主流。之所以叫Tcp socket 编程，是因为底层是基于TCP/IP 协议的. 比如: QQ 聊天[示意图]</li>
+<li>b/s 结构的<strong>http 编程</strong>，我们使用浏览器去访问服务器时，使用的就是http 协议，而http 底层依旧是用tcp socket 实现的。[示意图] 比如: 京东商城【这属于go web 开发范畴】</li>
 </ul>
-<p>Windows 下开启 GO111MODULE 的命令为：</p>
-<p><code>set GO111MODULE=on 或者 set GO111MODULE=auto</code></p>
-<p>MacOS 或者 Linux 下开启 GO111MODULE 的命令为：</p>
-<p><code>export GO111MODULE=on 或者 export GO111MODULE=auto</code></p>
-<p>在开启 GO111MODULE 之后就可以使用 go module 工具了，也就是说在以后的开发中就没有必要在 GOPATH 中创建项目了，并且还能够很好的管理项目依赖的第三方包信息。</p>
-<p>go mod 的常用命令：</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>go mod download</td>
-<td>下载依赖包到本地（默认为 GOPATH/pkg/mod 目录）</td>
-</tr>
-<tr>
-<td>go mod edit</td>
-<td>编辑 go.mod 文件</td>
-</tr>
-<tr>
-<td>go mod graph</td>
-<td>打印模块依赖图</td>
-</tr>
-<tr>
-<td>go mod init</td>
-<td>初始化当前文件夹，创建 go.mod 文件</td>
-</tr>
-<tr>
-<td>go mod tidy</td>
-<td>增加缺少的包，删除无用的包</td>
-</tr>
-<tr>
-<td>go mod vendor</td>
-<td>将依赖复制到 vendor 目录下</td>
-</tr>
-<tr>
-<td>go mod verify</td>
-<td>校验依赖</td>
-</tr>
-<tr>
-<td>go mod why</td>
-<td>解释为什么需要依赖</td>
-</tr>
-</tbody></table>
-<a id="more"></a>
+<p>tcp socket 编程，简称<strong>socket 编程</strong>.下图为Golang socket 编程中客户端和服务器的网络分布:</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201129124110.png" alt=""></p>
+<h3 id="4-2-Socket编程小Demo"><a href="#4-2-Socket编程小Demo" class="headerlink" title="4.2 Socket编程小Demo"></a>4.2 Socket编程小Demo</h3><h4 id="4-2-1-net包学习"><a href="#4-2-1-net包学习" class="headerlink" title="4.2.1 net包学习"></a>4.2.1 net包学习</h4><p><strong>package net</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &quot;net&quot;</span><br></pre></td></tr></table></figure>
 
-<h4 id="GOPROXY"><a href="#GOPROXY" class="headerlink" title="GOPROXY"></a>GOPROXY</h4><p>proxy 顾名思义就是代理服务器的意思。大家都知道，国内的网络有防火墙的存在，这导致有些Go语言的第三方包我们无法直接通过<code>go get</code>命令获取。GOPROXY 是Go语言官方提供的一种通过中间代理商来为用户提供包下载服务的方式。要使用 GOPROXY 只需要设置环境变量 GOPROXY 即可。</p>
-<p>目前公开的代理服务器的地址有：</p>
+<p>net包提供了可移植的网络I/O接口，包括TCP/IP、UDP、域名解析和Unix域socket。</p>
+<p>虽然本包提供了对网络原语的访问，大部分使用者只需要Dial、Listen和Accept函数提供的基本接口；以及相关的Conn和Listener接口。crypto/tls包提供了相同的接口和类似的Dial和Listen函数。</p>
+<p><strong>Dial函数</strong>和服务端建立连接：<font color='green'>（客户端）</font></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">conn, err := net.Dial(<span class="string">"tcp"</span>, <span class="string">"google.com:80"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	<span class="comment">// handle error</span></span><br><span class="line">&#125;</span><br><span class="line">fmt.Fprintf(conn, <span class="string">"GET / HTTP/1.0\r\n\r\n"</span>)</span><br><span class="line">status, err := bufio.NewReader(conn).ReadString(<span class="string">'\n'</span>)</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+<p>Listen函数创建的<font color='green'>服务端</font>：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ln, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">":8080"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	<span class="comment">// handle error</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">	conn, err := ln.Accept()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="comment">// handle error</span></span><br><span class="line">		<span class="keyword">continue</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> handleConnection(conn)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>type <a href="https://github.com/golang/go/blob/master/src/net/net.go?name=release#266" target="_blank" rel="noopener">Listener</a></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Listener <span class="keyword">interface</span> &#123;</span><br><span class="line">    <span class="comment">// Addr返回该接口的网络地址</span></span><br><span class="line">    Addr() Addr</span><br><span class="line">    <span class="comment">// Accept等待并返回下一个连接到该接口的连接</span></span><br><span class="line">    Accept() (c Conn, err error)</span><br><span class="line">    <span class="comment">// Close关闭该接口，并使任何阻塞的Accept操作都会不再阻塞并返回错误。</span></span><br><span class="line">    Close() error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>func <a href="https://github.com/golang/go/blob/master/src/net/dial.go?name=release#261" target="_blank" rel="noopener">Listen</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func Listen(net, laddr string) (Listener, error)</span><br></pre></td></tr></table></figure>
+
+<p>返回在一个本地网络地址laddr上监听的Listener。网络类型参数net必须是面向流的网络：</p>
+<p>“tcp”、”tcp4”、”tcp6”、”unix”或”unixpacket”。参见Dial函数获取laddr的语法。</p>
+<p>type <a href="https://github.com/golang/go/blob/master/src/net/net.go?name=release#62" target="_blank" rel="noopener">Conn</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">type Conn interface &#123;</span><br><span class="line">    &#x2F;&#x2F; Read从连接中读取数据</span><br><span class="line">    &#x2F;&#x2F; Read方法可能会在超过某个固定时间限制后超时返回错误，该错误的Timeout()方法返回真</span><br><span class="line">    Read(b []byte) (n int, err error)</span><br><span class="line">    &#x2F;&#x2F; Write从连接中写入数据</span><br><span class="line">    &#x2F;&#x2F; Write方法可能会在超过某个固定时间限制后超时返回错误，该错误的Timeout()方法返回真</span><br><span class="line">    Write(b []byte) (n int, err error)</span><br><span class="line">    &#x2F;&#x2F; Close方法关闭该连接</span><br><span class="line">    &#x2F;&#x2F; 并会导致任何阻塞中的Read或Write方法不再阻塞并返回错误</span><br><span class="line">    Close() error</span><br><span class="line">    &#x2F;&#x2F; 返回本地网络地址</span><br><span class="line">    LocalAddr() Addr</span><br><span class="line">    &#x2F;&#x2F; 返回远端网络地址</span><br><span class="line">    RemoteAddr() Addr</span><br><span class="line">    &#x2F;&#x2F; 设定该连接的读写deadline，等价于同时调用SetReadDeadline和SetWriteDeadline</span><br><span class="line">    &#x2F;&#x2F; deadline是一个绝对时间，超过该时间后I&#x2F;O操作就会直接因超时失败返回而不会阻塞</span><br><span class="line">    &#x2F;&#x2F; deadline对之后的所有I&#x2F;O操作都起效，而不仅仅是下一次的读或写操作</span><br><span class="line">    &#x2F;&#x2F; 参数t为零值表示不设置期限</span><br><span class="line">    SetDeadline(t time.Time) error</span><br><span class="line">    &#x2F;&#x2F; 设定该连接的读操作deadline，参数t为零值表示不设置期限</span><br><span class="line">    SetReadDeadline(t time.Time) error</span><br><span class="line">    &#x2F;&#x2F; 设定该连接的写操作deadline，参数t为零值表示不设置期限</span><br><span class="line">    &#x2F;&#x2F; 即使写入超时，返回值n也可能&gt;0，说明成功写入了部分数据</span><br><span class="line">    SetWriteDeadline(t time.Time) error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Conn接口代表通用的面向流的网络连接。多个线程可能会同时调用同一个Conn的方法。</p>
+<h4 id="4-2-2-demo要求"><a href="#4-2-2-demo要求" class="headerlink" title="4.2.2 demo要求"></a>4.2.2 demo要求</h4><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201129133540.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201129133522.png" alt=""></p>
 <ul>
-<li>goproxy.io；</li>
-<li>goproxy.cn：（推荐）由国内的七牛云提供。</li>
-</ul>
-<p>Windows 下设置 GOPROXY 的命令为：</p>
-<p>go env -w GOPROXY=<a href="https://goproxy.cn,direct" target="_blank" rel="noopener">https://goproxy.cn,direct</a></p>
-<p>MacOS 或 Linux 下设置 GOPROXY 的命令为：</p>
-<p>export GOPROXY=<a href="https://goproxy.cn" target="_blank" rel="noopener">https://goproxy.cn</a></p>
-<p>Go语言在 1.13 版本之后 GOPROXY 默认值为 <a href="https://proxy.golang.org，在国内可能会存在下载慢或者无法访问的情况，所以十分建议大家将" target="_blank" rel="noopener">https://proxy.golang.org，在国内可能会存在下载慢或者无法访问的情况，所以十分建议大家将</a> GOPROXY 设置为国内的 goproxy.cn。</p>
-<h4 id="Go-Get"><a href="#Go-Get" class="headerlink" title="Go Get"></a>Go Get</h4><p>使用go get命令下载指定版本的依赖包</p>
-<p>执行<code>go get</code>命令，在下载依赖包的同时还可以指定依赖包的版本。</p>
-<ul>
-<li>运行<code>go get -u</code>命令会将项目中的包升级到最新的次要版本或者修订版本；</li>
-<li>运行<code>go get -u=patch</code>命令会将项目中的包升级到最新的修订版本；</li>
-<li>运行<code>go get [包名]@[版本号]</code>命令会下载对应包的指定版本或者将对应包升级到指定的版本。</li>
-</ul>
-<p>提示：<code>go get [包名]@[版本号]</code>命令中版本号可以是 x.y.z 的形式，例如 go get <a href="mailto:foo@v1.2.3">foo@v1.2.3</a>，也可以是 git 上的分支或 tag，例如 go get foo@master，还可以是 git 提交时的哈希值，例如 go get foo@e3702bed2。</p>
-<p>-d    让命令程序只执行下载动作，而不执行安装动作。<br>-f    仅在使用-u标记时才有效。该标记会让命令程序忽略掉对已下载代码包的导入路径的检查。如果下载并安装的代码包所属的项目是你从别人那里Fork过来的，那么这样做就尤为重要了。<br>-fix    让命令程序在下载代码包后先执行修正动作，而后再进行编译和安装。<br>-insecure    允许命令程序使用非安全的scheme（如HTTP）去下载指定的代码包。如果你用的代码仓库（如公司内部的Gitlab）没有HTTPS支持，可以添加此标记。请在确定安全的情况下使用它。<br>-t    让命令程序同时下载并安装指定的代码包中的测试源码文件中依赖的代码包。<br>-u    让命令利用网络来更新已有代码包及其依赖包。默认情况下，该命令只会从网络上下载本地不存在的代码包，而不会更新已有的代码包。<br>-v    打印出被构建的代码包的名字<br>-x    打印出用到的命令</p>
-<h4 id="go-mod与go-sum文件"><a href="#go-mod与go-sum文件" class="headerlink" title="go.mod与go.sum文件"></a>go.mod与go.sum文件</h4><p>go.mod 提供了 module、require、replace 和 exclude 四个命令：</p>
-<ul>
-<li>module 语句指定包的名字（路径）；</li>
-<li>require 语句指定的依赖项模块；</li>
-<li>replace 语句可以替换依赖项模块；</li>
-<li>exclude 语句可以忽略依赖项模块。</li>
-</ul>
-<p>示例:</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module hello</span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> <span class="number">1.13</span></span><br><span class="line"></span><br><span class="line">require (</span><br><span class="line">    github.com/labstack/echo v3<span class="number">.3</span><span class="number">.10</span>+incompatible <span class="comment">// indirect</span></span><br><span class="line">    github.com/labstack/gommon v0<span class="number">.3</span><span class="number">.0</span> <span class="comment">// indirect</span></span><br><span class="line">    golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20191206172530</span>-e9b2fee46413 <span class="comment">// indirect</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<li><p>服务器端</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"服务器开始监听...."</span>)</span><br><span class="line">	<span class="comment">//第一个参数: 网络协议名</span></span><br><span class="line">	<span class="comment">//第二个参数: IP + 端口</span></span><br><span class="line">	listener, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">"0.0.0.0:8888"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"服务器开启失败！"</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//fmt.Println(listener)</span></span><br><span class="line">	<span class="keyword">defer</span> listener.Close()	<span class="comment">//演示关闭</span></span><br><span class="line">	<span class="comment">//Accept函数始终帮助我们等待连接，而不会一下就结束</span></span><br><span class="line">	<span class="comment">// Accept等待并返回下一个连接到该接口的连接</span></span><br><span class="line">	<span class="keyword">for</span>  &#123;</span><br><span class="line">		fmt.Println(<span class="string">"等待客户端连接....."</span>)</span><br><span class="line">		conn, err := listener.Accept()</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(<span class="string">"连接失败！"</span>)</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			fmt.Printf(<span class="string">"----------连接成功！客户端IP:%v----------\n"</span>, conn.RemoteAddr().String())</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//这里启动协程为客户端服务</span></span><br><span class="line">		<span class="keyword">go</span> Process(conn)		<span class="comment">//每一个连接都是新的conn</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//协程工作</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Process</span><span class="params">(conn net.Conn)</span></span>  &#123;</span><br><span class="line">	<span class="keyword">defer</span> conn.Close()	<span class="comment">//延迟关闭</span></span><br><span class="line">	<span class="keyword">for</span>  &#123;</span><br><span class="line">		<span class="comment">//创建一个新的切片</span></span><br><span class="line">		buf := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">2048</span>)</span><br><span class="line">		<span class="comment">//等待客户端通过conn发送信息</span></span><br><span class="line">		<span class="comment">//如果客户端没有write【发送】, 那么协程就阻塞在这！</span></span><br><span class="line">		<span class="comment">//如果客户端宕机，这里的conn也会发现，并报错</span></span><br><span class="line">		<span class="comment">//fmt.Printf("服务器在等待客户端[%v]的输入....\n", conn.RemoteAddr().String())</span></span><br><span class="line">		n, err := conn.Read(buf)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(<span class="string">"客户端已退出！连接结束"</span>, err)</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//数据显示到服务器终端</span></span><br><span class="line">		<span class="comment">//注意：</span></span><br><span class="line">		<span class="comment">// 1. 使用Print而不是Println,因为客户端的\n也是读取过来的</span></span><br><span class="line">		<span class="comment">// 2. buf[:n]必须要进行切片到n（n是读取到的字节数），不然缓冲buf的大小是2048，后面的字段可能未知</span></span><br><span class="line">		info := <span class="keyword">string</span>(buf[:n])</span><br><span class="line">		fmt.Print(conn.RemoteAddr().String(), <span class="string">"说："</span>, info)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">"--------------连接结束-------------"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>客户端</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">//参数与服务器端一致</span></span><br><span class="line">   conn, err := net.Dial(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:8888"</span>)</span><br><span class="line">   <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">      fmt.Println(<span class="string">"连接失败！"</span>, err)</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//fmt.Println(conn)</span></span><br><span class="line">   <span class="comment">//1. 发送单行数据，然后退出</span></span><br><span class="line">   reader := bufio.NewReader(os.Stdin) <span class="comment">//os.Stdin终端输入</span></span><br><span class="line">   <span class="keyword">for</span>  &#123;</span><br><span class="line">      fmt.Println(<span class="string">"请输入:"</span>)</span><br><span class="line">      <span class="comment">//从终端读取用户的数据，并发送给服务器</span></span><br><span class="line">      line, err := reader.ReadString(<span class="string">'\n'</span>)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         fmt.Println(<span class="string">"读取输入失败！"</span>, err)</span><br><span class="line">         <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> <span class="string">"exit"</span> == strings.Trim(line, <span class="string">" \r\n"</span>)&#123; <span class="comment">//去除掉回车换行空格与exit, Trim不会修改原字符串</span></span><br><span class="line">         fmt.Println(<span class="string">"Bye！"</span>)</span><br><span class="line">         <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      fmt.Println(line)</span><br><span class="line">      <span class="comment">//发送Line终端输入给服务器</span></span><br><span class="line">      n, err := conn.Write([]<span class="keyword">byte</span>(line))</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         fmt.Println(<span class="string">"向服务器写失败！"</span>, err)</span><br><span class="line">         <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      fmt.Printf(<span class="string">"成功传输%d个字节\n"</span>, n)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>go module 安装 package 的原则是先拉取最新的 release tag，若无 tag 则拉取最新的 commit，详见<a href="https://github.com/golang/go/wiki/Modules" target="_blank" rel="noopener"> Modules 官方</a>介绍。</p>
-<p>go 会自动生成一个 go.sum 文件来<strong>记录</strong> dependency tree：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">github.com/davecgh/<span class="keyword">go</span>-spew v1<span class="number">.1</span><span class="number">.0</span>/<span class="keyword">go</span>.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=</span><br><span class="line">github.com/labstack/echo v3<span class="number">.3</span><span class="number">.10</span>+incompatible h1:pGRcYk231ExFAyoAjAfD85kQzRJCRI8bbnE7CX5OEgg=</span><br><span class="line">github.com/labstack/echo v3<span class="number">.3</span><span class="number">.10</span>+incompatible/<span class="keyword">go</span>.mod h1:<span class="number">0</span>INS7j/VjnFxD4E2wkz67b8cVwCLbBmJyDaka6Cmk1s=</span><br><span class="line">github.com/labstack/gommon v0<span class="number">.3</span><span class="number">.0</span> h1:JEeO0bvc78PKdyHxloTKiF8BD5iGrH8T6MSeGvSgob0=</span><br><span class="line">github.com/labstack/gommon v0<span class="number">.3</span><span class="number">.0</span>/<span class="keyword">go</span>.mod h1:MULnywXg0yavhxWKc+lOruYdAhDwPK9wf0OL7NoOu+k=</span><br><span class="line">github.com/mattn/<span class="keyword">go</span>-colorable v0<span class="number">.1</span><span class="number">.2</span> h1:/bC9yWikZXAL9uJdulbSfyVNIR3n3trXl+v8+<span class="number">1</span>sx8mU=</span><br><span class="line">... 省略很多行</span><br></pre></td></tr></table></figure>
-
-<p>可以使用命令<code>go list -m -u all</code>来检查可以升级的 package，使用<code>go get -u need-upgrade-package</code>升级后会将新的依赖版本更新到 go.mod * 也可以使用<code>go get -u</code>升级所有依赖。</p>
-<p><strong>使用 replace 替换无法直接获取的 package</strong></p>
-<p>由于某些已知的原因，并不是所有的 package 都能成功下载，比如：golang.org 下的包。</p>
-<p>modules 可以通过在 go.mod 文件中使用 replace 指令替换成 github 上对应的库，比如：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">replace (</span><br><span class="line">  golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a =&gt; github.com/golang/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replace golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a =&gt; github.com/golang/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a</span><br></pre></td></tr></table></figure>
-
-<h4 id="下载位置"><a href="#下载位置" class="headerlink" title="下载位置"></a>下载位置</h4><p>一般的下载位置在<code>GOPATH/pkg</code>目录下,使用<code>go module</code>下载位置在<code>GOPATH/src/mod</code>下</p>
-<h2 id="4-2-Go指针"><a href="#4-2-Go指针" class="headerlink" title="4.2 Go指针"></a>4.2 Go指针</h2><p>指针能够操作内存，这是指针最大的优势之一。</p>
-<p>go语言的指针介于java与C/C++之间，即没有像java那样取消了代码对指针的操作能力，也没有像C/C++那样滥用指针而造成安全性和可靠性的问题。</p>
-<p>但是go语言的指针并没有达到C/C++那样的自由度。</p>
-<p><strong>指针就是地址，指针变量就是存储变量地址的变量</strong></p>
-<p><em>p 叫做*</em>解引用**也叫间接引用</p>
-<h3 id="4-2-1-函数运行的内存解析与栈帧"><a href="#4-2-1-函数运行的内存解析与栈帧" class="headerlink" title="4.2.1 函数运行的内存解析与栈帧"></a>4.2.1 函数运行的内存解析与栈帧</h3><p>​    栈帧：用来给函数运行<strong>提供内存空间</strong>。取内存于stack上。当函数调用时，产生栈帧，当函数调用结束时，释放栈帧。</p>
-<p>​    栈帧存储：1.局部变量 2.形参（与局部变量地位等同） 3. 内存字段描述值</p>
-<p>​    ==<strong>一个函数就对应一个栈帧</strong>== </p>
-<p>​    以32位的内存4G的空间为例</p>
-<p>​    <img src="http://xwjpics.gumptlu.work/qinniu_uPic/OnTiL2.png" alt="OnTiL2"></p>
-<p><strong>当函数调用完毕后,空间释放/回收其实就是指针的归位,但是其中的数据是不会清空删除的,也就是说系统会当作无效的旧数据覆盖处理</strong></p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/uYi8o2.png" alt="uYi8o2"></p>
-<h3 id="4-2-2-注意事项"><a href="#4-2-2-注意事项" class="headerlink" title="4.2.2 注意事项"></a>4.2.2 注意事项</h3><h4 id="空指针与野指针"><a href="#空指针与野指针" class="headerlink" title="空指针与野指针"></a>空指针与野指针</h4><p>空指针：未被初始化的指针 var p *int </p>
-<p>野指针：被一片无效的空间地址初始化的指针 var p *int = 0x989798</p>
-<h4 id="new赋值给指针"><a href="#new赋值给指针" class="headerlink" title="new赋值给指针"></a>new赋值给指针</h4><p>new的内存空间都在堆中!</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	<span class="comment">//在heap上申请一块地址空间</span></span><br><span class="line">	p := <span class="built_in">new</span>(<span class="keyword">string</span>)	<span class="comment">//默认类型的默认值</span></span><br><span class="line">	fmt.Printf(<span class="string">"%q\n"</span>, *p)	<span class="comment">//%q打印go语言格式下的字符串   ""	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>==注意：如果new操作的函数结束了即栈帧被回收，但是其在堆上面的数据并没有消除！==</p>
-<h3 id="4-2-3-变量的左值右值"><a href="#4-2-3-变量的左值右值" class="headerlink" title="4.2.3 变量的左值右值"></a>4.2.3 变量的左值右值</h3><p>变量在等式的左边时代表的含义是变量的存储空间 （存）</p>
-<p>变量在等式的右边时代表的含义是变量的存储内容/值 （取）</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p := <span class="built_in">new</span>(<span class="keyword">string</span>)</span><br><span class="line">*p = <span class="string">"hha"</span>                <span class="comment">//左值代表堆中的存储空间</span></span><br><span class="line">fmt.Printf(<span class="string">"%q\n"</span>, *p) <span class="comment">//右值代表存储空间中的值，二者含义不同</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-2-4-指针的函数传参"><a href="#4-2-4-指针的函数传参" class="headerlink" title="4.2.4 指针的函数传参"></a>4.2.4 指针的函数传参</h3><p>传地址（引用）：将形参的地址值作为函数参数、返回值后传递</p>
-<p>传值（数据）：将实参的值拷贝一份给形参</p>
-<p>传引用：在A栈帧内部修改B栈帧中的变量值</p>
-<p>==注意函数传参永远都是值传递==</p>
-<ul>
-<li>传递值</li>
-</ul>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/jjguqX.png" alt="jjguqX"></p>
-<p>这种方法swap栈帧是在内部交换两个变量的值，所以无法修改，而==指针可以实现栈帧之间的数据修改==</p>
-<ul>
-<li>传递指针</li>
-</ul>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/oQnga5.png" alt="oQnga5">  </p>
-<p>当swap栈帧结束时，此时main中的局部变量的值已经被修改了，所以凑效了。</p>
-<h3 id="4-2-5-内存申请释放"><a href="#4-2-5-内存申请释放" class="headerlink" title="4.2.5 内存申请释放"></a>4.2.5 内存申请释放</h3><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/p1edob.png" alt="p1edob"></p>
-<p>所以后来的java/python都有gc垃圾回收机制</p>
-<p>堆空间看做无限大但是并不是能够无限的使用，我们在编程时==对于无用的指针需要设置为空nil，以此来提醒gc快速回收== </p>
-<h2 id="4-3-切片"><a href="#4-3-切片" class="headerlink" title="4.3 切片"></a>4.3 切片</h2><h3 id="为什么用切片："><a href="#为什么用切片：" class="headerlink" title="为什么用切片："></a>为什么用切片：</h3><ul>
-<li>数组容量固定不能自动拓展</li>
-<li>值传递，数组作为函数参数时会将整个值拷贝一份给形参，资源消耗大</li>
-<li><strong>在go语言中几乎可以采用切片代替所有的数组使用</strong></li>
-</ul>
-<h3 id="切片的本质："><a href="#切片的本质：" class="headerlink" title="切片的本质："></a>切片的本质：</h3><p>​    切片不是数组或者数组指针，实际上的切片是一个结构体，它通过<strong>内部指针和相关属性引用数组片段，以实现变长方案</strong></p>
-<h3 id="切片的使用："><a href="#切片的使用：" class="headerlink" title="切片的使用："></a>切片的使用：</h3><p>切片名称[low: high: max]</p>
-<p>Low:起始下标， high：结束下标，len=high-low， 容量：cap=max-low</p>
-<ul>
-<li><p>==截取数组\切片初始化切片时（省略了max，不指定切片的容量），切片的容量跟随原数组/切片==</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/AczrFm.png" alt="AczrFm"></p>
-<p>​    6 - 0 = 6</p>
-<p>​    <strong>注意：==使用切片时要注意一下容量(len&lt;cap)，不然可能在手动扩容之前出现溢出==</strong></p>
-<p> <img src="http://xwjpics.gumptlu.work/qinniu_uPic/7alfFI.png" alt="7alfFI"></p>
 </li>
 </ul>
-
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
       
       
       <!-- 添加版权声明 -->
@@ -429,13 +306,13 @@
     2020-12-19
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-03-29
+    2021-04-03
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-强化/" title="技术贴/GoLang/Go语言-3-强化" target="_blank">技术贴/GoLang/Go语言-3-强化</a>
+    <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-网络编程/" title="Go语言-3-网络编程" target="_blank">Go语言-3-网络编程</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-强化/" title="技术贴/GoLang/Go语言-3-强化" target="_blank">https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-强化/</a>
+    <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-网络编程/" title="Go语言-3-网络编程" target="_blank">https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-网络编程/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -584,7 +461,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E5%BC%BA%E5%8C%96/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -639,7 +516,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#四、golang基础巩固加强"><span class="toc-number">1.</span> <span class="toc-text">四、golang基础巩固加强</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-go的包管理"><span class="toc-number">1.1.</span> <span class="toc-text">4.1 go的包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Module"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">Go Module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GOPROXY"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">GOPROXY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Get"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">Go Get</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#go-mod与go-sum文件"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">go.mod与go.sum文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下载位置"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">下载位置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-Go指针"><span class="toc-number">1.2.</span> <span class="toc-text">4.2 Go指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-函数运行的内存解析与栈帧"><span class="toc-number">1.2.1.</span> <span class="toc-text">4.2.1 函数运行的内存解析与栈帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-注意事项"><span class="toc-number">1.2.2.</span> <span class="toc-text">4.2.2 注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#空指针与野指针"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">空指针与野指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#new赋值给指针"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">new赋值给指针</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-3-变量的左值右值"><span class="toc-number">1.2.3.</span> <span class="toc-text">4.2.3 变量的左值右值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-4-指针的函数传参"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.2.4 指针的函数传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-5-内存申请释放"><span class="toc-number">1.2.5.</span> <span class="toc-text">4.2.5 内存申请释放</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-切片"><span class="toc-number">1.3.</span> <span class="toc-text">4.3 切片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么用切片："><span class="toc-number">1.3.1.</span> <span class="toc-text">为什么用切片：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切片的本质："><span class="toc-number">1.3.2.</span> <span class="toc-text">切片的本质：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切片的使用："><span class="toc-number">1.3.3.</span> <span class="toc-text">切片的使用：</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#四、golang网络编程"><span class="toc-number">1.</span> <span class="toc-text">四、golang网络编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-理论基础知识"><span class="toc-number">1.1.</span> <span class="toc-text">1.理论基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Tcp编程"><span class="toc-number">1.2.</span> <span class="toc-text">4. Tcp编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-网络编程的两种模式"><span class="toc-number">1.2.1.</span> <span class="toc-text">4.1 网络编程的两种模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-Socket编程小Demo"><span class="toc-number">1.2.2.</span> <span class="toc-text">4.2 Socket编程小Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-net包学习"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">4.2.1 net包学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-demo要求"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">4.2.2 demo要求</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li></ol>
                     </div>
                 </span>
             </div>
