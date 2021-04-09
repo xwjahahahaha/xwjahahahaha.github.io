@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 352
+			总文章数 365
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/算法/406-根据身高重建队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/前端/uni-app的学习-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/">406-根据身高重建队列</a>
+      <a class="article-title" href="/2020/12/02/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/uni-app%E7%9A%84%E5%AD%A6%E4%B9%A0-1/">uni-app的学习-1</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/02/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/uni-app%E7%9A%84%E5%AD%A6%E4%B9%A0-1/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/11/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-11-17T10:35:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-17</time>
+<a href="/2020/12/02/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/uni-app%E7%9A%84%E5%AD%A6%E4%B9%A0-1/" class="archive-article-date">
+  	<time datetime="2020-12-02T14:17:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-02</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">680字</span>
+        <span class="post-count">3.9k字</span>
       </span>
     </span>
 
@@ -221,7 +221,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">16分</span>
       </span>
     </span>
 </div>
@@ -233,11 +233,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="406-根据身高重建队列"><a href="#406-根据身高重建队列" class="headerlink" title="406. 根据身高重建队列"></a><a href="https://leetcode-cn.com/problems/queue-reconstruction-by-height/" target="_blank" rel="noopener">406. 根据身高重建队列</a></h4><p>难度中等676</p>
-<p>假设有打乱顺序的一群人站成一个队列。 每个人由一个整数对 <code>(h, k)</code> 表示，其中 <code>h</code> 是这个人的身高，<code>k</code> 是应该排在这个人前面且身高大于或等于 <code>h</code> 的人数。 例如：[5,2] 表示前面应该有 2 个身高大于等于 5 的人，而 [5,0] 表示前面不应该存在身高大于等于 5 的人。</p>
-<p>编写一个算法，根据每个人的身高 <code>h</code> 重建这个队列，使之满足每个整数对 <code>(h, k)</code> 中对人数 <code>k</code> 的要求。</p>
-<p><strong>示例：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]</span><br><span class="line">输出：[[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]</span><br></pre></td></tr></table></figure>
+        <h1 id="一、概念认识"><a href="#一、概念认识" class="headerlink" title="一、概念认识"></a>一、概念认识</h1><p>官网地址：<a href="https://uniapp.dcloud.io/README" target="_blank" rel="noopener">什么是 uni-app - uni-app官网 (dcloud.io)</a></p>
+<p><code>uni-app</code> 是一个使用 <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.js</a> 开发所有前端应用的框架，<font color='red'>开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/QQ/钉钉/淘宝）、快应用等多个平台</font>。</p>
         
       
       
@@ -270,7 +267,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">uni-app</a>
         		</li>
       		
 		</ul>
@@ -286,7 +283,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
+        			<a href="/categories/technical/uni-app//" class="article-tag-list-link color3">uni-app</a>
         		</li>
       		
 		</ul>
@@ -295,7 +292,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/406-%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/12/02/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/uni-app%E7%9A%84%E5%AD%A6%E4%B9%A0-1/">展开全文 >></a>
         </p>
       
 
@@ -329,27 +326,27 @@
 
 
   
-    <article id="post-技术贴/GoLang/Go语言-2-进阶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/区块链/FISCO_BCOS/FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1.md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-2-%E8%BF%9B%E9%98%B6/">Go语言-2-进阶</a>
+      <a class="article-title" href="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO_BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-%E6%98%9F%E5%9E%8B%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%9D%97%E9%93%BE%E5%B7%A5%E4%BD%9C%E8%AF%81%E7%B3%BB%E7%BB%9F-1.md/">FISCO_BCOS联盟链架构-星型架构的区块链工作证系统-1</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-2-%E8%BF%9B%E9%98%B6/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO_BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-%E6%98%9F%E5%9E%8B%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%9D%97%E9%93%BE%E5%B7%A5%E4%BD%9C%E8%AF%81%E7%B3%BB%E7%BB%9F-1.md/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/11/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-2-%E8%BF%9B%E9%98%B6/" class="archive-article-date">
-  	<time datetime="2020-11-16T08:26:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-16</time>
+<a href="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO_BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-%E6%98%9F%E5%9E%8B%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%9D%97%E9%93%BE%E5%B7%A5%E4%BD%9C%E8%AF%81%E7%B3%BB%E7%BB%9F-1.md/" class="archive-article-date">
+  	<time datetime="2020-11-29T13:06:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -358,7 +355,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">16.6k字</span>
+        <span class="post-count">1.1k字</span>
       </span>
     </span>
 
@@ -367,7 +364,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">69分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -379,18 +376,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="三、Go进阶"><a href="#三、Go进阶" class="headerlink" title="三、Go进阶"></a>三、Go进阶</h1><h2 id="1-goroutine"><a href="#1-goroutine" class="headerlink" title="1. goroutine"></a>1. goroutine</h2><h3 id="1-1-进程与线程："><a href="#1-1-进程与线程：" class="headerlink" title="1.1 进程与线程："></a>1.1 进程与线程：</h3><ul>
-<li><p>程序: 编译成功的二进制文件.(只占用磁盘存储)   =&gt; 剧本</p>
-</li>
-<li><p>进程: 运行起来的程序. 占用系统资源. (内存)     =&gt; 戏剧</p>
-</li>
-<li><p>线程: LWP(Light weight process 轻量级(资源分配)的进程, 本质仍然是进程(linux下))</p>
-</li>
-</ul>
-<p>程序是死的, 进程是活的, 一个程序可以开启多个进程</p>
-<h4 id="进程的基本工作状态"><a href="#进程的基本工作状态" class="headerlink" title="进程的基本工作状态"></a>进程的基本工作状态</h4><p>五种:初始态、就绪态、运行态、挂起/阻塞态与终止态 . 其中初始态为进程准备阶段,常与就绪态结合来看</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/G9Eurj.png" alt="G9Eurj"></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193733.png" alt=""></p>
+        <h1 id="一、部署多群组星型网络"><a href="#一、部署多群组星型网络" class="headerlink" title="一、部署多群组星型网络"></a>一、部署多群组星型网络</h1><p>官网文档很详细，<strong>本片主要记录心得与重点</strong></p>
+<p><a href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/group_use_cases.html#id10" target="_blank" rel="noopener">多群组部署 — FISCO BCOS v2.7.0 文档 (fisco-bcos-documentation.readthedocs.io)</a></p>
         
       
       
@@ -423,7 +410,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">bcos</a>
         		</li>
       		
 		</ul>
@@ -439,7 +426,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/golang//" class="article-tag-list-link color2">golang</a>
+        			<a href="/categories/technical/bcos//" class="article-tag-list-link color5">bcos</a>
         		</li>
       		
 		</ul>
@@ -448,7 +435,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-2-%E8%BF%9B%E9%98%B6/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/FISCO_BCOS/FISCO_BCOS%E8%81%94%E7%9B%9F%E9%93%BE%E6%9E%B6%E6%9E%84-%E6%98%9F%E5%9E%8B%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8C%BA%E5%9D%97%E9%93%BE%E5%B7%A5%E4%BD%9C%E8%AF%81%E7%B3%BB%E7%BB%9F-1.md/">展开全文 >></a>
         </p>
       
 
@@ -482,27 +469,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2020-11/日记-0095" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2020-11/日记-0102" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0095/">日记_0095</a>
+      <a class="article-title" href="/2020/11/29/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0102/">日记_0102</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0095/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/29/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0102/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/11/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0095/" class="archive-article-date">
-  	<time datetime="2020-11-16T00:19:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-16</time>
+<a href="/2020/11/29/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0102/" class="archive-article-date">
+  	<time datetime="2020-11-29T01:32:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -511,7 +498,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">131字</span>
+        <span class="post-count">128字</span>
       </span>
     </span>
 
@@ -593,7 +580,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0095/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/29/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0102/">展开全文 >></a>
         </p>
       
 
@@ -627,27 +614,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2020-11/日记-0094" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/小技巧/在你的ipad上使用Vscode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/15/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0094/">日记_0094</a>
+      <a class="article-title" href="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/%E5%9C%A8%E4%BD%A0%E7%9A%84ipad%E4%B8%8A%E4%BD%BF%E7%94%A8Vscode/">在你的ipad上使用Vscode</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/15/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0094/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/%E5%9C%A8%E4%BD%A0%E7%9A%84ipad%E4%B8%8A%E4%BD%BF%E7%94%A8Vscode/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/11/15/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0094/" class="archive-article-date">
-  	<time datetime="2020-11-15T01:46:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-15</time>
+<a href="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/%E5%9C%A8%E4%BD%A0%E7%9A%84ipad%E4%B8%8A%E4%BD%BF%E7%94%A8Vscode/" class="archive-article-date">
+  	<time datetime="2020-11-29T01:06:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -656,152 +643,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">153字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="近期待办任务："><a href="#近期待办任务：" class="headerlink" title="近期待办任务："></a>近期待办任务：</h2><h4 id="每日任务"><a href="#每日任务" class="headerlink" title="每日任务"></a>每日任务</h4><ol>
-<li>英语50词 </li>
-<li>leetcode每日一题</li>
-</ol>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/15/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-11/%E6%97%A5%E8%AE%B0-0094/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-技术贴/算法/973-最接近原点的K个点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/973-%E6%9C%80%E6%8E%A5%E8%BF%91%E5%8E%9F%E7%82%B9%E7%9A%84K%E4%B8%AA%E7%82%B9/">973-最接近原点的K个点</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/973-%E6%9C%80%E6%8E%A5%E8%BF%91%E5%8E%9F%E7%82%B9%E7%9A%84K%E4%B8%AA%E7%82%B9/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/11/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/973-%E6%9C%80%E6%8E%A5%E8%BF%91%E5%8E%9F%E7%82%B9%E7%9A%84K%E4%B8%AA%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2020-11-09T01:36:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-09</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">709字</span>
+        <span class="post-count">676字</span>
       </span>
     </span>
 
@@ -822,10 +664,144 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="973-最接近原点的-K-个点"><a href="#973-最接近原点的-K-个点" class="headerlink" title="973. 最接近原点的 K 个点"></a><a href="https://leetcode-cn.com/problems/k-closest-points-to-origin/" target="_blank" rel="noopener">973. 最接近原点的 K 个点</a></h4><p>难度中等141</p>
-<p>我们有一个由平面上的点组成的列表 <code>points</code>。需要从中找出 <code>K</code> 个距离原点 <code>(0, 0)</code> 最近的点。</p>
-<p>（这里，平面上两点之间的距离是欧几里德距离。）</p>
-<p>你可以按任何顺序返回答案。除了点坐标的顺序之外，答案确保是唯一的。</p>
+        <p>单独在ipad上运行肯定是不行的，毕竟不是pc端。所以code-server的功能就是将其部署在服务器上，ipad使用网页或app访问其服务，使用服务器的资源来跑代码，而ipad前端上只负责撸代码与运行就可以啦</p>
+<h1 id="一、预备条件"><a href="#一、预备条件" class="headerlink" title="一、预备条件"></a>一、预备条件</h1><ul>
+<li>一个云服务器（推荐学生买个阿里云学生机，一年一百来块钱，便宜又好用）</li>
+<li>一个ipad</li>
+</ul>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/29/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/%E5%9C%A8%E4%BD%A0%E7%9A%84ipad%E4%B8%8A%E4%BD%BF%E7%94%A8Vscode/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/大数据/大数据-3-Hadoop的环境搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE-3-Hadoop%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">大数据-3-Hadoop的环境搭建</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/11/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE-3-Hadoop%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/11/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE-3-Hadoop%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2020-11-28T00:12:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-28</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">3.1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">14分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="四、Hadoop"><a href="#四、Hadoop" class="headerlink" title="四、Hadoop"></a>四、Hadoop</h1><h2 id="4-1-Hadoop介绍"><a href="#4-1-Hadoop介绍" class="headerlink" title="4.1 Hadoop介绍"></a>4.1 Hadoop介绍</h2><h3 id="4-1-1-起源"><a href="#4-1-1-起源" class="headerlink" title="4.1.1 起源"></a>4.1.1 起源</h3><p>​    Hadoop最早起源于Nutch。Nutch的设计目标是构建一个大型的<u>全网搜索引擎</u>, 包括网页抓取、索引、查询等功能，但随着抓取网页数量的增加，遇到了严重的可扩展性问题。</p>
+<p>​    Google提出了两种解决方案：</p>
+<ul>
+<li>分布式文件系统（GFS），可用于处理海量网页的<strong>存储</strong></li>
+<li>分布式计算框架MapReduce，可用于处理海量网页的<strong>索引计算</strong>问题</li>
+</ul>
+<p>=&gt; Nutch的开发人员完成了相应的<strong>HDFS</strong>和<strong>MapReduce</strong>，并从Nutch中剥离成为独立的项目<strong>Hadoop</strong></p>
         
       
       
@@ -858,7 +834,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hadoop</a>
         		</li>
       		
 		</ul>
@@ -874,7 +850,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
+        			<a href="/categories/technical/hadoop//" class="article-tag-list-link color2">hadoop</a>
         		</li>
       		
 		</ul>
@@ -883,7 +859,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/973-%E6%9C%80%E6%8E%A5%E8%BF%91%E5%8E%9F%E7%82%B9%E7%9A%84K%E4%B8%AA%E7%82%B9/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%A4%A7%E6%95%B0%E6%8D%AE-3-Hadoop%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">展开全文 >></a>
         </p>
       
 
@@ -919,7 +895,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/22/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/">71</a><a class="extend next" rel="next" href="/page/24/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/22/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/73/">73</a><a class="extend next" rel="next" href="/page/24/">下一页</a>
     </nav>
   
 
@@ -1257,6 +1233,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">federated_learing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
               </li>
             
             <div class="clearfix"></div>

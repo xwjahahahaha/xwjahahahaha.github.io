@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 352
+			总文章数 365
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-随笔/每日一记/日记/2020-9/日记-0065" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-知识贴/区块链/去中心化的共识算法/区块链的一些共识算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0065/">日记_0065</a>
+      <a class="article-title" href="/2020/10/04/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/">区块链的一些共识算法</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/09/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0065/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/04/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/09/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0065/" class="archive-article-date">
-  	<time datetime="2020-09-17T08:55:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
+<a href="/2020/10/04/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-10-04T03:10:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-04</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,154 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">68字</span>
+        <span class="post-count">7.3k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">25分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前学区块链理论知识，仅仅只了解了POW和POS机制，对于其他的共识机制了解的很少，在这里学习记录下。</p>
+<p>学习内容来源：<a href="https://www.cnblogs.com/X-knight/p/9157814.html#autoid-0-0-0" target="_blank" rel="noopener">https://www.cnblogs.com/X-knight/p/9157814.html#autoid-0-0-0</a></p>
+<h1 id="共识机制"><a href="#共识机制" class="headerlink" title="共识机制"></a>共识机制</h1><p>区块链架构是一种分布式的架构，区块链的部署模式有三种：公有链、私有链、联盟链，其对应的关系如下图</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/54d06fc048d75a0ab0e9a0ea575aec8f.png" alt=""></p>
+<p>在分布式系统中，多个主机通过异步通信方式组成网络集群。在这样的一个异步系统中，需要主机之间进行<strong>状态复制</strong>，以保证每个主机达成一致的状态共识。然而，异步系统中，可能出现无法通信的故障主机，而主机的性能可能下降，网络可能拥塞，这些可能导致错误信息在系统内传播。因此需要<strong>在默认不可靠的异步网络中定义容错协议，以确保各主机达成安全可靠的状态共识。</strong></p>
+<p>中心化的系统达成共识非常的简单，因为一切数据都由中心化管理，而对于去中心化的区块链系统来说，共识则很难达成，一切都要商量这来。<strong>不同的共识算法就是不同的商量规则，通过设置不同的一组条件筛选出最具有代表性的节点来达成共识。</strong></p>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">block_chain</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/knowledge/block-chain//" class="article-tag-list-link color2">block_chain</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/04/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-随笔/每日一记/日记/2020-10/日记-0076" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/04/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0076/">日记_0076</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/04/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0076/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/10/04/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0076/" class="archive-article-date">
+  	<time datetime="2020-10-04T01:41:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-04</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">97字</span>
       </span>
     </span>
 
@@ -233,11 +380,188 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
+        <h2 id="近期待办任务："><a href="#近期待办任务：" class="headerlink" title="近期待办任务："></a>近期待办任务：</h2><ol start="2">
+<li>复习整理密码学 </li>
+<li>密码学DES的实现</li>
+<li>机器学习算法 线性回归</li>
+<li>看区块链专利</li>
+<li>读写译英语作业</li>
+<li>读写译ppt演讲准备</li>
+<li>计网ppt演讲</li>
+<li>Linux</li>
+<li>HyperLedger Fabric超级账本</li>
+<li>Go区块链构建区块链网络</li>
+</ol>
+<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ol>
+<li><del>分布式网络共识机制的学习</del></li>
+<li><del>专利查看</del></li>
+</ol>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/04/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0076/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-随笔/每日一记/日记/2020-10/日记-0075" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/03/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0075/">日记_0075</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/03/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0075/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/10/03/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0075/" class="archive-article-date">
+  	<time datetime="2020-10-03T01:06:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-03</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">156字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="今日待办任务："><a href="#今日待办任务：" class="headerlink" title="今日待办任务："></a>今日待办任务：</h2><blockquote>
 <ol>
-<li><del>Linux第6章结束</del></li>
-<li><del>go语言区块链创世交易功能的实现P63</del></li>
-<li><del>数据分析：matplotlib可视化工具的学习P13</del></li>
+<li><p>Go区块链链编程  钱包功能</p>
+</li>
+<li><p>复习整理密码学 </p>
+</li>
+<li><p>密码学DES的实现</p>
+</li>
+<li><p>机器学习算法 线性回归</p>
+</li>
+<li><p>看区块链专利</p>
+</li>
+<li><p>读写译英语作业</p>
+</li>
+<li><p>读写译ppt演讲准备</p>
+</li>
+<li><p>计网ppt演讲</p>
+</li>
+<li><p>Linux</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
+<ol>
+<li><del>Go区块链链编程大致功能全部完成</del></li>
 </ol>
 </blockquote>
         
@@ -297,7 +621,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0065/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/03/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0075/">展开全文 >></a>
         </p>
       
 
@@ -331,27 +655,27 @@
 
 
   
-    <article id="post-技术贴/python学习/python数据分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2020-9/日记-0074" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/python%E5%AD%A6%E4%B9%A0/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">python数据分析</a>
+      <a class="article-title" href="/2020/09/30/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0074/">日记_0074</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/python%E5%AD%A6%E4%B9%A0/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/09/30/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0074/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/python%E5%AD%A6%E4%B9%A0/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-09-16T23:57:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
+<a href="/2020/09/30/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0074/" class="archive-article-date">
+  	<time datetime="2020-09-30T04:37:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-30</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -360,145 +684,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.3k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">10分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="数据分析是什么？"><a href="#数据分析是什么？" class="headerlink" title="数据分析是什么？"></a>数据分析是什么？</h2><p>数据分析是用适当的方法对收集来的大量数据进行分析，<strong>帮助人们作出判断，以便采取适当行动。</strong></p>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/python%E5%AD%A6%E4%B9%A0/python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/周记/2020-8/周记-0010" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/07/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0010/">周记_0010</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/09/07/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0010/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/09/07/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0010/" class="archive-article-date">
-  	<time datetime="2020-09-07T01:44:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-07</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">268字</span>
+        <span class="post-count">73字</span>
       </span>
     </span>
 
@@ -519,14 +705,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="上周学习情况："><a href="#上周学习情况：" class="headerlink" title="上周学习情况："></a>上周学习情况：</h2><ol>
-<li>基于truffle的DApp开发，truffle框架的使用</li>
-<li>javaWeb复习以及Mysql的整体复习</li>
-<li>linux的继续学习</li>
-<li>leetcode练习</li>
+        <h2 id="今日待办任务："><a href="#今日待办任务：" class="headerlink" title="今日待办任务："></a>今日待办任务：</h2><blockquote>
+<ol>
+<li><p>Go区块链链编程  钱包功能</p>
+</li>
+<li><p>复习整理密码学 </p>
+</li>
+<li><p>口语ppt 以及准备还有作业</p>
+</li>
+<li><p>密码学DES的实现</p>
+</li>
+<li><p>机器学习算法 线性回归</p>
+</li>
+<li><p>Linux</p>
+</li>
 </ol>
-<h2 id="详细内容"><a href="#详细内容" class="headerlink" title="详细内容"></a>详细内容</h2><h3 id="区块链项目"><a href="#区块链项目" class="headerlink" title="区块链项目"></a>区块链项目</h3><p><a href="https://myblog.gumptlu.work/2020/09/03/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A1%B9%E7%9B%AE/DApp%E9%A1%B9%E7%9B%AE-%E5%9F%BA%E4%BA%8Etruffle%E7%9A%84%E7%AE%80%E5%8D%95%E6%8A%95%E7%A5%A8%E5%90%88%E7%BA%A6-1/" target="_blank" rel="noopener">DApp项目-基于truffle的简单投票合约-1</a></p>
-<p><a href="https://myblog.gumptlu.work/2020/08/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/truffle%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/" target="_blank" rel="noopener">truffle框架的学习</a></p>
+</blockquote>
+<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
+<ol>
+<li><del>口语演讲结束</del></li>
+<li><del>Go区块链链编程</del></li>
+</ol>
+</blockquote>
         
       
       
@@ -584,7 +784,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/07/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0010/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/30/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0074/">展开全文 >></a>
         </p>
       
 
@@ -618,27 +818,27 @@
 
 
   
-    <article id="post-技术贴/前端/JavaScript/javaScript知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2020-9/日记-0073" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/JavaScript/javaScript%E7%9F%A5%E8%AF%86%E7%82%B9/">javaScript知识点</a>
+      <a class="article-title" href="/2020/09/28/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0073/">日记_0073</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/09/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/JavaScript/javaScript%E7%9F%A5%E8%AF%86%E7%82%B9/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/09/28/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0073/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/09/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/JavaScript/javaScript%E7%9F%A5%E8%AF%86%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2020-09-06T07:01:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
+<a href="/2020/09/28/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0073/" class="archive-article-date">
+  	<time datetime="2020-09-28T07:04:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-28</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -647,152 +847,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">775字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JavaScript："><a href="#JavaScript：" class="headerlink" title="JavaScript："></a>JavaScript：</h1><h2 id="概念：-一门客户端脚本语言"><a href="#概念：-一门客户端脚本语言" class="headerlink" title="概念：    一门客户端脚本语言"></a>概念：    一门客户端脚本语言</h2><ul>
-<li>运行在客户端浏览器中的。每一个浏览器都有JavaScript的解析引擎</li>
-<li>脚本语言：不需要编译，直接就可以被浏览器解析执行了</li>
-</ul>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/javaScript//" class="article-tag-list-link color1">javaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/JavaScript/javaScript%E7%9F%A5%E8%AF%86%E7%82%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-技术贴/java/javaWeb软件架构和资源分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/javaWeb%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E5%92%8C%E8%B5%84%E6%BA%90%E5%88%86%E7%B1%BB/">javaWeb软件架构和资源分类</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/09/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/javaWeb%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E5%92%8C%E8%B5%84%E6%BA%90%E5%88%86%E7%B1%BB/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/09/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/javaWeb%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E5%92%8C%E8%B5%84%E6%BA%90%E5%88%86%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-09-06T06:17:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-06</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">424字</span>
+        <span class="post-count">114字</span>
       </span>
     </span>
 
@@ -813,12 +868,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="web概念概述"><a href="#web概念概述" class="headerlink" title="web概念概述"></a>web概念概述</h1><ul>
-<li>JavaWeb：<ul>
-<li>使用Java语言开发基于互联网的项目</li>
-</ul>
+        <h2 id="今日待办任务："><a href="#今日待办任务：" class="headerlink" title="今日待办任务："></a>今日待办任务：</h2><blockquote>
+<ol>
+<li><p>Go区块链链编程  钱包功能</p>
 </li>
-</ul>
+<li><p>复习整理密码学 =&gt; 前两章结束</p>
+</li>
+<li><p>口语ppt 以及准备还有作业</p>
+</li>
+<li><p>密码学DES的实现</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
+<ol>
+<li><del>口语ppt</del></li>
+<li><del>GO区块链  生成地址功能</del></li>
+</ol>
+</blockquote>
         
       
       
@@ -851,7 +918,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
         		</li>
       		
 		</ul>
@@ -863,11 +930,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/java//" class="article-tag-list-link color5">java</a>
+        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
         		</li>
       		
 		</ul>
@@ -876,7 +943,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/javaWeb%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E5%92%8C%E8%B5%84%E6%BA%90%E5%88%86%E7%B1%BB/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/09/28/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-9/%E6%97%A5%E8%AE%B0-0073/">展开全文 >></a>
         </p>
       
 
@@ -912,7 +979,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/34/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/">71</a><a class="extend next" rel="next" href="/page/36/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/34/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><span class="page-number current">35</span><a class="page-number" href="/page/36/">36</a><a class="page-number" href="/page/37/">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/73/">73</a><a class="extend next" rel="next" href="/page/36/">下一页</a>
     </nav>
   
 
@@ -1250,6 +1317,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">federated_learing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
               </li>
             
             <div class="clearfix"></div>
