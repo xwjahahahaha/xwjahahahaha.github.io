@@ -54,7 +54,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005100923.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20200913205823.png">
 <meta property="article:published_time" content="2020-10-04T12:54:04.000Z">
-<meta property="article:modified_time" content="2021-02-13T07:49:16.178Z">
+<meta property="article:modified_time" content="2021-04-24T15:04:32.266Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -112,7 +112,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 365
+			总文章数 416
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -257,7 +257,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.4k字</span>
+        <span class="post-count">4.5k字</span>
       </span>
     </span>
 
@@ -500,7 +500,17 @@
 <p>上面三条命令会把所要用到的官方辅助包都下载到<code>$GOPATH/src/github.com/golang中，在windows下软连接不好弄，我的方法就是下载好了以后把这些复制一份到``$GOPATH/src/golang.org/x</code>下，使用的时候就优先使用golang.org/x下的包。</p>
 <h2 id="7-使用gob进行编码"><a href="#7-使用gob进行编码" class="headerlink" title="7. 使用gob进行编码"></a>7. 使用gob进行编码</h2><p>使用gob进行编码的时候，如果字节流中或者自定义的结构有interface（）对象那么需要提前注册</p>
 <p>编码解码的时候都需要添加！</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+<h2 id="8-panic-crypto-requested-hash-function-9-is-unavailable"><a href="#8-panic-crypto-requested-hash-function-9-is-unavailable" class="headerlink" title="8.panic: crypto: requested hash function #9 is unavailable"></a>8.panic: crypto: requested hash function #9 is unavailable</h2><p>类似于这样的错误无非两个错误导致:</p>
+<ul>
+<li><p>没初始化crypto对应的包</p>
+<p>详细解决: <a href="https://blog.csdn.net/test1280/article/details/106678075" target="_blank" rel="noopener">https://blog.csdn.net/test1280/article/details/106678075</a></p>
+</li>
+<li><p>包使用错误</p>
+<p>一些加密算法只有在<code>golang.org/x/crypto</code>中有,例如RIPEMD60</p>
+<p>解决: 安装: <code>go get -t golang.org/x/crypto/ripemd160</code></p>
+</li>
+</ul>
+
       
       
       <!-- 添加版权声明 -->
@@ -521,7 +531,7 @@
     2020-10-04
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-02-13
+    2021-04-24
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/10/04/技术贴/区块链/项目/使用golang实现比特币公链 /" title="使用golang写一条区块链" target="_blank">使用golang写一条区块链</a>
@@ -731,7 +741,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目功能演示"><span class="toc-number">1.</span> <span class="toc-text">项目功能演示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-printChain-输出整条区块链"><span class="toc-number">1.1.</span> <span class="toc-text">1. printChain 输出整条区块链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-getBalance-ADDRESS-查询账户余额"><span class="toc-number">1.2.</span> <span class="toc-text">2. getBalance ADDRESS 查询账户余额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-send-FROM-TO-AMOUNT-MINER-DATA-由FROM转AMOUNT钱给TO，由MINER挖矿，同时写入DATA"><span class="toc-number">1.3.</span> <span class="toc-text">3. send FROM TO AMOUNT MINER DATA  由FROM转AMOUNT钱给TO，由MINER挖矿，同时写入DATA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-getTransaction-TXHASH-查询交易信息"><span class="toc-number">1.4.</span> <span class="toc-text">4. getTransaction TXHASH 查询交易信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-newWallet-创建一个新的钱包（公私钥对）"><span class="toc-number">1.5.</span> <span class="toc-text">5. newWallet 创建一个新的钱包（公私钥对）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-listAddress-列举所有的钱包地址"><span class="toc-number">1.6.</span> <span class="toc-text">6. listAddress 列举所有的钱包地址</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Go基础"><span class="toc-number">2.</span> <span class="toc-text">一、Go基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#G252o环境安装"><span class="toc-number">2.1.</span> <span class="toc-text">G252o环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Go语言"><span class="toc-number">2.1.1.</span> <span class="toc-text">Go语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编程IDE：GOLand的安装与破解"><span class="toc-number">2.1.2.</span> <span class="toc-text">编程IDE：GOLand的安装与破解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go项目的目录结构"><span class="toc-number">2.2.</span> <span class="toc-text">Go项目的目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、一般的，一个Go项目在GOPATH下，会有如下三个目录："><span class="toc-number">2.2.0.1.</span> <span class="toc-text">1、一般的，一个Go项目在GOPATH下，会有如下三个目录：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、项目中的数据库Blot"><span class="toc-number">3.</span> <span class="toc-text">二、项目中的数据库Blot</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Blot简介与实例"><span class="toc-number">3.1.</span> <span class="toc-text">1.Blot简介与实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目存储结构分析"><span class="toc-number">3.2.</span> <span class="toc-text">2.项目存储结构分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、项目中go语言的区块序列化与反序列化"><span class="toc-number">4.</span> <span class="toc-text">三、项目中go语言的区块序列化与反序列化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Go语言迭代器原理与区块链的特殊迭代"><span class="toc-number">5.</span> <span class="toc-text">四、Go语言迭代器原理与区块链的特殊迭代</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、Go语言命令行的使用"><span class="toc-number">6.</span> <span class="toc-text">五、Go语言命令行的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、项目添加转账功能"><span class="toc-number">7.</span> <span class="toc-text">六、项目添加转账功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、账户余额UTXO计算细节"><span class="toc-number">8.</span> <span class="toc-text">七、账户余额UTXO计算细节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-计算账户余额时统计UTXO"><span class="toc-number">8.0.1.</span> <span class="toc-text">1. 计算账户余额时统计UTXO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-转账时计算UTXO中的账户余额"><span class="toc-number">8.0.2.</span> <span class="toc-text">2. 转账时计算UTXO中的账户余额</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、blotDB数据库的可视化"><span class="toc-number">9.</span> <span class="toc-text">八、blotDB数据库的可视化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、公私钥"><span class="toc-number">10.</span> <span class="toc-text">九、公私钥</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十、P2PKH的检验方式"><span class="toc-number">11.</span> <span class="toc-text">十、P2PKH的检验方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-比特币的几种校验方式"><span class="toc-number">11.1.</span> <span class="toc-text">1. 比特币的几种校验方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目中的逻辑"><span class="toc-number">11.2.</span> <span class="toc-text">2. 项目中的逻辑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一、地址String到公钥hash的分场景安全策略"><span class="toc-number">12.</span> <span class="toc-text">十一、地址String到公钥hash的分场景安全策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二、对于地址使用之前的校验细节"><span class="toc-number">13.</span> <span class="toc-text">十二、对于地址使用之前的校验细节</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三、-签名验证"><span class="toc-number">14.</span> <span class="toc-text">十三、 签名验证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-签名需要的内容："><span class="toc-number">14.1.</span> <span class="toc-text">1. 签名需要的内容：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-验证需要的内容"><span class="toc-number">14.2.</span> <span class="toc-text">2. 验证需要的内容 :</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-注意事项"><span class="toc-number">14.3.</span> <span class="toc-text">3. 注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-对于每个input的签名过程"><span class="toc-number">14.4.</span> <span class="toc-text">4. 对于每个input的签名过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十四、项目总结"><span class="toc-number">15.</span> <span class="toc-text">十四、项目总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-项目完成的功能"><span class="toc-number">15.1.</span> <span class="toc-text">1. 项目完成的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目的待完善地方（缺点）"><span class="toc-number">15.2.</span> <span class="toc-text">2. 项目的待完善地方（缺点）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十五、项目代码地址"><span class="toc-number">16.</span> <span class="toc-text">十五、项目代码地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tips"><span class="toc-number">17.</span> <span class="toc-text">Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Go语言语法"><span class="toc-number">17.1.</span> <span class="toc-text">1.Go语言语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Goland的使用技巧"><span class="toc-number">17.2.</span> <span class="toc-text">2.Goland的使用技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Blot中要注意的细节"><span class="toc-number">17.3.</span> <span class="toc-text">3.Blot中要注意的细节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-go结构体内字段命名不规范导致使用gob出错！！！！Golang大坑！"><span class="toc-number">17.4.</span> <span class="toc-text">4.go结构体内字段命名不规范导致使用gob出错！！！！Golang大坑！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-go循环修改数组值无效"><span class="toc-number">17.5.</span> <span class="toc-text">5. go循环修改数组值无效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-关于golang-org-x包问题"><span class="toc-number">17.6.</span> <span class="toc-text">6. 关于golang.org&#x2F;x包问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-使用gob进行编码"><span class="toc-number">17.7.</span> <span class="toc-text">7. 使用gob进行编码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">18.</span> <span class="toc-text"></span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目功能演示"><span class="toc-number">1.</span> <span class="toc-text">项目功能演示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-printChain-输出整条区块链"><span class="toc-number">1.1.</span> <span class="toc-text">1. printChain 输出整条区块链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-getBalance-ADDRESS-查询账户余额"><span class="toc-number">1.2.</span> <span class="toc-text">2. getBalance ADDRESS 查询账户余额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-send-FROM-TO-AMOUNT-MINER-DATA-由FROM转AMOUNT钱给TO，由MINER挖矿，同时写入DATA"><span class="toc-number">1.3.</span> <span class="toc-text">3. send FROM TO AMOUNT MINER DATA  由FROM转AMOUNT钱给TO，由MINER挖矿，同时写入DATA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-getTransaction-TXHASH-查询交易信息"><span class="toc-number">1.4.</span> <span class="toc-text">4. getTransaction TXHASH 查询交易信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-newWallet-创建一个新的钱包（公私钥对）"><span class="toc-number">1.5.</span> <span class="toc-text">5. newWallet 创建一个新的钱包（公私钥对）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-listAddress-列举所有的钱包地址"><span class="toc-number">1.6.</span> <span class="toc-text">6. listAddress 列举所有的钱包地址</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Go基础"><span class="toc-number">2.</span> <span class="toc-text">一、Go基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#G252o环境安装"><span class="toc-number">2.1.</span> <span class="toc-text">G252o环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Go语言"><span class="toc-number">2.1.1.</span> <span class="toc-text">Go语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编程IDE：GOLand的安装与破解"><span class="toc-number">2.1.2.</span> <span class="toc-text">编程IDE：GOLand的安装与破解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go项目的目录结构"><span class="toc-number">2.2.</span> <span class="toc-text">Go项目的目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、一般的，一个Go项目在GOPATH下，会有如下三个目录："><span class="toc-number">2.2.0.1.</span> <span class="toc-text">1、一般的，一个Go项目在GOPATH下，会有如下三个目录：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、项目中的数据库Blot"><span class="toc-number">3.</span> <span class="toc-text">二、项目中的数据库Blot</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Blot简介与实例"><span class="toc-number">3.1.</span> <span class="toc-text">1.Blot简介与实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目存储结构分析"><span class="toc-number">3.2.</span> <span class="toc-text">2.项目存储结构分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、项目中go语言的区块序列化与反序列化"><span class="toc-number">4.</span> <span class="toc-text">三、项目中go语言的区块序列化与反序列化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Go语言迭代器原理与区块链的特殊迭代"><span class="toc-number">5.</span> <span class="toc-text">四、Go语言迭代器原理与区块链的特殊迭代</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、Go语言命令行的使用"><span class="toc-number">6.</span> <span class="toc-text">五、Go语言命令行的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、项目添加转账功能"><span class="toc-number">7.</span> <span class="toc-text">六、项目添加转账功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、账户余额UTXO计算细节"><span class="toc-number">8.</span> <span class="toc-text">七、账户余额UTXO计算细节</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-计算账户余额时统计UTXO"><span class="toc-number">8.0.1.</span> <span class="toc-text">1. 计算账户余额时统计UTXO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-转账时计算UTXO中的账户余额"><span class="toc-number">8.0.2.</span> <span class="toc-text">2. 转账时计算UTXO中的账户余额</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、blotDB数据库的可视化"><span class="toc-number">9.</span> <span class="toc-text">八、blotDB数据库的可视化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、公私钥"><span class="toc-number">10.</span> <span class="toc-text">九、公私钥</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十、P2PKH的检验方式"><span class="toc-number">11.</span> <span class="toc-text">十、P2PKH的检验方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-比特币的几种校验方式"><span class="toc-number">11.1.</span> <span class="toc-text">1. 比特币的几种校验方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目中的逻辑"><span class="toc-number">11.2.</span> <span class="toc-text">2. 项目中的逻辑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一、地址String到公钥hash的分场景安全策略"><span class="toc-number">12.</span> <span class="toc-text">十一、地址String到公钥hash的分场景安全策略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二、对于地址使用之前的校验细节"><span class="toc-number">13.</span> <span class="toc-text">十二、对于地址使用之前的校验细节</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三、-签名验证"><span class="toc-number">14.</span> <span class="toc-text">十三、 签名验证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-签名需要的内容："><span class="toc-number">14.1.</span> <span class="toc-text">1. 签名需要的内容：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-验证需要的内容"><span class="toc-number">14.2.</span> <span class="toc-text">2. 验证需要的内容 :</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-注意事项"><span class="toc-number">14.3.</span> <span class="toc-text">3. 注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-对于每个input的签名过程"><span class="toc-number">14.4.</span> <span class="toc-text">4. 对于每个input的签名过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十四、项目总结"><span class="toc-number">15.</span> <span class="toc-text">十四、项目总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-项目完成的功能"><span class="toc-number">15.1.</span> <span class="toc-text">1. 项目完成的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目的待完善地方（缺点）"><span class="toc-number">15.2.</span> <span class="toc-text">2. 项目的待完善地方（缺点）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十五、项目代码地址"><span class="toc-number">16.</span> <span class="toc-text">十五、项目代码地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tips"><span class="toc-number">17.</span> <span class="toc-text">Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Go语言语法"><span class="toc-number">17.1.</span> <span class="toc-text">1.Go语言语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Goland的使用技巧"><span class="toc-number">17.2.</span> <span class="toc-text">2.Goland的使用技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Blot中要注意的细节"><span class="toc-number">17.3.</span> <span class="toc-text">3.Blot中要注意的细节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-go结构体内字段命名不规范导致使用gob出错！！！！Golang大坑！"><span class="toc-number">17.4.</span> <span class="toc-text">4.go结构体内字段命名不规范导致使用gob出错！！！！Golang大坑！</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-go循环修改数组值无效"><span class="toc-number">17.5.</span> <span class="toc-text">5. go循环修改数组值无效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-关于golang-org-x包问题"><span class="toc-number">17.6.</span> <span class="toc-text">6. 关于golang.org&#x2F;x包问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-使用gob进行编码"><span class="toc-number">17.7.</span> <span class="toc-text">7. 使用gob进行编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-panic-crypto-requested-hash-function-9-is-unavailable"><span class="toc-number">17.8.</span> <span class="toc-text">8.panic: crypto: requested hash function #9 is unavailable</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -952,23 +962,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">picGo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -980,11 +978,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">picGo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">七牛云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -992,11 +998,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1008,27 +1018,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">geth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">DApp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1040,7 +1038,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1052,7 +1062,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1060,7 +1070,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+                <a href="javascript:void(0)" class="js-tag color5">ethermint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1076,11 +1086,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1096,11 +1102,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">DApp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">geth</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">每日一记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1108,7 +1134,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
+                <a href="javascript:void(0)" class="js-tag color3">federate_learning</a>
               </li>
             
             <div class="clearfix"></div>

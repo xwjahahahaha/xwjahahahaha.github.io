@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 365
+			总文章数 416
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/区块链/Cosmos/官方案例库/scavenger-hunt-game测试项目部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/算法/回溯/22-括号生成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/%E5%AE%98%E6%96%B9%E6%A1%88%E4%BE%8B%E5%BA%93/scavenger-hunt-game%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">scavenger_hunt_game测试项目部署</a>
+      <a class="article-title" href="/2021/04/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF/22-%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/">22-括号生成</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/03/01/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/%E5%AE%98%E6%96%B9%E6%A1%88%E4%BE%8B%E5%BA%93/scavenger-hunt-game%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/04/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF/22-%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/03/01/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/%E5%AE%98%E6%96%B9%E6%A1%88%E4%BE%8B%E5%BA%93/scavenger-hunt-game%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2021-03-01T07:07:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
+<a href="/2021/04/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF/22-%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/" class="archive-article-date">
+  	<time datetime="2021-04-14T07:29:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-14</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">5k字</span>
+        <span class="post-count">271字</span>
       </span>
     </span>
 
@@ -221,7 +221,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">21分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -233,9 +233,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="scavenger-hunt-game"><a href="#scavenger-hunt-game" class="headerlink" title="scavenger hunt game"></a><strong>scavenger hunt</strong> game</h1><p>cosmos官方给出的拾荒者狩猎游戏运行<strong>部署细节/重点记录,以及文档翻译</strong></p>
-<p>官方地址:<a href="https://tutorials.cosmos.network/scavenge/tutorial/02-the-game.html" target="_blank" rel="noopener">The Game | Cosmos SDK Tutorials</a></p>
-<p>文档翻译部分来源于:<a href="https://blog.csdn.net/lk2684753/article/details/113849468" target="_blank" rel="noopener">https://blog.csdn.net/lk2684753/article/details/113849468</a></p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/generate-parentheses/" target="_blank" rel="noopener">22. 括号生成</a></p>
+<p>难度中等</p>
+<p>数字 <code>n</code> 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 <strong>有效的</strong> 括号组合。</p>
         
       
       
@@ -268,7 +268,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cosmos</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -284,7 +284,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/cosmos//" class="article-tag-list-link color2">cosmos</a>
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -293,7 +293,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/%E5%AE%98%E6%96%B9%E6%A1%88%E4%BE%8B%E5%BA%93/scavenger-hunt-game%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/04/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF/22-%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/">展开全文 >></a>
         </p>
       
 
@@ -327,27 +327,27 @@
 
 
   
-    <article id="post-技术贴/前端/Nodejs/nodejs踩坑记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/算法/回溯/17-电话号码的字母组合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/Nodejs/nodejs%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">nodejs踩坑记录</a>
+      <a class="article-title" href="/2021/04/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF/17-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">17-电话号码的字母组合</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/03/01/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/Nodejs/nodejs%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/04/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF/17-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/03/01/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/Nodejs/nodejs%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2021-03-01T04:41:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
+<a href="/2021/04/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF/17-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/" class="archive-article-date">
+  	<time datetime="2021-04-14T02:12:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-14</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -356,7 +356,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">67字</span>
+        <span class="post-count">369字</span>
       </span>
     </span>
 
@@ -377,9 +377,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="npm运行出错Missing-required-argument-1"><a href="#npm运行出错Missing-required-argument-1" class="headerlink" title="npm运行出错Missing required argument #1"></a>npm运行出错Missing required argument #1</h1><p>原因:目前的nodejs过时了,与npm不匹配</p>
-<p>更新nodejs到最新版本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1) sudo npm install -g n</span><br><span class="line">2) sudo n latest</span><br><span class="line">3) sudo npm install -g npm</span><br><span class="line">4) hash -d npm</span><br><span class="line">5) npm i</span><br></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/" target="_blank" rel="noopener">17. 电话号码的字母组合</a></p>
+<p>难度中等</p>
         
       
       
@@ -412,7 +411,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -428,7 +427,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/nodejs//" class="article-tag-list-link color2">nodejs</a>
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -437,7 +436,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%89%8D%E7%AB%AF/Nodejs/nodejs%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/04/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF/17-%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88/">展开全文 >></a>
         </p>
       
 
@@ -471,27 +470,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2021-03/日记-0132" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2021-04/日记-0157" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-03/%E6%97%A5%E8%AE%B0-0132/">日记_0132</a>
+      <a class="article-title" href="/2021/04/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0157/">日记_0157</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/03/01/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-03/%E6%97%A5%E8%AE%B0-0132/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/04/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0157/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/03/01/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-03/%E6%97%A5%E8%AE%B0-0132/" class="archive-article-date">
-  	<time datetime="2021-03-01T02:18:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
+<a href="/2021/04/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0157/" class="archive-article-date">
+  	<time datetime="2021-04-13T00:45:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-13</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -500,7 +499,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">363字</span>
+        <span class="post-count">507字</span>
       </span>
     </span>
 
@@ -509,7 +508,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -525,58 +524,66 @@
 <thead>
 <tr>
 <th>任务</th>
-<th>英语</th>
-<th>开发</th>
-<th>项目</th>
-<th><font color='red'>科研（No.1）</font></th>
+<th>每天</th>
+<th>开发-云容器技术</th>
+<th>项目与框架</th>
+<th>科研-区块链(FL+BC)</th>
 <th>预备事宜</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>①</td>
-<td><strong>英语50词</strong></td>
-<td><strong>后端：go语言深化，框架gin等</strong>，<strong>go书看完</strong></td>
-<td>区块链公链项目</td>
-<td>论文一周两篇细读,每个月尝试写一篇</td>
+<td>1.</td>
+<td><strong>英语单词</strong></td>
+<td>go基础</td>
+<td>SimpleBitcoin</td>
+<td>FL/分布式存储论文一周一篇细读</td>
 <td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td>
 </tr>
 <tr>
-<td>②</td>
-<td>英文视频(生活大爆炸开始)</td>
-<td>区块链框架Cosmos</td>
-<td>金窝窝项目需求准备cosmos</td>
-<td>分布式课程论文</td>
-<td>看比赛资讯，准备明年的<strong>区块链比赛</strong></td>
+<td>2.</td>
+<td>语法课看完</td>
+<td>go网络编程、Web框架</td>
+<td>联邦学习框架</td>
+<td>写专利</td>
+<td>看比赛资讯，准备<strong>区块链比赛</strong></td>
 </tr>
 <tr>
-<td>③</td>
+<td>3.</td>
+<td><font color='red'>六级</font></td>
+<td>go数据库、ORM、go高级编程</td>
 <td></td>
-<td>Linux学完</td>
-<td>本科毕业设计</td>
-<td></td>
-<td>为下学期的<strong>暑期实习</strong>做准备</td>
+<td>机器学习课程</td>
+<td>为<strong>7月/研二初暑期实习</strong>做准备</td>
 </tr>
 <tr>
-<td>④</td>
+<td>4.</td>
+<td>Leetcode</td>
+<td>go容器技术docker、k8s</td>
 <td></td>
-<td>看源码Fabric、以太坊、比特币等</td>
-<td>科技部编程比赛</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>⑤</td>
-<td></td>
-<td>有时间的话：Java</td>
-<td>微信小程序前端uni-app</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>⑥</td>
+<td>5.</td>
+<td></td>
+<td>go微服务与任务调度</td>
 <td></td>
 <td></td>
-<td>代客泊车项目申报书</td>
+<td></td>
+</tr>
+<tr>
+<td>6.</td>
+<td></td>
+<td>看源码docker、k8s、Fabric、以太坊、比特币等</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7.</td>
+<td></td>
+<td>Linux、C++</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -638,7 +645,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-03/%E6%97%A5%E8%AE%B0-0132/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/04/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0157/">展开全文 >></a>
         </p>
       
 
@@ -672,27 +679,27 @@
 
 
   
-    <article id="post-技术贴/区块链/Cosmos/cosmos-2-开发基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2021-04/日记-0156" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-2-%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/">cosmos-2-开发基础</a>
+      <a class="article-title" href="/2021/04/11/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0156/">日记_0156</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/02/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-2-%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/04/11/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0156/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/02/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-2-%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2021-02-28T06:39:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-28</time>
+<a href="/2021/04/11/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0156/" class="archive-article-date">
+  	<time datetime="2021-04-11T00:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-11</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -701,7 +708,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">10.3k字</span>
+        <span class="post-count">520字</span>
       </span>
     </span>
 
@@ -710,7 +717,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">49分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -722,202 +729,70 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="二、开发基础"><a href="#二、开发基础" class="headerlink" title="二、开发基础"></a>二、开发基础</h1><h2 id="2-1-Cosmos-SDK"><a href="#2-1-Cosmos-SDK" class="headerlink" title="2.1. Cosmos SDK"></a>2.1. Cosmos SDK</h2><p>Cosmos  SDK是方便区块链应用开发的基础框架,方便程序员实现基于Tendermint的安全状态机.它将实现多重数据的持久化存储以及交易处理的路由功能.</p>
-<h3 id="2-1-1-application-specific-blockchains"><a href="#2-1-1-application-specific-blockchains" class="headerlink" title="2.1.1 application-specific blockchains"></a>2.1.1 application-specific blockchains</h3><p>就是尽量让一个区块链应用使用单独的一条链,不会与其他的应用共享资源,拥有对该条链的完全主权.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">                ^  +-------------------------------+  ^</span><br><span class="line">                |  |                               |  |   Built <span class="keyword">with</span> Cosmos SDK</span><br><span class="line">                |  |  State-machine = Application  |  |</span><br><span class="line">                |  |                               |  v</span><br><span class="line">                |  +-------------------------------+</span><br><span class="line">                |  |                               |  ^</span><br><span class="line">Blockchain node |  |           Consensus           |  |</span><br><span class="line">                |  |                               |  |</span><br><span class="line">                |  +-------------------------------+  |   Tendermint Core</span><br><span class="line">                |  |                               |  |</span><br><span class="line">                |  |           Networking          |  |</span><br><span class="line">                |  |                               |  |</span><br><span class="line">                v  +-------------------------------+  v</span><br></pre></td></tr></table></figure>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cosmos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/block-chain//" class="article-tag-list-link color2">block_chain</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-2-%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2021-02/日记-0131" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-02/%E6%97%A5%E8%AE%B0-0131/">日记_0131</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/02/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-02/%E6%97%A5%E8%AE%B0-0131/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/02/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-02/%E6%97%A5%E8%AE%B0-0131/" class="archive-article-date">
-  	<time datetime="2021-02-22T09:10:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-22</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">411字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="寒假待办任务："><a href="#寒假待办任务：" class="headerlink" title="寒假待办任务："></a>寒假待办任务：</h2><table>
+        <h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table>
 <thead>
 <tr>
 <th>任务</th>
-<th>每日任务（必须每天完成）</th>
-<th>开发</th>
-<th>项目</th>
-<th><font color='red'>科研（No.1）</font></th>
+<th>每天</th>
+<th>开发-云容器技术</th>
+<th>项目与框架</th>
+<th>科研-区块链(FL+BC)</th>
 <th>预备事宜</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>①</td>
-<td><strong>英语50词</strong></td>
-<td><strong>后端：go语言深化，框架gin等</strong>，<strong>go书看完</strong></td>
-<td>博客小项目</td>
-<td>区块链知识面拓展</td>
+<td>1.</td>
+<td><strong>英语单词</strong></td>
+<td>go基础</td>
+<td>SimpleBitcoin</td>
+<td>FL/分布式存储论文一周一篇细读</td>
 <td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td>
 </tr>
 <tr>
-<td>②</td>
-<td><strong>leetcode每日一题</strong></td>
-<td>前端：Vue</td>
-<td>金窝窝项目需求准备cosmos</td>
-<td><font color='red'><strong>论文粗读10篇，细读5篇，做好笔记</strong></font></td>
-<td>看比赛资讯，准备明年的<strong>区块链比赛</strong></td>
+<td>2.</td>
+<td>语法课看完</td>
+<td>go网络编程、Web框架</td>
+<td>联邦学习框架</td>
+<td>写专利</td>
+<td>看比赛资讯，准备<strong>区块链比赛</strong></td>
 </tr>
 <tr>
-<td>③</td>
+<td>3.</td>
+<td><font color='red'>六级</font></td>
+<td>go数据库、ORM、go高级编程</td>
 <td></td>
-<td>Linux学完</td>
-<td>本科毕业设计</td>
-<td><font color='red'><strong>核心: 产生自己的构思</strong></font></td>
-<td>为下学期的<strong>暑期实习</strong>做准备</td>
+<td>机器学习课程</td>
+<td>为<strong>7月/研二初暑期实习</strong>做准备</td>
 </tr>
 <tr>
-<td>④</td>
+<td>4.</td>
+<td>Leetcode</td>
+<td>go容器技术docker、k8s</td>
 <td></td>
-<td>看源码Fabric、以太坊、比特币等</td>
-<td>科技部编程比赛</td>
-<td>分布式课程</td>
-<td></td>
-</tr>
-<tr>
-<td>⑤</td>
-<td></td>
-<td>有时间的话：Java</td>
-<td>微信小程序前端uni-app</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>⑥</td>
+<td>5.</td>
+<td></td>
+<td>go微服务与任务调度</td>
 <td></td>
 <td></td>
-<td><font color='red'><strong>代客泊车项目申报书</strong></font></td>
+<td></td>
+</tr>
+<tr>
+<td>6.</td>
+<td></td>
+<td>看源码docker、k8s、Fabric、以太坊、比特币等</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7.</td>
+<td></td>
+<td>Linux、C++</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -979,7 +854,152 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-02/%E6%97%A5%E8%AE%B0-0131/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/04/11/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0156/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/算法/图/200-岛屿数量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%BE/200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">200-岛屿数量</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/04/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%BE/200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/04/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%BE/200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/" class="archive-article-date">
+  	<time datetime="2021-04-09T01:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-09</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">802字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">4分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="200-岛屿数量"><a href="#200-岛屿数量" class="headerlink" title="200. 岛屿数量"></a><a href="https://leetcode-cn.com/problems/number-of-islands/" target="_blank" rel="noopener">200. 岛屿数量</a></h4><p>难度中等</p>
+<p>给你一个由 <code>&#39;1&#39;</code>（陆地）和 <code>&#39;0&#39;</code>（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
+<p>岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。</p>
+<p>此外，你可以假设该网格的四条边均被水包围。</p>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%9B%BE/200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">展开全文 >></a>
         </p>
       
 
@@ -1015,7 +1035,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/73/">73</a><a class="extend next" rel="next" href="/page/12/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/10/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/84/">84</a><a class="extend next" rel="next" href="/page/12/">下一页</a>
     </nav>
   
 
@@ -1200,23 +1220,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">picGo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1228,11 +1236,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">picGo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">七牛云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1240,11 +1256,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1256,27 +1276,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">geth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">DApp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1288,7 +1296,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1300,7 +1320,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1308,7 +1328,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+                <a href="javascript:void(0)" class="js-tag color5">ethermint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1324,11 +1344,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1344,11 +1360,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">DApp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">geth</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">每日一记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1356,7 +1392,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
+                <a href="javascript:void(0)" class="js-tag color3">federate_learning</a>
               </li>
             
             <div class="clearfix"></div>

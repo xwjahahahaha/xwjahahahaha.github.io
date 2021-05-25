@@ -15,17 +15,16 @@
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="参考链接：闪电网络学习资源目录 一、微支付通道微支付通道举例与理解 “如果森林里的一棵树倒了，而周围没有人听到，它会发出声音吗?”">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/y48MUU.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/I5HB88.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/md0W3G.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/i6MZwS.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/5bFtKf.png">
 <meta property="article:published_time" content="2021-02-08T11:30:46.000Z">
-<meta property="article:modified_time" content="2021-03-02T13:00:13.740Z">
+<meta property="article:modified_time" content="2021-05-07T12:14:31.647Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="block_chain">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/y48MUU.png">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/I5HB88.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -79,7 +78,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 365
+			总文章数 416
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -251,7 +250,7 @@
 <a id="more"></a>
 
 <p><strong>应用场景：</strong></p>
-<p>​    大量的小额交易，因为手续费的存在所以不划算。<strong>通过未支付通道聚少成多，==只需要一首一尾两个交易上链==，减少支付次数以及区块链的压力。</strong></p>
+<p>​    大量的小额交易，因为手续费的存在所以不划算。<strong>通过微支付通道聚少成多，==只需要一首一尾两个交易上链==，减少支付次数以及区块链的压力。</strong></p>
 <p><strong>交易类型：</strong></p>
 <ul>
 <li><p>保证金交易(Funding Transaction)</p>
@@ -279,14 +278,13 @@
 <h3 id="闪电网络的关键技术"><a href="#闪电网络的关键技术" class="headerlink" title="闪电网络的关键技术"></a>闪电网络的关键技术</h3><p>学习来源:<a href="https://www.jianshu.com/p/e326802294e1" target="_blank" rel="noopener">https://www.jianshu.com/p/e326802294e1</a></p>
 <h4 id="RSMC"><a href="#RSMC" class="headerlink" title="RSMC"></a>RSMC</h4><p>(Recoverable Sequence Maturity Contract，序列到期可撤销合约）</p>
 <p>==RSMC解决了微支付通道中货币单向流动问题==</p>
-<h5 id="1-建立双向微支付通道"><a href="#1-建立双向微支付通道" class="headerlink" title="1.建立双向微支付通道"></a>1.建立双向微支付通道</h5><img src="http://xwjpics.gumptlu.work/qinniu_uPic/y48MUU.png" alt="y48MUU" style="zoom:50%;" />
-
+<h5 id="1-建立双向微支付通道"><a href="#1-建立双向微支付通道" class="headerlink" title="1.建立双向微支付通道"></a>1.建立双向微支付通道</h5><p>u</p>
 <ol>
 <li><p>张三与李四各自拿出一个btc,构建Funding Tx,此交易需要张三和李四的2/2双重签名才能够上链生效,目前未签名,所以不生效.Funding Tx的输出为张三和李四的多重签名地址.</p>
 </li>
 <li><p>张三创建Commitment Tx,分别是C1A和D1A,这两个交易都需要张三与李四的2/2双重签名才能生效,其中张三2代表的就是张三的第二把私钥.</p>
 <p>​    C1A中的输入:Funding Tx的输出</p>
-<p>​    C1A中的输出: 1. 张三&amp;李四的多重签名地址, 金额 1BTC。2. 李四地址, 金额 1BTC</p>
+<p>​    C1A中的输出: 1. 张三&amp;李四的多重签名地址(类似于找零), 金额 1BTC。2. 李四地址, 金额 1BTC</p>
 <p>​    D1A中的输入: C1A中的第一个输出</p>
 <p>​    D1A中的输出: 张三, 金额 1BTC, 序列号: 1000 (序列号的作用是阻止当前交易进块,只有前向交易有Sequence个确认才能够进块)</p>
 <p>张三构建好之后,交给李四签名</p>
@@ -359,7 +357,7 @@
     2021-02-08
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-03-02
+    2021-05-07
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/02/08/知识贴/区块链/微支付通道与闪电网络/" title="微支付通道与闪电网络" target="_blank">微支付通道与闪电网络</a>
@@ -790,23 +788,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">picGo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -818,11 +804,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">picGo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">七牛云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,11 +824,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -846,27 +844,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">geth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">DApp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -878,7 +864,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -890,7 +888,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,7 +896,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+                <a href="javascript:void(0)" class="js-tag color5">ethermint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -914,11 +912,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -934,11 +928,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">DApp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">geth</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">每日一记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -946,7 +960,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
+                <a href="javascript:void(0)" class="js-tag color3">federate_learning</a>
               </li>
             
             <div class="clearfix"></div>

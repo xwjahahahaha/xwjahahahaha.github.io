@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/zkfP9T.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20210202124259.png">
 <meta property="article:published_time" content="2020-07-03T08:16:25.000Z">
-<meta property="article:modified_time" content="2021-04-09T01:40:18.066Z">
+<meta property="article:modified_time" content="2021-05-13T03:24:27.658Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta property="article:tag" content="java">
@@ -80,7 +80,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 365
+			总文章数 416
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -225,7 +225,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.1k字</span>
+        <span class="post-count">3.7k字</span>
       </span>
     </span>
 
@@ -234,7 +234,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
+        <span class="post-count">13分</span>
       </span>
     </span>
 </div>
@@ -264,10 +264,6 @@
 <h1 id="二、数组"><a href="#二、数组" class="headerlink" title="二、数组"></a>二、数组</h1><p><strong>数组是存放在连续内存空间的相同数据类型的集合</strong>，所以<strong>易查询不易增删</strong>（空间连续需要移动元素）</p>
 <p>二维数组在空间中<strong>不是连续的</strong>，它是由多条连续的一维数组空间以及一个一维数组存放各个首地址。</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/3c7dkX.jpg" alt="3c7dkX"></p>
-<h2 id="1-二分法查询"><a href="#1-二分法查询" class="headerlink" title="1. 二分法查询"></a>1. 二分法查询</h2><p>前提：有序数组，且数组中无重复元素（如果有的话结果可能不唯一）</p>
-<p>题目中数组是有序的 =&gt; 二分法</p>
-<p>二分法的边界处理问题要抓住<strong>循环不变量</strong> =&gt;区间</p>
-<p><a href="https://myblog.gumptlu.work/2021/02/16/技术贴/算法/数组/35-搜索插入位置/" target="_blank" rel="noopener">35-搜索插入位置</a></p>
 <h1 id="三、字符串处理"><a href="#三、字符串处理" class="headerlink" title="三、字符串处理"></a>三、字符串处理</h1><h2 id="3-1-翻转字符串中的字符"><a href="#3-1-翻转字符串中的字符" class="headerlink" title="3.1 翻转字符串中的字符"></a>3.1 翻转字符串中的字符</h2><p>手写实现的两种思路：</p>
 <ol>
 <li><strong>较短或确定长度的字符串</strong>：循环字符串的0 ~ len/2个字符,交换字符str[i]与str[len-1-i]</li>
@@ -315,6 +311,25 @@
 
 </li>
 </ol>
+<h1 id="六、堆-优先队列"><a href="#六、堆-优先队列" class="headerlink" title="六、堆/优先队列"></a>六、堆/优先队列</h1><h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>模式识别:  <font color='#e54d42'>维护<strong>动态数据(可能有持续新输入)</strong>的最大、小值  =&gt; 堆</font></p>
+<p>堆的作用:</p>
+<ul>
+<li><p>构建优先队列</p>
+</li>
+<li><p>支持堆排序</p>
+</li>
+<li><p>快速找出一个集合中的最小值（或者最大值）=&gt; topK问题</p>
+<p>最大堆求topk小，最小堆求 topk 大。</p>
+<ul>
+<li>topk小：构建一个 k 个数的最大堆，当读取的数小于根节点时，替换根节点，重新塑造最大堆</li>
+<li>topk大：构建一个 k 个数的最小堆，当读取的数大于根节点时，替换根节点，重新塑造最小堆</li>
+</ul>
+</li>
+</ul>
+<p>topK大问题:<a href="https://leetcode-cn.com/problems/top-k-frequent-elements/" target="_blank" rel="noopener">347. 前 K 个高频元素</a>、<a href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/" target="_blank" rel="noopener">215. 数组中的第K个最大元素</a></p>
+<h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><p><strong>使用场景：复杂数据结构的排序</strong></p>
+<p><a href="https://leetcode-cn.com/problems/k-closest-points-to-origin/" target="_blank" rel="noopener">973. 最接近原点的 K 个点</a></p>
+<p>在优先队列中，<strong>元素被赋予优先级</strong>。当访问元素时，<strong>具有最高优先级的元素最先删除。</strong>优先队列具有最高级先出 （first in, largest out）的行为特征。通常采用<strong>堆</strong>数据结构来实现。</p>
 <h1 id="六、方法"><a href="#六、方法" class="headerlink" title="六、方法"></a>六、方法</h1><h2 id="6-1-递归与迭代"><a href="#6-1-递归与迭代" class="headerlink" title="6.1 递归与迭代"></a>6.1 递归与迭代</h2><h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><ol>
 <li><p><strong>分治法递归提前分析好参数变量(画图)</strong></p>
 <p>例:</p>
@@ -331,21 +346,70 @@
 <li>迭代,显性的维护该栈</li>
 </ul>
 <h3 id="3-2-BFS"><a href="#3-2-BFS" class="headerlink" title="3.2 BFS"></a>3.2 BFS</h3><p>BFS广度优先用<font color='orange'>队列</font>。</p>
-<h2 id="6-3-优先队列"><a href="#6-3-优先队列" class="headerlink" title="6.3 优先队列"></a>6.3 优先队列</h2><p><strong>使用场景：复杂数据结构的排序</strong></p>
-<p><a href="https://leetcode-cn.com/problems/k-closest-points-to-origin/" target="_blank" rel="noopener">973. 最接近原点的 K 个点</a></p>
-<p>在优先队列中，<strong>元素被赋予优先级</strong>。当访问元素时，<strong>具有最高优先级的元素最先删除。</strong>优先队列具有最高级先出 （first in, largest out）的行为特征。通常采用<strong>堆</strong>数据结构来实现。</p>
-<h2 id="6-4-回溯"><a href="#6-4-回溯" class="headerlink" title="6.4 回溯"></a>6.4 回溯</h2><p>例题：<a href="https://leetcode-cn.com/problems/palindrome-partitioning/" target="_blank" rel="noopener">131. 分割回文串</a></p>
-<p><strong>搜索问题</strong>主要使用回溯法。</p>
+<h2 id="6-3-快速选择"><a href="#6-3-快速选择" class="headerlink" title="6.3 快速选择"></a>6.3 快速选择</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>模式识别: <font color='#e54d42'><strong>确定数据量</strong>的情况下寻找第K大的数 =&gt; 快速选择算法</font></p>
+<p><strong>动态数据流(持续有新输入)</strong> =&gt; 选择堆排序算法</p>
+<p>快速排序中轴值(pivot)计算的方法</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理:"></a>原理:</h3><ol>
+<li><p><font color='#e54d42'><strong>快速排序划分Partition过程中, 能够确定的轴值其位置就一定在最终排序位置中确定了</strong></font>(因为不管划分左边部分还是右边部分是否有顺序,其数量已定则轴值位置就确定了)</p>
+</li>
+<li><p><strong>如果某次划分的轴值为目标第k个时</strong>,那么此轴值就是题要求的第k大/小元素(大小看排序顺序),其他部分的顺序就不用管</p>
+</li>
+</ol>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化:"></a>优化:</h3><p>快速排序的性能和「划分」出的子数组的长度密切相关,如果没次轴值的选择造成的划分都是1和n-1,那么这种情况最坏为O($N^2$), 通过<strong>随机化</strong>可以加速整个过程.</p>
+<p>随机化简单来说就是在partition之前(其默认选择最左或者最右), 将数列中随机一个元素与最左/右调换</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><a href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/" target="_blank" rel="noopener">215. 数组中的第K个最大元素</a></p>
+<h2 id="6-4-回溯"><a href="#6-4-回溯" class="headerlink" title="6.4 回溯"></a>6.4 回溯</h2><blockquote>
+<p>一种通过探索所有可能的候选解来找出所有的解的算法。如果候选解被确认不是一个解（或者至少不是最后一个解），回溯算法会通过在上一步进行一些变化抛弃该解，即回溯并且再次尝试。</p>
+</blockquote>
+<p>回溯借助于栈进行递归,是树型DFS的典型使用方法</p>
+<p>回溯法的思想也是要找子问题, 结合子问题解决原问题:</p>
+<ul>
+<li>字符串, 找子字符串</li>
+<li>树, 子树</li>
+</ul>
+<p><font color='#39b54a'><strong>搜索问题</strong>主要使用回溯法。</font>例如:</p>
+<ul>
+<li><p>求组合:</p>
+<ul>
+<li><p>全部组合</p>
+<p><a href="https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/" target="_blank" rel="noopener">17. 电话号码的字母组合</a></p>
+</li>
+<li><p>部分组合 : 在全部组合的基础上按要求剪枝</p>
+<p><a href="https://leetcode-cn.com/problems/palindrome-partitioning/" target="_blank" rel="noopener">131. 分割回文串</a></p>
+</li>
+</ul>
+</li>
+</ul>
 <p>回溯法思考的步骤：</p>
-<p>1、画递归树；</p>
-<p>2、根据自己画的递归树编码。</p>
+<ol>
+<li>画递归树；</li>
+<li>根据自己画的递归树编码。</li>
+<li><strong>注意剪枝</strong><ul>
+<li>子问题一致性: 子问题为false则其所有父问题一定为false</li>
+</ul>
+</li>
+<li><strong>递归树从底向上的路径就是答案</strong></li>
+</ol>
+<hr>
+<p>一般模版:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子集一般对应递归树path</span></span><br><span class="line">回溯(子集, 全集):</span><br><span class="line">    <span class="keyword">if</span> 满足条件/结束条件:  	<span class="comment">// 下一步做什么,所以会当成结束条件</span></span><br><span class="line">        加入答案</span><br><span class="line">    <span class="keyword">for</span> 元素 in 全集:			 <span class="comment">// 这一步要做什么, 再过度到下一步</span></span><br><span class="line">        元素加入子集</span><br><span class="line">        回溯(子集, 全集)		<span class="comment">// 回溯到上一步需要改回什么</span></span><br><span class="line">        回退操作/元素退出子集</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>注意事项:</p>
+<ul>
+<li><p>回退操作一定要深度遍历到最后再进行,即一般放在代码最后,最直接的方法使用defer:</p>
+<p>​            <code>defer func() { 回退的步骤 }() // 回溯操作</code></p>
+</li>
+<li><p>递归函数的参数要选择好,<font color='#e54d42'><strong>使用回溯处理子问题时,递归函数的参数要做到对子问题的缩减</strong></font></p>
+</li>
+</ul>
 <h2 id="6-5-动态规划"><a href="#6-5-动态规划" class="headerlink" title="6.5 动态规划"></a>6.5 动态规划</h2><ul>
 <li><p>动态规划的核心思想是:<strong>每次都尽可能的利用上次的结果为本次计算提供服务</strong></p>
-<p><em>==借助上一步的成果完成下一步==*</em>,很重要的思想!<font color='#e54d42'>(不仅仅在动态规划中)</font></p>
+<p><em>==借助上一步(或者是对上所有步进行筛选最优的一步)的成果完成下一步==</em>,很重要的思想!<font color='#e54d42'>(不仅仅在动态规划中)</font></p>
 </li>
 <li><p>所以对应的就需要构造状态转移方程,来将本次的结果进行拆分<strong>[已知答案的子问题] &amp;&amp; [其他易求解的问题]</strong></p>
 </li>
-<li><p>本质上也是<strong>使用空间来换取时间</strong>的典型案例(使用空间记录子问题答案,然后不断推向父问题以至于最后得出答案)</p>
+<li><p>本质上也是<strong>使用空间来换取时间</strong>的典型案例(使用空间记录子问题答案,然后不断推向父问题以至于最后得出答案) <strong>==由下往上==</strong></p>
 </li>
 <li><p>动态规划要注意<strong>边界条件的设定初始值</strong>,这样才能保证推导的正确性</p>
 </li>
@@ -353,6 +417,67 @@
 </li>
 </ul>
 <p>示例: <a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">5. 最长回文子串</a></p>
+<p>根据子问题最优结果最为此问题的求解基础: <a href="https://leetcode-cn.com/problems/coin-change/" target="_blank" rel="noopener">322. 零钱兑换</a>、<a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">300. 最长递增子序列</a></p>
+<h2 id="6-6-二分法"><a href="#6-6-二分法" class="headerlink" title="6.6 二分法"></a>6.6 二分法</h2><h3 id="区间缩放前提"><a href="#区间缩放前提" class="headerlink" title="区间缩放前提"></a>区间缩放前提</h3><p>前提：有序数组(或<strong>部分有序</strong>)，且数组中无重复元素（如果有的话结果可能不唯一）</p>
+<p>题目中数组是有序的 =&gt; 二分法</p>
+<p>二分法的边界处理问题要抓住<strong>循环不变量</strong> =&gt;区间</p>
+<p><a href="https://myblog.gumptlu.work/2021/02/16/技术贴/算法/数组/35-搜索插入位置/" target="_blank" rel="noopener">35-搜索插入位置</a></p>
+<p><font color='#e54d42'><strong>核心: 每次都能够依据条件(有序)删除掉一半的区间</strong></font></p>
+<p>一般前提: <strong>有序</strong>, 但是也有虽然无序但可按特殊性质进行区间缩放,例如峰值问题:</p>
+<p><a href="https://leetcode-cn.com/problems/find-peak-element/" target="_blank" rel="noopener">162. 寻找峰值</a></p>
+<p>例如部分有序问题: <a href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array/" target="_blank" rel="noopener">33. 搜索旋转排序数组</a></p>
+<h3 id="开-闭区间"><a href="#开-闭区间" class="headerlink" title="开/闭区间"></a>开/闭区间</h3><p>区间边界要明确, 左开右闭、闭区间、左闭右开都可以 <font color='#39b54a'>(每个缩放后的小区间都要保持一致)</font></p>
+<table>
+<thead>
+<tr>
+<th align="center">区间</th>
+<th align="center">初始化</th>
+<th align="center">判断条件</th>
+<th align="center">缩放</th>
+<th align="center">结束情况</th>
+<th align="center">目标值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">闭区间[l, r]</td>
+<td align="center">l=0, r=n-1</td>
+<td align="center">While(l &lt;= r)<font color='#39b54a'>(左右指针岔开时结束, 长度为1也处理掉)</font></td>
+<td align="center">left = mid+1 或者 right= mid-1</td>
+<td align="center">left在右边, right在左边</td>
+<td align="center">left</td>
+</tr>
+<tr>
+<td align="center">左闭右开[l, r)</td>
+<td align="center">l=0, r=n</td>
+<td align="center">While(l+1 &lt; r) <font color='#39b54a'>(保持区间长度&gt;1)</font></td>
+<td align="center">left = mid 或者 right = mid</td>
+<td align="center">left &lt; right</td>
+<td align="center">无法确定,还需要判断一次</td>
+</tr>
+<tr>
+<td align="center">左闭右开[l, r)</td>
+<td align="center">l=0, r=n</td>
+<td align="center">While(l &lt; r)</td>
+<td align="center">left = mid +1 或者 right = mid</td>
+<td align="center">left在right的右边</td>
+<td align="center">Left</td>
+</tr>
+</tbody></table>
+<p><font color='#e54d42'>表格可以不用硬记, 缩放中是否可以在mid基础上+1、-1关键看<strong>mid位置本身是否可能为题意答案</strong>, 如果不符合那么就是直接+1、-1, 可能符合就不加</font></p>
+<p><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/" target="_blank" rel="noopener">34. 在排序数组中查找元素的第一个和最后一个位置</a></p>
+<h3 id="mid上下取整"><a href="#mid上下取整" class="headerlink" title="mid上下取整"></a>mid上下取整</h3><p>mid = (l + r) &gt;&gt; 1 <strong>默认一般是下取整</strong>,但是当条件函数中有left = mid时, 可能上取整会造成死循环(因为nums[left] = target), 如果是right = mid 则不会影响</p>
+<p>所以此时解决方法就是将取中值改为: mid = (l+r+1) &gt;&gt; 1<font color='#e54d42'><strong>多添加一个1,使其成为上取整</strong></font></p>
+<p>上下取整对于mid来说都是一样的</p>
+<p>例: <a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/" target="_blank" rel="noopener">34. 在排序数组中查找元素的第一个和最后一个位置</a></p>
+<h3 id="取中值溢出"><a href="#取中值溢出" class="headerlink" title="取中值溢出"></a>取中值溢出</h3><p>解决: </p>
+<ol>
+<li><p>mid = left + (right - left)/2  (但是当right很大而left很小甚至为负时仍然可能会溢出)</p>
+</li>
+<li><p>位运算 : mid = (left + right) &gt;&gt; 2   </p>
+</li>
+<li><p>转换为long型</p>
+</li>
+</ol>
 <h1 id="java-Go数据结构重要api"><a href="#java-Go数据结构重要api" class="headerlink" title="java/Go数据结构重要api"></a>java/Go数据结构重要api</h1><h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><h3 id="1-复制数组"><a href="#1-复制数组" class="headerlink" title="1. 复制数组"></a>1. 复制数组</h3><p>System包下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">arraycopy</span><span class="params">(Object src,<span class="keyword">int</span> srcPos,Object dest,<span class="keyword">int</span> destPos,<span class="keyword">int</span> length)</span></span></span><br></pre></td></tr></table></figure>
 
@@ -398,6 +523,17 @@
 <p>字符串排序示例:</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// v是字符串,需要先转换为字节数组</span></span><br><span class="line">s := []<span class="keyword">byte</span>(v)</span><br><span class="line">sort.Slice(s, <span class="function"><span class="keyword">func</span><span class="params">(i, j <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123; <span class="keyword">return</span> s[i] &lt; s[j] &#125;)</span><br><span class="line">v = <span class="keyword">string</span>(s)</span><br></pre></td></tr></table></figure>
 
+<p>数组切片排序:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums := <span class="keyword">int</span>&#123;&#125;</span><br><span class="line">sort.Slice(nums, <span class="function"><span class="keyword">func</span><span class="params">(i, j <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;<span class="keyword">return</span> nums[i]&lt;nums[j]&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-最大最小值"><a href="#3-最大最小值" class="headerlink" title="3.最大最小值"></a>3.最大最小值</h3><h4 id="无符号整型uint"><a href="#无符号整型uint" class="headerlink" title="无符号整型uint"></a>无符号整型uint</h4><p>其最小值是0，其二进制表示的所有位都为0，</p>
+<p><code>const UINT_MIN uint = 0</code></p>
+<p>其最大值的二进制表示的所有位都为1，那么，</p>
+<p><code>const UINT_MAX = ^uint(0)</code></p>
+<h4 id="有符号整型int"><a href="#有符号整型int" class="headerlink" title="有符号整型int"></a>有符号整型int</h4><p>根据补码，其最大值二进制表示，首位0，其余1，那么，</p>
+<p><code>const INT_MAX = int(^uint(0) &gt;&gt; 1)</code></p>
+<p>根据补码，其最小值二进制表示，首位1，其余0，那么，</p>
+<p><code>const INT_MIN = ^INT_MAX</code></p>
 
       
       
@@ -607,7 +743,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面试算法题型"><span class="toc-number">1.</span> <span class="toc-text">面试算法题型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#预处理"><span class="toc-number">2.</span> <span class="toc-text">预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组排序"><span class="toc-number">2.1.</span> <span class="toc-text">数组排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入特殊值直接消除"><span class="toc-number">2.2.</span> <span class="toc-text">输入特殊值直接消除</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、位运算"><span class="toc-number">3.</span> <span class="toc-text">一、位运算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-技巧记录"><span class="toc-number">3.1.</span> <span class="toc-text">1.1 技巧记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-翻转一个数x的二进制位"><span class="toc-number">3.2.</span> <span class="toc-text">1.2 翻转一个数x的二进制位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、数组"><span class="toc-number">4.</span> <span class="toc-text">二、数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-二分法查询"><span class="toc-number">4.1.</span> <span class="toc-text">1. 二分法查询</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、字符串处理"><span class="toc-number">5.</span> <span class="toc-text">三、字符串处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-翻转字符串中的字符"><span class="toc-number">5.1.</span> <span class="toc-text">3.1 翻转字符串中的字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-子串与滑动窗口"><span class="toc-number">5.2.</span> <span class="toc-text">3.2 子串与滑动窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-重复-次数-统计"><span class="toc-number">5.3.</span> <span class="toc-text">3.3 重复&#x2F;次数&#x2F;统计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、链表"><span class="toc-number">6.</span> <span class="toc-text">四、链表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-链表原地分离"><span class="toc-number">6.1.</span> <span class="toc-text">4.1 链表原地分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-Tips"><span class="toc-number">6.2.</span> <span class="toc-text">4.2 Tips</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、树"><span class="toc-number">7.</span> <span class="toc-text">五、树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-遍历"><span class="toc-number">7.1.</span> <span class="toc-text">5.1 遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#中序"><span class="toc-number">7.1.1.</span> <span class="toc-text">中序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前序"><span class="toc-number">7.1.2.</span> <span class="toc-text">前序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后序"><span class="toc-number">7.1.3.</span> <span class="toc-text">后序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#层序"><span class="toc-number">7.1.4.</span> <span class="toc-text">层序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于遍历的题"><span class="toc-number">7.1.5.</span> <span class="toc-text">基于遍历的题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-细节-注意点"><span class="toc-number">7.2.</span> <span class="toc-text">5.2 细节&#x2F;注意点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、方法"><span class="toc-number">8.</span> <span class="toc-text">六、方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-递归与迭代"><span class="toc-number">8.1.</span> <span class="toc-text">6.1 递归与迭代</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#递归"><span class="toc-number">8.1.1.</span> <span class="toc-text">递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代"><span class="toc-number">8.1.2.</span> <span class="toc-text">迭代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-DFS与BFS"><span class="toc-number">8.2.</span> <span class="toc-text">6.2 DFS与BFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-DFS"><span class="toc-number">8.2.1.</span> <span class="toc-text">3.1 DFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-BFS"><span class="toc-number">8.2.2.</span> <span class="toc-text">3.2 BFS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-优先队列"><span class="toc-number">8.3.</span> <span class="toc-text">6.3 优先队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-回溯"><span class="toc-number">8.4.</span> <span class="toc-text">6.4 回溯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-动态规划"><span class="toc-number">8.5.</span> <span class="toc-text">6.5 动态规划</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-Go数据结构重要api"><span class="toc-number">9.</span> <span class="toc-text">java&#x2F;Go数据结构重要api</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java"><span class="toc-number">9.1.</span> <span class="toc-text">java</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-复制数组"><span class="toc-number">9.1.1.</span> <span class="toc-text">1. 复制数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-字符串处理"><span class="toc-number">9.1.2.</span> <span class="toc-text">2. 字符串处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">9.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go"><span class="toc-number">9.3.</span> <span class="toc-text">Go</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-栈、队列"><span class="toc-number">9.3.1.</span> <span class="toc-text">1.栈、队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-go数组排序api"><span class="toc-number">9.3.2.</span> <span class="toc-text">2.go数组排序api</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#面试算法题型"><span class="toc-number">1.</span> <span class="toc-text">面试算法题型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#预处理"><span class="toc-number">2.</span> <span class="toc-text">预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数组排序"><span class="toc-number">2.1.</span> <span class="toc-text">数组排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入特殊值直接消除"><span class="toc-number">2.2.</span> <span class="toc-text">输入特殊值直接消除</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、位运算"><span class="toc-number">3.</span> <span class="toc-text">一、位运算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-技巧记录"><span class="toc-number">3.1.</span> <span class="toc-text">1.1 技巧记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-翻转一个数x的二进制位"><span class="toc-number">3.2.</span> <span class="toc-text">1.2 翻转一个数x的二进制位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、数组"><span class="toc-number">4.</span> <span class="toc-text">二、数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、字符串处理"><span class="toc-number">5.</span> <span class="toc-text">三、字符串处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-翻转字符串中的字符"><span class="toc-number">5.1.</span> <span class="toc-text">3.1 翻转字符串中的字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-子串与滑动窗口"><span class="toc-number">5.2.</span> <span class="toc-text">3.2 子串与滑动窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-重复-次数-统计"><span class="toc-number">5.3.</span> <span class="toc-text">3.3 重复&#x2F;次数&#x2F;统计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、链表"><span class="toc-number">6.</span> <span class="toc-text">四、链表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-链表原地分离"><span class="toc-number">6.1.</span> <span class="toc-text">4.1 链表原地分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-Tips"><span class="toc-number">6.2.</span> <span class="toc-text">4.2 Tips</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、树"><span class="toc-number">7.</span> <span class="toc-text">五、树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-遍历"><span class="toc-number">7.1.</span> <span class="toc-text">5.1 遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#中序"><span class="toc-number">7.1.1.</span> <span class="toc-text">中序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前序"><span class="toc-number">7.1.2.</span> <span class="toc-text">前序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后序"><span class="toc-number">7.1.3.</span> <span class="toc-text">后序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#层序"><span class="toc-number">7.1.4.</span> <span class="toc-text">层序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于遍历的题"><span class="toc-number">7.1.5.</span> <span class="toc-text">基于遍历的题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-细节-注意点"><span class="toc-number">7.2.</span> <span class="toc-text">5.2 细节&#x2F;注意点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、堆-优先队列"><span class="toc-number">8.</span> <span class="toc-text">六、堆&#x2F;优先队列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#堆"><span class="toc-number">8.1.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优先队列"><span class="toc-number">8.2.</span> <span class="toc-text">优先队列</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、方法"><span class="toc-number">9.</span> <span class="toc-text">六、方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-递归与迭代"><span class="toc-number">9.1.</span> <span class="toc-text">6.1 递归与迭代</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#递归"><span class="toc-number">9.1.1.</span> <span class="toc-text">递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代"><span class="toc-number">9.1.2.</span> <span class="toc-text">迭代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-DFS与BFS"><span class="toc-number">9.2.</span> <span class="toc-text">6.2 DFS与BFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-DFS"><span class="toc-number">9.2.1.</span> <span class="toc-text">3.1 DFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-BFS"><span class="toc-number">9.2.2.</span> <span class="toc-text">3.2 BFS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-快速选择"><span class="toc-number">9.3.</span> <span class="toc-text">6.3 快速选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-number">9.3.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">9.3.2.</span> <span class="toc-text">原理:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化"><span class="toc-number">9.3.3.</span> <span class="toc-text">优化:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例题"><span class="toc-number">9.3.4.</span> <span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-回溯"><span class="toc-number">9.4.</span> <span class="toc-text">6.4 回溯</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-动态规划"><span class="toc-number">9.5.</span> <span class="toc-text">6.5 动态规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-6-二分法"><span class="toc-number">9.6.</span> <span class="toc-text">6.6 二分法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#区间缩放前提"><span class="toc-number">9.6.1.</span> <span class="toc-text">区间缩放前提</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开-闭区间"><span class="toc-number">9.6.2.</span> <span class="toc-text">开&#x2F;闭区间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mid上下取整"><span class="toc-number">9.6.3.</span> <span class="toc-text">mid上下取整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#取中值溢出"><span class="toc-number">9.6.4.</span> <span class="toc-text">取中值溢出</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-Go数据结构重要api"><span class="toc-number">10.</span> <span class="toc-text">java&#x2F;Go数据结构重要api</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java"><span class="toc-number">10.1.</span> <span class="toc-text">java</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-复制数组"><span class="toc-number">10.1.1.</span> <span class="toc-text">1. 复制数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-字符串处理"><span class="toc-number">10.1.2.</span> <span class="toc-text">2. 字符串处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">10.2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go"><span class="toc-number">10.3.</span> <span class="toc-text">Go</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-栈、队列"><span class="toc-number">10.3.1.</span> <span class="toc-text">1.栈、队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-go数组排序api"><span class="toc-number">10.3.2.</span> <span class="toc-text">2.go数组排序api</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-最大最小值"><span class="toc-number">10.3.3.</span> <span class="toc-text">3.最大最小值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#无符号整型uint"><span class="toc-number">10.3.3.1.</span> <span class="toc-text">无符号整型uint</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#有符号整型int"><span class="toc-number">10.3.3.2.</span> <span class="toc-text">有符号整型int</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -828,23 +964,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">picGo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -856,11 +980,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">picGo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">七牛云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -868,11 +1000,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -884,27 +1020,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">geth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">DApp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -916,7 +1040,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -928,7 +1064,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -936,7 +1072,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+                <a href="javascript:void(0)" class="js-tag color5">ethermint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -952,11 +1088,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -972,11 +1104,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">DApp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">geth</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">每日一记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -984,7 +1136,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
+                <a href="javascript:void(0)" class="js-tag color3">federate_learning</a>
               </li>
             
             <div class="clearfix"></div>

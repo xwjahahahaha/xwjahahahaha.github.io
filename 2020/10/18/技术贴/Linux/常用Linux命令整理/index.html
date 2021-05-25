@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>常用Linux命令整理 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.Ubuntu开启SSH服务1234567891011121314# 检查ssh服务是否开启sudo ps -e | grep ssh# 如果出现“xxxx? 00:00:00 sshd”,代表服务开启# 如果没反应则开始配置# 尝试开启服务，如果显示找不到命令，则安装openssh-serversudo &#x2F;etc&#x2F;init.d&#x2F;ssh startsudo apt-get updatesudo">
+  <meta name="description" content="1.Ubuntu 18.04开启SSH12345678910111213141516# 检查ssh服务是否开启sudo ps -e | grep ssh# 如果出现“xxxx? 00:00:00 sshd”,代表服务开启# 如果没反应则开始配置# 尝试开启服务，如果显示找不到命令，则安装openssh-serversudo &#x2F;etc&#x2F;init.d&#x2F;ssh startsudo apt-get upd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常用Linux命令整理">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="1.Ubuntu开启SSH服务1234567891011121314# 检查ssh服务是否开启sudo ps -e | grep ssh# 如果出现“xxxx? 00:00:00 sshd”,代表服务开启# 如果没反应则开始配置# 尝试开启服务，如果显示找不到命令，则安装openssh-serversudo &#x2F;etc&#x2F;init.d&#x2F;ssh startsudo apt-get updatesudo">
+<meta property="og:description" content="1.Ubuntu 18.04开启SSH12345678910111213141516# 检查ssh服务是否开启sudo ps -e | grep ssh# 如果出现“xxxx? 00:00:00 sshd”,代表服务开启# 如果没反应则开始配置# 尝试开启服务，如果显示找不到命令，则安装openssh-serversudo &#x2F;etc&#x2F;init.d&#x2F;ssh startsudo apt-get upd">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-18T13:13:50.000Z">
-<meta property="article:modified_time" content="2021-03-13T01:08:55.125Z">
+<meta property="article:modified_time" content="2021-05-21T14:16:54.616Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -73,7 +73,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 365
+			总文章数 416
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -218,7 +218,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.4k字</span>
+        <span class="post-count">1.6k字</span>
       </span>
     </span>
 
@@ -239,21 +239,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-Ubuntu开启SSH服务"><a href="#1-Ubuntu开启SSH服务" class="headerlink" title="1.Ubuntu开启SSH服务"></a>1.Ubuntu开启SSH服务</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 检查ssh服务是否开启</span></span><br><span class="line">sudo ps -e | grep ssh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果出现“xxxx? 00:00:00 sshd”,代表服务开启</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果没反应则开始配置</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 尝试开启服务，如果显示找不到命令，则安装openssh-server</span></span><br><span class="line">sudo /etc/init.d/ssh start</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openssh-server</span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次检查</span></span><br><span class="line">sudo ps -e | grep ssh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动服务</span></span><br><span class="line">sudo /etc/init.d/ssh start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 检查服务</span></span><br><span class="line">sudo service ssh status</span><br></pre></td></tr></table></figure>
+        <h1 id="1-Ubuntu-18-04"><a href="#1-Ubuntu-18-04" class="headerlink" title="1.Ubuntu 18.04"></a>1.Ubuntu 18.04</h1><h2 id="开启SSH"><a href="#开启SSH" class="headerlink" title="开启SSH"></a>开启SSH</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 检查ssh服务是否开启</span></span><br><span class="line">sudo ps -e | grep ssh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果出现“xxxx? 00:00:00 sshd”,代表服务开启</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果没反应则开始配置</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 尝试开启服务，如果显示找不到命令，则安装openssh-server</span></span><br><span class="line">sudo /etc/init.d/ssh start</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openssh-server</span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次检查</span></span><br><span class="line">sudo ps -e | grep ssh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动服务</span></span><br><span class="line">sudo /etc/init.d/ssh start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 检查服务</span></span><br><span class="line">sudo service ssh status </span><br><span class="line"><span class="meta">#</span><span class="bash"> 防火墙添加规则</span></span><br><span class="line">sudo ufw allow 22</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
-<h1 id="2-Ubuntu操作本机MAC地址"><a href="#2-Ubuntu操作本机MAC地址" class="headerlink" title="2.Ubuntu操作本机MAC地址"></a>2.Ubuntu操作本机MAC地址</h1><ul>
+<h2 id="SSH-无法连接"><a href="#SSH-无法连接" class="headerlink" title="SSH 无法连接"></a>SSH 无法连接</h2><p>可能原因与解决方法:</p>
+<blockquote>
+<p>检查IP和账户密码是否有错</p>
+<p>1.被防火墙挡了</p>
+<p>​    关闭防火墙<code>sudo ufw disable</code></p>
+<p>2.端口没开放</p>
+<p>​    检查:   <code>lsof -i:22</code></p>
+<p>3.ssh服务没开   </p>
+<p>​    见上方</p>
+</blockquote>
+<h2 id="操作本机MAC地址"><a href="#操作本机MAC地址" class="headerlink" title="操作本机MAC地址"></a>操作本机MAC地址</h2><ul>
 <li><p>查看本机MAC地址</p>
 <p>以下四种均可：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ifconfig | awk '/eth/&#123;print $1,$5&#125;'</span><br><span class="line"></span><br><span class="line">arp -a | awk '&#123;print $4&#125;</span><br><span class="line"></span><br><span class="line">sudo lshw -C network</span><br><span class="line"></span><br><span class="line">sudo lshw -c network | grep serial</span><br></pre></td></tr></table></figure>
 
-
-
 </li>
 </ul>
-<h1 id="3-修改主机名"><a href="#3-修改主机名" class="headerlink" title="3.修改主机名"></a>3.修改主机名</h1><p><code>hostnamectl set-hostname 新主机名</code></p>
-<h1 id="4-Tmux分屏的使用"><a href="#4-Tmux分屏的使用" class="headerlink" title="4.Tmux分屏的使用"></a>4.Tmux分屏的使用</h1><p><strong>Tmux 就是会话与窗口的”解绑”工具，将它们彻底分离。</strong></p>
+<h2 id="修改主机名"><a href="#修改主机名" class="headerlink" title="修改主机名"></a>修改主机名</h2><p><code>hostnamectl set-hostname 新主机名</code></p>
+<h2 id="域名无法访问"><a href="#域名无法访问" class="headerlink" title="域名无法访问"></a>域名无法访问</h2><p>报错<strong>Name or service not known</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vim /etc/resolv.conf</span></span><br></pre></td></tr></table></figure>
+
+<p>加入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nameserver 8.8.8.8</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nameserver 8.8.4.4</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-Tmux分屏的使用"><a href="#2-Tmux分屏的使用" class="headerlink" title="2.Tmux分屏的使用"></a>2.Tmux分屏的使用</h1><p><strong>Tmux 就是会话与窗口的”解绑”工具，将它们彻底分离。</strong></p>
 <blockquote>
 <p>（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。</p>
 <p>（2） 它可以让新窗口”接入”已经存在的会话。</p>
@@ -264,7 +278,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Ubuntu 或 Debian</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install tmux</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> CentOS 或 Fedora</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo yum install tmux</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Mac</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> brew install tmux</span></span><br></pre></td></tr></table></figure>
 
 <p>使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> tmux   <span class="comment">#启动</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">exit</span>  <span class="comment">#退出或者ctrl+d </span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux new -s &lt;session-name&gt; <span class="comment"># 新建会话</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux detach  	<span class="comment"># 分离回话 Ctrl+b d  上面命令执行后，就会退出当前 Tmux 窗口，但是会话和里面的进程仍然在后台运行。</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux ls		<span class="comment"># 显示所有会话</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux <span class="built_in">kill</span>-session -t &lt;session-name&gt;   <span class="comment"># 命令用于杀死某个会话。</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux switch -t &lt;session-name&gt;			<span class="comment"># 切换会话</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 划分上下两个窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux split-window</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 划分左右两个窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux split-window -h</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到上方窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -U</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到下方窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -D</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到左边窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -L</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到右边窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -R</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 当前窗格上移</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux swap-pane -U</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 当前窗格下移</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux swap-pane -D</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> tmux   <span class="comment">#启动</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">exit</span>  <span class="comment">#退出或者ctrl+d </span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux new -s &lt;session-name&gt; <span class="comment"># 新建会话</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux detach  	<span class="comment"># 分离回话 Ctrl+b d  上面命令执行后，就会退出当前 Tmux 窗口，但是会话和里面的进程仍然在后台运行。</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux ls		<span class="comment"># 显示所有会话</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux <span class="built_in">kill</span>-session -t &lt;session-name&gt;   <span class="comment"># 命令用于杀死某个会话。</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux switch -t &lt;session-name&gt;			<span class="comment"># 切换会话</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux attach -t &lt;session-name&gt; 	 <span class="comment">#进入某个会话</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 划分上下两个窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux split-window</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 划分左右两个窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux split-window -h</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到上方窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -U</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到下方窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -D</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到左边窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -L</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 光标切换到右边窗格</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux select-pane -R</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 当前窗格上移</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux swap-pane -U</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 当前窗格下移</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux swap-pane -D</span></span><br></pre></td></tr></table></figure>
 
 <p>快捷键</p>
 <ul>
@@ -370,7 +384,7 @@
     2020-10-18
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-03-13
+    2021-05-21
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/10/18/技术贴/Linux/常用Linux命令整理/" title="常用Linux命令整理" target="_blank">常用Linux命令整理</a>
@@ -580,7 +594,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Ubuntu开启SSH服务"><span class="toc-number">1.</span> <span class="toc-text">1.Ubuntu开启SSH服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Ubuntu操作本机MAC地址"><span class="toc-number">2.</span> <span class="toc-text">2.Ubuntu操作本机MAC地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-修改主机名"><span class="toc-number">3.</span> <span class="toc-text">3.修改主机名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Tmux分屏的使用"><span class="toc-number">4.</span> <span class="toc-text">4.Tmux分屏的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-SCP命令"><span class="toc-number">5.</span> <span class="toc-text">5. SCP命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-nginx"><span class="toc-number">6.</span> <span class="toc-text">6. nginx</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-端口相关"><span class="toc-number">7.</span> <span class="toc-text">7.端口相关</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-unzip命令"><span class="toc-number">8.</span> <span class="toc-text">8.unzip命令</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Ubuntu-18-04"><span class="toc-number">1.</span> <span class="toc-text">1.Ubuntu 18.04</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开启SSH"><span class="toc-number">1.1.</span> <span class="toc-text">开启SSH</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSH-无法连接"><span class="toc-number">1.2.</span> <span class="toc-text">SSH 无法连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作本机MAC地址"><span class="toc-number">1.3.</span> <span class="toc-text">操作本机MAC地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改主机名"><span class="toc-number">1.4.</span> <span class="toc-text">修改主机名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名无法访问"><span class="toc-number">1.5.</span> <span class="toc-text">域名无法访问</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Tmux分屏的使用"><span class="toc-number">2.</span> <span class="toc-text">2.Tmux分屏的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-SCP命令"><span class="toc-number">3.</span> <span class="toc-text">5. SCP命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-nginx"><span class="toc-number">4.</span> <span class="toc-text">6. nginx</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-端口相关"><span class="toc-number">5.</span> <span class="toc-text">7.端口相关</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-unzip命令"><span class="toc-number">6.</span> <span class="toc-text">8.unzip命令</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -801,23 +815,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">golang</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">picGo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -829,11 +831,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">picGo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">七牛云</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -841,11 +851,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -857,27 +871,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">geth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">DApp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hadoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">uni-app</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,7 +891,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -901,7 +915,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -909,7 +923,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">wechat</a>
+                <a href="javascript:void(0)" class="js-tag color5">ethermint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -925,11 +939,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -945,11 +955,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">DApp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">geth</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">每日一记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -957,7 +987,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
+                <a href="javascript:void(0)" class="js-tag color3">federate_learning</a>
               </li>
             
             <div class="clearfix"></div>
