@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/u5au60.png">
 <meta property="article:published_time" content="2021-04-25T02:32:25.000Z">
-<meta property="article:modified_time" content="2021-05-24T03:14:35.226Z">
+<meta property="article:modified_time" content="2021-05-31T13:24:32.929Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="ethermint">
 <meta name="twitter:card" content="summary">
@@ -75,7 +75,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 419
+			总文章数 426
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -220,7 +220,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.7k字</span>
+        <span class="post-count">1.8k字</span>
       </span>
     </span>
 
@@ -229,7 +229,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">7分</span>
+        <span class="post-count">8分</span>
       </span>
     </span>
 </div>
@@ -298,6 +298,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/cosmos/ethermint.git</span><br><span class="line">cd ethermint</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
 <h2 id="Run-a-Node"><a href="#Run-a-Node" class="headerlink" title="Run a Node"></a>Run a Node</h2><p>自动部署 (在ethermint文件夹下)<code>./init.sh</code></p>
+<p>或者已经启动过,重新启动:</p>
+<p><code>ethermintd start --pruning=nothing --rpc.unsafe --log_level &quot;main:info,state:info,mempool:info&quot; --trace</code></p>
 <blockquote>
 <p>报错: jq: 未找到命令</p>
 <p>下载jq:</p>
@@ -372,10 +374,10 @@ ethermintd unsafe-reset-all</code></p>
 <h1 id="Truffle-Metamask-Remix"><a href="#Truffle-Metamask-Remix" class="headerlink" title="Truffle/Metamask/Remix"></a>Truffle/Metamask/Remix</h1><blockquote>
 <p>错误: <font color='#e54d42'><strong>Returned error: the method net_version does not exist/is not available</strong></font></p>
 <p>原因:开启RPC服务时没有开启网络模块权限</p>
-<p>解决: <code>ethermintcli rest-server --laddr &quot;tcp://0.0.0.0:8545&quot; --unlock-key mykey --chain-id ethermint-1 --trace --rpc-api &quot;web3,eth,net&quot;</code></p>
+<p>解决: <code>ethermintcli rest-server --laddr &quot;tcp://0.0.0.0:8545&quot; --unlock-key mykey --chain-id ethermint-1 --trace --rpc-api &quot;web3,eth,net,personal&quot;</code></p>
 </blockquote>
 <blockquote>
-<p>错误: Metamask导入了账户,但是无法显示余额</p>
+<p>错误: <font color='#e54d42'><strong>Metamask导入了账户,但是无法显示余额</strong></font></p>
 <p>原因: 可能链id为1默认为主网</p>
 <p>解决: 修改<code>init.sh</code>文件中的链参数以及启动RPC/REST的链ID参数(我换成了789),重新切换Metamask的网络</p>
 </blockquote>
@@ -385,6 +387,11 @@ ethermintd unsafe-reset-all</code></p>
 <p>原因: 使用了web3注入的方式进行测试, 当函数中出现了错误(例如不满足require时)就会出现无法评估gas费的错误提示</p>
 <p>解决: 先使用javaScriptVM模式再次运行, 可以看到具体的错误提示</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/u5au60.png" alt="u5au60"></p>
+</blockquote>
+<blockquote>
+<p>错误: web3.js报错: <font color='#e54d42'><strong>Error: Returned error: the method personal_sign does not exist/is not available   at Object.ErrorResponse</strong> </font></p>
+<p>原因: 开启RPC服务的时候没有开启personal模块</p>
+<p>解决: 重新启动rpc服务: <code>ethermintcli rest-server --laddr &quot;tcp://0.0.0.0:8545&quot; --unlock-key mykey --chain-id ethermint-1 --trace --rpc-api &quot;web3,eth,net,personal&quot;</code></p>
 </blockquote>
 
       
@@ -407,7 +414,7 @@ ethermintd unsafe-reset-all</code></p>
     2021-04-25
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-05-24
+    2021-05-31
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/04/25/技术贴/区块链/Cosmos/cosmos-4-Ethermint/" title="cosmos-4-Ethermint" target="_blank">cosmos-4-Ethermint</a>
@@ -1007,6 +1014,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
             
             <div class="clearfix"></div>
