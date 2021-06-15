@@ -6,7 +6,7 @@
   <link href="https://xwjahahahaha.github.io/atom.xml" rel="self"/>
   
   <link href="https://xwjahahahaha.github.io/"/>
-  <updated>2021-06-10T02:48:27.579Z</updated>
+  <updated>2021-06-15T02:37:41.999Z</updated>
   <id>https://xwjahahahaha.github.io/</id>
   
   <author>
@@ -17,17 +17,21 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>剑指Offer09.用两个栈实现队列</title>
-    <link href="https://xwjahahahaha.github.io/2021/06/10/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer09-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"/>
-    <id>https://xwjahahahaha.github.io/2021/06/10/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer09-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
-    <published>2021-06-10T02:47:46.000Z</published>
-    <updated>2021-06-10T02:48:27.579Z</updated>
+    <title>剑指Offer10-I.斐波那契数列</title>
+    <link href="https://xwjahahahaha.github.io/2021/06/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer10-I-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"/>
+    <id>https://xwjahahahaha.github.io/2021/06/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer10-I-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</id>
+    <published>2021-06-15T02:36:47.000Z</published>
+    <updated>2021-06-15T02:37:41.999Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="剑指-Offer-09-用两个栈实现队列"><a href="#剑指-Offer-09-用两个栈实现队列" class="headerlink" title="剑指 Offer 09. 用两个栈实现队列"></a><a href="https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/" target="_blank" rel="noopener">剑指 Offer 09. 用两个栈实现队列</a></h4><p>难度简单240</p><p>用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 <code>appendTail</code> 和 <code>deleteHead</code> ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，<code>deleteHead</code> 操作返回 -1 )</p> <a id="more"></a><p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[&quot;CQueue&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]</span><br><span class="line">[[],[3],[],[]]</span><br><span class="line">输出：[null,null,3,-1]</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[&quot;CQueue&quot;,&quot;deleteHead&quot;,&quot;appendTail&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]</span><br><span class="line">[[],[],[5],[2],[],[]]</span><br><span class="line">输出：[null,-1,null,null,5,2]</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li><code>1 &lt;= values &lt;= 10000</code></li><li><code>最多会对 appendTail、deleteHead 进行 10000 次调用</code></li></ul><h2 id="解题思路及代码"><a href="#解题思路及代码" class="headerlink" title="解题思路及代码"></a>解题思路及代码</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> CQueue <span class="keyword">struct</span> &#123;</span><br><span class="line">    stack1 []<span class="keyword">int</span></span><br><span class="line">    stack2 []<span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Constructor</span><span class="params">()</span> <span class="title">CQueue</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> CQueue&#123;[]<span class="keyword">int</span>&#123;&#125;,[]<span class="keyword">int</span>&#123;&#125;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *CQueue)</span> <span class="title">AppendTail</span><span class="params">(value <span class="keyword">int</span>)</span></span>  &#123;</span><br><span class="line">    this.stack1 = <span class="built_in">append</span>(this.stack1, value)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *CQueue)</span> <span class="title">DeleteHead</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    n1, n2 := <span class="built_in">len</span>(this.stack1), <span class="built_in">len</span>(this.stack2)</span><br><span class="line">    <span class="keyword">if</span> n2 == <span class="number">0</span> &#123;        <span class="comment">// 注意; 只有stack2为空才转移</span></span><br><span class="line">        <span class="comment">// 栈2长度为0, 则转移栈1到栈2</span></span><br><span class="line">        <span class="keyword">for</span> n1 &gt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="comment">// 不为空并且当栈2也为空则转移到stack2</span></span><br><span class="line">            val := this.stack1[n1<span class="number">-1</span>]</span><br><span class="line">            this.stack1 = this.stack1[:n1<span class="number">-1</span>]</span><br><span class="line">            this.stack2 = <span class="built_in">append</span>(this.stack2, val)</span><br><span class="line">            n1 = <span class="built_in">len</span>(this.stack1)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    n2 = <span class="built_in">len</span>(this.stack2)</span><br><span class="line">    <span class="keyword">if</span> n2 == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    res := this.stack2[n2<span class="number">-1</span>]</span><br><span class="line">    this.stack2 = this.stack2[:n2<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your CQueue object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * obj := Constructor();</span></span><br><span class="line"><span class="comment"> * obj.AppendTail(value);</span></span><br><span class="line"><span class="comment"> * param_2 := obj.DeleteHead();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/" target="_blank" rel="noopener">剑指 Offer 10- I. 斐波那契数列</a></p><p>写一个函数，输入 <code>n</code> ，求斐波那契（Fibonacci）数列的第 <code>n</code> 项（即 <code>F(N)</code>）。斐波那契数列的定义如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F(0) &#x3D; 0,   F(1) &#x3D; 1</span><br><span class="line">F(N) &#x3D; F(N - 1) + F(N - 2), 其中 N &gt; 1.</span><br></pre></td></tr></table></figure><p>斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。</p><p>答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。</p><a id="more"></a> <p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n &#x3D; 2</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n &#x3D; 5</span><br><span class="line">输出：5</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li><code>0 &lt;= n &lt;= 100</code></li></ul><h2 id="解题思路及代码"><a href="#解题思路及代码" class="headerlink" title="解题思路及代码"></a>解题思路及代码</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fib</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    x1, x2, x3 := <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">2</span>; i&lt;=n; i++&#123;</span><br><span class="line">        x3 = (x1 + x2) % <span class="number">1000000007</span>         <span class="comment">// 在此处求余数</span></span><br><span class="line">        x1, x2 = x2, x3</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;h4 id=&quot;剑指-Offer-09-用两个栈实现队列&quot;&gt;&lt;a href=&quot;#剑指-Offer-09-用两个栈实现队列&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 09. 用两个栈实现队列&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 09. 用两个栈实现队列&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;难度简单240&lt;/p&gt;
-&lt;p&gt;用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 &lt;code&gt;appendTail&lt;/code&gt; 和 &lt;code&gt;deleteHead&lt;/code&gt; ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，&lt;code&gt;deleteHead&lt;/code&gt; 操作返回 -1 )&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 10- I. 斐波那契数列&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;写一个函数，输入 &lt;code&gt;n&lt;/code&gt; ，求斐波那契（Fibonacci）数列的第 &lt;code&gt;n&lt;/code&gt; 项（即 &lt;code&gt;F(N)&lt;/code&gt;）。斐波那契数列的定义如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;F(0) &amp;#x3D; 0,   F(1) &amp;#x3D; 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;F(N) &amp;#x3D; F(N - 1) + F(N - 2), 其中 N &amp;gt; 1.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;斐波那契数列由 0 和 1 开始，之后的斐波那契数就是由之前的两数相加而得出。&lt;/p&gt;
+&lt;p&gt;答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。&lt;/p&gt;</summary>
     
     
     
@@ -41,13 +45,13 @@
   </entry>
   
   <entry>
-    <title>日记_0185</title>
-    <link href="https://xwjahahahaha.github.io/2021/06/10/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0185/"/>
-    <id>https://xwjahahahaha.github.io/2021/06/10/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0185/</id>
-    <published>2021-06-10T01:05:41.000Z</published>
-    <updated>2021-06-10T01:05:59.282Z</updated>
+    <title>日记_0186</title>
+    <link href="https://xwjahahahaha.github.io/2021/06/15/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0186/"/>
+    <id>https://xwjahahahaha.github.io/2021/06/15/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0186/</id>
+    <published>2021-06-15T01:11:35.000Z</published>
+    <updated>2021-06-15T01:14:31.449Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input disabled="" type="checkbox"> 英语</li><li><input disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input disabled="" type="checkbox"> 华为比赛准备</li><li><input disabled="" type="checkbox"> EIP 712 专利 </li><li><input disabled="" type="checkbox"> k8s </li><li><input disabled="" type="checkbox"> 物联网项目-cosmos溯源 + k8s</li><li><input disabled="" type="checkbox"> 英语</li><li><input disabled="" type="checkbox"> </li><li><input disabled="" type="checkbox"> </li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input disabled="" type="checkbox"> 英语</li><li><input disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input disabled="" type="checkbox"> k8s学完</li><li><input disabled="" type="checkbox"> 太米链筹备</li><li><input disabled="" type="checkbox"> 华为比赛完善</li><li><input disabled="" type="checkbox"> 专利</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
     
     
     <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
@@ -127,6 +131,142 @@
     
     
     <category term="每日一记" scheme="https://xwjahahahaha.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日记_0185</title>
+    <link href="https://xwjahahahaha.github.io/2021/06/11/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0185/"/>
+    <id>https://xwjahahahaha.github.io/2021/06/11/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0185/</id>
+    <published>2021-06-11T01:05:41.000Z</published>
+    <updated>2021-06-15T01:11:23.906Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input checked="" disabled="" type="checkbox"> 英语6级</li><li><input checked="" disabled="" type="checkbox"> 华为比赛准备</li><li><input checked="" disabled="" type="checkbox"> 计算理论基础论文</li><li><input disabled="" type="checkbox"> k8s </li><li><input checked="" disabled="" type="checkbox"> 物联网项目</li><li><input disabled="" type="checkbox"> 专利 </li><li><input disabled="" type="checkbox"> 太米链</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;任务&lt;/th&gt;
+&lt;th&gt;每天&lt;/th&gt;
+&lt;th&gt;开发-云容器技术&lt;/th&gt;
+&lt;th&gt;项目与框架&lt;/th&gt;
+&lt;th&gt;科研-区块链(FL+BC)&lt;/th&gt;
+&lt;th&gt;预备事宜&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;1.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;英语单词&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;go基础&lt;/td&gt;
+&lt;td&gt;SimpleBitcoin&lt;/td&gt;
+&lt;td&gt;FL/分布式存储论文一周一篇细读&lt;/td&gt;
+&lt;td&gt;准备参加&lt;strong&gt;编程类的比赛或者拿编程证书&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2.&lt;/td&gt;
+&lt;td&gt;语法课看完&lt;/td&gt;
+&lt;td&gt;go网络编程、Web框架&lt;/td&gt;
+&lt;td&gt;联邦学习框架&lt;/td&gt;
+&lt;td&gt;写专利&lt;/td&gt;
+&lt;td&gt;看比赛资讯，准备&lt;strong&gt;区块链比赛&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3.&lt;/td&gt;
+&lt;td&gt;&lt;font color=&#39;red&#39;&gt;六级&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;go数据库、ORM、go高级编程&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;机器学习课程&lt;/td&gt;
+&lt;td&gt;为&lt;strong&gt;研二实习&lt;/strong&gt;做准备&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4.&lt;/td&gt;
+&lt;td&gt;Leetcode&lt;/td&gt;
+&lt;td&gt;go容器技术docker、k8s&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;go微服务与任务调度&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;看源码docker、k8s、Fabric、以太坊、比特币等&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Linux、C++&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="每日一记" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
+    
+    
+    <category term="每日一记" scheme="https://xwjahahahaha.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>华为链-1-创建自己的Go客户端程序</title>
+    <link href="https://xwjahahahaha.github.io/2021/06/10/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8D%8E%E4%B8%BA%E9%93%BE/%E5%8D%8E%E4%B8%BA%E9%93%BE-1-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Go%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/"/>
+    <id>https://xwjahahahaha.github.io/2021/06/10/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8D%8E%E4%B8%BA%E9%93%BE/%E5%8D%8E%E4%B8%BA%E9%93%BE-1-%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84Go%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/</id>
+    <published>2021-06-10T07:36:20.000Z</published>
+    <updated>2021-06-10T08:22:35.756Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>参考链接:</p><p><a href="https://support.huaweicloud.com/devg-bcs/bcs_devg_0039_00.html" target="_blank" rel="noopener">https://support.huaweicloud.com/devg-bcs/bcs_devg_0039_00.html</a></p></blockquote><a id="more"></a><h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h1><ul><li><p>一台客户端电脑</p></li><li><p>golang环境(1.15以上)已安装</p></li><li><p>获取Go SDK Demo源码：<a href="https://bcs.obs.cn-north-1.myhuaweicloud.com/go-sdk-demo.tar" target="_blank" rel="noopener">go-sdk-demo.tar</a>，获取Go SDK源码：<a href="https://bcs.obs.cn-north-1.myhuaweicloud.com/go-sdk.tar" target="_blank" rel="noopener">go-sdk.tar</a>； 将Go SDK Demo源码和Go SDK源码分别下载至电脑的<strong>/root</strong>路径下并解压。</p></li><li><p>华为区块链服务,购买区块链服务，具体请参见<a href="https://support.huaweicloud.com/qs-bcs/bcs_qs_0006.html" target="_blank" rel="noopener">购买华为云区块链</a>。</p></li></ul><blockquote><p>对go-sdk-demo.tar的操作:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 解压</span></span><br><span class="line">tar -xf go-sdk-demo.tar</span><br><span class="line"><span class="meta">#</span><span class="bash"> </span></span><br></pre></td></tr></table></figure></blockquote><h1 id="二、安装实例化链码"><a href="#二、安装实例化链码" class="headerlink" title="二、安装实例化链码"></a>二、安装实例化链码</h1><p>本示例使用存证链代码，文件是<a href="https://bcs.obs.cn-north-1.myhuaweicloud.com/bcsdemo/huaweichaincode.zip" target="_blank" rel="noopener">huaweichaincode.zip</a></p><p>安装、实例化链代码流程:<a href="https://support.huaweicloud.com/qs-bcs/bcs_qs_0007.html" target="_blank" rel="noopener">https://support.huaweicloud.com/qs-bcs/bcs_qs_0007.html</a></p><p>三、</p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;参考链接:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://support.huaweicloud.com/devg-bcs/bcs_devg_0039_00.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://support.huaweicloud.com/devg-bcs/bcs_devg_0039_00.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>剑指Offer09.用两个栈实现队列</title>
+    <link href="https://xwjahahahaha.github.io/2021/06/10/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer09-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"/>
+    <id>https://xwjahahahaha.github.io/2021/06/10/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer09-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
+    <published>2021-06-10T02:47:46.000Z</published>
+    <updated>2021-06-10T02:48:27.579Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="剑指-Offer-09-用两个栈实现队列"><a href="#剑指-Offer-09-用两个栈实现队列" class="headerlink" title="剑指 Offer 09. 用两个栈实现队列"></a><a href="https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/" target="_blank" rel="noopener">剑指 Offer 09. 用两个栈实现队列</a></h4><p>难度简单240</p><p>用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 <code>appendTail</code> 和 <code>deleteHead</code> ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，<code>deleteHead</code> 操作返回 -1 )</p> <a id="more"></a><p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[&quot;CQueue&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]</span><br><span class="line">[[],[3],[],[]]</span><br><span class="line">输出：[null,null,3,-1]</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[&quot;CQueue&quot;,&quot;deleteHead&quot;,&quot;appendTail&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]</span><br><span class="line">[[],[],[5],[2],[],[]]</span><br><span class="line">输出：[null,-1,null,null,5,2]</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li><code>1 &lt;= values &lt;= 10000</code></li><li><code>最多会对 appendTail、deleteHead 进行 10000 次调用</code></li></ul><h2 id="解题思路及代码"><a href="#解题思路及代码" class="headerlink" title="解题思路及代码"></a>解题思路及代码</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> CQueue <span class="keyword">struct</span> &#123;</span><br><span class="line">    stack1 []<span class="keyword">int</span></span><br><span class="line">    stack2 []<span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Constructor</span><span class="params">()</span> <span class="title">CQueue</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> CQueue&#123;[]<span class="keyword">int</span>&#123;&#125;,[]<span class="keyword">int</span>&#123;&#125;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *CQueue)</span> <span class="title">AppendTail</span><span class="params">(value <span class="keyword">int</span>)</span></span>  &#123;</span><br><span class="line">    this.stack1 = <span class="built_in">append</span>(this.stack1, value)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(this *CQueue)</span> <span class="title">DeleteHead</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    n1, n2 := <span class="built_in">len</span>(this.stack1), <span class="built_in">len</span>(this.stack2)</span><br><span class="line">    <span class="keyword">if</span> n2 == <span class="number">0</span> &#123;        <span class="comment">// 注意; 只有stack2为空才转移</span></span><br><span class="line">        <span class="comment">// 栈2长度为0, 则转移栈1到栈2</span></span><br><span class="line">        <span class="keyword">for</span> n1 &gt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="comment">// 不为空并且当栈2也为空则转移到stack2</span></span><br><span class="line">            val := this.stack1[n1<span class="number">-1</span>]</span><br><span class="line">            this.stack1 = this.stack1[:n1<span class="number">-1</span>]</span><br><span class="line">            this.stack2 = <span class="built_in">append</span>(this.stack2, val)</span><br><span class="line">            n1 = <span class="built_in">len</span>(this.stack1)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    n2 = <span class="built_in">len</span>(this.stack2)</span><br><span class="line">    <span class="keyword">if</span> n2 == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    &#125;</span><br><span class="line">    res := this.stack2[n2<span class="number">-1</span>]</span><br><span class="line">    this.stack2 = this.stack2[:n2<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your CQueue object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * obj := Constructor();</span></span><br><span class="line"><span class="comment"> * obj.AppendTail(value);</span></span><br><span class="line"><span class="comment"> * param_2 := obj.DeleteHead();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;h4 id=&quot;剑指-Offer-09-用两个栈实现队列&quot;&gt;&lt;a href=&quot;#剑指-Offer-09-用两个栈实现队列&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer 09. 用两个栈实现队列&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 09. 用两个栈实现队列&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;难度简单240&lt;/p&gt;
+&lt;p&gt;用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 &lt;code&gt;appendTail&lt;/code&gt; 和 &lt;code&gt;deleteHead&lt;/code&gt; ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，&lt;code&gt;deleteHead&lt;/code&gt; 操作返回 -1 )&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
+    
+    <category term="leetcode" scheme="https://xwjahahahaha.github.io/categories/technical/leetcode/"/>
+    
+    
+    <category term="golang" scheme="https://xwjahahahaha.github.io/tags/golang/"/>
     
   </entry>
   
@@ -984,142 +1124,6 @@
     
     
     <category term="kubernetes" scheme="https://xwjahahahaha.github.io/tags/kubernetes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>日记_0177</title>
-    <link href="https://xwjahahahaha.github.io/2021/05/27/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-05/%E6%97%A5%E8%AE%B0-0177/"/>
-    <id>https://xwjahahahaha.github.io/2021/05/27/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-05/%E6%97%A5%E8%AE%B0-0177/</id>
-    <published>2021-05-27T01:09:13.000Z</published>
-    <updated>2021-05-28T03:16:30.202Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> <p>cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></p></li><li><input checked="" disabled="" type="checkbox"> <p>科技部编程比赛项目实现(使用cosmos)</p></li><li><input checked="" disabled="" type="checkbox"> <p>Go公链实现项目(simple_bitcoin)</p></li><li><input disabled="" type="checkbox"> <p>专利一篇</p></li><li><input disabled="" type="checkbox"> <p>Go网络编程Base</p></li><li><input disabled="" type="checkbox"> <p>Go网络编程(base、Echo、Gin)、 专利2篇  </p></li><li><input disabled="" type="checkbox"> <p>第一篇论文初稿与老师讨论</p></li><li><input disabled="" type="checkbox"> <p>论文实验(编码)、数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </p></li><li><input disabled="" type="checkbox"> <p>Go设计模式  </p></li><li><input disabled="" type="checkbox"> <p>docker、k8s</p></li><li><input disabled="" type="checkbox"> <p>缓存、日志</p></li><li><input disabled="" type="checkbox"> <p>微服务(消息队列、任务调度、rpc)</p></li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input checked="" disabled="" type="checkbox"> 英语</li><li><input checked="" disabled="" type="checkbox"> leetcode</li><li><input checked="" disabled="" type="checkbox"> Ethermint 合约</li><li><input checked="" disabled="" type="checkbox"> go bitcoin</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;任务&lt;/th&gt;
-&lt;th&gt;每天&lt;/th&gt;
-&lt;th&gt;开发-云容器技术&lt;/th&gt;
-&lt;th&gt;项目与框架&lt;/th&gt;
-&lt;th&gt;科研-区块链(FL+BC)&lt;/th&gt;
-&lt;th&gt;预备事宜&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;1.&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;英语单词&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;go基础&lt;/td&gt;
-&lt;td&gt;SimpleBitcoin&lt;/td&gt;
-&lt;td&gt;FL/分布式存储论文一周一篇细读&lt;/td&gt;
-&lt;td&gt;准备参加&lt;strong&gt;编程类的比赛或者拿编程证书&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2.&lt;/td&gt;
-&lt;td&gt;语法课看完&lt;/td&gt;
-&lt;td&gt;go网络编程、Web框架&lt;/td&gt;
-&lt;td&gt;联邦学习框架&lt;/td&gt;
-&lt;td&gt;写专利&lt;/td&gt;
-&lt;td&gt;看比赛资讯，准备&lt;strong&gt;区块链比赛&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;3.&lt;/td&gt;
-&lt;td&gt;&lt;font color=&#39;red&#39;&gt;六级&lt;/font&gt;&lt;/td&gt;
-&lt;td&gt;go数据库、ORM、go高级编程&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;机器学习课程&lt;/td&gt;
-&lt;td&gt;为&lt;strong&gt;研二实习&lt;/strong&gt;做准备&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;4.&lt;/td&gt;
-&lt;td&gt;Leetcode&lt;/td&gt;
-&lt;td&gt;go容器技术docker、k8s&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;5.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;go微服务与任务调度&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;6.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;看源码docker、k8s、Fabric、以太坊、比特币等&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;7.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Linux、C++&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="每日一记" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
-    
-    
-    <category term="每日一记" scheme="https://xwjahahahaha.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture》精读</title>
-    <link href="https://xwjahahahaha.github.io/2021/05/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8ABlockFLA-Accountable-Federated-Learning-via-Hybrid-Blockchain-Architecture%E3%80%8B%E7%B2%BE%E8%AF%BB/"/>
-    <id>https://xwjahahahaha.github.io/2021/05/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8ABlockFLA-Accountable-Federated-Learning-via-Hybrid-Blockchain-Architecture%E3%80%8B%E7%B2%BE%E8%AF%BB/</id>
-    <published>2021-05-26T08:59:56.000Z</published>
-    <updated>2021-05-26T12:00:00.598Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一、基本信息、前置知识"><a href="#一、基本信息、前置知识" class="headerlink" title="一、基本信息、前置知识"></a>一、基本信息、前置知识</h1><blockquote><p>CODASPY ‘21: Proceedings of the Eleventh ACM Conference on Data and Application Security and Privacy</p></blockquote><a id="more"></a><h2 id="1-1-后门注入攻击"><a href="#1-1-后门注入攻击" class="headerlink" title="1.1 后门注入攻击"></a>1.1 后门注入攻击</h2><p><a href="https://zhuanlan.zhihu.com/p/160964591" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/160964591</a></p><p><strong>后门攻击希望在模型的训练过程中通过某种方式在模型中埋藏后门(backdoor)，埋藏好的后门通过攻击者预先设定的触发器(trigger)激发。在后门未被激发时，被攻击的模型具有和正常模型类似的表现；而当模型中埋藏的后门被攻击者激活时，模型的输出变为攻击者预先指定的标签（target label）以达到恶意的目的</strong></p><p>后门攻击常发生在使用第三方平台进行训练, <strong>FL也很常见</strong></p><blockquote><p><strong>一般都是隐藏自己数据的场景, 这样才难以被发现</strong></p></blockquote><p>目前，对训练数据进行投毒是后门攻击中最直接，最常见的方法。 如下图所示，在基于投毒的后门攻击(poisoning-based attacks)中，攻击者通过预先设置的触发器（例如一个小的local patch）来修改一些训练样本(将2, 3, 6这些图片的标签改为0)。 这些经过修改的样本的标签讲被攻击者指定的目标标签替换，生成被投毒样本（poisoned samples）。这些被投毒样本与正常样本将会被同时用于训练，以得到带后门的模型。<strong>值得一提的是，触发器不一定是可见的，被投毒样品的真实标签也不一定与目标标签不同，这增加了后门攻击的隐蔽性。</strong> 当然，目前也有一些不基于投毒的后门攻击方法被提出，也取得了不错的效果。</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/tCZb2h.png" alt="tCZb2h"></p><h1 id="二、摘要"><a href="#二、摘要" class="headerlink" title="二、摘要"></a>二、摘要</h1><ul><li><p>FL的隐藏数据的特点给攻击者提供了对训练模型<strong>后门注入攻击</strong>的机会, 从而使模型进行错误的分类</p></li><li><p>在训练结束后,通过<strong>检测与惩罚</strong>去防范后门攻击</p></li><li><p>开发了一个混合联邦学习区块链框架, 使用<strong>智能合约去自动检测并且通过金钱去惩罚违规者</strong></p></li><li><p>此框架任何聚合函数任何攻击检测算法都可以插入其中</p></li></ul><h1 id="三、Introduction"><a href="#三、Introduction" class="headerlink" title="三、Introduction"></a>三、Introduction</h1>]]></content>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;一、基本信息、前置知识&quot;&gt;&lt;a href=&quot;#一、基本信息、前置知识&quot; class=&quot;headerlink&quot; title=&quot;一、基本信息、前置知识&quot;&gt;&lt;/a&gt;一、基本信息、前置知识&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;CODASPY ‘21: Proceedings of the Eleventh ACM Conference on Data and Application Security and Privacy&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="knowledge" scheme="https://xwjahahahaha.github.io/categories/knowledge/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>剑指Offer03.数组中重复的数字</title>
-    <link href="https://xwjahahahaha.github.io/2021/05/26/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
-    <id>https://xwjahahahaha.github.io/2021/05/26/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</id>
-    <published>2021-05-26T08:26:24.000Z</published>
-    <updated>2021-05-26T08:38:21.726Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 03. 数组中重复的数字</a></p><p>难度简单</p><p>找出数组中重复的数字。</p><a id="more"></a><p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p><p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[2, 3, 1, 0, 2, 5, 3]</span><br><span class="line">输出：2 或 3</span><br></pre></td></tr></table></figure><p><strong>限制：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 &lt;&#x3D; n &lt;&#x3D; 100000</span><br></pre></td></tr></table></figure><h2 id="解题思路及代码"><a href="#解题思路及代码" class="headerlink" title="解题思路及代码"></a>解题思路及代码</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重复次数 =&gt; 散列表, 给定范围 =&gt; 数组实现散列表</span></span><br><span class="line"><span class="comment">// 时间复杂度O(n), 空间复杂度O(n)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findRepeatNumber</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    n := <span class="built_in">len</span>(nums)</span><br><span class="line">    account := <span class="built_in">make</span>([]<span class="keyword">int</span>, n)</span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        account[v] += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> account[v] &gt; <span class="number">1</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> v</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// “所有数字都在0~n-1的范围内” =&gt; 如果无重复第i位一定是i</span></span><br><span class="line"><span class="comment">// 如果当前位置i的数v不相同, 那么判断nums[v]位置的值:</span></span><br><span class="line"><span class="comment">// 如果v==nums[v], 那么出现重复,结束</span></span><br><span class="line"><span class="comment">// 如果不等, 那么交换两者,使v在正确的位置(与下标相同)</span></span><br><span class="line"><span class="comment">// 对当前位置重复上述操作, 直到i == v</span></span><br><span class="line"><span class="comment">// 时间复杂度O(n), 空间复杂度O(1)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findRepeatNumber</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;Ω</span><br><span class="line">    <span class="keyword">for</span> i, v := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        <span class="comment">// 每个位置最多交换两次就满足</span></span><br><span class="line">        <span class="keyword">for</span> i != v&#123;</span><br><span class="line">            <span class="keyword">if</span> v == nums[v] &#123;</span><br><span class="line">                <span class="keyword">return</span> v</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                nums[i], nums[v] = nums[v], v</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 03. 数组中重复的数字&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;难度简单&lt;/p&gt;
-&lt;p&gt;找出数组中重复的数字。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
-    
-    <category term="leetcode" scheme="https://xwjahahahaha.github.io/categories/technical/leetcode/"/>
-    
-    
-    <category term="golang" scheme="https://xwjahahahaha.github.io/tags/golang/"/>
     
   </entry>
   
