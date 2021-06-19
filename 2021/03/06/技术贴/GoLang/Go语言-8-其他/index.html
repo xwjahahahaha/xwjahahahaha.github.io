@@ -20,8 +20,9 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/JfUTLr.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/9Xjlvv.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/LI32j8.jpg">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/SEdKFD.png">
 <meta property="article:published_time" content="2021-03-06T08:43:53.000Z">
-<meta property="article:modified_time" content="2021-05-23T09:04:03.066Z">
+<meta property="article:modified_time" content="2021-06-17T08:35:19.112Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -79,7 +80,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 440
+			总文章数 444
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -224,7 +225,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2k字</span>
+        <span class="post-count">2.3k字</span>
       </span>
     </span>
 
@@ -233,7 +234,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
+        <span class="post-count">9分</span>
       </span>
     </span>
 </div>
@@ -285,7 +286,7 @@
 </ul>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/LI32j8.jpg" alt="LI32j8"></p>
 <h4 id="命令行调试"><a href="#命令行调试" class="headerlink" title="命令行调试"></a>命令行调试</h4><h2 id="4-1-go的包管理"><a href="#4-1-go的包管理" class="headerlink" title="4.1 go的包管理"></a>4.1 go的包管理</h2><p>此部分内容来源于：<a href="http://c.biancheng.net/view/5712.html" target="_blank" rel="noopener">http://c.biancheng.net/view/5712.html</a></p>
-<h4 id="Go-Module"><a href="#Go-Module" class="headerlink" title="Go Module"></a>Go Module</h4><p>go module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。</p>
+<h4 id="Go-Module综述"><a href="#Go-Module综述" class="headerlink" title="Go Module综述"></a>Go Module综述</h4><p>go module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。</p>
 <p>Modules 官方定义为：</p>
 <p>Modules 是相关 Go 包的集合，是源代码交换和版本控制的单元。Go语言命令直接支持使用 Modules，包括记录和解析对其他模块的依赖性，Modules 替换旧的基于 GOPATH 的方法，来指定使用哪些源文件。</p>
 <p>==如何使用 Modules？==</p>
@@ -346,7 +347,7 @@
 </tbody></table>
 <!-- more -->
 
-<h4 id="GOPROXY"><a href="#GOPROXY" class="headerlink" title="GOPROXY"></a>GOPROXY</h4><p>proxy 顾名思义就是代理服务器的意思。大家都知道，国内的网络有防火墙的存在，这导致有些Go语言的第三方包我们无法直接通过<code>go get</code>命令获取。GOPROXY 是Go语言官方提供的一种通过中间代理商来为用户提供包下载服务的方式。要使用 GOPROXY 只需要设置环境变量 GOPROXY 即可。</p>
+<h4 id="Go-PROXY"><a href="#Go-PROXY" class="headerlink" title="Go PROXY"></a>Go PROXY</h4><p>proxy 顾名思义就是代理服务器的意思。大家都知道，国内的网络有防火墙的存在，这导致有些Go语言的第三方包我们无法直接通过<code>go get</code>命令获取。GOPROXY 是Go语言官方提供的一种通过中间代理商来为用户提供包下载服务的方式。要使用 GOPROXY 只需要设置环境变量 GOPROXY 即可。</p>
 <p>目前公开的代理服务器的地址有：</p>
 <ul>
 <li>goproxy.io；</li>
@@ -390,9 +391,37 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replace golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a =&gt; github.com/golang/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a</span><br></pre></td></tr></table></figure>
 
 <h4 id="下载位置"><a href="#下载位置" class="headerlink" title="下载位置"></a>下载位置</h4><p>一般的下载位置在<code>GOPATH/pkg</code>目录下,使用<code>go module</code>下载位置在<code>GOPATH/src/mod</code>下</p>
-<h4 id="Go-多环境编译"><a href="#Go-多环境编译" class="headerlink" title="Go 多环境编译"></a>Go 多环境编译</h4><p><a href="https://www.cnblogs.com/Tiago/p/6409533.html" target="_blank" rel="noopener">https://www.cnblogs.com/Tiago/p/6409533.html</a></p>
+<h4 id="Go-Build多环境编译"><a href="#Go-Build多环境编译" class="headerlink" title="Go Build多环境编译"></a>Go Build多环境编译</h4><p><a href="https://www.cnblogs.com/Tiago/p/6409533.html" target="_blank" rel="noopener">https://www.cnblogs.com/Tiago/p/6409533.html</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build ./</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./</span><br></pre></td></tr></table></figure>
 
+<h4 id="Go-init"><a href="#Go-init" class="headerlink" title="Go init"></a>Go init</h4><ul>
+<li>在GoPath下使用<code>go mod init</code>,默认生成的module 名称是从GoPath/src目录下开始算的</li>
+<li>不在GoPath下, 需要使用<code>go mod init [example.com/m/v1]</code>自定义本地包名称, 包内import默认就是从此自定义module名下开始算 </li>
+</ul>
+<h4 id="GoMod模式本地包导入问题"><a href="#GoMod模式本地包导入问题" class="headerlink" title="GoMod模式本地包导入问题"></a>GoMod模式本地包导入问题</h4><ul>
+<li><p>出现情况: <strong>多重go mod</strong></p>
+<p>使用本地私有包中含有mod, 项目总体还有一个go mod</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/SEdKFD.png" alt="SEdKFD"></p>
+</li>
+<li><p>运行/编译错误:<code>Package xxxx is not in GOROOT</code></p>
+<p>原因: 未识别本地包</p>
+</li>
+<li><p>解决方法:</p>
+<p>直接使用<code>go mod tidy</code> 会去网络上寻找自定义的本地包, 等很久报错(根本就没有), 所以要使用replace的方法</p>
+<ol>
+<li><p>在<font color='#e54d42'><strong>项目最外层</strong></font>的go mod中将内层所有的含有go mod的私有包都做类似于如下repalce:</p>
+<p><code>replace test/hello =&gt; ./hello</code></p>
+</li>
+<li><p><code>go mod tidy</code></p>
+<p>=&gt; <code>go: found test/hello in test/hello v0.0.0-00010101000000-000000000000</code></p>
+</li>
+<li><p>再次运行,成功</p>
+</li>
+</ol>
+</li>
+<li><p>建议: 项目最好在最外层使用一个go mod文件</p>
+</li>
+</ul>
 
       
       
@@ -414,7 +443,7 @@
     2021-03-06
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-05-23
+    2021-06-17
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/03/06/技术贴/GoLang/Go语言-8-其他/" title="Go语言-4-其他" target="_blank">Go语言-4-其他</a>
@@ -624,7 +653,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#其他"><span class="toc-number">1.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Goland-IDE"><span class="toc-number">1.1.</span> <span class="toc-text">1.Goland IDE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-goland无法识别go-mod的依赖包"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. goland无法识别go mod的依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用go-mod模式导致本地包无法导入问题"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 使用go mod模式导致本地包无法导入问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-goland调试"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. goland调试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单调试"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">简单调试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#详细配置"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">详细配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令行调试"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">命令行调试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-go的包管理"><span class="toc-number">1.2.</span> <span class="toc-text">4.1 go的包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Module"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">Go Module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GOPROXY"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">GOPROXY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Get"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">Go Get</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#go-mod与go-sum文件"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">go.mod与go.sum文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下载位置"><span class="toc-number">1.2.0.5.</span> <span class="toc-text">下载位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-多环境编译"><span class="toc-number">1.2.0.6.</span> <span class="toc-text">Go 多环境编译</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#其他"><span class="toc-number">1.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Goland-IDE"><span class="toc-number">1.1.</span> <span class="toc-text">1.Goland IDE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-goland无法识别go-mod的依赖包"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. goland无法识别go mod的依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用go-mod模式导致本地包无法导入问题"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 使用go mod模式导致本地包无法导入问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-goland调试"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. goland调试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单调试"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">简单调试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#详细配置"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">详细配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令行调试"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">命令行调试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-go的包管理"><span class="toc-number">1.2.</span> <span class="toc-text">4.1 go的包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Module综述"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">Go Module综述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-PROXY"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">Go PROXY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Get"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">Go Get</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#go-mod与go-sum文件"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">go.mod与go.sum文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下载位置"><span class="toc-number">1.2.0.5.</span> <span class="toc-text">下载位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Build多环境编译"><span class="toc-number">1.2.0.6.</span> <span class="toc-text">Go Build多环境编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-init"><span class="toc-number">1.2.0.7.</span> <span class="toc-text">Go init</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GoMod模式本地包导入问题"><span class="toc-number">1.2.0.8.</span> <span class="toc-text">GoMod模式本地包导入问题</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
