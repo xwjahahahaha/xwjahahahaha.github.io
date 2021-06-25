@@ -6,20 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>Cosmos智能合约_cosmWasm | 知识与头发不可兼得</title>
+  <title>swarm-XDai主网免bzz质押和rpc全套搭建教程-windows | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、CosmWasm Overviewcosmos上智能合约虚拟机sdk Wasm是一种中间语言,将开发人员选择的语言编译成便携式虚拟机">
+  <meta name="description" content="本教程的最终效果是： 搭建一个Swarm主网节点，参与Swarm项目 文章不构成任何购买建议，请自行负责  一、清楚一些事情 Swarm主网上线是在以太坊的POA侧链XDAI链上运行的，为了避免主网拥堵以及高额的gas 所以之前空头一些相关Goerli测试网络的配置都不在适用  XDAI链的主链币是XDAI，Bzz是其中的合约代币，类比理解：    区块链网络&#x2F;链 以太坊主链 Goerli测试链">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cosmos智能合约_cosmWasm">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2021/04/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-3-cosmWasm/index.html">
+<meta property="og:title" content="swarm-XDai主网免bzz质押和rpc全套搭建教程-windows">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2021/06/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Swarm/swarm-XDai%E4%B8%BB%E7%BD%91%E5%85%8Dbzz%E8%B4%A8%E6%8A%BC%E5%92%8Crpc%E5%85%A8%E5%A5%97%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B-windows/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="一、CosmWasm Overviewcosmos上智能合约虚拟机sdk Wasm是一种中间语言,将开发人员选择的语言编译成便携式虚拟机">
+<meta property="og:description" content="本教程的最终效果是： 搭建一个Swarm主网节点，参与Swarm项目 文章不构成任何购买建议，请自行负责  一、清楚一些事情 Swarm主网上线是在以太坊的POA侧链XDAI链上运行的，为了避免主网拥堵以及高额的gas 所以之前空头一些相关Goerli测试网络的配置都不在适用  XDAI链的主链币是XDAI，Bzz是其中的合约代币，类比理解：    区块链网络&#x2F;链 以太坊主链 Goerli测试链">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-23T07:32:19.000Z">
-<meta property="article:modified_time" content="2021-04-25T01:20:27.835Z">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/nERnYe.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/305O4A.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/z6hCnz.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/UvbZCE.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/zQNNQG.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/TwbDti.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/74OoV0.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/g5NZt6.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/YBPIkb.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/JbOVik.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/x1syFS.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/IQsPU0.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/U9vUzt.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/P0pxtb.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/phoBCw.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/82lRk0.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/eydkFy.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/719qCf.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/fPc6RB.png">
+<meta property="article:published_time" content="2021-06-22T02:58:10.000Z">
+<meta property="article:modified_time" content="2021-06-23T01:38:27.532Z">
 <meta property="article:author" content="DDDemons hide">
-<meta property="article:tag" content="cosmos">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/nERnYe.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -73,7 +92,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 444
+			总文章数 452
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -184,21 +203,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/区块链/Cosmos/cosmos-3-cosmWasm" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/区块链/Swarm/swarm-XDai主网免bzz质押和rpc全套搭建教程-windows" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Cosmos智能合约_cosmWasm
+      swarm-XDai主网免bzz质押和rpc全套搭建教程-windows
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/04/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-3-cosmWasm/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/06/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Swarm/swarm-XDai%E4%B8%BB%E7%BD%91%E5%85%8Dbzz%E8%B4%A8%E6%8A%BC%E5%92%8Crpc%E5%85%A8%E5%A5%97%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B-windows/" class="pageViews">0</span>次
   </a>
 
         
@@ -208,8 +227,8 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2021/04/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-3-cosmWasm/" class="archive-article-date">
-  	<time datetime="2021-04-23T07:32:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-23</time>
+<a href="/2021/06/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Swarm/swarm-XDai%E4%B8%BB%E7%BD%91%E5%85%8Dbzz%E8%B4%A8%E6%8A%BC%E5%92%8Crpc%E5%85%A8%E5%A5%97%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B-windows/" class="archive-article-date">
+  	<time datetime="2021-06-22T02:58:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-22</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -218,7 +237,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">318字</span>
+        <span class="post-count">1.8k字</span>
       </span>
     </span>
 
@@ -227,7 +246,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">7分</span>
       </span>
     </span>
 </div>
@@ -239,42 +258,161 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、CosmWasm-Overview"><a href="#一、CosmWasm-Overview" class="headerlink" title="一、CosmWasm Overview"></a>一、CosmWasm Overview</h1><p>cosmos上智能合约虚拟机sdk</p>
-<p>Wasm是一种中间语言,将开发人员选择的语言编译成便携式虚拟机</p>
-<a id="more"></a>
-
-<h1 id="二、Architecture"><a href="#二、Architecture" class="headerlink" title="二、Architecture"></a>二、Architecture</h1><h2 id="Multi-Chain-Contracts"><a href="#Multi-Chain-Contracts" class="headerlink" title="Multi-Chain Contracts"></a>Multi-Chain Contracts</h2><ul>
-<li><p>different chain, same contract</p>
-<p>代码与底层链细节无关,在cosmos生态中可以快速嵌入</p>
+        <blockquote>
+<p>本教程的最终效果是： 搭建一个Swarm主网节点，参与Swarm项目</p>
+<p>文章不构成任何购买建议，请自行负责</p>
+</blockquote>
+<h1 id="一、清楚一些事情"><a href="#一、清楚一些事情" class="headerlink" title="一、清楚一些事情"></a>一、清楚一些事情</h1><ul>
+<li><p>Swarm主网上线是在以太坊的POA侧链XDAI链上运行的，为了避免主网拥堵以及高额的gas</p>
+<p><font color='#e54d42'><strong>所以之前空头一些相关Goerli测试网络的配置都不在适用</strong></font></p>
 </li>
-<li><p>Inter Blockchain Contracts</p>
-<p>基于cosmos自带的IBC协议</p>
+<li><p>XDAI链的主链币是XDAI，Bzz是其中的合约代币，类比理解：</p>
+<table>
+<thead>
+<tr>
+<th>区块链网络/链</th>
+<th>以太坊主链</th>
+<th>Goerli测试链（空头）</th>
+<th>侧链XDAI（正式）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主链币</td>
+<td>ETH</td>
+<td>gETH</td>
+<td>XDAI</td>
+</tr>
+<tr>
+<td>合约代币</td>
+<td>BZZ</td>
+<td>gBZZ</td>
+<td>xBZZ</td>
+</tr>
+</tbody></table>
+<ul>
+<li>主链币是一条区块链的核心币，由交易转移、共识一致，数量依托整个区块链系统结构设计。交易的Gas费就是主链币</li>
+<li>合约代币是区块链运行的合约逻辑中存储的一串数字，对，就是数字（虽然主链币也是数字），数量变化依托合约逻辑结构设计。</li>
+</ul>
 </li>
-<li><p>Easy to Integrate</p>
-<p>cosmWasm的目标是建立一个库而不是框架, 支持GO、AssemplyScript等语言(即使不会rust)</p>
-<p>其可以嵌入到其他的框架中,不仅仅是cosmo sdk</p>
-<p>核心运行时逻辑<code>cosmwasm-vm</code>用rust编写，<code>go-cosmwasm</code>提供了一个通用的Go绑定它。</p>
+<li><p>Bee客户端是Swarm项目的客户端，在本地运行，<strong>很多配置可以通过配置文件修改运行</strong>。</p>
 </li>
-<li><p>Platform to Build On</p>
-<p>智能合约/Dapp能够在链之间快速迁移,合约数据可以通过IBC跨链转移</p>
+<li><p>整体结构大约如下所示：</p>
+<p>（当然，现实不可能以太坊节点与Swarm节点完全分离，很可能有错综复杂的重叠）</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/nERnYe.png" alt="nERnYe"></p>
 </li>
 </ul>
-<h2 id="Actor-Model-for-Contract-Calls"><a href="#Actor-Model-for-Contract-Calls" class="headerlink" title="Actor Model for Contract Calls"></a>Actor Model for Contract Calls</h2><p>actor model 是一种设计模式,通常适用于可靠分分布式系统</p>
-<p>每个Actor对自己内部状态有独占的访问权,Actor之间不能够互相直接访问,只有通过分发Dispatcher消息(维护系统状态并将地址映射到代码与存储)才能访问</p>
-<p>基本的Actor接口如下: (Wasm的模型合约)</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">trait</span> <span class="title">Actor</span></span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">handle</span></span>(msgPayload: &amp;[<span class="built_in">u8</span>]) -&gt; <span class="built_in">Vec</span>&lt;Msg&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pub</span> <span class="class"><span class="keyword">struct</span> <span class="title">Msg</span></span> &#123;</span><br><span class="line">    <span class="keyword">pub</span> destination: <span class="built_in">Vec</span>&lt;<span class="built_in">u8</span>&gt;,</span><br><span class="line">    <span class="keyword">pub</span> payload: <span class="built_in">Vec</span>&lt;<span class="built_in">u8</span>&gt;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 
+<h1 id="二、RPC访问配置"><a href="#二、RPC访问配置" class="headerlink" title="二、RPC访问配置"></a>二、RPC访问配置</h1><h2 id="2-1-使用GetBlock（推荐）"><a href="#2-1-使用GetBlock（推荐）" class="headerlink" title="2.1 使用GetBlock（推荐）"></a>2.1 使用GetBlock（推荐）</h2><p>类似于之前测试网的<a href="https://infura.io，[Getblock](https://getblock.io/)也是一个提供在线PRC服务的网站，不用自建RPC">https://infura.io，[Getblock](https://getblock.io/)也是一个提供在线PRC服务的网站，不用自建RPC</a></p>
+<p>使用方法：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/305O4A.png" alt="305O4A"></p>
+<p>输入邮箱，名称注册</p>
+<p>打开邮箱会看到注册的详细信息网站</p>
+<p>注册成功后，进入控制台如图：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/z6hCnz.png" alt="z6hCnz"></p>
+<p>就可以拿到你的API密钥了</p>
+<p>最终你的的Swap-endpoint配置就是:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">swap-endpoint:</span> <span class="string">https://stake.getblock.io/mainnet/?api_key=这里换成你的API密钥</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="2-2-搭建自己的RPC基站"><a href="#2-2-搭建自己的RPC基站" class="headerlink" title="2.2 搭建自己的RPC基站"></a>2.2 搭建自己的RPC基站</h2><p>玩过测试网的都知道，之前Swarm测试网(Goerli测试网络)用的RPC基站即Swap-endpoint是在<a href="https://infura.io上注册的，每天限制免费10万次请求，现在不用这个了。" target="_blank" rel="noopener">https://infura.io上注册的，每天限制免费10万次请求，现在不用这个了。</a></p>
+<p>为了让我们的Bee客户端能够通过rpc请求获取到XDAI的链上数据并且没有请求次数的限制，我们可以运行一个自己的XDAI网络RPC基站</p>
+<h3 id="2-2-1-下载工具Nethermind"><a href="#2-2-1-下载工具Nethermind" class="headerlink" title="2.2.1 下载工具Nethermind"></a>2.2.1 下载工具Nethermind</h3><p>Nethermind是以太坊客户端快速同步节点搭建工具，支持很多种测试网络，网址如下：</p>
+<p><a href="https://docs.nethermind.io/nethermind/" target="_blank" rel="noopener">https://docs.nethermind.io/nethermind/</a></p>
+<p>进入Download：</p>
+<p><a href="https://docs.nethermind.io/nethermind/ethereum-client/download-sources" target="_blank" rel="noopener">https://docs.nethermind.io/nethermind/ethereum-client/download-sources</a></p>
+<p>下载链接：</p>
+<p><a href="https://downloads.nethermind.io/" target="_blank" rel="noopener">https://downloads.nethermind.io/</a></p>
+<p>选择你的电脑操作系统版本</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/UvbZCE.png" alt="UvbZCE"></p>
+<p>下载解压后如图：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/zQNNQG.png" alt="zQNNQG"></p>
+<h3 id="2-2-2-设置WebSocket为启动"><a href="#2-2-2-设置WebSocket为启动" class="headerlink" title="2.2.2 设置WebSocket为启动"></a>2.2.2 设置WebSocket为启动</h3><p>打开配置文件夹configs找到xdai.cfg, 用记事本打开</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/TwbDti.png" alt="TwbDti"></p>
+<p>修改webSocket为启用：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/74OoV0.png" alt="74OoV0"></p>
+<p>保存退出</p>
+<h3 id="2-2-3-启动节点，开始同步"><a href="#2-2-3-启动节点，开始同步" class="headerlink" title="2.2.3 启动节点，开始同步"></a>2.2.3 启动节点，开始同步</h3><p>双击Nethermind.Launcher.exe启动，上下左右移动选择，回车确定</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/g5NZt6.png" alt="g5NZt6"></p>
+<p>选择以太坊节点</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/YBPIkb.png" alt="YBPIkb"></p>
+<p>选择XDAI测试链</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/JbOVik.png" alt="JbOVik"></p>
+<p>选择快速同步模式</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/x1syFS.png" alt="x1syFS"></p>
+<p>接下来的一连串配置：</p>
+<p>一般本地使用就是127.0.0.1, 服务器的话就用服务器的IP</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/IQsPU0.png" alt="IQsPU0"></p>
+<p>启动后等待同步，同步的时间<strong>很长。。。。耐心等待</strong></p>
+<p>默认就是8546端口，符合bee客户端swap-endpoint的默认配置，所以不需要改配置</p>
+<p>打开浏览器访问<code>localhost:8546</code>出现<code>Nethermind JSON RPC</code>即可</p>
+<p>最后你的Swap-endpoint应该是：（也就是默认的配置）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">swap-endpoint:</span> <span class="string">ws://localhost:8546</span></span><br></pre></td></tr></table></figure>
 
+<h1 id="三、获取XDAI"><a href="#三、获取XDAI" class="headerlink" title="三、获取XDAI"></a>三、获取XDAI</h1><p>部署支票簿合约就需要发起交易，发起交易就需要交易费，在XDAI链上，交易费就是XDAI币</p>
+<p>XDAI是稳定币，目前交易所的价格等同与USDT<strong>大约一美元</strong>，所以<strong>如果找别人买最好看清楚给的价格</strong></p>
+<p>购买之前，先配置一下MetaMask小狐狸钱包</p>
+<h2 id="3-1-MetaMask小狐狸钱包的配置"><a href="#3-1-MetaMask小狐狸钱包的配置" class="headerlink" title="3.1 MetaMask小狐狸钱包的配置"></a>3.1 MetaMask小狐狸钱包的配置</h2><p>打开设置：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/U9vUzt.png" alt="U9vUzt"></p>
+<p>下拉找到网络 =&gt; 添加网络</p>
+<p>XDAI侧链网络配置如下：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/P0pxtb.png" alt="P0pxtb"></p>
+<p>网络名词：xDAI Chain</p>
+<p>新增RPC URL：<a href="https://rpc.xdaichain.com(注意标点符号的半角和全角，需要半角)" target="_blank" rel="noopener">https://rpc.xdaichain.com(注意标点符号的半角和全角，需要半角)</a></p>
+<p>链ID：100</p>
+<p>符号：xDAI</p>
+<p>区块浏览器：<a href="https://blockscout.com/xdai/mainnet/" target="_blank" rel="noopener">https://blockscout.com/xdai/mainnet/</a></p>
+<hr>
+<h2 id="3-2-添加XDAI链的xBzz"><a href="#3-2-添加XDAI链的xBzz" class="headerlink" title="3.2 添加XDAI链的xBzz"></a>3.2 添加XDAI链的xBzz</h2><p>添加代币 =&gt; 代币合约地址</p>
+<p>地址：0xdBF3Ea6F5beE45c02255B2c26a16F300502F68da</p>
+<h2 id="3-3-交易所购买"><a href="#3-3-交易所购买" class="headerlink" title="3.3 交易所购买"></a>3.3 交易所购买</h2><p><a href="https://m.ascendex.com/register?inviteCode=UHCVPQPWA" target="_blank" rel="noopener">https://m.ascendex.com/register?inviteCode=UHCVPQPWA</a></p>
+<p>点市场——右上角搜索——xDAI，就可以看到</p>
+<p>如果从其他交易所提U进来，推荐走TRC20链。</p>
+<p>由于erc20的手续费较高，提币可以选择TRC20，并且提币和充币，都要选择TRC20，切记一一对应，别搞错了。</p>
+<p>购买后将你的XDAI转移到你的Bee账户中</p>
+<h1 id="四、配置1-0版本Bee"><a href="#四、配置1-0版本Bee" class="headerlink" title="四、配置1.0版本Bee"></a>四、配置1.0版本Bee</h1><p>找一个空文件夹，在官网下载：</p>
+<p>全部下载地址： <a href="https://github.com/ethersphere/bee/releases/tag/v1.0.0" target="_blank" rel="noopener">https://github.com/ethersphere/bee/releases/tag/v1.0.0</a></p>
+<p>windows地址：<a href="https://github.com/ethersphere/bee/releases/download/v1.0.0/bee-windows-amd64.exe" target="_blank" rel="noopener">https://github.com/ethersphere/bee/releases/download/v1.0.0/bee-windows-amd64.exe</a></p>
+<p>下载exe放入空文件夹</p>
+<p>进入空文件夹创建一个文件, 文件全称：<code>bee.yaml</code> 注意拓展名是Yaml，如果没有设置显示拓展名，具体的windows显示文件拓展名见：</p>
+<p><a href="https://jingyan.baidu.com/article/a3a3f811154df38da3eb8a51.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/a3a3f811154df38da3eb8a51.html</a></p>
+<h2 id="4-1-零质押与Gas费的配置"><a href="#4-1-零质押与Gas费的配置" class="headerlink" title="4.1 零质押与Gas费的配置"></a>4.1 零质押与Gas费的配置</h2><h3 id="1-零质押配置"><a href="#1-零质押配置" class="headerlink" title="1. 零质押配置"></a>1. 零质押配置</h3><p>如果追求最小成本，可以将质押的初始Bzz设置为0</p>
+<p>在<code>bee.yaml</code>文件中编辑</p>
+<p><code>swap-initial-deposit: &quot;0&quot;</code></p>
+<h3 id="2-提高Gas费配置"><a href="#2-提高Gas费配置" class="headerlink" title="2. 提高Gas费配置"></a>2. 提高Gas费配置</h3><p>为了加快支票薄合约的部署速度，也就是运行Bee的等待交易上链时间，可以提高Gas费也就是XDAI</p>
+<p>配置如下：</p>
+<p><code>swap-deployment-gas-price: &quot;修改你想要的gas费，也不要太大&quot;</code></p>
+<h3 id="3-最终yaml整体配置"><a href="#3-最终yaml整体配置" class="headerlink" title="3. 最终yaml整体配置"></a>3. 最终yaml整体配置</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">api-addr:</span> <span class="string">:1633</span>																																			<span class="comment"># 端口可自行修改</span></span><br><span class="line"><span class="attr">cache-capacity:</span> <span class="string">"1000000"</span></span><br><span class="line"><span class="attr">config:</span> <span class="string">.\.bee.yaml</span></span><br><span class="line"><span class="attr">data-dir:</span> <span class="string">.\.bee</span>																																		<span class="comment"># 所有数据文件都在当前文件夹，如果有问题整体删除即可</span></span><br><span class="line"><span class="attr">debug-api-addr:</span> <span class="string">:1635</span></span><br><span class="line"><span class="attr">debug-api-enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">full-node:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">mainnet:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">network-id:</span> <span class="string">"1"</span></span><br><span class="line"><span class="attr">network-id:</span> <span class="string">"100"</span></span><br><span class="line"><span class="attr">p2p-addr:</span> <span class="string">:1634</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">"xxxxxxx"</span></span><br><span class="line"><span class="attr">swap-deployment-gas-price:</span> <span class="string">"999999"</span>																									<span class="comment"># 自行修改交易费</span></span><br><span class="line"><span class="attr">swap-enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">swap-endpoint:</span> <span class="string">https://stake.getblock.io/mainnet/?api_key=xxxxxxxxxxxxxxxxxxx</span>				<span class="comment"># 修改成你的api keys</span></span><br><span class="line"><span class="attr">swap-initial-deposit:</span> <span class="string">"0"</span>																														<span class="comment"># 自行修改质押</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="4-单机多节点"><a href="#4-单机多节点" class="headerlink" title="4. 单机多节点"></a>4. 单机多节点</h3><p>这里的多节点是<strong>多端口</strong>，<strong>多个控制台启动</strong></p>
+<p>端口避免重复例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一台节点</span></span><br><span class="line"><span class="attr">api-addr:</span> <span class="string">:1633</span>		</span><br><span class="line"><span class="attr">debug-api-addr:</span> <span class="string">:1635</span></span><br><span class="line"><span class="attr">debug-api-enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">p2p-addr:</span> <span class="string">:1634</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二台节点</span></span><br><span class="line"><span class="attr">api-addr:</span> <span class="string">:1643</span>		</span><br><span class="line"><span class="attr">debug-api-addr:</span> <span class="string">:1645</span></span><br><span class="line"><span class="attr">debug-api-enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">p2p-addr:</span> <span class="string">:1644</span></span><br></pre></td></tr></table></figure>
 
+<p>多节点就是创建多个文件夹，多个cmd，多次启动</p>
+<h1 id="五、启动Bee-1-0开始工作"><a href="#五、启动Bee-1-0开始工作" class="headerlink" title="五、启动Bee_1.0开始工作"></a>五、启动Bee_1.0开始工作</h1><p>在文件夹下启动cmd，输入如下命令启动：</p>
+<p><code>bee-windows-amd64.exe start --config bee.yaml</code></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/phoBCw.png" alt="phoBCw"></p>
+<h1 id="六、导出私钥"><a href="#六、导出私钥" class="headerlink" title="六、导出私钥"></a>六、导出私钥</h1><h2 id="6-1-不使用clef（推荐）"><a href="#6-1-不使用clef（推荐）" class="headerlink" title="6.1 不使用clef（推荐）"></a>6.1 不使用clef（推荐）</h2><p>教程不使用bee-clef，使用Bee默认会启动创建的一对公私钥，所以要将私钥导出来，加载到例如MetaMask钱包中</p>
+<p><a href="https://github.com/jmozah/exportSwarmKey" target="_blank" rel="noopener">https://github.com/jmozah/exportSwarmKey</a> （要自行用go环境编译）</p>
+<p>windows版本的编译完成main文件：</p>
+<p>链接: <a href="https://pan.baidu.com/s/1EEEwxJ70ZrcUSbTS3AMHOQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1EEEwxJ70ZrcUSbTS3AMHOQ</a>  密码: tb09  （博主不负任何责任，自行考良）</p>
+<p>在文件夹下运行：</p>
+<p><code>exportKeys_windows.exe .bee/keys/ 你的密码(配置文件中配置)</code></p>
+<p><strong>显示的第三个<code>.bee\keys\swarm_key</code>中的私钥就是目标私钥</strong></p>
+<h2 id="6-2-使用bee-clef"><a href="#6-2-使用bee-clef" class="headerlink" title="6.2 使用bee-clef"></a>6.2 使用bee-clef</h2><p>使用clef在上面的配置文件加上配置：（具体配置方法见其他文章）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">clef-signer-enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">clef-signer-endpoint:</span> <span class="string">""</span>									</span><br><span class="line"><span class="attr">clef-signer-ethereum-address:</span> <span class="string">""</span></span><br></pre></td></tr></table></figure>
 
+<p>将clef账户导入到MetaMask中</p>
+<p><code>cd /var/lib/bee-clef</code></p>
+<p>文件夹下:</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/82lRk0.png" alt="82lRk0"></p>
+<p>或者终端运行<code>bee-clef-keys</code></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/eydkFy.png" alt="eydkFy"></p>
+<p>会自动导入到主目录下,txt中就是密码</p>
+<p>打开MetaMask中导入:</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/719qCf.png" alt="719qCf"></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/fPc6RB.png" alt="fPc6RB"></p>
+<h1 id="七、其他"><a href="#七、其他" class="headerlink" title="七、其他"></a>七、其他</h1><h2 id="XDAI浏览器地址"><a href="#XDAI浏览器地址" class="headerlink" title="XDAI浏览器地址"></a>XDAI浏览器地址</h2><p><a href="https://blockscout.com/xdai/mainnet/" target="_blank" rel="noopener">https://blockscout.com/xdai/mainnet/</a></p>
 
-
-
-
-
-<h1 id="三、Get-Started"><a href="#三、Get-Started" class="headerlink" title="三、Get Started"></a>三、Get Started</h1>
       
       
       <!-- 添加版权声明 -->
@@ -292,16 +430,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2021-04-23
+    2021-06-22
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-04-25
+    2021-06-23
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/04/23/技术贴/区块链/Cosmos/cosmos-3-cosmWasm/" title="Cosmos智能合约_cosmWasm" target="_blank">Cosmos智能合约_cosmWasm</a>
+    <a href="https://xwjahahahaha.github.io/2021/06/22/技术贴/区块链/Swarm/swarm-XDai主网免bzz质押和rpc全套搭建教程-windows/" title="swarm-XDai主网免bzz质押和rpc全套搭建教程-windows" target="_blank">swarm-XDai主网免bzz质押和rpc全套搭建教程-windows</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/04/23/技术贴/区块链/Cosmos/cosmos-3-cosmWasm/" title="Cosmos智能合约_cosmWasm" target="_blank">https://xwjahahahaha.github.io/2021/04/23/技术贴/区块链/Cosmos/cosmos-3-cosmWasm/</a>
+    <a href="https://xwjahahahaha.github.io/2021/06/22/技术贴/区块链/Swarm/swarm-XDai主网免bzz质押和rpc全套搭建教程-windows/" title="swarm-XDai主网免bzz质押和rpc全套搭建教程-windows" target="_blank">https://xwjahahahaha.github.io/2021/06/22/技术贴/区块链/Swarm/swarm-XDai主网免bzz质押和rpc全套搭建教程-windows/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -374,17 +512,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cosmos</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -446,7 +573,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/04/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-3-cosmWasm/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/06/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Swarm/swarm-XDai%E4%B8%BB%E7%BD%91%E5%85%8Dbzz%E8%B4%A8%E6%8A%BC%E5%92%8Crpc%E5%85%A8%E5%A5%97%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B-windows/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -463,18 +590,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/04/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2/75-%E9%A2%9C%E8%89%B2%E5%88%86%E7%B1%BB/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/06/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0192/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          75-颜色分类
+          日记_0192
         
       </div>
     </a>
   
   
-    <a href="/2021/04/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0160/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日记_0160</div>
+    <a href="/2021/06/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-1-FA%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8EPumping_Lemma%E6%B3%B5%E5%AE%9A%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算理论基础-1-FA有穷自动机与Pumping_Lemma泵定理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -501,7 +628,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、CosmWasm-Overview"><span class="toc-number">1.</span> <span class="toc-text">一、CosmWasm Overview</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Architecture"><span class="toc-number">2.</span> <span class="toc-text">二、Architecture</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multi-Chain-Contracts"><span class="toc-number">2.1.</span> <span class="toc-text">Multi-Chain Contracts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Actor-Model-for-Contract-Calls"><span class="toc-number">2.2.</span> <span class="toc-text">Actor Model for Contract Calls</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Get-Started"><span class="toc-number">3.</span> <span class="toc-text">三、Get Started</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、清楚一些事情"><span class="toc-number">1.</span> <span class="toc-text">一、清楚一些事情</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、RPC访问配置"><span class="toc-number">2.</span> <span class="toc-text">二、RPC访问配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-使用GetBlock（推荐）"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 使用GetBlock（推荐）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-搭建自己的RPC基站"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 搭建自己的RPC基站</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-下载工具Nethermind"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1 下载工具Nethermind</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-设置WebSocket为启动"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2 设置WebSocket为启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-启动节点，开始同步"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.2.3 启动节点，开始同步</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、获取XDAI"><span class="toc-number">3.</span> <span class="toc-text">三、获取XDAI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-MetaMask小狐狸钱包的配置"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 MetaMask小狐狸钱包的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-添加XDAI链的xBzz"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 添加XDAI链的xBzz</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-交易所购买"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 交易所购买</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、配置1-0版本Bee"><span class="toc-number">4.</span> <span class="toc-text">四、配置1.0版本Bee</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-零质押与Gas费的配置"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 零质押与Gas费的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-零质押配置"><span class="toc-number">4.1.1.</span> <span class="toc-text">1. 零质押配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-提高Gas费配置"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. 提高Gas费配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-最终yaml整体配置"><span class="toc-number">4.1.3.</span> <span class="toc-text">3. 最终yaml整体配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-单机多节点"><span class="toc-number">4.1.4.</span> <span class="toc-text">4. 单机多节点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、启动Bee-1-0开始工作"><span class="toc-number">5.</span> <span class="toc-text">五、启动Bee_1.0开始工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、导出私钥"><span class="toc-number">6.</span> <span class="toc-text">六、导出私钥</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-不使用clef（推荐）"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 不使用clef（推荐）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-使用bee-clef"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 使用bee-clef</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、其他"><span class="toc-number">7.</span> <span class="toc-text">七、其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#XDAI浏览器地址"><span class="toc-number">7.1.</span> <span class="toc-text">XDAI浏览器地址</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -895,6 +1022,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tendermint</a>
               </li>
             
             <div class="clearfix"></div>

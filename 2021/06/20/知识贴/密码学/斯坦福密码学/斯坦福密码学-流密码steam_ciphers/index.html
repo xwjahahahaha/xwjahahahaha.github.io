@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>cosmos-4-Ethermint | 知识与头发不可兼得</title>
+  <title>斯坦福密码学-流密码steam_ciphers | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录使用ethermint的一些错误总结 IntroductionEthermint是一个可扩展的、高吞吐量的权益证明区块链，与以太坊完全兼容并可互操作。它使用运行在Tendermint核心共识引擎上的Cosmos SDK构建。 特点:  拥有以太坊的功能 能够与Cosmos其他链交换价值 兼容Web3 高吞吐量 (Tendermint) 水平拓展能力 (IBC) 快速交易最终一致性 Hard S">
+  <meta name="description" content="一、The One Time Pad (OTP) - 一次性密码本二、Steam Ciphers - 流密码2.1 Pseudorandom Generators - 伪随机生成器完全安全(Prefect Secrecy)意味着能够防御唯密文攻击(CT only attack) 但是要求:   秘钥长度 &gt;&#x3D; 明文长度 为了让流密码实现完全安全, 但是不可能这么长的随机密钥, 所以就产生了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cosmos-4-Ethermint">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2021/04/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-4-Ethermint/index.html">
+<meta property="og:title" content="斯坦福密码学-流密码steam_ciphers">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2021/06/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6-%E6%B5%81%E5%AF%86%E7%A0%81steam_ciphers/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="记录使用ethermint的一些错误总结 IntroductionEthermint是一个可扩展的、高吞吐量的权益证明区块链，与以太坊完全兼容并可互操作。它使用运行在Tendermint核心共识引擎上的Cosmos SDK构建。 特点:  拥有以太坊的功能 能够与Cosmos其他链交换价值 兼容Web3 高吞吐量 (Tendermint) 水平拓展能力 (IBC) 快速交易最终一致性 Hard S">
+<meta property="og:description" content="一、The One Time Pad (OTP) - 一次性密码本二、Steam Ciphers - 流密码2.1 Pseudorandom Generators - 伪随机生成器完全安全(Prefect Secrecy)意味着能够防御唯密文攻击(CT only attack) 但是要求:   秘钥长度 &gt;&#x3D; 明文长度 为了让流密码实现完全安全, 但是不可能这么长的随机密钥, 所以就产生了">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/u5au60.png">
-<meta property="article:published_time" content="2021-04-25T02:32:25.000Z">
-<meta property="article:modified_time" content="2021-05-31T13:24:32.929Z">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/4zPVuv.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/53vr15.png">
+<meta property="article:published_time" content="2021-06-20T11:25:29.000Z">
+<meta property="article:modified_time" content="2021-06-20T12:40:26.201Z">
 <meta property="article:author" content="DDDemons hide">
-<meta property="article:tag" content="ethermint">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/u5au60.png">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/4zPVuv.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -75,7 +75,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 444
+			总文章数 452
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -186,21 +186,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/区块链/Cosmos/cosmos-4-Ethermint" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-知识贴/密码学/斯坦福密码学/斯坦福密码学-流密码steam_ciphers" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      cosmos-4-Ethermint
+      斯坦福密码学-流密码steam_ciphers
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/04/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-4-Ethermint/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/06/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6-%E6%B5%81%E5%AF%86%E7%A0%81steam_ciphers/" class="pageViews">0</span>次
   </a>
 
         
@@ -210,8 +210,8 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2021/04/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-4-Ethermint/" class="archive-article-date">
-  	<time datetime="2021-04-25T02:32:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-25</time>
+<a href="/2021/06/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6-%E6%B5%81%E5%AF%86%E7%A0%81steam_ciphers/" class="archive-article-date">
+  	<time datetime="2021-06-20T11:25:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-20</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -220,7 +220,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.8k字</span>
+        <span class="post-count">513字</span>
       </span>
     </span>
 
@@ -229,7 +229,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -241,158 +241,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>记录使用ethermint的一些错误总结</strong></p>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Ethermint是一个可扩展的、高吞吐量的权益证明区块链，与以太坊完全兼容并可互操作。它使用运行在Tendermint核心共识引擎上的Cosmos SDK构建。</p>
-<p>特点:</p>
-<ul>
-<li>拥有以太坊的功能</li>
-<li>能够与Cosmos其他链交换价值</li>
-<li>兼容Web3</li>
-<li>高吞吐量 (Tendermint)</li>
-<li>水平拓展能力 (IBC)</li>
-<li>快速交易最终一致性</li>
-<li>Hard Spoon</li>
-</ul>
-<a id="more"></a>
-
-<p>Ethermint通过以下方式启用这些关键特性:  </p>
-<ol>
-<li><p>实现Tendermint Core的应用区块链接口(ABCI)来管理区块链 </p>
-</li>
-<li><p>利用Cosmos SDK实现的模块和其他机制。 </p>
-</li>
-<li><p>利用geth作为库来避免代码重用并提高可维护性。</p>
-</li>
-<li><p>公开一个完全兼容的Web3 JSON-RPC层，用于与现有以太坊客户端和工具(Metamask、Remix、Truffle等)交互。</p>
-</li>
-</ol>
-<p>这些特性使开发人员可以利用现有的以太坊生态系统工具和软件无缝部署智能合约，与Cosmos生态系统的其他部分交互!</p>
-<h2 id="Architeture"><a href="#Architeture" class="headerlink" title="Architeture"></a>Architeture</h2><ul>
-<li>Ethermint 就是一个ABCI的应用实例,它通过TBFT代替了以太坊的POW</li>
-<li>Ethermint区块链让以太坊开发者可以将他们的智能合约部署到Ethermint EVM，并获得快速最终权益证明(PoS)链的好处</li>
-<li>开发人员还将受益于高可靠的客户，这些客户可以使用测试网来测试和部署他们的合同。</li>
-<li>可以建立<strong>互操作函数</strong>同IBC操作其他链,还可以用中继网桥()实现ethermint和ethereum互操作</li>
-<li>封装在ethermint内部的EVM模块(x/EVM)可以作为自己独立的模块单独使用。对任何Cosmos可以添加依赖,实现合约</li>
-<li>以预设定的Validator集合和EVM模型作为依赖,能够让项目快速达到最终一致性</li>
-<li>导入EVM模块可以使链实现网络和一些特殊的细粒度配置</li>
-<li>使用Ethemint链可以直接部署合约到Ethermint网络上</li>
-<li>利用Ethermint 客户端将链维护推迟到Ethemint 网络，并允许参与更成熟的区块链。</li>
-<li>目前Ethermint 客户端还不支持IBC跨链互操作</li>
-</ul>
-<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><p>Vedios:</p>
-<p><a href="https://www.youtube.com/watch?v=cH-4Mq-S4BA" target="_blank" rel="noopener">Code With Us: Ethermint Tutorial - Elizabeth Binks</a></p>
-<p><a href="https://www.youtube.com/watch?v=VCLbS1Oks8A" target="_blank" rel="noopener">Ethermint 2.0: Cosmos SDK + EVM - Chris Goes</a></p>
-<p><a href="https://www.youtube.com/watch?v=Rws-QQ_qcfU" target="_blank" rel="noopener">Getting Started with Ethermint - Austin Abell</a></p>
-<p><a href="https://www.youtube.com/watch?v=ReYV5cnSLyE" target="_blank" rel="noopener">Ethermint and NFTs - Billy Rennekamp</a></p>
-<p><a href="https://www.youtube.com/watch?v=4oCIMFekY_Q" target="_blank" rel="noopener">HackAtom India Webinar: Getting Started with Ethermint - Elizabeth Binks</a></p>
-<p>Articles:</p>
-<p><a href="https://blog.cosmos.network/ethermint-supports-web3-personal-api-556adf75c24e" target="_blank" rel="noopener">Ethermint Supports Web3 Personal API - Colin Schwarz</a></p>
-<p><a href="https://blog.cosmos.network/the-road-to-ethermint-836c0745f535" target="_blank" rel="noopener">The Road to Ethermint - Colin Schwarz</a></p>
-<p><a href="https://blog.cosmos.network/a-beginners-guide-to-ethermint-38ee15f8a6f4" target="_blank" rel="noopener">A Beginners Guide to Ethermint - ICF</a></p>
-<p><a href="https://blog.cosmos.network/using-ethermint-with-truffle-984e6721e30d" target="_blank" rel="noopener">Using Ethermint with Truffle - Billy Rennekamp</a></p>
-<p><a href="https://blog.cosmos.network/light-clients-on-ethermint-9ae1f3c6c4f5" target="_blank" rel="noopener">Light Clients on Ethermint - ICF</a></p>
-<p><a href="https://blog.cosmos.network/cosmos-fee-token-introducing-the-photon-8a62b2f51aa" target="_blank" rel="noopener">Cosmos Fee Token – Introducing the Photon - ICF</a></p>
-<p><a href="https://blog.cosmos.network/introducing-the-hard-spoon-4a9288d3f0df" target="_blank" rel="noopener">Introducing the Hard Spoon - Chjango Unchained</a></p>
-<p><a href="https://blog.cosmos.network/ethermint-nfts-at-ethdenver-bf32766835b6" target="_blank" rel="noopener">Ethermint and NFTs at EthDenver - Tendermint</a></p>
-<h1 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>二进制源码安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/cosmos/ethermint.git</span><br><span class="line">cd ethermint</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<h2 id="Run-a-Node"><a href="#Run-a-Node" class="headerlink" title="Run a Node"></a>Run a Node</h2><p>自动部署 (在ethermint文件夹下)<code>./init.sh</code></p>
-<p>或者已经启动过,重新启动:</p>
-<p><code>ethermintd start --pruning=nothing --rpc.unsafe --log_level &quot;main:info,state:info,mempool:info&quot; --trace</code></p>
+        <h1 id="一、The-One-Time-Pad-OTP-一次性密码本"><a href="#一、The-One-Time-Pad-OTP-一次性密码本" class="headerlink" title="一、The One Time Pad (OTP) - 一次性密码本"></a>一、The One Time Pad (OTP) - 一次性密码本</h1><h1 id="二、Steam-Ciphers-流密码"><a href="#二、Steam-Ciphers-流密码" class="headerlink" title="二、Steam Ciphers - 流密码"></a>二、Steam Ciphers - 流密码</h1><h2 id="2-1-Pseudorandom-Generators-伪随机生成器"><a href="#2-1-Pseudorandom-Generators-伪随机生成器" class="headerlink" title="2.1 Pseudorandom Generators - 伪随机生成器"></a>2.1 Pseudorandom Generators - 伪随机生成器</h2><p>完全安全(Prefect Secrecy)意味着能够<strong>防御唯密文攻击(CT only attack)</strong></p>
+<p>但是要求:   <strong>秘钥长度 &gt;= 明文长度</strong></p>
+<p>为了让流密码实现完全安全, 但是不可能这么长的随机密钥, 所以就产生了 =&gt; <strong>伪随机生成器PRG</strong></p>
+<p>PRG的定义:</p>
+<p>一个函数, $G: {0,1}^s \rightarrow {0,1}^n, n &gt;&gt; s $</p>
 <blockquote>
-<p>报错: jq: 未找到命令</p>
-<p>下载jq:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装EPEL源：</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install epel-release</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装完EPEL源后，可以查看下jq包是否存在：</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum list jq</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装jq：</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> yum install jq</span></span><br></pre></td></tr></table></figure>
+<p>从种子空间(随机空间)通过函数G映射到更大的空间, n远大于s, 其中G是一个确定性函数</p>
+<p><font color='#e54d42'>唯一有随机性的是种子空间, 输出结果是“看起来随机”</font></p>
 </blockquote>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/4zPVuv.png" alt="4zPVuv"></p>
+<p>显然, 这样的伪随机数不是完全安全的, 但是<strong>安全可以依赖于一种特殊的PRG</strong></p>
+<h3 id="PRG的预测性讨论"><a href="#PRG的预测性讨论" class="headerlink" title="PRG的预测性讨论"></a>PRG的预测性讨论</h3><p>特殊PRG的要求: 不可预测性</p>
+<h4 id="可预测性"><a href="#可预测性" class="headerlink" title="可预测性"></a>可预测性</h4><p>可预测性指的是: </p>
+<p>$\exists i: G(k)|<em>{1,…,i} \rightarrow G(k)|</em>{i+1,…,n} $</p>
 <blockquote>
-<p>which 报错: </p>
-<p>which: no stringer ….</p>
-<p>which: no gencodec …</p>
-<p>which: no solcjs ….</p>
-<p>which: no gencodec….</p>
-<p>which: no go-bindata….</p>
-<p>which : no yarn ….</p>
-<p>which: no protoc-gen-go…</p>
-<p>原因: 依赖缺失未安装</p>
-<p>解决:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">go get golang.org/x/tools/cmd/stringer</span><br><span class="line">go get github.com/fjl/gencodec</span><br><span class="line">yum -y install go-bindata protoc-gen-go</span><br><span class="line">npm install -g solc</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加yarn仓库</span></span><br><span class="line">wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo</span><br><span class="line">yum -y install yarn</span><br></pre></td></tr></table></figure>
+<p>可预测性: 根据生成的G(k)的前缀可以预测剩下的内容(哪怕仅仅只能预测一位)</p>
 </blockquote>
-<p>在另一个终端运行JSON-RPC服务:</p>
-<p><code>ethermintcli rest-server --laddr &quot;tcp://localhost:8545&quot; --unlock-key mykey --chain-id ethermint-1</code></p>
+<p>可预测性定义:</p>
+<p>$\exist ‘eff’ alg \ A \ and \ \exist_ {0\leqq i\leqq {n-1}} s.t.  \  \Pr\limits_{k \xleftarrow{R}K}[A(G(k)|<em>{1,…,i} = G(k)|</em>{i+1}] &gt; 1/2 + \varepsilon$</p>
 <blockquote>
-<p><font color='#e54d42'>注意:  –laddr 中的localhost如果是在服务器上则可以改成0.0.0.0:8545</font></p>
+<p>解释: 存在可预测函数A能够实现, 从G(k)的0~i位预测第i+1位的概率大于二分之一 + 不可忽略的量（后面会详细解释），那么就称G(k)是可预测的 </p>
 </blockquote>
-<hr>
-<h3 id="Key-Management"><a href="#Key-Management" class="headerlink" title="Key Management"></a>Key Management</h3><p>更加安全的做法是输入密码,如果想安全的钥匙环借助于本地文件或者OS,那么可以添加以下命令:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ethermintcli config keyring-backend file		# 设置文件读取钥匙</span><br></pre></td></tr></table></figure>
-
-<h3 id="Reset-Data"><a href="#Reset-Data" class="headerlink" title="Reset Data"></a>Reset Data</h3><ul>
-<li>Validtor节点不要轻易reset</li>
-<li>每个节点的<code>priv_validator.json</code>文件都是独一无二的,不要复制,可能会导致双重签名</li>
-</ul>
-<p><code>rm $HOME/.ethermintd/config/addrbook.json $HOME/.ethermintd/config/genesis.json
-ethermintd unsafe-reset-all</code></p>
-<h3 id="Delete-Data"><a href="#Delete-Data" class="headerlink" title="Delete Data"></a>Delete Data</h3><p><code>rm -rf ~/.emint*</code></p>
-<h2 id="Testnet"><a href="#Testnet" class="headerlink" title="Testnet"></a>Testnet</h2><h3 id="Single-node-Local-Manual-Testnet"><a href="#Single-node-Local-Manual-Testnet" class="headerlink" title="Single-node, Local, Manual Testnet"></a>Single-node, Local, Manual Testnet</h3><p>单节点、本地、手动启动测试网络</p>
-<p>创建一个单独的验证器节点，该节点在本地运行网络，用于测试和其他开发相关用途。</p>
+<p><font color='#e54d42'>一旦G(k)是可预测的，那么就一定是不安全的！</font></p>
+<h4 id="不可预测性"><a href="#不可预测性" class="headerlink" title="不可预测性"></a>不可预测性</h4><p>定义： 对于G(k)所有的位置i没有一个有效函数A以不可容忍的概率预测出i+1的位置的值</p>
 <blockquote>
-<p>具体操作与执行<code>./init.sh</code>相同</p>
+<p>理解了可预测性，不可预测其实就是和其相反</p>
 </blockquote>
-<p>单机RPC调用访问测试:</p>
-<p><code>curl -v -k -X POST --data &#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_accounts&quot;,&quot;params&quot;:[],&quot;id&quot;:1}&#39; -H &quot;Content-Type: application/json&quot; 127.0.0.1:8545</code></p>
-<h3 id="Multi-node-Local-Automated-Testnet"><a href="#Multi-node-Local-Automated-Testnet" class="headerlink" title="Multi-node, Local, Automated Testnet"></a>Multi-node, Local, Automated Testnet</h3><p>使用docker创建四个节点</p>
-<blockquote>
-<p>报错1:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker-compose down</span><br><span class="line">Removing network ethermint_localnet</span><br><span class="line">WARNING: Network ethermint_localnet not found.</span><br><span class="line">mkdir -p ./build/</span><br><span class="line">make[1]: 进入目录“/root/software/ethermint”</span><br><span class="line">docker build -f ./networks/local/ethermintnode/Dockerfile . -t ethermintd/node</span><br><span class="line">Sending build context to Docker daemon 96.66 MB</span><br><span class="line">Step 1/14 : FROM golang:stretch as build-env</span><br><span class="line">Error parsing reference: "golang:stretch as build-env" is not a valid repository/tag: invalid reference format</span><br><span class="line">make[1]: *** [docker-localnet] 错误 1</span><br><span class="line">make[1]: 离开目录“/root/software/ethermint”</span><br><span class="line">make: *** [localnet-start] 错误 2</span><br></pre></td></tr></table></figure>
-
-<p>解决:重新下载docker-ce(社区版), 注意不是docker</p>
-<p>=&gt; 卸载与安装:<a href="https://blog.csdn.net/weixin_39477597/article/details/87715899" target="_blank" rel="noopener">https://blog.csdn.net/weixin_39477597/article/details/87715899</a></p>
-<p>报错2:<a href="https://stackoverflow.com/questions/46463341/named-stage-returns-error-parsing-reference-golang1-7-3-as-builder-is-not-a" target="_blank" rel="noopener">Named stage returns: Error parsing reference: “golang:1.7.3 as builder” is not a valid repository/tag</a></p>
-<p>解决: 检查客户端与服务器版本是否统一,解决见上链接 </p>
-</blockquote>
-<blockquote>
-<p>错误:容器内启动RPC服务失败,导致外部RPC调用无法成功</p>
-<p>…</p>
-</blockquote>
-<h3 id="Multi-node-Public-Manual-Testnet"><a href="#Multi-node-Public-Manual-Testnet" class="headerlink" title="Multi-node, Public, Manual Testnet"></a>Multi-node, Public, Manual Testnet</h3><p>多节点,公链,手动配置</p>
-<ol>
-<li><p>首先在一个节点(node2)创建基本配置(创世交易、账户),并收集验证</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Create a key to hold your account</span></span><br><span class="line">ethermintcli keys add $KEY</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Add that key into the genesis.app_state.accounts array <span class="keyword">in</span> the genesis file</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> NOTE: this <span class="built_in">command</span> lets you <span class="built_in">set</span> the number of coins. Make sure this account has some coins</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> with the genesis.app_state.staking.params.bond_denom denom, the default is staking</span></span><br><span class="line">ethermintd add-genesis-account $(ethermintcli keys show validator -a) 1000000000stake,10000000000aphoton</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Generate the transaction that creates your validator</span></span><br><span class="line">ethermintd gentx --name $KEY</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Add the generated bonding transaction to the genesis file</span></span><br><span class="line">ethermintd collect-gentxs</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Finally, check the correctness of the genesis.json file</span></span><br><span class="line">ethermintd validate-genesis</span><br></pre></td></tr></table></figure>
-
-<p>或者直接运行<code>./init.sh</code>得到<code>genesis.json</code>文件</p>
-</li>
-<li><p>拷贝node1的<code>genesis.json</code>该文件到其他机器(node2)</p>
-</li>
-<li><p>修改node2的<code>config.toml</code>文件中的<code>persistent_peers = nodeID@IP:port</code></p>
-<p>其中nodeID使用命令: <code>ethermintd tendermint show-node-id</code> 获得</p>
-<p>IP就是node1的IP, port是26656</p>
-</li>
-<li><p>运行: <code>ethermintd start</code></p>
-</li>
-</ol>
-<h1 id="Truffle-Metamask-Remix"><a href="#Truffle-Metamask-Remix" class="headerlink" title="Truffle/Metamask/Remix"></a>Truffle/Metamask/Remix</h1><blockquote>
-<p>错误: <font color='#e54d42'><strong>Returned error: the method net_version does not exist/is not available</strong></font></p>
-<p>原因:开启RPC服务时没有开启网络模块权限</p>
-<p>解决: <code>ethermintcli rest-server --laddr &quot;tcp://0.0.0.0:8545&quot; --unlock-key mykey --chain-id ethermint-1 --trace --rpc-api &quot;web3,eth,net,personal&quot;</code></p>
-</blockquote>
-<blockquote>
-<p>错误: <font color='#e54d42'><strong>Metamask导入了账户,但是无法显示余额</strong></font></p>
-<p>原因: 可能链id为1默认为主网</p>
-<p>解决: 修改<code>init.sh</code>文件中的链参数以及启动RPC/REST的链ID参数(我换成了789),重新切换Metamask的网络</p>
-</blockquote>
-<blockquote>
-<p>错误: 在remix中运行合约方法出现: </p>
-<p><font color='#e54d42'><strong>Gas estimation errored with the following message (see below). The transaction execution will likely fail. Do you want to force sending?</strong><br><strong>Internal JSON-RPC error. { “code”: -32000, “message”: “internal” }</strong></font></p>
-<p>原因: 使用了web3注入的方式进行测试, 当函数中出现了错误(例如不满足require时)就会出现无法评估gas费的错误提示</p>
-<p>解决: 先使用javaScriptVM模式再次运行, 可以看到具体的错误提示</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/u5au60.png" alt="u5au60"></p>
-</blockquote>
-<blockquote>
-<p>错误: web3.js报错: <font color='#e54d42'><strong>Error: Returned error: the method personal_sign does not exist/is not available   at Object.ErrorResponse</strong> </font></p>
-<p>原因: 开启RPC服务的时候没有开启personal模块</p>
-<p>解决: 重新启动rpc服务: <code>ethermintcli rest-server --laddr &quot;tcp://0.0.0.0:8545&quot; --unlock-key mykey --chain-id ethermint-1 --trace --rpc-api &quot;web3,eth,net,personal&quot;</code></p>
-</blockquote>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p><strong>线性同余法（lin cong）的方法</strong>基本都是可预测性的伪随机生成器， 所以都是不安全的</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/53vr15.png" alt="53vr15"></p>
+<p>Kerberos V4 采用了以上的方法所以被攻破了</p>
 
       
       
@@ -404,33 +282,7 @@ ethermintd unsafe-reset-all</code></p>
 
 <!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
 
-  <div class="declare" style="margin-top: 50px; background-color: #f6f6f6; margin: 10px;">
-    <strong class="author">本文作者：</strong>
-    
-      DDDemons hide
-    
-    <br>
-    <strong class="create-time">发布时间：</strong>
-    2021-04-25
-    <br>
-    <strong class="update-time">最后更新：</strong>
-    2021-05-31
-    <br>
-    <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/04/25/技术贴/区块链/Cosmos/cosmos-4-Ethermint/" title="cosmos-4-Ethermint" target="_blank">cosmos-4-Ethermint</a>
-    <br>
-    <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/04/25/技术贴/区块链/Cosmos/cosmos-4-Ethermint/" title="cosmos-4-Ethermint" target="_blank">https://xwjahahahaha.github.io/2021/04/25/技术贴/区块链/Cosmos/cosmos-4-Ethermint/</a>
-    <br>
-    <strong class="copyright">版权声明：</strong>
-    本作品采用
-    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
-    许可协议进行许可。转载请注明出处！
-    
-      <br>
-      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="http://xwjpics.gumptlu.work/qiniu_picGo/20200806212345.png"/></a>
-    
-  </div>
+  <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
       
@@ -493,28 +345,13 @@ ethermintd unsafe-reset-all</code></p>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ethermint</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/ethermint//" class="article-tag-list-link color5">ethermint</a>
+        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
         		</li>
       		
 		</ul>
@@ -569,7 +406,7 @@ ethermintd unsafe-reset-all</code></p>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/04/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/cosmos-4-Ethermint/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/06/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6-%E6%B5%81%E5%AF%86%E7%A0%81steam_ciphers/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -586,18 +423,18 @@ ethermintd unsafe-reset-all</code></p>
   
 <nav id="article-nav">
   
-    <a href="/2021/04/27/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0163/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/06/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-1-FA%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8EPumping_Lemma%E6%B3%B5%E5%AE%9A%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          日记_0163
+          计算理论基础-1-FA有穷自动机与Pumping_Lemma泵定理
         
       </div>
     </a>
   
   
-    <a href="/2021/04/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/Rust/Rust-1-%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Rust-1-基础</div>
+    <a href="/2021/06/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer12-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指Offer12.矩阵中的路径</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -624,7 +461,7 @@ ethermintd unsafe-reset-all</code></p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Architeture"><span class="toc-number">1.1.</span> <span class="toc-text">Architeture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Resources"><span class="toc-number">1.2.</span> <span class="toc-text">Resources</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Quick-Start"><span class="toc-number">2.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Install"><span class="toc-number">2.1.</span> <span class="toc-text">Install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run-a-Node"><span class="toc-number">2.2.</span> <span class="toc-text">Run a Node</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Key-Management"><span class="toc-number">2.2.1.</span> <span class="toc-text">Key Management</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reset-Data"><span class="toc-number">2.2.2.</span> <span class="toc-text">Reset Data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Delete-Data"><span class="toc-number">2.2.3.</span> <span class="toc-text">Delete Data</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testnet"><span class="toc-number">2.3.</span> <span class="toc-text">Testnet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Single-node-Local-Manual-Testnet"><span class="toc-number">2.3.1.</span> <span class="toc-text">Single-node, Local, Manual Testnet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-node-Local-Automated-Testnet"><span class="toc-number">2.3.2.</span> <span class="toc-text">Multi-node, Local, Automated Testnet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-node-Public-Manual-Testnet"><span class="toc-number">2.3.3.</span> <span class="toc-text">Multi-node, Public, Manual Testnet</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Truffle-Metamask-Remix"><span class="toc-number">3.</span> <span class="toc-text">Truffle&#x2F;Metamask&#x2F;Remix</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、The-One-Time-Pad-OTP-一次性密码本"><span class="toc-number">1.</span> <span class="toc-text">一、The One Time Pad (OTP) - 一次性密码本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Steam-Ciphers-流密码"><span class="toc-number">2.</span> <span class="toc-text">二、Steam Ciphers - 流密码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Pseudorandom-Generators-伪随机生成器"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Pseudorandom Generators - 伪随机生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PRG的预测性讨论"><span class="toc-number">2.1.1.</span> <span class="toc-text">PRG的预测性讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#可预测性"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">可预测性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不可预测性"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">不可预测性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#例子"><span class="toc-number">2.1.1.3.</span> <span class="toc-text">例子</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1018,6 +855,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tendermint</a>
               </li>
             
             <div class="clearfix"></div>

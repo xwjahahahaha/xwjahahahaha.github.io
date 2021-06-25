@@ -43,7 +43,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20210208154551.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20210208161307.png">
 <meta property="article:published_time" content="2021-02-04T06:39:07.000Z">
-<meta property="article:modified_time" content="2021-05-12T02:40:33.885Z">
+<meta property="article:modified_time" content="2021-06-19T12:17:49.804Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="cosmos">
 <meta name="twitter:card" content="summary">
@@ -101,7 +101,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 444
+			总文章数 452
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -246,7 +246,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">6.2k字</span>
+        <span class="post-count">6.3k字</span>
       </span>
     </span>
 
@@ -355,6 +355,9 @@
 <p><strong>如何选取Validator是由开发者自由决定的，每个验证器的投票权重也是</strong>，如果采用持有的Token来选择，那么就是区块链就是权益证明POS（Proof-of-Stake）。如果只能是经过授权或许可才能成为验证者那么就是许可链或者私有链。</p>
 <p><font color='red'>Tendermint BFT 只处理区块链<em>网络</em>和<em>共识</em>，它帮助节点<strong>传播交易</strong>和<strong>验证追加交易</strong>到区块链。<strong>出块共识与主链共识是分开的。</strong></font></p>
 <p><font color='orange'>Tendermint采用确定性轮询机制的实用拜占庭容错协议。在<strong>出块选举阶段</strong>，不采用工作量证明来实现而是采用规定节点在主账户存入保证金（Atom）才能实现投票（成为验证者），投票权重与保证金数量（Atom）成正比。每轮轮询机制选出的出块者为Leader或proposer</font></p>
+<blockquote>
+<p>联盟链系统 Tendermint[81]采用基于轮询机制的实用拜占庭容错协议对新区块达成共识.在出块节点选举 环节,Tendermint 采用确定性轮询机制决定出块节点.由于未采用类似工作量证明的身份定价机制,为防止拜占庭节点发动女巫攻击,系统规定节点必须在账户存入保证金才能参与拜占庭容错协议的投票过程,保证金数额 与票数成正比.</p>
+</blockquote>
 <h4 id="2-成为验证者"><a href="#2-成为验证者" class="headerlink" title="2.成为验证者"></a>2.成为验证者</h4><ul>
 <li><p>数量上的限制</p>
 <p>在创世日那天，验证器的最大数量将被设置为100个，这个数字将以13%的速度增长10年，并稳定在300个验证器。</p>
@@ -1173,6 +1176,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tendermint</a>
               </li>
             
             <div class="clearfix"></div>

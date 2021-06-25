@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 444
+			总文章数 452
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-知识贴/区块链/去中心化的共识算法/Hashgraph共识算法的学习与实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/算法/73-矩阵置0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/Hashgraph%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E8%B7%B5/">Hashgraph共识算法的学习与实践</a>
+      <a class="article-title" href="/2020/12/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/73-%E7%9F%A9%E9%98%B5%E7%BD%AE0/">73-矩阵置0</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/16/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/Hashgraph%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E8%B7%B5/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/73-%E7%9F%A9%E9%98%B5%E7%BD%AE0/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/12/16/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/Hashgraph%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E8%B7%B5/" class="archive-article-date">
-  	<time datetime="2020-12-16T14:30:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
+<a href="/2020/12/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/73-%E7%9F%A9%E9%98%B5%E7%BD%AE0/" class="archive-article-date">
+  	<time datetime="2020-12-22T11:48:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">8.1k字</span>
+        <span class="post-count">959字</span>
       </span>
     </span>
 
@@ -221,7 +221,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">28分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -233,532 +233,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><p><strong>《The swirlds hashgraph consensus algorithm: Fair, fast, byzantine fault tolerance》Hashgraph论文的学习</strong></p>
-<p>论文原文：</p>
-<p>Baird L. The swirlds hashgraph consensus algorithm: Fair, fast, byzantine fault tolerance[J]. Swirlds, Inc. Technical Report SWIRLDS-TR-2016, 2016, 1.</p>
-<p>学习文章来源： <a href="https://zhuanlan.zhihu.com/p/35640075" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35640075</a> 作者：BlockGeeks</p>
-<p>外网资料：</p>
-<p><a href="https://www.slideshare.net/anupriti/hashgraph-an-over-view-with-example" target="_blank" rel="noopener">https://www.slideshare.net/anupriti/hashgraph-an-over-view-with-example</a></p>
-<p><a href="https://www.slideshare.net/calvinchengx/hashgraph-as-code-83446758" target="_blank" rel="noopener">https://www.slideshare.net/calvinchengx/hashgraph-as-code-83446758</a></p>
-<p>Swirlds的JDK下载：</p>
-<p><a href="https://www.swirlds.com/download/" target="_blank" rel="noopener">https://www.swirlds.com/download/</a></p>
-<p>其他Demo：</p>
-<p><a href="https://github.com/GovTechSG/hashgraph_experiments" target="_blank" rel="noopener">https://github.com/GovTechSG/hashgraph_experiments</a></p>
-<p><a href="https://github.com/calvinchengx/SwirldsProject" target="_blank" rel="noopener">https://github.com/calvinchengx/SwirldsProject</a></p>
-<p><a href="https://github.com/dappcoder/hello-swirld" target="_blank" rel="noopener">https://github.com/dappcoder/hello-swirld</a></p>
-<p><font color='red'><strong>参考请注明出处！</strong></font></p>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">block_chain</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge/block-chain//" class="article-tag-list-link color2">block_chain</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/16/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/Hashgraph%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%AE%9E%E8%B7%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2020-12/日记-0109" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0109/">日记_0109</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0109/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/12/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0109/" class="archive-article-date">
-  	<time datetime="2020-12-16T02:06:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-16</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">83字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="近期待办任务："><a href="#近期待办任务：" class="headerlink" title="近期待办任务："></a>近期待办任务：</h2><table>
-<thead>
-<tr>
-<th>每日任务</th>
-<th>区块链</th>
-<th>大数据</th>
-<th>知识文档</th>
-<th>Others</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>英语50词</td>
-<td>Go语言</td>
-<td>Hadoop</td>
-<td></td>
-<td>期末复习</td>
-</tr>
-<tr>
-<td>leetcode每日一题</td>
-<td>Fisco Bcos的研究</td>
-<td></td>
-<td></td>
-<td>英语听视频</td>
-</tr>
-<tr>
-<td></td>
-<td>写金窝窝文章</td>
-<td></td>
-<td></td>
-<td>Linux、java</td>
-</tr>
-<tr>
-<td></td>
-<td>学习网安与密码</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ol>
-<li><del>图论论文核心完成</del></li>
-<li><del>英语50单词</del></li>
-</ol>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0109/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2020-12/日记-0108" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0108/">日记_0108</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0108/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/12/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0108/" class="archive-article-date">
-  	<time datetime="2020-12-14T01:57:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-14</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">94字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="近期待办任务："><a href="#近期待办任务：" class="headerlink" title="近期待办任务："></a>近期待办任务：</h2><table>
-<thead>
-<tr>
-<th>每日任务</th>
-<th>区块链</th>
-<th>大数据</th>
-<th>知识文档</th>
-<th>Others</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>英语50词</td>
-<td>Go语言</td>
-<td>Hadoop</td>
-<td></td>
-<td>期末复习</td>
-</tr>
-<tr>
-<td>leetcode每日一题</td>
-<td>Fisco Bcos的研究</td>
-<td></td>
-<td></td>
-<td>英语听视频</td>
-</tr>
-<tr>
-<td></td>
-<td>写金窝窝文章</td>
-<td></td>
-<td></td>
-<td>Linux、java</td>
-</tr>
-<tr>
-<td></td>
-<td>学习网安与密码</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ol>
-<li><del>英语50单词</del></li>
-<li><del>华为区块链书</del></li>
-<li><del>图论论文</del></li>
-<li><del>金窝窝文章初稿完成</del></li>
-</ol>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0108/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-技术贴/算法/1217-玩筹码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/1217-%E7%8E%A9%E7%AD%B9%E7%A0%81/">1217-玩筹码</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/1217-%E7%8E%A9%E7%AD%B9%E7%A0%81/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/12/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/1217-%E7%8E%A9%E7%AD%B9%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2020-12-13T06:46:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">576字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="1217-玩筹码"><a href="#1217-玩筹码" class="headerlink" title="1217. 玩筹码"></a><a href="https://leetcode-cn.com/problems/minimum-cost-to-move-chips-to-the-same-position/" target="_blank" rel="noopener">1217. 玩筹码</a></h4><p>数轴上放置了一些筹码，每个筹码的位置存在数组 <code>chips</code> 当中。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="73-矩阵置零"><a href="#73-矩阵置零" class="headerlink" title="73. 矩阵置零"></a><a href="https://leetcode-cn.com/problems/set-matrix-zeroes/" target="_blank" rel="noopener">73. 矩阵置零</a></h4><p>难度中等348收藏分享切换为英文接收动态反馈</p>
+<p>给定一个 <em>m</em> x <em>n</em> 的矩阵，如果一个元素为 0，则将其所在行和列的所有元素都设为 0。请使用<strong><a href="http://baike.baidu.com/item/原地算法" target="_blank" rel="noopener">原地</a></strong>算法<strong>。</strong></p>
         
       
       
@@ -816,7 +292,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/1217-%E7%8E%A9%E7%AD%B9%E7%A0%81/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/12/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/73-%E7%9F%A9%E9%98%B5%E7%BD%AE0/">展开全文 >></a>
         </p>
       
 
@@ -850,27 +326,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2020-12/日记-0107" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2020-12/日记-0112" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0107/">日记_0107</a>
+      <a class="article-title" href="/2020/12/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0112/">日记_0112</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0107/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0112/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/12/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0107/" class="archive-article-date">
-  	<time datetime="2020-12-13T06:07:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
+<a href="/2020/12/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0112/" class="archive-article-date">
+  	<time datetime="2020-12-22T01:28:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-22</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -879,7 +355,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">115字</span>
+        <span class="post-count">97字</span>
       </span>
     </span>
 
@@ -933,19 +409,17 @@
 </tr>
 <tr>
 <td></td>
-<td>学习网安与算法</td>
+<td>学习网安与密码</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 </tbody></table>
 <h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ol>
-<li><del>英语50词</del></li>
-<li><del>英语三分钟视演讲频结束</del></li>
-<li><del>leetcode一题</del></li>
-<li><del>梳理区块链理论知识</del></li>
-<li><del>算法小作业完成</del></li>
-<li><del>华为区块链应用书继续看</del></li>
+<li><del>图论的复习</del></li>
+<li><del>归并排序复习</del></li>
+<li><del>英语口语结束</del></li>
+<li><del>计网最后一次报告结束</del></li>
 </ol>
         
       
@@ -1004,7 +478,921 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0107/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/12/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-12/%E6%97%A5%E8%AE%B0-0112/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/算法/字符串/316-去除重复字母" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/316-%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D/">316-去除重复字母</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/316-%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/12/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/316-%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D/" class="archive-article-date">
+  	<time datetime="2020-12-20T08:22:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-20</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">132字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h4 id="316-去除重复字母"><a href="#316-去除重复字母" class="headerlink" title="316. 去除重复字母"></a><a href="https://leetcode-cn.com/problems/remove-duplicate-letters/" target="_blank" rel="noopener">316. 去除重复字母</a></h4><p>难度中等</p>
+<p>给你一个字符串 <code>s</code> ，请你去除字符串中重复的字母，使得每个字母只出现一次。需保证 <strong>返回结果的字典序最小</strong>（要求不能打乱其他字符的相对位置）。</p>
+<p><strong>注意：</strong>该题与 1081 <a href="https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters" target="_blank" rel="noopener">https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters</a> 相同</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;bcabc&quot;</span><br><span class="line">输出：&quot;abc&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;cbacdcbc&quot;</span><br><span class="line">输出：&quot;acdb&quot;</span><br></pre></td></tr></table></figure>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/leetcode//" class="article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/316-%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AF%8D/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/GoLang/Go语言-3-网络编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">Go语言-3-网络编程</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2020-12-19T14:17:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-19</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">16.3k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">65分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>学习原文自: <a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/03.0.md" target="_blank" rel="noopener">https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/03.0.md</a></p>
+<p>build-web-application-with-golang</p>
+<p>GitHub 地址→<a href="https://github.com/astaxie/build-web-application-with-golang" target="_blank" rel="noopener">https://github.com/astaxie/build-web-application-with-golang</a></p>
+<p>自己学习之用,并且在其上做了笔记与标注,如有侵权,联系删除</p>
+</blockquote>
+<h1 id="四、golang网络编程"><a href="#四、golang网络编程" class="headerlink" title="四、golang网络编程"></a>四、golang网络编程</h1><h2 id="4-1-Web基础"><a href="#4-1-Web基础" class="headerlink" title="4.1 Web基础"></a>4.1 Web基础</h2><h3 id="1-理论基础知识"><a href="#1-理论基础知识" class="headerlink" title="1.理论基础知识"></a>1.理论基础知识</h3><h4 id="Web工作方式"><a href="#Web工作方式" class="headerlink" title="Web工作方式"></a>Web工作方式</h4><p>对于普通的上网过程，系统其实是这样做的：</p>
+<p>浏览器本身是一个客户端，当你输入URL的时候，首先浏览器会去请求DNS服务器，通过DNS获取相应的域名对应的IP，然后通过IP地址找到IP对应的服务器后，要求建立TCP连接，等浏览器发送完HTTP Request（请求）包后，服务器接收到请求包之后才开始处理请求包，服务器调用自身服务，返回HTTP Response（响应）包；客户端收到来自服务器的响应后开始渲染这个Response包里的主体（body），等收到全部的内容随后断开与该服务器之间的TCP连接。</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/U2FfnS.jpg" alt="U2FfnS"></p>
+<p>Web服务器的工作原理可以简单地归纳为：</p>
+<ul>
+<li>客户机通过TCP/IP协议建立到服务器的TCP连接</li>
+<li>客户端向服务器发送HTTP协议请求包，请求服务器里的资源文档</li>
+<li>服务器向客户机发送HTTP协议应答包，如果请求的资源包含有动态语言的内容，那么服务器会调用动态语言的解释引擎负责处理“动态内容”，并将处理得到的数据返回给客户端</li>
+<li>客户机与服务器断开。由客户端解释HTML文档，在客户端屏幕上渲染图形结果</li>
+</ul>
+<p>需要注意的是客户机与服务器之间的通信是==<strong>非持久连接</strong>==的，也就是当服务器发送了应答后就与客户机断开连接，等待下一次请求。</p>
+<h4 id="URL和DNS解析"><a href="#URL和DNS解析" class="headerlink" title="URL和DNS解析"></a>URL和DNS解析</h4><p>我们浏览网页都是通过URL访问的，那么URL到底是怎么样的呢？</p>
+<p>URL(Uniform Resource Locator)是“统一资源定位符”的英文缩写，用于描述一个网络上的资源, 基本格式如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scheme:&#x2F;&#x2F;host[:port#]&#x2F;path&#x2F;...&#x2F;[?query-string][#anchor]</span><br><span class="line">scheme         指定低层使用的协议(例如：http, https, ftp)</span><br><span class="line">host           HTTP服务器的IP地址或者域名</span><br><span class="line">port#          HTTP服务器的默认端口是80，这种情况下端口号可以省略。如果使用了别的端口，必须指明.</span><br><span class="line">path           访问资源的路径</span><br><span class="line">query-string   发送给http服务器的数据</span><br><span class="line">anchor         锚</span><br></pre></td></tr></table></figure>
+
+<p>DNS(Domain Name System)是“域名系统”的英文缩写，是一种组织成域层次结构的计算机和网络服务命名系统，它用于TCP/IP网络，它从事将主机名或域名转换为实际IP地址的工作。DNS就是这样的一位“翻译官”，它的基本工作原理可用下图来表示。</p>
+<p>更详细的DNS解析的过程如下，这个过程有助于我们理解DNS的工作模式</p>
+<ol>
+<li>在浏览器中输入<a href="http://www.qq.com域名，操作系统会先检查自己**==本地的hosts文件==**是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析。" target="_blank" rel="noopener">www.qq.com域名，操作系统会先检查自己**==本地的hosts文件==**是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析。</a></li>
+<li>如果hosts里没有这个域名的映射，则查找==<strong>本地DNS解析器缓存</strong>==，是否有这个网址映射关系，如果有，直接返回，完成域名解析。</li>
+<li>如果hosts与本地DNS解析器缓存都没有相应的网址映射关系，首先会找<strong>TCP/IP参数中设置的首选DNS服务器</strong>，在此我们叫它==<strong>本地DNS服务器</strong>==，此服务器收到查询时，如果要查询的域名，包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析，此解析<strong>具有权威性</strong>。</li>
+<li>如果要查询的域名，不由本地DNS服务器区域解析，但该服务器<strong>已==缓存==了此网址映射关系，则调用这个IP地址映射</strong>，完成域名解析，此解析<strong>不具有权威性</strong>。</li>
+<li>如果本地DNS服务器本地区域文件与缓存解析都失效，则根据本地DNS服务器的设置（是否设置转发器）进行查询，如果<strong>未用转发模式</strong>，本地DNS就把请求发至 “<strong>根DNS服务器”</strong>，“根DNS服务器”收到请求后会判断这个域名(.com)是谁来授权管理，并会返回一个负责该<strong>顶级域名服务器</strong>的一个IP。本地DNS服务器收到IP信息后，将会联系负责.com域的这台服务器。这台负责.com域的服务器收到请求后，如果自己无法解析，它就会找一个管理.com域的下一级DNS服务器地址(qq.com)给本地DNS服务器。当本地DNS服务器收到这个地址后，就会找qq.com域服务器，重复上面的动作，进行查询，直至找到<a href="http://www.qq.com主机。" target="_blank" rel="noopener">www.qq.com主机。</a></li>
+<li>如果用的是<strong>转发模式</strong>，此DNS服务器就会把请求转发至<strong>上一级DNS服务器</strong>，由上一级服务器进行解析，上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。不管是本地DNS服务器用是是转发，还是根提示，最后都是把结果返回给本地DNS服务器，由此DNS服务器再返回给客户机。</li>
+</ol>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/FmEzx9.jpg" alt="FmEzx9"></p>
+<h4 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h4><p>HTTP是一种让Web服务器与浏览器(客户端)通过Internet发送与接收数据的协议,它<strong>建立在TCP协议之上</strong>，一般采用TCP的<strong>80端口</strong>。它是一个<strong>==请求、响应协议==</strong>–客户端发出一个请求，服务器响应这个请求。在HTTP中，客户端总是通过建立一个连接与发送一个HTTP请求来发起一个事务。<strong>服务器不能主动去与客户端联系</strong>，也不能给客户端发出一个回调连接。<strong>客户端与服务器端都可以提前中断一个连接</strong>。例如，当浏览器下载一个文件时，你可以通过点击“停止”键来中断文件的下载，关闭与服务器的HTTP连接。</p>
+<p>HTTP协议是==<strong>无状态</strong>==的，同一个客户端的这次请求和上次请求是没有对应关系，对HTTP服务器来说，它并不知道这两个请求是否来自同一个客户端。为了解决这个问题， Web程序引入了<strong>Cookie机制</strong>来维护连接的<strong>可持续状态。</strong></p>
+<blockquote>
+<p>HTTP协议是建立在TCP协议之上的，因此TCP攻击一样会影响HTTP的通讯，例如比较常见的一些攻击：SYN Flood是当前最流行的DoS（拒绝服务攻击）与DdoS（分布式拒绝服务攻击）的方式之一，这是一种利用TCP协议缺陷，<strong>发送大量伪造的TCP连接请求</strong>，从而使得被攻击方资源耗尽（CPU满负荷或内存不足）的攻击方式。</p>
+</blockquote>
+<h5 id="HTTP请求包（浏览器信息）"><a href="#HTTP请求包（浏览器信息）" class="headerlink" title="HTTP请求包（浏览器信息）"></a><font color='#e54d42'>HTTP请求包（浏览器信息）</font></h5><p>我们先来看看Request包的结构, Request包分为3部分，第一部分叫<strong>Request line（请求行）</strong>, 第二部分叫<strong>Request header（请求头）</strong>,第三部分是<strong>body（主体）</strong>。header和body之间有个空行，请求包的例子所示:</p>
+<ul>
+<li>Request line（请求行）</li>
+<li>Request header (请求体)</li>
+<li>body (主体)</li>
+</ul>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;domains&#x2F;example&#x2F; HTTP&#x2F;1.1        				&#x2F;&#x2F;请求行: 请求方法 请求URI HTTP协议&#x2F;协议版本</span><br><span class="line">Host：www.iana.org                						&#x2F;&#x2F;服务端的主机名</span><br><span class="line">User-Agent：Mozilla&#x2F;5.0 (Windows NT 6.1) AppleWebKit&#x2F;537.4 (KHTML, like Gecko) Chrome&#x2F;22.0.1229.94 Safari&#x2F;537.4            										&#x2F;&#x2F;浏览器信息</span><br><span class="line">Accept：text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8    &#x2F;&#x2F;客户端能接收的mine</span><br><span class="line">Accept-Encoding：gzip,deflate,sdch        		&#x2F;&#x2F;是否支持流压缩</span><br><span class="line">Accept-Charset：UTF-8,*;q&#x3D;0.5        				&#x2F;&#x2F;客户端字符编码集</span><br><span class="line">&#x2F;&#x2F;空行,用于分割请求头和消息体</span><br><span class="line">&#x2F;&#x2F;消息体,请求资源参数,例如POST传递的参数</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>HTTP协议定义了很多与服务器交互的请求方法，最基本的有4种，分别是GET,POST,PUT,DELETE。一个URL地址用于描述一个网络上的资源，而HTTP中的<strong>GET, POST, PUT, DELETE</strong>就对应着对这个资源的<strong>查，改，增，删</strong>4个操作。我们最常见的就是GET和POST了。<strong>GET一般用于获取/查询资源信息，而POST一般用于更新资源信息。</strong></p>
+<p>通过fiddler抓包可以看到如下请求信息:</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/ivjZx7.png" alt="ivjZx7"></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/VzWQX6.png" alt="VzWQX6"></p>
+<p><strong>==GET和POST的区别:==</strong></p>
+<ol>
+<li>我们可以看到GET请求消息体为空，POST请求带有消息体。</li>
+<li>GET提交的数据会放在URL之后，以<code>?</code>分割URL和传输数据，参数之间以<code>&amp;</code>相连，如<code>EditPosts.aspx?name=test1&amp;id=123456</code>。POST方法是把提交的数据放在HTTP包的body中。</li>
+<li>GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制。</li>
+<li>GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码。</li>
+</ol>
+<h5 id="HTTP响应包（服务器信息）"><a href="#HTTP响应包（服务器信息）" class="headerlink" title="HTTP响应包（服务器信息）"></a><font color='#e54d42'>HTTP响应包（服务器信息）</font></h5><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HTTP&#x2F;1.1 200 OK                        &#x2F;&#x2F;状态行</span><br><span class="line">Server: nginx&#x2F;1.0.8                    &#x2F;&#x2F;服务器使用的WEB软件名及版本</span><br><span class="line">Date:Date: Tue, 30 Oct 2012 04:14:25 GMT        &#x2F;&#x2F;发送时间</span><br><span class="line">Content-Type: text&#x2F;html                &#x2F;&#x2F;服务器发送信息的类型</span><br><span class="line">Transfer-Encoding: chunked            &#x2F;&#x2F;表示发送HTTP包是分段发的</span><br><span class="line">Connection: keep-alive                &#x2F;&#x2F;保持连接状态</span><br><span class="line">Content-Length: 90                    &#x2F;&#x2F;主体内容长度</span><br><span class="line">&#x2F;&#x2F;空行 用来分割消息头和主体</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Transitional&#x2F;&#x2F;EN&quot;... &#x2F;&#x2F;消息体</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>Response包中的第一行叫做状态行，由HTTP协议版本号， 状态码， 状态消息 三部分组成。</p>
+<p><strong>==状态码==</strong>用来告诉HTTP客户端,HTTP服务器是否产生了预期的Response。HTTP/1.1协议中定义了5类状态码， 状态码由三位数字组成，第一个数字定义了响应的类别</p>
+<ul>
+<li>1XX 提示信息 - 表示请求已被成功接收，继续处理</li>
+<li>2XX 成功 - 表示请求已被成功接收，理解，接受</li>
+<li>3XX 重定向 - 要完成请求必须进行更进一步的处理</li>
+<li>4XX 客户端错误 - 请求有语法错误或请求无法实现</li>
+<li>5XX 服务器端错误 - 服务器未能实现合法的请求</li>
+</ul>
+<p>我们看下面这个图展示了详细的返回信息，左边可以看到有很多的资源返回码，200是常用的，表示正常信息，302表示跳转。response header里面展示了详细的信息。</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/bewQN0.png" alt="bewQN0"></p>
+<h5 id="HTTP协议无状态和Connection-keep-alive的区别"><a href="#HTTP协议无状态和Connection-keep-alive的区别" class="headerlink" title="HTTP协议无状态和Connection: keep-alive的区别"></a>HTTP协议无状态和Connection: keep-alive的区别</h5><p>无状态是指协议对于事务处理没有记忆能力，服务器不知道客户端是什么状态。从另一方面讲，打开一个服务器上的网页和你之前打开这个服务器上的网页之间没有任何联系。</p>
+<p>HTTP是一个无状态的面向连接的协议，无状态不代表HTTP不能保持TCP连接，更不能代表HTTP使用的是UDP协议（面对无连接）。</p>
+<p><font color='#39b54a'>从HTTP/1.1起，默认都开启了Keep-Alive保持连接特性，简单地说，当一个网页打开完成后，<strong>客户端和服务器之间用于传输HTTP数据的TCP连接不会关闭</strong>，如果客户端再次访问这个服务器上的网页，<strong>会继续使用这一条已经建立的TCP连接。</strong></font></p>
+<p>Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同服务器软件（如Apache）中设置这个时间。</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/I0BbrB.jpg" alt="I0BbrB"></p>
+<p>上面这张图我们可以了解到整个的通讯过程，同时细心的读者是否注意到了一点，一个URL请求但是左边栏里面为什么会有那么多的资源请求(这些都是静态文件，<strong>go对于静态文件有专门的处理方式</strong>)。</p>
+<p>这个就是浏览器的一个功能，<font color='#e54d42'>第一次请求url，服务器端返回的是html页面，然后浏览器<strong>开始渲染HTML</strong>：当解析到HTML DOM里面的<strong>图片连接，css脚本和js脚本的链接</strong>，浏览器就会<strong>自动发起一个请求静态资源的HTTP请求</strong>，获取相对应的静态资源，然后浏览器就会渲染出来，最终将所有资源整合、渲染，完整展现在我们面前的屏幕上。</font></p>
+<blockquote>
+<p>网页优化方面有一项措施是减少HTTP请求次数，就是把<strong>尽量多的css和js资源合并在一起</strong>，目的是尽量减少网页请求静态资源的次数，提高网页加载速度，同时减缓服务器的压力。</p>
+</blockquote>
+<h3 id="2-Go搭建一个Web服务器"><a href="#2-Go搭建一个Web服务器" class="headerlink" title="2.Go搭建一个Web服务器"></a>2.Go搭建一个Web服务器</h3><p>Web是基于http协议的一个服务，Go语言里面提供了一个完善的<strong>net/http</strong>包，通过http包可以很方便的就搭建起来一个可以运行的Web服务。同时使用这个包能很简单地对Web的路由，静态文件，模版，cookie等数据进行设置和操作。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"strings"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	http.HandleFunc(<span class="string">"/"</span>, SayHello)</span><br><span class="line">	err := http.ListenAndServe(<span class="string">":9090"</span>, <span class="literal">nil</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(<span class="string">"ListenAndServe: "</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SayHello</span><span class="params">(w http.ResponseWriter, r * http.Request)</span></span>  &#123;</span><br><span class="line">	r.ParseForm() <span class="comment">// 解析参数, 默认不解析参数</span></span><br><span class="line">	<span class="comment">// Form contains the parsed form data, including both the URL</span></span><br><span class="line">	fmt.Println(r.Form)</span><br><span class="line">	fmt.Println(<span class="string">"path"</span>, r.URL.Path)</span><br><span class="line">	fmt.Println(<span class="string">"scheme"</span>, r.URL.Scheme)</span><br><span class="line">	fmt.Println(r.Form[<span class="string">"url_long"</span>])</span><br><span class="line">	<span class="keyword">for</span> k, v := <span class="keyword">range</span> r.Form &#123;</span><br><span class="line">		fmt.Println(<span class="string">"key"</span>, k)</span><br><span class="line">		<span class="comment">// strings.Join 就是把string合并到一个string</span></span><br><span class="line">		fmt.Println(<span class="string">"val:"</span>, strings.Join(v, <span class="string">""</span>))</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Fprintf(w, <span class="string">"Hello xwj!"</span>)		<span class="comment">//这个写入到w的是输出到客户端的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面这个代码，我们build之后，然后执行web.exe,这个时候其实已经在9090端口监听http链接请求了。</p>
+<p>在浏览器输入<code>http://localhost:9090</code></p>
+<p>可以看到浏览器页面输出了<code>Hello astaxie!</code></p>
+<p>可以换一个地址试试：<code>http://localhost:9090/?url_long=111&amp;url_long=222</code></p>
+<p>看看浏览器输出的是什么，服务器输出的是什么？如下</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">map</span>[url_long:[<span class="number">111</span> <span class="number">222</span>]]</span><br><span class="line">path /</span><br><span class="line">scheme </span><br><span class="line">[<span class="number">111</span> <span class="number">222</span>]</span><br><span class="line">key url_long</span><br><span class="line">val: <span class="number">111222</span></span><br><span class="line"><span class="keyword">map</span>[]</span><br><span class="line">path /favicon.ico</span><br><span class="line">scheme </span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果你以前是PHP程序员，那你也许就会问，<strong>我们的nginx、apache服务器不需要吗？Go就是不需要这些，</strong>因为他直接就监听tcp端口了，做了nginx做的事情，然后<strong>sayhelloName这个其实就是我们写的逻辑函数了</strong>，<strong>跟php里面的控制层（controller）函数类似</strong>。</p>
+<p>如果你以前是Python程序员，那么你一定听说过tornado，这个代码和他是不是很像，对，没错，Go就是拥有类似Python这样动态语言的特性，写Web应用很方便。</p>
+<p>如果你以前是Ruby程序员，会发现和ROR的/script/server启动有点类似。</p>
+</blockquote>
+<h3 id="3-Go如何使得Web工作"><a href="#3-Go如何使得Web工作" class="headerlink" title="3.Go如何使得Web工作"></a>3.Go如何使得Web工作</h3><p>Go的Web服务工作也离不开我们第一小节介绍的Web工作方式。</p>
+<p>以下均是服务器端的几个概念:</p>
+<ul>
+<li><p>Request：用户请求的信息，用来解析用户的请求信息，包括post、get、cookie、url等信息</p>
+</li>
+<li><p>Response：服务器需要反馈给客户端的信息</p>
+</li>
+<li><p>Conn：用户的每次请求链接</p>
+</li>
+<li><p>Handler：处理请求和生成返回信息的处理逻辑</p>
+</li>
+</ul>
+<p>Go实现Web服务的工作模式的流程图(http包执行流程):</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/sBDSdL.png" alt="sBDSdL"></p>
+<ol>
+<li>创建Listen Socket, 监听指定的端口, 等待客户端请求到来。</li>
+<li>Listen Socket接受客户端的请求, 得到Client Socket, 接下来通过Client Socket与客户端通信。</li>
+<li>处理客户端的请求, 首先从Client Socket读取HTTP请求的协议头, 如果是POST方法, 还可能要读取客户端提交的数据, 然后交给相应的handler处理请求, handler处理完毕准备好客户端需要的数据, 通过Client Socket写给客户端。</li>
+</ol>
+<p>这整个的过程里面我们只要了解清楚下面三个问题，也就知道Go是如何让Web运行起来了</p>
+<ul>
+<li>如何监听端口？</li>
+<li>如何接收客户端请求？</li>
+<li>如何分配handler？</li>
+</ul>
+<p>前面小节的代码里面我们可以看到，Go是<strong>通过一个函数<code>ListenAndServe</code>来处理这些事情的</strong>，这个底层其实这样处理的：初始化一个server对象，然后调用了<code>net.Listen(&quot;tcp&quot;, addr)</code>，也就是底层用<strong>==TCP协议==</strong>搭建了一个服务，然后监控我们设置的端口。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 前面的关键代码:</span></span><br><span class="line"><span class="comment">// HandleFunc registers the handler function for the given pattern</span></span><br><span class="line">http.HandleFunc(<span class="string">"/"</span>, SayHello)								<span class="comment">// 参数一: pattern, 参数二: 函数; 注册pattern的请求路由规则(serveMux中的映射关系)</span></span><br><span class="line">err := http.ListenAndServe(<span class="string">":9090"</span>, <span class="literal">nil</span>)			<span class="comment">// 参数一:端口, 参数二:handler; 监听端口; 参数二为空则创建一个默认的DefaultServeMux(路由器)</span></span><br></pre></td></tr></table></figure>
+
+<p>下面代码来自Go的http包的源码，通过下面的代码我们可以看到整个的http处理过程：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(srv *Server)</span> <span class="title">Serve</span><span class="params">(l net.Listener)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">    <span class="keyword">defer</span> l.Close()</span><br><span class="line">    <span class="keyword">var</span> tempDelay time.Duration <span class="comment">// how long to sleep on accept failure</span></span><br><span class="line">  	<span class="comment">// 循环监听请求</span></span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        rw, e := l.Accept()</span><br><span class="line">        <span class="keyword">if</span> e != <span class="literal">nil</span> &#123;									<span class="comment">// 错误处理</span></span><br><span class="line">            <span class="keyword">if</span> ne, ok := e.(net.Error); ok &amp;&amp; ne.Temporary() &#123;</span><br><span class="line">                <span class="keyword">if</span> tempDelay == <span class="number">0</span> &#123;</span><br><span class="line">                    tempDelay = <span class="number">5</span> * time.Millisecond</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    tempDelay *= <span class="number">2</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> max := <span class="number">1</span> * time.Second; tempDelay &gt; max &#123;</span><br><span class="line">                    tempDelay = max</span><br><span class="line">                &#125;</span><br><span class="line">                log.Printf(<span class="string">"http: Accept error: %v; retrying in %v"</span>, e, tempDelay)</span><br><span class="line">                time.Sleep(tempDelay)</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> e</span><br><span class="line">        &#125;</span><br><span class="line">        tempDelay = <span class="number">0</span></span><br><span class="line">        c, err := srv.newConn(rw)				<span class="comment">// 创建新链接</span></span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">go</span> c.serve()										<span class="comment">// 为链接创建一个go程</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>监控之后如何接收客户端的请求呢？上面代码(<code>ListenAndServe</code>)执行监控端口之后，调用了<code>srv.Serve(net.Listener)</code>函数，这个函数就是处理接收客户端的请求信息。这个函数里面起了一个<code>for{}</code>，首先通过Listener接收请求，其次==<strong>创建一个Conn</strong>，<strong>最后单独开了一个goroutine</strong>，==把这个请求的数据当做参数扔给这个conn去服务：<code>go c.serve()</code>。这个<strong>==就是高并发体现了，用户的每一次请求都是在一个新的goroutine去服务，相互不影响。==</strong></p>
+<p>那么如何具体分配到相应的函数来处理请求呢？conn首先会解析request:<code>c.readRequest()</code>,然后<strong>获取相应的handler</strong>:<code>handler := c.server.Handler</code>，也就是我们刚才<strong>在调用函数<code>ListenAndServe</code>时候的第二个参数</strong>，我们前面例子传递的是nil，也就是为空，那么默认获取<strong><code>handler = DefaultServeMux</code></strong>,那么这个变量用来做什么的呢？对，<strong>这个变量就是一个<font color='#39b54a'>路由器</font></strong>，<strong>它用来匹配url跳转到其相应的handle函数</strong>，那么这个我们有设置过吗?有，我们调用的代码里面第一句不是<strong>调用了<code>http.HandleFunc(&quot;/&quot;, sayhelloName)</code>嘛。这个作用就是注册了请求<code>/</code>的路由规则</strong>，当请求uri为”/“，路由就会转到函数sayhelloName，<strong>DefaultServeMux会调用<code>ServeHTTP</code>方法，这个方法内部其实就是调用<code>sayhelloName</code>本身，最后通过写入response的信息反馈到客户端</strong>。</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/SLygqL.jpg" alt="SLygqL"></p>
+<h3 id="4-Go的http包详解"><a href="#4-Go的http包详解" class="headerlink" title="4 Go的http包详解"></a>4 Go的http包详解</h3><p>Go的http有两个核心功能：Conn、ServeMux</p>
+<h4 id="Conn的goroutine"><a href="#Conn的goroutine" class="headerlink" title="Conn的goroutine"></a>Conn的goroutine</h4><p>与我们一般编写的http服务器不同, Go为了实现高并发和高性能, <strong>使用了goroutines来处理Conn的读写事件</strong>, 这样每个请求都能保持独立，相互不会阻塞，可以高效的响应网络事件。这是Go高效的保证。</p>
+<p>Go在等待客户端请求里面是这样写的：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c, err := srv.newConn(rw)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="keyword">continue</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">go</span> c.serve()</span><br></pre></td></tr></table></figure>
+
+<p>这里我们可以看到<strong>==客户端的每次请求都会创建一个Conn，这个Conn里面保存了该次请求的信息，然后再传递到对应的handler，该handler中便可以读取到相应的header信息，这样保证了每个请求的独立性。==</strong></p>
+<h4 id="ServeMux的自定义"><a href="#ServeMux的自定义" class="headerlink" title="ServeMux的自定义"></a>ServeMux的自定义</h4><h5 id="路由器的实现"><a href="#路由器的实现" class="headerlink" title="路由器的实现:"></a><font color='#fbbd08'><strong>路由器的实现:</strong></font></h5><p>我们前面小节讲述conn.server的时候，其实内部是调用了http包默认的<strong>路由器</strong>(<font color='#39b54a'><strong>DefaultServeMux</strong></font>)，通过路由器把本次请求的信息传递到了后端的处理函数。那么这个路由器是怎么实现的呢？</p>
+<p>它的结构如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ServeMux <span class="keyword">struct</span> &#123;</span><br><span class="line">    mu sync.RWMutex   			<span class="comment">//锁，由于请求涉及到并发处理，因此这里需要一个锁机制</span></span><br><span class="line">    m  <span class="keyword">map</span>[<span class="keyword">string</span>]muxEntry  <span class="comment">// 路由规则，一个string对应一个mux实体，这里的string就是注册的路由表达式</span></span><br><span class="line">    hosts <span class="keyword">bool</span> 							<span class="comment">// 是否在任意的规则中带有host信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面看一下muxEntry</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> muxEntry <span class="keyword">struct</span> &#123;</span><br><span class="line">    explicit <span class="keyword">bool</span>   		<span class="comment">// 是否精确匹配</span></span><br><span class="line">    h        Handler 		<span class="comment">// 这个路由表达式对应哪个handler</span></span><br><span class="line">    pattern  <span class="keyword">string</span>  		<span class="comment">// 匹配字符串</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着看一下Handler接口的定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Handler <span class="keyword">interface</span> &#123;</span><br><span class="line">    ServeHTTP(ResponseWriter, *Request)  <span class="comment">// 路由实现器</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Handler是一个接口，但是前一小节中的<code>sayhelloName</code>函数并没有实现ServeHTTP这个接口，为什么能添加呢？原来在http包里面还定义了一个类型<code>HandlerFunc</code>,我们定义的函数<code>sayhelloName</code>就是这个HandlerFunc调用之后的结果，这个类型默认就实现了ServeHTTP这个接口，即<strong>我们调用了HandlerFunc(f),强制类型转换f成为HandlerFunc类型，这样f就拥有了ServeHTTP方法。</strong></p>
+<p><font color='#39b54a'><strong>HandlerFunc的作用就是让函数F实现Handler接口中的ServeHTTP接口方法(把F变成了HandlerFunc类型)</strong></font></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> HandlerFunc <span class="function"><span class="keyword">func</span><span class="params">(ResponseWriter, *Request)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ServeHTTP calls f(w, r).</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f HandlerFunc)</span> <span class="title">ServeHTTP</span><span class="params">(w ResponseWriter, r *Request)</span></span> &#123;</span><br><span class="line">    f(w, r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="路由器分发请求"><a href="#路由器分发请求" class="headerlink" title="路由器分发请求:"></a><font color='#fbbd08'><strong>路由器分发请求:</strong></font></h5><p><strong>路由器</strong>里面存储好了相应的路由规则之后，那么具体的<strong>请求又是怎么分发</strong>的呢？请看下面的代码，默认的路由器实现了<code>ServeHTTP</code>：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(mux *ServeMux)</span> <span class="title">ServeHTTP</span><span class="params">(w ResponseWriter, r *Request)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> r.RequestURI == <span class="string">"*"</span> &#123;											<span class="comment">// * 号关闭连接</span></span><br><span class="line">        w.Header().Set(<span class="string">"Connection"</span>, <span class="string">"close"</span>)</span><br><span class="line">        w.WriteHeader(StatusBadRequest)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    h, _ := mux.Handler(r)												<span class="comment">// 实现Handler接口</span></span><br><span class="line">    h.ServeHTTP(w, r)															<span class="comment">// 调用接口方法ServeHTTP</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如上所示路由器接收到请求之后，如果是<code>*</code>那么关闭链接，不然调用<code>mux.Handler(r)</code><strong>==返回对应请求Pattern设置路由的处理Handler==</strong>，然后执行<code>h.ServeHTTP(w, r)</code>也就是<strong>==调用对应路由的handler的ServerHTTP接口==</strong>，那么mux.Handler(r)怎么处理的呢？</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(mux *ServeMux)</span> <span class="title">Handler</span><span class="params">(r *Request)</span> <span class="params">(h Handler, pattern <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> r.Method != <span class="string">"CONNECT"</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> p := cleanPath(r.URL.Path); p != r.URL.Path &#123;</span><br><span class="line">            _, pattern = mux.handler(r.Host, p)</span><br><span class="line">            <span class="keyword">return</span> RedirectHandler(p, StatusMovedPermanently), pattern		<span class="comment">// 重定向Handler</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">return</span> mux.handler(r.Host, r.URL.Path)							<span class="comment">// 是请求链接的客户端请求</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(mux *ServeMux)</span> <span class="title">handler</span><span class="params">(host, path <span class="keyword">string</span>)</span> <span class="params">(h Handler, pattern <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">    mux.mu.RLock()</span><br><span class="line">    <span class="keyword">defer</span> mux.mu.RUnlock()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Host-specific pattern takes precedence over generic ones 主机专一性的模式优先于一般的规则</span></span><br><span class="line">    <span class="keyword">if</span> mux.hosts &#123;															<span class="comment">// 是否在任意的规则中带有host信息</span></span><br><span class="line">      h, pattern = mux.match(host + path)				</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> h == <span class="literal">nil</span> &#123;	</span><br><span class="line">      	<span class="comment">//match: Find a handler on a handler map given a path string.</span></span><br><span class="line">        h, pattern = mux.match(path)						<span class="comment">// 根据ServeMux中的m(map[string]muxEntry)与请求的url匹配获得muxEntry实体再返回其中的 h(Handler) 和 pattren</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> h == <span class="literal">nil</span> &#123;</span><br><span class="line">        h, pattern = NotFoundHandler(), <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原来他是<strong>==根据用户请求的URL和路由器里面存储的map去匹配==</strong>的，当匹配到之后<strong>返回存储的handler</strong>，调用这个<strong>handler的ServeHTTP接口就可以执行到相应的函数了</strong>。</p>
+<p>通过上面这个介绍，我们了解了整个路由过程，<strong>==Go其实支持外部实现的路由器 <code>ListenAndServe</code>的第二个参数就是用以配置<font color='#39b54a'>外部路由器</font>的==</strong>，<strong>它是一个Handler接口，即外部路由器只要实现了Handler接口就可以</strong>,我们可以在自己实现的路由器的ServeHTTP里面实现自定义路由功能。</p>
+<h5 id="自己实现一个简单的外部路由"><a href="#自己实现一个简单的外部路由" class="headerlink" title="自己实现一个简单的外部路由:"></a><font color='#fbbd08'><strong>自己实现一个简单的外部路由:</strong></font></h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自己创建一个简单的路由器</span></span><br><span class="line"><span class="keyword">type</span> MyMux <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *MyMux)</span> <span class="title">ServeHTTP</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span>  &#123;</span><br><span class="line">	<span class="keyword">if</span> r.URL.Path == <span class="string">"/abc"</span> &#123;</span><br><span class="line">		SayHello2(w, r)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">"Http not found"</span>)</span><br><span class="line">	http.NotFound(w, r)</span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SayHello2</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span>  &#123;</span><br><span class="line">	fmt.Fprintf(w, <span class="string">"Hello ! xwj"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	mux := &amp;MyMux&#123;&#125;			<span class="comment">// 创建路由实例</span></span><br><span class="line">	err := http.ListenAndServe(<span class="string">":9090"</span>, mux)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">		os.Exit(<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Go代码执行整体流程"><a href="#Go代码执行整体流程" class="headerlink" title="Go代码执行整体流程"></a>Go代码执行整体流程</h4><p>通过对http包的分析之后，现在让我们来梳理一下整个的代码执行过程。</p>
+<ul>
+<li><p>首先调用Http.HandleFunc</p>
+<p>按顺序做了几件事：</p>
+<p>1 调用了DefaultServeMux的HandleFunc</p>
+<p>2 调用了DefaultServeMux的Handle</p>
+<p>3 往DefaultServeMux的map[string]muxEntry中增加对应的handler和路由规则<font color='#39b54a'>(注册路由)</font></p>
+</li>
+<li><p>其次调用http.ListenAndServe(“:9090”, nil)</p>
+<p>按顺序做了几件事情：</p>
+<p>1 实例化Server</p>
+<p>2 调用Server的ListenAndServe()</p>
+<p>3 调用net.Listen(“tcp”, addr)监听端口</p>
+<p>4 启动一个for循环，在循环体中Accept请求</p>
+<p>5 对每个请求实例化一个Conn，并且开启一个goroutine为这个请求进行服务go c.serve()</p>
+<p>6 读取每个请求的内容w, err := c.readRequest()</p>
+<p>7 判断handler是否为空，如果没有设置handler（这个例子就没有设置handler），handler就设置为DefaultServeMux</p>
+<p>8 调用handler的ServeHttp</p>
+<p>9 在这个例子中，下面就进入到DefaultServeMux.ServeHttp</p>
+<p>10 根据request选择handler，并且进入到这个handler的ServeHTTP<font color='#39b54a'>(查询路由)</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mux.handler(r).ServeHTTP(w, r)</span><br></pre></td></tr></table></figure>
+
+<p>11 选择handler：</p>
+<p>A 判断是否有路由能满足这个request（循环遍历ServeMux的muxEntry）</p>
+<p>B 如果有路由满足，调用这个路由handler的ServeHTTP</p>
+<p>C 如果没有路由满足，调用NotFoundHandler的ServeHTTP</p>
+</li>
+</ul>
+<h2 id="4-2-表单"><a href="#4-2-表单" class="headerlink" title="4.2 表单"></a>4.2 表单</h2><p>表单是一个包含表单元素的区域。表单元素是允许用户在表单中（比如：文本域、下拉列表、单选框、复选框等等）输入信息的元素。表单使用表单标签（\）定义。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">...</span><br><span class="line">input 元素</span><br><span class="line">...</span><br><span class="line">&lt;&#x2F;form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Go里面对于form处理已经有很方便的方法了，在Request里面的有专门的form处理，可以很方便的整合到Web开发里面来.</p>
+<p>HTTP协议是一种无状态<font color='#39b54a'>(不保存每次链接的连接者信息)</font>的协议，那么如何才能<strong>辨别是否是同一个用户</strong>呢？同时又如何<strong>保证一个表单不出现多次递交</strong>的情况呢？后面小节里面将对cookie(cookie是存储在客户端的信息，能够每次通过header和服务器进行交互的数据)等进行详细讲解。表单还有一个很大的功能就是能够上传文件，那么<strong>Go是如何处理文件上传</strong>的呢？针对大文件上传我们如何有效的处理呢？我们将一起学习Go处理文件上传的知识。</p>
+<h3 id="1-处理表单的输入"><a href="#1-处理表单的输入" class="headerlink" title="1.处理表单的输入"></a>1.处理表单的输入</h3><p>先来看一个表单递交的例子，我们有如下的表单内容，命名成文件login.gtpl(放入当前新建项目的目录里面)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span></span><br><span class="line">    密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登录"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面递交表单到服务器的<code>/login</code>，当用户输入信息点击登录之后，会跳转到服务器的路由<code>login</code>里面，我们首先要判断这个是什么方式传递过来，POST还是GET呢？</p>
+<p>http包里面有一个很简单的方式就可以获取，我们在前面web的例子的基础上来看看怎么处理login页面的form数据</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"html/template"</span></span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"net/http"</span></span><br><span class="line">    <span class="string">"strings"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayhelloName</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    r.ParseForm()       	<span class="comment">//解析url传递的参数，对于POST则解析响应包的主体（request body）</span></span><br><span class="line">    <span class="comment">//注意:如果没有调用ParseForm方法，下面无法获取表单的数据</span></span><br><span class="line">    fmt.Println(r.Form) <span class="comment">//这些信息是输出到服务器端的打印信息</span></span><br><span class="line">    fmt.Println(<span class="string">"path"</span>, r.URL.Path)</span><br><span class="line">    fmt.Println(<span class="string">"scheme"</span>, r.URL.Scheme)</span><br><span class="line">    fmt.Println(r.Form[<span class="string">"url_long"</span>])</span><br><span class="line">    <span class="keyword">for</span> k, v := <span class="keyword">range</span> r.Form &#123;</span><br><span class="line">        fmt.Println(<span class="string">"key:"</span>, k)</span><br><span class="line">        fmt.Println(<span class="string">"val:"</span>, strings.Join(v, <span class="string">""</span>))</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Fprintf(w, <span class="string">"Hello astaxie!"</span>) <span class="comment">//这个写入到w的是输出到客户端的</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">login</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"method:"</span>, r.Method) <span class="comment">//获取请求的方法</span></span><br><span class="line">    <span class="keyword">if</span> r.Method == <span class="string">"GET"</span> &#123;</span><br><span class="line">        t, _ := template.ParseFiles(<span class="string">"login.gtpl"</span>)</span><br><span class="line">        log.Println(t.Execute(w, <span class="literal">nil</span>))</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//请求的是登录数据，那么执行登录的逻辑判断</span></span><br><span class="line">        fmt.Println(<span class="string">"username:"</span>, r.Form[<span class="string">"username"</span>])</span><br><span class="line">        fmt.Println(<span class="string">"password:"</span>, r.Form[<span class="string">"password"</span>])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    http.HandleFunc(<span class="string">"/"</span>, sayhelloName)       <span class="comment">//设置访问的路由</span></span><br><span class="line">    http.HandleFunc(<span class="string">"/login"</span>, login)         <span class="comment">//设置访问的路由</span></span><br><span class="line">    err := http.ListenAndServe(<span class="string">":9090"</span>, <span class="literal">nil</span>) <span class="comment">//设置监听的端口</span></span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(<span class="string">"ListenAndServe: "</span>, err)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过上面的代码我们可以看出<strong>==获取请求方法是通过<code>r.Method</code>来完成的==</strong>，这是个字符串类型的变量，返回GET, POST, PUT等method信息。</p>
+<p>login函数中我们根据<code>r.Method</code>来判断是显示登录界面还是处理登录逻辑。<strong>当GET方式请求时显示登录界面，其他方式请求时则处理登录逻辑，如查询数据库、验证登录信息等。</strong></p>
+<p>当我们在浏览器里面打开<code>http://127.0.0.1:9090/login</code>的时候，出现如下界面</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/kRUbj1.png" alt="kRUbj1"></p>
+<p>如果你看到一个空页面，可能是你写的 login.gtpl 文件中有错误，请根据控制台中的日志进行修复。</p>
+<p>我们输入用户名和密码之后发现在服务器端是不会打印出来任何输出的，为什么呢？默认情况下，<strong>==Handler里面是不会自动解析form的，必须显式的调用<code>r.ParseForm()</code>后==</strong>，你才能对这个表单数据进行操作。我们修改一下代码，在<code>fmt.Println(&quot;username:&quot;, r.Form[&quot;username&quot;])</code>之前加一行<code>r.ParseForm()</code>,重新编译，再次测试输入递交，现在是不是在服务器端有输出你的输入的用户名和密码了。</p>
+<p><strong>==<code>r.Form</code>里面包含了所有请求的参数==</strong>，<strong>比如URL中query-string、POST的数据、PUT的数据， ** **所以当你==在URL中的query-string字段和POST冲突时，会保存成一个slice==，里面存储了多个值</strong>，Go官方文档中说在接下来的版本里面将会把POST、GET这些数据分离开来。</p>
+<p>现在我们修改一下login.gtpl里面form的action值<code>http://127.0.0.1:9090/login</code>修改为<code>http://127.0.0.1:9090/login?username=astaxie</code>，再次测试，服务器的输出username是不是一个slice。服务器端的输出如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">method: POST</span><br><span class="line">username: [<span class="number">31231</span> astaxie]</span><br><span class="line">password: [<span class="number">312321</span>]</span><br></pre></td></tr></table></figure>
+
+<p><code>request.Form</code>是一个url.Values类型，里面存储的是对应的类似<code>key=value</code>的信息，下面展示了可以对form数据进行的一些操作:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">v := url.Values&#123;&#125;</span><br><span class="line">v.Set(<span class="string">"name"</span>, <span class="string">"Ava"</span>)</span><br><span class="line">v.Add(<span class="string">"friend"</span>, <span class="string">"Jess"</span>)</span><br><span class="line">v.Add(<span class="string">"friend"</span>, <span class="string">"Sarah"</span>)</span><br><span class="line">v.Add(<span class="string">"friend"</span>, <span class="string">"Zoe"</span>)</span><br><span class="line"><span class="comment">// v.Encode() == "name=Ava&amp;friend=Jess&amp;friend=Sarah&amp;friend=Zoe"</span></span><br><span class="line">fmt.Println(v.Get(<span class="string">"name"</span>))</span><br><span class="line">fmt.Println(v.Get(<span class="string">"friend"</span>))</span><br><span class="line">fmt.Println(v[<span class="string">"friend"</span>])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>Tips</strong>: Request本身也提供了<strong>FormValue()函数来获取用户提交的参数</strong>。如r.Form[“username”]也可写成r.FormValue(“username”)。<strong>调用r.FormValue时会自动调用r.ParseForm，所以不必提前调用</strong>。<strong>r.FormValue只会返回同名参数中的第一个，若参数不存在则返回空字符串。</strong></p>
+</blockquote>
+<h3 id="2-验证表单的输入"><a href="#2-验证表单的输入" class="headerlink" title="2.验证表单的输入"></a>2.验证表单的输入</h3><p>开发Web的一个原则就是，<strong>不能信任用户输入的任何信息</strong>，所以验证和过滤用户的输入信息就变得非常重要，我们经常会在微博、新闻中听到某某网站被入侵了，存在什么漏洞，这些大多是因为网站对于用户输入的信息没有做严格的验证引起的，所以为了编写出安全可靠的Web程序，验证表单输入的意义重大。</p>
+<p>我们平常编写Web应用主要有两方面的数据验证，<strong>一个是在页面端的js验证(目前在这方面有很多的插件库，比如ValidationJS插件)</strong>，一<strong>个是在服务器端的验证</strong>，我们这小节讲解的是如何在<strong>==服务器端验证==</strong>。</p>
+<h4 id="必填字段"><a href="#必填字段" class="headerlink" title="必填字段"></a>必填字段</h4><p>你想要确保从一个表单元素中得到一个值，例如前面小节里面的用户名，我们如何处理呢？Go有一个内置函数<code>len</code>可以获取字符串的长度，这样我们就可以通过<strong>len来获取数据的长度</strong>，例如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(r.Form[<span class="string">"username"</span>][<span class="number">0</span>])==<span class="number">0</span>&#123;			<span class="comment">// 注意r.Form["username"]返回的是一个slice所以slice[0]才是参数</span></span><br><span class="line">    <span class="comment">//为空的处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>r.Form</code>对不同类型的表单元素的留空有不同的处理， 对于空文本框、空文本区域以及文件上传，元素的值为空值,<strong>而如果是未选中的复选框和单选按钮，则根本不会在r.Form中产生相应条目</strong>，如果我们用上面例子中的方式去获取数据时程序就会报错。<strong>所以我们需要通过<code>r.Form.Get()</code>来获取值，因为如果字段不存在，通过该方式获取的是空值</strong>。但是通过<code>r.Form.Get()</code>只能获取单个的值，<strong>如果是map的值，必须通过上面的方式来获取。</strong></p>
+<h4 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h4><p>你想要确保一个表单输入框中获取的只能是数字，例如，你想通过表单获取某个人的具体年龄是50岁还是10岁，而不是像“一把年纪了”或“年轻着呢”这种描述</p>
+<p>如果我们是判断正整数，那么我们<strong>先转化成int类型</strong>，然后进行处理</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">getint,err:=strconv.Atoi(r.Form.Get(<span class="string">"age"</span>))</span><br><span class="line"><span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">    <span class="comment">//数字转化出错了，那么可能就不是数字</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//接下来就可以判断这个数字的大小范围了</span></span><br><span class="line"><span class="keyword">if</span> getint &gt;<span class="number">100</span> &#123;</span><br><span class="line">    <span class="comment">//太大了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有一种方式就是<strong>正则匹配</strong>的方式</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> m, _ := regexp.MatchString(<span class="string">"^[0-9]+$"</span>, r.Form.Get(<span class="string">"age"</span>)); !m &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于性能要求很高的用户来说，这是一个老生常谈的问题了，<strong>他们认为应该尽量避免使用正则表达式，因为使用正则表达式的速度会比较慢</strong>。但是在目前机器性能那么强劲的情况下，对于这种简单的正则表达式效率和类型转换函数是没有什么差别的。如果你对正则表达式很熟悉，而且你在其它语言中也在使用它，那么在Go里面使用正则表达式将是一个便利的方式。</p>
+<blockquote>
+<p>Go实现的正则是<a href="http://code.google.com/p/re2/wiki/Syntax" target="_blank" rel="noopener">RE2</a>，所有的字符都是UTF-8编码的。</p>
+</blockquote>
+<h4 id="中文"><a href="#中文" class="headerlink" title="中文"></a>中文</h4><p>有时候我们想通过表单元素获取一个用户的中文名字，但是又为了保证获取的是正确的中文，我们需要进行验证，而不是用户随便的一些输入。对于中文我们目前有两种方式来验证，可以使用 <code>unicode</code> 包提供的 <code>func Is(rangeTab *RangeTable, r rune) bool</code> 来验证，也可以使用正则方式来验证，这里使用最简单的正则方式，如下代码所示</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> m, _ := regexp.MatchString(<span class="string">"^\\p&#123;Han&#125;+$"</span>, r.Form.Get(<span class="string">"realname"</span>)); !m &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="英文"><a href="#英文" class="headerlink" title="英文"></a>英文</h4><p>我们期望通过表单元素获取一个英文值，例如我们想知道一个用户的英文名，应该是astaxie，而不是asta谢。</p>
+<p>我们可以很简单的通过正则验证数据：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> m, _ := regexp.MatchString(<span class="string">"^[a-zA-Z]+$"</span>, r.Form.Get(<span class="string">"engname"</span>)); !m &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="电子邮件地址"><a href="#电子邮件地址" class="headerlink" title="电子邮件地址"></a>电子邮件地址</h4><p>你想知道用户输入的一个Email地址是否正确，通过如下这个方式可以验证：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> m, _ := regexp.MatchString(<span class="string">`^([\w\.\_]&#123;2,10&#125;)@(\w&#123;1,&#125;).([a-z]&#123;2,4&#125;)$`</span>, r.Form.Get(<span class="string">"email"</span>)); !m &#123;</span><br><span class="line">    fmt.Println(<span class="string">"no"</span>)</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    fmt.Println(<span class="string">"yes"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="手机号码"><a href="#手机号码" class="headerlink" title="手机号码"></a>手机号码</h4><p>你想要判断用户输入的手机号码是否正确，通过正则也可以验证：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> m, _ := regexp.MatchString(<span class="string">`^(1[3|4|5|8][0-9]\d&#123;4,8&#125;)$`</span>, r.Form.Get(<span class="string">"mobile"</span>)); !m &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="下拉菜单"><a href="#下拉菜单" class="headerlink" title="下拉菜单"></a>下拉菜单</h4><p>如果我们想要判断表单里面<code>&lt;select&gt;</code>元素生成的下拉菜单中是否有被选中的项目。<strong>有些时候黑客可能会伪造这个下拉菜单不存在的值发送给你，那么如何判断这个值是否是我们预设的值呢？</strong></p>
+<p>我们的select可能是这样的一些元素</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"fruit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"apple"</span>&gt;</span>apple<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"pear"</span>&gt;</span>pear<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"banane"</span>&gt;</span>banane<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>那么我们可以这样来验证</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">slice:=[]<span class="keyword">string</span>&#123;<span class="string">"apple"</span>,<span class="string">"pear"</span>,<span class="string">"banane"</span>&#125;</span><br><span class="line"></span><br><span class="line">v := r.Form.Get(<span class="string">"fruit"</span>)</span><br><span class="line"><span class="keyword">for</span> _, item := <span class="keyword">range</span> slice &#123;</span><br><span class="line">    <span class="keyword">if</span> item == v &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="单选按钮"><a href="#单选按钮" class="headerlink" title="单选按钮"></a>单选按钮</h4><p>如果我们想要判断radio按钮是否有一个被选中了，我们页面的输出可能就是一个男、女性别的选择，但是也可能一个15岁大的无聊小孩，一手拿着http协议的书，另一只手通过telnet客户端向你的程序在发送请求呢，你设定的性别男值是1，女是2，他给你发送一个3，你的程序会出现异常吗？因此我们也需要像下拉菜单的判断方式类似，判断我们获取的值是我们预设的值，而不是额外的值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"gender"</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span>男</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"gender"</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span>女</span><br></pre></td></tr></table></figure>
+
+<p>那我们也可以类似下拉菜单的做法一样</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">slice:=[]<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _, v := <span class="keyword">range</span> slice &#123;</span><br><span class="line">    <span class="keyword">if</span> v == r.Form.Get(<span class="string">"gender"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="复选框"><a href="#复选框" class="headerlink" title="复选框"></a>复选框</h4><p>有一项选择兴趣的复选框，你想确定用户选中的和你提供给用户选择的是同一个类型的数据。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"interest"</span> <span class="attr">value</span>=<span class="string">"football"</span>&gt;</span>足球</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"interest"</span> <span class="attr">value</span>=<span class="string">"basketball"</span>&gt;</span>篮球</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"interest"</span> <span class="attr">value</span>=<span class="string">"tennis"</span>&gt;</span>网球</span><br></pre></td></tr></table></figure>
+
+<p>对于复选框我们的验证和单选有点不一样，因为接收到的数据是一个slice</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">slice:=[]<span class="keyword">string</span>&#123;<span class="string">"football"</span>,<span class="string">"basketball"</span>,<span class="string">"tennis"</span>&#125;</span><br><span class="line">a:=Slice_diff(r.Form[<span class="string">"interest"</span>],slice)</span><br><span class="line"><span class="keyword">if</span> a == <span class="literal">nil</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这个函数<code>Slice_diff</code>包含在我开源的一个库里面(操作slice和map的库)，<a href="https://github.com/astaxie/beeku" target="_blank" rel="noopener">https://github.com/astaxie/beeku</a></p>
+<h4 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h4><p>你想确定用户填写的日期或时间是否有效。例如 ，用户在日程表中安排8月份的第45天开会，或者提供未来的某个时间作为生日。</p>
+<p>Go里面提供了一个time的处理包，我们可以把用户的输入年月日转化成相应的时间，然后进行逻辑判断</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t := time.Date(<span class="number">2009</span>, time.November, <span class="number">10</span>, <span class="number">23</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, time.UTC)</span><br><span class="line">fmt.Printf(<span class="string">"Go launched at %s\n"</span>, t.Local())</span><br></pre></td></tr></table></figure>
+
+<p>获取time之后我们就可以进行很多时间函数的操作。具体的判断就根据自己的需求调整。</p>
+<h4 id="身份证号码"><a href="#身份证号码" class="headerlink" title="身份证号码"></a>身份证号码</h4><p>如果我们想验证表单输入的是否是身份证，通过正则也可以方便的验证，但是身份证有15位和18位，我们两个都需要验证</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//验证15位身份证，15位的是全部数字</span></span><br><span class="line"><span class="keyword">if</span> m, _ := regexp.MatchString(<span class="string">`^(\d&#123;15&#125;)$`</span>, r.Form.Get(<span class="string">"usercard"</span>)); !m &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//验证18位身份证，18位前17位为数字，最后一位是校验位，可能为数字或字符X。</span></span><br><span class="line"><span class="keyword">if</span> m, _ := regexp.MatchString(<span class="string">`^(\d&#123;17&#125;)([0-9]|X)$`</span>, r.Form.Get(<span class="string">"usercard"</span>)); !m &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面列出了我们一些常用的服务器端的表单元素验证，希望通过这个引导入门，能够让你对Go的数据验证有所了解，特别是Go里面的正则处理。</p>
+<h3 id="3-预防跨站脚本"><a href="#3-预防跨站脚本" class="headerlink" title="3.预防跨站脚本"></a>3.预防跨站脚本</h3><p>现在的网站包含大量的动态内容以提高用户体验，比过去要复杂得多。所谓<strong>动态内容</strong>，就是<strong>根据用户环境和需要，Web应用程序能够输出相应的内容</strong>。动态站点会受到一种名为<strong>==“跨站脚本攻击”==（Cross Site Scripting, 安全专家们通常将其缩写成 XSS）</strong>的威胁，而静态站点则完全不受其影响。<font color='#39b54a'>(服务器输出给客户端的数据被注入脚本,导致恶意脚本在浏览器中运行)</font></p>
+<p>攻击者通常会在有漏洞的程序中插入JavaScript、VBScript、 ActiveX或Flash以欺骗用户。一旦得手，他们可以盗取用户帐户信息，修改用户设置，盗取/污染cookie和植入恶意广告等。</p>
+<p>对XSS最佳的防护应该结合以下两种方法：<strong>一是验证所有输入数据</strong>，有效检测攻击(这个我们前面小节已经有过介绍);<strong>另一个是对所有输出数据进行适当的处理，以防止任何已成功注入的脚本在浏览器端运行。</strong></p>
+<p>那么Go里面是怎么做这个有效防护的呢？Go的<strong>==html/template==</strong>里面带有下面几个函数可以帮你<strong>转义</strong></p>
+<ul>
+<li>func HTMLEscape(w io.Writer, b []byte) //把b进行转义之后写到w</li>
+<li>func HTMLEscapeString(s string) string //转义s之后返回结果字符串</li>
+<li>func HTMLEscaper(args …interface{}) string //支持多个参数一起转义，返回结果字符串</li>
+</ul>
+<p>我们看4.1小节的例子</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fmt.Println(<span class="string">"username:"</span>, template.HTMLEscapeString(r.Form.Get(<span class="string">"username"</span>))) <span class="comment">//输出到服务器端</span></span><br><span class="line">fmt.Println(<span class="string">"password:"</span>, template.HTMLEscapeString(r.Form.Get(<span class="string">"password"</span>)))</span><br><span class="line">template.HTMLEscape(w, []<span class="keyword">byte</span>(r.Form.Get(<span class="string">"username"</span>))) <span class="comment">//输出到客户端</span></span><br></pre></td></tr></table></figure>
+
+<p>如果我们输入的username是<code>&lt;script&gt;alert()&lt;/script&gt;</code>,那么我们可以在浏览器上面看到输出如下所示：</p>
+<p><img src="https://astaxie.gitbooks.io/build-web-application-with-golang/content/zh/images/4.3.escape.png?raw=true" alt="img"></p>
+<p><strong>==Go的html/template包默认帮你过滤了html标签==</strong>，但是有时候你只想要输出这个<code>&lt;script&gt;alert()&lt;/script&gt;</code>看起来正常的信息，该怎么处理？请使用text/template。请看下面的例子：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"text/template"</span></span><br><span class="line">...</span><br><span class="line">t, err := template.New(<span class="string">"foo"</span>).Parse(<span class="string">`&#123;&#123;define "T"&#125;&#125;Hello, &#123;&#123;.&#125;&#125;!&#123;&#123;end&#125;&#125;`</span>)</span><br><span class="line">err = t.ExecuteTemplate(out, <span class="string">"T"</span>, <span class="string">"&lt;script&gt;alert('you have been pwned')&lt;/script&gt;"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, &lt;script&gt;alert(&#39;you have been pwned&#39;)&lt;&#x2F;script&gt;!</span><br></pre></td></tr></table></figure>
+
+<p>或者使用template.HTML类型</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"html/template"</span></span><br><span class="line">...</span><br><span class="line">t, err := template.New(<span class="string">"foo"</span>).Parse(<span class="string">`&#123;&#123;define "T"&#125;&#125;Hello, &#123;&#123;.&#125;&#125;!&#123;&#123;end&#125;&#125;`</span>)</span><br><span class="line">err = t.ExecuteTemplate(out, <span class="string">"T"</span>, template.HTML(<span class="string">"&lt;script&gt;alert('you have been pwned')&lt;/script&gt;"</span>))</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, &lt;script&gt;alert(&#39;you have been pwned&#39;)&lt;&#x2F;script&gt;!</span><br></pre></td></tr></table></figure>
+
+<p>转换成<code>template.HTML</code>后，变量的内容也不会被转义</p>
+<p>转义的例子：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"html/template"</span></span><br><span class="line">...</span><br><span class="line">t, err := template.New(<span class="string">"foo"</span>).Parse(<span class="string">`&#123;&#123;define "T"&#125;&#125;Hello, &#123;&#123;.&#125;&#125;!&#123;&#123;end&#125;&#125;`</span>)</span><br><span class="line">err = t.ExecuteTemplate(out, <span class="string">"T"</span>, <span class="string">"&lt;script&gt;alert('you have been pwned')&lt;/script&gt;"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>转义之后的输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, &lt;script&gt;alert(&#39;you have been pwned&#39;)&lt;&#x2F;script&gt;!</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-防止多次递交表单"><a href="#4-防止多次递交表单" class="headerlink" title="4. 防止多次递交表单"></a>4. 防止多次递交表单</h3><p>不知道你是否曾经看到过一个论坛或者博客，在一个帖子或者文章后面出现多条重复的记录，这些大多数是因为用户重复递交了留言的表单引起的。由于种种原因，用户经常会重复递交表单。通常这只是鼠标的误操作，如双击了递交按钮，也可能是为了编辑或者再次核对填写过的信息，点击了浏览器的后退按钮，然后又再次点击了递交按钮而不是浏览器的前进按钮。当然，也可能是故意的——比如，在某项在线调查或者博彩活动中重复投票。那我们如何有效的防止用户多次递交相同的表单呢？</p>
+<p>解决方案是<strong>在表单中添加一个==带有唯一值的隐藏字段==</strong>。在验证表单时，先检查带有该唯一值的表单是否已经递交过了。如果是，拒绝再次递交；如果不是，则处理表单进行逻辑处理。另外，<strong>如果是采用了Ajax模式递交表单的话，当表单递交后，通过<u>javascript来禁用表单的递交按钮。</u></strong></p>
+<p>例如:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"interest"</span> <span class="attr">value</span>=<span class="string">"football"</span>&gt;</span>足球</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"interest"</span> <span class="attr">value</span>=<span class="string">"basketball"</span>&gt;</span>篮球</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"interest"</span> <span class="attr">value</span>=<span class="string">"tennis"</span>&gt;</span>网球    </span><br><span class="line">用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span></span><br><span class="line">密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"token"</span> <span class="attr">value</span>=<span class="string">"&#123;&#123;.&#125;&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登陆"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们在模版里面增加了<strong>一个隐藏字段<code>token</code>，这个值我们通过MD5(时间戳)来获取唯一值</strong>，然后我们把这个<strong>值存储到服务器端(session来控制，我们将在第六章讲解如何保存)</strong>，以方便表单提交时比对判定。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">login</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"method:"</span>, r.Method) <span class="comment">//获取请求的方法</span></span><br><span class="line">    <span class="keyword">if</span> r.Method == <span class="string">"GET"</span> &#123;</span><br><span class="line">        crutime := time.Now().Unix()</span><br><span class="line">        h := md5.New()																			<span class="comment">// 创建md5实例</span></span><br><span class="line">        io.WriteString(h, strconv.FormatInt(crutime, <span class="number">10</span>))		<span class="comment">// 转换时间unix格式 =&gt; Int 给md5实例</span></span><br><span class="line">        token := fmt.Sprintf(<span class="string">"%x"</span>, h.Sum(<span class="literal">nil</span>))							<span class="comment">//h.Sum(nil)计算hash</span></span><br><span class="line"></span><br><span class="line">        t, _ := template.ParseFiles(<span class="string">"login.gtpl"</span>)</span><br><span class="line">        t.Execute(w, token)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//请求的是登陆数据，那么执行登陆的逻辑判断</span></span><br><span class="line">        r.ParseForm()</span><br><span class="line">        token := r.Form.Get(<span class="string">"token"</span>)</span><br><span class="line">        <span class="keyword">if</span> token != <span class="string">""</span> &#123;</span><br><span class="line">            <span class="comment">//验证token的合法性</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//不存在token报错</span></span><br><span class="line">        &#125;</span><br><span class="line">        fmt.Println(<span class="string">"username length:"</span>, <span class="built_in">len</span>(r.Form[<span class="string">"username"</span>][<span class="number">0</span>]))</span><br><span class="line">        fmt.Println(<span class="string">"username:"</span>, template.HTMLEscapeString(r.Form.Get(<span class="string">"username"</span>))) <span class="comment">//输出到服务器端</span></span><br><span class="line">        fmt.Println(<span class="string">"password:"</span>, template.HTMLEscapeString(r.Form.Get(<span class="string">"password"</span>)))</span><br><span class="line">        template.HTMLEscape(w, []<span class="keyword">byte</span>(r.Form.Get(<span class="string">"username"</span>))) <span class="comment">//输出到客户端</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中的template简单解析: 详细template教程见:<a href="https://www.cnblogs.com/f-ck-need-u/p/10053124.html" target="_blank" rel="noopener">Go template用法详解</a></p>
+<ul>
+<li><p>在html文件中使用temlpate语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;.&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这部分是需要通过go的template引擎进行解析，然后替换成对应的内容。</p>
+</li>
+<li><p>handler函数中使用<code>template.ParseFiles(&quot;login.gtpl&quot;)</code>，它会自动创建一个模板(关联到变量t上)，并解析一个或多个文本文件(不仅仅是html文件)</p>
+</li>
+<li><p>解析之后就可以使用<code>Execute(w, token)</code>去执行解析后的模板对象，执行过程是<strong>合并、替换</strong>的过程。例如html中的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;.&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>会被替换成服务器端计算的token</p>
+</li>
+</ul>
+<p>上面的代码输出到页面的源码如下：</p>
+<p>增加token之后在客户端输出的源码信息:</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/bmpRdc.jpg" alt="bmpRdc"></p>
+<p>我们看到token已经有输出值，你可以不断的刷新，可以看到这个值在不断的变化。这样就保证了每次显示form表单的时候都是唯一的，用户递交的表单保持了唯一性。</p>
+<p>我们的解决方案可以防止非恶意的攻击，并能使恶意用户暂时不知所措，然后，它却不能排除所有的欺骗性的动机，对此类情况还需要更复杂的工作。</p>
+<h3 id="5-文件上传"><a href="#5-文件上传" class="headerlink" title="5.文件上传"></a>5.文件上传</h3><p>要使表单能够上传文件，首先第一步就是要添加form的<code>enctype</code>属性，<code>enctype</code>属性有如下三种情况:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">application&#x2F;x-www-form-urlencoded   			表示在发送前编码所有字符（默认）</span><br><span class="line">multipart&#x2F;form-data      									不对字符编码。在使用包含文件上传控件的表单时，必须使用该值。</span><br><span class="line">text&#x2F;plain      													空格转换为 &quot;+&quot; 加号，但不对特殊字符编码。</span><br></pre></td></tr></table></figure>
+
+<p>所以，创建新的表单html文件, 命名为upload.gtpl, html代码应该类似于:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>上传文件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span> <span class="attr">action</span>=<span class="string">"/upload"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"uploadfile"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"token"</span> <span class="attr">value</span>=<span class="string">"&#123;&#123;.&#125;&#125;"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"upload"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在服务器端，我们增加一个handlerFunc:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">http.HandleFunc(<span class="string">"/upload"</span>, upload)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理/upload 逻辑</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">upload</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"method:"</span>, r.Method) <span class="comment">//获取请求的方法</span></span><br><span class="line">    <span class="keyword">if</span> r.Method == <span class="string">"GET"</span> &#123;</span><br><span class="line">        crutime := time.Now().Unix()</span><br><span class="line">        h := md5.New()</span><br><span class="line">        io.WriteString(h, strconv.FormatInt(crutime, <span class="number">10</span>))</span><br><span class="line">        token := fmt.Sprintf(<span class="string">"%x"</span>, h.Sum(<span class="literal">nil</span>))</span><br><span class="line"></span><br><span class="line">        t, _ := template.ParseFiles(<span class="string">"upload.gtpl"</span>)</span><br><span class="line">        t.Execute(w, token)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        r.ParseMultipartForm(<span class="number">32</span> &lt;&lt; <span class="number">20</span>)</span><br><span class="line">        file, handler, err := r.FormFile(<span class="string">"uploadfile"</span>)</span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">            fmt.Println(err)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">defer</span> file.Close()</span><br><span class="line">        fmt.Fprintf(w, <span class="string">"%v"</span>, handler.Header)</span><br><span class="line">        f, err := os.OpenFile(<span class="string">"./test/"</span>+handler.Filename, os.O_WRONLY|os.O_CREATE, <span class="number">0666</span>)  <span class="comment">// 此处假设当前目录下已存在test目录</span></span><br><span class="line">        <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">            fmt.Println(err)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">defer</span> f.Close()</span><br><span class="line">        io.Copy(f, file)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过上面的代码可以看到，处理文件上传我们需要调用<code>r.ParseMultipartForm</code>，里面的参数表示<code>maxMemory</code>，调用<code>ParseMultipartForm</code>之后，上传的文件存储在<code>maxMemory</code>大小的内存里面，如果文件大小超过了<code>maxMemory</code>，那么剩下的部分将存储在系统的临时文件中。我们可以通过<code>r.FormFile</code>获取上面的文件句柄，然后实例中使用了<code>io.Copy</code>来存储文件。</p>
+<blockquote>
+<p>获取其他非文件字段信息的时候就不需要调用<code>r.ParseForm</code>，因为在需要的时候Go自动会去调用。而且<code>ParseMultipartForm</code>调用一次之后，后面再次调用不会再有效果。</p>
+</blockquote>
+<p>通过上面的实例我们可以看到我们<strong>上传文件主要三步处理</strong>：</p>
+<ol>
+<li>表单中<strong>增加<code>enctype=&quot;multipart/form-data”</code></strong></li>
+<li>服务端调用<code>r.ParseMultipartForm</code>,<strong>把上传的文件存储在<u>内存</u>和<u>临时文件</u>中</strong></li>
+<li><strong>使用<code>r.FormFile</code>获取文件句柄</strong>，然后对文件进行存储等处理。</li>
+</ol>
+<p>文件<code>handler</code>是<code>multipart.FileHeader</code>,里面存储了如下结构信息</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> FileHeader <span class="keyword">struct</span> &#123;</span><br><span class="line">    Filename <span class="keyword">string</span></span><br><span class="line">    Header   textproto.MIMEHeader</span><br><span class="line">    <span class="comment">// contains filtered or unexported fields</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们通过上面的实例代码打印出来上传文件的信息如下</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/zkJnRK.jpg" alt="zkJnRK"></p>
+<hr>
+<p><strong>模拟客户端上传文件:</strong></p>
+<p>我们上面的例子演示了如何通过表单上传文件，然后在服务器端处理文件，其实<strong>Go支持模拟客户端表单功能支持文件上传</strong>，详细用法请看如下示例：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"bytes"</span></span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"io"</span></span><br><span class="line">    <span class="string">"io/ioutil"</span></span><br><span class="line">    <span class="string">"mime/multipart"</span></span><br><span class="line">    <span class="string">"net/http"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">postFile</span><span class="params">(filename <span class="keyword">string</span>, targetUrl <span class="keyword">string</span>)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">    bodyBuf := &amp;bytes.Buffer&#123;&#125;</span><br><span class="line">    bodyWriter := multipart.NewWriter(bodyBuf)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//关键的一步操作</span></span><br><span class="line">    fileWriter, err := bodyWriter.CreateFormFile(<span class="string">"uploadfile"</span>, filename)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"error writing to buffer"</span>)</span><br><span class="line">        <span class="keyword">return</span> err</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//打开文件句柄操作</span></span><br><span class="line">    fh, err := os.Open(filename)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"error opening file"</span>)</span><br><span class="line">        <span class="keyword">return</span> err</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">defer</span> fh.Close()</span><br><span class="line"></span><br><span class="line">    <span class="comment">//iocopy</span></span><br><span class="line">    _, err = io.Copy(fileWriter, fh)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> err</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    contentType := bodyWriter.FormDataContentType()</span><br><span class="line">    bodyWriter.Close()</span><br><span class="line"></span><br><span class="line">    resp, err := http.Post(targetUrl, contentType, bodyBuf)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> err</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">defer</span> resp.Body.Close()</span><br><span class="line">    resp_body, err := ioutil.ReadAll(resp.Body)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> err</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(resp.Status)</span><br><span class="line">    fmt.Println(<span class="keyword">string</span>(resp_body))</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// sample usage</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    target_url := <span class="string">"http://localhost:9090/upload"</span></span><br><span class="line">    filename := <span class="string">"./astaxie.pdf"</span></span><br><span class="line">    postFile(filename, target_url)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的例子详细展示了客户端如何向服务器上传一个文件的例子，客户端通过<code>multipart.Write</code>把文件的文本流写入一个缓存中，然后调用http的Post方法把缓存传到服务器。</p>
+<blockquote>
+<p>如果你还有其他普通字段例如username之类的需要同时写入，那么可以调用multipart的WriteField方法写很多其他类似的字段。</p>
+</blockquote>
+<h2 id="4-3-访问数据库"><a href="#4-3-访问数据库" class="headerlink" title="4.3 访问数据库"></a>4.3 访问数据库</h2><p>Go没有内置的驱动支持任何的数据库，但是Go定义了database/sql接口，用户可以基于驱动接口开发相应数据库的驱动</p>
+<h3 id="1-database-sql接口"><a href="#1-database-sql接口" class="headerlink" title="1. database/sql接口"></a>1. database/sql接口</h3><p>Go与PHP不同的地方是<strong>Go官方没有提供数据库驱动</strong>，而是<strong>为开发数据库驱动定义了一些标准接口</strong>，开发者可以根据定义的接口来开发相应的数据库驱动，这样做有一个好处，<strong>==只要是按照标准接口开发的代码， 以后需要迁移数据库时，不需要任何修改==</strong>。那么Go都定义了哪些标准接口呢？让我们来详细的分析一下 </p>
+<h4 id="sql-Register"><a href="#sql-Register" class="headerlink" title="sql.Register"></a>sql.Register</h4><p>这个存在于database/sql的函数是用来==<strong>注册数据库驱动</strong>==的，当第三方开发者开发数据库驱动时，都会实现init函数，在init里面会调用这个<code>Register(name string, driver driver.Driver)</code>完成本驱动的注册。</p>
+<p>我们来看一下mymysql、sqlite3的驱动里面都是怎么调用的：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//https://github.com/mattn/go-sqlite3驱动</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    sql.Register(<span class="string">"sqlite3"</span>, &amp;SQLiteDriver&#123;&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//https://github.com/mikespook/mymysql驱动</span></span><br><span class="line"><span class="comment">// Driver automatically registered in database/sql</span></span><br><span class="line"><span class="keyword">var</span> d = Driver&#123;proto: <span class="string">"tcp"</span>, raddr: <span class="string">"127.0.0.1:3306"</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Register(<span class="string">"SET NAMES utf8"</span>)</span><br><span class="line">    sql.Register(<span class="string">"mymysql"</span>, &amp;d)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们看到第三方数据库驱动都是通过调用这个函数来<strong>注册自己的数据库驱动名称以及相应的driver实现</strong>。<strong>在database/sql内部通过一个map来存储用户定义的相应驱动。</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> drivers = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]driver.Driver)</span><br><span class="line"></span><br><span class="line">drivers[name] = driver</span><br></pre></td></tr></table></figure>
+
+<p>因此通过database/sql的注册函数可以<strong>同时注册多个数据库驱动，只要不重复。</strong></p>
+<blockquote>
+<p>在我们使用database/sql接口和第三方库的时候经常看到如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import (</span><br><span class="line">    &quot;database&#x2F;sql&quot;</span><br><span class="line">     _ &quot;github.com&#x2F;mattn&#x2F;go-sqlite3&quot;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>新手都会被这个<code>_</code>所迷惑，其实这个就是Go设计的巧妙之处，我们在变量赋值的时候经常看到这个符号，它是用来忽略变量赋值的占位符，那么包引入用到这个符号也是相似的作用，<font color='#39b54a'><strong>这儿使用<code>_</code>的意思是引入后面的包名而不直接使用这个包中定义的函数，变量等资源。</strong></font></p>
+<p>我们在2.3节流程和函数一节中介绍过<strong>init函数的初始化过程</strong>，<strong>包在引入的时候会自动调用包的init函数以完成对包的初始化。</strong>因此，我们引入上面的数据库驱动包之后会自动去调用init函数，然后在init函数里面注册这个数据库驱动，这样我们就可以在接下来的代码中直接使用这个数据库驱动了。</p>
+</blockquote>
+<h4 id="driver-Driver"><a href="#driver-Driver" class="headerlink" title="driver.Driver"></a>driver.Driver</h4><p>Driver是一个==<strong>数据库驱动</strong>==的接口，他定义了一个method： Open(name string)，这个方法<strong>返回一个数据库的Conn接口。</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Driver <span class="keyword">interface</span> &#123;</span><br><span class="line">    Open(name <span class="keyword">string</span>) (Conn, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>==<strong>返回的Conn只能用来进行一次goroutine的操作</strong>==，也就是说不能把这个Conn应用于Go的多个goroutine里面。如下代码会出现错误</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">go</span> goroutineA (Conn)  <span class="comment">//执行查询操作</span></span><br><span class="line"><span class="keyword">go</span> goroutineB (Conn)  <span class="comment">//执行插入操作</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>上面这样的代码可能会使<strong>Go不知道某个操作究竟是由哪个goroutine发起的,从而导致数据混乱</strong>，比如可能会把goroutineA里面执行的查询操作的结果返回给goroutineB从而使B错误地把此结果当成自己执行的插入数据。</p>
+<p><strong>第三方驱动都会定义这个函数</strong>，<strong>它会解析name参数来获取相关数据库的连接信息，解析完成后，它将使用此信息来<u>初始化一个Conn并返回它</u>。</strong></p>
+<h4 id="driver-Conn"><a href="#driver-Conn" class="headerlink" title="driver.Conn"></a>driver.Conn</h4><p>Conn是一个==<strong>数据库连接的接口定义</strong>==，他定义了一系列方法，<strong>这个Conn只能应用在一个goroutine里面，不能使用在多个goroutine里面</strong>，详情请参考上面的说明。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Conn <span class="keyword">interface</span> &#123;</span><br><span class="line">    Prepare(query <span class="keyword">string</span>) (Stmt, error)</span><br><span class="line">    Close() error</span><br><span class="line">    Begin() (Tx, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Prepare</strong>函数<strong>返回与当前连接相关的执行Sql语句的准备状态</strong>，<strong>可以进行查询、删除等操作。</strong></p>
+<p><strong>Close函数关闭当前的连接，执行释放连接拥有的资源等清理工作。</strong>因为驱动实现了database/sql里面建议的conn pool，所以你不用再去实现缓存conn之类的，这样会容易引起问题。</p>
+<p><strong>Begin函数返回一个代表事务处理的Tx，通过它你可以进行查询,更新等操作，或者对事务进行回滚、递交。</strong></p>
+<h4 id="driver-Stmt"><a href="#driver-Stmt" class="headerlink" title="driver.Stmt"></a>driver.Stmt</h4><p>Stmt是一种==<strong>准备好的状态</strong>==，<strong>和Conn相关联</strong>，而且<strong>只能应用于一个goroutine中，不能应用于多个goroutine。</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Stmt <span class="keyword">interface</span> &#123;</span><br><span class="line">    Close() error</span><br><span class="line">    NumInput() <span class="keyword">int</span></span><br><span class="line">    Exec(args []Value) (Result, error)</span><br><span class="line">    Query(args []Value) (Rows, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Close函数<strong>关闭当前的链接状态</strong>，但是如果当前正在执行query，<strong>query还是有效返回rows数据。</strong></p>
+<p><strong>NumInput函数返回当前预留参数的个数</strong>，当返回&gt;=0时数据库驱动就会智能检查调用者的参数。当数据库驱动包不知道预留参数的时候，返回-1。</p>
+<p><strong><font color='#39b54a'>Exec函数执行Prepare准备好的sql，传入参数执行update/insert等操作，返回Result数据</font></strong></p>
+<p><font color='#39b54a'><strong>Query函数执行Prepare准备好的sql，传入需要的参数执行select操作，返回Rows结果集</strong></font></p>
+<h4 id="driver-Tx"><a href="#driver-Tx" class="headerlink" title="driver.Tx"></a>driver.Tx</h4><p><strong>==事务处理==</strong>一般就两个过程，<strong>递交</strong>或者<strong>回滚</strong>。数据库驱动里面也只需要实现这两个函数就可以</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Tx <span class="keyword">interface</span> &#123;</span><br><span class="line">    Commit() error</span><br><span class="line">    Rollback() error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这两个函数一个用来递交一个事务，一个用来回滚事务。</p>
+<h4 id="driver-Execer"><a href="#driver-Execer" class="headerlink" title="driver.Execer"></a>driver.Execer</h4><p>这是一个<strong>==Conn可选择实现的接口==</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Execer <span class="keyword">interface</span> &#123;</span><br><span class="line">    Exec(query <span class="keyword">string</span>, args []Value) (Result, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果这个接口没有定义，那么<strong>在调用DB.Exec,就会首先调用Prepare返回Stmt，然后执行Stmt的Exec，然后关闭Stmt。</strong></p>
+<h4 id="driver-Result"><a href="#driver-Result" class="headerlink" title="driver.Result"></a>driver.Result</h4><p>这个是执行Update/Insert等操作返回的<strong>==结果接口定义==</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Result <span class="keyword">interface</span> &#123;</span><br><span class="line">    LastInsertId() (<span class="keyword">int64</span>, error)</span><br><span class="line">    RowsAffected() (<span class="keyword">int64</span>, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>LastInsertId</code>函数返回由数据库执行插入操作得到的<strong>自增ID号。</strong></p>
+<p><code>RowsAffected</code>函数返回<strong>query操作影响的数据条目数。</strong></p>
+<h4 id="driver-Rows"><a href="#driver-Rows" class="headerlink" title="driver.Rows"></a>driver.Rows</h4><p>Rows是执行<strong>==查询==</strong>返回的<strong>==结果集接口定义==</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Rows <span class="keyword">interface</span> &#123;</span><br><span class="line">    Columns() []<span class="keyword">string</span></span><br><span class="line">    Close() error</span><br><span class="line">    Next(dest []Value) error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Columns函数<strong>返回查询数据库表的字段信息</strong>，这个<strong>返回的slice和sql查询的字段一一对应</strong>，而不是返回整个表的所有字段。</p>
+<p>Close函数用来<strong>关闭Rows迭代器</strong>。</p>
+<p>Next函数<strong>用来返回下一条数据</strong>，把数据赋值给dest。<strong>dest里面的元素必须是driver.Value的值除了string</strong>，返回的数据里面所有的string都必须要转换成[]byte。如果最后没数据了，Next函数最后返回io.EOF。</p>
+<h4 id="driver-RowsAffected"><a href="#driver-RowsAffected" class="headerlink" title="driver.RowsAffected"></a>driver.RowsAffected</h4><p>RowsAffected其实就是一个<strong>==int64的别名==</strong>，但是<strong>他实现了Result接口</strong>，用来底层实现Result的表示方式</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> RowsAffected <span class="keyword">int64</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(RowsAffected)</span> <span class="title">LastInsertId</span><span class="params">()</span> <span class="params">(<span class="keyword">int64</span>, error)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(v RowsAffected)</span> <span class="title">RowsAffected</span><span class="params">()</span> <span class="params">(<span class="keyword">int64</span>, error)</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="driver-Value"><a href="#driver-Value" class="headerlink" title="driver.Value"></a>driver.Value</h4><p>Value其实就是一个<strong>==空接口==</strong>，他可以容纳任何的数据</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Value <span class="keyword">interface</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>drive的Value是驱动<strong>必须能够操作的Value，Value要么是nil，要么是下面的任意一种</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int64</span></span><br><span class="line"><span class="keyword">float64</span></span><br><span class="line"><span class="keyword">bool</span></span><br><span class="line">[]<span class="keyword">byte</span></span><br><span class="line"><span class="keyword">string</span>   [*]除了Rows.Next返回的不能是<span class="keyword">string</span>.</span><br><span class="line">time.Time</span><br></pre></td></tr></table></figure>
+
+<h4 id="driver-ValueConverter"><a href="#driver-ValueConverter" class="headerlink" title="driver.ValueConverter"></a>driver.ValueConverter</h4><p>ValueConverter接口定义了如何<strong>==把一个普通的值转化成driver.Value的接口==</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ValueConverter <span class="keyword">interface</span> &#123;</span><br><span class="line">    ConvertValue(v <span class="keyword">interface</span>&#123;&#125;) (Value, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在开发的数据库驱动包里面实现这个接口的函数在很多地方会使用到，这个<strong>ValueConverter有很多好处：</strong></p>
+<ul>
+<li><strong>转化driver.value到数据库表相应的字段</strong>，例如int64的数据如何转化成数据库表uint16字段</li>
+<li><strong>把数据库查询结果转化成driver.Value值</strong></li>
+<li><strong>在scan函数里面如何把driver.Value值转化成用户定义的值</strong></li>
+</ul>
+<h4 id="driver-Valuer"><a href="#driver-Valuer" class="headerlink" title="driver.Valuer"></a>driver.Valuer</h4><p>Valuer接口定义了<strong>==返回一个driver.Value的方式==</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Valuer <span class="keyword">interface</span> &#123;</span><br><span class="line">    Value() (Value, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>很多类型都实现了这个Value方法，用来自身与driver.Value的转化。</p>
+<p>通过上面的讲解，你应该对于驱动的开发有了一个基本的了解，<strong>一个驱动只要实现了这些接口就能完成增删查改等基本操作了</strong>，剩下的就是与相应的数据库进行数据交互等细节问题了，在此不再赘述。</p>
+<h4 id="database-sql"><a href="#database-sql" class="headerlink" title="database/sql"></a>database/sql</h4><p>database/sql在database/sql/driver提供的接口基础上<strong>定义了一些更高阶的方法</strong>，用以简化数据库操作,同时内部还建议性地实现一个conn pool。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> DB <span class="keyword">struct</span> &#123;</span><br><span class="line">    driver      driver.Driver</span><br><span class="line">    dsn         <span class="keyword">string</span></span><br><span class="line">    mu       sync.Mutex <span class="comment">// protects freeConn and closed</span></span><br><span class="line">    freeConn []driver.Conn</span><br><span class="line">    closed   <span class="keyword">bool</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到Open函数返回的是DB对象，里面有一个freeConn，<strong>它就是那个简易的连接池。</strong>它的实现相当简单或者说简陋，就是当执行Db.prepare的时候会<code>defer db.putConn(ci, err)</code>,也就是把这个连接放入连接池，每次调用conn的时候会先判断freeConn的长度是否大于0，大于0说明有可以复用的conn，直接拿出来用就是了，如果不大于0，则创建一个conn,然后再返回之。</p>
+<h2 id="4-Tcp编程"><a href="#4-Tcp编程" class="headerlink" title="4. Tcp编程"></a>4. Tcp编程</h2><h3 id="4-1-网络编程的两种模式"><a href="#4-1-网络编程的两种模式" class="headerlink" title="4.1 网络编程的两种模式"></a>4.1 网络编程的两种模式</h3><ul>
+<li><strong>TCP socket 编程</strong>，是网络编程的主流。之所以叫Tcp socket 编程，是因为底层是基于TCP/IP 协议的. 比如: QQ 聊天[示意图]</li>
+<li>b/s 结构的<strong>http 编程</strong>，我们使用浏览器去访问服务器时，使用的就是http 协议，而http 底层依旧是用tcp socket 实现的。[示意图] 比如: 京东商城【这属于go web 开发范畴】</li>
+</ul>
+<p>tcp socket 编程，简称<strong>socket 编程</strong>.下图为Golang socket 编程中客户端和服务器的网络分布:</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201129124110.png" alt=""></p>
+<h3 id="4-2-Socket编程小Demo"><a href="#4-2-Socket编程小Demo" class="headerlink" title="4.2 Socket编程小Demo"></a>4.2 Socket编程小Demo</h3><h4 id="4-2-1-net包学习"><a href="#4-2-1-net包学习" class="headerlink" title="4.2.1 net包学习"></a>4.2.1 net包学习</h4><p><strong>package net</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &quot;net&quot;</span><br></pre></td></tr></table></figure>
+
+<p>net包提供了可移植的网络I/O接口，包括TCP/IP、UDP、域名解析和Unix域socket。</p>
+<p>虽然本包提供了对网络原语的访问，大部分使用者只需要Dial、Listen和Accept函数提供的基本接口；以及相关的Conn和Listener接口。crypto/tls包提供了相同的接口和类似的Dial和Listen函数。</p>
+<p><strong>Dial函数</strong>和服务端建立连接：<font color='green'>（客户端）</font></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">conn, err := net.Dial(<span class="string">"tcp"</span>, <span class="string">"google.com:80"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	<span class="comment">// handle error</span></span><br><span class="line">&#125;</span><br><span class="line">fmt.Fprintf(conn, <span class="string">"GET / HTTP/1.0\r\n\r\n"</span>)</span><br><span class="line">status, err := bufio.NewReader(conn).ReadString(<span class="string">'\n'</span>)</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+<p>Listen函数创建的<font color='green'>服务端</font>：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ln, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">":8080"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">	<span class="comment">// handle error</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line">	conn, err := ln.Accept()</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="comment">// handle error</span></span><br><span class="line">		<span class="keyword">continue</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> handleConnection(conn)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>type <a href="https://github.com/golang/go/blob/master/src/net/net.go?name=release#266" target="_blank" rel="noopener">Listener</a></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Listener <span class="keyword">interface</span> &#123;</span><br><span class="line">    <span class="comment">// Addr返回该接口的网络地址</span></span><br><span class="line">    Addr() Addr</span><br><span class="line">    <span class="comment">// Accept等待并返回下一个连接到该接口的连接</span></span><br><span class="line">    Accept() (c Conn, err error)</span><br><span class="line">    <span class="comment">// Close关闭该接口，并使任何阻塞的Accept操作都会不再阻塞并返回错误。</span></span><br><span class="line">    Close() error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>func <a href="https://github.com/golang/go/blob/master/src/net/dial.go?name=release#261" target="_blank" rel="noopener">Listen</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func Listen(net, laddr string) (Listener, error)</span><br></pre></td></tr></table></figure>
+
+<p>返回在一个本地网络地址laddr上监听的Listener。网络类型参数net必须是面向流的网络：</p>
+<p>“tcp”、”tcp4”、”tcp6”、”unix”或”unixpacket”。参见Dial函数获取laddr的语法。</p>
+<p>type <a href="https://github.com/golang/go/blob/master/src/net/net.go?name=release#62" target="_blank" rel="noopener">Conn</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">type Conn interface &#123;</span><br><span class="line">    &#x2F;&#x2F; Read从连接中读取数据</span><br><span class="line">    &#x2F;&#x2F; Read方法可能会在超过某个固定时间限制后超时返回错误，该错误的Timeout()方法返回真</span><br><span class="line">    Read(b []byte) (n int, err error)</span><br><span class="line">    &#x2F;&#x2F; Write从连接中写入数据</span><br><span class="line">    &#x2F;&#x2F; Write方法可能会在超过某个固定时间限制后超时返回错误，该错误的Timeout()方法返回真</span><br><span class="line">    Write(b []byte) (n int, err error)</span><br><span class="line">    &#x2F;&#x2F; Close方法关闭该连接</span><br><span class="line">    &#x2F;&#x2F; 并会导致任何阻塞中的Read或Write方法不再阻塞并返回错误</span><br><span class="line">    Close() error</span><br><span class="line">    &#x2F;&#x2F; 返回本地网络地址</span><br><span class="line">    LocalAddr() Addr</span><br><span class="line">    &#x2F;&#x2F; 返回远端网络地址</span><br><span class="line">    RemoteAddr() Addr</span><br><span class="line">    &#x2F;&#x2F; 设定该连接的读写deadline，等价于同时调用SetReadDeadline和SetWriteDeadline</span><br><span class="line">    &#x2F;&#x2F; deadline是一个绝对时间，超过该时间后I&#x2F;O操作就会直接因超时失败返回而不会阻塞</span><br><span class="line">    &#x2F;&#x2F; deadline对之后的所有I&#x2F;O操作都起效，而不仅仅是下一次的读或写操作</span><br><span class="line">    &#x2F;&#x2F; 参数t为零值表示不设置期限</span><br><span class="line">    SetDeadline(t time.Time) error</span><br><span class="line">    &#x2F;&#x2F; 设定该连接的读操作deadline，参数t为零值表示不设置期限</span><br><span class="line">    SetReadDeadline(t time.Time) error</span><br><span class="line">    &#x2F;&#x2F; 设定该连接的写操作deadline，参数t为零值表示不设置期限</span><br><span class="line">    &#x2F;&#x2F; 即使写入超时，返回值n也可能&gt;0，说明成功写入了部分数据</span><br><span class="line">    SetWriteDeadline(t time.Time) error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Conn接口代表通用的面向流的网络连接。多个线程可能会同时调用同一个Conn的方法。</p>
+<h4 id="4-2-2-demo要求"><a href="#4-2-2-demo要求" class="headerlink" title="4.2.2 demo要求"></a>4.2.2 demo要求</h4><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201129133540.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201129133522.png" alt=""></p>
+<ul>
+<li><p>服务器端</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"服务器开始监听...."</span>)</span><br><span class="line">	<span class="comment">//第一个参数: 网络协议名</span></span><br><span class="line">	<span class="comment">//第二个参数: IP + 端口</span></span><br><span class="line">	listener, err := net.Listen(<span class="string">"tcp"</span>, <span class="string">"0.0.0.0:8888"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"服务器开启失败！"</span>, err)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//fmt.Println(listener)</span></span><br><span class="line">	<span class="keyword">defer</span> listener.Close()	<span class="comment">//演示关闭</span></span><br><span class="line">	<span class="comment">//Accept函数始终帮助我们等待连接，而不会一下就结束</span></span><br><span class="line">	<span class="comment">// Accept等待并返回下一个连接到该接口的连接</span></span><br><span class="line">	<span class="keyword">for</span>  &#123;</span><br><span class="line">		fmt.Println(<span class="string">"等待客户端连接....."</span>)</span><br><span class="line">		conn, err := listener.Accept()</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(<span class="string">"连接失败！"</span>)</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			fmt.Printf(<span class="string">"----------连接成功！客户端IP:%v----------\n"</span>, conn.RemoteAddr().String())</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//这里启动协程为客户端服务</span></span><br><span class="line">		<span class="keyword">go</span> Process(conn)		<span class="comment">//每一个连接都是新的conn</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//协程工作</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Process</span><span class="params">(conn net.Conn)</span></span>  &#123;</span><br><span class="line">	<span class="keyword">defer</span> conn.Close()	<span class="comment">//延迟关闭</span></span><br><span class="line">	<span class="keyword">for</span>  &#123;</span><br><span class="line">		<span class="comment">//创建一个新的切片</span></span><br><span class="line">		buf := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">2048</span>)</span><br><span class="line">		<span class="comment">//等待客户端通过conn发送信息</span></span><br><span class="line">		<span class="comment">//如果客户端没有write【发送】, 那么协程就阻塞在这！</span></span><br><span class="line">		<span class="comment">//如果客户端宕机，这里的conn也会发现，并报错</span></span><br><span class="line">		<span class="comment">//fmt.Printf("服务器在等待客户端[%v]的输入....\n", conn.RemoteAddr().String())</span></span><br><span class="line">		n, err := conn.Read(buf)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(<span class="string">"客户端已退出！连接结束"</span>, err)</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//数据显示到服务器终端</span></span><br><span class="line">		<span class="comment">//注意：</span></span><br><span class="line">		<span class="comment">// 1. 使用Print而不是Println,因为客户端的\n也是读取过来的</span></span><br><span class="line">		<span class="comment">// 2. buf[:n]必须要进行切片到n（n是读取到的字节数），不然缓冲buf的大小是2048，后面的字段可能未知</span></span><br><span class="line">		info := <span class="keyword">string</span>(buf[:n])</span><br><span class="line">		fmt.Print(conn.RemoteAddr().String(), <span class="string">"说："</span>, info)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">"--------------连接结束-------------"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>客户端</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">//参数与服务器端一致</span></span><br><span class="line">   conn, err := net.Dial(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:8888"</span>)</span><br><span class="line">   <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">      fmt.Println(<span class="string">"连接失败！"</span>, err)</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//fmt.Println(conn)</span></span><br><span class="line">   <span class="comment">//1. 发送单行数据，然后退出</span></span><br><span class="line">   reader := bufio.NewReader(os.Stdin) <span class="comment">//os.Stdin终端输入</span></span><br><span class="line">   <span class="keyword">for</span>  &#123;</span><br><span class="line">      fmt.Println(<span class="string">"请输入:"</span>)</span><br><span class="line">      <span class="comment">//从终端读取用户的数据，并发送给服务器</span></span><br><span class="line">      line, err := reader.ReadString(<span class="string">'\n'</span>)</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         fmt.Println(<span class="string">"读取输入失败！"</span>, err)</span><br><span class="line">         <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> <span class="string">"exit"</span> == strings.Trim(line, <span class="string">" \r\n"</span>)&#123; <span class="comment">//去除掉回车换行空格与exit, Trim不会修改原字符串</span></span><br><span class="line">         fmt.Println(<span class="string">"Bye！"</span>)</span><br><span class="line">         <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      fmt.Println(line)</span><br><span class="line">      <span class="comment">//发送Line终端输入给服务器</span></span><br><span class="line">      n, err := conn.Write([]<span class="keyword">byte</span>(line))</span><br><span class="line">      <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">         fmt.Println(<span class="string">"向服务器写失败！"</span>, err)</span><br><span class="line">         <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line">      fmt.Printf(<span class="string">"成功传输%d个字节\n"</span>, n)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/golang//" class="article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-3-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/小技巧/goland等IDE连接远程服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/goland%E7%AD%89IDE%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/">goland等IDE连接远程服务器</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/goland%E7%AD%89IDE%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/goland%E7%AD%89IDE%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2020-12-19T14:15:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-19</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">65字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习自:<a href="https://www.jianshu.com/p/2ea3893abdfa" target="_blank" rel="noopener">https://www.jianshu.com/p/2ea3893abdfa</a></p>
+<h1 id="一、-下载插件"><a href="#一、-下载插件" class="headerlink" title="一、 下载插件"></a>一、 下载插件</h1><p>在插件市场搜索 Remote Hosts Access</p>
+<p>下载后重启IDE</p>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/12/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/goland%E7%AD%89IDE%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/">展开全文 >></a>
         </p>
       
 
@@ -1040,7 +1428,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/36/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><span class="page-number current">37</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/">89</a><a class="extend next" rel="next" href="/page/38/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/36/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="page-number" href="/page/36/">36</a><span class="page-number current">37</span><a class="page-number" href="/page/38/">38</a><a class="page-number" href="/page/39/">39</a><span class="space">&hellip;</span><a class="page-number" href="/page/91/">91</a><a class="extend next" rel="next" href="/page/38/">下一页</a>
     </nav>
   
 
@@ -1398,6 +1786,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tendermint</a>
               </li>
             
             <div class="clearfix"></div>
