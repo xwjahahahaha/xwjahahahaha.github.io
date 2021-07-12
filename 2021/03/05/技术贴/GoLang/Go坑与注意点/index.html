@@ -16,7 +16,7 @@
 <meta property="og:description" content="基础语法陷阱">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-05T12:30:01.000Z">
-<meta property="article:modified_time" content="2021-04-03T13:54:31.095Z">
+<meta property="article:modified_time" content="2021-07-12T01:50:07.443Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -73,7 +73,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 452
+			总文章数 460
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -218,7 +218,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">423字</span>
+        <span class="post-count">690字</span>
       </span>
     </span>
 
@@ -227,7 +227,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -245,6 +245,12 @@
 
 <p>==<strong>append操作可能会导致原本使用同一个底层数组的两个Slice变量变为使用不同的底层数组。</strong>==</p>
 <p>==<strong>所以, 切片在作为函数传参时,要注意在函数中不能append越界</strong>==</p>
+<h2 id="相对路径问题"><a href="#相对路径问题" class="headerlink" title="相对路径问题"></a>相对路径问题</h2><h3 id="二进制运行文件"><a href="#二进制运行文件" class="headerlink" title="二进制运行文件"></a>二进制运行文件</h3><p>go编译好的二进制文件的相对目录是根据<strong>==当前执行路径==</strong></p>
+<p>os.Getwd() 获取的是运行时你当前所在的路径</p>
+<p>比如在/etc 目录下 运行/usr/main文件  最终通过Getwd获取到的值是  /etc<br>golang中的相对路径就是根据这个执行路径来相对的</p>
+<h3 id="文件操作Path的相对路径"><a href="#文件操作Path的相对路径" class="headerlink" title="文件操作Path的相对路径"></a>文件操作Path的相对路径</h3><p>当文件操作类的代码需要Path时，填写相对路径要==相对于工程的根目录而不是当前目录==</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//    ./是你当前的工程目录，并不是该go文件所对应的目录。</span></span><br><span class="line"><span class="comment">//    比如myProject/src/main/main.go</span></span><br><span class="line"><span class="comment">//    main.go里使用./,其路径不是myProject/src/main/，而是myProject/</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//    下面是一个测试，上面的注释是对应的文件被创建到的目录</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">//E:\文档\Go\tire_api\A.txt</span></span><br><span class="line">os.Create(<span class="string">"./A.txt"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">//E:\文档\Go\tire_api\src\A.txt</span></span><br><span class="line">os.Create(<span class="string">"./src/A.txt"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">//E:\文档\Go\tire_api\src\main\A.txt</span></span><br><span class="line">os.Create(<span class="string">"./src/main/A.txt"</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">//E:\文档\Go\tire_api\src\main\log\A.txt</span></span><br><span class="line">os.Create(<span class="string">"./src/main/log/A.txt"</span>)</span><br></pre></td></tr></table></figure>
+
 
       
       
@@ -266,7 +272,7 @@
     2021-03-05
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-04-03
+    2021-07-12
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/03/05/技术贴/GoLang/Go坑与注意点/" title="Go坑与注意点" target="_blank">Go坑与注意点</a>
@@ -476,7 +482,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础语法陷阱"><span class="toc-number">1.</span> <span class="toc-text">基础语法陷阱</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#append陷阱"><span class="toc-number">1.1.</span> <span class="toc-text">append陷阱</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础语法陷阱"><span class="toc-number">1.</span> <span class="toc-text">基础语法陷阱</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#append陷阱"><span class="toc-number">1.1.</span> <span class="toc-text">append陷阱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相对路径问题"><span class="toc-number">1.2.</span> <span class="toc-text">相对路径问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二进制运行文件"><span class="toc-number">1.2.1.</span> <span class="toc-text">二进制运行文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作Path的相对路径"><span class="toc-number">1.2.2.</span> <span class="toc-text">文件操作Path的相对路径</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

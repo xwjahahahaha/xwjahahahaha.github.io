@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201129133540.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201129133522.png">
 <meta property="article:published_time" content="2020-12-19T14:17:17.000Z">
-<meta property="article:modified_time" content="2021-05-25T15:10:25.260Z">
+<meta property="article:modified_time" content="2021-07-08T07:26:25.137Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -89,7 +89,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 452
+			总文章数 460
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -234,7 +234,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">16.3k字</span>
+        <span class="post-count">16.4k字</span>
       </span>
     </span>
 
@@ -709,7 +709,7 @@
 
 <p>我们可以看到Open函数返回的是DB对象，里面有一个freeConn，<strong>它就是那个简易的连接池。</strong>它的实现相当简单或者说简陋，就是当执行Db.prepare的时候会<code>defer db.putConn(ci, err)</code>,也就是把这个连接放入连接池，每次调用conn的时候会先判断freeConn的长度是否大于0，大于0说明有可以复用的conn，直接拿出来用就是了，如果不大于0，则创建一个conn,然后再返回之。</p>
 <h2 id="4-Tcp编程"><a href="#4-Tcp编程" class="headerlink" title="4. Tcp编程"></a>4. Tcp编程</h2><h3 id="4-1-网络编程的两种模式"><a href="#4-1-网络编程的两种模式" class="headerlink" title="4.1 网络编程的两种模式"></a>4.1 网络编程的两种模式</h3><ul>
-<li><strong>TCP socket 编程</strong>，是网络编程的主流。之所以叫Tcp socket 编程，是因为底层是基于TCP/IP 协议的. 比如: QQ 聊天[示意图]</li>
+<li><strong>TCP socket 编程</strong>，是网络编程的主流。之所以叫Tcp socket 编程，是因为底层是基于TCP/IP 协议的, 可以认为是<strong>基于TCP自定义协议编程</strong>. 比如: QQ 聊天[示意图]</li>
 <li>b/s 结构的<strong>http 编程</strong>，我们使用浏览器去访问服务器时，使用的就是http 协议，而http 底层依旧是用tcp socket 实现的。[示意图] 比如: 京东商城【这属于go web 开发范畴】</li>
 </ul>
 <p>tcp socket 编程，简称<strong>socket 编程</strong>.下图为Golang socket 编程中客户端和服务器的网络分布:</p>
@@ -771,7 +771,7 @@
     2020-12-19
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-05-25
+    2021-07-08
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/12/19/技术贴/GoLang/Go语言-3-网络编程/" title="Go语言-3-网络编程" target="_blank">Go语言-3-网络编程</a>
