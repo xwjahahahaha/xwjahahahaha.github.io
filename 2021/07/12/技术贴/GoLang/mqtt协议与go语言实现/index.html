@@ -8,17 +8,20 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>mqtt协议与go语言实现 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#">
+  <meta name="description" content="学习资料： https:&#x2F;&#x2F;studygolang.com&#x2F;articles&#x2F;14452 https:&#x2F;&#x2F;blog.csdn.net&#x2F;jacky128256&#x2F;article&#x2F;details&#x2F;105610456  一、什么是MQTTMQTT（Message Queuing Telemetry Transport，消息队列遥测传输协议），是一种基于发布&#x2F;订阅（publish&#x2F;subscribe）模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mqtt协议与go语言实现">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="#">
+<meta property="og:description" content="学习资料： https:&#x2F;&#x2F;studygolang.com&#x2F;articles&#x2F;14452 https:&#x2F;&#x2F;blog.csdn.net&#x2F;jacky128256&#x2F;article&#x2F;details&#x2F;105610456  一、什么是MQTTMQTT（Message Queuing Telemetry Transport，消息队列遥测传输协议），是一种基于发布&#x2F;订阅（publish&#x2F;subscribe）模式">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/RYTlik.png">
 <meta property="article:published_time" content="2021-07-12T01:11:57.000Z">
-<meta property="article:modified_time" content="2021-07-12T01:11:57.212Z">
+<meta property="article:modified_time" content="2021-07-13T16:25:09.781Z">
 <meta property="article:author" content="DDDemons hide">
+<meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/RYTlik.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -72,7 +75,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 460
+			总文章数 467
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -217,7 +220,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">0字</span>
+        <span class="post-count">1.4k字</span>
       </span>
     </span>
 
@@ -226,7 +229,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -238,8 +241,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#</p>
+        <blockquote>
+<p>学习资料：</p>
+<p><a href="https://studygolang.com/articles/14452" target="_blank" rel="noopener">https://studygolang.com/articles/14452</a></p>
+<p><a href="https://blog.csdn.net/jacky128256/article/details/105610456" target="_blank" rel="noopener">https://blog.csdn.net/jacky128256/article/details/105610456</a></p>
+</blockquote>
+<h1 id="一、什么是MQTT"><a href="#一、什么是MQTT" class="headerlink" title="一、什么是MQTT"></a>一、什么是MQTT</h1><p><strong>MQTT（Message Queuing Telemetry Transport，消息队列遥测传输协议）</strong>，是一种<strong>基于发布/订阅（publish/subscribe）模式</strong>的“轻量级”通讯协议，该协议构建于TCP/IP协议上，由IBM在1999年发布。</p>
+<p>MQTT最大优点在于，可以以极少的代码和有限的带宽，为连接远程设备提供实时可靠的消息服务。作为一种低开销、低带宽占用的即时通讯协议，使其在物联网、小型设备、移动应用等方面有较广泛的应用</p>
+<p>MQTT是一个基于客户端-服务器的消息发布/订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用</p>
+<blockquote>
+<p><font color='#39b54a'>MQTT还有一个特点就是客户端之间不用相互通信, MQTT通信更像是邮箱服务，发布者发布消息到服务器，接收者只要订阅了其服务在线后即可收到</font></p>
+</blockquote>
+<p>实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：<strong>发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）</strong>。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。</p>
+<p>MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：</p>
+<p>（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）；</p>
+<p>（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。</p>
+<blockquote>
+<p><font color='#39b54a'>Topic就是消息名，payload就是消息体</font></p>
+</blockquote>
 <a id="more"></a>
+
+<p>MQTT会构建底层网络传输：它将建立客户端到服务器的连接，提供两者之间的一个<strong>有序的、无损的、基于字节流的双向传输。</strong></p>
+<p>当应用数据通过MQTT网络发送时，MQTT会把与之相关的<strong>服务质量（QoS）</strong>和<strong>主题名（Topic）</strong>相关连。</p>
+<h1 id="二、Go语言MQTT服务器Broker的搭建"><a href="#二、Go语言MQTT服务器Broker的搭建" class="headerlink" title="二、Go语言MQTT服务器Broker的搭建"></a>二、Go语言MQTT服务器Broker的搭建</h1><p>服务端用erlang编写的一个开源项目：emqqtd</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载安装包</span></span><br><span class="line">wget https://github.com/emqx/emqx/releases/download/v4.0.4/emqx-ubuntu18.04-v4.0.4.zip</span><br><span class="line">cd mqttd/emqx</span><br><span class="line">.</span><br><span class="line">├── bin</span><br><span class="line">├── data</span><br><span class="line">├── erts-10.5.2</span><br><span class="line">├── etc</span><br><span class="line">├── lib</span><br><span class="line">├── log</span><br><span class="line">└── releases</span><br><span class="line"><span class="meta">#</span><span class="bash"> 开启服务</span></span><br><span class="line">./bin/emqx start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看状态</span></span><br><span class="line">./bin/emqx_ctl status</span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止服务</span></span><br><span class="line">./bin/emqx stop</span><br></pre></td></tr></table></figure>
+
+<p>找到自己的IP，访问<code>http://[你的IP]:18083/#/clients</code></p>
+<ul>
+<li>用户名：admin</li>
+<li>密码：public</li>
+</ul>
+<p>即可进入服务器的控制台</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/RYTlik.png" alt="RYTlik"></p>
+<h1 id="三、Go客户端访问简单API"><a href="#三、Go客户端访问简单API" class="headerlink" title="三、Go客户端访问简单API"></a>三、Go客户端访问简单API</h1><p>客户端用golang客户端的库：“github.com/eclipse/paho.mqtt.golang”</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载依赖包</span></span><br><span class="line">go get -u github.com/eclipse/paho.mqtt.golang</span><br></pre></td></tr></table></figure>
+
+<p>实例如下：</p>
+<p>编写了两个函数一个发布一个订阅，传入参数即可服务</p>
+<p>修改<code>EMQServerAddress</code>为你服务器的IP</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="comment">// 与后端mqtt服务交互</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	mqtt <span class="string">"github.com/eclipse/paho.mqtt.golang"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">	<span class="string">"strconv"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> EMQServerAddress = <span class="string">"你的IP"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建全局mqtt publish消息处理 handler</span></span><br><span class="line"><span class="keyword">var</span> messagePubHandler mqtt.MessageHandler = <span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client, msg mqtt.Message)</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"Push Message:"</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"TOPIC: %s\n"</span>, msg.Topic())</span><br><span class="line">	fmt.Printf(<span class="string">"MSG: %s\n"</span>, msg.Payload())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建全局mqtt sub消息处理 handler</span></span><br><span class="line"><span class="keyword">var</span> messageSubHandler mqtt.MessageHandler = <span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client, msg mqtt.Message)</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"收到订阅消息:"</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"Sub Client Topic : %s \n"</span>, msg.Topic())</span><br><span class="line">	fmt.Printf(<span class="string">"Sub Client msg : %s \n"</span>, msg.Payload())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接的回掉函数</span></span><br><span class="line"><span class="keyword">var</span> connectHandler mqtt.OnConnectHandler =<span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client)</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"新的连接!"</span> + <span class="string">" Connected"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 丢失连接的回掉函数</span></span><br><span class="line"><span class="keyword">var</span> connectLostHandler mqtt.ConnectionLostHandler = <span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client, err error)</span></span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"Connect loss: %v\n"</span>, err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 配置错误提示</span></span><br><span class="line">	mqtt.DEBUG = log.New(os.Stdout, <span class="string">"		[mqttDEBUG]"</span>, <span class="number">0</span>)</span><br><span class="line">	mqtt.ERROR = log.New(os.Stdout, <span class="string">" 	[mqttERROR]"</span>, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @Description: 发布订阅</span></span><br><span class="line"><span class="comment"> * @param clientID</span></span><br><span class="line"><span class="comment"> * @param addr</span></span><br><span class="line"><span class="comment"> * @param topic</span></span><br><span class="line"><span class="comment"> * @param payload</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Push</span><span class="params">(topic <span class="keyword">string</span>, qos <span class="keyword">byte</span>, retain <span class="keyword">bool</span>, payload <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	<span class="comment">// opts ClientOptions 用于设置 broker，端口，客户端 id ，用户名密码等选项</span></span><br><span class="line">	opts := mqtt.NewClientOptions().AddBroker(<span class="string">"tcp://"</span> + EMQServerAddress + <span class="string">":1883"</span>).SetClientID(<span class="string">"test_push"</span>)</span><br><span class="line">	opts.SetKeepAlive(<span class="number">60</span> * time.Second)</span><br><span class="line">	<span class="comment">// Message callback handler，在没有任何订阅时，发布端调用此函数</span></span><br><span class="line">	opts.SetDefaultPublishHandler(messagePubHandler)</span><br><span class="line">	opts.SetPingTimeout(<span class="number">1</span> * time.Second)</span><br><span class="line">	opts.OnConnect = connectHandler</span><br><span class="line">	opts.OnConnectionLost = connectLostHandler</span><br><span class="line">	client := mqtt.NewClient(opts)</span><br><span class="line">	<span class="keyword">if</span> token := client.Connect(); token.Wait() &amp;&amp; token.Error() != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(token.Error())</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//发布消息</span></span><br><span class="line">	<span class="comment">// qos是服务质量: ==1: 一次, &gt;=1: 至少一次, &lt;=1:最多一次</span></span><br><span class="line">	<span class="comment">// retained: 表示mqtt服务器要保留这次推送的信息，如果有新的订阅者出现，就会把这消息推送给它（持久化推送）</span></span><br><span class="line">	token := client.Publish(topic, qos, retain, payload)</span><br><span class="line">	token.Wait()</span><br><span class="line">	fmt.Println(<span class="string">"Push Data : "</span>+topic, <span class="string">"Data Size is "</span>+strconv.Itoa(<span class="built_in">len</span>(payload)))</span><br><span class="line">	fmt.Println(<span class="string">"Disconnect with broker"</span>)</span><br><span class="line">	client.Disconnect(<span class="number">250</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @Description: 订阅或取消订阅</span></span><br><span class="line"><span class="comment"> * @param clientID</span></span><br><span class="line"><span class="comment"> * @param addr</span></span><br><span class="line"><span class="comment"> * @param topic</span></span><br><span class="line"><span class="comment"> * @param isSub</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Subscription</span><span class="params">(topic <span class="keyword">string</span>, qos <span class="keyword">byte</span>, isSub <span class="keyword">bool</span>, handleFun <span class="keyword">func</span>([]<span class="keyword">byte</span>)</span>)</span> &#123;</span><br><span class="line">	opts := mqtt.NewClientOptions().AddBroker(<span class="string">"tcp://"</span> + EMQServerAddress + <span class="string">":1883"</span>).SetClientID(<span class="string">"sub_test"</span>)</span><br><span class="line">	opts.SetKeepAlive(<span class="number">60</span> * time.Second)</span><br><span class="line">	opts.SetPingTimeout(<span class="number">1</span> * time.Second)</span><br><span class="line">	opts.OnConnect = <span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client)</span></span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"New Subscription! Connected"</span> + <span class="string">" =&gt; "</span> + topic)</span><br><span class="line">	&#125;</span><br><span class="line">	opts.OnConnectionLost = connectLostHandler</span><br><span class="line">	client := mqtt.NewClient(opts)</span><br><span class="line">	<span class="keyword">if</span> token := client.Connect(); token.Wait() &amp;&amp; token.Error() != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(token.Error())</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> isSub &#123;</span><br><span class="line">		<span class="comment">// 订阅消息</span></span><br><span class="line">		<span class="keyword">if</span> token := client.Subscribe(topic, qos, <span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client, msg mqtt.Message)</span></span> &#123;</span><br><span class="line">			fmt.Printf(<span class="string">"Receive Subscribe Message :"</span>)</span><br><span class="line">			fmt.Printf(<span class="string">"Sub Client Topic : %s, Data size is  %d \n"</span>, msg.Topic(), <span class="built_in">len</span>(msg.Payload()))</span><br><span class="line">			<span class="keyword">if</span> <span class="built_in">len</span>(msg.Payload()) &gt; <span class="number">0</span> &#123;</span><br><span class="line">				handleFun(msg.Payload())</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;); token.Wait() &amp;&amp; token.Error() != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(token.Error())</span><br><span class="line">			os.Exit(<span class="number">1</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// 取消订阅</span></span><br><span class="line">		<span class="keyword">if</span> token := client.Unsubscribe(topic); token.Wait() &amp;&amp; token.Error() != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(token.Error())</span><br><span class="line">			os.Exit(<span class="number">1</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -262,7 +302,7 @@
     2021-07-12
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-07-12
+    2021-07-14
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/07/12/技术贴/GoLang/mqtt协议与go语言实现/" title="mqtt协议与go语言实现" target="_blank">mqtt协议与go语言实现</a>
@@ -341,6 +381,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -348,6 +399,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/golang//" class="article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -457,7 +512,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、什么是MQTT"><span class="toc-number">1.</span> <span class="toc-text">一、什么是MQTT</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Go语言MQTT服务器Broker的搭建"><span class="toc-number">2.</span> <span class="toc-text">二、Go语言MQTT服务器Broker的搭建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Go客户端访问简单API"><span class="toc-number">3.</span> <span class="toc-text">三、Go客户端访问简单API</span></a></li></ol>
                     </div>
                 </span>
             </div>

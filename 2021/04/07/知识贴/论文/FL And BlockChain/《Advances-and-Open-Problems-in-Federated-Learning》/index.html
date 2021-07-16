@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/DollzD.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/ULzigo.png">
 <meta property="article:published_time" content="2021-04-07T09:14:30.000Z">
-<meta property="article:modified_time" content="2021-04-30T13:00:26.210Z">
+<meta property="article:modified_time" content="2021-07-12T07:29:24.367Z">
 <meta property="article:author" content="DDDemons hide">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/mSJGY5.png">
@@ -82,7 +82,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 460
+			总文章数 467
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -319,7 +319,7 @@
 <p><strong>==跨设备和跨数据孤岛联邦学习是FL域的两个示例==</strong>，但并不旨在穷举。 FL的主要定义特征以黑体字突出显示，但其他特征对于确定适用的技术也至关重要。</p>
 <h2 id="3-2-Core-assumptions-核心假设"><a href="#3-2-Core-assumptions-核心假设" class="headerlink" title="3.2 Core assumptions 核心假设"></a>3.2 Core assumptions 核心假设</h2><h3 id="1-完全去中心化与点对点的分布式学习"><a href="#1-完全去中心化与点对点的分布式学习" class="headerlink" title="1.完全去中心化与点对点的分布式学习"></a>1.完全去中心化与点对点的分布式学习</h3><p>在联邦学习中，中央服务器负责协调训练过程并接收所有客户的贡献。因此，服务器是中央播活跃装置，它也可能表现单点故障。尽管大型公司或组织可以在某些应用场景中扮演这个角色，但是在更多协作学习场景中，可靠，强大的中央服务器可能并不总是可用或理想的[392]。此外，如Lian等人[266]所述，<strong>当客户端数量很大时，服务器甚至可能成为瓶颈</strong>。 (尽管可以通过精心设计的系统来减轻这种情况，例如[74])。</p>
 <p>完全分散式学习的关键思想是通过<strong>单个客户端之间的对等通信来代替与服务器的通信</strong>。通信拓扑表示为连接图，其中节点是客户端，边表示两个客户端之间的通信通道。通常将网络图选择为具有最小中最大程度的稀疏图，以便每个节点仅需要向/从少量对等点发送/接收消息。<u>这与服务器-客户端体系结构的星形图相反</u>。<strong>在完全去中心化的算法中，每个客户对应一个回合本地更新并与<u>图中的邻居交换信息</u>（</strong>但是请注意，在这种情况下，轮次的概念甚至不需要，参见[78]中有关时钟模型的讨论）。在机器的背景下，在学习过程中，<strong>==本地更新通常是本地（随机）梯度步骤==</strong>，<strong>==而交流则包括与邻居平均一个本地模型参数。==</strong>请注意，不再像标准联邦学习中那样存在模型的全局状态，而是<u>可以设计该过程，以使所有局部模型收敛到所需的全局解决方案</u>，即<strong>各个模型逐渐达成共识</strong>。尽管多主体优化在控制领域有着悠久的历史，但最近在机器学习中已经考虑了SGD的完全分散化变体和其他优化算法，以提高数据中心的可伸缩性[30]以及设备的分散网络[110]。 392、379、54、243、253、153]。他们还考虑了无向网络图，尽管在[30，200]中也研究了有向网络（编码在现实世界中可能出现的单向通道，例如社交网络或数据市场）的情况。</p>
-<p>值得注意的是，即使<strong>在上述分散的环境中，中央机构仍可能负责建立学习任务</strong>。例如，考虑以下问题：谁决定在分散环境中训练什么模型？使用什么算法？什么超参数？当某些东西无法按预期工作时，谁负责调试？回答这些问题仍然需要中央机构中参与客户的一定程度的信任。或者，可以由提出学习任务的客户来决定，也可以通过共识计划来共同做出决定（请参阅第2.1.2节）。</p>
+<p>值得注意的是，即使<strong>在上述分散的环境中，中央机构仍可能负责建立学习任务</strong>。例如，考虑以下问题：<u>谁决定在分散环境中训练什么模型？使用什么算法？什么超参数？当某些东西无法按预期工作时，谁负责调试？回答这些问题仍然需要中央机构中参与客户的一定程度的信任。</u>或者，可以由提出学习任务的客户来决定，也可以通过共识计划来共同做出决定（请参阅第2.1.2节）。</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/0PIXgP.png" alt="0PIXgP"></p>
 <p>请注意，与FL一样，分散式学习/完全去中心化学习可以进一步划分为不同的用例，其区别类似于表1中比较跨数据孤岛FL和跨设备FL的区别。</p>
 <h4 id="1-1算法挑战"><a href="#1-1算法挑战" class="headerlink" title="1.1算法挑战"></a>1.1算法挑战</h4><ol>
@@ -502,7 +502,7 @@
     2021-04-07
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-04-30
+    2021-07-12
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/04/07/知识贴/论文/FL And BlockChain/《Advances-and-Open-Problems-in-Federated-Learning》/" title="《Advances_and_Open_Problems_in_Federated_Learning》" target="_blank">《Advances_and_Open_Problems_in_Federated_Learning》</a>

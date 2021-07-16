@@ -6,7 +6,7 @@
   <link href="https://xwjahahahaha.github.io/atom.xml" rel="self"/>
   
   <link href="https://xwjahahahaha.github.io/"/>
-  <updated>2021-07-12T06:38:35.867Z</updated>
+  <updated>2021-07-16T07:48:18.080Z</updated>
   <id>https://xwjahahahaha.github.io/</id>
   
   <author>
@@ -15,6 +15,445 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>同态加密</title>
+    <link href="https://xwjahahahaha.github.io/2021/07/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/"/>
+    <id>https://xwjahahahaha.github.io/2021/07/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/</id>
+    <published>2021-07-16T03:01:23.000Z</published>
+    <updated>2021-07-16T07:48:18.080Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>学习资料来源：</p><p>知乎VenusBlockChain: <a href="https://zhuanlan.zhihu.com/p/110210315" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/110210315</a></p><p>知乎刘巍然：<a href="https://www.zhihu.com/question/27645858/answer/37598506" target="_blank" rel="noopener">https://www.zhihu.com/question/27645858/answer/37598506</a></p><p><a href="https://blog.csdn.net/Gouph/article/details/106179325" target="_blank" rel="noopener">https://blog.csdn.net/Gouph/article/details/106179325</a></p></blockquote><h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><h2 id="1-1-同态加密"><a href="#1-1-同态加密" class="headerlink" title="1.1 同态加密"></a>1.1 同态加密</h2><p><strong><em>什么是同态加密？</em></strong></p><p>提出第一个构造出全同态加密（Fully Homomorphic Encryption）[Gen09]的Craig Gentry给出的直观定义最好：</p><blockquote><p>A way to delegate processing of your data, without giving away access to it.</p><p>一种委托数据处理的方法，但是让你不丧失对数据的所有权</p></blockquote><p><font color='#e54d42'>同态加密对于数据安全来说，不像一般的加密方案只关注<strong>数据存储安全</strong>，攻击者无法从密文中获得任何信息, 对加密数据的任何改动操作都会造成解密的错误。而同态加密关注于<strong>数据的处理安全</strong>，其提供了一种对加密数据处理的功能，且处理过程中无法得知原始内容，同时数据经过操作后还能够解密得到处理好的结果。</font></p><p>同态加密（Homomorphic Encryption）允许对密文处理后仍然是加密的结果。即对密文直接进行处理，跟对明文进行处理后再对处理结果加密，得到的结果相同。从抽象代数的角度讲，保持了同态性。</p><p>同态加密是<strong>基于数学难题</strong>的计算复杂性理论的密码学技术，它的概念可以简单的解释为：对经过同态加密的数据进行密文运算处理得到一个输出，这一输出解密结果与用同一方法处理未加密的原始数据得到的输出结果是一样的。</p><a id="more"></a><p>可以定一个运算符$\Delta$ , 对应的加密算法E和解密算法D, 同态加密满足: $E(x\Delta y) = E(x) \Delta E(y)$</p><p><strong><em>一个例子：</em></strong></p><p>(刘老师的例子非常贴切)</p><p>Alice想让工人加工自己的金子但是不信任工人，害怕其在操作过程中偷取自己的金子，那么就相出了以下的办法：</p><ul><li>Alice将金子锁在一个密闭的盒子里面，这个盒子安装了一个手套。</li><li>工人可以带着这个手套，对盒子内部的金子进行处理。但是盒子是锁着的，所以工人不仅拿不到金块，连处理过程中掉下的任何金子都拿不到。</li><li>加工完成后。Alice拿回这个盒子，把锁打开，就得到了金子。</li></ul><p>这个盒子的样子大概是这样的：</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/GiDNiP.png" alt="GiDNiP"></p><p>这里面的对应关系是：</p><ul><li>Alice：数据持有方</li><li>工人： 不可信的服务提供第三方</li></ul><ul><li>盒子：加密算法</li><li>盒子上的锁：用户密钥</li><li>将金块放在盒子里面并且用锁锁上：将数据用同态加密方案进行加密</li><li>加工：应用同态特性，在无法取得数据的条件下直接对加密结果进行处理</li><li>开锁：对结果进行解密，直接得到处理后的结果</li></ul><h2 id="1-2-分类"><a href="#1-2-分类" class="headerlink" title="1.2 分类"></a>1.2 分类</h2><p>同态性来自代数领域，一般包括四种类型：加法同态、乘法同态、减法同态和除法同态。</p><p>同时满足加法同态和乘法同态，则意味着是代数同态，称为<strong>全同态</strong>(Full Homomorphic)</p><p>同时满足四种同态性，则称为<strong>算数同态</strong>。</p><p><font color='#e54d42'>对于计算机来说，实现了全同态就可以实现所有操作的同态性</font></p><p>只实现部分特定操作的同态性称为<strong>特定同态</strong>, 对于特定同态特性的算法，如RSA，Elgamal，Paillier、Pedersen Commitment等等。</p><p>目前业界使用的较多的还是特定同态/部分同态，而斯坦福大学的博士生Craig Gentry基于<strong>理想格</strong>提出一个全同态加密方案。Fully Homomorphic Encryption Using Ideal Lattices. In the 41st ACM Symposium on Theory of Computing (STOC), 2009.</p><p>所谓的格（Lattice）就是整系数基的线性组合构成的点，也就是一个空间中的一些离散有规律的点。离散的点之间的距离产生了一些困难问题，例如：最短向量问题(SVP)。</p><p>如果是一个二维平面，那么寻找在格上寻找最短向量问题是简单的，但是当维数变大的时候，例如200多维，寻找格上的最短向量问题就变的异常困难，称之为格上标准困难问题，是一个指数级的困难问题。 </p><p>Gentry首次设计出一个真正的全同态加密体制，即可以在不解密的条件下对加密数据进行任何可以在明文上进行的运算，使得对加密信息仍能进行深入和无限的分析，而不会影响其保密性。</p><blockquote><p>IBM公布的开源代码：FHE ：<a href="https://github.com/IBM/fhe-toolkit-linux" target="_blank" rel="noopener">https://github.com/IBM/fhe-toolkit-linux</a></p></blockquote><h2 id="1-3-应用"><a href="#1-3-应用" class="headerlink" title="1.3 应用"></a>1.3 应用</h2><p><strong><em>云计算</em></strong></p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/rb1HwZ.png" alt="rb1HwZ"></p><p>Alice通过Cloud，以Homomorphic Encryption（以下简称HE）处理数据的整个处理过程大致是这样的：</p><ol><li>Alice对数据进行加密。并把加密后的数据发送给Cloud；</li><li>Alice向Cloud提交数据的处理方法，这里用函数f来表示；</li><li>Cloud在函数f下对数据进行处理，并且将处理后的结果发送给Alice；</li><li>Alice对数据进行解密，得到结果。</li></ol><p>可想而之，在未来如果实现了真正可以实用的全同态技术(加强环节中的f()的操作空间)，那么一款完全不会泄漏个人数据隐私的云计算服务的市场竞争有多大！</p><blockquote><p>对于Function f()是否也可以进行加密呢，这样云服务器连操作都不会知晓</p></blockquote><p><strong><em>区块链</em></strong></p><p>使用同态加密技术，运行在区块链上的<strong>智能合约可以处理密文</strong>，<strong>而无法获知真实数据</strong>，极大地提高了隐私安全性。</p><p>这样的优点是，用户将交易数据提交到区块链网络之前，可使用相应的加密算法对交易数据进行加密，数据以密文的形式存在，即使被攻击者获取，也不会泄露用户的任何隐私信息，同时密文运算结果与明文运算结果一致。</p><p>数据的操作还可以与区块链的<strong>智能合约</strong>相关联</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/TZ7T29.png" alt="TZ7T29"></p><p>华为区块链提供同态加密库，对用户的交易数据用其公钥进行加密保护，交易的时候都是密文运算，最终账本中加密保存，即使节点被攻破，获取到账本记录也无法解密。</p><p>趣链Hyperchain通过同态加密（采用Paillier同态加密算法）的加密思想实现区块中交易金额和账户余额的加密。其白皮书声称经过同态加密的交易验证时间约为10微秒，可以满足Hyperchain每秒上万笔交易的需求。</p><p>BCOS也采用了Paillier同态加密算法，并开源出了加法同态解说使用说明[1]，以及Paillier同态加密算法JAVA版实现[2]。当然还有其他产品，此处不再一一列举。</p><h1 id="二、实现原理"><a href="#二、实现原理" class="headerlink" title="二、实现原理"></a>二、实现原理</h1><p>同态加密也有很多的实现算法</p><h2 id="2-1-Paillier"><a href="#2-1-Paillier" class="headerlink" title="2.1 Paillier"></a>2.1 Paillier</h2><p>类别:  <font color='#fbbd08'><strong>加法</strong>同态加密算法</font></p><p>困难：分解两个大质数</p><p>Paillier加密算法[3]是1999年Paillier发明的基于复合剩余类的困难问题的加法同态加密算法</p><h3 id="算法生成过程："><a href="#算法生成过程：" class="headerlink" title="算法生成过程："></a>算法生成过程：</h3><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/dQbHXB.png" alt="dQbHXB"></p><h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><ul><li>明文m, 0&lt;=m&lt;=n</li><li>随机数r, 0&lt;r&lt;n, 且gcd(r, n) =1</li><li>加密结果: $c = g^m * r ^n mod n^2$</li></ul><h3 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h3><ul><li>解密结果：$m = L(c^\lambda)modn^2 * \mu  mod n$</li></ul><h3 id="同态性的证明"><a href="#同态性的证明" class="headerlink" title="同态性的证明"></a>同态性的证明</h3><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/0idXJv.png" alt="0idXJv"></p><h2 id="2-2-ElGamal"><a href="#2-2-ElGamal" class="headerlink" title="2.2 ElGamal"></a>2.2 ElGamal</h2><p>类别：<font color='#fbbd08'><strong>乘法</strong>同态加密算法</font></p><p>困难：离散对数问题</p><p>ELGamal密码是除了RSA之外最有代表性的公开密钥密码之一，是一种公认安全的公钥密码。</p><h3 id="离散对数问题"><a href="#离散对数问题" class="headerlink" title="离散对数问题"></a>离散对数问题</h3><p>设p为素数，若存在一个正整数α，使得 $a,a^2,a^3,…,a^{p-1}$ 关于模p互不同余，则称α为模p的一个<strong>原根</strong>。于是有如下运算：</p><p>a的幂乘运算： $y = a^xmod p , 1 \leqslant x \leqslant{p-1}$</p><p>a的对数运算： $x = log_a^y, \ 1 \leqslant y \leqslant {p-1}$</p><p>只要p足够大，求解离散对数问题时相当复杂的。离散对数问题具有较好的单向性。</p><h3 id="密钥生成"><a href="#密钥生成" class="headerlink" title="密钥生成"></a>密钥生成</h3><ul><li>随机地选择一个大素数p，且要求p-1有大素数因子，将p公开。</li><li>选择一个模p的原根α，并将α公开。</li><li>随机地选择一个整数d（1＜d＜p-1）作为私钥，并对d保密。</li><li>计算公钥$y=a^d(modp)$ ，并将y公开。</li></ul><h3 id="加密-1"><a href="#加密-1" class="headerlink" title="加密"></a>加密</h3><ul><li><p>对于待加密明文M，随机地选取一个整数k（1＜k＜p-1）。</p></li><li><p>计算$U= a^kmodp 、C_1=a^kmodp 、C_2=U*Mmodp$</p></li><li><p>取(C1,C2)作为密文。</p></li></ul><h4 id="解密-1"><a href="#解密-1" class="headerlink" title="解密"></a>解密</h4><p>计算$V = C_1^dmodp$</p><p>解密结果: $M = C_2V^{-1}modp$</p><h3 id="同态性的证明-1"><a href="#同态性的证明-1" class="headerlink" title="同态性的证明"></a>同态性的证明</h3><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/OmOuqx.png" alt="OmOuqx"></p><h1 id="三、golang代码实现"><a href="#三、golang代码实现" class="headerlink" title="三、golang代码实现"></a>三、golang代码实现</h1><h2 id="3-1-Paillier"><a href="#3-1-Paillier" class="headerlink" title="3.1 Paillier"></a>3.1 Paillier</h2><p>代码库：<a href="https://github.com/Roasbeef/go-go-gadget-paillier" target="_blank" rel="noopener">https://github.com/Roasbeef/go-go-gadget-paillier</a></p><p>采用Go语言实现的加法同态加密算法Paillier </p><p>其主要可以实现以下操作：</p><ul><li><p>可以将加密的整数加在一起 </p></li><li><p>加密的整数可以与未加密的整数相<strong>乘</strong> </p></li><li><p>加密的整数和未加密的整数可以加在一起</p></li></ul><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>go get github.com/roasbeef/go-go-gadget-paillier</code></p><h3 id="测试Demo"><a href="#测试Demo" class="headerlink" title="测试Demo"></a>测试Demo</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Test_homomorphicCrypto</span><span class="params">(t *testing.T)</span></span>  &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成一个128位的私钥</span></span><br><span class="line">privKey, _ := paillier.GenerateKey(rand.Reader, <span class="number">128</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 公钥加密明文：数字15</span></span><br><span class="line">m15 := <span class="built_in">new</span>(big.Int).SetInt64(<span class="number">15</span>)</span><br><span class="line">c15, _ := paillier.Encrypt(&amp;privKey.PublicKey, m15.Bytes())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 私钥解密密文：15</span></span><br><span class="line">d, _ := paillier.Decrypt(privKey, c15)</span><br><span class="line">plainText := <span class="built_in">new</span>(big.Int).SetBytes(d)</span><br><span class="line">fmt.Println(<span class="string">"Decryption Result of 15: "</span>, plainText.String()) <span class="comment">// 15</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 公钥加密数字20</span></span><br><span class="line">m20 := <span class="built_in">new</span>(big.Int).SetInt64(<span class="number">20</span>)</span><br><span class="line">c20, _ := paillier.Encrypt(&amp;privKey.PublicKey, m20.Bytes())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将15的密文与20的密文相加（注意都是同一公钥）</span></span><br><span class="line">plusM16M20 := paillier.AddCipher(&amp;privKey.PublicKey, c15, c20)</span><br><span class="line"><span class="comment">// 使用私钥解密和的明文结果</span></span><br><span class="line">decryptedAddition, _ := paillier.Decrypt(privKey, plusM16M20)</span><br><span class="line">fmt.Println(<span class="string">"Result of 15+20 after decryption: "</span>,</span><br><span class="line"><span class="built_in">new</span>(big.Int).SetBytes(decryptedAddition).String()) <span class="comment">// 35!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将15密文与10明文常数相加</span></span><br><span class="line">plusE15and10 := paillier.Add(&amp;privKey.PublicKey, c15, <span class="built_in">new</span>(big.Int).SetInt64(<span class="number">10</span>).Bytes())</span><br><span class="line">decryptedAddition, _ = paillier.Decrypt(privKey, plusE15and10)</span><br><span class="line">fmt.Println(<span class="string">"Result of 15+10 after decryption: "</span>,</span><br><span class="line"><span class="built_in">new</span>(big.Int).SetBytes(decryptedAddition).String()) <span class="comment">// 25!</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将15密文与10明文常数相乘</span></span><br><span class="line">mulE15and10 := paillier.Mul(&amp;privKey.PublicKey, c15, <span class="built_in">new</span>(big.Int).SetInt64(<span class="number">10</span>).Bytes())</span><br><span class="line">decryptedMul, _ := paillier.Decrypt(privKey, mulE15and10)</span><br><span class="line">fmt.Println(<span class="string">"Result of 15*10 after decryption: "</span>,</span><br><span class="line"><span class="built_in">new</span>(big.Int).SetBytes(decryptedMul).String()) <span class="comment">// 150!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 结果显示</span></span><br><span class="line">=== RUN   Test_homomorphicCrypto</span><br><span class="line">Decryption Result of 15:  15</span><br><span class="line">Result of 15+20 after decryption:  35</span><br><span class="line">Result of 15+10 after decryption:  25</span><br><span class="line">Result of 15*10 after decryption:  150</span><br><span class="line">--- PASS: Test_homomorphicCrypto (0.00s)</span><br><span class="line">PASS</span><br></pre></td></tr></table></figure><p>值得注意的是该包的作者说其用于课程教学，实际的生产环境则不太适合</p><h1 id="四、当下挑战"><a href="#四、当下挑战" class="headerlink" title="四、当下挑战"></a>四、当下挑战</h1><p>同态加密最大的问题是效率</p><p>效率。效率一词包含两个方面，一个是<strong>加密数据的处理速度</strong>，一个是这个<strong>加密方案的数据存储量</strong>。</p><ul><li><p>工人戴着手套加工金子，肯定没有直接加工来得快嘛~ 也就是说，隔着手套处理，精准度会变差（<strong>现有构造会有误差传递问题</strong>），加工的时间也会变得更长（<strong>密文的操作花费更长的时间</strong>），工人需要隔着操作，因此也需要更专业（<strong>会正确调用算法</strong>）。</p></li><li><p>金子放在盒子里面，为了操作，总得做一个稍微大一点的盒子吧，要不然手操作不开啊（<strong>存储空间问题</strong>）。里面也要放各种工具吧，什么电钻啦，锉刀啦，也需要空间吧？</p></li></ul><p>2011年，Gentry和Halevi在IBM尝试实现了两个HE方案：Smart-Vercauteren的SWHE方案[SV10]以及Gentry的FHE方案[Gen09]，并公布了效率。结果如何呢？我们给出Gentry公布的数据（原始数据可以在<a href="https://link.zhihu.com/?target=http%3A//crypto.biu.ac.il/winterschool2012/">2nd Bar-Ilan Winter School on Cryptography</a>找到）Smart-Vercauteren的SWHE方案效率如下：</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/IsCUut.png" alt="IsCUut"></p><p>看着好像还行，不过这Dimension有点夸张啊…也就是说公钥很长…那么，Gentry的FHE方案如何呢？效率如下：</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/69jQG9.png" alt="69jQG9"></p>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;学习资料来源：&lt;/p&gt;
+&lt;p&gt;知乎VenusBlockChain: &lt;a href=&quot;https://zhuanlan.zhihu.com/p/110210315&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://zhuanlan.zhihu.com/p/110210315&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;知乎刘巍然：&lt;a href=&quot;https://www.zhihu.com/question/27645858/answer/37598506&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.zhihu.com/question/27645858/answer/37598506&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Gouph/article/details/106179325&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/Gouph/article/details/106179325&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、基本概念&quot;&gt;&lt;a href=&quot;#一、基本概念&quot; class=&quot;headerlink&quot; title=&quot;一、基本概念&quot;&gt;&lt;/a&gt;一、基本概念&lt;/h1&gt;&lt;h2 id=&quot;1-1-同态加密&quot;&gt;&lt;a href=&quot;#1-1-同态加密&quot; class=&quot;headerlink&quot; title=&quot;1.1 同态加密&quot;&gt;&lt;/a&gt;1.1 同态加密&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;什么是同态加密？&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;提出第一个构造出全同态加密（Fully Homomorphic Encryption）[Gen09]的Craig Gentry给出的直观定义最好：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A way to delegate processing of your data, without giving away access to it.&lt;/p&gt;
+&lt;p&gt;一种委托数据处理的方法，但是让你不丧失对数据的所有权&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;font color=&#39;#e54d42&#39;&gt;同态加密对于数据安全来说，不像一般的加密方案只关注&lt;strong&gt;数据存储安全&lt;/strong&gt;，攻击者无法从密文中获得任何信息, 对加密数据的任何改动操作都会造成解密的错误。而同态加密关注于&lt;strong&gt;数据的处理安全&lt;/strong&gt;，其提供了一种对加密数据处理的功能，且处理过程中无法得知原始内容，同时数据经过操作后还能够解密得到处理好的结果。&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;同态加密（Homomorphic Encryption）允许对密文处理后仍然是加密的结果。即对密文直接进行处理，跟对明文进行处理后再对处理结果加密，得到的结果相同。从抽象代数的角度讲，保持了同态性。&lt;/p&gt;
+&lt;p&gt;同态加密是&lt;strong&gt;基于数学难题&lt;/strong&gt;的计算复杂性理论的密码学技术，它的概念可以简单的解释为：对经过同态加密的数据进行密文运算处理得到一个输出，这一输出解密结果与用同一方法处理未加密的原始数据得到的输出结果是一样的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
+    
+    <category term="golang" scheme="https://xwjahahahaha.github.io/categories/technical/golang/"/>
+    
+    
+    <category term="golang" scheme="https://xwjahahahaha.github.io/tags/golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指Offer15.二进制中1的个数</title>
+    <link href="https://xwjahahahaha.github.io/2021/07/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer15-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/"/>
+    <id>https://xwjahahahaha.github.io/2021/07/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer15-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/</id>
+    <published>2021-07-16T02:16:29.000Z</published>
+    <updated>2021-07-16T02:19:57.553Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/" target="_blank" rel="noopener">剑指 Offer 15. 二进制中1的个数</a></p><p>难度简单</p><p>编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为 <a href="http://en.wikipedia.org/wiki/Hamming_weight" target="_blank" rel="noopener">汉明重量</a>).）。</p><a id="more"></a><p><strong>提示：</strong></p><ul><li>请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。</li><li>在 Java 中，编译器使用 <a href="https://baike.baidu.com/item/二进制补码/5295284" target="_blank" rel="noopener">二进制补码</a> 记法来表示有符号整数。因此，在上面的 <strong>示例 3</strong> 中，输入表示有符号整数 <code>-3</code>。</li></ul><p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n &#x3D; 11 (控制台输入 00000000000000000000000000001011)</span><br><span class="line">输出：3</span><br><span class="line">解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 &#39;1&#39;。</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n &#x3D; 128 (控制台输入 00000000000000000000000010000000)</span><br><span class="line">输出：1</span><br><span class="line">解释：输入的二进制串 00000000000000000000000010000000 中，共有一位为 &#39;1&#39;。</span><br></pre></td></tr></table></figure><p><strong>示例 3：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n &#x3D; 4294967293 (控制台输入 11111111111111111111111111111101，部分语言中 n &#x3D; -3）</span><br><span class="line">输出：31</span><br><span class="line">解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为 &#39;1&#39;。</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li>输入必须是长度为 <code>32</code> 的 <strong>二进制串</strong> 。</li></ul><h2 id="解题思路及代码"><a href="#解题思路及代码" class="headerlink" title="解题思路及代码"></a>解题思路及代码</h2><p>本题依托一种算法：  <a href="https://myblog.gumptlu.work/2020/07/03/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/461-%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/" target="_blank" rel="noopener">布赖恩·克尼根算法</a>， 位运算中需要掌握的一种算法</p><p>作用： 将一个数的二进制从右往左看最后一个1变为0</p><p>原理：将一个数-1，在二进制上的表现就是最后一位1变为0，此位后面的所有0变为1，此位前面的二进制位数字不动</p><p>使用： x &amp; (x-1)</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hammingWeight</span><span class="params">(num <span class="keyword">uint32</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    count := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> num != <span class="number">0</span>  &#123;</span><br><span class="line">        <span class="comment">// x &amp; (x-1) 可以去除掉最后一位1</span></span><br><span class="line">        num &amp;= (num<span class="number">-1</span>)</span><br><span class="line">        count ++ </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 15. 二进制中1的个数&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;难度简单&lt;/p&gt;
+&lt;p&gt;编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为 &lt;a href=&quot;http://en.wikipedia.org/wiki/Hamming_weight&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;汉明重量&lt;/a&gt;).）。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
+    
+    <category term="leetcode" scheme="https://xwjahahahaha.github.io/categories/technical/leetcode/"/>
+    
+    
+    <category term="golang" scheme="https://xwjahahahaha.github.io/tags/golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日记_0198</title>
+    <link href="https://xwjahahahaha.github.io/2021/07/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0198/"/>
+    <id>https://xwjahahahaha.github.io/2021/07/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0198/</id>
+    <published>2021-07-16T01:13:02.000Z</published>
+    <updated>2021-07-16T01:17:12.495Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input checked="" disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input disabled="" type="checkbox"> 隐私计算</li><li><input disabled="" type="checkbox"> BlockFLA论文</li><li><input disabled="" type="checkbox"> tendermint项目解读2</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;任务&lt;/th&gt;
+&lt;th&gt;每天&lt;/th&gt;
+&lt;th&gt;开发-云容器技术&lt;/th&gt;
+&lt;th&gt;项目与框架&lt;/th&gt;
+&lt;th&gt;科研-区块链(FL+BC)&lt;/th&gt;
+&lt;th&gt;预备事宜&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;1.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;英语单词&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;go基础&lt;/td&gt;
+&lt;td&gt;SimpleBitcoin&lt;/td&gt;
+&lt;td&gt;FL/分布式存储论文一周一篇细读&lt;/td&gt;
+&lt;td&gt;准备参加&lt;strong&gt;编程类的比赛或者拿编程证书&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2.&lt;/td&gt;
+&lt;td&gt;语法课看完&lt;/td&gt;
+&lt;td&gt;go网络编程、Web框架&lt;/td&gt;
+&lt;td&gt;联邦学习框架&lt;/td&gt;
+&lt;td&gt;写专利&lt;/td&gt;
+&lt;td&gt;看比赛资讯，准备&lt;strong&gt;区块链比赛&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3.&lt;/td&gt;
+&lt;td&gt;&lt;font color=&#39;red&#39;&gt;六级&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;go数据库、ORM、go高级编程&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;机器学习课程&lt;/td&gt;
+&lt;td&gt;为&lt;strong&gt;研二实习&lt;/strong&gt;做准备&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4.&lt;/td&gt;
+&lt;td&gt;Leetcode&lt;/td&gt;
+&lt;td&gt;go容器技术docker、k8s&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;go微服务与任务调度&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;看源码docker、k8s、Fabric、以太坊、比特币等&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Linux、C++&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="每日一记" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
+    
+    
+    <category term="每日一记" scheme="https://xwjahahahaha.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>隐私计算</title>
+    <link href="https://xwjahahahaha.github.io/2021/07/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/"/>
+    <id>https://xwjahahahaha.github.io/2021/07/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/</id>
+    <published>2021-07-15T06:04:05.000Z</published>
+    <updated>2021-07-16T03:05:44.059Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>学习材料：</p><p><a href="https://zhuanlan.zhihu.com/p/138630291" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/138630291</a></p><p><a href="https://zhuanlan.zhihu.com/p/110210315" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/110210315</a></p></blockquote><h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><ul><li><p>区块链本身的公开性与隐私保护的冲突：</p><ul><li>区块链的隐私保护与传统隐私保护不同：上链数据需要多节点的验证共识, 链上的数据是公开透明的</li></ul></li><li><p>区块链隐私保护策略：</p><ol><li>链上链下分割, 分别设计隐私数据的保护策略</li><li>访问控制</li></ol></li><li><p>隐私保护策略的实现需要密码学技术的支持：</p><ol><li><p>同态加密：加密后的数据计算与原数据的直接计算同态</p></li><li><p>零知识证明：不泄漏数据本身的任何信息的情况下实现某些信息的证明</p></li><li><p>安全多方计算: 在隐私保护的情况下多方之间协同计算 (<em>一般基于<strong>混淆电路</strong>和<strong>不经意传输</strong>等技术实现</em>)</p></li><li><p>TEE(如SGX): 信任硬件设备:</p><p>在信任特定硬件设备（如 Intel 芯片的 SGX 功能）难以攻破的前提下选择在受硬件保护的 Enclave 环境中解密外部输入数据、执行智能合约代码、加密输出数据，此过程中<strong>明文信息只出现在 Enclave 中</strong>但不能被外部看到。</p><blockquote><p><font color='#39b54a'>加解密在硬件中，让明文只在硬件中暴露</font></p></blockquote></li></ol></li></ul><a id="more"></a><ul><li><p>区块链隐私主要分为身份隐私和交易隐私</p><ul><li>身份隐私：区块链地址与真实地址的映射关系隐私</li><li>交易隐私： 区块链上公开的信息，例如比特币的输入输出地址、金额暴露的支付关系</li></ul></li><li><p>交易数据的加密可以实现隐私保护，但是密文又会给验证交易带来困难</p><blockquote><p>如果比特币的金额都是加密的，那么核对账户余额以及扣款等就会相对变得更加复杂</p></blockquote><p>同态加密可以解决这个问题</p></li></ul><p>文章针对 ACCOUNT 模型，设计一种交易金额的同态加密计算和基于 FO 承诺的零知识证明方案。</p><blockquote><p>详细的加密工具的基本详解与使用，见下方链接：</p><ol><li>同态加密：</li><li>零知识证明：</li><li>安全多方计算：</li><li>查分隐私：</li></ol></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;学习材料：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/138630291&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://zhuanlan.zhihu.com/p/138630291&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/110210315&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://zhuanlan.zhihu.com/p/110210315&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、基本概念&quot;&gt;&lt;a href=&quot;#一、基本概念&quot; class=&quot;headerlink&quot; title=&quot;一、基本概念&quot;&gt;&lt;/a&gt;一、基本概念&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;区块链本身的公开性与隐私保护的冲突：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;区块链的隐私保护与传统隐私保护不同：上链数据需要多节点的验证共识, 链上的数据是公开透明的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;区块链隐私保护策略：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;链上链下分割, 分别设计隐私数据的保护策略&lt;/li&gt;
+&lt;li&gt;访问控制&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;隐私保护策略的实现需要密码学技术的支持：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;同态加密：加密后的数据计算与原数据的直接计算同态&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;零知识证明：不泄漏数据本身的任何信息的情况下实现某些信息的证明&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安全多方计算: 在隐私保护的情况下多方之间协同计算 (&lt;em&gt;一般基于&lt;strong&gt;混淆电路&lt;/strong&gt;和&lt;strong&gt;不经意传输&lt;/strong&gt;等技术实现&lt;/em&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;TEE(如SGX): 信任硬件设备:&lt;/p&gt;
+&lt;p&gt;在信任特定硬件设备（如 Intel 芯片的 SGX 功能）难以攻破的前提下选择在受硬件保护的 Enclave 环境中解密外部输入数据、执行智能合约代码、加密输出数据，此过程中&lt;strong&gt;明文信息只出现在 Enclave 中&lt;/strong&gt;但不能被外部看到。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;font color=&#39;#39b54a&#39;&gt;加解密在硬件中，让明文只在硬件中暴露&lt;/font&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
+    
+    <category term="solidity" scheme="https://xwjahahahaha.github.io/categories/technical/solidity/"/>
+    
+    
+    <category term="solidity" scheme="https://xwjahahahaha.github.io/tags/solidity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指Offer14-II.剪绳子II</title>
+    <link href="https://xwjahahahaha.github.io/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/"/>
+    <id>https://xwjahahahaha.github.io/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/</id>
+    <published>2021-07-14T06:18:34.000Z</published>
+    <updated>2021-07-14T06:29:07.832Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/" target="_blank" rel="noopener">剑指 Offer 14- II. 剪绳子 II</a></p><p>难度中等125</p><p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code> 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m - 1]</code> 。请问 <code>k[0]*k[1]*...*k[m - 1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p><p><font color='#e54d42'>答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。</font></p> <a id="more"></a><p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 2</span><br><span class="line">输出: 1</span><br><span class="line">解释: 2 &#x3D; 1 + 1, 1 × 1 &#x3D; 1</span><br></pre></td></tr></table></figure><p><strong>示例 2:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: 36</span><br><span class="line">解释: 10 &#x3D; 3 + 3 + 4, 3 × 3 × 4 &#x3D; 36</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li><code>2 &lt;= n &lt;= 1000</code></li></ul><p>注意：本题与主站 343 题相同：<a href="https://leetcode-cn.com/problems/integer-break/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/integer-break/</a></p><h2 id="解题思路及代码"><a href="#解题思路及代码" class="headerlink" title="解题思路及代码"></a>解题思路及代码</h2><p>循环求余法除去溢出</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 此题不在适合动态规划，要用贪心算法</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">cuttingRope</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span> || n == <span class="number">2</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> n == <span class="number">3</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    mod := <span class="number">1000000007</span></span><br><span class="line">    timesOf3 := n/<span class="number">3</span></span><br><span class="line">    <span class="keyword">if</span> n- (<span class="number">3</span> * timesOf3) == <span class="number">1</span> &#123;</span><br><span class="line">        timesOf3 -= <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    timesOf2 := (n - <span class="number">3</span> * timesOf3) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 求指数的时候，进行循环求模处理</span></span><br><span class="line">    res := <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">1</span>; i&lt;=timesOf3; i++ &#123;</span><br><span class="line">        res = (res * <span class="number">3</span>) % mod</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">1</span>; i&lt;=timesOf2; i++ &#123;</span><br><span class="line">        res = (res * <span class="number">2</span>) % mod</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res % mod</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 14- II. 剪绳子 II&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;难度中等125&lt;/p&gt;
+&lt;p&gt;给你一根长度为 &lt;code&gt;n&lt;/code&gt; 的绳子，请把绳子剪成整数长度的 &lt;code&gt;m&lt;/code&gt; 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 &lt;code&gt;k[0],k[1]...k[m - 1]&lt;/code&gt; 。请问 &lt;code&gt;k[0]*k[1]*...*k[m - 1]&lt;/code&gt; 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。&lt;/p&gt;
+&lt;p&gt;&lt;font color=&#39;#e54d42&#39;&gt;答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。&lt;/font&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
+    
+    <category term="leetcode" scheme="https://xwjahahahaha.github.io/categories/technical/leetcode/"/>
+    
+    
+    <category term="golang" scheme="https://xwjahahahaha.github.io/tags/golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日记_0197</title>
+    <link href="https://xwjahahahaha.github.io/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/"/>
+    <id>https://xwjahahahaha.github.io/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/</id>
+    <published>2021-07-14T03:21:17.000Z</published>
+    <updated>2021-07-16T01:09:25.867Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input checked="" disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input disabled="" type="checkbox"> 英语</li><li><input checked="" disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input checked="" disabled="" type="checkbox"> 华为比赛</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;任务&lt;/th&gt;
+&lt;th&gt;每天&lt;/th&gt;
+&lt;th&gt;开发-云容器技术&lt;/th&gt;
+&lt;th&gt;项目与框架&lt;/th&gt;
+&lt;th&gt;科研-区块链(FL+BC)&lt;/th&gt;
+&lt;th&gt;预备事宜&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;1.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;英语单词&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;go基础&lt;/td&gt;
+&lt;td&gt;SimpleBitcoin&lt;/td&gt;
+&lt;td&gt;FL/分布式存储论文一周一篇细读&lt;/td&gt;
+&lt;td&gt;准备参加&lt;strong&gt;编程类的比赛或者拿编程证书&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2.&lt;/td&gt;
+&lt;td&gt;语法课看完&lt;/td&gt;
+&lt;td&gt;go网络编程、Web框架&lt;/td&gt;
+&lt;td&gt;联邦学习框架&lt;/td&gt;
+&lt;td&gt;写专利&lt;/td&gt;
+&lt;td&gt;看比赛资讯，准备&lt;strong&gt;区块链比赛&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3.&lt;/td&gt;
+&lt;td&gt;&lt;font color=&#39;red&#39;&gt;六级&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;go数据库、ORM、go高级编程&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;机器学习课程&lt;/td&gt;
+&lt;td&gt;为&lt;strong&gt;研二实习&lt;/strong&gt;做准备&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4.&lt;/td&gt;
+&lt;td&gt;Leetcode&lt;/td&gt;
+&lt;td&gt;go容器技术docker、k8s&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;go微服务与任务调度&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;看源码docker、k8s、Fabric、以太坊、比特币等&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Linux、C++&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="每日一记" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
+    
+    
+    <category term="每日一记" scheme="https://xwjahahahaha.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指Offer14-I.剪绳子</title>
+    <link href="https://xwjahahahaha.github.io/2021/07/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-I-%E5%89%AA%E7%BB%B3%E5%AD%90/"/>
+    <id>https://xwjahahahaha.github.io/2021/07/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-I-%E5%89%AA%E7%BB%B3%E5%AD%90/</id>
+    <published>2021-07-13T09:02:06.000Z</published>
+    <updated>2021-07-13T09:15:48.059Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/jian-sheng-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 14- I. 剪绳子</a></p><p>难度中等</p><p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code> 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m-1]</code>。请问 <code>k[0]*k[1]*...*k[m-1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p><a id="more"></a><p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 2</span><br><span class="line">输出: 1</span><br><span class="line">解释: 2 &#x3D; 1 + 1, 1 × 1 &#x3D; 1</span><br></pre></td></tr></table></figure><p><strong>示例 2:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: 36</span><br><span class="line">解释: 10 &#x3D; 3 + 3 + 4, 3 × 3 × 4 &#x3D; 36</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li><code>2 &lt;= n &lt;= 58</code></li></ul><h2 id="解题思路及代码"><a href="#解题思路及代码" class="headerlink" title="解题思路及代码"></a>解题思路及代码</h2><h3 id="方法一：-动态规划"><a href="#方法一：-动态规划" class="headerlink" title="方法一： 动态规划"></a>方法一： 动态规划</h3><p>时间复杂度O($n^2$), 空间复杂度O(n)</p><p><font color='#e54d42'><strong>从上往下分析，从下往上编写</strong></font> (避免重复计算)</p><ul><li>对于dp[i]长度的绳子，可从k位置开始剪开，则k的范围为[1, i)</li><li>在第k个位置剪开，[k, i]长度的绳子可以剪也可以不剪，选择大者。则状态转移方程为: $dp[i] = max(k<em>dp[i-k], k</em>(i-k))$</li><li>对于所有的k位置，取最大为当前dp[i]的最大乘积，所以状态转移方程变为:$dp[i] = max(dp[i], max(k<em>dp[i-k], k</em>(i-k)))$</li><li>优化: 对于长度为i的绳子，剪为长度k与(i-k) 和 剪为长度(i-k)和k是一样的，所以第k个位置剪开只需要考虑到i/2不用到i</li></ul><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 动态规划 时间复杂度O(n2), 空间复杂度O(n)</span></span><br><span class="line"><span class="comment">// 构建动态规划方程：</span></span><br><span class="line"><span class="comment">// dp[i] = max&#123;dp[i], max&#123;k*dp[i-k], k*(i-k)&#125;&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">cuttingRope</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="comment">// 创建动态规划数组</span></span><br><span class="line">    dp := <span class="built_in">make</span>([]<span class="keyword">int</span>, n+<span class="number">1</span>)</span><br><span class="line">    <span class="comment">// 初始化情况</span></span><br><span class="line">    <span class="comment">// 长度为2最大乘积为1</span></span><br><span class="line">    dp[<span class="number">1</span>], dp[<span class="number">2</span>] = <span class="number">1</span>, <span class="number">1</span>           </span><br><span class="line">    <span class="comment">// 从下往上构建,避免重复计算</span></span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">3</span>; i&lt;=n; i++ &#123;</span><br><span class="line">        <span class="comment">// 遍历切的位置k</span></span><br><span class="line">        max := <span class="number">0</span></span><br><span class="line">        <span class="comment">// 此循环优化：不用到达i，切到中间后面都是一样的</span></span><br><span class="line">        <span class="keyword">for</span> k:=<span class="number">1</span>; k&lt;=i/<span class="number">2</span>; k++ &#123;</span><br><span class="line">            <span class="comment">// [k, i]部分裁剪</span></span><br><span class="line">            clip := k * dp[i-k]</span><br><span class="line">            <span class="comment">// [k, i]部分不裁剪</span></span><br><span class="line">            no_clip := k * (i-k)</span><br><span class="line">            <span class="comment">// 选择最大的</span></span><br><span class="line">            <span class="keyword">if</span> clip &gt; no_clip &#123;</span><br><span class="line">                dp[i] = clip</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                dp[i] = no_clip</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 找出所有裁剪位置的最大值</span></span><br><span class="line">            <span class="keyword">if</span> dp[i] &gt; max &#123;</span><br><span class="line">                max = dp[i]</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        dp[i] = max</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[n]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>复杂度优化思路加一：</p><ul><li>考虑遍历过程前后是否有重复，有的话可以只遍历一半，甚至开根</li></ul></blockquote><h3 id="方法二-贪心算法"><a href="#方法二-贪心算法" class="headerlink" title="方法二 贪心算法"></a>方法二 贪心算法</h3><p>时间复杂度O（n）</p><p>尽可能把绳子分成长度为3的小段，这样乘积最大，当最后为4时分为两个2最大</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 贪心算法 时间复杂度O（n）</span></span><br><span class="line"><span class="comment">// 尽可能把绳子分成长度为3的小段，这样乘积最大</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">cuttingRope</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="comment">// 直接返回一些特殊情况</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span> || n == <span class="number">2</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> n == <span class="number">3</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">// 计算3的次数</span></span><br><span class="line">    timesOf3 := n / <span class="number">3</span></span><br><span class="line">    <span class="comment">// 如果最后一次为4，那么就改为2*2</span></span><br><span class="line">    <span class="keyword">if</span> n - timesOf3 * <span class="number">3</span> == <span class="number">1</span> &#123;</span><br><span class="line">        <span class="comment">// 现将最后一次剪次数扣除</span></span><br><span class="line">        timesOf3 -= <span class="number">1</span>       </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 计算余下2的次数，要么为一次(余2)，要么为2次(余4)</span></span><br><span class="line">    timesOf2 := (n - timesOf3 * <span class="number">3</span>) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">int</span>(math.Pow(<span class="keyword">float64</span>(<span class="number">3</span>), <span class="keyword">float64</span>(timesOf3))) * <span class="keyword">int</span>(math.Pow(<span class="keyword">float64</span>(<span class="number">2</span>), <span class="keyword">float64</span>(timesOf2)))</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/jian-sheng-zi-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 14- I. 剪绳子&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;难度中等&lt;/p&gt;
+&lt;p&gt;给你一根长度为 &lt;code&gt;n&lt;/code&gt; 的绳子，请把绳子剪成整数长度的 &lt;code&gt;m&lt;/code&gt; 段（m、n都是整数，n&amp;gt;1并且m&amp;gt;1），每段绳子的长度记为 &lt;code&gt;k[0],k[1]...k[m-1]&lt;/code&gt;。请问 &lt;code&gt;k[0]*k[1]*...*k[m-1]&lt;/code&gt; 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
+    
+    <category term="leetcode" scheme="https://xwjahahahaha.github.io/categories/technical/leetcode/"/>
+    
+    
+    <category term="golang" scheme="https://xwjahahahaha.github.io/tags/golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>日记_0196</title>
+    <link href="https://xwjahahahaha.github.io/2021/07/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0196/"/>
+    <id>https://xwjahahahaha.github.io/2021/07/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0196/</id>
+    <published>2021-07-13T01:55:26.000Z</published>
+    <updated>2021-07-14T03:21:34.342Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input disabled="" type="checkbox"> 英语</li><li><input checked="" disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input checked="" disabled="" type="checkbox"> 论文BlockFLA系统架构部分</li><li><input checked="" disabled="" type="checkbox"> mqtt go语言实现</li><li><input disabled="" type="checkbox"> 项目Tendermint</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;任务&lt;/th&gt;
+&lt;th&gt;每天&lt;/th&gt;
+&lt;th&gt;开发-云容器技术&lt;/th&gt;
+&lt;th&gt;项目与框架&lt;/th&gt;
+&lt;th&gt;科研-区块链(FL+BC)&lt;/th&gt;
+&lt;th&gt;预备事宜&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;1.&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;英语单词&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;go基础&lt;/td&gt;
+&lt;td&gt;SimpleBitcoin&lt;/td&gt;
+&lt;td&gt;FL/分布式存储论文一周一篇细读&lt;/td&gt;
+&lt;td&gt;准备参加&lt;strong&gt;编程类的比赛或者拿编程证书&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2.&lt;/td&gt;
+&lt;td&gt;语法课看完&lt;/td&gt;
+&lt;td&gt;go网络编程、Web框架&lt;/td&gt;
+&lt;td&gt;联邦学习框架&lt;/td&gt;
+&lt;td&gt;写专利&lt;/td&gt;
+&lt;td&gt;看比赛资讯，准备&lt;strong&gt;区块链比赛&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3.&lt;/td&gt;
+&lt;td&gt;&lt;font color=&#39;red&#39;&gt;六级&lt;/font&gt;&lt;/td&gt;
+&lt;td&gt;go数据库、ORM、go高级编程&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;机器学习课程&lt;/td&gt;
+&lt;td&gt;为&lt;strong&gt;研二实习&lt;/strong&gt;做准备&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4.&lt;/td&gt;
+&lt;td&gt;Leetcode&lt;/td&gt;
+&lt;td&gt;go容器技术docker、k8s&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;go微服务与任务调度&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;看源码docker、k8s、Fabric、以太坊、比特币等&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Linux、C++&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="每日一记" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
+    
+    
+    <category term="每日一记" scheme="https://xwjahahahaha.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>拒绝年费自己组建MarkdownNice转微信公众号格式神器</title>
@@ -82,17 +521,38 @@
     <link href="https://xwjahahahaha.github.io/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/"/>
     <id>https://xwjahahahaha.github.io/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/</id>
     <published>2021-07-12T01:11:57.000Z</published>
-    <updated>2021-07-12T01:11:57.212Z</updated>
+    <updated>2021-07-13T16:25:09.781Z</updated>
     
-    <content type="html"><![CDATA[<p>#</p><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>学习资料：</p><p><a href="https://studygolang.com/articles/14452" target="_blank" rel="noopener">https://studygolang.com/articles/14452</a></p><p><a href="https://blog.csdn.net/jacky128256/article/details/105610456" target="_blank" rel="noopener">https://blog.csdn.net/jacky128256/article/details/105610456</a></p></blockquote><h1 id="一、什么是MQTT"><a href="#一、什么是MQTT" class="headerlink" title="一、什么是MQTT"></a>一、什么是MQTT</h1><p><strong>MQTT（Message Queuing Telemetry Transport，消息队列遥测传输协议）</strong>，是一种<strong>基于发布/订阅（publish/subscribe）模式</strong>的“轻量级”通讯协议，该协议构建于TCP/IP协议上，由IBM在1999年发布。</p><p>MQTT最大优点在于，可以以极少的代码和有限的带宽，为连接远程设备提供实时可靠的消息服务。作为一种低开销、低带宽占用的即时通讯协议，使其在物联网、小型设备、移动应用等方面有较广泛的应用</p><p>MQTT是一个基于客户端-服务器的消息发布/订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用</p><blockquote><p><font color='#39b54a'>MQTT还有一个特点就是客户端之间不用相互通信, MQTT通信更像是邮箱服务，发布者发布消息到服务器，接收者只要订阅了其服务在线后即可收到</font></p></blockquote><p>实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：<strong>发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）</strong>。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。</p><p>MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：</p><p>（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）；</p><p>（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。</p><blockquote><p><font color='#39b54a'>Topic就是消息名，payload就是消息体</font></p></blockquote><a id="more"></a><p>MQTT会构建底层网络传输：它将建立客户端到服务器的连接，提供两者之间的一个<strong>有序的、无损的、基于字节流的双向传输。</strong></p><p>当应用数据通过MQTT网络发送时，MQTT会把与之相关的<strong>服务质量（QoS）</strong>和<strong>主题名（Topic）</strong>相关连。</p><h1 id="二、Go语言MQTT服务器Broker的搭建"><a href="#二、Go语言MQTT服务器Broker的搭建" class="headerlink" title="二、Go语言MQTT服务器Broker的搭建"></a>二、Go语言MQTT服务器Broker的搭建</h1><p>服务端用erlang编写的一个开源项目：emqqtd</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载安装包</span></span><br><span class="line">wget https://github.com/emqx/emqx/releases/download/v4.0.4/emqx-ubuntu18.04-v4.0.4.zip</span><br><span class="line">cd mqttd/emqx</span><br><span class="line">.</span><br><span class="line">├── bin</span><br><span class="line">├── data</span><br><span class="line">├── erts-10.5.2</span><br><span class="line">├── etc</span><br><span class="line">├── lib</span><br><span class="line">├── log</span><br><span class="line">└── releases</span><br><span class="line"><span class="meta">#</span><span class="bash"> 开启服务</span></span><br><span class="line">./bin/emqx start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看状态</span></span><br><span class="line">./bin/emqx_ctl status</span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止服务</span></span><br><span class="line">./bin/emqx stop</span><br></pre></td></tr></table></figure><p>找到自己的IP，访问<code>http://[你的IP]:18083/#/clients</code></p><ul><li>用户名：admin</li><li>密码：public</li></ul><p>即可进入服务器的控制台</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/RYTlik.png" alt="RYTlik"></p><h1 id="三、Go客户端访问简单API"><a href="#三、Go客户端访问简单API" class="headerlink" title="三、Go客户端访问简单API"></a>三、Go客户端访问简单API</h1><p>客户端用golang客户端的库：“github.com/eclipse/paho.mqtt.golang”</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载依赖包</span></span><br><span class="line">go get -u github.com/eclipse/paho.mqtt.golang</span><br></pre></td></tr></table></figure><p>实例如下：</p><p>编写了两个函数一个发布一个订阅，传入参数即可服务</p><p>修改<code>EMQServerAddress</code>为你服务器的IP</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="comment">// 与后端mqtt服务交互</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line"><span class="string">"fmt"</span></span><br><span class="line">mqtt <span class="string">"github.com/eclipse/paho.mqtt.golang"</span></span><br><span class="line"><span class="string">"log"</span></span><br><span class="line"><span class="string">"os"</span></span><br><span class="line"><span class="string">"strconv"</span></span><br><span class="line"><span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> EMQServerAddress = <span class="string">"你的IP"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建全局mqtt publish消息处理 handler</span></span><br><span class="line"><span class="keyword">var</span> messagePubHandler mqtt.MessageHandler = <span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client, msg mqtt.Message)</span></span> &#123;</span><br><span class="line">fmt.Println(<span class="string">"Push Message:"</span>)</span><br><span class="line">fmt.Printf(<span class="string">"TOPIC: %s\n"</span>, msg.Topic())</span><br><span class="line">fmt.Printf(<span class="string">"MSG: %s\n"</span>, msg.Payload())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建全局mqtt sub消息处理 handler</span></span><br><span class="line"><span class="keyword">var</span> messageSubHandler mqtt.MessageHandler = <span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client, msg mqtt.Message)</span></span> &#123;</span><br><span class="line">fmt.Println(<span class="string">"收到订阅消息:"</span>)</span><br><span class="line">fmt.Printf(<span class="string">"Sub Client Topic : %s \n"</span>, msg.Topic())</span><br><span class="line">fmt.Printf(<span class="string">"Sub Client msg : %s \n"</span>, msg.Payload())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接的回掉函数</span></span><br><span class="line"><span class="keyword">var</span> connectHandler mqtt.OnConnectHandler =<span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client)</span></span> &#123;</span><br><span class="line">fmt.Println(<span class="string">"新的连接!"</span> + <span class="string">" Connected"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 丢失连接的回掉函数</span></span><br><span class="line"><span class="keyword">var</span> connectLostHandler mqtt.ConnectionLostHandler = <span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client, err error)</span></span> &#123;</span><br><span class="line">fmt.Printf(<span class="string">"Connect loss: %v\n"</span>, err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="comment">// 配置错误提示</span></span><br><span class="line">mqtt.DEBUG = log.New(os.Stdout, <span class="string">"[mqttDEBUG]"</span>, <span class="number">0</span>)</span><br><span class="line">mqtt.ERROR = log.New(os.Stdout, <span class="string">" [mqttERROR]"</span>, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @Description: 发布订阅</span></span><br><span class="line"><span class="comment"> * @param clientID</span></span><br><span class="line"><span class="comment"> * @param addr</span></span><br><span class="line"><span class="comment"> * @param topic</span></span><br><span class="line"><span class="comment"> * @param payload</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Push</span><span class="params">(topic <span class="keyword">string</span>, qos <span class="keyword">byte</span>, retain <span class="keyword">bool</span>, payload <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line"><span class="comment">// opts ClientOptions 用于设置 broker，端口，客户端 id ，用户名密码等选项</span></span><br><span class="line">opts := mqtt.NewClientOptions().AddBroker(<span class="string">"tcp://"</span> + EMQServerAddress + <span class="string">":1883"</span>).SetClientID(<span class="string">"test_push"</span>)</span><br><span class="line">opts.SetKeepAlive(<span class="number">60</span> * time.Second)</span><br><span class="line"><span class="comment">// Message callback handler，在没有任何订阅时，发布端调用此函数</span></span><br><span class="line">opts.SetDefaultPublishHandler(messagePubHandler)</span><br><span class="line">opts.SetPingTimeout(<span class="number">1</span> * time.Second)</span><br><span class="line">opts.OnConnect = connectHandler</span><br><span class="line">opts.OnConnectionLost = connectLostHandler</span><br><span class="line">client := mqtt.NewClient(opts)</span><br><span class="line"><span class="keyword">if</span> token := client.Connect(); token.Wait() &amp;&amp; token.Error() != <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="built_in">panic</span>(token.Error())</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//发布消息</span></span><br><span class="line"><span class="comment">// qos是服务质量: ==1: 一次, &gt;=1: 至少一次, &lt;=1:最多一次</span></span><br><span class="line"><span class="comment">// retained: 表示mqtt服务器要保留这次推送的信息，如果有新的订阅者出现，就会把这消息推送给它（持久化推送）</span></span><br><span class="line">token := client.Publish(topic, qos, retain, payload)</span><br><span class="line">token.Wait()</span><br><span class="line">fmt.Println(<span class="string">"Push Data : "</span>+topic, <span class="string">"Data Size is "</span>+strconv.Itoa(<span class="built_in">len</span>(payload)))</span><br><span class="line">fmt.Println(<span class="string">"Disconnect with broker"</span>)</span><br><span class="line">client.Disconnect(<span class="number">250</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @Description: 订阅或取消订阅</span></span><br><span class="line"><span class="comment"> * @param clientID</span></span><br><span class="line"><span class="comment"> * @param addr</span></span><br><span class="line"><span class="comment"> * @param topic</span></span><br><span class="line"><span class="comment"> * @param isSub</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Subscription</span><span class="params">(topic <span class="keyword">string</span>, qos <span class="keyword">byte</span>, isSub <span class="keyword">bool</span>, handleFun <span class="keyword">func</span>([]<span class="keyword">byte</span>)</span>)</span> &#123;</span><br><span class="line">opts := mqtt.NewClientOptions().AddBroker(<span class="string">"tcp://"</span> + EMQServerAddress + <span class="string">":1883"</span>).SetClientID(<span class="string">"sub_test"</span>)</span><br><span class="line">opts.SetKeepAlive(<span class="number">60</span> * time.Second)</span><br><span class="line">opts.SetPingTimeout(<span class="number">1</span> * time.Second)</span><br><span class="line">opts.OnConnect = <span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client)</span></span> &#123;</span><br><span class="line">fmt.Println(<span class="string">"New Subscription! Connected"</span> + <span class="string">" =&gt; "</span> + topic)</span><br><span class="line">&#125;</span><br><span class="line">opts.OnConnectionLost = connectLostHandler</span><br><span class="line">client := mqtt.NewClient(opts)</span><br><span class="line"><span class="keyword">if</span> token := client.Connect(); token.Wait() &amp;&amp; token.Error() != <span class="literal">nil</span> &#123;</span><br><span class="line"><span class="built_in">panic</span>(token.Error())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> isSub &#123;</span><br><span class="line"><span class="comment">// 订阅消息</span></span><br><span class="line"><span class="keyword">if</span> token := client.Subscribe(topic, qos, <span class="function"><span class="keyword">func</span><span class="params">(client mqtt.Client, msg mqtt.Message)</span></span> &#123;</span><br><span class="line">fmt.Printf(<span class="string">"Receive Subscribe Message :"</span>)</span><br><span class="line">fmt.Printf(<span class="string">"Sub Client Topic : %s, Data size is  %d \n"</span>, msg.Topic(), <span class="built_in">len</span>(msg.Payload()))</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(msg.Payload()) &gt; <span class="number">0</span> &#123;</span><br><span class="line">handleFun(msg.Payload())</span><br><span class="line">&#125;</span><br><span class="line">&#125;); token.Wait() &amp;&amp; token.Error() != <span class="literal">nil</span> &#123;</span><br><span class="line">fmt.Println(token.Error())</span><br><span class="line">os.Exit(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// 取消订阅</span></span><br><span class="line"><span class="keyword">if</span> token := client.Unsubscribe(topic); token.Wait() &amp;&amp; token.Error() != <span class="literal">nil</span> &#123;</span><br><span class="line">fmt.Println(token.Error())</span><br><span class="line">os.Exit(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
-    <summary type="html">&lt;p&gt;#&lt;/p&gt;</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;学习资料：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://studygolang.com/articles/14452&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://studygolang.com/articles/14452&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/jacky128256/article/details/105610456&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/jacky128256/article/details/105610456&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、什么是MQTT&quot;&gt;&lt;a href=&quot;#一、什么是MQTT&quot; class=&quot;headerlink&quot; title=&quot;一、什么是MQTT&quot;&gt;&lt;/a&gt;一、什么是MQTT&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;MQTT（Message Queuing Telemetry Transport，消息队列遥测传输协议）&lt;/strong&gt;，是一种&lt;strong&gt;基于发布/订阅（publish/subscribe）模式&lt;/strong&gt;的“轻量级”通讯协议，该协议构建于TCP/IP协议上，由IBM在1999年发布。&lt;/p&gt;
+&lt;p&gt;MQTT最大优点在于，可以以极少的代码和有限的带宽，为连接远程设备提供实时可靠的消息服务。作为一种低开销、低带宽占用的即时通讯协议，使其在物联网、小型设备、移动应用等方面有较广泛的应用&lt;/p&gt;
+&lt;p&gt;MQTT是一个基于客户端-服务器的消息发布/订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;font color=&#39;#39b54a&#39;&gt;MQTT还有一个特点就是客户端之间不用相互通信, MQTT通信更像是邮箱服务，发布者发布消息到服务器，接收者只要订阅了其服务在线后即可收到&lt;/font&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：&lt;strong&gt;发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）&lt;/strong&gt;。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。&lt;/p&gt;
+&lt;p&gt;MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：&lt;/p&gt;
+&lt;p&gt;（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）；&lt;/p&gt;
+&lt;p&gt;（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;font color=&#39;#39b54a&#39;&gt;Topic就是消息名，payload就是消息体&lt;/font&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
     
     
     
     <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
     
+    <category term="golang" scheme="https://xwjahahahaha.github.io/categories/technical/golang/"/>
+    
+    
+    <category term="golang" scheme="https://xwjahahahaha.github.io/tags/golang/"/>
     
   </entry>
   
@@ -101,9 +561,9 @@
     <link href="https://xwjahahahaha.github.io/2021/07/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0195/"/>
     <id>https://xwjahahahaha.github.io/2021/07/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0195/</id>
     <published>2021-07-12T01:08:35.000Z</published>
-    <updated>2021-07-12T04:23:25.161Z</updated>
+    <updated>2021-07-13T01:55:16.083Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input checked="" disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input disabled="" type="checkbox"> 英语</li><li><input disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input checked="" disabled="" type="checkbox"> 华为区块链比赛结束</li><li><input checked="" disabled="" type="checkbox"> 解决IDE Debug</li><li><input disabled="" type="checkbox"> 论文</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input checked="" disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input disabled="" type="checkbox"> 英语</li><li><input disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input checked="" disabled="" type="checkbox"> 华为区块链比赛结束</li><li><input checked="" disabled="" type="checkbox"> 解决IDE Debug</li><li><input checked="" disabled="" type="checkbox"> 论文BlockFLA 部分</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
     
     
     <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
@@ -659,420 +1119,6 @@
     
     <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>计算理论基础-1-FA有穷自动机与Pumping_Lemma泵定理</title>
-    <link href="https://xwjahahahaha.github.io/2021/06/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-1-FA%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8EPumping_Lemma%E6%B3%B5%E5%AE%9A%E7%90%86/"/>
-    <id>https://xwjahahahaha.github.io/2021/06/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-1-FA%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8EPumping_Lemma%E6%B3%B5%E5%AE%9A%E7%90%86/</id>
-    <published>2021-06-20T13:11:08.000Z</published>
-    <updated>2021-06-27T02:14:21.729Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>学习资料：</p><p><a href="https://www.cnblogs.com/Bubgit/p/10240790.html" target="_blank" rel="noopener">https://www.cnblogs.com/Bubgit/p/10240790.html</a></p><p><a href="https://blog.csdn.net/shulianghan/article/details/111393044" target="_blank" rel="noopener">https://blog.csdn.net/shulianghan/article/details/111393044</a></p><p><a href="https://www.cnblogs.com/raicho/p/11762837.html" target="_blank" rel="noopener">https://www.cnblogs.com/raicho/p/11762837.html</a></p><p><a href="https://blog.csdn.net/elice_/article/details/80550413" target="_blank" rel="noopener">https://blog.csdn.net/elice_/article/details/80550413</a></p><p><a href="https://baike.baidu.com/item/泵引理/9490334?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/泵引理/9490334?fr=aladdin</a></p><p><a href="https://blog.csdn.net/zxbdsg/article/details/112424714" target="_blank" rel="noopener">https://blog.csdn.net/zxbdsg/article/details/112424714</a></p></blockquote><h1 id="一、正则表达式与状态转移图"><a href="#一、正则表达式与状态转移图" class="headerlink" title="一、正则表达式与状态转移图"></a>一、正则表达式与状态转移图</h1><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><h3 id="正则操作："><a href="#正则操作：" class="headerlink" title="正则操作："></a>正则操作：</h3><ol><li><p>$ \cdot $ 表示连接(可省略) </p><p>例： $abc \cdot 123 = abc123$</p></li><li><p>$\mid$ 表示或</p><p>例： $abc \mid 123 = \begin{cases} abc  \123\end {cases}$ </p></li><li><p>$*$ 运算start</p><p>$str^i = \begin{cases} \varepsilon &amp; i=0 \ str^{i-1} \cdot str &amp; i&gt;=1 \end{cases}$  </p><p> 即$str * = \bigcup\limits_{i=0}^\infty str^i$    </p><p>其中$\varepsilon$指空串</p><p>例：${0,1}^* = {\varepsilon} \cup {0,1} \cup {00,01,10,11} …$</p></li></ol><a id="more"></a><h3 id="计算优先级"><a href="#计算优先级" class="headerlink" title="计算优先级"></a>计算优先级</h3><p>有小括号先算小括号， $* &gt; \cdot &gt; |$</p><h2 id="状态转移图"><a href="#状态转移图" class="headerlink" title="状态转移图"></a>状态转移图</h2><p>状态转移图中，节点表示状态，边表示输入字母，双圈表示终态</p><p><strong>正则表达式转换为状态转移图：</strong></p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/HqT3Mb.png" alt="HqT3Mb"></p><p>对于$*$运算符的特别说明：</p><p>转换过程为：</p><ol><li><p>将所有的<strong>接受/中止状态</strong>使用 $ \varepsilon$ 箭头 , <strong>从 接受/终止状态 指向 开始状态</strong> ;</p></li><li><p>添加新的开始状态： 添加接受状态作为开始状态 , 指向开始状态 ;</p></li></ol><p>图例：    <img src="http://xwjpics.gumptlu.work/qinniu_uPic/BTqVaK.png" alt="BTqVaK"></p><h1 id="二、DFA-Deterministic-Finite-Automaton"><a href="#二、DFA-Deterministic-Finite-Automaton" class="headerlink" title="二、DFA(Deterministic Finite Automaton)"></a>二、DFA(Deterministic Finite Automaton)</h1><p>有穷自动机。如果一个语言可以被有穷自动机识别则称之为<strong>正则语言</strong>，其定义为一个五元组</p><h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><p>$DFA = (Q,\Sigma,q_0,F,\delta)$</p><h2 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h2><ol><li>$Q$ :  有穷集合，状态集</li><li>$\Sigma$ ：有穷集合，字母集</li><li>$q_0$ : $q_0 \in Q$, 表示开始/起始状态 (start/initial state)</li><li>$F$ : $F \subseteq Q$ , 表示最终/接受状态 (final/accept state)</li><li>$\delta$ : $Q_1 \times \Sigma \rightarrow Q_2$ 转移函数</li></ol><blockquote><p>理解： 类比于状态转移图</p><p>Q： 图中所有的节点</p><p>$\Sigma$：边的集合 </p><p>$q_0$：初始节点</p><p>$F$：最终节点（双圈）</p><p>$\varepsilon$ :  图中的逻辑规则</p></blockquote><h2 id="图例："><a href="#图例：" class="headerlink" title="图例："></a>图例：</h2><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/KPmomh.png" alt="KPmomh"></p><p>$s \in S, a \in \Sigma,\delta(s,a) $表示从状态s出发，沿着标记a所能到达的<strong>状态</strong></p><p>例：当$s=0,a=a$时，从状态0出发，经过a只能够到达1</p><h1 id="三、NFA-Non-deterministic-Finite-Automaton"><a href="#三、NFA-Non-deterministic-Finite-Automaton" class="headerlink" title="三、NFA(Non-deterministic Finite Automaton)"></a>三、NFA(Non-deterministic Finite Automaton)</h1><p>非确型有穷自动机。同样是五元组</p><h2 id="定义：-1"><a href="#定义：-1" class="headerlink" title="定义："></a>定义：</h2><p>$NFA = (Q, \Sigma, q_0, F, \delta)$</p><h2 id="说明：-1"><a href="#说明：-1" class="headerlink" title="说明："></a>说明：</h2><ol><li>前四个与DFA定义相同</li><li>$\delta$ : $Q_1 \times \Sigma \rightarrow P(Q)$ $P(Q)$表示一个状态的子集</li></ol><h2 id="图例：-1"><a href="#图例：-1" class="headerlink" title="图例："></a>图例：</h2><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/nLnbDk.png" alt="nLnbDk"></p><p>$s \in S, a \in \Sigma,\delta(s,a) $表示从状态s出发，沿着标记a所能到达的<strong>状态集合</strong></p><p>因为可能是一个状态集合，所以NFA的状态图可能有不同的后继</p><p>例：当$s=0, a=a$时，能够到达的状态集合是${0, 1}$</p><hr><h3 id="NFA与DFA的不同："><a href="#NFA与DFA的不同：" class="headerlink" title="NFA与DFA的不同："></a><strong>NFA与DFA的不同：</strong></h3><ol><li>$\varepsilon- transation$ is allowed 允许读入一个空串即$\varepsilon$ (状态转移结果还是自身)</li><li>Many possible next states at each step 每一步都可能有多种可能性      </li></ol><p>NFA可以使用<strong>(subset construct)子集构造法</strong>转换为DFA</p><h2 id="练习1："><a href="#练习1：" class="headerlink" title="练习1："></a>练习1：</h2><p>1.设有 NFA M=( {0,1,2,3}, {a,b},f,0,{3} )，其中 f(0,a)={0,1} f(0,b)={0} f(1,b)={2} f(2,b)={3}</p><p>  画出状态转换矩阵,状态转换图，并说明该NFA识别的是什么样的语言。</p><table><thead><tr><th>NFA</th><th>a</th><th>b</th></tr></thead><tbody><tr><td>0</td><td>0,1</td><td>0</td></tr><tr><td>1</td><td>$\varnothing$</td><td>2</td></tr><tr><td>2</td><td>$\varnothing$</td><td>3</td></tr><tr><td>3</td><td>$\varnothing$</td><td>$\varnothing$</td></tr></tbody></table><p> <a href="https://img2018.cnblogs.com/blog/1483369/201910/1483369-20191030113414320-1224199958.png" target="_blank" rel="noopener"><img src="https://img2018.cnblogs.com/blog/1483369/201910/1483369-20191030113414320-1224199958.png" alt="img"></a></p><p>语言：$(a | b)*abb$</p><h1 id="四、子集构造法：NFA转化为DFA"><a href="#四、子集构造法：NFA转化为DFA" class="headerlink" title="四、子集构造法：NFA转化为DFA"></a>四、子集构造法：NFA转化为DFA</h1><p>在有穷自动机的理论里，有这样的定理：设L为一个由不确定的有穷自动机接受的集合，则存在一个接受L的确定的有穷自动机</p><p>所以非确定有穷自动机NFA可以转换为DFA，对于上面的例1流程如下：</p><h2 id="第一步-构建自定义状态-I"><a href="#第一步-构建自定义状态-I" class="headerlink" title="第一步 构建自定义状态$I$"></a>第一步 构建自定义状态$I$</h2><p>子集构造法，简单来说思路就是将一些状态作为集合成为一个新的状态</p><p><font color='#6698cb'><strong>$I$的初始选择规则：从初始状态$q_0$经过任意数量的$\varepsilon$能够到达的状态的集合</strong></font></p><p>对于例1来说，上例就是状态0</p><p><font color='#6698cb'><strong>$I_x$表示集合$I$的每个状态节点经过$x$（可经过$\varepsilon$）的所有结果集合的并集</strong></font></p><p>对于上例来说，只有一个0状态节点，所以，状态0经过a可以到达的状态集合是{0,1}, 经过b可以<strong>到达</strong>的状态集合是{0}</p><p><font color='#6698cb'><strong>下面选择$I$的规则是： 从上一次的所有$I_x， x\in \Sigma$中选择一个作为$I$，但是每个$I_x$只可选择一次</strong></font></p><p>对于上例来说，可以只能选择{0, 1}，因为{0}已经在最开始选择了（为了避免自定义的重复），作为$I$, 则其对应的$I_a、I_b$如下图</p><p>0的$I_a = {0， 1}, I_b = {0}$ ,   1的$I_a = \varnothing, I_b = {2}$       =&gt; (取并集)       $I_a = {0, 1}, I_b = {0, 2}$</p><p> 同理选择下一个$I = {0, 2}$, 继续计算….</p><table><thead><tr><th></th><th>$I$</th><th>$I_a$</th><th>$I_b$</th></tr></thead><tbody><tr><td>A</td><td>{0}</td><td>{0, 1}</td><td>{0}</td></tr><tr><td>B</td><td>{0, 1}</td><td>{0, 1}</td><td>{0, 2}</td></tr><tr><td>C</td><td>{0, 2}</td><td>{0, 1}</td><td>{0, 3}</td></tr><tr><td>D</td><td>{0, 3}</td><td>{0, 1}</td><td>{0}</td></tr></tbody></table><p>最终自定义状态为：A={0}, B={0, 1}, C={0, 2}, D={0, 3}</p><h2 id="第二步-画出DFA状态转移图"><a href="#第二步-画出DFA状态转移图" class="headerlink" title="第二步 画出DFA状态转移图"></a>第二步 画出DFA状态转移图</h2><p>首先根据上面的表格就立即可以得出状态转移表：</p><table><thead><tr><th>DFA</th><th>a</th><th>b</th></tr></thead><tbody><tr><td>A</td><td>B</td><td>A</td></tr><tr><td>B</td><td>B</td><td>C</td></tr><tr><td>C</td><td>B</td><td>D</td></tr><tr><td>D</td><td>B</td><td>A</td></tr></tbody></table><p>画出状态转移图像：</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/ZkHMkK.png" alt="ZkHMkK"></p><p>检查图中没有同一输入的多后继节点则说明满足DFA</p><p><strong>注意：包含原终态的结合都是新终态</strong></p><h2 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h2><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/dxDPjZ.png" alt="dxDPjZ"></p><p>答案：</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/Y9gz7Y.png" alt="Y9gz7Y"></p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/DxAJEk.png" alt="DxAJEk"></p><h1 id="五、Pumping-lemma-泵定理"><a href="#五、Pumping-lemma-泵定理" class="headerlink" title="五、Pumping lemma 泵定理"></a>五、Pumping lemma 泵定理</h1><p>正则语言都需要满足泵定理，泵引理是<a href="https://baike.baidu.com/item/形式语言与自动机理论/8236396" target="_blank" rel="noopener">形式语言与自动机理论</a>中判定一个语言不是<a href="https://baike.baidu.com/item/正则语言/12598706" target="_blank" rel="noopener">正则语言</a>的重要工具</p><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>For every regular language L, there is a pumping length $P$, such that for any string $S \in L$ and $|S| \ge P$, We can divide $S$ into 3 pieces and write $S = xyz$ with:</p><ol><li><p>$xy^iz \in L$ For every  $i\in {0,1,2,3,…}$</p></li><li><p>$|y| \ge 1$</p></li><li><p>$|xy| \le P$</p></li></ol><p>Note that 1 implies that $xz \in L$</p><p>2 say that y cannot be the empty string $\varepsilon$  (2 说明了y不能是空串)</p><p>condition 3 is not always used</p><p>中文版：</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/vNnbqZ.png" alt="vNnbqZ"></p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote><p><font color='#e54d42'>简单的来说，使用的过程就是不断的Pump（重复）其中的若干部分，使得到新的字符串仍满足RL，所以一般使用反证法去反证</font></p></blockquote><h3 id="例1"><a href="#例1" class="headerlink" title="例1:"></a>例1:</h3><p>证明 $0^n1^n \ n\ge0$不是一个RL (regular language)</p><p>证明如下：</p><p>assume that $B = {0^n1^n,n\ge0}$ is regular language            <font color='#39b54a'>(反证法： 假设B是一个RL)</font></p><p>let p be the pumping length, and $S = 0^p 1^p \in B$    <font color='#39b54a'>（设一个pumping 长度为p，则可得到S，其长度刚刚好为p，满足不小于p）</font>            </p><p>then $S = 0^p1^p=xyz$                            <font color='#39b54a'>（根据RL满足的泵定理，将S分割为三个部分）</font></p><p>let $x = 0^{p-k}, y=0^k,z=1^p, k&gt;0$        <font color='#39b54a'>（分别假设每一个部分xyz的值）</font></p><p>so, $xy = 0^p$, it meets the $|xy| = p \le p$        <font color='#39b54a'>（验证第三个条件，满足）</font></p><p>because k &gt; 0, so, it meets the $|y| \ge 1$        <font color='#39b54a'>（验证第二个条件，满足）</font></p><p>but,                                                                 <font color='#39b54a'>（验证第三个条件，不满足，所以不是一个RL）</font></p><p>$xy^1z =0^{p-k}0^k1^p = 0^p1^p \in B, \<br>xy^2z = 0^{p-k}0^{2k}1^p=0^{p+k}1^p \notin B, \<br>xy^3z = 0^{p-k}0^{3k}1^p=0^{p+2k}1^p \notin B, \<br>…$</p><p>The pumping result does not hold,the languge B is not regular</p><h3 id="例2-1"><a href="#例2-1" class="headerlink" title="例2"></a>例2</h3><p>证明$E={0^i1^j \  i&gt;j}$不是RL</p><p>证明如下：</p><p>Assume that $E$ is a regular language with pumping length p</p><p>let $S = xyz = 0^{p+1}1^{p} \in E$</p><p>let $x=0^{p-k} \ , y =0^k  \ ,z=01^p, k &gt; 0$</p><p>so, it meets the $|xy|=p \le p$ and $|y| \ge 1$</p><p>$xy^2z=0^{p-k}0^{2k}01^p=0^{p+k+1}1^p \in E \ xy^3z=0^{p-k}0^{3k}01^p=0^{p+2k+1}1^p \in E \ …$</p><p>so, if $i \ge 0$, it meets $xy^iz \in E$,</p><p>but, if $i=0$, $S=xz=0^{p-k+1}1^p  ,k&gt;1 \notin E$</p><p>so, The pumping result does not hold,the languge E is not regular</p>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;学习资料：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/Bubgit/p/10240790.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.cnblogs.com/Bubgit/p/10240790.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/shulianghan/article/details/111393044&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/shulianghan/article/details/111393044&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/raicho/p/11762837.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.cnblogs.com/raicho/p/11762837.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/elice_/article/details/80550413&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/elice_/article/details/80550413&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://baike.baidu.com/item/泵引理/9490334?fr=aladdin&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://baike.baidu.com/item/泵引理/9490334?fr=aladdin&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zxbdsg/article/details/112424714&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://blog.csdn.net/zxbdsg/article/details/112424714&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;一、正则表达式与状态转移图&quot;&gt;&lt;a href=&quot;#一、正则表达式与状态转移图&quot; class=&quot;headerlink&quot; title=&quot;一、正则表达式与状态转移图&quot;&gt;&lt;/a&gt;一、正则表达式与状态转移图&lt;/h1&gt;&lt;h2 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h2&gt;&lt;h3 id=&quot;正则操作：&quot;&gt;&lt;a href=&quot;#正则操作：&quot; class=&quot;headerlink&quot; title=&quot;正则操作：&quot;&gt;&lt;/a&gt;正则操作：&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;$ \cdot $ 表示连接(可省略) &lt;/p&gt;
-&lt;p&gt;例： $abc \cdot 123 = abc123$&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;$\mid$ 表示或&lt;/p&gt;
-&lt;p&gt;例： $abc \mid 123 = \begin{cases} abc  \123\end {cases}$ &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;$*$ 运算start&lt;/p&gt;
-&lt;p&gt;$str^i = \begin{cases} \varepsilon &amp;amp; i=0 \ str^{i-1} \cdot str &amp;amp; i&amp;gt;=1 \end{cases}$  &lt;/p&gt;
-&lt;p&gt; 即$str * = \bigcup\limits_{i=0}^\infty str^i$    &lt;/p&gt;
-&lt;p&gt;其中$\varepsilon$指空串&lt;/p&gt;
-&lt;p&gt;例：${0,1}^* = {\varepsilon} \cup {0,1} \cup {00,01,10,11} …$&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="knowledge" scheme="https://xwjahahahaha.github.io/categories/knowledge/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>斯坦福密码学-流密码steam_ciphers</title>
-    <link href="https://xwjahahahaha.github.io/2021/06/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6-%E6%B5%81%E5%AF%86%E7%A0%81steam_ciphers/"/>
-    <id>https://xwjahahahaha.github.io/2021/06/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%AF%86%E7%A0%81%E5%AD%A6-%E6%B5%81%E5%AF%86%E7%A0%81steam_ciphers/</id>
-    <published>2021-06-20T11:25:29.000Z</published>
-    <updated>2021-06-20T12:40:26.201Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一、The-One-Time-Pad-OTP-一次性密码本"><a href="#一、The-One-Time-Pad-OTP-一次性密码本" class="headerlink" title="一、The One Time Pad (OTP) - 一次性密码本"></a>一、The One Time Pad (OTP) - 一次性密码本</h1><h1 id="二、Steam-Ciphers-流密码"><a href="#二、Steam-Ciphers-流密码" class="headerlink" title="二、Steam Ciphers - 流密码"></a>二、Steam Ciphers - 流密码</h1><h2 id="2-1-Pseudorandom-Generators-伪随机生成器"><a href="#2-1-Pseudorandom-Generators-伪随机生成器" class="headerlink" title="2.1 Pseudorandom Generators - 伪随机生成器"></a>2.1 Pseudorandom Generators - 伪随机生成器</h2><p>完全安全(Prefect Secrecy)意味着能够<strong>防御唯密文攻击(CT only attack)</strong></p><p>但是要求:   <strong>秘钥长度 &gt;= 明文长度</strong></p><p>为了让流密码实现完全安全, 但是不可能这么长的随机密钥, 所以就产生了 =&gt; <strong>伪随机生成器PRG</strong></p><p>PRG的定义:</p><p>一个函数, $G: {0,1}^s \rightarrow {0,1}^n, n &gt;&gt; s $</p><blockquote><p>从种子空间(随机空间)通过函数G映射到更大的空间, n远大于s, 其中G是一个确定性函数</p><p><font color='#e54d42'>唯一有随机性的是种子空间, 输出结果是“看起来随机”</font></p></blockquote><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/4zPVuv.png" alt="4zPVuv"></p><p>显然, 这样的伪随机数不是完全安全的, 但是<strong>安全可以依赖于一种特殊的PRG</strong></p><h3 id="PRG的预测性讨论"><a href="#PRG的预测性讨论" class="headerlink" title="PRG的预测性讨论"></a>PRG的预测性讨论</h3><p>特殊PRG的要求: 不可预测性</p><h4 id="可预测性"><a href="#可预测性" class="headerlink" title="可预测性"></a>可预测性</h4><p>可预测性指的是: </p><p>$\exists i: G(k)|<em>{1,…,i} \rightarrow G(k)|</em>{i+1,…,n} $</p><blockquote><p>可预测性: 根据生成的G(k)的前缀可以预测剩下的内容(哪怕仅仅只能预测一位)</p></blockquote><p>可预测性定义:</p><p>$\exist ‘eff’ alg \ A \ and \ \exist_ {0\leqq i\leqq {n-1}} s.t.  \  \Pr\limits_{k \xleftarrow{R}K}[A(G(k)|<em>{1,…,i} = G(k)|</em>{i+1}] &gt; 1/2 + \varepsilon$</p><blockquote><p>解释: 存在可预测函数A能够实现, 从G(k)的0~i位预测第i+1位的概率大于二分之一 + 不可忽略的量（后面会详细解释），那么就称G(k)是可预测的 </p></blockquote><p><font color='#e54d42'>一旦G(k)是可预测的，那么就一定是不安全的！</font></p><h4 id="不可预测性"><a href="#不可预测性" class="headerlink" title="不可预测性"></a>不可预测性</h4><p>定义： 对于G(k)所有的位置i没有一个有效函数A以不可容忍的概率预测出i+1的位置的值</p><blockquote><p>理解了可预测性，不可预测其实就是和其相反</p></blockquote><h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p><strong>线性同余法（lin cong）的方法</strong>基本都是可预测性的伪随机生成器， 所以都是不安全的</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/53vr15.png" alt="53vr15"></p><p>Kerberos V4 采用了以上的方法所以被攻破了</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;一、The-One-Time-Pad-OTP-一次性密码本&quot;&gt;&lt;a href=&quot;#一、The-One-Time-Pad-OTP-一次性密码本&quot; class=&quot;headerlink&quot; title=&quot;一、The One Time Pad (OTP) - 一次性密码本&quot;</summary>
-      
-    
-    
-    
-    <category term="knowledge" scheme="https://xwjahahahaha.github.io/categories/knowledge/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>剑指Offer12.矩阵中的路径</title>
-    <link href="https://xwjahahahaha.github.io/2021/06/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer12-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/"/>
-    <id>https://xwjahahahaha.github.io/2021/06/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer12-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/</id>
-    <published>2021-06-20T03:24:57.000Z</published>
-    <updated>2021-06-20T05:40:21.267Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/" target="_blank" rel="noopener">剑指 Offer 12. 矩阵中的路径</a></p><p>难度中等</p><p>给定一个 <code>m x n</code> 二维字符网格 <code>board</code> 和一个字符串单词 <code>word</code> 。如果 <code>word</code>存在于网格中，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p><p>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p><a id="more"></a> <p>例如，在下面的 3×4 的矩阵中包含单词 “ABCCED”（单词中的字母已标出）。</p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/Qehqko.png" alt="Qehqko"></p><p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：board &#x3D; [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word &#x3D; &quot;ABCCED&quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：board &#x3D; [[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;]], word &#x3D; &quot;abcd&quot;</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li><code>1 &lt;= board.length &lt;= 200</code></li><li><code>1 &lt;= board[i].length &lt;= 200</code></li><li><code>board</code> 和 <code>word</code> 仅由大小写英文字母组成</li></ul><p><strong>注意：</strong>本题与主站 79 题相同：<a href="https://leetcode-cn.com/problems/word-search/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/word-search/</a></p><h2 id="解题思路及代码"><a href="#解题思路及代码" class="headerlink" title="解题思路及代码"></a>解题思路及代码</h2><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>搜索问题 =&gt; BFS、DFS</p><p>每个步骤多个选择 =&gt; 树状DFS =&gt; 回溯法</p><p>回溯法优化 =&gt; 子问题一致性剪枝 =&gt; 一旦当前位置字母不符, 立即返回false, 不向下递归</p><p>回溯一般模版:</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子集一般对应递归树path</span></span><br><span class="line">回溯(子集, 全集):</span><br><span class="line">    <span class="keyword">if</span> 满足条件/结束条件:  <span class="comment">// 下一步做什么,所以会当成结束条件</span></span><br><span class="line">        加入答案</span><br><span class="line">    <span class="keyword">for</span> 元素 in 全集: <span class="comment">// 这一步要做什么, 再过度到下一步</span></span><br><span class="line">        元素加入子集</span><br><span class="line">        回溯(子集, 全集)<span class="comment">// 回溯到上一步需要改回什么</span></span><br><span class="line">        回退操作/元素退出子集</span><br></pre></td></tr></table></figure><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 回溯法</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">exist</span><span class="params">(board [][]<span class="keyword">byte</span>, word <span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    m, n := <span class="built_in">len</span>(board), <span class="built_in">len</span>(board[<span class="number">0</span>])</span><br><span class="line">    <span class="comment">// 已走过的标记</span></span><br><span class="line">    <span class="keyword">var</span> visited [][]<span class="keyword">bool</span></span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">1</span>; i&lt;=m; i++ &#123;</span><br><span class="line">        visited = <span class="built_in">append</span>(visited, <span class="built_in">make</span>([]<span class="keyword">bool</span>, n))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> rollback <span class="function"><span class="keyword">func</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>)</span> <span class="title">bool</span></span></span><br><span class="line">    rollback = <span class="function"><span class="keyword">func</span><span class="params">(i, j, p <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">        <span class="comment">// 当前位置</span></span><br><span class="line">        <span class="comment">// 结束情况:</span></span><br><span class="line">        <span class="comment">// 1. 当前位置不相同直接返回false, 结束回溯</span></span><br><span class="line">        <span class="keyword">if</span> board[i][j] != word[p] &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 2, 当p为最后一个直接返回true</span></span><br><span class="line">        <span class="keyword">if</span> p == <span class="built_in">len</span>(word)<span class="number">-1</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 当前位置标记为访问过</span></span><br><span class="line">        visited[i][j] = <span class="literal">true</span></span><br><span class="line">        <span class="comment">// 下一位置</span></span><br><span class="line">        <span class="comment">// 上</span></span><br><span class="line">        <span class="keyword">if</span> i &gt; <span class="number">0</span> &amp;&amp; !visited[i<span class="number">-1</span>][j] &#123;</span><br><span class="line">            <span class="keyword">if</span> rollback(i<span class="number">-1</span>, j, p+<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="comment">// 下</span></span><br><span class="line">        <span class="keyword">if</span> i &lt; m<span class="number">-1</span> &amp;&amp; !visited[i+<span class="number">1</span>][j] &#123;</span><br><span class="line">            <span class="keyword">if</span> rollback(i+<span class="number">1</span>, j, p+<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 左</span></span><br><span class="line">        <span class="keyword">if</span> j &gt; <span class="number">0</span> &amp;&amp; !visited[i][j<span class="number">-1</span>] &#123;</span><br><span class="line">            <span class="keyword">if</span> rollback(i, j<span class="number">-1</span>, p+<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 右</span></span><br><span class="line">        <span class="keyword">if</span> j &lt; n<span class="number">-1</span> &amp;&amp; !visited[i][j+<span class="number">1</span>] &#123;</span><br><span class="line">            <span class="keyword">if</span> rollback(i, j+<span class="number">1</span>, p+<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 上一位置: 回溯</span></span><br><span class="line">        visited[i][j] = <span class="literal">false</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 调用回溯函数, 寻找合适的入口</span></span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;m; i++ &#123;</span><br><span class="line">        <span class="keyword">for</span> j:=<span class="number">0</span>; j&lt;n; j++ &#123;</span><br><span class="line">            <span class="keyword">if</span> rollback(i, j, <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>设word字符串长度为K, board矩阵长宽分别为m, n</p><p>那么时间复杂度就是$O(3^K<em>M</em>N)$</p><ul><li><p>rollback回溯函数: 每一个字符除去上一步的方向还剩三个方向, 一共就是$3^K$的可能性,</p></li><li><p>外层两个for循环提供M*N的复杂度</p></li></ul><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>这里采用额外空间保护原数组, 所以时间复杂度为$O(M*N)$</p><p>还可采用标记的方法(例如将已经访问的位置字符变为“*”)降低时间复杂度为递归栈的空间K(其最差也为M*N)</p><h2 id="编码注意事项-思路"><a href="#编码注意事项-思路" class="headerlink" title="编码注意事项/思路"></a>编码注意事项/思路</h2><ol><li><p>每个方向中不要直接返回下一步递归的结果, 因为<strong>某一个方向为false 不代表当前整个path都是false, 题意是存在,所以只要有一个方向是true则即继续</strong></p></li><li><p>调用rollback回溯函数与上方同理,全部为false才返回false</p></li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 12. 矩阵中的路径&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;难度中等&lt;/p&gt;
-&lt;p&gt;给定一个 &lt;code&gt;m x n&lt;/code&gt; 二维字符网格 &lt;code&gt;board&lt;/code&gt; 和一个字符串单词 &lt;code&gt;word&lt;/code&gt; 。如果 &lt;code&gt;word&lt;/code&gt;存在于网格中，返回 &lt;code&gt;true&lt;/code&gt; ；否则，返回 &lt;code&gt;false&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
-    
-    <category term="leetcode" scheme="https://xwjahahahaha.github.io/categories/technical/leetcode/"/>
-    
-    
-    <category term="golang" scheme="https://xwjahahahaha.github.io/tags/golang/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>日记_0191</title>
-    <link href="https://xwjahahahaha.github.io/2021/06/20/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0191/"/>
-    <id>https://xwjahahahaha.github.io/2021/06/20/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0191/</id>
-    <published>2021-06-20T01:58:35.000Z</published>
-    <updated>2021-06-21T00:55:13.827Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input disabled="" type="checkbox"> 英语</li><li><input checked="" disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input checked="" disabled="" type="checkbox"> 密码学P2 一节</li><li><input checked="" disabled="" type="checkbox"> 专利</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;任务&lt;/th&gt;
-&lt;th&gt;每天&lt;/th&gt;
-&lt;th&gt;开发-云容器技术&lt;/th&gt;
-&lt;th&gt;项目与框架&lt;/th&gt;
-&lt;th&gt;科研-区块链(FL+BC)&lt;/th&gt;
-&lt;th&gt;预备事宜&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;1.&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;英语单词&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;go基础&lt;/td&gt;
-&lt;td&gt;SimpleBitcoin&lt;/td&gt;
-&lt;td&gt;FL/分布式存储论文一周一篇细读&lt;/td&gt;
-&lt;td&gt;准备参加&lt;strong&gt;编程类的比赛或者拿编程证书&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2.&lt;/td&gt;
-&lt;td&gt;语法课看完&lt;/td&gt;
-&lt;td&gt;go网络编程、Web框架&lt;/td&gt;
-&lt;td&gt;联邦学习框架&lt;/td&gt;
-&lt;td&gt;写专利&lt;/td&gt;
-&lt;td&gt;看比赛资讯，准备&lt;strong&gt;区块链比赛&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;3.&lt;/td&gt;
-&lt;td&gt;&lt;font color=&#39;red&#39;&gt;六级&lt;/font&gt;&lt;/td&gt;
-&lt;td&gt;go数据库、ORM、go高级编程&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;机器学习课程&lt;/td&gt;
-&lt;td&gt;为&lt;strong&gt;研二实习&lt;/strong&gt;做准备&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;4.&lt;/td&gt;
-&lt;td&gt;Leetcode&lt;/td&gt;
-&lt;td&gt;go容器技术docker、k8s&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;5.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;go微服务与任务调度&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;6.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;看源码docker、k8s、Fabric、以太坊、比特币等&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;7.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Linux、C++&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="每日一记" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
-    
-    
-    <category term="每日一记" scheme="https://xwjahahahaha.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tendermint-1-基础概念</title>
-    <link href="https://xwjahahahaha.github.io/2021/06/19/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%85%AC%E9%93%BE%E9%A1%B9%E7%9B%AE/Tendermint/Tendermint-1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    <id>https://xwjahahahaha.github.io/2021/06/19/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E5%85%AC%E9%93%BE%E9%A1%B9%E7%9B%AE/Tendermint/Tendermint-1-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</id>
-    <published>2021-06-19T12:44:01.000Z</published>
-    <updated>2021-06-19T14:26:25.760Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>学习材料:</p><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg3OTAwMjE1MA==&amp;mid=2247484015&amp;idx=1&amp;sn=88edd9855a7acfbca72b03af1652b347&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=Mzg3OTAwMjE1MA==&amp;mid=2247484015&amp;idx=1&amp;sn=88edd9855a7acfbca72b03af1652b347&amp;scene=21#wechat_redirect</a></p><p><a href="https://zhuanlan.zhihu.com/p/87370262" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/87370262</a></p><p><a href="https://zhuanlan.zhihu.com/p/84962067" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/84962067</a></p><p>官网: <a href="https://tendermint.com" target="_blank" rel="noopener">https://tendermint.com</a></p></blockquote><h1 id="一、基本介绍"><a href="#一、基本介绍" class="headerlink" title="一、基本介绍"></a>一、基本介绍</h1><p>Tendermint可以看作是跨链明星项目Cosmos的基石, 由Cosmos团队于2014年创建， 是Cosmos跨链技术的核心。</p><p>Tendermint的目标或愿景是提高区块链速度、可拓展性、节省能源 </p><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/PMF5hg.png" alt="PMF5hg"></p><a id="more"></a><h1 id="二、优势-特点"><a href="#二、优势-特点" class="headerlink" title="二、优势/特点"></a>二、优势/特点</h1><h2 id="2-1-封装的底层"><a href="#2-1-封装的底层" class="headerlink" title="2.1 封装的底层"></a>2.1 封装的底层</h2><p>将区块链一般性框架“网络-共识-应用“ 中的底下两层即网络与共识（或者说P2P网络层与共识引擎）封装成Tendermint Core， 同时提供ABCI接口与应用交互。</p><ul><li>优势： 高解耦、高适用（支持多语言编写应用）</li></ul><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20210204155527.png" alt=""></p><h2 id="2-2-优秀的共识算法"><a href="#2-2-优秀的共识算法" class="headerlink" title="2.2 优秀的共识算法"></a>2.2 优秀的共识算法</h2><p>Tendermint的共识算法采用的是 <strong>PoS + BFT</strong> 的模式, 这里只是简单介绍特点,以后会用单篇详细介绍其共识。</p><p>总体上确定一个状态/区块，要通过一个回合round，每个回合由三个部分组成： </p><p>propose（提议），prevote（预投票）和 precommit（预提交）</p><p><strong>第一个由选举共识实现,  后两个由主链共识实现</strong></p><h3 id="2-2-1-选举共识-PoS"><a href="#2-2-1-选举共识-PoS" class="headerlink" title="2.2.1 选举共识-PoS"></a>2.2.1 选举共识-PoS</h3><p>选举共识对<strong>出块人</strong>投票</p><p>Tendermint的机制是从Validater(候选者)中选择一个出块人Proposer作为出块人</p><p>Tendermint采取非阻塞轮询(round-robin)策略选择Proposer, 其特点是:</p><ul><li>Validater在创世区块中配置</li><li>非阻塞轮询机制核心是为了避免选中的Proposer中断连接,从而共识阻塞</li><li>Proposer的选择概率与Validater的投票权重正相关   =&gt; 可发展为DPoS</li><li>一般不暴露Validater的IP地址</li></ul><h3 id="2-2-2-主链共识-BEF"><a href="#2-2-2-主链共识-BEF" class="headerlink" title="2.2.2 主链共识-BEF"></a>2.2.2 主链共识-BEF</h3><p>主链共识对<strong>块</strong>投票, 采用优化的BFT拜占庭共识协议, 验证者Validater轮流对区块进行投票, 其特点是:</p><ul><li><p>简化了PBFT(实用拜占庭协议), 仅使用两轮投票达成共识</p><ol><li>预投票 pre-vote</li><li>预提交 pre-commit</li></ol></li><li><p>超过2/3的的投票才成功</p></li><li><p>最终一致性, 不会出现分叉</p><ul><li>验证者一旦进行了预投票, 那么就与提议的区块锁定在该round, 避免同一Validater多轮(多区块)投票造成分叉</li></ul></li><li><p>共识容错率: 容忍1/3个作恶节点</p></li></ul><h2 id="2-3-ABCI-Tendermint与区块链应用通信的法则"><a href="#2-3-ABCI-Tendermint与区块链应用通信的法则" class="headerlink" title="2.3 ABCI-Tendermint与区块链应用通信的法则"></a>2.3 ABCI-Tendermint与区块链应用通信的法则</h2><p><code>Application Blockchain Interface</code>  <strong>区块链应用接口</strong>，Tendermint Core使用ABCI与区块链应用联系, 使得编程区块链应用可使用多种语言, 其特点是:</p><ul><li>使用socket协议通信</li><li>ABCI标准包含多种交易类型, 各司其职<ul><li>DeliverTx: 每笔交易都通过其传送</li><li>CheckTx: 仅用于验证交易</li><li>CommitTX: 用于应用状态的加密保证</li></ul></li></ul><h1 id="三、应用与生态"><a href="#三、应用与生态" class="headerlink" title="三、应用与生态"></a>三、应用与生态</h1><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/9YYA59.png" alt="9YYA59"></p><p>本文简略的介绍Tendermint, 后面会对于核心的共识、交易流程、使用等进行一步细节的描述</p>]]></content>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;学习材料:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg3OTAwMjE1MA==&amp;amp;mid=2247484015&amp;amp;idx=1&amp;amp;sn=88edd9855a7acfbca72b03af1652b347&amp;amp;scene=21#wechat_redirect&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://mp.weixin.qq.com/s?__biz=Mzg3OTAwMjE1MA==&amp;amp;mid=2247484015&amp;amp;idx=1&amp;amp;sn=88edd9855a7acfbca72b03af1652b347&amp;amp;scene=21#wechat_redirect&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/87370262&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://zhuanlan.zhihu.com/p/87370262&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/84962067&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://zhuanlan.zhihu.com/p/84962067&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;官网: &lt;a href=&quot;https://tendermint.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://tendermint.com&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;一、基本介绍&quot;&gt;&lt;a href=&quot;#一、基本介绍&quot; class=&quot;headerlink&quot; title=&quot;一、基本介绍&quot;&gt;&lt;/a&gt;一、基本介绍&lt;/h1&gt;&lt;p&gt;Tendermint可以看作是跨链明星项目Cosmos的基石, 由Cosmos团队于2014年创建， 是Cosmos跨链技术的核心。&lt;/p&gt;
-&lt;p&gt;Tendermint的目标或愿景是提高区块链速度、可拓展性、节省能源 &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://xwjpics.gumptlu.work/qinniu_uPic/PMF5hg.png&quot; alt=&quot;PMF5hg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="knowledge" scheme="https://xwjahahahaha.github.io/categories/knowledge/"/>
-    
-    
-    <category term="tendermint" scheme="https://xwjahahahaha.github.io/tags/tendermint/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指Offer11.旋转数组的最小数字</title>
-    <link href="https://xwjahahahaha.github.io/2021/06/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer11-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/"/>
-    <id>https://xwjahahahaha.github.io/2021/06/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer11-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</id>
-    <published>2021-06-19T06:45:41.000Z</published>
-    <updated>2021-06-19T06:56:30.255Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 11. 旋转数组的最小数字</a></p><p>难度简单335</p><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 <code>[3,4,5,1,2]</code> 为 <code>[1,2,3,4,5]</code> 的一个旋转，该数组的最小值为1。 </p><a id="more"></a><p><strong>示例 1：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[3,4,5,1,2]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[2,2,2,0,1]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure><p>注意：本题与主站 154 题相同：<a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/</a></p><h2 id="解题思路及代码"><a href="#解题思路及代码" class="headerlink" title="解题思路及代码"></a>解题思路及代码</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 遍历一遍即可找到答案</span></span><br><span class="line"><span class="comment">// 时间复杂度O(N), 不够好</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">minArray</span><span class="params">(numbers []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">1</span>; i&lt;<span class="built_in">len</span>(numbers); i++ &#123;</span><br><span class="line">        <span class="keyword">if</span> numbers[i] &lt; numbers[i<span class="number">-1</span>] &#123;</span><br><span class="line">            <span class="keyword">return</span> numbers[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> numbers[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 二分查找</span></span><br><span class="line"><span class="comment">// 按照题意: 1. 可以将数组分为两段数组, 前面一段升序, 后面一段升序, 前面一段元素都大于后面一段,中间的边界就是最小值的位置</span></span><br><span class="line"><span class="comment">// 每次取中间值, 如果mid与left或者right构成升序,那么就可以丢弃一段, 整个过程就是left不断成为前段升序的最后一个索引</span></span><br><span class="line"><span class="comment">// right就是后段的最后一个索引, 直到left + 1 == right 就找到了分界, 结束二分</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">minArray</span><span class="params">(numbers []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    n := <span class="built_in">len</span>(numbers)</span><br><span class="line">    l, r := <span class="number">0</span>, n<span class="number">-1</span></span><br><span class="line">    <span class="keyword">for</span> numbers[l] &gt;= numbers[r] &#123;  <span class="comment">// 等号也取, 相等时最小数字也有可能出现在中间, 例[1,0,1,1,1]</span></span><br><span class="line">        mid := (l + r) &gt;&gt; <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> l + <span class="number">1</span> == r &#123;</span><br><span class="line">            <span class="keyword">return</span> numbers[r]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 重点: 可能会出现num[left] == num[right] == num[mid]的情况, 此时无法判断中点属于哪个子有序序列</span></span><br><span class="line">        <span class="comment">// 但是结果一定在里面, 所以需要用顺序遍历</span></span><br><span class="line">        <span class="keyword">if</span> numbers[l] == numbers[r] &amp;&amp; numbers[r] == numbers[mid] &#123;</span><br><span class="line">            <span class="keyword">for</span> i:=l; i&lt;r; i++ &#123;</span><br><span class="line">                <span class="keyword">if</span> numbers[i] &gt; numbers[i+<span class="number">1</span>] &#123;</span><br><span class="line">                    <span class="keyword">return</span> numbers[i+<span class="number">1</span>]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果没找到, 那么就默认返回第一个, 因为有可能总长度就是1, 例[1]</span></span><br><span class="line">            <span class="keyword">return</span> numbers[l]</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> numbers[l] &lt;= numbers[mid] &#123;</span><br><span class="line">            l = mid</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> numbers[mid] &lt;= numbers[r]&#123;</span><br><span class="line">            r = mid</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> numbers[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 11. 旋转数组的最小数字&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;难度简单335&lt;/p&gt;
-&lt;p&gt;把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 &lt;code&gt;[3,4,5,1,2]&lt;/code&gt; 为 &lt;code&gt;[1,2,3,4,5]&lt;/code&gt; 的一个旋转，该数组的最小值为1。 &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="technical" scheme="https://xwjahahahaha.github.io/categories/technical/"/>
-    
-    <category term="leetcode" scheme="https://xwjahahahaha.github.io/categories/technical/leetcode/"/>
-    
-    
-    <category term="golang" scheme="https://xwjahahahaha.github.io/tags/golang/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>日记_0190</title>
-    <link href="https://xwjahahahaha.github.io/2021/06/19/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0190/"/>
-    <id>https://xwjahahahaha.github.io/2021/06/19/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0190/</id>
-    <published>2021-06-19T02:17:52.000Z</published>
-    <updated>2021-06-19T14:46:24.818Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input disabled="" type="checkbox"> 英语</li><li><input checked="" disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input checked="" disabled="" type="checkbox"> 专利</li><li><input checked="" disabled="" type="checkbox"> Tendermint</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;任务&lt;/th&gt;
-&lt;th&gt;每天&lt;/th&gt;
-&lt;th&gt;开发-云容器技术&lt;/th&gt;
-&lt;th&gt;项目与框架&lt;/th&gt;
-&lt;th&gt;科研-区块链(FL+BC)&lt;/th&gt;
-&lt;th&gt;预备事宜&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;1.&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;英语单词&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;go基础&lt;/td&gt;
-&lt;td&gt;SimpleBitcoin&lt;/td&gt;
-&lt;td&gt;FL/分布式存储论文一周一篇细读&lt;/td&gt;
-&lt;td&gt;准备参加&lt;strong&gt;编程类的比赛或者拿编程证书&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2.&lt;/td&gt;
-&lt;td&gt;语法课看完&lt;/td&gt;
-&lt;td&gt;go网络编程、Web框架&lt;/td&gt;
-&lt;td&gt;联邦学习框架&lt;/td&gt;
-&lt;td&gt;写专利&lt;/td&gt;
-&lt;td&gt;看比赛资讯，准备&lt;strong&gt;区块链比赛&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;3.&lt;/td&gt;
-&lt;td&gt;&lt;font color=&#39;red&#39;&gt;六级&lt;/font&gt;&lt;/td&gt;
-&lt;td&gt;go数据库、ORM、go高级编程&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;机器学习课程&lt;/td&gt;
-&lt;td&gt;为&lt;strong&gt;研二实习&lt;/strong&gt;做准备&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;4.&lt;/td&gt;
-&lt;td&gt;Leetcode&lt;/td&gt;
-&lt;td&gt;go容器技术docker、k8s&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;5.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;go微服务与任务调度&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;6.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;看源码docker、k8s、Fabric、以太坊、比特币等&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;7.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Linux、C++&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="每日一记" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
-    
-    
-    <category term="每日一记" scheme="https://xwjahahahaha.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>日记_0189</title>
-    <link href="https://xwjahahahaha.github.io/2021/06/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0189/"/>
-    <id>https://xwjahahahaha.github.io/2021/06/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-06/%E6%97%A5%E8%AE%B0-0189/</id>
-    <published>2021-06-18T05:22:31.000Z</published>
-    <updated>2021-06-19T02:17:46.001Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input checked="" disabled="" type="checkbox"> 英语职场文化考试</li><li><input disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input checked="" disabled="" type="checkbox"> 专利部分</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;任务&lt;/th&gt;
-&lt;th&gt;每天&lt;/th&gt;
-&lt;th&gt;开发-云容器技术&lt;/th&gt;
-&lt;th&gt;项目与框架&lt;/th&gt;
-&lt;th&gt;科研-区块链(FL+BC)&lt;/th&gt;
-&lt;th&gt;预备事宜&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;1.&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;英语单词&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;go基础&lt;/td&gt;
-&lt;td&gt;SimpleBitcoin&lt;/td&gt;
-&lt;td&gt;FL/分布式存储论文一周一篇细读&lt;/td&gt;
-&lt;td&gt;准备参加&lt;strong&gt;编程类的比赛或者拿编程证书&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2.&lt;/td&gt;
-&lt;td&gt;语法课看完&lt;/td&gt;
-&lt;td&gt;go网络编程、Web框架&lt;/td&gt;
-&lt;td&gt;联邦学习框架&lt;/td&gt;
-&lt;td&gt;写专利&lt;/td&gt;
-&lt;td&gt;看比赛资讯，准备&lt;strong&gt;区块链比赛&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;3.&lt;/td&gt;
-&lt;td&gt;&lt;font color=&#39;red&#39;&gt;六级&lt;/font&gt;&lt;/td&gt;
-&lt;td&gt;go数据库、ORM、go高级编程&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;机器学习课程&lt;/td&gt;
-&lt;td&gt;为&lt;strong&gt;研二实习&lt;/strong&gt;做准备&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;4.&lt;/td&gt;
-&lt;td&gt;Leetcode&lt;/td&gt;
-&lt;td&gt;go容器技术docker、k8s&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;5.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;go微服务与任务调度&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;6.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;看源码docker、k8s、Fabric、以太坊、比特币等&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;7.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Linux、C++&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="每日一记" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
-    
-    
-    <category term="每日一记" scheme="https://xwjahahahaha.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
     
   </entry>
   
