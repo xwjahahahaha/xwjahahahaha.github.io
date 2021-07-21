@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 468
+			总文章数 476
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/GoLang/mqtt协议与go语言实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2021-07/日记-0198" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/">mqtt协议与go语言实现</a>
+      <a class="article-title" href="/2021/07/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0198/">日记_0198</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0198/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2021-07-12T01:11:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+<a href="/2021/07/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0198/" class="archive-article-date">
+  	<time datetime="2021-07-16T01:13:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-16</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,166 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.4k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">6分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>学习资料：</p>
-<p><a href="https://studygolang.com/articles/14452" target="_blank" rel="noopener">https://studygolang.com/articles/14452</a></p>
-<p><a href="https://blog.csdn.net/jacky128256/article/details/105610456" target="_blank" rel="noopener">https://blog.csdn.net/jacky128256/article/details/105610456</a></p>
-</blockquote>
-<h1 id="一、什么是MQTT"><a href="#一、什么是MQTT" class="headerlink" title="一、什么是MQTT"></a>一、什么是MQTT</h1><p><strong>MQTT（Message Queuing Telemetry Transport，消息队列遥测传输协议）</strong>，是一种<strong>基于发布/订阅（publish/subscribe）模式</strong>的“轻量级”通讯协议，该协议构建于TCP/IP协议上，由IBM在1999年发布。</p>
-<p>MQTT最大优点在于，可以以极少的代码和有限的带宽，为连接远程设备提供实时可靠的消息服务。作为一种低开销、低带宽占用的即时通讯协议，使其在物联网、小型设备、移动应用等方面有较广泛的应用</p>
-<p>MQTT是一个基于客户端-服务器的消息发布/订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用</p>
-<blockquote>
-<p><font color='#39b54a'>MQTT还有一个特点就是客户端之间不用相互通信, MQTT通信更像是邮箱服务，发布者发布消息到服务器，接收者只要订阅了其服务在线后即可收到</font></p>
-</blockquote>
-<p>实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：<strong>发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）</strong>。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。</p>
-<p>MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：</p>
-<p>（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）；</p>
-<p>（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。</p>
-<blockquote>
-<p><font color='#39b54a'>Topic就是消息名，payload就是消息体</font></p>
-</blockquote>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/golang//" class="article-tag-list-link color2">golang</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2021-07/日记-0195" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0195/">日记_0195</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0195/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/07/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0195/" class="archive-article-date">
-  	<time datetime="2021-07-12T01:08:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">512字</span>
+        <span class="post-count">508字</span>
       </span>
     </span>
 
@@ -517,7 +358,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0195/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0198/">展开全文 >></a>
         </p>
       
 
@@ -551,27 +392,27 @@
 
 
   
-    <article id="post-技术贴/GoLang/Go语言-6-grpc与微服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/密码学/现代密码学/隐私计算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-6-grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">Go语言-6-grpc与微服务</a>
+      <a class="article-title" href="/2021/07/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/">隐私计算</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-6-grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-6-grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2021-07-08T07:24:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-08</time>
+<a href="/2021/07/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/" class="archive-article-date">
+  	<time datetime="2021-07-15T06:04:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-15</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -580,7 +421,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">680字</span>
+        <span class="post-count">560字</span>
       </span>
     </span>
 
@@ -589,7 +430,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -602,41 +443,184 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>学习资料：</p>
-<p><a href="https://www.cnblogs.com/wwkk/p/12634603.html" target="_blank" rel="noopener">https://www.cnblogs.com/wwkk/p/12634603.html</a></p>
-<p><a href="https://www.bilibili.com/video/BV137411H7t9?p=3&amp;spm_id_from=pageDriver" target="_blank" rel="noopener">https://www.bilibili.com/video/BV137411H7t9?p=3&amp;spm_id_from=pageDriver</a></p>
+<p>学习材料：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/138630291" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/138630291</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/110210315" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/110210315</a></p>
 </blockquote>
-<h1 id="一、grpc"><a href="#一、grpc" class="headerlink" title="一、grpc"></a>一、grpc</h1><h2 id="1-1-基本概念"><a href="#1-1-基本概念" class="headerlink" title="1.1 基本概念"></a>1.1 基本概念</h2><p>学过网络编程的都知道tcp、http、socket，那么rpc是什么呢？grpc又是什么呢？</p>
-<p>详细的可以看这篇文章： <a href="https://www.cnblogs.com/wwkk/p/12634603.html" target="_blank" rel="noopener">https://www.cnblogs.com/wwkk/p/12634603.html</a></p>
-<p>这里直接给出总结：</p>
-<table>
-<thead>
-<tr>
-<th>名词</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>RPC</td>
-<td>远程过程调用（分布式、微服务间的方法调用）</td>
-</tr>
-<tr>
-<td>HTTP</td>
-<td>无状态，每次请求都要发送一个request，服务器响应之后就断掉（http header中的keep-alive指的是tcp）</td>
-</tr>
-<tr>
-<td>TCP</td>
-<td>面向连接，三次握手保证通信可靠</td>
-</tr>
-<tr>
-<td>UDP</td>
-<td>非面向连接，不可靠，速度快（可以手动对数据收发进行验证，IM系统多采用，QQ）</td>
-</tr>
-<tr>
-<td>socket</td>
-<td>TCP协议的接口实现，面向传输层进行网络编程</td>
-</tr>
-</tbody></table>
+<h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><ul>
+<li><p>区块链本身的公开性与隐私保护的冲突：</p>
+<ul>
+<li>区块链的隐私保护与传统隐私保护不同：上链数据需要多节点的验证共识, 链上的数据是公开透明的</li>
+</ul>
+</li>
+<li><p>区块链隐私保护策略：</p>
+<ol>
+<li>链上链下分割, 分别设计隐私数据的保护策略</li>
+<li>访问控制</li>
+</ol>
+</li>
+<li><p>隐私保护策略的实现需要密码学技术的支持：</p>
+<ol>
+<li><p>同态加密：加密后的数据计算与原数据的直接计算同态</p>
+</li>
+<li><p>零知识证明：不泄漏数据本身的任何信息的情况下实现某些信息的证明</p>
+</li>
+<li><p>安全多方计算: 在隐私保护的情况下多方之间协同计算 (<em>一般基于<strong>混淆电路</strong>和<strong>不经意传输</strong>等技术实现</em>)</p>
+</li>
+<li><p>TEE(如SGX): 信任硬件设备:</p>
+<p>在信任特定硬件设备（如 Intel 芯片的 SGX 功能）难以攻破的前提下选择在受硬件保护的 Enclave 环境中解密外部输入数据、执行智能合约代码、加密输出数据，此过程中<strong>明文信息只出现在 Enclave 中</strong>但不能被外部看到。</p>
+<blockquote>
+<p><font color='#39b54a'>加解密在硬件中，让明文只在硬件中暴露</font></p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">solidity</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/solidity//" class="article-tag-list-link color4">solidity</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/算法/剑指Offer/剑指Offer14-II-剪绳子II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/">剑指Offer14-II.剪绳子II</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/" class="archive-article-date">
+  	<time datetime="2021-07-14T06:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-14</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">339字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/" target="_blank" rel="noopener">剑指 Offer 14- II. 剪绳子 II</a></p>
+<p>难度中等125</p>
+<p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code> 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m - 1]</code> 。请问 <code>k[0]*k[1]*...*k[m - 1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
+<p><font color='#e54d42'>答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。</font></p>
         
       
       
@@ -685,7 +669,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/golang//" class="article-tag-list-link color2">golang</a>
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -694,7 +678,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-6-grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/">展开全文 >></a>
         </p>
       
 
@@ -728,27 +712,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2021-07/日记-0194" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2021-07/日记-0197" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/05/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0194/">日记_0194</a>
+      <a class="article-title" href="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/">日记_0197</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/05/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0194/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/05/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0194/" class="archive-article-date">
-  	<time datetime="2021-07-05T01:03:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-05</time>
+<a href="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/" class="archive-article-date">
+  	<time datetime="2021-07-14T03:21:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-14</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -757,7 +741,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">500字</span>
+        <span class="post-count">498字</span>
       </span>
     </span>
 
@@ -903,7 +887,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/05/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0194/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/">展开全文 >></a>
         </p>
       
 
@@ -937,27 +921,27 @@
 
 
   
-    <article id="post-知识贴/计算理论基础/计算理论基础-3-图灵机与DFA最小化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/算法/剑指Offer/剑指Offer14-I-剪绳子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-3-%E5%9B%BE%E7%81%B5%E6%9C%BA%E4%B8%8EDFA%E6%9C%80%E5%B0%8F%E5%8C%96/">计算理论基础-3-图灵机与DFA最小化</a>
+      <a class="article-title" href="/2021/07/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-I-%E5%89%AA%E7%BB%B3%E5%AD%90/">剑指Offer14-I.剪绳子</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/06/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-3-%E5%9B%BE%E7%81%B5%E6%9C%BA%E4%B8%8EDFA%E6%9C%80%E5%B0%8F%E5%8C%96/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-I-%E5%89%AA%E7%BB%B3%E5%AD%90/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/06/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-3-%E5%9B%BE%E7%81%B5%E6%9C%BA%E4%B8%8EDFA%E6%9C%80%E5%B0%8F%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2021-06-26T06:04:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-26</time>
+<a href="/2021/07/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-I-%E5%89%AA%E7%BB%B3%E5%AD%90/" class="archive-article-date">
+  	<time datetime="2021-07-13T09:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-13</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -966,7 +950,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">769字</span>
+        <span class="post-count">838字</span>
       </span>
     </span>
 
@@ -987,16 +971,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="七、Turing-Machine-图灵机"><a href="#七、Turing-Machine-图灵机" class="headerlink" title="七、Turing Machine 图灵机"></a>七、Turing Machine 图灵机</h1><h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><p>$TM = (Q,\Sigma,\Gamma,\delta，q_0，q_{accept}， q_{reject})$</p>
-<ol>
-<li>Q ：有限状态集合</li>
-<li>$\Sigma$ : 输入字母表, 不包括空白字符</li>
-<li>$\Gamma$ ：磁带字母表 (tape alphabet),    $_ \in \Gamma, \Sigma \subseteq \Gamma$ （$_$就是空格）</li>
-<li>$\delta$ : 转移函数</li>
-<li>$q_0$ : 起始状态  $q_{0} \in Q$</li>
-<li>$q_{accept}$ : 接受状态    $q_{accept} \in Q$</li>
-<li>$q_{reject}$ : 拒绝状态， $q_{reject} \in Q,  \ q <em>{reject} \neq q</em>{accept}$</li>
-</ol>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/jian-sheng-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 14- I. 剪绳子</a></p>
+<p>难度中等</p>
+<p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code> 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m-1]</code>。请问 <code>k[0]*k[1]*...*k[m-1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
         
       
       
@@ -1024,13 +1001,28 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -1039,7 +1031,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-3-%E5%9B%BE%E7%81%B5%E6%9C%BA%E4%B8%8EDFA%E6%9C%80%E5%B0%8F%E5%8C%96/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-I-%E5%89%AA%E7%BB%B3%E5%AD%90/">展开全文 >></a>
         </p>
       
 
@@ -1075,7 +1067,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/94/">94</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/96/">96</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </nav>
   
 
@@ -1264,11 +1256,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1288,19 +1292,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rust</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1308,19 +1304,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">DApp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1332,11 +1324,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">machine_learn</a>
+                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">machine_learn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1344,11 +1336,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bcos</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1356,23 +1344,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Fabric</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+                <a href="javascript:void(0)" class="js-tag color2">Fabric</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">bcos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1380,11 +1360,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1392,7 +1376,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1400,11 +1384,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MysQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1420,19 +1412,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ethermint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tendermint</a>
+                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">每日一记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tendermint</a>
               </li>
              
               <li class="article-tag-list-item">

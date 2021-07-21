@@ -8,20 +8,26 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>《BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture》精读 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、基本信息、前置知识 CODASPY ‘21: Proceedings of the Eleventh ACM Conference on Data and Application Security and Privacy">
+  <meta name="description" content="本篇可以作为了解联邦学习中后门攻击的引导篇， 创新点一般, 营养度一般 对于文中的创新点进行总结：  双链架构：私有链负责保存参数融合参数、公链负责记录节点上传参数数据的Hash以及账号的激励与惩罚 私有安全云记录节点日志与参数数据，用于后门检测 后门检测算法：事先知道木马模式&#x2F;logo的情况下构造有毒验证集通过将基类（未被注入后门）注入后门，用模型检测过程中异常贡献的参数，随之找出后门注入节点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture》精读">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2021/05/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8ABlockFLA-Accountable-Federated-Learning-via-Hybrid-Blockchain-Architecture%E3%80%8B%E7%B2%BE%E8%AF%BB/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="一、基本信息、前置知识 CODASPY ‘21: Proceedings of the Eleventh ACM Conference on Data and Application Security and Privacy">
+<meta property="og:description" content="本篇可以作为了解联邦学习中后门攻击的引导篇， 创新点一般, 营养度一般 对于文中的创新点进行总结：  双链架构：私有链负责保存参数融合参数、公链负责记录节点上传参数数据的Hash以及账号的激励与惩罚 私有安全云记录节点日志与参数数据，用于后门检测 后门检测算法：事先知道木马模式&#x2F;logo的情况下构造有毒验证集通过将基类（未被注入后门）注入后门，用模型检测过程中异常贡献的参数，随之找出后门注入节点">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/tCZb2h.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/GpPLUu.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/3sDVpj.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/zw6XZH.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/RKo1U4.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/X45MF3.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/hYEov7.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/sji2Zi.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/1Pmlcz.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/C6V1nl.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/xZSX39.png">
 <meta property="article:published_time" content="2021-05-26T08:59:56.000Z">
-<meta property="article:modified_time" content="2021-07-13T15:56:23.907Z">
+<meta property="article:modified_time" content="2021-07-19T07:42:57.441Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="federated_learing">
 <meta name="twitter:card" content="summary">
@@ -79,7 +85,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 468
+			总文章数 476
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -224,7 +230,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.6k字</span>
+        <span class="post-count">3.3k字</span>
       </span>
     </span>
 
@@ -233,7 +239,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">9分</span>
+        <span class="post-count">11分</span>
       </span>
     </span>
 </div>
@@ -245,7 +251,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、基本信息、前置知识"><a href="#一、基本信息、前置知识" class="headerlink" title="一、基本信息、前置知识"></a>一、基本信息、前置知识</h1><blockquote>
+        <blockquote>
+<p>本篇可以作为了解联邦学习中<font color='#e54d42'><strong>后门攻击</strong></font>的引导篇， <font color='#e54d42'>创新点一般, 营养度一般</font></p>
+<p>对于文中的创新点进行总结：</p>
+<ol>
+<li>双链架构：私有链负责保存参数融合参数、公链负责记录节点上传参数数据的Hash以及账号的激励与惩罚</li>
+<li>私有安全云记录节点日志与参数数据，用于后门检测</li>
+<li>后门检测算法：事先知道木马模式/logo的情况下构造有毒验证集通过将基类（未被注入后门）注入后门，用模型检测过程中异常贡献的参数，随之找出后门注入节点</li>
+</ol>
+<p>个人疑问：</p>
+<ol>
+<li>双链架构共识一快一慢如何保持同步？</li>
+<li>私有云的存在与私有链的存在是否冲突？使用私有安全云代替私有链是否也可行？</li>
+<li>后门检测算法验证者怎样知晓木马模式？（攻击者到底加的是什么，在实际的生产环境中难以猜到或知晓）</li>
+</ol>
+</blockquote>
+<h1 id="一、基本信息、前置知识"><a href="#一、基本信息、前置知识" class="headerlink" title="一、基本信息、前置知识"></a>一、基本信息、前置知识</h1><blockquote>
 <p>CODASPY ‘21: Proceedings of the Eleventh ACM Conference on Data and Application Security and Privacy</p>
 </blockquote>
 <a id="more"></a>
@@ -261,8 +282,17 @@
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/tCZb2h.png" alt="tCZb2h"></p>
 <h2 id="1-2-Fisher-Information-Matrix"><a href="#1-2-Fisher-Information-Matrix" class="headerlink" title="1.2 Fisher Information Matrix"></a>1.2 Fisher Information Matrix</h2><blockquote>
 <p><a href="https://mathworld.wolfram.com/FisherInformationMatrix.html" target="_blank" rel="noopener">https://mathworld.wolfram.com/FisherInformationMatrix.html</a></p>
+<p><a href="https://www.zhihu.com/question/26561604" target="_blank" rel="noopener">https://www.zhihu.com/question/26561604</a></p>
 </blockquote>
 <p>Fisher information matrix是用利用最大似然函数估计来计算方差矩阵。</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/GpPLUu.png" alt="GpPLUu"></p>
+<p>上面的$(J_X)_{i,j}$就是Fisher Information Matrix (费雪信息矩阵)</p>
+<p>其数学意义在于：</p>
+<ol>
+<li>估计最大似然估计MLE方程的方差</li>
+<li>log 似然在参数真实值处的负二阶导数的期望</li>
+<li>Fisher Information反映了我们对参数估计的准确度，它越大，<strong>对参数估计的准确度越高</strong>，即代表了越多的信息。</li>
+</ol>
 <h1 id="二、摘要"><a href="#二、摘要" class="headerlink" title="二、摘要"></a>二、摘要</h1><ul>
 <li><p>FL的隐藏数据的特点给攻击者提供了对训练模型<strong>后门注入攻击</strong>的机会, 从而使模型进行错误的分类</p>
 </li>
@@ -341,12 +371,12 @@
 </li>
 <li><p>tcp长连接agent与server</p>
 </li>
-<li><p>与区块链间交易相关的所有操作都是从<strong>承载私有区块链</strong>的任何节点执行的，可以是工作节点，也可以是背书节点。</p>
+<li><p>与区块链间交易相关的所有操作<strong>都是</strong>从<strong>承载私有区块链的任何节点</strong>执行的，可以是工作节点，也可以是背书节点。</p>
 </li>
 </ul>
 <h2 id="5-2-On-Chain-Aggregation"><a href="#5-2-On-Chain-Aggregation" class="headerlink" title="5.2 On-Chain Aggregation"></a>5.2 On-Chain Aggregation</h2><ul>
 <li>Worker node: 链下训练模型提交参数</li>
-<li>Server：就是私有链,负责聚合参数以及发送全局更新回馈给worker</li>
+<li>Server：就是<strong>私有链</strong>,负责聚合参数以及发送全局更新回馈给worker</li>
 <li>两者通信需要证书，证书是由服务器证书颁发机构(CA)签署的，通过在SSL上维护TLS连接，工作节点可以从服务器发送和接收参数</li>
 <li>通信之中会检查，server会检查更新大小，收到的更新类型、发送者的证书</li>
 </ul>
@@ -367,7 +397,7 @@
 <p>为了后续检测到木马时追究责任</p>
 </blockquote>
 </li>
-<li><p>worker节点会将公有链的Hash与存储在私有链的参数集合Hash进行匹配比对, 不匹配则会出发处罚机制（见下一节）</p>
+<li><p>worker节点会将公有链的Hash与存储在私有链的参数集合Hash进行匹配比对, 不匹配则会触发处罚机制（见下一节）</p>
 </li>
 </ul>
 <h2 id="5-4-Penalty-structure"><a href="#5-4-Penalty-structure" class="headerlink" title="5.4 Penalty structure"></a>5.4 Penalty structure</h2><ul>
@@ -390,7 +420,10 @@
 </li>
 <li><p><em>异常预警政策</em></p>
 <p>将怀疑发送公链上的智能合约中，其中包含了所有Worker节点的本地更新Hash</p>
-<p>如果私有链的本地更新的hash与公有链的相匹配，则可以证明嫌疑人在<font color='#e54d42'><strong>上传参数的时候</strong></font>是诚实的</p>
+<p>如果<strong>私有链的本地更新的hash与公有链的相匹配</strong>，则可以证明嫌疑人在<font color='#e54d42'><strong>上传参数的时候</strong></font>是诚实的</p>
+<blockquote>
+<p><font color='#39b54a'>这里的诚实并不是数据本身的真实性，而是上传到两边的数据是相同的、未篡改的</font></p>
+</blockquote>
 <p>现在检查私有云的日志，原告可以下载被告私有云的一个访问连接（私有链提供），下载参数更新日志，运行trojan检测算法检测（下一节）</p>
 </li>
 </ul>
@@ -398,10 +431,13 @@
 <p>一个对于trojaning图像后门攻击的检测算法事例</p>
 <p>假设：</p>
 <ul>
-<li>诚实的验证者：可以访问被注入后门的模型、trojan木马模式以及agents更新发送在私有云的记录</li>
-<li>攻击者：能够在模型中实现from a base class as target class </li>
+<li>诚实的验证者：可以访问被注入后门的<strong>模型</strong>、<strong>trojan木马模式</strong>以及agents更新发送在<strong>私有云的记录</strong></li>
+<li>攻击者：能够在模型中实现 from a base class as target class </li>
 </ul>
 <p>检测算法背后的关键思想是<font color='#e54d42'><strong>通过计算经验Fisher信息矩阵( Fisher Information Matrix )(FIM)来做参数属性（ parameter attribution）</strong></font></p>
+<blockquote>
+<p><font color='#39b54a'>这里的FIM在上方有简单的介绍，个人的理解（不一定准确，这里确实也不是很了解）使用其作为根据影响模型准确性分类参数的工具</font></p>
+</blockquote>
 <p>过程如下：</p>
 <ol>
 <li><p>验证者首先使用对手的木马模式(已知)创建一个有毒的验证集。</p>
@@ -410,7 +446,7 @@
 </li>
 <li><p>使用私有云的更新日志信息重新训练模型</p>
 </li>
-<li><p>他使用聚合模型计算有毒的验证数据集上的后门损失。</p>
+<li><p>使用聚合模型计算有毒的验证数据集上的后门损失。</p>
 </li>
 <li><p>对于后门损失减少的轮，验证者利用有毒的验证数据集对聚合模型进行FIM参数归因（ parameter attribution）。</p>
 </li>
@@ -429,6 +465,38 @@
 <blockquote>
 <p><font color='#39b54a'>疑问：验证者怎样提前知晓木马模式？木马模式种类繁多一个个测试？</font></p>
 </blockquote>
+<h1 id="六、实现"><a href="#六、实现" class="headerlink" title="六、实现"></a>六、实现</h1><ul>
+<li><p>使用Fabric作为私有链，golang编写链码逻辑实现接受Deep Learning的批次更新的参数，并存储到kv数据库中</p>
+</li>
+<li><p>使用Ethereum Ropsten测试网作为公链,其中每个节点都用MateMask创建了钱包账户，其上使用合约实现存储Hash</p>
+</li>
+<li><p>使用了两种联邦学习平均算法：1.signSGD 2.FedAvg</p>
+</li>
+</ul>
+<h1 id="七、提升措施-优化技术"><a href="#七、提升措施-优化技术" class="headerlink" title="七、提升措施/优化技术"></a>七、提升措施/优化技术</h1><blockquote>
+<p>此部分多为技术上的细节优化，不是很重要，简记</p>
+</blockquote>
+<ol>
+<li><p>使用base64进行二进制压缩</p>
+<p>Fabric的链码不支持输入二进制的参数, 必须是字符串的字符. 使用Go实现Base64编码进行压缩</p>
+</li>
+<li><p>防止键碰撞</p>
+</li>
+<li><p>一些体系结构的改进</p>
+</li>
+<li><p>缓存链码</p>
+</li>
+</ol>
+<h1 id="八、实验"><a href="#八、实验" class="headerlink" title="八、实验"></a>八、实验</h1><p>公链消耗数据结果分析：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/hYEov7.png" alt="hYEov7"></p>
+<p>参数变化与合约变化在上传时间上的分析：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/sji2Zi.png" alt="sji2Zi"></p>
+<p>两种模式下的参数融合效果分析：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/1Pmlcz.png" alt="1Pmlcz"></p>
+<p>（貌似signSGD更加快速）</p>
+<p>后门注入检测算法：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/C6V1nl.png" alt="C6V1nl"></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/xZSX39.png" alt="xZSX39"></p>
 
       
       
@@ -450,7 +518,7 @@
     2021-05-26
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-07-13
+    2021-07-19
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/05/26/知识贴/论文/FL And BlockChain/《BlockFLA-Accountable-Federated-Learning-via-Hybrid-Blockchain-Architecture》精读/" title="《BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture》精读" target="_blank">《BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture》精读</a>
@@ -660,7 +728,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基本信息、前置知识"><span class="toc-number">1.</span> <span class="toc-text">一、基本信息、前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-后门注入攻击"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 后门注入攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Fisher-Information-Matrix"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Fisher Information Matrix</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、摘要"><span class="toc-number">2.</span> <span class="toc-text">二、摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Introduction"><span class="toc-number">3.</span> <span class="toc-text">三、Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-总体介绍"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 总体介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-贡献总览"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 贡献总览</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、背景介绍"><span class="toc-number">4.</span> <span class="toc-text">四、背景介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-聚合更新"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 聚合更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-后门攻击和投毒模型"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 后门攻击和投毒模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、系统架构"><span class="toc-number">5.</span> <span class="toc-text">五、系统架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-框架安装"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 框架安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-On-Chain-Aggregation"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 On-Chain Aggregation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-Verification-over-Public-Ledger"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 Verification over Public Ledger</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-Penalty-structure"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 Penalty structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-Log-Scheme-in-Secure-Cloud"><span class="toc-number">5.5.</span> <span class="toc-text">5.5 Log Scheme in Secure Cloud</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-An-Attacker-Detection-Algorithm-for-Trojaning-Attacks"><span class="toc-number">5.6.</span> <span class="toc-text">!!! 5.6 An Attacker Detection Algorithm for Trojaning Attacks</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基本信息、前置知识"><span class="toc-number">1.</span> <span class="toc-text">一、基本信息、前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-后门注入攻击"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 后门注入攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Fisher-Information-Matrix"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Fisher Information Matrix</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、摘要"><span class="toc-number">2.</span> <span class="toc-text">二、摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Introduction"><span class="toc-number">3.</span> <span class="toc-text">三、Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-总体介绍"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 总体介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-贡献总览"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 贡献总览</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、背景介绍"><span class="toc-number">4.</span> <span class="toc-text">四、背景介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-聚合更新"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 聚合更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-后门攻击和投毒模型"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 后门攻击和投毒模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、系统架构"><span class="toc-number">5.</span> <span class="toc-text">五、系统架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-框架安装"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 框架安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-On-Chain-Aggregation"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 On-Chain Aggregation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-Verification-over-Public-Ledger"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 Verification over Public Ledger</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-Penalty-structure"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 Penalty structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-Log-Scheme-in-Secure-Cloud"><span class="toc-number">5.5.</span> <span class="toc-text">5.5 Log Scheme in Secure Cloud</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-An-Attacker-Detection-Algorithm-for-Trojaning-Attacks"><span class="toc-number">5.6.</span> <span class="toc-text">!!! 5.6 An Attacker Detection Algorithm for Trojaning Attacks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、实现"><span class="toc-number">6.</span> <span class="toc-text">六、实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、提升措施-优化技术"><span class="toc-number">7.</span> <span class="toc-text">七、提升措施&#x2F;优化技术</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、实验"><span class="toc-number">8.</span> <span class="toc-text">八、实验</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -885,11 +953,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -909,19 +989,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rust</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -929,19 +1001,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">DApp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -953,11 +1021,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">machine_learn</a>
+                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">machine_learn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -965,11 +1033,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bcos</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -977,23 +1041,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Fabric</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+                <a href="javascript:void(0)" class="js-tag color2">Fabric</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">bcos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1001,11 +1057,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1013,7 +1073,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1021,11 +1081,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MysQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1041,19 +1109,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ethermint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tendermint</a>
+                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">每日一记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tendermint</a>
               </li>
              
               <li class="article-tag-list-item">

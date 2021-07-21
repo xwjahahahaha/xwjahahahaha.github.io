@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 468
+			总文章数 476
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/Linux/VBox工具虚拟CentOS-7系统-实现联网配置以及Xshell连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/算法/136-只出现一次的数字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/VBox%E5%B7%A5%E5%85%B7%E8%99%9A%E6%8B%9FCentOS-7%E7%B3%BB%E7%BB%9F-%E5%AE%9E%E7%8E%B0%E8%81%94%E7%BD%91%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8AXshell%E8%BF%9E%E6%8E%A5/">VBox工具虚拟CentOS-7系统-实现联网配置以及Xshell连接</a>
+      <a class="article-title" href="/2020/08/31/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/136-%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/">136-只出现一次的数字</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/VBox%E5%B7%A5%E5%85%B7%E8%99%9A%E6%8B%9FCentOS-7%E7%B3%BB%E7%BB%9F-%E5%AE%9E%E7%8E%B0%E8%81%94%E7%BD%91%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8AXshell%E8%BF%9E%E6%8E%A5/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/31/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/136-%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/08/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/VBox%E5%B7%A5%E5%85%B7%E8%99%9A%E6%8B%9FCentOS-7%E7%B3%BB%E7%BB%9F-%E5%AE%9E%E7%8E%B0%E8%81%94%E7%BD%91%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8AXshell%E8%BF%9E%E6%8E%A5/" class="archive-article-date">
-  	<time datetime="2020-08-20T11:51:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
+<a href="/2020/08/31/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/136-%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/" class="archive-article-date">
+  	<time datetime="2020-08-31T02:57:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,309 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">615字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Virtual-Box配置CentOS7网络"><a href="#Virtual-Box配置CentOS7网络" class="headerlink" title="Virtual Box配置CentOS7网络"></a>Virtual Box配置CentOS7网络</h1><p>看帖：<a href="https://www.cnblogs.com/wxw16/p/6256796.html" target="_blank" rel="noopener">https://www.cnblogs.com/wxw16/p/6256796.html</a></p>
-<p>学习做个记录，以便以后使用。</p>
-<p>Virtual Box可选的网络接入方式包括：</p>
-<ul>
-<li>NAT 网络地址转换模式(NAT,Network Address Translation)</li>
-<li>Bridged Adapter 桥接模式</li>
-<li>Internal 内部网络模式</li>
-<li>Host-only Adapter 主机模式</li>
-</ul>
-<p>具体的区别网上的资料很多，就不再描述了，下面是一个最直接有效的配置，<strong>配置CentOS7虚拟机里面能上外网，而主机与CentOS7虚拟机也能连通</strong>。不论是学习还是使用，基本都能够满足。不废话，直接上图！</p>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/VBox%E5%B7%A5%E5%85%B7%E8%99%9A%E6%8B%9FCentOS-7%E7%B3%BB%E7%BB%9F-%E5%AE%9E%E7%8E%B0%E8%81%94%E7%BD%91%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8AXshell%E8%BF%9E%E6%8E%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-技术贴/区块链/Ethereum/Web3js/Web3-js的学习-6-编译、部署、测试合约完整流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Web3js/Web3-js%E7%9A%84%E5%AD%A6%E4%B9%A0-6-%E7%BC%96%E8%AF%91%E3%80%81%E9%83%A8%E7%BD%B2%E3%80%81%E6%B5%8B%E8%AF%95%E5%90%88%E7%BA%A6%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/">Web3-js的学习(6)-编译、部署、测试合约完整流程</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Web3js/Web3-js%E7%9A%84%E5%AD%A6%E4%B9%A0-6-%E7%BC%96%E8%AF%91%E3%80%81%E9%83%A8%E7%BD%B2%E3%80%81%E6%B5%8B%E8%AF%95%E5%90%88%E7%BA%A6%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/08/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Web3js/Web3-js%E7%9A%84%E5%AD%A6%E4%B9%A0-6-%E7%BC%96%E8%AF%91%E3%80%81%E9%83%A8%E7%BD%B2%E3%80%81%E6%B5%8B%E8%AF%95%E5%90%88%E7%BA%A6%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-18T12:18:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h1><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200818202110.png" alt=""></p>
-<p>注：<strong>这里的web3js代码是基于1.0.0以上的版本。</strong></p>
-<p>一般的开发流程：</p>
-<blockquote>
-<p>写智能合约 =&gt; 编译 =&gt; 部署到ganache测试环境 =&gt; 测试 =&gt; 通过geth发布到私有网络</p>
-</blockquote>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">block_chain</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">web3js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/block-chain//" class="article-tag-list-link color2">block_chain</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Web3js/Web3-js%E7%9A%84%E5%AD%A6%E4%B9%A0-6-%E7%BC%96%E8%AF%91%E3%80%81%E9%83%A8%E7%BD%B2%E3%80%81%E6%B5%8B%E8%AF%95%E5%90%88%E7%BA%A6%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2020-8/日记-0058" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0058/">日记_0058</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0058/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0058/" class="archive-article-date">
-  	<time datetime="2020-08-18T06:42:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">34字</span>
+        <span class="post-count">243字</span>
       </span>
     </span>
 
@@ -535,13 +233,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
-<ol>
-<li><del>DApp流程结束，编译、部署脚本的学习结束</del></li>
-<li><del>跑步5公里</del></li>
-<li><del>Linux的继续学习</del></li>
-</ol>
-</blockquote>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
+<p>说明：</p>
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+<p>示例 1:</p>
+<p>输入: [2,2,1]</p>
+<p>输出: 1</p>
+<p>示例 2:</p>
+<p>输入: [4,1,2,1,2]</p>
+<p>输出: 4</p>
         
       
       
@@ -574,7 +274,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -586,11 +286,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -599,7 +299,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0058/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/31/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/136-%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/">展开全文 >></a>
         </p>
       
 
@@ -633,27 +333,27 @@
 
 
   
-    <article id="post-随笔/每日一记/周记/2020-8/周记-0008" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/周记/2020-8/周记-0009" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0008/">周记_0008</a>
+      <a class="article-title" href="/2020/08/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0009/">周记_0009</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0008/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0009/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/08/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0008/" class="archive-article-date">
-  	<time datetime="2020-08-17T00:27:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-17</time>
+<a href="/2020/08/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0009/" class="archive-article-date">
+  	<time datetime="2020-08-23T12:34:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -662,7 +362,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">194字</span>
+        <span class="post-count">140字</span>
       </span>
     </span>
 
@@ -684,9 +384,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="上周完成任务汇总："><a href="#上周完成任务汇总：" class="headerlink" title="上周完成任务汇总："></a>上周完成任务汇总：</h2><ol>
-<li>web3js脚本学习结束，DApp开发流程的学习。</li>
-<li>鸟哥的Linux私房菜 =》p179。</li>
-<li>MIT 分布式系统视频课两节=》课程介绍、分布式系统所面临的重要待解决问题。</li>
+<li>以太坊智能合约自动化编译、部署、测试脚本的学习；truffle-DApp框架的初探。</li>
+<li>鸟哥的Linux私房菜 =&gt; p200  文件、目录处理操作；liunx上私链环境的搭建。</li>
+<li>java、MySQL数据库的复习。</li>
+<li>英语。</li>
 </ol>
         
       
@@ -745,7 +446,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0008/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0009/">展开全文 >></a>
         </p>
       
 
@@ -779,27 +480,27 @@
 
 
   
-    <article id="post-技术贴/solidity智能合约/体验开发一个DApp的流程-简单投票DApp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/区块链/Ethereum/Truffle/truffle框架的学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E4%BD%93%E9%AA%8C%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AADApp%E7%9A%84%E6%B5%81%E7%A8%8B-%E7%AE%80%E5%8D%95%E6%8A%95%E7%A5%A8DApp/">体验开发一个DApp的流程-简单投票DApp</a>
+      <a class="article-title" href="/2020/08/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Truffle/truffle%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/">truffle框架的学习</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E4%BD%93%E9%AA%8C%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AADApp%E7%9A%84%E6%B5%81%E7%A8%8B-%E7%AE%80%E5%8D%95%E6%8A%95%E7%A5%A8DApp/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Truffle/truffle%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/08/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E4%BD%93%E9%AA%8C%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AADApp%E7%9A%84%E6%B5%81%E7%A8%8B-%E7%AE%80%E5%8D%95%E6%8A%95%E7%A5%A8DApp/" class="archive-article-date">
-  	<time datetime="2020-08-16T08:55:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-16</time>
+<a href="/2020/08/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Truffle/truffle%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2020-08-23T11:44:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -808,7 +509,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.7k字</span>
+        <span class="post-count">1.4k字</span>
       </span>
     </span>
 
@@ -817,7 +518,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -829,9 +530,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="开发准备"><a href="#开发准备" class="headerlink" title="开发准备"></a>开发准备</h1><p>主要学习开发一个DApp的流程，合约的设计与逻辑不是重点，所以对于投票合约内容做了简化。</p>
-<h2 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h2><p>DApp中的D指的是decentralization，DApp的意思就是去中心化的应用。</p>
-<p>ganache是相对于geth更加方便的一个区块链测试平台，项目中使用ganache。其前身是大名鼎鼎的testRPC。</p>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Truffle是目前最流行的以太坊DApp开发框架，（按照官网说法）是一个世界级的开发环境和测试框架，也是所有使用了EVM的区块链的资产管理通道，它基于JavaScript，致力于让以太坊上的开发变得简单。</p>
+<p>Truffle有以下功能： </p>
+<ul>
+<li><p> 内置的智能合约编译，链接，部署和二进制文件的管理。 </p>
+</li>
+<li><p> 合约自动测试，方便快速开发。 </p>
+</li>
+<li><p> 脚本化的、可扩展的部署与发布框架。 </p>
+</li>
+<li><p> 可部署到任意数量公网或私网的网络环境管理功能 </p>
+</li>
+<li><p> 使用EthPM和NPM提供的包管理，使用ERC190标准。 </p>
+</li>
+<li><p> 与合约直接通信的直接交互控制台（写完合约就可以命令行里验证了）。</p>
+</li>
+<li><p> 可配的构建流程，支持紧密集成。  在Truffle环境里支持执行外部的脚本。</p>
+</li>
+</ul>
+<h1 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h1><p>选择全局安装： <code>npm install -g truffle@4.1.14</code>,我下载的是4.1.14版本。</p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200823194902.png" alt=""></p>
+<p>安装完之后给上面的路径添加软连接 <code>ln -s /usr/local/node/node-v10.15.0-linux-x64/bin/truffle /usr/local/bin/truffle</code></p>
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200823195108.png" alt=""></p>
+<p>出现上面的提示就说明安装成功了。</p>
         
       
       
@@ -866,10 +587,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">block_chain</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">DApp</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -893,7 +610,307 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E4%BD%93%E9%AA%8C%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AADApp%E7%9A%84%E6%B5%81%E7%A8%8B-%E7%AE%80%E5%8D%95%E6%8A%95%E7%A5%A8DApp/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/08/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Truffle/truffle%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/数据库/MySQL/MySQL的学习-1-DDL操作数据库和表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E7%9A%84%E5%AD%A6%E4%B9%A0-1-DDL%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8/">MySQL的学习-1-DDL操作数据库和表</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E7%9A%84%E5%AD%A6%E4%B9%A0-1-DDL%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/08/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E7%9A%84%E5%AD%A6%E4%B9%A0-1-DDL%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2020-08-22T09:44:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.2k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">4分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL基础"><a href="#MySQL基础" class="headerlink" title="MySQL基础"></a>MySQL基础</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>我安装的是MySQL5.5版本。</p>
+<p>安装前记得卸载以前的版本，防止最后一步无响应。（PS:以前安装过PHPstudy记得在里面卸载MySQL组件）</p>
+<p>具体安装、配置不再赘述，可看网上文章。</p>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/MySQL//" class="article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E7%9A%84%E5%AD%A6%E4%B9%A0-1-DDL%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-随笔/每日一记/日记/2020-8/日记-0060" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0060/">日记_0060</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0060/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/08/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0060/" class="archive-article-date">
+  	<time datetime="2020-08-22T02:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">48字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="今日待办任务："><a href="#今日待办任务：" class="headerlink" title="今日待办任务："></a>今日待办任务：</h2><blockquote>
+<ol>
+<li>老师说的课题</li>
+<li>java</li>
+<li>Linux</li>
+<li>区块链</li>
+</ol>
+</blockquote>
+<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
+<ol>
+<li><del>老师说的课题的思考</del></li>
+<li><del>java学习到p489 数据库</del></li>
+<li><del>Linux以太坊环境布置</del></li>
+</ol>
+</blockquote>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0060/">展开全文 >></a>
         </p>
       
 
@@ -929,7 +946,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/63/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="page-number" href="/page/63/">63</a><span class="page-number current">64</span><a class="page-number" href="/page/65/">65</a><a class="page-number" href="/page/66/">66</a><span class="space">&hellip;</span><a class="page-number" href="/page/94/">94</a><a class="extend next" rel="next" href="/page/65/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/63/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/62/">62</a><a class="page-number" href="/page/63/">63</a><span class="page-number current">64</span><a class="page-number" href="/page/65/">65</a><a class="page-number" href="/page/66/">66</a><span class="space">&hellip;</span><a class="page-number" href="/page/96/">96</a><a class="extend next" rel="next" href="/page/65/">下一页</a>
     </nav>
   
 
@@ -1118,11 +1135,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1142,19 +1171,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rust</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1162,19 +1183,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">DApp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
+                <a href="javascript:void(0)" class="js-tag color4">solidity</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rust</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1186,11 +1203,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">machine_learn</a>
+                <a href="javascript:void(0)" class="js-tag color5">zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color4">machine_learn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1198,11 +1215,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">bcos</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1210,23 +1223,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Fabric</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">fabric</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
+                <a href="javascript:void(0)" class="js-tag color2">Fabric</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">bcos</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1234,11 +1239,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">swarm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,7 +1255,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1254,11 +1263,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MysQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1274,19 +1291,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ethermint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tendermint</a>
+                <a href="javascript:void(0)" class="js-tag color2">web3js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">每日一记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tendermint</a>
               </li>
              
               <li class="article-tag-list-item">
