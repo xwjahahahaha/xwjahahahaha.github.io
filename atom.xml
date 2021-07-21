@@ -107,6 +107,32 @@
   </entry>
   
   <entry>
+    <title>《Decentralized_Privacy_Using_Blockchain-Enabled_Federated_Learning_in_Fog_Computing》精读</title>
+    <link href="https://xwjahahahaha.github.io/2021/07/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8ADecentralized-Privacy-Using-Blockchain-Enabled-Federated-Learning-in-Fog-Computing%E3%80%8B%E7%B2%BE%E8%AF%BB/"/>
+    <id>https://xwjahahahaha.github.io/2021/07/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8ADecentralized-Privacy-Using-Blockchain-Enabled-Federated-Learning-in-Fog-Computing%E3%80%8B%E7%B2%BE%E8%AF%BB/</id>
+    <published>2021-07-20T07:40:34.000Z</published>
+    <updated>2021-07-21T02:16:02.996Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>论文地址：<a href="https://ieeexplore.ieee.org/document/9019859" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/9019859</a></p></blockquote><h1 id="一、基本信息、前置知识"><a href="#一、基本信息、前置知识" class="headerlink" title="一、基本信息、前置知识"></a>一、基本信息、前置知识</h1><h2 id="1-1-基本信息"><a href="#1-1-基本信息" class="headerlink" title="1.1 基本信息"></a>1.1 基本信息</h2><p>《Decentralized Privacy Using Blockchain-Enabled Federated Learning in Fog Computing》</p><p>作者：<a href="https://ieeexplore.ieee.org/author/37086113748" target="_blank" rel="noopener">Youyang Qu</a>; <a href="https://ieeexplore.ieee.org/author/37400376100" target="_blank" rel="noopener">Longxiang Gao</a>; <a href="https://ieeexplore.ieee.org/author/37085345130" target="_blank" rel="noopener">Tom H. Luan</a>; <a href="https://ieeexplore.ieee.org/author/37286573200" target="_blank" rel="noopener">Yong Xiang</a>; <a href="https://ieeexplore.ieee.org/author/37405530700" target="_blank" rel="noopener">Shui Yu</a>; <a href="https://ieeexplore.ieee.org/author/37088420381" target="_blank" rel="noopener">Bai Li</a>; <a href="https://ieeexplore.ieee.org/author/37088420573" target="_blank" rel="noopener">Gavin Zheng</a></p><p>出版刊物：<a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6488907" target="_blank" rel="noopener">IEEE Internet of Things Journal</a> ( Volume: 7, <a href="https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=9115800" target="_blank" rel="noopener">Issue: 6</a>)</p><p>年份：June 2020</p><p>期刊影响因子/分区：2021年9.47/<strong>Q1</strong></p><a id="more"></a><h2 id="1-2-前置知识"><a href="#1-2-前置知识" class="headerlink" title="1.2 前置知识"></a>1.2 前置知识</h2><h3 id="雾计算"><a href="#雾计算" class="headerlink" title="雾计算"></a>雾计算</h3><blockquote><p>百度百科：</p><p>雾计算（Fog Computing），在该模式中数据、（数据）处理和<a href="https://baike.baidu.com/item/应用程序集/3491931" target="_blank" rel="noopener">应用程序集</a>中在<strong>网络边缘的设备</strong>中，而不是几乎全部保存在云中，是<a href="https://baike.baidu.com/item/云计算/9969353" target="_blank" rel="noopener">云计算</a>（Cloud Computing）的延伸概念，由<a href="https://baike.baidu.com/item/思科/454822" target="_blank" rel="noopener">思科</a>（Cisco）提出的。这个因“云”而“雾”的命名源自“雾是更贴近地面的云”这一名句。</p><p>雾计算和云计算一样，十分形象。云在天空飘浮，高高在上，遥不可及，刻意抽象；而雾却现实可及，贴近地面，就在你我身边。雾计算并非由性能强大的服务器组成，而是由<strong>性能较弱、更为分散的各类功能计算机组成</strong>，渗入工厂、汽车、电器、街灯及人们物质生活中的各类用品。</p></blockquote><p>雾计算不是具体的一种算法，而是偏向一种新型的应用概念</p><h1 id="二、解决的问题"><a href="#二、解决的问题" class="headerlink" title="二、解决的问题"></a>二、解决的问题</h1><ol><li><p>分布式隐私：融合区块链和联邦学习框架解决雾计算的单点隐私问题, 通过区块链解决隐私保护 </p><blockquote><p><font color='#39b54a'>去中心化实现的隐私保护</font></p></blockquote></li><li><p>投毒攻击证明：区块链系统提供non-tempering特点实现投毒攻击的评估</p></li><li><p>高效率：一方面联邦学习只交换梯度参数，第二方面区块链只存储指针，数据通过<strong>链下的分布式Hash表存储</strong></p></li></ol><h1 id="三、创新的方法"><a href="#三、创新的方法" class="headerlink" title="三、创新的方法"></a>三、创新的方法</h1><h2 id="3-1-FL-Block体系框架"><a href="#3-1-FL-Block体系框架" class="headerlink" title="3.1 FL-Block体系框架"></a>3.1 FL-Block体系框架</h2><h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1>]]></content>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;论文地址：&lt;a href=&quot;https://ieeexplore.ieee.org/document/9019859&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://ieeexplore.ieee.org/document/9019859&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、基本信息、前置知识&quot;&gt;&lt;a href=&quot;#一、基本信息、前置知识&quot; class=&quot;headerlink&quot; title=&quot;一、基本信息、前置知识&quot;&gt;&lt;/a&gt;一、基本信息、前置知识&lt;/h1&gt;&lt;h2 id=&quot;1-1-基本信息&quot;&gt;&lt;a href=&quot;#1-1-基本信息&quot; class=&quot;headerlink&quot; title=&quot;1.1 基本信息&quot;&gt;&lt;/a&gt;1.1 基本信息&lt;/h2&gt;&lt;p&gt;《Decentralized Privacy Using Blockchain-Enabled Federated Learning in Fog Computing》&lt;/p&gt;
+&lt;p&gt;作者：&lt;a href=&quot;https://ieeexplore.ieee.org/author/37086113748&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Youyang Qu&lt;/a&gt;; &lt;a href=&quot;https://ieeexplore.ieee.org/author/37400376100&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Longxiang Gao&lt;/a&gt;; &lt;a href=&quot;https://ieeexplore.ieee.org/author/37085345130&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tom H. Luan&lt;/a&gt;; &lt;a href=&quot;https://ieeexplore.ieee.org/author/37286573200&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Yong Xiang&lt;/a&gt;; &lt;a href=&quot;https://ieeexplore.ieee.org/author/37405530700&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Shui Yu&lt;/a&gt;; &lt;a href=&quot;https://ieeexplore.ieee.org/author/37088420381&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Bai Li&lt;/a&gt;; &lt;a href=&quot;https://ieeexplore.ieee.org/author/37088420573&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Gavin Zheng&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;出版刊物：&lt;a href=&quot;https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6488907&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;IEEE Internet of Things Journal&lt;/a&gt; ( Volume: 7, &lt;a href=&quot;https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=9115800&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Issue: 6&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;年份：June 2020&lt;/p&gt;
+&lt;p&gt;期刊影响因子/分区：2021年9.47/&lt;strong&gt;Q1&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="knowledge" scheme="https://xwjahahahaha.github.io/categories/knowledge/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>剑指Offer17.打印从1到最大的n位数</title>
     <link href="https://xwjahahahaha.github.io/2021/07/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer17-%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/"/>
     <id>https://xwjahahahaha.github.io/2021/07/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer17-%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/</id>
@@ -1156,96 +1182,6 @@
     
     
     <category term="golang" scheme="https://xwjahahahaha.github.io/tags/golang/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>日记_0195</title>
-    <link href="https://xwjahahahaha.github.io/2021/07/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0195/"/>
-    <id>https://xwjahahahaha.github.io/2021/07/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0195/</id>
-    <published>2021-07-12T01:08:35.000Z</published>
-    <updated>2021-07-13T01:55:16.083Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table><thead><tr><th>任务</th><th>每天</th><th>开发-云容器技术</th><th>项目与框架</th><th>科研-区块链(FL+BC)</th><th>预备事宜</th></tr></thead><tbody><tr><td>1.</td><td><strong>英语单词</strong></td><td>go基础</td><td>SimpleBitcoin</td><td>FL/分布式存储论文一周一篇细读</td><td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td></tr><tr><td>2.</td><td>语法课看完</td><td>go网络编程、Web框架</td><td>联邦学习框架</td><td>写专利</td><td>看比赛资讯，准备<strong>区块链比赛</strong></td></tr><tr><td>3.</td><td><font color='red'>六级</font></td><td>go数据库、ORM、go高级编程</td><td></td><td>机器学习课程</td><td>为<strong>研二实习</strong>做准备</td></tr><tr><td>4.</td><td>Leetcode</td><td>go容器技术docker、k8s</td><td></td><td></td><td></td></tr><tr><td>5.</td><td></td><td>go微服务与任务调度</td><td></td><td></td><td></td></tr><tr><td>6.</td><td></td><td>看源码docker、k8s、Fabric、以太坊、比特币等</td><td></td><td></td><td></td></tr><tr><td>7.</td><td></td><td>Linux、C++</td><td></td><td></td><td></td></tr></tbody></table><a id="more"></a><h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul><li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li><li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li></ul><h3 id="细读："><a href="#细读：" class="headerlink" title="细读："></a>细读：</h3><ul><li><input checked="" disabled="" type="checkbox"> Cosmos whitepaper</li><li><input checked="" disabled="" type="checkbox"> 《区块链共识协议综述》</li><li><input checked="" disabled="" type="checkbox"> 《基于区块链技术的车联网高效匿名认证方案_陈葳葳》</li><li><input checked="" disabled="" type="checkbox"> Federated Machine Learning: Concept and Applications</li><li><input checked="" disabled="" type="checkbox"> Blockchained On-Device Federated Learning</li><li><input checked="" disabled="" type="checkbox"> Proof of Federated Learning: A Novel Energy-recycling Consensus Algorithm</li><li><input checked="" disabled="" type="checkbox"> Scalable and Communication-efficient Decentralized Federated Edge Learning with Multi-blockchain Framework</li><li><input checked="" disabled="" type="checkbox"> DEEP GRADIENT COMPRESSION:REDUCING THE COMMUNICATION BANDWIDTH FOR DISTRIBUTED TRAINING</li><li><input disabled="" type="checkbox"> BlockFLA:Accountable_Federated_Learning_via_Hybrid_Blockchain_Architecture</li><li><input disabled="" type="checkbox"> DeepChain: Auditable and Privacy-Preserving Deep Learning with Blockchain-based Incentive</li></ul><h2 id="学期规划"><a href="#学期规划" class="headerlink" title="学期规划:"></a>学期规划:</h2><ul><li><del>学弟的cosmos隐私保护项目</del></li><li>第一篇论文FL+BC</li><li><del>科技部编程比赛</del></li><li>暑期实习准备(Go, 算法等)</li></ul><ul><li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li><li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li><li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li><li><input checked="" disabled="" type="checkbox"> 专利一篇(金链积分)</li><li><input disabled="" type="checkbox"> Go网络编程Base</li><li><input disabled="" type="checkbox"> Go网络编程(base、Echo、Gin)</li><li><input disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)</li><li><input disabled="" type="checkbox"> 论文实验(编码实现)</li><li><input disabled="" type="checkbox"> 数据库(mysql, PostgreSQL), ORM(Gorm) 、Go设计模式  </li><li><input disabled="" type="checkbox"> Go设计模式 </li><li><input disabled="" type="checkbox"> docker </li><li><input disabled="" type="checkbox"> 容器编程k8s</li><li><input disabled="" type="checkbox"> 缓存、日志</li><li><input disabled="" type="checkbox"> 微服务(消息队列、任务调度、rpc)</li></ul><ul><li>Go开发走云容器技术</li><li>区块链开发走科研论文、Etherem、Fabric、源码分析、Cosmos使用</li></ul><p><strong>有底层技术才有实现想法的权利</strong></p><h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ul><li><input disabled="" type="checkbox"> 英语</li><li><input disabled="" type="checkbox"> leetcode一题 剑指offer</li><li><input checked="" disabled="" type="checkbox"> 华为区块链比赛结束</li><li><input checked="" disabled="" type="checkbox"> 解决IDE Debug</li><li><input checked="" disabled="" type="checkbox"> 论文BlockFLA 部分</li></ul><h2 id="今日自省"><a href="#今日自省" class="headerlink" title="今日自省"></a>今日自省</h2>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;任务&lt;/th&gt;
-&lt;th&gt;每天&lt;/th&gt;
-&lt;th&gt;开发-云容器技术&lt;/th&gt;
-&lt;th&gt;项目与框架&lt;/th&gt;
-&lt;th&gt;科研-区块链(FL+BC)&lt;/th&gt;
-&lt;th&gt;预备事宜&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;1.&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;英语单词&lt;/strong&gt;&lt;/td&gt;
-&lt;td&gt;go基础&lt;/td&gt;
-&lt;td&gt;SimpleBitcoin&lt;/td&gt;
-&lt;td&gt;FL/分布式存储论文一周一篇细读&lt;/td&gt;
-&lt;td&gt;准备参加&lt;strong&gt;编程类的比赛或者拿编程证书&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2.&lt;/td&gt;
-&lt;td&gt;语法课看完&lt;/td&gt;
-&lt;td&gt;go网络编程、Web框架&lt;/td&gt;
-&lt;td&gt;联邦学习框架&lt;/td&gt;
-&lt;td&gt;写专利&lt;/td&gt;
-&lt;td&gt;看比赛资讯，准备&lt;strong&gt;区块链比赛&lt;/strong&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;3.&lt;/td&gt;
-&lt;td&gt;&lt;font color=&#39;red&#39;&gt;六级&lt;/font&gt;&lt;/td&gt;
-&lt;td&gt;go数据库、ORM、go高级编程&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;机器学习课程&lt;/td&gt;
-&lt;td&gt;为&lt;strong&gt;研二实习&lt;/strong&gt;做准备&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;4.&lt;/td&gt;
-&lt;td&gt;Leetcode&lt;/td&gt;
-&lt;td&gt;go容器技术docker、k8s&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;5.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;go微服务与任务调度&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;6.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;看源码docker、k8s、Fabric、以太坊、比特币等&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;7.&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Linux、C++&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="每日一记" scheme="https://xwjahahahaha.github.io/categories/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
-    
-    
-    <category term="每日一记" scheme="https://xwjahahahaha.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/"/>
     
   </entry>
   
