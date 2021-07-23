@@ -15,10 +15,13 @@
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="论文地址：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;document&#x2F;9019859  一、基本信息、前置知识1.1 基本信息《Decentralized Privacy Using Blockchain-Enabled Federated Learning in Fog Computing》 作者：Youyang Qu; Longxiang Gao; Tom H. Luan; Y">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/P6vXDd.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/2NSrSL.png">
 <meta property="article:published_time" content="2021-07-20T07:40:34.000Z">
-<meta property="article:modified_time" content="2021-07-21T02:16:02.996Z">
+<meta property="article:modified_time" content="2021-07-23T09:35:33.227Z">
 <meta property="article:author" content="DDDemons hide">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/P6vXDd.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -72,7 +75,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 477
+			总文章数 481
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -217,7 +220,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">456字</span>
+        <span class="post-count">730字</span>
       </span>
     </span>
 
@@ -226,7 +229,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -265,7 +268,32 @@
 <li><p>高效率：一方面联邦学习只交换梯度参数，第二方面区块链只存储指针，数据通过<strong>链下的分布式Hash表存储</strong></p>
 </li>
 </ol>
-<h1 id="三、创新的方法"><a href="#三、创新的方法" class="headerlink" title="三、创新的方法"></a>三、创新的方法</h1><h2 id="3-1-FL-Block体系框架"><a href="#3-1-FL-Block体系框架" class="headerlink" title="3.1 FL-Block体系框架"></a>3.1 FL-Block体系框架</h2><h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1>
+<h1 id="三、创新的方法"><a href="#三、创新的方法" class="headerlink" title="三、创新的方法"></a>三、创新的方法</h1><h2 id="3-1-FL-Block体系框架"><a href="#3-1-FL-Block体系框架" class="headerlink" title="3.1 FL-Block体系框架"></a>3.1 FL-Block体系框架</h2><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/P6vXDd.png" alt="P6vXDd"></p>
+<ul>
+<li><p>在FL-Block的框架中，区块的区块体中保存所有本地设备的模型更新, 对于每个设备来说包括：</p>
+<ul>
+<li>在每个epoch的$(w_i^{(l)}, { \nabla f_k(w^{(l)}) }_{s_k \in S_i})$​</li>
+<li>本地计算时间 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/2NSrSL.png" alt="2NSrSL"></li>
+</ul>
+<blockquote>
+<p><font color='#39b54a'>后面的式子可以简单理解: (此次参数， 此次参数的变化量)</font></p>
+</blockquote>
+</li>
+<li><p>每个区块的大小被定义为$h + \delta_m N_V $</p>
+<ul>
+<li>$h$代表区块头大小</li>
+<li>$\delta_m$​代表模型更新大小</li>
+</ul>
+</li>
+<li><p><strong>每一个矿工Miner拥有一个与其相关联的设备或者其他Miner的充满了本地模型更新数据的候选区块(未上链区块)</strong>,写入区块数据的过程直到达到区块的最大数据量或者达到等待时间$T_{wait}$​</p>
+</li>
+<li><p>区块的生成速度$\lambda$（在区块头）可以被POW的难度控制,即POW的难度越大/区块目标值越小,区块生成速率$\lambda$越小</p>
+</li>
+</ul>
+<blockquote>
+<p><font color='#e54d42'>这部分区块链设计与《Blockchained_On-Device_Federated_Learning》论文一模一样…….emmm, 估计后面的时间效率分析也是一摸一样了….抄袭过于明显了.</font></p>
+</blockquote>
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1>
       
       
       <!-- 添加版权声明 -->
@@ -286,7 +314,7 @@
     2021-07-20
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-07-21
+    2021-07-23
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/07/20/知识贴/论文/FL And BlockChain/《Decentralized-Privacy-Using-Blockchain-Enabled-Federated-Learning-in-Fog-Computing》精读/" title="《Decentralized_Privacy_Using_Blockchain-Enabled_Federated_Learning_in_Fog_Computing》精读" target="_blank">《Decentralized_Privacy_Using_Blockchain-Enabled_Federated_Learning_in_Fog_Computing》精读</a>
@@ -746,10 +774,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">block_chain</a>
               </li>
              
@@ -879,6 +903,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">solidaty</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cipher</a>
               </li>
             
             <div class="clearfix"></div>
