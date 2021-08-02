@@ -8,17 +8,27 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>《Decentralized_Privacy_Using_Blockchain-Enabled_Federated_Learning_in_Fog_Computing》精读 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="论文地址：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;document&#x2F;9019859  一、基本信息、前置知识1.1 基本信息《Decentralized Privacy Using Blockchain-Enabled Federated Learning in Fog Computing》 作者：Youyang Qu; Longxiang Gao; Tom H. Luan; Y">
+  <meta name="description" content="论文地址：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;document&#x2F;9019859   糟心的一篇文章，整段照抄引用文章、放公式不解释变量字母含义、题目起攻击的防御不写防御，不知这文章怎么上的一区期刊  一、基本信息、前置知识1.1 基本信息《Decentralized Privacy Using Blockchain-Enabled Federated Learning in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Decentralized_Privacy_Using_Blockchain-Enabled_Federated_Learning_in_Fog_Computing》精读">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2021/07/20/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8ADecentralized-Privacy-Using-Blockchain-Enabled-Federated-Learning-in-Fog-Computing%E3%80%8B%E7%B2%BE%E8%AF%BB/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="论文地址：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;document&#x2F;9019859  一、基本信息、前置知识1.1 基本信息《Decentralized Privacy Using Blockchain-Enabled Federated Learning in Fog Computing》 作者：Youyang Qu; Longxiang Gao; Tom H. Luan; Y">
+<meta property="og:description" content="论文地址：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;document&#x2F;9019859   糟心的一篇文章，整段照抄引用文章、放公式不解释变量字母含义、题目起攻击的防御不写防御，不知这文章怎么上的一区期刊  一、基本信息、前置知识1.1 基本信息《Decentralized Privacy Using Blockchain-Enabled Federated Learning in">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/P6vXDd.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/2NSrSL.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/hYm71k.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/di4JKS.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210727103127867.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210727103402394.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/UP1Xu7.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210727112859527.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210727113540533.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/4o9t6n.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210727135504089.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/9hQgZQ.png">
 <meta property="article:published_time" content="2021-07-20T07:40:34.000Z">
-<meta property="article:modified_time" content="2021-07-23T09:35:33.227Z">
+<meta property="article:modified_time" content="2021-07-27T06:09:08.910Z">
 <meta property="article:author" content="DDDemons hide">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/P6vXDd.png">
@@ -75,7 +85,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 481
+			总文章数 489
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -220,7 +230,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">730字</span>
+        <span class="post-count">1.6k字</span>
       </span>
     </span>
 
@@ -229,7 +239,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -243,6 +253,9 @@
       
         <blockquote>
 <p>论文地址：<a href="https://ieeexplore.ieee.org/document/9019859" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/9019859</a></p>
+</blockquote>
+<blockquote>
+<p><font color='#e54d42'>糟心的一篇文章，整段照抄引用文章、放公式不解释变量字母含义、题目起攻击的防御不写防御，不知这文章怎么上的一区期刊</font></p>
 </blockquote>
 <h1 id="一、基本信息、前置知识"><a href="#一、基本信息、前置知识" class="headerlink" title="一、基本信息、前置知识"></a>一、基本信息、前置知识</h1><h2 id="1-1-基本信息"><a href="#1-1-基本信息" class="headerlink" title="1.1 基本信息"></a>1.1 基本信息</h2><p>《Decentralized Privacy Using Blockchain-Enabled Federated Learning in Fog Computing》</p>
 <p>作者：<a href="https://ieeexplore.ieee.org/author/37086113748" target="_blank" rel="noopener">Youyang Qu</a>; <a href="https://ieeexplore.ieee.org/author/37400376100" target="_blank" rel="noopener">Longxiang Gao</a>; <a href="https://ieeexplore.ieee.org/author/37085345130" target="_blank" rel="noopener">Tom H. Luan</a>; <a href="https://ieeexplore.ieee.org/author/37286573200" target="_blank" rel="noopener">Yong Xiang</a>; <a href="https://ieeexplore.ieee.org/author/37405530700" target="_blank" rel="noopener">Shui Yu</a>; <a href="https://ieeexplore.ieee.org/author/37088420381" target="_blank" rel="noopener">Bai Li</a>; <a href="https://ieeexplore.ieee.org/author/37088420573" target="_blank" rel="noopener">Gavin Zheng</a></p>
@@ -287,13 +300,81 @@
 </li>
 <li><p><strong>每一个矿工Miner拥有一个与其相关联的设备或者其他Miner的充满了本地模型更新数据的候选区块(未上链区块)</strong>,写入区块数据的过程直到达到区块的最大数据量或者达到等待时间$T_{wait}$​</p>
 </li>
-<li><p>区块的生成速度$\lambda$（在区块头）可以被POW的难度控制,即POW的难度越大/区块目标值越小,区块生成速率$\lambda$越小</p>
+<li><p>区块的生成速度$\lambda$（在区块头）可以被POW的难度控制,即POW的难度越大/区块目标值越小,区块生成速率$\lambda$​越小</p>
+</li>
+<li><p>系统奖励分为数据奖励和挖掘奖励</p>
+</li>
+<li><p>一个初步的验证是：通过比较样本大小$N_i$与其相关联的计算时间$T_{local,i}^{(l)}$ <font color='green'> (样本数量与其对应的计算时间是相关的,所以两者不匹配就会错误)   </font>这在实际中可以由英特尔的软件保护扩展(Intel’s  software  guard  extensions)来保证</p>
 </li>
 </ul>
 <blockquote>
-<p><font color='#e54d42'>这部分区块链设计与《Blockchained_On-Device_Federated_Learning》论文一模一样…….emmm, 估计后面的时间效率分析也是一摸一样了….抄袭过于明显了.</font></p>
+<p><font color='#e54d42'>体系框架这部分区块链设计可以看《Blockchained_On-Device_Federated_Learning》论文，因为和它一模一样…….emmm, 估计后面的时间效率分析也是一摸一样了….<strong>抄袭过于明显了.</strong></font></p>
 </blockquote>
-<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1>
+<p>算法过程如下：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/hYm71k.png" alt="hYm71k"></p>
+<h2 id="3-2-去中心化隐私机制"><a href="#3-2-去中心化隐私机制" class="headerlink" title="3.2 去中心化隐私机制"></a>3.2 去中心化隐私机制</h2><img src="http://xwjpics.gumptlu.work/qinniu_uPic/di4JKS.png" alt="di4JKS" style="zoom:50%;" />
+
+<p>雾服务器（fog server）的网络被称为分布式Hash表(DHT)</p>
+<p>为建立区块，提出了<strong>混合身份、区块链内存、策略、辅助功能</strong></p>
+<h3 id="混合身份-Hybrid-identity"><a href="#混合身份-Hybrid-identity" class="headerlink" title="混合身份(Hybrid identity)"></a>混合身份(Hybrid identity)</h3><p>传统公私钥机制的区块链身份可以大量的制造假身份</p>
+<p>私人化的定制一套身份来实现访问控制</p>
+<ul>
+<li><p>$u_0$代表唯一终端设备标识者</p>
+</li>
+<li><p>$u_g$代表客户端设备即身份接受者</p>
+</li>
+</ul>
+<p>身份构建过程：</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210727103127867.png" alt="image-20210727103127867" style="zoom:50%;" />
+
+<p>混合身份<strong>公开</strong>的部分：</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210727103402394.png" alt="image-20210727103402394" style="zoom:50%;" />
+
+<p>混合身份总体:</p>
+<p>(如果分别写g1,g2则是一个十元组，现在用$i, i=1,2$来简写为五元组)</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/UP1Xu7.png" alt="UP1Xu7" style="zoom:50%;" />
+
+<blockquote>
+<p><font color='#39b54a'>貌似就是将公私钥体系用元组表示了起来，代替了中心化的PKI认证</font></p>
+</blockquote>
+<h3 id="区块链内存-memory-of-blockchain-与Policy"><a href="#区块链内存-memory-of-blockchain-与Policy" class="headerlink" title="区块链内存(memory of blockchain)与Policy"></a>区块链内存(memory of blockchain)与Policy</h3><p>根据区块链内存，设BM为内存空间。我们有$BM: {0,1}^{256}→{0,1}^n$，其中$N &gt;&gt; 256$，这足以存储大数据文件。</p>
+<p>模型更新中的前两个输出编码为256位内存地址指针以及一些辅助元数据。其他输出被用来构建序列化的文档。</p>
+<p>如果查询L[k]，则返回具有最新时间戳的模型更新。此设置允许插入、删除和更新操作。</p>
+<blockquote>
+<p><font color='#39b54a'>kv数据库？key的大小为256位 -&gt; value就是模型数据</font></p>
+</blockquote>
+<p>我们将策略$p_u$定义为终端设备v可以从特定服务获得的一系列权限。</p>
+<p> if v needs to read, update, and delete a dataset, then $P_v = read, update, delete.$​ </p>
+<h3 id="辅助功能-auxiliary-functions"><a href="#辅助功能-auxiliary-functions" class="headerlink" title="辅助功能(auxiliary functions)"></a>辅助功能(auxiliary functions)</h3><p>两个关键函数: </p>
+<h5 id="Parse-x-​​​"><a href="#Parse-x-​​​" class="headerlink" title="$Parse(x)$​​​"></a>$Parse(x)$​​​</h5><p>不断的将参数传递给特定的交易</p>
+<hr>
+<p>$Verify(pk^k_{sig}, x_p)$​​：</p>
+<p>帮助验证终端设备的权限</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210727112859527.png" alt="image-20210727112859527" style="zoom:50%;" />
+
+<blockquote>
+<p><font color='#e54d42'>这个逻辑判断是否有问题？？？如果前面的true则后面的and $x_p$都不需要判断了。此外，原文缺少必要的符号解释，H是什么？$P_{u_0,u_{g_i}}$又是啥？（规定的政策？）</font></p>
+</blockquote>
+<p>当一个模型更新$A_{access}$被记录时，Protocol. 3由网络内的节点执行。类似地，当记录模型更新$A_{data}$时，Protocol. 4由节点执行。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210727113540533.png" alt="image-20210727113540533" style="zoom:50%;" />
+
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/4o9t6n.png" alt="4o9t6n" style="zoom:50%;" />
+
+<blockquote>
+<p><font color='#39b54a'>顶不住了，介绍太少看不懂。。</font></p>
+</blockquote>
+<h2 id="3-3-毒害攻击与防御"><a href="#3-3-毒害攻击与防御" class="headerlink" title="3.3 毒害攻击与防御"></a>3.3 毒害攻击与防御</h2><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210727135504089.png" alt="image-20210727135504089" style="zoom:50%;" />
+
+<p>攻击者想要在训练时注入毒药，他的做法就是将上传的模型改为：</p>
+<p>这种增强攻击使马里模型MM的权值增加$\eta = n/r$，以保证全局模型GM被MM替代。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/9hQgZQ.png" alt="9hQgZQ" style="zoom:50%;" />
+
+<p>这样的攻击在全局模型接近收敛的时候最好, 并且攻击者可以随意的更改学习率$\eta$的比值</p>
+<blockquote>
+<p><font color='#e54d42'>然后“防御”呢？？？文章此节就说了攻击就结束了后面居然还有防御的实验评估，绝绝子，不看了。。。。再见</font></p>
+</blockquote>
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>无</p>
+
       
       
       <!-- 添加版权声明 -->
@@ -314,7 +395,7 @@
     2021-07-20
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-07-23
+    2021-07-27
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/07/20/知识贴/论文/FL And BlockChain/《Decentralized-Privacy-Using-Blockchain-Enabled-Federated-Learning-in-Fog-Computing》精读/" title="《Decentralized_Privacy_Using_Blockchain-Enabled_Federated_Learning_in_Fog_Computing》精读" target="_blank">《Decentralized_Privacy_Using_Blockchain-Enabled_Federated_Learning_in_Fog_Computing》精读</a>
@@ -509,7 +590,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基本信息、前置知识"><span class="toc-number">1.</span> <span class="toc-text">一、基本信息、前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-基本信息"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-前置知识"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#雾计算"><span class="toc-number">1.2.1.</span> <span class="toc-text">雾计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、解决的问题"><span class="toc-number">2.</span> <span class="toc-text">二、解决的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、创新的方法"><span class="toc-number">3.</span> <span class="toc-text">三、创新的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-FL-Block体系框架"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 FL-Block体系框架</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、总结"><span class="toc-number">4.</span> <span class="toc-text">四、总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基本信息、前置知识"><span class="toc-number">1.</span> <span class="toc-text">一、基本信息、前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-基本信息"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-前置知识"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#雾计算"><span class="toc-number">1.2.1.</span> <span class="toc-text">雾计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、解决的问题"><span class="toc-number">2.</span> <span class="toc-text">二、解决的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、创新的方法"><span class="toc-number">3.</span> <span class="toc-text">三、创新的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-FL-Block体系框架"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 FL-Block体系框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-去中心化隐私机制"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 去中心化隐私机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#混合身份-Hybrid-identity"><span class="toc-number">3.2.1.</span> <span class="toc-text">混合身份(Hybrid identity)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区块链内存-memory-of-blockchain-与Policy"><span class="toc-number">3.2.2.</span> <span class="toc-text">区块链内存(memory of blockchain)与Policy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#辅助功能-auxiliary-functions"><span class="toc-number">3.2.3.</span> <span class="toc-text">辅助功能(auxiliary functions)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Parse-x-​​​"><span class="toc-number">3.2.3.0.1.</span> <span class="toc-text">$Parse(x)$​​​</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-毒害攻击与防御"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 毒害攻击与防御</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、总结"><span class="toc-number">4.</span> <span class="toc-text">四、总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
