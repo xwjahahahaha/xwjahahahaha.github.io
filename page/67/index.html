@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 489
+			总文章数 544
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/区块链/Ethereum/Truffle/truffle框架的学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/区块链/Fabric/Fabric框架的学习-5-fabric账号和solo多机多节点部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Truffle/truffle%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/">truffle框架的学习</a>
+      <a class="article-title" href="/2020/10/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-5-fabric%E8%B4%A6%E5%8F%B7%E5%92%8Csolo%E5%A4%9A%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%83%A8%E7%BD%B2/">Fabric框架的学习-5-fabric账号和solo多机多节点部署</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Truffle/truffle%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-5-fabric%E8%B4%A6%E5%8F%B7%E5%92%8Csolo%E5%A4%9A%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%83%A8%E7%BD%B2/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/08/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Truffle/truffle%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-08-23T11:44:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
+<a href="/2020/10/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-5-fabric%E8%B4%A6%E5%8F%B7%E5%92%8Csolo%E5%A4%9A%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%83%A8%E7%BD%B2/" class="archive-article-date">
+  	<time datetime="2020-10-14T08:53:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.4k字</span>
+        <span class="post-count">4.6k字</span>
       </span>
     </span>
 
@@ -221,7 +221,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
+        <span class="post-count">22分</span>
       </span>
     </span>
 </div>
@@ -233,29 +233,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Truffle是目前最流行的以太坊DApp开发框架，（按照官网说法）是一个世界级的开发环境和测试框架，也是所有使用了EVM的区块链的资产管理通道，它基于JavaScript，致力于让以太坊上的开发变得简单。</p>
-<p>Truffle有以下功能： </p>
+        <h1 id="八、Fabric账号"><a href="#八、Fabric账号" class="headerlink" title="八、Fabric账号"></a>八、Fabric账号</h1><h2 id="8-1-Fabric账号"><a href="#8-1-Fabric账号" class="headerlink" title="8.1 Fabric账号"></a>8.1 Fabric账号</h2><ul>
+<li><p>账号：<font color='orange'>Fabric中的账号实际上是根据PKI规范生成的一组证书和密钥文件</font></p>
+</li>
+<li><p>账号的作用：</p>
 <ul>
-<li><p> 内置的智能合约编译，链接，部署和二进制文件的管理。 </p>
-</li>
-<li><p> 合约自动测试，方便快速开发。 </p>
-</li>
-<li><p> 脚本化的、可扩展的部署与发布框架。 </p>
-</li>
-<li><p> 可部署到任意数量公网或私网的网络环境管理功能 </p>
-</li>
-<li><p> 使用EthPM和NPM提供的包管理，使用ERC190标准。 </p>
-</li>
-<li><p> 与合约直接通信的直接交互控制台（写完合约就可以命令行里验证了）。</p>
-</li>
-<li><p> 可配的构建流程，支持紧密集成。  在Truffle环境里支持执行外部的脚本。</p>
+<li>保证记录在区块链中的数据不可篡改、不可逆</li>
+<li>Fabric中每条交易都会加上发起者的标签（签名证书），同时用发起人的私钥进行加密</li>
+<li>如果交易需要其他组织的节点提供背书，那么背书节点也会在交易中加入自己的签名</li>
+</ul>
 </li>
 </ul>
-<h1 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h1><p>选择全局安装： <code>npm install -g truffle@4.1.14</code>,我下载的是4.1.14版本。</p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200823194902.png" alt=""></p>
-<p>安装完之后给上面的路径添加软连接 <code>ln -s /usr/local/node/node-v10.15.0-linux-x64/bin/truffle /usr/local/bin/truffle</code></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200823195108.png" alt=""></p>
-<p>出现上面的提示就说明安装成功了。</p>
         
       
       
@@ -288,7 +276,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">block_chain</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -304,7 +292,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/block-chain//" class="article-tag-list-link color2">block_chain</a>
+        			<a href="/categories/technical/fabric//" class="article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -313,7 +301,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Truffle/truffle%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-5-fabric%E8%B4%A6%E5%8F%B7%E5%92%8Csolo%E5%A4%9A%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%83%A8%E7%BD%B2/">展开全文 >></a>
         </p>
       
 
@@ -347,27 +335,27 @@
 
 
   
-    <article id="post-技术贴/数据库/MySQL/MySQL的学习-1-DDL操作数据库和表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/区块链/Fabric/Fabric框架的学习-4-链码与背书策略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E7%9A%84%E5%AD%A6%E4%B9%A0-1-DDL%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8/">MySQL的学习-1-DDL操作数据库和表</a>
+      <a class="article-title" href="/2020/10/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-4-%E9%93%BE%E7%A0%81%E4%B8%8E%E8%83%8C%E4%B9%A6%E7%AD%96%E7%95%A5/">Fabric框架的学习-4-链码与背书策略</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E7%9A%84%E5%AD%A6%E4%B9%A0-1-DDL%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-4-%E9%93%BE%E7%A0%81%E4%B8%8E%E8%83%8C%E4%B9%A6%E7%AD%96%E7%95%A5/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/08/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E7%9A%84%E5%AD%A6%E4%B9%A0-1-DDL%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-08-22T09:44:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
+<a href="/2020/10/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-4-%E9%93%BE%E7%A0%81%E4%B8%8E%E8%83%8C%E4%B9%A6%E7%AD%96%E7%95%A5/" class="archive-article-date">
+  	<time datetime="2020-10-14T07:16:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -376,7 +364,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.2k字</span>
+        <span class="post-count">2.7k字</span>
       </span>
     </span>
 
@@ -385,7 +373,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
+        <span class="post-count">13分</span>
       </span>
     </span>
 </div>
@@ -397,9 +385,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="MySQL基础"><a href="#MySQL基础" class="headerlink" title="MySQL基础"></a>MySQL基础</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>我安装的是MySQL5.5版本。</p>
-<p>安装前记得卸载以前的版本，防止最后一步无响应。（PS:以前安装过PHPstudy记得在里面卸载MySQL组件）</p>
-<p>具体安装、配置不再赘述，可看网上文章。</p>
+        <h1 id="六-智能合约"><a href="#六-智能合约" class="headerlink" title="六. 智能合约"></a>六. 智能合约</h1><h2 id="6-1-Golang版本的ChainCode的代码结构"><a href="#6-1-Golang版本的ChainCode的代码结构" class="headerlink" title="6.1 Golang版本的ChainCode的代码结构"></a>6.1 Golang版本的ChainCode的代码结构</h2>
         
       
       
@@ -432,7 +418,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -448,7 +434,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/MySQL//" class="article-tag-list-link color1">MySQL</a>
+        			<a href="/categories/technical/fabric//" class="article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -457,7 +443,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/22/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E7%9A%84%E5%AD%A6%E4%B9%A0-1-DDL%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-4-%E9%93%BE%E7%A0%81%E4%B8%8E%E8%83%8C%E4%B9%A6%E7%AD%96%E7%95%A5/">展开全文 >></a>
         </p>
       
 
@@ -491,27 +477,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2020-8/日记-0060" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2020-10/日记-0084" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0060/">日记_0060</a>
+      <a class="article-title" href="/2020/10/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0084/">日记_0084</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0060/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0084/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/08/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0060/" class="archive-article-date">
-  	<time datetime="2020-08-22T02:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
+<a href="/2020/10/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0084/" class="archive-article-date">
+  	<time datetime="2020-10-14T04:57:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -520,7 +506,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">48字</span>
+        <span class="post-count">77字</span>
       </span>
     </span>
 
@@ -541,21 +527,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="今日待办任务："><a href="#今日待办任务：" class="headerlink" title="今日待办任务："></a>今日待办任务：</h2><blockquote>
-<ol>
-<li>老师说的课题</li>
-<li>java</li>
+        <h2 id="近期待办任务："><a href="#近期待办任务：" class="headerlink" title="近期待办任务："></a>近期待办任务：</h2><ol>
+<li>HyperLedger Fabric超级账本</li>
+<li>计网ppt演讲</li>
+<li>复习整理密码学 </li>
+<li>密码学DES的实现</li>
+<li>看区块链专利</li>
+<li>机器学习算法 线性回归</li>
 <li>Linux</li>
-<li>区块链</li>
+<li>Go区块链构建区块链网络</li>
 </ol>
-</blockquote>
-<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
-<ol>
-<li><del>老师说的课题的思考</del></li>
-<li><del>java学习到p489 数据库</del></li>
-<li><del>Linux以太坊环境布置</del></li>
+<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ol>
+<li><del>Fabric框架学习到 P78</del></li>
+<li><del>密码学 P30</del></li>
 </ol>
-</blockquote>
         
       
       
@@ -613,7 +598,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/22/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0060/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0084/">展开全文 >></a>
         </p>
       
 
@@ -647,27 +632,27 @@
 
 
   
-    <article id="post-技术贴/java/java注解的学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/Hexo博客搭建/typora编写md文件文字设置颜色" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/java%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%AD%A6%E4%B9%A0/">java注解的学习</a>
+      <a class="article-title" href="/2020/10/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/typora%E7%BC%96%E5%86%99md%E6%96%87%E4%BB%B6%E6%96%87%E5%AD%97%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2/">typora编写md文件文字设置颜色</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/java%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/typora%E7%BC%96%E5%86%99md%E6%96%87%E4%BB%B6%E6%96%87%E5%AD%97%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/08/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/java%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-08-21T09:07:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
+<a href="/2020/10/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/typora%E7%BC%96%E5%86%99md%E6%96%87%E4%BB%B6%E6%96%87%E5%AD%97%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2/" class="archive-article-date">
+  	<time datetime="2020-10-13T05:09:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-13</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -676,163 +661,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">796字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><ul>
-<li><p>概念：说明程序的。给计算机看的</p>
-</li>
-<li><p>注释：用文字描述程序的。给程序员看的</p>
-</li>
-<li><p>定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。</p>
-</li>
-<li><p>概念描述：</p>
-<ul>
-<li>JDK1.5之后的新特性</li>
-<li>说明程序的</li>
-<li>使用注解：@注解名称</li>
-</ul>
-</li>
-</ul>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/java/java%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2020-8/日记-0059" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/21/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0059/">日记_0059</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/21/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0059/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/08/21/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0059/" class="archive-article-date">
-  	<time datetime="2020-08-21T08:46:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">29字</span>
+        <span class="post-count">377字</span>
       </span>
     </span>
 
@@ -853,14 +682,159 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
-<ol>
-<li><del>java P474  测试、反射、注解，注解还没看完</del></li>
-<li><del>英语50单词</del></li>
-<li><del>Linux =&gt; P200</del></li>
-</ol>
-</blockquote>
+        <h1 id="typora编写md文件文字设置颜色"><a href="#typora编写md文件文字设置颜色" class="headerlink" title="typora编写md文件文字设置颜色"></a>typora编写md文件文字设置颜色</h1><p>AutoHotKey是一款著名的windows系统快捷键设置的软件，轻便小巧。</p>
+<p>官方下载: <a href="https://autohotkey.com/download/ahk-install.exe" target="_blank" rel="noopener">https://autohotkey.com/download/ahk-install.exe</a></p>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/markdown//" class="article-tag-list-link color4">markdown</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/typora%E7%BC%96%E5%86%99md%E6%96%87%E4%BB%B6%E6%96%87%E5%AD%97%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-随笔/每日一记/日记/2020-10/日记-0083" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0083/">日记_0083</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0083/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/10/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0083/" class="archive-article-date">
+  	<time datetime="2020-10-13T02:35:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-13</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">92字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="近期待办任务："><a href="#近期待办任务：" class="headerlink" title="近期待办任务："></a>近期待办任务：</h2><ol>
+<li>HyperLedger Fabric超级账本</li>
+<li>计网ppt演讲</li>
+<li>复习整理密码学 </li>
+<li>密码学DES的实现</li>
+<li>看区块链专利</li>
+<li>机器学习算法 线性回归</li>
+<li>Linux</li>
+<li>Go区块链构建区块链网络</li>
+</ol>
+<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ol>
+<li><del>Fabric p61结束 搭建自己的区块链网络出了查询发布交易两个功能</del></li>
+</ol>
+        
       
       
       <!-- 添加版权声明 -->
@@ -917,7 +891,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/21/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0059/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0083/">展开全文 >></a>
         </p>
       
 
@@ -953,7 +927,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/66/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/65/">65</a><a class="page-number" href="/page/66/">66</a><span class="page-number current">67</span><a class="page-number" href="/page/68/">68</a><a class="page-number" href="/page/69/">69</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/68/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/66/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/65/">65</a><a class="page-number" href="/page/66/">66</a><span class="page-number current">67</span><a class="page-number" href="/page/68/">68</a><a class="page-number" href="/page/69/">69</a><span class="space">&hellip;</span><a class="page-number" href="/page/109/">109</a><a class="extend next" rel="next" href="/page/68/">下一页</a>
     </nav>
   
 

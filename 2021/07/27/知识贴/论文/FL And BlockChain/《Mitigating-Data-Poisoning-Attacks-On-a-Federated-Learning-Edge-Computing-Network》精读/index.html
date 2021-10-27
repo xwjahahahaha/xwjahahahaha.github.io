@@ -8,17 +8,19 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>《Mitigating_Data_Poisoning_Attacks_On_a_Federated_Learning-Edge_Computing_Network》精读 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、基本信息与前置知识1.1 基本信息Mitigating Data Poisoning Attacks On a Federated Learning-Edge Computing Network  来源：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;abstract&#x2F;document&#x2F;9369581  期刊&#x2F;会议： 2021 IEEE 18th Annual Consumer C">
+  <meta name="description" content="一、基本信息与前置知识1.1 基本信息Mitigating Data Poisoning Attacks On a Federated Learning-Edge Computing Network  来源：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;abstract&#x2F;document&#x2F;9369581  期刊&#x2F;会议： 2021 IEEE 18th Annual Consumer Com">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Mitigating_Data_Poisoning_Attacks_On_a_Federated_Learning-Edge_Computing_Network》精读">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2021/07/27/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8AMitigating-Data-Poisoning-Attacks-On-a-Federated-Learning-Edge-Computing-Network%E3%80%8B%E7%B2%BE%E8%AF%BB/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="一、基本信息与前置知识1.1 基本信息Mitigating Data Poisoning Attacks On a Federated Learning-Edge Computing Network  来源：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;abstract&#x2F;document&#x2F;9369581  期刊&#x2F;会议： 2021 IEEE 18th Annual Consumer C">
+<meta property="og:description" content="一、基本信息与前置知识1.1 基本信息Mitigating Data Poisoning Attacks On a Federated Learning-Edge Computing Network  来源：https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;abstract&#x2F;document&#x2F;9369581  期刊&#x2F;会议： 2021 IEEE 18th Annual Consumer Com">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210803211120977.png">
 <meta property="article:published_time" content="2021-07-27T08:38:28.000Z">
-<meta property="article:modified_time" content="2021-08-01T13:26:54.019Z">
+<meta property="article:modified_time" content="2021-08-20T06:53:01.891Z">
 <meta property="article:author" content="DDDemons hide">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210803211120977.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -72,7 +74,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 489
+			总文章数 544
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -217,7 +219,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">179字</span>
+        <span class="post-count">416字</span>
       </span>
     </span>
 
@@ -238,9 +240,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-</blockquote>
-<h1 id="一、基本信息与前置知识"><a href="#一、基本信息与前置知识" class="headerlink" title="一、基本信息与前置知识"></a>一、基本信息与前置知识</h1><h2 id="1-1-基本信息"><a href="#1-1-基本信息" class="headerlink" title="1.1 基本信息"></a>1.1 基本信息</h2><p><strong>Mitigating Data Poisoning Attacks On a Federated Learning-Edge Computing Network</strong></p>
+        <h1 id="一、基本信息与前置知识"><a href="#一、基本信息与前置知识" class="headerlink" title="一、基本信息与前置知识"></a>一、基本信息与前置知识</h1><h2 id="1-1-基本信息"><a href="#1-1-基本信息" class="headerlink" title="1.1 基本信息"></a>1.1 基本信息</h2><p><strong>Mitigating Data Poisoning Attacks On a Federated Learning-Edge Computing Network</strong></p>
 <ul>
 <li><p>来源：<a href="https://ieeexplore.ieee.org/abstract/document/9369581" target="_blank" rel="noopener">https://ieeexplore.ieee.org/abstract/document/9369581</a></p>
 </li>
@@ -251,23 +251,40 @@
 </ul>
 <a id="more"></a>
 
-<h2 id="1-2-前置知识"><a href="#1-2-前置知识" class="headerlink" title="1.2 前置知识"></a>1.2 前置知识</h2><h3 id="Label-flipping-标签翻转攻击"><a href="#Label-flipping-标签翻转攻击" class="headerlink" title="Label-flipping 标签翻转攻击"></a>Label-flipping 标签翻转攻击</h3><h1 id="二、解决的问题"><a href="#二、解决的问题" class="headerlink" title="二、解决的问题"></a>二、解决的问题</h1><ul>
-<li><strong>缓解</strong>联邦学习中的毒药攻击</li>
-</ul>
-<h1 id="三、创新的方法"><a href="#三、创新的方法" class="headerlink" title="三、创新的方法"></a>三、创新的方法</h1><p>前提:</p>
+<h2 id="1-2-前置知识"><a href="#1-2-前置知识" class="headerlink" title="1.2 前置知识"></a>1.2 前置知识</h2><h3 id="Label-flipping-标签翻转攻击"><a href="#Label-flipping-标签翻转攻击" class="headerlink" title="Label-flipping 标签翻转攻击"></a>Label-flipping 标签翻转攻击</h3><p>投毒攻击中的一种，一般是将二分类问题中的标签变为其反面标签，例如0变为1，1变为0</p>
+<h1 id="二、解决的问题"><a href="#二、解决的问题" class="headerlink" title="二、解决的问题"></a>二、解决的问题</h1><p><strong>缓解</strong>联邦学习中的毒药攻击</p>
+<h1 id="三、创新的方法"><a href="#三、创新的方法" class="headerlink" title="三、创新的方法"></a>三、创新的方法</h1><h2 id="思路框架"><a href="#思路框架" class="headerlink" title="思路框架"></a>思路框架</h2><p>前提:</p>
 <ul>
-<li>去中心化的训练数据源提前可知</li>
+<li>FL去中心化的训练对于每个数据的来源提前可知</li>
 </ul>
 <p>要求：</p>
 <ul>
 <li>保障客户端节点数据安全性，与边缘计算服务器交互的隐私保护</li>
-<li>对数据源在FL之<strong>前</strong>进行审查</li>
 </ul>
 <p>做法：</p>
 <ul>
-<li>在客户端节点和边缘计算服务器之间引入中间人facilitator</li>
+<li><p>对数据源在FL之<strong>前</strong>进行审查</p>
+</li>
+<li><p>在客户端节点和边缘计算服务器之间引入中间人facilitator</p>
+</li>
+<li><p>检测的重点是<strong>标签翻转攻击</strong>(label-flipping attack)</p>
+</li>
+<li><p>将有毒数据集和无毒数据集分别通过分类模型计算错误率差异来判断是否被毒害</p>
+</li>
+<li><p>由于FL不支持直接访问客户端的数据，所以采用一个<strong>中间人去访问</strong></p>
+</li>
+<li><p>FL的优势在于可以依靠<strong>主动</strong>的方式进行检测（原因见前提）</p>
+<blockquote>
+<p><font color='#39b54a'>集中式的ML数据来源不确定不可预知，而FL则是确定了数据持有人进行的训练</font></p>
+</blockquote>
+</li>
+<li><p>中间人使用SVM支持向量机模型作为检测工具</p>
+</li>
 </ul>
-<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1>
+<p>过程图：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210803211120977.png" alt="流程图"></p>
+<p>过程并不复杂, 整个思路复杂的设计在于<strong>SVM审查模型的设计</strong></p>
+<h2 id="SVM审查模型的设计"><a href="#SVM审查模型的设计" class="headerlink" title="SVM审查模型的设计"></a>SVM审查模型的设计</h2><h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1>
       
       
       <!-- 添加版权声明 -->
@@ -288,7 +305,7 @@
     2021-07-27
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-08-01
+    2021-08-20
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/07/27/知识贴/论文/FL And BlockChain/《Mitigating-Data-Poisoning-Attacks-On-a-Federated-Learning-Edge-Computing-Network》精读/" title="《Mitigating_Data_Poisoning_Attacks_On_a_Federated_Learning-Edge_Computing_Network》精读" target="_blank">《Mitigating_Data_Poisoning_Attacks_On_a_Federated_Learning-Edge_Computing_Network》精读</a>
@@ -449,11 +466,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/07/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/Nginx/nginx%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/07/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/Nginx/%E4%BB%8E%E5%BA%94%E7%94%A8%E5%88%B0%E5%8E%9F%E7%90%86%E4%B8%80%E6%96%87%E6%90%9E%E5%AE%9Anginx/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          nginx基础用法大全
+          从应用到原理一文搞定nginx
         
       </div>
     </a>
@@ -487,7 +504,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基本信息与前置知识"><span class="toc-number">1.</span> <span class="toc-text">一、基本信息与前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-基本信息"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-前置知识"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Label-flipping-标签翻转攻击"><span class="toc-number">1.2.1.</span> <span class="toc-text">Label-flipping 标签翻转攻击</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、解决的问题"><span class="toc-number">2.</span> <span class="toc-text">二、解决的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、创新的方法"><span class="toc-number">3.</span> <span class="toc-text">三、创新的方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、总结"><span class="toc-number">4.</span> <span class="toc-text">四、总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基本信息与前置知识"><span class="toc-number">1.</span> <span class="toc-text">一、基本信息与前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-基本信息"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-前置知识"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Label-flipping-标签翻转攻击"><span class="toc-number">1.2.1.</span> <span class="toc-text">Label-flipping 标签翻转攻击</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、解决的问题"><span class="toc-number">2.</span> <span class="toc-text">二、解决的问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、创新的方法"><span class="toc-number">3.</span> <span class="toc-text">三、创新的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路框架"><span class="toc-number">3.1.</span> <span class="toc-text">思路框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVM审查模型的设计"><span class="toc-number">3.2.</span> <span class="toc-text">SVM审查模型的设计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、总结"><span class="toc-number">4.</span> <span class="toc-text">四、总结</span></a></li></ol>
                     </div>
                 </span>
             </div>

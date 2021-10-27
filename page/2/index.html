@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 489
+			总文章数 544
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-知识贴/论文/FL And BlockChain/《Mitigating-Data-Poisoning-Attacks-On-a-Federated-Learning-Edge-Computing-Network》精读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/网络编程/P2P/P2P网络编程-3-案例实践：PubSub" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/27/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8AMitigating-Data-Poisoning-Attacks-On-a-Federated-Learning-Edge-Computing-Network%E3%80%8B%E7%B2%BE%E8%AF%BB/">《Mitigating_Data_Poisoning_Attacks_On_a_Federated_Learning-Edge_Computing_Network》精读</a>
+      <a class="article-title" href="/2021/09/26/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-3-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9APubSub/">P2P网络编程-3-案例实践：PubSub</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/27/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8AMitigating-Data-Poisoning-Attacks-On-a-Federated-Learning-Edge-Computing-Network%E3%80%8B%E7%B2%BE%E8%AF%BB/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/26/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-3-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9APubSub/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/27/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8AMitigating-Data-Poisoning-Attacks-On-a-Federated-Learning-Edge-Computing-Network%E3%80%8B%E7%B2%BE%E8%AF%BB/" class="archive-article-date">
-  	<time datetime="2021-07-27T08:38:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-27</time>
+<a href="/2021/09/26/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-3-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9APubSub/" class="archive-article-date">
+  	<time datetime="2021-09-26T05:59:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-26</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,147 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">179字</span>
+        <span class="post-count">871字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">4分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>libp2p网络通信中还有一种方式就是PubSub模式，也称订阅发布的模式，官方给出了订阅发布模式的一个案例=&gt; 聊天室</p>
+<p>在此学习记录一下</p>
+<p>官方代码地址：<a href="https://github.com/libp2p/go-libp2p/tree/master/examples/pubsub" target="_blank" rel="noopener">https://github.com/libp2p/go-libp2p/tree/master/examples/pubsub</a></p>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/26/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-3-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9APubSub/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/算法/剑指Offer/剑指Offer32-II-从上到下打印二叉树II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/24/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer32-II-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91II/">剑指Offer32-II.从上到下打印二叉树II</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/24/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer32-II-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91II/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/09/24/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer32-II-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91II/" class="archive-article-date">
+  	<time datetime="2021-09-24T13:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-24</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">319字</span>
       </span>
     </span>
 
@@ -233,17 +373,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-</blockquote>
-<h1 id="一、基本信息与前置知识"><a href="#一、基本信息与前置知识" class="headerlink" title="一、基本信息与前置知识"></a>一、基本信息与前置知识</h1><h2 id="1-1-基本信息"><a href="#1-1-基本信息" class="headerlink" title="1.1 基本信息"></a>1.1 基本信息</h2><p><strong>Mitigating Data Poisoning Attacks On a Federated Learning-Edge Computing Network</strong></p>
-<ul>
-<li><p>来源：<a href="https://ieeexplore.ieee.org/abstract/document/9369581" target="_blank" rel="noopener">https://ieeexplore.ieee.org/abstract/document/9369581</a></p>
-</li>
-<li><p>期刊/会议： <a href="https://ieeexplore.ieee.org/xpl/conhome/9369428/proceeding" target="_blank" rel="noopener">2021 IEEE 18th Annual Consumer Communications &amp; Networking Conference (CCNC)</a></p>
-</li>
-<li><p>作者：<a href="https://ieeexplore.ieee.org/author/37086853836" target="_blank" rel="noopener">Ronald Doku</a>; <a href="https://ieeexplore.ieee.org/author/37394227500" target="_blank" rel="noopener">Danda B. Rawat</a></p>
-</li>
-</ul>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof/" target="_blank" rel="noopener">剑指 Offer 32 - II. 从上到下打印二叉树 II</a></p>
+<p>难度简单</p>
+<p>从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。</p>
+<p>例如:<br>给定二叉树: <code>[3,9,20,null,null,15,7]</code>,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">9  20</span><br><span class="line">  &#x2F;  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure>
+
+<p>返回其层次遍历结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [3],</span><br><span class="line">  [9,20],</span><br><span class="line">  [15,7]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>节点总数 &lt;= 1000</code></li>
+</ol>
+<p>注意：本题与主站 102 题相同：<a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/binary-tree-level-order-traversal/</a></p>
         
       
       
@@ -277,11 +422,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge/paper//" class="article-tag-list-link color1">paper</a>
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -290,7 +435,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/27/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8AMitigating-Data-Poisoning-Attacks-On-a-Federated-Learning-Edge-Computing-Network%E3%80%8B%E7%B2%BE%E8%AF%BB/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/24/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer32-II-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91II/">展开全文 >></a>
         </p>
       
 
@@ -324,27 +469,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2021-07/日记-0206" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/算法/剑指Offer/剑指Offer32-I-从上到下打印二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/27/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0206/">日记_0206</a>
+      <a class="article-title" href="/2021/09/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer32-I-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">剑指Offer32-I.从上到下打印二叉树</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/27/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0206/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer32-I-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/27/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0206/" class="archive-article-date">
-  	<time datetime="2021-07-27T01:11:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-27</time>
+<a href="/2021/09/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer32-I-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2021-09-23T05:13:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-23</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -353,7 +498,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">300字</span>
+        <span class="post-count">334字</span>
       </span>
     </span>
 
@@ -374,10 +519,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul>
-<li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li>
-<li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li>
-</ul>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/" target="_blank" rel="noopener">剑指 Offer 32 - I. 从上到下打印二叉树</a></p>
+<p>难度中等</p>
+<p>从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。</p>
         
       
       
@@ -405,28 +549,17 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -435,7 +568,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/27/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0206/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer32-I-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
         </p>
       
 
@@ -469,27 +602,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2021-07/日记-0205" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/算法/剑指Offer/剑指Offer31-栈的压入、弹出序列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/26/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0205/">日记_0205</a>
+      <a class="article-title" href="/2021/09/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer31-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/">剑指Offer31.栈的压入、弹出序列</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/26/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0205/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer31-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/26/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0205/" class="archive-article-date">
-  	<time datetime="2021-07-26T01:22:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-26</time>
+<a href="/2021/09/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer31-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/" class="archive-article-date">
+  	<time datetime="2021-09-23T02:47:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-23</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -498,7 +631,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">508字</span>
+        <span class="post-count">526字</span>
       </span>
     </span>
 
@@ -519,74 +652,163 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table>
-<thead>
-<tr>
-<th>任务</th>
-<th>每天</th>
-<th>开发-云容器技术</th>
-<th>项目与框架</th>
-<th>科研-区块链(FL+BC)</th>
-<th>预备事宜</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1.</td>
-<td><strong>英语单词</strong></td>
-<td>go基础</td>
-<td>SimpleBitcoin</td>
-<td>FL/分布式存储论文一周一篇细读</td>
-<td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td>
-</tr>
-<tr>
-<td>2.</td>
-<td>语法课看完</td>
-<td>go网络编程、Web框架</td>
-<td>联邦学习框架</td>
-<td>写专利</td>
-<td>看比赛资讯，准备<strong>区块链比赛</strong></td>
-</tr>
-<tr>
-<td>3.</td>
-<td><font color='red'>六级</font></td>
-<td>go数据库、ORM、go高级编程</td>
-<td></td>
-<td>机器学习课程</td>
-<td>为<strong>研二实习</strong>做准备</td>
-</tr>
-<tr>
-<td>4.</td>
-<td>Leetcode</td>
-<td>go容器技术docker、k8s</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>5.</td>
-<td></td>
-<td>go微服务与任务调度</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>6.</td>
-<td></td>
-<td>看源码docker、k8s、Fabric、以太坊、比特币等</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>7.</td>
-<td></td>
-<td>Linux、C++</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof/" target="_blank" rel="noopener">剑指 Offer 31. 栈的压入、弹出序列</a></p>
+<p>难度中等</p>
+<p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如，序列 {1,2,3,4,5} 是某栈的压栈序列，序列 {4,5,3,2,1} 是该压栈序列对应的一个弹出序列，但 {4,3,5,1,2} 就不可能是该压栈序列的弹出序列。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：pushed &#x3D; [1,2,3,4,5], popped &#x3D; [4,5,3,2,1]</span><br><span class="line">输出：true</span><br><span class="line">解释：我们可以按以下顺序执行：</span><br><span class="line">push(1), push(2), push(3), push(4), pop() -&gt; 4,</span><br><span class="line">push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：pushed &#x3D; [1,2,3,4,5], popped &#x3D; [4,3,5,1,2]</span><br><span class="line">输出：false</span><br><span class="line">解释：1 不能在 2 之前弹出。</span><br></pre></td></tr></table></figure>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/23/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer31-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-随笔/每日一记/日记/2021-09/日记-0229" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0229/">日记_0229</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0229/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/09/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0229/" class="archive-article-date">
+  	<time datetime="2021-09-23T01:13:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-23</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">269字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="学习规划"><a href="#学习规划" class="headerlink" title="学习规划:"></a>学习规划:</h2><h3 id="8月"><a href="#8月" class="headerlink" title="8月"></a>8月</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li>
+<li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li>
+<li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li>
+<li><input checked="" disabled="" type="checkbox"> 专利一篇(金链积分)</li>
+<li><input checked="" disabled="" type="checkbox"> 华为区块链比赛</li>
+<li><input checked="" disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)  </li>
+</ul>
         
       
       
@@ -644,377 +866,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/26/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0205/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2021-07/日记-0204" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0204/">日记_0204</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0204/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/07/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0204/" class="archive-article-date">
-  	<time datetime="2021-07-23T01:17:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-23</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">503字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table>
-<thead>
-<tr>
-<th>任务</th>
-<th>每天</th>
-<th>开发-云容器技术</th>
-<th>项目与框架</th>
-<th>科研-区块链(FL+BC)</th>
-<th>预备事宜</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1.</td>
-<td><strong>英语单词</strong></td>
-<td>go基础</td>
-<td>SimpleBitcoin</td>
-<td>FL/分布式存储论文一周一篇细读</td>
-<td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td>
-</tr>
-<tr>
-<td>2.</td>
-<td>语法课看完</td>
-<td>go网络编程、Web框架</td>
-<td>联邦学习框架</td>
-<td>写专利</td>
-<td>看比赛资讯，准备<strong>区块链比赛</strong></td>
-</tr>
-<tr>
-<td>3.</td>
-<td><font color='red'>六级</font></td>
-<td>go数据库、ORM、go高级编程</td>
-<td></td>
-<td>机器学习课程</td>
-<td>为<strong>研二实习</strong>做准备</td>
-</tr>
-<tr>
-<td>4.</td>
-<td>Leetcode</td>
-<td>go容器技术docker、k8s</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>5.</td>
-<td></td>
-<td>go微服务与任务调度</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>6.</td>
-<td></td>
-<td>看源码docker、k8s、Fabric、以太坊、比特币等</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>7.</td>
-<td></td>
-<td>Linux、C++</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0204/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-知识贴/区块链/项目解读/Tendermint/Tendermint-2-共识算法-Tendermint-BFT详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/22/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A1%B9%E7%9B%AE%E8%A7%A3%E8%AF%BB/Tendermint/Tendermint-2-%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95-Tendermint-BFT%E8%AF%A6%E8%A7%A3/">Tendermint-2-共识算法:Tendermint-BFT详解</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/22/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A1%B9%E7%9B%AE%E8%A7%A3%E8%AF%BB/Tendermint/Tendermint-2-%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95-Tendermint-BFT%E8%AF%A6%E8%A7%A3/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/07/22/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A1%B9%E7%9B%AE%E8%A7%A3%E8%AF%BB/Tendermint/Tendermint-2-%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95-Tendermint-BFT%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2021-07-22T08:22:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-22</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">3.2k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">11分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Tendermint项目目录：</p>
-<ul>
-<li><a href="https://blog.csdn.net/weixin_43988498/article/details/118060169" target="_blank" rel="noopener">Tendermint-1-基础概念</a></li>
-</ul>
-</blockquote>
-<blockquote>
-<p>上一篇已经简单的介绍了Tendermint的基础概念，包括优势与特点、应用与生态等。下面将会详细的介绍Tendermint的共识算法，你将会学习到一下几个方面：</p>
-<ul>
-<li>Tendermint-PBFT详解（high-level view -&gt; detail）</li>
-<li>TBFT与传统PBFT的比较分析</li>
-</ul>
-</blockquote>
-<h1 id="一、Tendermint-BFT详解"><a href="#一、Tendermint-BFT详解" class="headerlink" title="一、Tendermint-BFT详解"></a>一、Tendermint-BFT详解</h1><h2 id="1-1-共识环境分析"><a href="#1-1-共识环境分析" class="headerlink" title="1.1 共识环境分析"></a>1.1 共识环境分析</h2><ul>
-<li><p>角色：Validator（预先配置的网络中的一般验证者账户们）、Proposer（选举出的出块人）</p>
-</li>
-<li><p>阶段：Propose阶段、Prevote阶段、Precommit阶段</p>
-</li>
-<li><p>投票种类：prevote、precommit、commit</p>
-</li>
-</ul>
-<blockquote>
-<p><font color='#39b54a'>这些名词下面会一一介绍到</font></p>
-</blockquote>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tendermint</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/22/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/%E9%A1%B9%E7%9B%AE%E8%A7%A3%E8%AF%BB/Tendermint/Tendermint-2-%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95-Tendermint-BFT%E8%AF%A6%E8%A7%A3/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/23/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0229/">展开全文 >></a>
         </p>
       
 
@@ -1050,7 +902,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+      <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/109/">109</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
     </nav>
   
 

@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 489
+			总文章数 544
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/密码学/现代密码学/隐私计算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/项目/FedSharing开发手册" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/">隐私计算</a>
+      <a class="article-title" href="/2021/09/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E9%A1%B9%E7%9B%AE/FedSharing%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/">FedSharing开发手册</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E9%A1%B9%E7%9B%AE/FedSharing%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2021-07-15T06:04:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-15</time>
+<a href="/2021/09/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E9%A1%B9%E7%9B%AE/FedSharing%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/" class="archive-article-date">
+  	<time datetime="2021-09-09T12:39:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-09</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">560字</span>
+        <span class="post-count">279字</span>
       </span>
     </span>
 
@@ -233,40 +233,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>学习材料：</p>
-<p><a href="https://zhuanlan.zhihu.com/p/138630291" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/138630291</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/110210315" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/110210315</a></p>
-</blockquote>
-<h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><ul>
-<li><p>区块链本身的公开性与隐私保护的冲突：</p>
-<ul>
-<li>区块链的隐私保护与传统隐私保护不同：上链数据需要多节点的验证共识, 链上的数据是公开透明的</li>
-</ul>
-</li>
-<li><p>区块链隐私保护策略：</p>
-<ol>
-<li>链上链下分割, 分别设计隐私数据的保护策略</li>
-<li>访问控制</li>
-</ol>
-</li>
-<li><p>隐私保护策略的实现需要密码学技术的支持：</p>
-<ol>
-<li><p>同态加密：加密后的数据计算与原数据的直接计算同态</p>
-</li>
-<li><p>零知识证明：不泄漏数据本身的任何信息的情况下实现某些信息的证明</p>
-</li>
-<li><p>安全多方计算: 在隐私保护的情况下多方之间协同计算 (<em>一般基于<strong>混淆电路</strong>和<strong>不经意传输</strong>等技术实现</em>)</p>
-</li>
-<li><p>TEE(如SGX): 信任硬件设备:</p>
-<p>在信任特定硬件设备（如 Intel 芯片的 SGX 功能）难以攻破的前提下选择在受硬件保护的 Enclave 环境中解密外部输入数据、执行智能合约代码、加密输出数据，此过程中<strong>明文信息只出现在 Enclave 中</strong>但不能被外部看到。</p>
-<blockquote>
-<p><font color='#39b54a'>加解密在硬件中，让明文只在硬件中暴露</font></p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ul>
+        <h1 id="一、主链客户端"><a href="#一、主链客户端" class="headerlink" title="一、主链客户端"></a>一、主链客户端</h1>
         
       
       
@@ -294,17 +261,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">solidity</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -313,10 +269,6 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/solidity//" class="article-tag-list-link color4">solidity</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -324,7 +276,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/15/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E7%8E%B0%E4%BB%A3%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E9%A1%B9%E7%9B%AE/FedSharing%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C/">展开全文 >></a>
         </p>
       
 
@@ -358,27 +310,27 @@
 
 
   
-    <article id="post-技术贴/算法/剑指Offer/剑指Offer14-II-剪绳子II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2021-09/日记-0223" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/">剑指Offer14-II.剪绳子II</a>
+      <a class="article-title" href="/2021/09/09/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0223/">日记_0223</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/09/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0223/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/" class="archive-article-date">
-  	<time datetime="2021-07-14T06:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-14</time>
+<a href="/2021/09/09/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0223/" class="archive-article-date">
+  	<time datetime="2021-09-09T08:23:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-09</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -387,7 +339,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">339字</span>
+        <span class="post-count">307字</span>
       </span>
     </span>
 
@@ -408,219 +360,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/" target="_blank" rel="noopener">剑指 Offer 14- II. 剪绳子 II</a></p>
-<p>难度中等125</p>
-<p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code> 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m - 1]</code> 。请问 <code>k[0]*k[1]*...*k[m - 1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
-<p><font color='#e54d42'>答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。</font></p>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2021-07/日记-0197" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/">日记_0197</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/" class="archive-article-date">
-  	<time datetime="2021-07-14T03:21:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-14</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">498字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table>
-<thead>
-<tr>
-<th>任务</th>
-<th>每天</th>
-<th>开发-云容器技术</th>
-<th>项目与框架</th>
-<th>科研-区块链(FL+BC)</th>
-<th>预备事宜</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1.</td>
-<td><strong>英语单词</strong></td>
-<td>go基础</td>
-<td>SimpleBitcoin</td>
-<td>FL/分布式存储论文一周一篇细读</td>
-<td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td>
-</tr>
-<tr>
-<td>2.</td>
-<td>语法课看完</td>
-<td>go网络编程、Web框架</td>
-<td>联邦学习框架</td>
-<td>写专利</td>
-<td>看比赛资讯，准备<strong>区块链比赛</strong></td>
-</tr>
-<tr>
-<td>3.</td>
-<td><font color='red'>六级</font></td>
-<td>go数据库、ORM、go高级编程</td>
-<td></td>
-<td>机器学习课程</td>
-<td>为<strong>研二实习</strong>做准备</td>
-</tr>
-<tr>
-<td>4.</td>
-<td>Leetcode</td>
-<td>go容器技术docker、k8s</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>5.</td>
-<td></td>
-<td>go微服务与任务调度</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>6.</td>
-<td></td>
-<td>看源码docker、k8s、Fabric、以太坊、比特币等</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>7.</td>
-<td></td>
-<td>Linux、C++</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+        <h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li>
+<li><input checked="" disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li>
+</ul>
         
       
       
@@ -678,7 +421,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/09/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0223/">展开全文 >></a>
         </p>
       
 
@@ -712,27 +455,27 @@
 
 
   
-    <article id="post-技术贴/算法/剑指Offer/剑指Offer14-I-剪绳子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/网络编程/P2P/P2P网络编程-2-案例实践：P2P聊天应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-I-%E5%89%AA%E7%BB%B3%E5%AD%90/">剑指Offer14-I.剪绳子</a>
+      <a class="article-title" href="/2021/09/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-2-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9AP2P%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/">P2P网络编程-2-案例实践：P2P聊天应用</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-I-%E5%89%AA%E7%BB%B3%E5%AD%90/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-2-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9AP2P%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-I-%E5%89%AA%E7%BB%B3%E5%AD%90/" class="archive-article-date">
-  	<time datetime="2021-07-13T09:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-13</time>
+<a href="/2021/09/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-2-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9AP2P%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2021-09-05T07:38:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-05</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -741,7 +484,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">838字</span>
+        <span class="post-count">3k字</span>
       </span>
     </span>
 
@@ -750,7 +493,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">14分</span>
       </span>
     </span>
 </div>
@@ -762,9 +505,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/jian-sheng-zi-lcof/" target="_blank" rel="noopener">剑指 Offer 14- I. 剪绳子</a></p>
-<p>难度中等</p>
-<p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code> 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m-1]</code>。请问 <code>k[0]*k[1]*...*k[m-1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
+        <p>[TOC]</p>
+<p>上一节学习了IPFS项目中P2P网络的构建工具libp2p的基本概念以及简单案例</p>
+<p>接下来通过官方的聊天案例进一步了解该项目的使用</p>
         
       
       
@@ -792,17 +535,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -811,10 +543,6 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -822,7 +550,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-I-%E5%89%AA%E7%BB%B3%E5%AD%90/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-2-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9AP2P%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8/">展开全文 >></a>
         </p>
       
 
@@ -856,27 +584,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2021-07/日记-0196" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2021-09/日记-0222" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0196/">日记_0196</a>
+      <a class="article-title" href="/2021/09/05/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0222/">日记_0222</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0196/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/05/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0222/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0196/" class="archive-article-date">
-  	<time datetime="2021-07-13T01:55:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-13</time>
+<a href="/2021/09/05/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0222/" class="archive-article-date">
+  	<time datetime="2021-09-05T01:25:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-05</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -885,7 +613,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">512字</span>
+        <span class="post-count">316字</span>
       </span>
     </span>
 
@@ -894,7 +622,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -906,74 +634,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table>
-<thead>
-<tr>
-<th>任务</th>
-<th>每天</th>
-<th>开发-云容器技术</th>
-<th>项目与框架</th>
-<th>科研-区块链(FL+BC)</th>
-<th>预备事宜</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1.</td>
-<td><strong>英语单词</strong></td>
-<td>go基础</td>
-<td>SimpleBitcoin</td>
-<td>FL/分布式存储论文一周一篇细读</td>
-<td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td>
-</tr>
-<tr>
-<td>2.</td>
-<td>语法课看完</td>
-<td>go网络编程、Web框架</td>
-<td>联邦学习框架</td>
-<td>写专利</td>
-<td>看比赛资讯，准备<strong>区块链比赛</strong></td>
-</tr>
-<tr>
-<td>3.</td>
-<td><font color='red'>六级</font></td>
-<td>go数据库、ORM、go高级编程</td>
-<td></td>
-<td>机器学习课程</td>
-<td>为<strong>研二实习</strong>做准备</td>
-</tr>
-<tr>
-<td>4.</td>
-<td>Leetcode</td>
-<td>go容器技术docker、k8s</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>5.</td>
-<td></td>
-<td>go微服务与任务调度</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>6.</td>
-<td></td>
-<td>看源码docker、k8s、Fabric、以太坊、比特币等</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>7.</td>
-<td></td>
-<td>Linux、C++</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+        <h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li>
+<li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li>
+</ul>
         
       
       
@@ -1031,7 +695,151 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0196/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/05/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0222/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/算法/剑指Offer/剑指Offer21-调整数组顺序使奇数位于偶数前面-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/03/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer21-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2-1/">剑指Offer21.调整数组顺序使奇数位于偶数前面</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/03/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer21-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2-1/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/09/03/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer21-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2-1/" class="archive-article-date">
+  	<time datetime="2021-09-03T02:44:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-03</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">228字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/" target="_blank" rel="noopener">剑指 Offer 21. 调整数组顺序使奇数位于偶数前面</a></p>
+<p>难度简单151收藏分享切换为英文接收动态反馈</p>
+<p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。</p>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/03/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer21-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2-1/">展开全文 >></a>
         </p>
       
 
@@ -1067,7 +875,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/98/">98</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/109/">109</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
     </nav>
   
 
