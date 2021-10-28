@@ -42,7 +42,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/J9PbsW.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201123215651.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201123224127.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201125181639.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/MQhiYy.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/zrVCh0.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/gNPYKk.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/xS8MjJ.png">
@@ -72,7 +72,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/oQnga5.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/p1edob.png">
 <meta property="article:published_time" content="2020-11-16T08:26:40.000Z">
-<meta property="article:modified_time" content="2021-07-14T08:35:15.699Z">
+<meta property="article:modified_time" content="2021-10-28T04:43:28.859Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 545
+			总文章数 548
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -394,7 +394,8 @@
 <li><p>return: 返回当前<strong>函数</strong>调用,后续的函数不会执行,但是其之<strong>前</strong>如果有defer语句的话在当前函数结束之前还是会执行     </p>
 </li>
 <li><p>Goexit: 退出<strong>当前go程</strong>,在其之<strong>前</strong>的defer会注册,其后的也不会执行</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/IfHFDz.png" alt="IfHFDz"></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/IfHFDz.png" alt="IfHFDz" style="zoom:50%;" />
+
 </li>
 </ul>
 <h4 id="GOMAXPROCS"><a href="#GOMAXPROCS" class="headerlink" title="GOMAXPROCS"></a>GOMAXPROCS</h4><p>设置并行计算的CPU核数最大值, 返回上一次设置cpu的值</p>
@@ -432,10 +433,11 @@
 <p>goroutine运行在<strong>相同的</strong>地址空间,因此访问共享内存必须做好同步.goruntine奉行<font color='red'><strong>通过通信来共享内存,而不是共享内存来通信</strong> </font></p>
 <ul>
 <li><p>传统的方式是通过共享内存来实现通信, 因为进程每个开辟的内存空间中, 内存中内核的空间都是相同的(同一台机器同一个内核), 所以通过对此空间中的数据进行读/写实现进程之间的通信.</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/LAuAz3.png" alt="LAuAz3"></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/LAuAz3.png" alt="LAuAz3" style="zoom: 33%;" />
 </li>
 <li><p>而goroutine则是通过与channel通信来实现资源的共享</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/Y2xR61.png" alt="Y2xR61"></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/Y2xR61.png" alt="Y2xR61" style="zoom:50%;" />
+
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/ce0YlV.png" alt="ce0YlV"></p>
 </li>
 </ul>
@@ -541,10 +543,8 @@
 <p>只读：var intChan &lt;-chan int</p>
 <p>应用: 在只需要写/读的函数参数中加入此声明, 这样可以防止<strong>误操作</strong>，并且效率更加高</p>
 <p>注意：不管是读还是写，管道的类型仍然还是chan int， <strong>只读只写只是一种属性</strong></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/MQhiYy.png" alt="MQhiYy"></p>
 </li>
-</ul>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201125181639.png" alt=""></p>
-<ul>
 <li><p>单向channel(只读/只写channel)与双向channel的转换</p>
 <ol>
 <li><p>双向channel可以隐性的转换为任何一种单向channel (直接赋值即可转换)</p>
@@ -552,7 +552,8 @@
 <li><p>单向channel不可以向双向channel转换</p>
 </li>
 <li><p>在传递参数时,单纯的写/读函数可以在函数参数中指定好为单向channel<font color='green'><strong>(良好的语法习惯)</strong>    </font>,调用时可以使用双向channel</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/zrVCh0.png" alt="zrVCh0"></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/zrVCh0.png" alt="zrVCh0" style="zoom:50%;" />
+
 </li>
 </ol>
 </li>
@@ -923,7 +924,7 @@
     2020-11-16
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-07-14
+    2021-10-28
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/11/16/技术贴/GoLang/Go语言-2-进阶/" title="Go语言-2-进阶" target="_blank">Go语言-2-进阶</a>

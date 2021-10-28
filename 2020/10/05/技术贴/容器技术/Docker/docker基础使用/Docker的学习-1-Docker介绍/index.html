@@ -6,24 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>Docker的学习-3-Docker的应用 | 知识与头发不可兼得</title>
+  <title>Docker的学习 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="三、Docker自定义镜像中央仓库的镜像也是Docker的用户自己上传上去的。 123456# 1. 创建一个Dockerfile文件（无后缀名），并且指定自定义镜像信息# Dockerfile文件中常用的内容from: 指定当前自定义镜像依赖的环境copy: 将相对路径（相对于dockerfile文件）下的内容复制到自定义镜像中workdir: 申明镜像的默认工作目录cmd： 需要执行的命令（在">
+  <meta name="description" content="一、Docker介绍1.1 用来解决的问题： 环境不一致问题 多用户环境下的互相影响 运维成本过高 安装软件成功过高  1.2 Docker的思想">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker的学习-3-Docker的应用">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-3-Docker%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F%E3%80%81Docker-Compose%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="Docker的学习">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/docker%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-1-Docker%E4%BB%8B%E7%BB%8D/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="三、Docker自定义镜像中央仓库的镜像也是Docker的用户自己上传上去的。 123456# 1. 创建一个Dockerfile文件（无后缀名），并且指定自定义镜像信息# Dockerfile文件中常用的内容from: 指定当前自定义镜像依赖的环境copy: 将相对路径（相对于dockerfile文件）下的内容复制到自定义镜像中workdir: 申明镜像的默认工作目录cmd： 需要执行的命令（在">
+<meta property="og:description" content="一、Docker介绍1.1 用来解决的问题： 环境不一致问题 多用户环境下的互相影响 运维成本过高 安装软件成功过高  1.2 Docker的思想">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006111102.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006120520.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006134422.png">
-<meta property="article:published_time" content="2020-10-06T02:19:11.000Z">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005203818.png">
+<meta property="article:published_time" content="2020-10-05T12:23:39.000Z">
 <meta property="article:modified_time" content="2021-02-13T07:49:16.181Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201006111102.png">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201005203818.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -77,7 +75,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 545
+			总文章数 548
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -188,21 +186,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/容器技术/Docker/Docker的学习-3-Docker自定义镜像、Docker-Compose的使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/容器技术/Docker/docker基础使用/Docker的学习-1-Docker介绍" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Docker的学习-3-Docker的应用
+      Docker的学习
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-3-Docker%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F%E3%80%81Docker-Compose%E7%9A%84%E4%BD%BF%E7%94%A8/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/docker%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-1-Docker%E4%BB%8B%E7%BB%8D/" class="pageViews">0</span>次
   </a>
 
         
@@ -212,8 +210,8 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2020/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-3-Docker%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F%E3%80%81Docker-Compose%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-10-06T02:19:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-06</time>
+<a href="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/docker%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-1-Docker%E4%BB%8B%E7%BB%8D/" class="archive-article-date">
+  	<time datetime="2020-10-05T12:23:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-05</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -222,7 +220,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">993字</span>
+        <span class="post-count">236字</span>
       </span>
     </span>
 
@@ -231,7 +229,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -243,36 +241,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="三、Docker自定义镜像"><a href="#三、Docker自定义镜像" class="headerlink" title="三、Docker自定义镜像"></a>三、Docker自定义镜像</h1><p>中央仓库的镜像也是Docker的用户自己上传上去的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 创建一个Dockerfile文件（无后缀名），并且指定自定义镜像信息</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Dockerfile文件中常用的内容</span></span><br><span class="line">from: 指定当前自定义镜像依赖的环境</span><br><span class="line">copy: 将相对路径（相对于dockerfile文件）下的内容复制到自定义镜像中</span><br><span class="line">workdir: 申明镜像的默认工作目录</span><br><span class="line">cmd： 需要执行的命令（在workdir下执行，cmd可以写多个，但是只以最后一个为准）</span><br></pre></td></tr></table></figure>
+        <h1 id="一、Docker介绍"><a href="#一、Docker介绍" class="headerlink" title="一、Docker介绍"></a>一、Docker介绍</h1><h2 id="1-1-用来解决的问题："><a href="#1-1-用来解决的问题：" class="headerlink" title="1.1 用来解决的问题："></a>1.1 用来解决的问题：</h2><ol>
+<li>环境不一致问题</li>
+<li>多用户环境下的互相影响</li>
+<li>运维成本过高</li>
+<li>安装软件成功过高</li>
+</ol>
+<h2 id="1-2-Docker的思想"><a href="#1-2-Docker的思想" class="headerlink" title="1.2 Docker的思想"></a>1.2 Docker的思想</h2><a id="more"></a>
 
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201006111102.png" alt=""></p>
-<a id="more"></a>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 2. 将准备好的Dockfile和相应的文件拖拽到Linux系统中，通过docker命令制作镜像</span></span><br><span class="line">docker build -t 镜像名称:[tag] .     # 注意最后一个.表示当前目录</span><br></pre></td></tr></table></figure>
-
-<h1 id="四、Docker-Compose"><a href="#四、Docker-Compose" class="headerlink" title="四、Docker-Compose"></a>四、Docker-Compose</h1><p>运行一个镜像，需要添加大量的参数，可以通过Docker-Compose编写这些参数</p>
-<p>Docker-Compose可以帮我们批量的管理容器，只需要使用docker-compose.yml文件去维护即可</p>
-<h2 id="4-1-下载Docker-Compose"><a href="#4-1-下载Docker-Compose" class="headerlink" title="4.1 下载Docker-Compose"></a>4.1 下载Docker-Compose</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 在github上下载</span></span><br><span class="line">https://github.com/docker/compose/releases/download/1.24.1/docker-compose-Linux-x86_64  # 1.24.1版本链接</span><br><span class="line">https://github.com/docker/compose/tags   # 各版本目录</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 将下载好的文件拖拽进linux系统中</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 修改文件文件名称，并给予可执行的权限</span></span><br><span class="line">mv docker-compose-Linux-x86_64 docker-compose</span><br><span class="line">chmod u+x ./docker_compose </span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. 方便后期操作，配置环境变量</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将docker-compose移动到/usr/<span class="built_in">local</span>/bin目录下 </span></span><br><span class="line">vim /etc/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加目录</span></span><br><span class="line">export PATH=/usr/local/bin</span><br><span class="line">source /etc/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5. 测试</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在任意目录下输入</span></span><br><span class="line">docker-compose</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201006120520.png" alt=""></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201006134422.png" alt=""></p>
-<h2 id="4-2-yml文件格式"><a href="#4-2-yml文件格式" class="headerlink" title="4.2 yml文件格式"></a>4.2 yml文件格式</h2><p>yml文件以key: value方式来指定配置信息，多个配置信息以换行+缩进的方式区分</p>
-<p><strong>注意：yml文件key:空格value，之间有个空格</strong>， <strong>yml的缩进是两个空格构成的</strong>，<strong>在yml文件中不要使用制表符（不识别）！</strong></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.1"</span></span><br><span class="line"><span class="attr">services:</span> </span><br><span class="line">  <span class="attr">mysql:</span>              <span class="comment"># 服务的名称</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span>   <span class="comment"># 代表只要docker启动，这个容器就跟着启动</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">daocloud.io/library/mysql:5.7.4</span>   <span class="comment"># 指定镜像的路径</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">test_mysql</span>  <span class="comment"># 指定容器的名称，docker ps可以看到的名字，也就是--name参数</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">3306</span><span class="string">:3306</span>     <span class="comment"># 端口号映射，多个映射照样在下方同格式添加,也就是-p参数</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">root</span>   <span class="comment"># 指定MySql的Root用户登录密码</span></span><br><span class="line">      <span class="attr">TZ:</span> <span class="string">Asia/Shanghai</span>           <span class="comment"># 指定时区</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/opt/docker_mysql_tomcat/mysql_data:/var/lib/mysql</span>       <span class="comment"># 映射数据卷</span></span><br><span class="line">  <span class="attr">tomcat:</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">daocloud.io/library/tomcat:8.5.15-jre8</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">test_tomcat</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8080</span><span class="string">:8080</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">TZ:</span> <span class="string">Asia/Shanghai</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/gump/myProjects/docker/docker_mysql_tomcat/tomcat_webapps:/usr/local/tomcat/webapps</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/gump/myProjects/docker/docker_mysql_tomcat/tomcat_logs:/usr/local/tomcat/logs</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="4-3-使用docker-compose命令管理容器"><a href="#4-3-使用docker-compose命令管理容器" class="headerlink" title="4.3 使用docker-compose命令管理容器"></a>4.3 使用docker-compose命令管理容器</h2><p>使用docker-compose命令时，默认会在当前目录下找docker-compose.yml文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 使用yml文件启动管理的容器</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 关闭并删除容器</span></span><br><span class="line">docker-compose down</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 开启|关闭|重启由yml维护的容器</span></span><br><span class="line">docker-compose start|stop|restart</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. 查看yml管理的容器</span></span><br><span class="line">docker-compose ps</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5. 查看日志</span></span><br><span class="line">docker-compose logs -f</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-4-使用docker-compose配置Dockerfile"><a href="#4-4-使用docker-compose配置Dockerfile" class="headerlink" title="4.4 使用docker-compose配置Dockerfile"></a>4.4 使用docker-compose配置Dockerfile</h2><p>使用yml配置使用自定义镜像</p>
-<p><strong>使用yml文件以及Dockerfile文件在生成自定义镜像的同时启动当前镜像，并且由docker-compose去管理容器</strong></p>
-<p>以自定义镜像ssm项目为例：</p>
-<h3 id="docker-compose-yml文件"><a href="#docker-compose-yml文件" class="headerlink" title="docker_compose.yml文件"></a>docker_compose.yml文件</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">"3.1"</span></span><br><span class="line"><span class="attr">services:</span> </span><br><span class="line">  <span class="attr">ssm:</span>              <span class="comment"># 服务的名称</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span>   <span class="comment"># 代表只要docker启动，这个容器就跟着启动</span></span><br><span class="line">    <span class="attr">build:</span>           <span class="comment"># 构建自定义镜像</span></span><br><span class="line">      <span class="attr">context:</span> <span class="string">../</span>   <span class="comment">#指定dockerfile文件的路径</span></span><br><span class="line">      <span class="attr">dockerfile:</span> <span class="string">Dockerfile</span>   <span class="comment"># 指定dockerfile的文件名字</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">sm:1.0.1</span>       <span class="comment"># 镜像就是上方build构建的，指定名称即可</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ssm</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8081</span><span class="string">:8080</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">TZ:</span> <span class="string">Asia/Shanghai</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Dockerfile文件"><a href="#Dockerfile文件" class="headerlink" title="Dockerfile文件"></a>Dockerfile文件</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> daocloud.io/library/tomcat:<span class="number">8.5</span>.<span class="number">15</span>-jre8		<span class="comment">#依赖的环境</span></span><br><span class="line"><span class="keyword">copy</span><span class="bash"> ssm.var /usr/<span class="built_in">local</span>/tomcat/webapps     <span class="comment"># 环境自添加的数据</span></span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 可以直接基于这两个文件构建自定义镜像并管理</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果自定义镜像不存在，会帮助我们创建，如果已经存在会直接运行这个镜像</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果想重新构建</span></span><br><span class="line">docker-compose build</span><br><span class="line"><span class="meta">#</span><span class="bash"> 运行时重新构建</span></span><br><span class="line">docker-compose up -d --build</span><br></pre></td></tr></table></figure>
-
+<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201005203818.png" alt=""></p>
+<ol>
+<li><p>集装箱</p>
+<p>会将所有需要的内容放进不同的集装箱中，需要这些环境就直接取即可</p>
+</li>
+<li><p>标准化</p>
+<ol>
+<li>运输的标准化：Docker有一个码头。所有上传的集装箱都放在码头上，谁需要就可以指派大海豚取搬运</li>
+<li>命令的标准化：Docker提供了一系列的命令，帮助我们获取和上传集装箱</li>
+<li>提供了REST的API：衍生出了很多的图形化界面，Rancher</li>
+</ol>
+</li>
+<li><p>隔离性</p>
+<p>Docker在运行集装箱的内容时，会在Linux内核中单独开辟一块空间，不影响其他</p>
+</li>
+</ol>
+<ul>
+<li><p>注册中心：超级码头，上面放的就是集装箱</p>
+</li>
+<li><p>镜像：集装箱</p>
+</li>
+<li><p>容器：运行起来的镜像</p>
+</li>
+</ul>
 
       
       
@@ -291,16 +291,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-10-06
+    2020-10-05
     <br>
     <strong class="update-time">最后更新：</strong>
     2021-02-13
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/10/06/技术贴/容器技术/Docker/Docker的学习-3-Docker自定义镜像、Docker-Compose的使用/" title="Docker的学习-3-Docker的应用" target="_blank">Docker的学习-3-Docker的应用</a>
+    <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/容器技术/Docker/docker基础使用/Docker的学习-1-Docker介绍/" title="Docker的学习" target="_blank">Docker的学习</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/10/06/技术贴/容器技术/Docker/Docker的学习-3-Docker自定义镜像、Docker-Compose的使用/" title="Docker的学习-3-Docker的应用" target="_blank">https://xwjahahahaha.github.io/2020/10/06/技术贴/容器技术/Docker/Docker的学习-3-Docker自定义镜像、Docker-Compose的使用/</a>
+    <a href="https://xwjahahahaha.github.io/2020/10/05/技术贴/容器技术/Docker/docker基础使用/Docker的学习-1-Docker介绍/" title="Docker的学习" target="_blank">https://xwjahahahaha.github.io/2020/10/05/技术贴/容器技术/Docker/docker基础使用/Docker的学习-1-Docker介绍/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -449,7 +449,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-3-Docker%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F%E3%80%81Docker-Compose%E7%9A%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/docker%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-1-Docker%E4%BB%8B%E7%BB%8D/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -466,18 +466,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-2-%E5%AE%98%E6%96%B9%E6%B5%8B%E8%AF%95%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/docker%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/Docker%E7%9A%84%E5%AD%A6%E4%B9%A0-2-Docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Fabric框架的学习-2-官方测试与基础概念
+          Docker的学习-2
         
       </div>
     </a>
   
   
-    <a href="/2020/10/06/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0078/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日记_0078</div>
+    <a href="/2020/10/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-1-%E5%9F%BA%E7%A1%80%E5%87%86%E5%A4%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Fabric框架的学习-1-基础准备</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -504,7 +504,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Docker自定义镜像"><span class="toc-number">1.</span> <span class="toc-text">三、Docker自定义镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Docker-Compose"><span class="toc-number">2.</span> <span class="toc-text">四、Docker-Compose</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-下载Docker-Compose"><span class="toc-number">2.1.</span> <span class="toc-text">4.1 下载Docker-Compose</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-yml文件格式"><span class="toc-number">2.2.</span> <span class="toc-text">4.2 yml文件格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-使用docker-compose命令管理容器"><span class="toc-number">2.3.</span> <span class="toc-text">4.3 使用docker-compose命令管理容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-使用docker-compose配置Dockerfile"><span class="toc-number">2.4.</span> <span class="toc-text">4.4 使用docker-compose配置Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-compose-yml文件"><span class="toc-number">2.4.1.</span> <span class="toc-text">docker_compose.yml文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dockerfile文件"><span class="toc-number">2.4.2.</span> <span class="toc-text">Dockerfile文件</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Docker介绍"><span class="toc-number">1.</span> <span class="toc-text">一、Docker介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-用来解决的问题："><span class="toc-number">1.1.</span> <span class="toc-text">1.1 用来解决的问题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Docker的思想"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Docker的思想</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
