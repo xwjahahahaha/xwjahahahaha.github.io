@@ -11,24 +11,24 @@
   <meta name="description" content="一、引子文章主要结合尚硅谷Go语言教程以及博学谷、http:&#x2F;&#x2F;c.biancheng.net&#x2F;view&#x2F;3990.html等其他资料整理，侵删">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go语言-1-基础">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="一、引子文章主要结合尚硅谷Go语言教程以及博学谷、http:&#x2F;&#x2F;c.biancheng.net&#x2F;view&#x2F;3990.html等其他资料整理，侵删">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/r1lr8n.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193035.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193211.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201028220132.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201028222532.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201028224718.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201029100630.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201029103301.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201029103955.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201029104224.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201029105523.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201029105853.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201029123137.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201029123238.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201122193035.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201122193211.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201028220132.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201028222532.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201028224718.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201029100630.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201029103301.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201029103955.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201029104224.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201029105523.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201029105853.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201029123137.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/20201029123238.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193240.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201102211522.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211028104155694.png">
@@ -61,7 +61,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201118161512.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122183834.png">
 <meta property="article:published_time" content="2020-10-21T11:18:59.000Z">
-<meta property="article:modified_time" content="2021-10-28T05:55:58.845Z">
+<meta property="article:modified_time" content="2021-10-29T07:09:36.526Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -119,7 +119,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 548
+			总文章数 546
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -230,7 +230,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/GoLang/Go语言-1-基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/GoLang/基础语法/Go语言-1-基础" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -244,7 +244,7 @@
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/" class="pageViews">0</span>次
   </a>
 
         
@@ -254,7 +254,7 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+<a href="/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/" class="archive-article-date">
   	<time datetime="2020-10-21T11:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
 </a>
         <!-- 开始添加字数统计-->
@@ -264,7 +264,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">19.6k字</span>
+        <span class="post-count">20.4k字</span>
       </span>
     </span>
 
@@ -273,7 +273,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">79分</span>
+        <span class="post-count">82分</span>
       </span>
     </span>
 </div>
@@ -336,15 +336,15 @@
 <h5 id="工具链"><a href="#工具链" class="headerlink" title="工具链"></a>工具链</h5><p>完整的工具链对于日常开发极为重要。Go 在此做得相当不错，无论是编译、格式化、错误检查、帮助文档，还是第三方包下载、更新都有对应的工具。其功能未必完善，但起码算得上简单易用。</p>
 <p>内置完整测试框架，其中包括单元测试、性能测试、代码覆盖率、数据竞争，以及用来调优的 pprof，这些都是保障代码能正确而稳定运行的必备利器。</p>
 <p>除此之外，还可通过环境变量输出运行时监控信息，尤其是垃圾回收和并发调度跟踪，可进一步帮助我们改进算法，获得更佳的运行期表现。</p>
-<h1 id="二、go基础重点总结"><a href="#二、go基础重点总结" class="headerlink" title="二、go基础重点总结"></a>二、go基础重点总结</h1><h2 id="1-环境变量配置"><a href="#1-环境变量配置" class="headerlink" title="1. 环境变量配置"></a>1. 环境变量配置</h2><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193035.png" alt=""></p>
+<h1 id="二、go基础重点总结"><a href="#二、go基础重点总结" class="headerlink" title="二、go基础重点总结"></a>二、go基础重点总结</h1><h2 id="1-环境变量配置"><a href="#1-环境变量配置" class="headerlink" title="1. 环境变量配置"></a>1. 环境变量配置</h2><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201122193035.png" alt=""></p>
 <h2 id="2-Golang-执行流程"><a href="#2-Golang-执行流程" class="headerlink" title="2. Golang 执行流程"></a>2. Golang 执行流程</h2><ul>
 <li>如果是对源码编译后，再执行，Go 的执行流程如下图</li>
 </ul>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201122193211.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201122193211.png" alt=""></p>
 <ul>
 <li>如果我们是对源码直接执行go run 源码，Go 的执行流程如下图</li>
 </ul>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201028220132.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201028220132.png" alt=""></p>
 <ul>
 <li>两种执行流程的方式区别：</li>
 </ul>
@@ -353,7 +353,7 @@
 <li><strong>如果我们是直接go run go 源代码，那么如果要在另外一个机器上这么运行，<font color='red'>也需要go 开发环境</font>，否则无法执行。</strong></li>
 <li><strong>在编译时，编译器会将程序运行依赖的库文件包含在可执行文件中，所以，<font color='green'>可执行文件变大了很多</font>。</strong></li>
 </ol>
-<h2 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3. 数据类型"></a>3. 数据类型</h2><h3 id="基本数据类型与派生数据类型"><a href="#基本数据类型与派生数据类型" class="headerlink" title="基本数据类型与派生数据类型"></a>基本数据类型与派生数据类型</h3><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201028222532.png" alt=""></p>
+<h2 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3. 数据类型"></a>3. 数据类型</h2><h3 id="基本数据类型与派生数据类型"><a href="#基本数据类型与派生数据类型" class="headerlink" title="基本数据类型与派生数据类型"></a>基本数据类型与派生数据类型</h3><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201028222532.png" alt=""></p>
 <p><strong>特点总结：</strong></p>
 <ol>
 <li><p>字符串一旦赋值了，字符串就不能修改了,Go中字符串是不可变的</p>
@@ -362,7 +362,7 @@
 <p>表达式T(v) 将值v 转换为类型T<br>T: 就是数据类型，比如int32，int64，float32 等等<br>v: 就是需要转换的变量</p>
 </li>
 <li><p>被转换的是变量存储的数据(即值)，<font color='red'>变量本身的数据类型并没有变化！</font></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201028224718.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201028224718.png" alt=""></p>
 </li>
 <li><p><font color='red'>如果变量名、函数名、常量名首字母大写并且写在函数外部，则可以被其他的包访问</font>如果首字母小写，则只能在本包中使用.</p>
 </li>
@@ -389,32 +389,44 @@
 <li><p><font color='red'>go不支持三元运算符</font></p>
 </li>
 <li><p>优先级表</p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201029100630.png" alt=""></p>
-</li>
-<li><p>赋值语句：</p>
-<ul>
-<li>申明并赋值运算符<code>:=</code> 一般仅在函数中使用而不能在包中使用</li>
-<li>一般使用两种赋值语句：显性赋值<code>var s string</code>(包级别，表示其重要性)；隐性赋值<code>s := &quot;&quot;</code>（函数级别，表示其临时性）</li>
-</ul>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201029100630.png" alt=""></p>
 </li>
 </ol>
-<h2 id="5-循环"><a href="#5-循环" class="headerlink" title="5. 循环"></a>5. 循环</h2><ol>
+<h2 id="5-赋值语句"><a href="#5-赋值语句" class="headerlink" title="5. 赋值语句"></a>5. 赋值语句</h2><ul>
+<li><p>申明并赋值运算符<code>:=</code> 一般仅在函数中使用而不能在包中使用</p>
+</li>
+<li><p>一般使用两种赋值语句：显性赋值<code>var s string</code>(包级别，表示其重要性)；隐性赋值<code>s := &quot;&quot;</code>（函数级别，表示其临时性）</p>
+</li>
+<li><p>使用<code>:=</code>这样的短变量声明赋值时，如果已有变量被声明赋值，在下一次多个变量中的<code>:=</code>操作中，其不会重新声明，而是赋值</p>
+<p>例如：<code>in, err := os.Open(infile); out, err := os.Create(outfile)</code>其中第二个语句仅仅声明了<code>out</code>而<code>err</code>则只是单纯的赋值</p>
+</li>
+<li><p>短变量声明必须要声明一个新的变量，否则无法通过编译</p>
+</li>
+<li><p>多重赋值语句，例如<code>x, y = y, x</code>的实际过程是在更新左边的变量之前，从右边的所有表达式开始推演</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	x, y := <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">	x, y = x+y+<span class="number">1</span>, (x+<span class="number">2</span>)/y			<span class="comment">// 先计算(x+2)/y = 1 和 x+y+1=4 全部计算完再赋值给左边</span></span><br><span class="line">	fmt.Println(x, y)				<span class="comment">// 4, 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>额外的bool结果来表示一些错误情况</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v, ok = m[key] <span class="comment">// map</span></span><br><span class="line">v, ok = x.(T)		<span class="comment">// 类型断言</span></span><br><span class="line">v, ok = &lt;- ch 	<span class="comment">// 通道接收</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="6-循环"><a href="#6-循环" class="headerlink" title="6. 循环"></a>6. 循环</h2><ol>
 <li><p>循环遍历中文乱码</p>
 <p>如果我们的字符串含有中文，那么传统的遍历字符串方式，就是错误，会出现乱码。</p>
 <p>原因是<font color='orange'>传统的对字符串的遍历</font>是按照字节来遍历，而<font color='orange'>一个汉字在utf8 编码是对应3 个字节</font>。如何解决需要<font color='orange'>要将str 转成[]rune 切片</font></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201029103301.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201029103301.png" alt=""></p>
 <p>或者使用for-range的方式：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> world = <span class="string">"nihao 北京"</span></span><br><span class="line"><span class="keyword">for</span> _, val := <span class="keyword">range</span> world&#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%c"</span>, val)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><font color='red'><strong>Go 语言没有while 和do…while 语法，用for代替</strong></font>， <strong>for是go语言中唯一的循环结构</strong></p>
 </li>
 <li><p><font color='orange'>break 语句出现在多层嵌套的语句块中时，可以通过标签指明要终止的是哪一层语句块</font></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201029103955.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201029103955.png" alt=""></p>
 </li>
 <li><p><font color='orange'>continue 语句出现在多层嵌套的循环语句体中时，可以通过标签指明要跳过的是哪一层循环,</font></p>
 </li>
 <li><p>Go 语言的goto 语句可以无条件地转移到程序中指定的行。在Go 程序设计中一般不主张使用goto 语句。</p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201029104224.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201029104224.png" alt=""></p>
 </li>
 <li><p>Switch</p>
 <ul>
@@ -424,6 +436,15 @@
 </ul>
 </li>
 </ol>
+<h2 id="7-New"><a href="#7-New" class="headerlink" title="7. New"></a>7. New</h2><p>new每次都会创建新的空间，返回不同的地址</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	<span class="comment">//在heap上申请一块地址空间</span></span><br><span class="line">	p := <span class="built_in">new</span>(<span class="keyword">string</span>)	<span class="comment">//默认类型的默认值</span></span><br><span class="line">	fmt.Printf(<span class="string">"%q\n"</span>, *p)	<span class="comment">//%q打印go语言格式下的字符串   ""	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><font color='#39b54a'>特殊情况：如果创建的是类别不携带任何信息即零值，每次new创建返回的地址是相同的(例如， struct{}、[0]int)</font></p>
+</blockquote>
+<ul>
+<li>new是一个内置函数而不是关键字，所以可以用作变量名，但是在一个函数体内出现了new变量名就不能在使用new函数了</li>
+</ul>
 <h2 id="6-函数和包、字符串"><a href="#6-函数和包、字符串" class="headerlink" title="6. 函数和包、字符串"></a>6. 函数和包、字符串</h2><h3 id="6-1-包"><a href="#6-1-包" class="headerlink" title="6.1 包"></a>6.1 包</h3><ol>
 <li><p><font color='red'><strong>包的本质实际上就是创建不同的文件夹</strong></font>，来存放程序文件。类似于其他语言的<em>模块、库</em></p>
 </li>
@@ -450,20 +471,20 @@
 <li><p>在访问其它包函数，变量时，其语法是包名.函数名</p>
 </li>
 <li><p>如果包名较长，Go 支持<font color='orange'>给包取别名</font>， 注意细节：<font color='orange'>取别名后，原来的包名就不能使用了</font></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201029105523.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201029105523.png" alt=""></p>
 </li>
 <li><p>同一包下，不能有相同的函数名（也不能有相同的全局变量名），否则报重复定义</p>
 </li>
 <li><p><font color='red'>如果你要编译成一个可执行程序文件，<strong>就需要将这个包声明为main</strong> , 即package main .这个就是一个语法规范，如果你是写一个库，包名可以自定义</font></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201029105853.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201029105853.png" alt=""></p>
 </li>
 </ol>
 <h3 id="6-2-函数"><a href="#6-2-函数" class="headerlink" title="6.2 函数"></a>6.2 函数</h3><ol start="11">
 <li><p><font color='red'>基本数据类型和<strong>数组</strong>默认都是值传递的，即进行值拷贝。在函数内修改，不会影响到原来的值。</font></p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201029123137.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201029123137.png" alt=""></p>
 </li>
 <li><p>如果希望函数内的变量能修改函数外的变量(指的是默认以值传递的方式的数据类型)，可以传入变量的地址&amp;，函数内以指针的方式操作变量。</p>
-<p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201029123238.png" alt=""></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/20201029123238.png" alt=""></p>
 </li>
 <li><p>Go 函数<font color='red'>不支持函数重载</font></p>
 </li>
@@ -483,10 +504,11 @@
 <li><font color='red'>每一个源文件都可以包含一个init 函数</font>，该函数会<strong>在main 函数执行前</strong>，被Go 运行框架调用，也就是说<font color='red'>init 会在main 函数前被调用。</font></li>
 <li>执行先后顺序：<font color='red'><strong>全局变量定义-&gt;init函数-&gt;main 函数</strong></font></li>
 </ol>
+<p>go程序执行顺序：</p>
 <h3 id="6-4-匿名函数"><a href="#6-4-匿名函数" class="headerlink" title="6.4 匿名函数"></a>6.4 匿名函数</h3><p>如果我们某个函数<strong>只是希望使用一次</strong>，可以考虑使用匿名函数，匿名函数也可以实现多次调用。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//全局匿名函数</span></span><br><span class="line"><span class="keyword">var</span> FunMul = <span class="function"><span class="keyword">func</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> a * b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//调用方式1 直接调用 只能调用一次</span></span><br><span class="line">	res := <span class="function"><span class="keyword">func</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">		<span class="keyword">return</span> a + b</span><br><span class="line">	&#125;(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%d\n"</span>, res)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//调用方式2 赋值给变量  可以多次调用</span></span><br><span class="line">	funAdd := <span class="function"><span class="keyword">func</span><span class="params">(a,b <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">		<span class="keyword">return</span> a + b</span><br><span class="line">	&#125;</span><br><span class="line">	a := funAdd(<span class="number">1</span>, <span class="number">4</span>)</span><br><span class="line">	b := funAdd(<span class="number">5</span>, <span class="number">7</span>)</span><br><span class="line">	fmt.Println(a, b)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="6-5-闭包"><a href="#6-5-闭包" class="headerlink" title="6.5 闭包"></a>6.5 闭包</h3><h4 id="基本介绍："><a href="#基本介绍：" class="headerlink" title="基本介绍："></a>基本介绍：</h4><p>闭包就是<font color='red'>一个<strong>函数</strong>和与其<strong>相关的引用环境</strong>组合</font>的一个整体(实体)</p>
+<h3 id="7-5-闭包"><a href="#7-5-闭包" class="headerlink" title="7.5 闭包"></a>7.5 闭包</h3><h4 id="基本介绍："><a href="#基本介绍：" class="headerlink" title="基本介绍："></a>基本介绍：</h4><p>闭包就是<font color='red'>一个<strong>函数</strong>和与其<strong>相关的引用环境</strong>组合</font>的一个整体(实体)</p>
 <p>例子：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AddUpper</span><span class="params">()</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span>)</span> <span class="title">int</span></span>&#123;</span><br><span class="line">	<span class="comment">//对n做了初始化，以后每次都不会初始化了，类似于类中的字段</span></span><br><span class="line">	n := <span class="number">10</span></span><br><span class="line">	str := <span class="string">"Hello"</span></span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(i <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">		n += i</span><br><span class="line">		str += <span class="keyword">string</span>(<span class="number">36</span>)</span><br><span class="line">		fmt.Printf(str)</span><br><span class="line">		<span class="keyword">return</span> n</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	upper := AddUpper()</span><br><span class="line">	fmt.Printf(<span class="string">"%d\n"</span>, upper(<span class="number">1</span>))</span><br><span class="line">	fmt.Printf(<span class="string">"%d\n"</span>, upper(<span class="number">2</span>))</span><br><span class="line">	fmt.Printf(<span class="string">"%d\n"</span>, upper(<span class="number">3</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Hello$11</span></span><br><span class="line"><span class="comment">Hello$$13</span></span><br><span class="line"><span class="comment">Hello$$$16</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 
@@ -594,6 +616,21 @@
 <h3 id="6-12-标准输入输出"><a href="#6-12-标准输入输出" class="headerlink" title="6.12 标准输入输出"></a>6.12 标准输入输出</h3><h4 id="标准输入与输出"><a href="#标准输入与输出" class="headerlink" title="标准输入与输出"></a>标准输入与输出</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 根据标准输入流创建新的扫描器</span></span><br><span class="line">	input := bufio.NewScanner(os.Stdin)</span><br><span class="line">	<span class="keyword">for</span> input.Scan() &#123;		<span class="comment">// input.Scan()调用每次会读取下一行</span></span><br><span class="line">		fmt.Println(<span class="string">"input : "</span>, input.Text())	<span class="comment">//输出</span></span><br><span class="line">		_, err := fmt.Fprintln(os.Stdout, <span class="string">"======="</span>) <span class="comment">// 使用标准输出流输出</span></span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h4><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211028104155694.png" alt="image-20211028104155694"></p>
+<h2 id="7-变量的生命周期"><a href="#7-变量的生命周期" class="headerlink" title="7. 变量的生命周期"></a>7. 变量的生命周期</h2><ul>
+<li>包变量的生命周期：整个程序的执行时间</li>
+<li>局部变量的生命周期：<font color='#e54d42'><strong>动态</strong>的生命周期，创建了一个新的变量后直到这个变量变得<strong>不可被访问</strong>才会被GC回收 </font></li>
+</ul>
+<p><strong>不可被访问</strong>：变量是是否还可达，如果无法再通过引用找到该变量，那么就会被GC回收。</p>
+<ul>
+<li>具体来说就是在变量的作用域中没有其他引用，则编译器会将其分配到栈上，其生命周期就是该作用域</li>
+<li>反之，有其他引用（发生了逃逸）那么就分配到堆上，生命周期就扩大了</li>
+</ul>
+<p>总的来说：go语言中只要有变量被引用，那么就会一直保存在内存中</p>
+<p><strong>生命周期与作用域：</strong></p>
+<ul>
+<li>生命周期是一个变量在整个<strong>运行</strong>期间被其他部分引用的起止时间</li>
+<li>作用域：编译时的属性，一般是变量声明所在的一个代码块</li>
+</ul>
 <h2 id="7-数组"><a href="#7-数组" class="headerlink" title="7.数组"></a>7.数组</h2><p>go语言中数组是<strong>值</strong>类型</p>
 <h3 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h3><p><strong>var 数组名[数组大小]数据类型</strong>  var a [10]int</p>
 <h3 id="四种初始化方式"><a href="#四种初始化方式" class="headerlink" title="四种初始化方式"></a>四种初始化方式</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种</span></span><br><span class="line"><span class="keyword">var</span> nums1 [<span class="number">4</span>]<span class="keyword">int</span> = [<span class="number">4</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">fmt.Println(<span class="string">"nums1="</span>, nums1)</span><br><span class="line"><span class="comment">//第二种，上一种的省略格式</span></span><br><span class="line"><span class="keyword">var</span> nums2 = [<span class="number">4</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line">fmt.Println(<span class="string">"nums2="</span>, nums2)</span><br><span class="line"><span class="comment">//第三种  [...]规定的写法</span></span><br><span class="line"><span class="keyword">var</span> nums3 = [...]<span class="keyword">int</span>&#123;<span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line">fmt.Println(<span class="string">"nums3="</span>, nums3)</span><br><span class="line"><span class="comment">//第四种</span></span><br><span class="line"><span class="keyword">var</span> nums4 = []<span class="keyword">int</span>&#123;<span class="number">1</span>: <span class="number">200</span>, <span class="number">2</span>: <span class="number">6000</span>, <span class="number">3</span>: <span class="number">800</span>&#125;</span><br><span class="line">fmt.Println(<span class="string">"nums4="</span>, nums4)</span><br><span class="line"><span class="comment">//第五种</span></span><br><span class="line"><span class="keyword">var</span> nums5 = []<span class="keyword">string</span>&#123;<span class="number">1</span>: <span class="string">"哈哈"</span>, <span class="number">2</span>: <span class="string">"你好"</span>, <span class="number">3</span>: <span class="string">"啦啦"</span>&#125;</span><br><span class="line">fmt.Println(<span class="string">"nums5="</span>, nums5)</span><br></pre></td></tr></table></figure>
@@ -1187,12 +1224,15 @@
 <p>正确的修改：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"heima_GO/day08/model"</span></span><br><span class="line">	<span class="string">"testing"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
+<h2 id="7-各个声明与创建变量方法是否创建内存存储空间"><a href="#7-各个声明与创建变量方法是否创建内存存储空间" class="headerlink" title="7. 各个声明与创建变量方法是否创建内存存储空间"></a>7. 各个声明与创建变量方法是否创建内存存储空间</h2><p>主要讨论引用类型变量：切片、Map、结构体等</p>
+<ul>
+<li><p>new： 创建空间返回该类型对象的指针，可以直接使用 <strong><font color='#e54d42'>（map类型不可以使用new、var，必须要make）</font></strong></p>
+</li>
+<li><p>make：只能创建引用类型（slice、map），不能创建自定义结构体类型, 可以指定内存大小，返回该类型对象而不是指针 </p>
+</li>
+<li><p>var: 只能创建对象，不能创建指针，创建指针只是创建一个空指针，需要指向一个地址才能使用</p>
+</li>
+</ul>
 
       
       
@@ -1214,13 +1254,13 @@
     2020-10-21
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-10-28
+    2021-10-29
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/10/21/技术贴/GoLang/Go语言-1-基础/" title="Go语言-1-基础" target="_blank">Go语言-1-基础</a>
+    <a href="https://xwjahahahaha.github.io/2020/10/21/技术贴/GoLang/基础语法/Go语言-1-基础/" title="Go语言-1-基础" target="_blank">Go语言-1-基础</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2020/10/21/技术贴/GoLang/Go语言-1-基础/" title="Go语言-1-基础" target="_blank">https://xwjahahahaha.github.io/2020/10/21/技术贴/GoLang/Go语言-1-基础/</a>
+    <a href="https://xwjahahahaha.github.io/2020/10/21/技术贴/GoLang/基础语法/Go语言-1-基础/" title="Go语言-1-基础" target="_blank">https://xwjahahahaha.github.io/2020/10/21/技术贴/GoLang/基础语法/Go语言-1-基础/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -1369,7 +1409,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -1424,7 +1464,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、引子"><span class="toc-number">1.</span> <span class="toc-text">一、引子</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景介绍"><span class="toc-number">1.1.</span> <span class="toc-text">背景介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Go语言创始人"><span class="toc-number">1.1.1.</span> <span class="toc-text">Go语言创始人</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go-是编译型语言"><span class="toc-number">1.1.2.</span> <span class="toc-text">Go 是编译型语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要学习Go语言"><span class="toc-number">1.1.3.</span> <span class="toc-text">为什么要学习Go语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go语言特性"><span class="toc-number">1.1.4.</span> <span class="toc-text">Go语言特性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#语法简单"><span class="toc-number">1.1.4.0.1.</span> <span class="toc-text">语法简单</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#并发模型"><span class="toc-number">1.1.4.0.2.</span> <span class="toc-text">并发模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#内存分配"><span class="toc-number">1.1.4.0.3.</span> <span class="toc-text">内存分配</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#垃圾回收"><span class="toc-number">1.1.4.0.4.</span> <span class="toc-text">垃圾回收</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#静态链接"><span class="toc-number">1.1.4.0.5.</span> <span class="toc-text">静态链接</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#标准库"><span class="toc-number">1.1.4.0.6.</span> <span class="toc-text">标准库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#工具链"><span class="toc-number">1.1.4.0.7.</span> <span class="toc-text">工具链</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、go基础重点总结"><span class="toc-number">2.</span> <span class="toc-text">二、go基础重点总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-环境变量配置"><span class="toc-number">2.1.</span> <span class="toc-text">1. 环境变量配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Golang-执行流程"><span class="toc-number">2.2.</span> <span class="toc-text">2. Golang 执行流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据类型"><span class="toc-number">2.3.</span> <span class="toc-text">3. 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型与派生数据类型"><span class="toc-number">2.3.1.</span> <span class="toc-text">基本数据类型与派生数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#值类型与引用类型"><span class="toc-number">2.3.2.</span> <span class="toc-text">值类型与引用类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-运算符"><span class="toc-number">2.4.</span> <span class="toc-text">4. 运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-循环"><span class="toc-number">2.5.</span> <span class="toc-text">5. 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-函数和包、字符串"><span class="toc-number">2.6.</span> <span class="toc-text">6. 函数和包、字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-包"><span class="toc-number">2.6.1.</span> <span class="toc-text">6.1 包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-函数"><span class="toc-number">2.6.2.</span> <span class="toc-text">6.2 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-Init函数"><span class="toc-number">2.6.3.</span> <span class="toc-text">6.3 Init函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-匿名函数"><span class="toc-number">2.6.4.</span> <span class="toc-text">6.4 匿名函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-闭包"><span class="toc-number">2.6.5.</span> <span class="toc-text">6.5 闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本介绍："><span class="toc-number">2.6.5.1.</span> <span class="toc-text">基本介绍：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#闭包案例："><span class="toc-number">2.6.5.2.</span> <span class="toc-text">闭包案例：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-6-Defer"><span class="toc-number">2.6.6.</span> <span class="toc-text">6.6 Defer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-7-函数传参"><span class="toc-number">2.6.7.</span> <span class="toc-text">6.7 函数传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-8-变量作用域"><span class="toc-number">2.6.8.</span> <span class="toc-text">6.8 变量作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-9-字符串"><span class="toc-number">2.6.9.</span> <span class="toc-text">6.9 字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-10-内置函数"><span class="toc-number">2.6.10.</span> <span class="toc-text">6.10 内置函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-11-错误处理"><span class="toc-number">2.6.11.</span> <span class="toc-text">6.11 错误处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-12-标准输入输出"><span class="toc-number">2.6.12.</span> <span class="toc-text">6.12 标准输入输出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准输入与输出"><span class="toc-number">2.6.12.1.</span> <span class="toc-text">标准输入与输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#格式化输出"><span class="toc-number">2.6.12.2.</span> <span class="toc-text">格式化输出</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-数组"><span class="toc-number">2.7.</span> <span class="toc-text">7.数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的定义"><span class="toc-number">2.7.1.</span> <span class="toc-text">数组的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四种初始化方式"><span class="toc-number">2.7.2.</span> <span class="toc-text">四种初始化方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组注意细节"><span class="toc-number">2.7.3.</span> <span class="toc-text">数组注意细节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-切片"><span class="toc-number">2.8.</span> <span class="toc-text">8.切片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#切片的参数"><span class="toc-number">2.8.1.</span> <span class="toc-text">切片的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切片使用的三种方式"><span class="toc-number">2.8.2.</span> <span class="toc-text">切片使用的三种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意点："><span class="toc-number">2.8.3.</span> <span class="toc-text">注意点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#append"><span class="toc-number">2.8.4.</span> <span class="toc-text">append</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#概念与使用"><span class="toc-number">2.8.4.1.</span> <span class="toc-text">概念与使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#append陷阱"><span class="toc-number">2.8.4.2.</span> <span class="toc-text">append陷阱</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#copy"><span class="toc-number">2.8.5.</span> <span class="toc-text">copy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string-和-slice"><span class="toc-number">2.8.6.</span> <span class="toc-text">string 和 slice</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Map"><span class="toc-number">2.9.</span> <span class="toc-text">9. Map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法："><span class="toc-number">2.9.1.</span> <span class="toc-text">基本语法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增删改查-遍历"><span class="toc-number">2.9.2.</span> <span class="toc-text">增删改查&#x2F;遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map的切片数组"><span class="toc-number">2.9.3.</span> <span class="toc-text">map的切片数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map排序"><span class="toc-number">2.9.4.</span> <span class="toc-text">map排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">2.9.5.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-面向对象编程"><span class="toc-number">2.10.</span> <span class="toc-text">10. 面向对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-结构体基本语法"><span class="toc-number">2.10.1.</span> <span class="toc-text">10.1 结构体基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字段-属性"><span class="toc-number">2.10.1.1.</span> <span class="toc-text">字段&#x2F;属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法"><span class="toc-number">2.10.1.2.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-细节与注意点"><span class="toc-number">2.10.2.</span> <span class="toc-text">10.2 细节与注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-工厂模式"><span class="toc-number">2.10.3.</span> <span class="toc-text">10.3 工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-封装"><span class="toc-number">2.10.4.</span> <span class="toc-text">10.4 封装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#封装的使用："><span class="toc-number">2.10.4.1.</span> <span class="toc-text">封装的使用：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-5-继承"><span class="toc-number">2.10.5.</span> <span class="toc-text">10.5 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本语法：-1"><span class="toc-number">2.10.5.1.</span> <span class="toc-text">基本语法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#继承细节说明："><span class="toc-number">2.10.5.2.</span> <span class="toc-text">继承细节说明：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多重继承"><span class="toc-number">2.10.5.3.</span> <span class="toc-text">多重继承</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-6-接口"><span class="toc-number">2.10.6.</span> <span class="toc-text">10.6 接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#接口与继承"><span class="toc-number">2.10.6.1.</span> <span class="toc-text">接口与继承</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-7-多态"><span class="toc-number">2.10.7.</span> <span class="toc-text">10.7 多态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-8-类型断言"><span class="toc-number">2.10.8.</span> <span class="toc-text">10.8 类型断言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-文件操作"><span class="toc-number">2.11.</span> <span class="toc-text">11. 文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Create打开文件"><span class="toc-number">2.11.1.</span> <span class="toc-text">1.Create打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Open打开文件"><span class="toc-number">2.11.2.</span> <span class="toc-text">2.Open打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-OpenFile打开文件"><span class="toc-number">2.11.3.</span> <span class="toc-text">3.OpenFile打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-判断文件是否存在"><span class="toc-number">2.11.4.</span> <span class="toc-text">4. 判断文件是否存在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-写文件"><span class="toc-number">2.11.5.</span> <span class="toc-text">5.写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-读文件"><span class="toc-number">2.11.6.</span> <span class="toc-text">6.读文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-缓冲区"><span class="toc-number">2.11.7.</span> <span class="toc-text">7.缓冲区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-虚拟内存映射"><span class="toc-number">2.11.8.</span> <span class="toc-text">8.虚拟内存映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-文件拷贝"><span class="toc-number">2.11.9.</span> <span class="toc-text">9.文件拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-目录操作函数"><span class="toc-number">2.11.10.</span> <span class="toc-text">10.目录操作函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-命令行参数"><span class="toc-number">2.12.</span> <span class="toc-text">12. 命令行参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-json与序列化"><span class="toc-number">2.13.</span> <span class="toc-text">13.json与序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序列化"><span class="toc-number">2.13.1.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反序列化"><span class="toc-number">2.13.2.</span> <span class="toc-text">反序列化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-单元测试"><span class="toc-number">2.14.</span> <span class="toc-text">14. 单元测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#package-testing"><span class="toc-number">2.14.1.</span> <span class="toc-text">package testing</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tips"><span class="toc-number">3.</span> <span class="toc-text">Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-cap与len的区别"><span class="toc-number">3.1.</span> <span class="toc-text">1.cap与len的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-什么地方可以省略-P-（底层自动编译）什么地方必须用指针类型"><span class="toc-number">3.2.</span> <span class="toc-text">2.什么地方可以省略(*P)（底层自动编译）什么地方必须用指针类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-类型直接赋值"><span class="toc-number">3.3.</span> <span class="toc-text">3. 类型直接赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-项目中一个封装对象的函数注意点"><span class="toc-number">3.4.</span> <span class="toc-text">4.项目中一个封装对象的函数注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-go-cannot-find-main-module-see-‘go-help-modules’"><span class="toc-number">3.5.</span> <span class="toc-text">5. go: cannot find main module; see ‘go help modules’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-unexpected-directory-layout"><span class="toc-number">3.6.</span> <span class="toc-text">6. unexpected directory layout:</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、引子"><span class="toc-number">1.</span> <span class="toc-text">一、引子</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景介绍"><span class="toc-number">1.1.</span> <span class="toc-text">背景介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Go语言创始人"><span class="toc-number">1.1.1.</span> <span class="toc-text">Go语言创始人</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go-是编译型语言"><span class="toc-number">1.1.2.</span> <span class="toc-text">Go 是编译型语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要学习Go语言"><span class="toc-number">1.1.3.</span> <span class="toc-text">为什么要学习Go语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go语言特性"><span class="toc-number">1.1.4.</span> <span class="toc-text">Go语言特性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#语法简单"><span class="toc-number">1.1.4.0.1.</span> <span class="toc-text">语法简单</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#并发模型"><span class="toc-number">1.1.4.0.2.</span> <span class="toc-text">并发模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#内存分配"><span class="toc-number">1.1.4.0.3.</span> <span class="toc-text">内存分配</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#垃圾回收"><span class="toc-number">1.1.4.0.4.</span> <span class="toc-text">垃圾回收</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#静态链接"><span class="toc-number">1.1.4.0.5.</span> <span class="toc-text">静态链接</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#标准库"><span class="toc-number">1.1.4.0.6.</span> <span class="toc-text">标准库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#工具链"><span class="toc-number">1.1.4.0.7.</span> <span class="toc-text">工具链</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、go基础重点总结"><span class="toc-number">2.</span> <span class="toc-text">二、go基础重点总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-环境变量配置"><span class="toc-number">2.1.</span> <span class="toc-text">1. 环境变量配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Golang-执行流程"><span class="toc-number">2.2.</span> <span class="toc-text">2. Golang 执行流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-数据类型"><span class="toc-number">2.3.</span> <span class="toc-text">3. 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型与派生数据类型"><span class="toc-number">2.3.1.</span> <span class="toc-text">基本数据类型与派生数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#值类型与引用类型"><span class="toc-number">2.3.2.</span> <span class="toc-text">值类型与引用类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-运算符"><span class="toc-number">2.4.</span> <span class="toc-text">4. 运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-赋值语句"><span class="toc-number">2.5.</span> <span class="toc-text">5. 赋值语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-循环"><span class="toc-number">2.6.</span> <span class="toc-text">6. 循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-New"><span class="toc-number">2.7.</span> <span class="toc-text">7. New</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-函数和包、字符串"><span class="toc-number">2.8.</span> <span class="toc-text">6. 函数和包、字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-包"><span class="toc-number">2.8.1.</span> <span class="toc-text">6.1 包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-函数"><span class="toc-number">2.8.2.</span> <span class="toc-text">6.2 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-Init函数"><span class="toc-number">2.8.3.</span> <span class="toc-text">6.3 Init函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-匿名函数"><span class="toc-number">2.8.4.</span> <span class="toc-text">6.4 匿名函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-闭包"><span class="toc-number">2.8.5.</span> <span class="toc-text">7.5 闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本介绍："><span class="toc-number">2.8.5.1.</span> <span class="toc-text">基本介绍：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#闭包案例："><span class="toc-number">2.8.5.2.</span> <span class="toc-text">闭包案例：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-6-Defer"><span class="toc-number">2.8.6.</span> <span class="toc-text">6.6 Defer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-7-函数传参"><span class="toc-number">2.8.7.</span> <span class="toc-text">6.7 函数传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-8-变量作用域"><span class="toc-number">2.8.8.</span> <span class="toc-text">6.8 变量作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-9-字符串"><span class="toc-number">2.8.9.</span> <span class="toc-text">6.9 字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-10-内置函数"><span class="toc-number">2.8.10.</span> <span class="toc-text">6.10 内置函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-11-错误处理"><span class="toc-number">2.8.11.</span> <span class="toc-text">6.11 错误处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-12-标准输入输出"><span class="toc-number">2.8.12.</span> <span class="toc-text">6.12 标准输入输出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准输入与输出"><span class="toc-number">2.8.12.1.</span> <span class="toc-text">标准输入与输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#格式化输出"><span class="toc-number">2.8.12.2.</span> <span class="toc-text">格式化输出</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-变量的生命周期"><span class="toc-number">2.9.</span> <span class="toc-text">7. 变量的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-数组"><span class="toc-number">2.10.</span> <span class="toc-text">7.数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的定义"><span class="toc-number">2.10.1.</span> <span class="toc-text">数组的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四种初始化方式"><span class="toc-number">2.10.2.</span> <span class="toc-text">四种初始化方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组注意细节"><span class="toc-number">2.10.3.</span> <span class="toc-text">数组注意细节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-切片"><span class="toc-number">2.11.</span> <span class="toc-text">8.切片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#切片的参数"><span class="toc-number">2.11.1.</span> <span class="toc-text">切片的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切片使用的三种方式"><span class="toc-number">2.11.2.</span> <span class="toc-text">切片使用的三种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意点："><span class="toc-number">2.11.3.</span> <span class="toc-text">注意点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#append"><span class="toc-number">2.11.4.</span> <span class="toc-text">append</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#概念与使用"><span class="toc-number">2.11.4.1.</span> <span class="toc-text">概念与使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#append陷阱"><span class="toc-number">2.11.4.2.</span> <span class="toc-text">append陷阱</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#copy"><span class="toc-number">2.11.5.</span> <span class="toc-text">copy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string-和-slice"><span class="toc-number">2.11.6.</span> <span class="toc-text">string 和 slice</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Map"><span class="toc-number">2.12.</span> <span class="toc-text">9. Map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本语法："><span class="toc-number">2.12.1.</span> <span class="toc-text">基本语法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增删改查-遍历"><span class="toc-number">2.12.2.</span> <span class="toc-text">增删改查&#x2F;遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map的切片数组"><span class="toc-number">2.12.3.</span> <span class="toc-text">map的切片数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map排序"><span class="toc-number">2.12.4.</span> <span class="toc-text">map排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">2.12.5.</span> <span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-面向对象编程"><span class="toc-number">2.13.</span> <span class="toc-text">10. 面向对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-结构体基本语法"><span class="toc-number">2.13.1.</span> <span class="toc-text">10.1 结构体基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字段-属性"><span class="toc-number">2.13.1.1.</span> <span class="toc-text">字段&#x2F;属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法"><span class="toc-number">2.13.1.2.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-细节与注意点"><span class="toc-number">2.13.2.</span> <span class="toc-text">10.2 细节与注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-工厂模式"><span class="toc-number">2.13.3.</span> <span class="toc-text">10.3 工厂模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-封装"><span class="toc-number">2.13.4.</span> <span class="toc-text">10.4 封装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#封装的使用："><span class="toc-number">2.13.4.1.</span> <span class="toc-text">封装的使用：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-5-继承"><span class="toc-number">2.13.5.</span> <span class="toc-text">10.5 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本语法：-1"><span class="toc-number">2.13.5.1.</span> <span class="toc-text">基本语法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#继承细节说明："><span class="toc-number">2.13.5.2.</span> <span class="toc-text">继承细节说明：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多重继承"><span class="toc-number">2.13.5.3.</span> <span class="toc-text">多重继承</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-6-接口"><span class="toc-number">2.13.6.</span> <span class="toc-text">10.6 接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#接口与继承"><span class="toc-number">2.13.6.1.</span> <span class="toc-text">接口与继承</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-7-多态"><span class="toc-number">2.13.7.</span> <span class="toc-text">10.7 多态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-8-类型断言"><span class="toc-number">2.13.8.</span> <span class="toc-text">10.8 类型断言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-文件操作"><span class="toc-number">2.14.</span> <span class="toc-text">11. 文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Create打开文件"><span class="toc-number">2.14.1.</span> <span class="toc-text">1.Create打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Open打开文件"><span class="toc-number">2.14.2.</span> <span class="toc-text">2.Open打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-OpenFile打开文件"><span class="toc-number">2.14.3.</span> <span class="toc-text">3.OpenFile打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-判断文件是否存在"><span class="toc-number">2.14.4.</span> <span class="toc-text">4. 判断文件是否存在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-写文件"><span class="toc-number">2.14.5.</span> <span class="toc-text">5.写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-读文件"><span class="toc-number">2.14.6.</span> <span class="toc-text">6.读文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-缓冲区"><span class="toc-number">2.14.7.</span> <span class="toc-text">7.缓冲区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-虚拟内存映射"><span class="toc-number">2.14.8.</span> <span class="toc-text">8.虚拟内存映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-文件拷贝"><span class="toc-number">2.14.9.</span> <span class="toc-text">9.文件拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-目录操作函数"><span class="toc-number">2.14.10.</span> <span class="toc-text">10.目录操作函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-命令行参数"><span class="toc-number">2.15.</span> <span class="toc-text">12. 命令行参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-json与序列化"><span class="toc-number">2.16.</span> <span class="toc-text">13.json与序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#序列化"><span class="toc-number">2.16.1.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反序列化"><span class="toc-number">2.16.2.</span> <span class="toc-text">反序列化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-单元测试"><span class="toc-number">2.17.</span> <span class="toc-text">14. 单元测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#package-testing"><span class="toc-number">2.17.1.</span> <span class="toc-text">package testing</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tips"><span class="toc-number">3.</span> <span class="toc-text">Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-cap与len的区别"><span class="toc-number">3.1.</span> <span class="toc-text">1.cap与len的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-什么地方可以省略-P-（底层自动编译）什么地方必须用指针类型"><span class="toc-number">3.2.</span> <span class="toc-text">2.什么地方可以省略(*P)（底层自动编译）什么地方必须用指针类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-类型直接赋值"><span class="toc-number">3.3.</span> <span class="toc-text">3. 类型直接赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-项目中一个封装对象的函数注意点"><span class="toc-number">3.4.</span> <span class="toc-text">4.项目中一个封装对象的函数注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-go-cannot-find-main-module-see-‘go-help-modules’"><span class="toc-number">3.5.</span> <span class="toc-text">5. go: cannot find main module; see ‘go help modules’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-unexpected-directory-layout"><span class="toc-number">3.6.</span> <span class="toc-text">6. unexpected directory layout:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-各个声明与创建变量方法是否创建内存存储空间"><span class="toc-number">3.7.</span> <span class="toc-text">7. 各个声明与创建变量方法是否创建内存存储空间</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

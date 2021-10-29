@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 548
+			总文章数 546
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -182,145 +182,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-知识贴/数学/Shapley-Value全解析与公式推导" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">Shapley_Value全解析与公式推导</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="archive-article-date">
-  	<time datetime="2021-08-18T11:05:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-18</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.3k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">15分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<blockquote>
-<p>学习参考资料：</p>
-<p><a href="https://baike.baidu.com/item/shapley值法/5909624" target="_blank" rel="noopener">https://baike.baidu.com/item/shapley值法/5909624</a></p>
-<p><a href="https://www.zhihu.com/question/23180647" target="_blank" rel="noopener">https://www.zhihu.com/question/23180647</a></p>
-<p><a href="https://www.bilibili.com/video/BV1MA41137iv?from=search&amp;seid=9563739550004489326" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1MA41137iv?from=search&amp;seid=9563739550004489326</a></p>
-<p><a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFD2013&amp;filename=SSJS201304007&amp;v=gINqgtNlfA%25mmd2BN%25mmd2BweW6Jg1PX2lPFQWcExU%25mmd2FRrv9Opswp8%25mmd2BXPAZYTlGhuoRIhIeCBaz" target="_blank" rel="noopener">https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFD2013&amp;filename=SSJS201304007&amp;v=gINqgtNlfA%25mmd2BN%25mmd2BweW6Jg1PX2lPFQWcExU%25mmd2FRrv9Opswp8%25mmd2BXPAZYTlGhuoRIhIeCBaz</a></p>
-</blockquote>
-<p>1951年，由诺贝尔得主Shapley提出，用于公平地定量<strong>评估用户边际贡献度</strong>的常用指标，起源于合作博弈，并用于广泛的领域，包括使用Shapley Value作为ML特征的选择，对训练数据的重要性进行排序</p>
-<blockquote>
-<p>百度百科：</p>
-<p>基于Shapley值进行联盟成员的利益分配体现了各盟员对联盟总目标的贡献程度，避免了分配上的平均主义，比任何一种仅按资源投入价值、<a href="https://baike.baidu.com/item/资源配置效率/11064708" target="_blank" rel="noopener">资源配置效率</a>及将二者相结合的分配方式都更具合理性和公平性，也体现了各盟员相互博弈的过程。但Shapley值法的利益分配方案尚未考虑联盟成员的风险分担因素，<strong>实质上隐含着各盟员风险分担均等的假设</strong>，<strong>因此，对于联盟成员风险分担不等或风险分担存在较大差异的状况，需要根据风险分担大小对Shapley值法的利益分配方案做出适当的修正。</strong>另需要注意利用Shapley值法进行利益分配应具备的前提条件是：要求每个参与人对在不同联盟组合状态下的利益要有一个较为准确的预期；此外，还要对这种复杂的计算方式有一个清楚的了解。知识联盟的总产出有时可能是不确定的，不同联盟组合状态下的收益也可能是不确定的，这会在一定程度上影响Shapley值法的应用。对于总效用不确定的情况，为了获取一个比较合理的不同联盟组合状态下的效用值，可以采用AHP法、ANP法、模糊数学等综合评价方法来估算各种联盟组合状态下的可能效用值，从而获得shapley值法所需要的数据，再进行具体利益分配上的计算 [1] 。</p>
-</blockquote>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
   
     <article id="post-随笔/每日一记/日记/2021-08/日记-0218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -863,6 +724,138 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/08/13/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8AFedCoin-A-Peer-to-Peer-Payment-System-for-Federated-Learning%E3%80%8B%E7%B2%BE%E8%AF%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/机器学习/联邦学习/联邦学习实战-2-用FATE从零实现横向逻辑回归" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">联邦学习实战-2-用FATE从零实现横向逻辑回归</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" class="archive-article-date">
+  	<time datetime="2021-08-13T08:05:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-13</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">3.5k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">15分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、安装FATE平台"><a href="#一、安装FATE平台" class="headerlink" title="一、安装FATE平台"></a>一、安装FATE平台</h1><p>FATE是微众银行开源的联邦学习框架</p>
+<blockquote>
+<p>官方地址：<a href="https://fate.fedai.org" target="_blank" rel="noopener">https://fate.fedai.org</a></p>
+<p>文档：<a href="https://fate.readthedocs.io/en/latest/_build_temp/standalone-deploy/doc/Fate-standalone_deployment_guide_zh.html" target="_blank" rel="noopener">https://fate.readthedocs.io/en/latest/_build_temp/standalone-deploy/doc/Fate-standalone_deployment_guide_zh.html</a></p>
+<p><a href="https://github.com/FederatedAI/Practicing-Federated-Learning/tree/main/chapter05_FATE_HFL" target="_blank" rel="noopener">https://github.com/FederatedAI/Practicing-Federated-Learning/tree/main/chapter05_FATE_HFL</a></p>
+</blockquote>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">展开全文 >></a>
         </p>
       
 

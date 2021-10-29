@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 548
+			总文章数 546
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -182,138 +182,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-技术贴/机器学习/联邦学习/联邦学习实战-2-用FATE从零实现横向逻辑回归" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">联邦学习实战-2-用FATE从零实现横向逻辑回归</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" class="archive-article-date">
-  	<time datetime="2021-08-13T08:05:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-13</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">3.5k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">15分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、安装FATE平台"><a href="#一、安装FATE平台" class="headerlink" title="一、安装FATE平台"></a>一、安装FATE平台</h1><p>FATE是微众银行开源的联邦学习框架</p>
-<blockquote>
-<p>官方地址：<a href="https://fate.fedai.org" target="_blank" rel="noopener">https://fate.fedai.org</a></p>
-<p>文档：<a href="https://fate.readthedocs.io/en/latest/_build_temp/standalone-deploy/doc/Fate-standalone_deployment_guide_zh.html" target="_blank" rel="noopener">https://fate.readthedocs.io/en/latest/_build_temp/standalone-deploy/doc/Fate-standalone_deployment_guide_zh.html</a></p>
-<p><a href="https://github.com/FederatedAI/Practicing-Federated-Learning/tree/main/chapter05_FATE_HFL" target="_blank" rel="noopener">https://github.com/FederatedAI/Practicing-Federated-Learning/tree/main/chapter05_FATE_HFL</a></p>
-</blockquote>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
   
     <article id="post-随笔/每日一记/日记/2021-08/日记-0215" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -848,6 +716,144 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/08/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-1-%E7%94%A8python%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/python学习/python机器学习常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/python%E5%AD%A6%E4%B9%A0/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">python机器学习常用命令</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/python%E5%AD%A6%E4%B9%A0/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/08/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/python%E5%AD%A6%E4%B9%A0/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2021-08-08T06:32:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-08</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">67字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Conda"><a href="#Conda" class="headerlink" title="Conda"></a>Conda</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建制定python版本的环境</span></span><br><span class="line">conda create --name your_env_name python=3.7</span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取当下所有环境</span></span><br><span class="line">conda info --envs</span><br><span class="line">conda env list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入某一个环境</span></span><br><span class="line">activate your_env_name</span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出环境</span></span><br><span class="line">deactivate</span><br><span class="line"><span class="meta">#</span><span class="bash"> 复制某个环境</span></span><br><span class="line">conda create --name new_env_name --clone old_env_name </span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除某个环境</span></span><br><span class="line">conda remove --name your_env_name --all</span><br></pre></td></tr></table></figure>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/python%E5%AD%A6%E4%B9%A0/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
         </p>
       
 

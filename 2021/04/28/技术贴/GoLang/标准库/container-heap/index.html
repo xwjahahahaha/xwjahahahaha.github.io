@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>gin框架学习-1 | 知识与头发不可兼得</title>
+  <title>container/heap | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#">
+  <meta name="description" content="container&#x2F;heap基本信息堆的go源码实现 heap库源码位置:$GOROOT&#x2F;src&#x2F;container&#x2F;heap&#x2F;heap.go 学习资源:https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_34104341&#x2F;article&#x2F;details&#x2F;91929146">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gin框架学习-1">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2021/09/02/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/gin/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-1/index.html">
+<meta property="og:title" content="container&#x2F;heap">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2021/04/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E6%A0%87%E5%87%86%E5%BA%93/container-heap/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="#">
+<meta property="og:description" content="container&#x2F;heap基本信息堆的go源码实现 heap库源码位置:$GOROOT&#x2F;src&#x2F;container&#x2F;heap&#x2F;heap.go 学习资源:https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_34104341&#x2F;article&#x2F;details&#x2F;91929146">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-02T15:02:13.000Z">
-<meta property="article:modified_time" content="2021-09-02T15:02:13.229Z">
+<meta property="article:published_time" content="2021-04-28T02:11:27.000Z">
+<meta property="article:modified_time" content="2021-10-29T02:46:08.302Z">
 <meta property="article:author" content="DDDemons hide">
+<meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
@@ -72,7 +73,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 548
+			总文章数 546
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,21 +184,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/GoLang/网络编程/gin/gin框架学习-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/GoLang/标准库/container-heap" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      gin框架学习-1
+      container/heap
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/02/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/gin/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-1/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/04/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E6%A0%87%E5%87%86%E5%BA%93/container-heap/" class="pageViews">0</span>次
   </a>
 
         
@@ -207,8 +208,8 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2021/09/02/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/gin/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-1/" class="archive-article-date">
-  	<time datetime="2021-09-02T15:02:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-02</time>
+<a href="/2021/04/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E6%A0%87%E5%87%86%E5%BA%93/container-heap/" class="archive-article-date">
+  	<time datetime="2021-04-28T02:11:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-28</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -217,7 +218,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">0字</span>
+        <span class="post-count">1.3k字</span>
       </span>
     </span>
 
@@ -226,7 +227,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -238,8 +239,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#</p>
+        <h1 id="container-heap"><a href="#container-heap" class="headerlink" title="container/heap"></a>container/heap</h1><h3 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h3><p>堆的go源码实现</p>
+<p>heap库源码位置:<code>$GOROOT/src/container/heap/heap.go</code></p>
+<p>学习资源:<a href="https://blog.csdn.net/weixin_34104341/article/details/91929146" target="_blank" rel="noopener">https://blog.csdn.net/weixin_34104341/article/details/91929146</a></p>
 <a id="more"></a>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>一般需要实现五个方法: Len、Less、Swap、Push、Pop</p>
+<p>heap包中提供了几个最基本的堆操作函数，包括Init，Fix，Push，Pop和Remove （其中up, down函数为非导出函数）。这些函数都通过调用前面实现接口里的方法，对堆进行操作。</p>
+<h4 id="Init"><a href="#Init" class="headerlink" title="Init"></a>Init</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Init</span><span class="params">(h Interface)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>一个堆在使用任何堆操作之前应先初始化。接受参数为实现了heap.Interface接口的对象。</p>
+<h4 id="Fix"><a href="#Fix" class="headerlink" title="Fix"></a>Fix</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Fix</span><span class="params">(h Interface, i <span class="keyword">int</span>)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>在修改第i个元素后，调用本函数修复堆，比删除第i个元素后插入新元素更有效率。 </p>
+<h4 id="Push-amp-Pop"><a href="#Push-amp-Pop" class="headerlink" title="Push&amp;Pop"></a>Push&amp;Pop</h4><p>Push和Pop是一对标准堆操作，Push向堆添加一个新元素，Pop弹出并返回堆顶元素，而在push和pop操作不会破坏堆的结构</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Push</span><span class="params">(h Interface, x <span class="keyword">interface</span>&#123;&#125;)</span></span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Pop</span><span class="params">(h Interface)</span> <span class="title">interface</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Remove"><a href="#Remove" class="headerlink" title="Remove"></a><strong>Remove</strong></h4><p>删除堆中的第i个元素，并保持堆的约束性</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Remove</span><span class="params">(h Interface, i <span class="keyword">int</span>)</span> <span class="title">interface</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="347-前-K-个高频元素"><a href="#347-前-K-个高频元素" class="headerlink" title="347. 前 K 个高频元素"></a><a href="https://leetcode-cn.com/problems/top-k-frequent-elements/" target="_blank" rel="noopener">347. 前 K 个高频元素</a></h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 堆/优先队列</span></span><br><span class="line"><span class="comment">// 对于统计数组进行堆的topk</span></span><br><span class="line"><span class="comment">// 构建一个小顶堆, 当堆规模 &lt; k 时, 直接添加元素,保持堆属性</span></span><br><span class="line"><span class="comment">// 当堆规模 == k时, 当堆顶 &gt; 新值时, 舍弃该值 (因为整个堆都大于该值即其是第k+1大的数)</span></span><br><span class="line"><span class="comment">// 当堆规模 == k时, 当堆顶 &lt;= 新值时, 删除堆顶值,插入当前值,调整堆属性 (更新这K规模的堆,堆顶最小值可能由此抬高)</span></span><br><span class="line"><span class="comment">// 时间复杂度O(NlogK), 每次堆操作为最大为logK, 最坏N次</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">topKFrequent</span><span class="params">(nums []<span class="keyword">int</span>, k <span class="keyword">int</span>)</span> <span class="params">(ans []<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 统计次数数组</span></span><br><span class="line">    countMap := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">int</span>)</span><br><span class="line">    <span class="keyword">for</span> _, num := <span class="keyword">range</span> nums &#123;</span><br><span class="line">        countMap[num] ++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 初始化堆</span></span><br><span class="line">    myHeap := &amp;IHeap&#123;&#125;</span><br><span class="line">    heap.Init(myHeap)</span><br><span class="line">    <span class="comment">// 遍历次数数组入堆</span></span><br><span class="line">    <span class="keyword">for</span> num, count := <span class="keyword">range</span> countMap &#123;</span><br><span class="line">        heap.Push(myHeap, [<span class="number">2</span>]<span class="keyword">int</span>&#123;num, count&#125;)</span><br><span class="line">        <span class="comment">// 大于K个就弹出</span></span><br><span class="line">        <span class="keyword">if</span> myHeap.Len() &gt; k &#123;</span><br><span class="line">            heap.Pop(myHeap)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 一直弹出,整合结果</span></span><br><span class="line">    ans = <span class="built_in">make</span>([]<span class="keyword">int</span>, k)</span><br><span class="line">    <span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;k; i++ &#123;</span><br><span class="line">        <span class="comment">// 注意倒序、接口断言</span></span><br><span class="line">        ans[k-i<span class="number">-1</span>] = heap.Pop(myHeap).([<span class="number">2</span>]<span class="keyword">int</span>)[<span class="number">0</span>] </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> IHeap [][<span class="number">2</span>]<span class="keyword">int</span>                 <span class="comment">// 二元组,(num, count)</span></span><br><span class="line"><span class="comment">// 实现需要的方法</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h IHeap)</span><span class="title">Len</span><span class="params">()</span> <span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">len</span>(h)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h IHeap)</span><span class="title">Less</span><span class="params">(i, j <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> h[i][<span class="number">1</span>] &lt; h[j][<span class="number">1</span>]        <span class="comment">// 小顶堆</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h IHeap)</span><span class="title">Swap</span><span class="params">(i, j <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">    h[i], h[j] = h[j], h[i]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *IHeap)</span><span class="title">Push</span><span class="params">(x <span class="keyword">interface</span>&#123;&#125;)</span></span> &#123;</span><br><span class="line">    *h = <span class="built_in">append</span>(*h, x.([<span class="number">2</span>]<span class="keyword">int</span>))     <span class="comment">// 断言类型后添加</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *IHeap)</span><span class="title">Pop</span><span class="params">()</span> <span class="title">interface</span></span>&#123;&#125; &#123;</span><br><span class="line">    old := *h</span><br><span class="line">    n := <span class="built_in">len</span>(old)</span><br><span class="line">    x := old[n<span class="number">-1</span>]</span><br><span class="line">    <span class="comment">// 弹出</span></span><br><span class="line">    *h = old[:n<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="官方案例intHeap-最小堆"><a href="#官方案例intHeap-最小堆" class="headerlink" title="官方案例intHeap: 最小堆"></a>官方案例intHeap: 最小堆</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// An IntHeap is a min-heap of ints.</span></span><br><span class="line"><span class="keyword">type</span> IntHeap []<span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h IntHeap)</span> <span class="title">Len</span><span class="params">()</span> <span class="title">int</span></span>           &#123; <span class="keyword">return</span> <span class="built_in">len</span>(h) &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h IntHeap)</span> <span class="title">Less</span><span class="params">(i, j <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123; <span class="keyword">return</span> h[i] &lt; h[j] &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h IntHeap)</span> <span class="title">Swap</span><span class="params">(i, j <span class="keyword">int</span>)</span></span>      &#123; h[i], h[j] = h[j], h[i] &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *IntHeap)</span> <span class="title">Push</span><span class="params">(x <span class="keyword">interface</span>&#123;&#125;)</span></span> &#123;</span><br><span class="line">	<span class="comment">// Push and Pop use pointer receivers because they modify the slice's length,</span></span><br><span class="line">	<span class="comment">// not just its contents.</span></span><br><span class="line">	*h = <span class="built_in">append</span>(*h, x.(<span class="keyword">int</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *IntHeap)</span> <span class="title">Pop</span><span class="params">()</span> <span class="title">interface</span></span>&#123;&#125; &#123;</span><br><span class="line">	old := *h</span><br><span class="line">	n := <span class="built_in">len</span>(old)</span><br><span class="line">	x := old[n<span class="number">-1</span>]</span><br><span class="line">	*h = old[<span class="number">0</span> : n<span class="number">-1</span>]</span><br><span class="line">	<span class="keyword">return</span> x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// This example inserts several ints into an IntHeap, checks the minimum,</span></span><br><span class="line"><span class="comment">// and removes them in order of priority.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Example_intHeap</span><span class="params">()</span></span> &#123;</span><br><span class="line">	h := &amp;IntHeap&#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">5</span>&#125;</span><br><span class="line">	heap.Init(h)</span><br><span class="line">	heap.Push(h, <span class="number">3</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"minimum: %d\n"</span>, (*h)[<span class="number">0</span>])</span><br><span class="line">	<span class="keyword">for</span> h.Len() &gt; <span class="number">0</span> &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"%d "</span>, heap.Pop(h))</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// Output:</span></span><br><span class="line">	<span class="comment">// minimum: 1</span></span><br><span class="line">	<span class="comment">// 1 2 3 5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="优先队列案例"><a href="#优先队列案例" class="headerlink" title="优先队列案例"></a>优先队列案例</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// An Item is something we manage in a priority queue.</span></span><br><span class="line"><span class="keyword">type</span> Item <span class="keyword">struct</span> &#123;</span><br><span class="line">	value    <span class="keyword">string</span> <span class="comment">// The value of the item; arbitrary.</span></span><br><span class="line">	priority <span class="keyword">int</span>    <span class="comment">// The priority of the item in the queue.</span></span><br><span class="line">	<span class="comment">// The index is needed by update and is maintained by the heap.Interface methods.</span></span><br><span class="line">  <span class="comment">// id参数是用于特定更新堆中的某个元素的优先级等值,并在方法中维护.如果没有此需求可以不实现</span></span><br><span class="line">	index <span class="keyword">int</span> <span class="comment">// The index of the item in the heap.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// A PriorityQueue implements heap.Interface and holds Items.</span></span><br><span class="line"><span class="keyword">type</span> PriorityQueue []*Item</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(pq PriorityQueue)</span> <span class="title">Len</span><span class="params">()</span> <span class="title">int</span></span> &#123; <span class="keyword">return</span> <span class="built_in">len</span>(pq) &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(pq PriorityQueue)</span> <span class="title">Less</span><span class="params">(i, j <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="comment">// We want Pop to give us the highest, not lowest, priority so we use greater than here.</span></span><br><span class="line">  <span class="comment">// 这里是大顶堆,一般优先级按大顶堆</span></span><br><span class="line">	<span class="keyword">return</span> pq[i].priority &gt; pq[j].priority</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(pq PriorityQueue)</span> <span class="title">Swap</span><span class="params">(i, j <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	pq[i], pq[j] = pq[j], pq[i]</span><br><span class="line">	<span class="comment">// 注意这里需要确定index</span></span><br><span class="line">	pq[i].index = i</span><br><span class="line">	pq[j].index = j</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(pq *PriorityQueue)</span> <span class="title">Push</span><span class="params">(x <span class="keyword">interface</span>&#123;&#125;)</span></span> &#123;</span><br><span class="line">	n := <span class="built_in">len</span>(*pq)</span><br><span class="line">	item := x.(*Item)</span><br><span class="line">	item.index = n</span><br><span class="line">	*pq = <span class="built_in">append</span>(*pq, item)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(pq *PriorityQueue)</span> <span class="title">Pop</span><span class="params">()</span> <span class="title">interface</span></span>&#123;&#125; &#123;</span><br><span class="line">	old := *pq</span><br><span class="line">	n := <span class="built_in">len</span>(old)</span><br><span class="line">	item := old[n<span class="number">-1</span>]</span><br><span class="line">	old[n<span class="number">-1</span>] = <span class="literal">nil</span>  <span class="comment">// avoid memory leak  避免内存泄漏</span></span><br><span class="line">	item.index = <span class="number">-1</span> <span class="comment">// for safety</span></span><br><span class="line">	*pq = old[<span class="number">0</span> : n<span class="number">-1</span>]</span><br><span class="line">	<span class="keyword">return</span> item</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// update modifies the priority and value of an Item in the queue.</span></span><br><span class="line"><span class="comment">// 更新堆中的元素优先级，并重新调整堆属性</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(pq *PriorityQueue)</span> <span class="title">update</span><span class="params">(item *Item, value <span class="keyword">string</span>, priority <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	item.value = value</span><br><span class="line">	item.priority = priority</span><br><span class="line">	heap.Fix(pq, item.index)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// This example creates a PriorityQueue with some items, adds and manipulates an item,</span></span><br><span class="line"><span class="comment">// and then removes the items in priority order.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Example_priorityQueue</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// Some items and their priorities.</span></span><br><span class="line">	items := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">		<span class="string">"banana"</span>: <span class="number">3</span>, <span class="string">"apple"</span>: <span class="number">2</span>, <span class="string">"pear"</span>: <span class="number">4</span>,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Create a priority queue, put the items in it, and</span></span><br><span class="line">	<span class="comment">// establish the priority queue (heap) invariants.</span></span><br><span class="line">	pq := <span class="built_in">make</span>(PriorityQueue, <span class="built_in">len</span>(items))</span><br><span class="line">	i := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> value, priority := <span class="keyword">range</span> items &#123;</span><br><span class="line">		pq[i] = &amp;Item&#123;</span><br><span class="line">			value:    value,</span><br><span class="line">			priority: priority,</span><br><span class="line">			index:    i,</span><br><span class="line">		&#125;</span><br><span class="line">		i++</span><br><span class="line">	&#125;</span><br><span class="line">	heap.Init(&amp;pq)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Insert a new item and then modify its priority.</span></span><br><span class="line">	item := &amp;Item&#123;</span><br><span class="line">		value:    <span class="string">"orange"</span>,</span><br><span class="line">		priority: <span class="number">1</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	heap.Push(&amp;pq, item)</span><br><span class="line">	pq.update(item, item.value, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Take the items out; they arrive in decreasing priority order.</span></span><br><span class="line">	<span class="keyword">for</span> pq.Len() &gt; <span class="number">0</span> &#123;</span><br><span class="line">		item := heap.Pop(&amp;pq).(*Item)</span><br><span class="line">		fmt.Printf(<span class="string">"%.2d:%s "</span>, item.priority, item.value)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// Output:</span></span><br><span class="line">	<span class="comment">// 05:orange 04:pear 03:banana 02:apple</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
 
 
       
@@ -259,16 +286,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2021-09-02
+    2021-04-28
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-09-02
+    2021-10-29
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/09/02/技术贴/GoLang/网络编程/gin/gin框架学习-1/" title="gin框架学习-1" target="_blank">gin框架学习-1</a>
+    <a href="https://xwjahahahaha.github.io/2021/04/28/技术贴/GoLang/标准库/container-heap/" title="container/heap" target="_blank">container/heap</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/09/02/技术贴/GoLang/网络编程/gin/gin框架学习-1/" title="gin框架学习-1" target="_blank">https://xwjahahahaha.github.io/2021/09/02/技术贴/GoLang/网络编程/gin/gin框架学习-1/</a>
+    <a href="https://xwjahahahaha.github.io/2021/04/28/技术贴/GoLang/标准库/container-heap/" title="container/heap" target="_blank">https://xwjahahahaha.github.io/2021/04/28/技术贴/GoLang/标准库/container-heap/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -341,6 +368,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -348,6 +386,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/golang//" class="article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -402,7 +444,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/09/02/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/gin/gin%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/04/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E6%A0%87%E5%87%86%E5%BA%93/container-heap/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -419,18 +461,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/09/03/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0221/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/04/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%A0%86%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/347-%E5%89%8DK%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          日记_0221
+          347-前K个高频元素
         
       </div>
     </a>
   
   
-    <a href="/2021/09/02/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0220/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日记_0220</div>
+    <a href="/2021/04/28/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0164/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">日记_0164</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -457,7 +499,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#container-heap"><span class="toc-number">1.</span> <span class="toc-text">container&#x2F;heap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本信息"><span class="toc-number">1.0.1.</span> <span class="toc-text">基本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.0.2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Init"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">Init</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fix"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">Fix</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Push-amp-Pop"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">Push&amp;Pop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Remove"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">Remove</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-number">1.0.3.</span> <span class="toc-text">案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#347-前-K-个高频元素"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">347. 前 K 个高频元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#官方案例intHeap-最小堆"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">官方案例intHeap: 最小堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优先队列案例"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">优先队列案例</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

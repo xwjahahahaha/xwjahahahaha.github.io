@@ -6,22 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>Go语言-4-项目库 | 知识与头发不可兼得</title>
+  <title>Go语言-3-编译器与gomod | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言做项目,不可能从零开始,也是组件搭积木的过程,核心代码由自己完成,一些优秀的材料还是可以学习借鉴的. golang的一些开源的好用的库的使用记录细节">
+  <meta name="description" content="其他1.Goland IDE1. goland无法识别go mod的依赖包解决方法: 在编辑器设置GOPROXY, 这样goland就会识别索引你项目使用go mod在GOPATH&#x2F;pkg&#x2F;mod文件夹下的依赖包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go语言-4-项目库">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2021/04/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-4-%E9%A1%B9%E7%9B%AE%E5%BA%93/index.html">
+<meta property="og:title" content="Go语言-3-编译器与gomod">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2021/03/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-3-%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%8Egomod/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="前言做项目,不可能从零开始,也是组件搭积木的过程,核心代码由自己完成,一些优秀的材料还是可以学习借鉴的. golang的一些开源的好用的库的使用记录细节">
+<meta property="og:description" content="其他1.Goland IDE1. goland无法识别go mod的依赖包解决方法: 在编辑器设置GOPROXY, 这样goland就会识别索引你项目使用go mod在GOPATH&#x2F;pkg&#x2F;mod文件夹下的依赖包">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/0y9FQX.png">
-<meta property="article:published_time" content="2021-04-05T12:26:59.000Z">
-<meta property="article:modified_time" content="2021-04-07T07:43:50.705Z">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/PtyEVd.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/wfe1hF.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/JfUTLr.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/9Xjlvv.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/LI32j8.jpg">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/SEdKFD.png">
+<meta property="article:published_time" content="2021-03-06T08:43:53.000Z">
+<meta property="article:modified_time" content="2021-10-29T02:47:48.286Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/0y9FQX.png">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/PtyEVd.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -75,7 +80,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 548
+			总文章数 546
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -186,21 +191,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/GoLang/Go语言-4-项目库" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/GoLang/基础语法/Go语言-3-编译器与gomod" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Go语言-4-项目库
+      Go语言-3-编译器与gomod
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/04/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-4-%E9%A1%B9%E7%9B%AE%E5%BA%93/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/03/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-3-%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%8Egomod/" class="pageViews">0</span>次
   </a>
 
         
@@ -210,8 +215,8 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2021/04/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-4-%E9%A1%B9%E7%9B%AE%E5%BA%93/" class="archive-article-date">
-  	<time datetime="2021-04-05T12:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
+<a href="/2021/03/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-3-%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%8Egomod/" class="archive-article-date">
+  	<time datetime="2021-03-06T08:43:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-06</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -220,7 +225,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">909字</span>
+        <span class="post-count">2.3k字</span>
       </span>
     </span>
 
@@ -229,7 +234,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">9分</span>
       </span>
     </span>
 </div>
@@ -241,54 +246,182 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>做项目,不可能从零开始,也是组件搭积木的过程,核心代码由自己完成,一些优秀的材料还是可以学习借鉴的.</p>
-<p>golang的一些开源的好用的库的使用记录细节</p>
+        <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="1-Goland-IDE"><a href="#1-Goland-IDE" class="headerlink" title="1.Goland IDE"></a>1.Goland IDE</h2><h3 id="1-goland无法识别go-mod的依赖包"><a href="#1-goland无法识别go-mod的依赖包" class="headerlink" title="1. goland无法识别go mod的依赖包"></a>1. goland无法识别go mod的依赖包</h3><p>解决方法: 在编辑器设置GOPROXY, 这样goland就会识别索引你项目使用go mod在<code>GOPATH/pkg/mod</code>文件夹下的依赖包</p>
 <a id="more"></a>
 
-<blockquote>
-<p>参考资料:</p>
-<p>原文链接：<a href="https://blog.csdn.net/darjun/article/details/104032118" target="_blank" rel="noopener">https://blog.csdn.net/darjun/article/details/104032118</a></p>
-</blockquote>
-<h1 id="一、命令行cli工具Cobra"><a href="#一、命令行cli工具Cobra" class="headerlink" title="一、命令行cli工具Cobra"></a>一、命令行cli工具Cobra</h1><h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><blockquote>
-<p>项目地址: <a href="https://pkg.go.dev/github.com/spf13/cobra" target="_blank" rel="noopener">https://pkg.go.dev/github.com/spf13/cobra</a></p>
-</blockquote>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/0y9FQX.png" alt="0y9FQX"></p>
-<p>cobra是一个命令行程序库，可以用来编写命令行程序。同时，它也提供了一个脚手架，用于生成基于 cobra 的应用程序框架。非常多知名的开源项目使用了 cobra 库构建命令行，如Kubernetes、Hugo、etcd、<a href="https://github.com/cli/cli" target="_blank" rel="noopener">Github CLI</a>、cosmos等等等等。本文介绍 cobra 库的基本使用和一些有趣的特性。</p>
-<p>关于作者spf13，这里多说两句。spf13 开源不少项目，而且他的开源项目质量都比较高。相信使用过 vim 的都知道spf13-vim，号称 vim 终极配置。可以一键配置，对于我这样的懒人来说绝对是福音。他的viper是一个完整的配置解决方案。完美支持JSON/TOML/YAML/HCL/envfile/Java properties 配置文件等格式，还有一些比较实用的特性，如配置热更新、多查找目录、配置保存等。还有非常火的静态网站生成器hugo也是他的作品。</p>
-<p>cobra 提供非常丰富的功能：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/PtyEVd.png" alt="PtyEVd"></p>
+<h3 id="2-使用go-mod模式导致本地包无法导入问题"><a href="#2-使用go-mod模式导致本地包无法导入问题" class="headerlink" title="2. 使用go mod模式导致本地包无法导入问题"></a>2. 使用go mod模式导致本地包无法导入问题</h3><p>因为使用go module进行包管理, 所以引用包路径不再是从<code>GOPATH/src</code>开始的相对位置</p>
+<ol>
+<li><p>查看你项目下的go.mod文件</p>
+</li>
+<li><p>第一行的modul名就是你本地原始包的前缀名</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/wfe1hF.png" alt="wfe1hF"></p>
+</li>
+<li><p>修改项目中的引用即可</p>
+<p><code>import &quot;github.com/user/nameservice/[本地包名/路径]&quot;</code></p>
+</li>
+</ol>
+<h3 id="3-goland调试"><a href="#3-goland调试" class="headerlink" title="3. goland调试"></a>3. goland调试</h3><h4 id="简单调试"><a href="#简单调试" class="headerlink" title="简单调试"></a>简单调试</h4><ol>
+<li><p>在断点代码处打上红色断点</p>
+</li>
+<li><p>选择项目包右键Debugger</p>
+</li>
+<li><p>选择 go build …..</p>
+</li>
+<li><p>F7下一步</p>
+</li>
+</ol>
+<h4 id="详细配置"><a href="#详细配置" class="headerlink" title="详细配置"></a>详细配置</h4><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/JfUTLr.png" alt="JfUTLr"></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/9Xjlvv.png" alt="9Xjlvv"></p>
+<p>补充说明:</p>
+<p>Run Kind </p>
 <ul>
-<li>轻松支持子命令，如<code>app server</code>，<code>app fetch</code>等； </li>
-<li>完全兼容 POSIX 选项（包括短、长选项）； </li>
-<li>嵌套子命令； </li>
-<li>全局、本地层级选项。可以在多处设置选项，按照一定的顺序取用； </li>
-<li>使用脚手架轻松生成程序框架和命令。</li>
+<li>如果是debugger整个项目包的话, 就选择Package</li>
+<li>如果是单个go程序的话,就用file</li>
+<li>不管哪一种,下面path路径都要正确</li>
 </ul>
-<p>一些概念:</p>
-<p>例 : <code>hugo server --port=1313</code></p>
+<p>Program argument:</p>
 <ul>
-<li><p>Commands: 命令    <code>Hugo</code> 是最高层command,<code>server</code>是一个子command</p>
-<p>命令是应用程序的中心点。应用程序支持的每个交互都包含在一个命令中。一个命令可以有子命令，也可以有选择地运行一个操作。</p>
+<li>这个参数是编译好了之后的二进制文件执行的参数, 例如<code>./main.exe a b c</code> 这里就填写<code>a b c</code></li>
+</ul>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/LI32j8.jpg" alt="LI32j8"></p>
+<h2 id="4-1-go的包管理"><a href="#4-1-go的包管理" class="headerlink" title="4.1 go的包管理"></a>4.1 go的包管理</h2><p>此部分内容来源于：<a href="http://c.biancheng.net/view/5712.html" target="_blank" rel="noopener">http://c.biancheng.net/view/5712.html</a></p>
+<h4 id="Go-Module综述"><a href="#Go-Module综述" class="headerlink" title="Go Module综述"></a>Go Module综述</h4><p>go module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。</p>
+<p>Modules 官方定义为：</p>
+<p>Modules 是相关 Go 包的集合，是源代码交换和版本控制的单元。Go语言命令直接支持使用 Modules，包括记录和解析对其他模块的依赖性，Modules 替换旧的基于 GOPATH 的方法，来指定使用哪些源文件。</p>
+<p>==如何使用 Modules？==</p>
+<p>1) 首先需要把 golang 升级到 1.11 版本以上（现在 1.13 已经发布了，建议使用 1.13）。</p>
+<p>2) 设置 GO111MODULE。</p>
+<p>==GO111MODULE==</p>
+<p>在Go语言 1.12 版本之前，要启用 go module 工具首先要设置环境变量 GO111MODULE，不过在Go语言 1.13 及以后的版本则不再需要设置环境变量。通过 GO111MODULE 可以开启或关闭 go module 工具。</p>
+<ul>
+<li>GO111MODULE=off 禁用 go module，编译时会从 GOPATH 和 vendor 文件夹中查找包；</li>
+<li>GO111MODULE=on 启用 go module，编译时会忽略 GOPATH 和 vendor 文件夹，只根据 go.mod下载依赖；</li>
+<li>GO111MODULE=auto（默认值），当项目在 GOPATH/src 目录之外，并且项目根目录有 go.mod 文件时，开启 go module。</li>
+</ul>
+<p>Windows 下开启 GO111MODULE 的命令为：</p>
+<p><code>set GO111MODULE=on 或者 set GO111MODULE=auto</code></p>
+<p>MacOS 或者 Linux 下开启 GO111MODULE 的命令为：</p>
+<p><code>export GO111MODULE=on 或者 export GO111MODULE=auto</code></p>
+<p>在开启 GO111MODULE 之后就可以使用 go module 工具了，也就是说在以后的开发中就没有必要在 GOPATH 中创建项目了，并且还能够很好的管理项目依赖的第三方包信息。</p>
+<p>go mod 的常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>go mod download</td>
+<td>下载依赖包到本地（默认为 GOPATH/pkg/mod 目录）</td>
+</tr>
+<tr>
+<td>go mod edit</td>
+<td>编辑 go.mod 文件</td>
+</tr>
+<tr>
+<td>go mod graph</td>
+<td>打印模块依赖图</td>
+</tr>
+<tr>
+<td>go mod init</td>
+<td>初始化当前文件夹，创建 go.mod 文件</td>
+</tr>
+<tr>
+<td>go mod tidy</td>
+<td>增加缺少的包，删除无用的包</td>
+</tr>
+<tr>
+<td>go mod vendor</td>
+<td>将依赖复制到 vendor 目录下</td>
+</tr>
+<tr>
+<td>go mod verify</td>
+<td>校验依赖</td>
+</tr>
+<tr>
+<td>go mod why</td>
+<td>解释为什么需要依赖</td>
+</tr>
+</tbody></table>
+<!-- more -->
+
+<h4 id="Go-PROXY"><a href="#Go-PROXY" class="headerlink" title="Go PROXY"></a>Go PROXY</h4><p>proxy 顾名思义就是代理服务器的意思。大家都知道，国内的网络有防火墙的存在，这导致有些Go语言的第三方包我们无法直接通过<code>go get</code>命令获取。GOPROXY 是Go语言官方提供的一种通过中间代理商来为用户提供包下载服务的方式。要使用 GOPROXY 只需要设置环境变量 GOPROXY 即可。</p>
+<p>目前公开的代理服务器的地址有：</p>
+<ul>
+<li>goproxy.io；</li>
+<li>goproxy.cn：（推荐）由国内的七牛云提供。</li>
+</ul>
+<p>Windows 下设置 GOPROXY 的命令为：</p>
+<p>go env -w GOPROXY=<a href="https://goproxy.cn,direct" target="_blank" rel="noopener">https://goproxy.cn,direct</a></p>
+<p>MacOS 或 Linux 下设置 GOPROXY 的命令为：</p>
+<p>export GOPROXY=<a href="https://goproxy.cn,direct" target="_blank" rel="noopener">https://goproxy.cn,direct</a></p>
+<p>Go语言在 1.13 版本之后 GOPROXY 默认值为 <a href="https://proxy.golang.org，在国内可能会存在下载慢或者无法访问的情况，所以十分建议大家将" target="_blank" rel="noopener">https://proxy.golang.org，在国内可能会存在下载慢或者无法访问的情况，所以十分建议大家将</a> GOPROXY 设置为国内的 goproxy.cn。</p>
+<h4 id="Go-Get"><a href="#Go-Get" class="headerlink" title="Go Get"></a>Go Get</h4><p>使用go get命令下载指定版本的依赖包</p>
+<p>执行<code>go get</code>命令，在下载依赖包的同时还可以指定依赖包的版本。</p>
+<ul>
+<li>运行<code>go get -u</code>命令会将项目中的包升级到最新的次要版本或者修订版本；</li>
+<li>运行<code>go get -u=patch</code>命令会将项目中的包升级到最新的修订版本；</li>
+<li>运行<code>go get [包名]@[版本号]</code>命令会下载对应包的指定版本或者将对应包升级到指定的版本。</li>
+</ul>
+<p>提示：<code>go get [包名]@[版本号]</code>命令中版本号可以是 x.y.z 的形式，例如 go get <a href="mailto:foo@v1.2.3">foo@v1.2.3</a>，也可以是 git 上的分支或 tag，例如 go get foo@master，还可以是 git 提交时的哈希值，例如 go get foo@e3702bed2。</p>
+<p>-d    让命令程序只执行下载动作，而不执行安装动作。<br>-f    仅在使用-u标记时才有效。该标记会让命令程序忽略掉对已下载代码包的导入路径的检查。如果下载并安装的代码包所属的项目是你从别人那里Fork过来的，那么这样做就尤为重要了。<br>-fix    让命令程序在下载代码包后先执行修正动作，而后再进行编译和安装。<br>-insecure    允许命令程序使用非安全的scheme（如HTTP）去下载指定的代码包。如果你用的代码仓库（如公司内部的Gitlab）没有HTTPS支持，可以添加此标记。请在确定安全的情况下使用它。<br>-t    让命令程序同时下载并安装指定的代码包中的测试源码文件中依赖的代码包。<br>-u    让命令利用网络来更新已有代码包及其依赖包。默认情况下，该命令只会从网络上下载本地不存在的代码包，而不会更新已有的代码包。<br>-v    打印出被构建的代码包的名字<br>-x    打印出用到的命令</p>
+<h4 id="go-mod与go-sum文件"><a href="#go-mod与go-sum文件" class="headerlink" title="go.mod与go.sum文件"></a>go.mod与go.sum文件</h4><p>go.mod 提供了 module、require、replace 和 exclude 四个命令：</p>
+<ul>
+<li>module 语句指定包的名字（路径）；</li>
+<li>require 语句指定的依赖项模块；</li>
+<li>replace 语句可以替换依赖项模块；</li>
+<li>exclude 语句可以忽略依赖项模块。</li>
+</ul>
+<p>示例:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module hello</span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> <span class="number">1.13</span></span><br><span class="line"></span><br><span class="line">require (</span><br><span class="line">    github.com/labstack/echo v3<span class="number">.3</span><span class="number">.10</span>+incompatible <span class="comment">// indirect</span></span><br><span class="line">    github.com/labstack/gommon v0<span class="number">.3</span><span class="number">.0</span> <span class="comment">// indirect</span></span><br><span class="line">    golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20191206172530</span>-e9b2fee46413 <span class="comment">// indirect</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>go module 安装 package 的原则是先拉取最新的 release tag，若无 tag 则拉取最新的 commit，详见<a href="https://github.com/golang/go/wiki/Modules" target="_blank" rel="noopener"> Modules 官方</a>介绍。</p>
+<p>go 会自动生成一个 go.sum 文件来<strong>记录</strong> dependency tree：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">github.com/davecgh/<span class="keyword">go</span>-spew v1<span class="number">.1</span><span class="number">.0</span>/<span class="keyword">go</span>.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=</span><br><span class="line">github.com/labstack/echo v3<span class="number">.3</span><span class="number">.10</span>+incompatible h1:pGRcYk231ExFAyoAjAfD85kQzRJCRI8bbnE7CX5OEgg=</span><br><span class="line">github.com/labstack/echo v3<span class="number">.3</span><span class="number">.10</span>+incompatible/<span class="keyword">go</span>.mod h1:<span class="number">0</span>INS7j/VjnFxD4E2wkz67b8cVwCLbBmJyDaka6Cmk1s=</span><br><span class="line">github.com/labstack/gommon v0<span class="number">.3</span><span class="number">.0</span> h1:JEeO0bvc78PKdyHxloTKiF8BD5iGrH8T6MSeGvSgob0=</span><br><span class="line">github.com/labstack/gommon v0<span class="number">.3</span><span class="number">.0</span>/<span class="keyword">go</span>.mod h1:MULnywXg0yavhxWKc+lOruYdAhDwPK9wf0OL7NoOu+k=</span><br><span class="line">github.com/mattn/<span class="keyword">go</span>-colorable v0<span class="number">.1</span><span class="number">.2</span> h1:/bC9yWikZXAL9uJdulbSfyVNIR3n3trXl+v8+<span class="number">1</span>sx8mU=</span><br><span class="line">... 省略很多行</span><br></pre></td></tr></table></figure>
+
+<p>可以使用命令<code>go list -m -u all</code>来检查可以升级的 package，使用<code>go get -u need-upgrade-package</code>升级后会将新的依赖版本更新到 go.mod * 也可以使用<code>go get -u</code>升级所有依赖。</p>
+<p><strong>使用 replace 替换无法直接获取的 package</strong></p>
+<p>由于某些已知的原因，并不是所有的 package 都能成功下载，比如：golang.org 下的包。</p>
+<p>modules 可以通过在 go.mod 文件中使用 replace 指令替换成 github 上对应的库，比如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">replace (</span><br><span class="line">  golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a =&gt; github.com/golang/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replace golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a =&gt; github.com/golang/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a</span><br></pre></td></tr></table></figure>
+
+<h4 id="下载位置"><a href="#下载位置" class="headerlink" title="下载位置"></a>下载位置</h4><p>一般的下载位置在<code>GOPATH/pkg</code>目录下,使用<code>go module</code>下载位置在<code>GOPATH/src/mod</code>下</p>
+<h4 id="Go-Build多环境编译"><a href="#Go-Build多环境编译" class="headerlink" title="Go Build多环境编译"></a>Go Build多环境编译</h4><p><a href="https://www.cnblogs.com/Tiago/p/6409533.html" target="_blank" rel="noopener">https://www.cnblogs.com/Tiago/p/6409533.html</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build ./</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./</span><br><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=arm go build ./</span><br></pre></td></tr></table></figure>
+
+<h4 id="Go-init"><a href="#Go-init" class="headerlink" title="Go init"></a>Go init</h4><ul>
+<li>在GoPath下使用<code>go mod init</code>,默认生成的module 名称是从GoPath/src目录下开始算的</li>
+<li>不在GoPath下, 需要使用<code>go mod init [example.com/m/v1]</code>自定义本地包名称, 包内import默认就是从此自定义module名下开始算 </li>
+</ul>
+<h4 id="GoMod模式本地包导入问题"><a href="#GoMod模式本地包导入问题" class="headerlink" title="GoMod模式本地包导入问题"></a>GoMod模式本地包导入问题</h4><ul>
+<li><p>出现情况: <strong>多重go mod</strong></p>
+<p>使用本地私有包中含有mod, 项目总体还有一个go mod</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/SEdKFD.png" alt="SEdKFD"></p>
 </li>
-<li><p>Flags: a way to modify the behavior of a command    <code>port</code>是flags</p>
-<p> Cobra完全支持posix兼容的标志以及Go标志包。Cobra命令可以定义持久化到子命令的标志，以及仅对该命令可用的标志。</p>
+<li><p>运行/编译错误:<code>Package xxxx is not in GOROOT</code></p>
+<p>原因: 未识别本地包</p>
 </li>
-<li><p>参数（Arg）：命令的参数，即要操作的对象；<font color='#39b54a'>(传递要命令要执行的相关参数)</font></p>
+<li><p>解决方法:</p>
+<p>直接使用<code>go mod tidy</code> 会去网络上寻找自定义的本地包, 等很久报错(根本就没有), 所以要使用replace的方法</p>
+<ol>
+<li><p>在<font color='#e54d42'><strong>项目最外层</strong></font>的go mod中将内层所有的含有go mod的私有包都做类似于如下repalce:</p>
+<p><code>replace test/hello =&gt; ./hello</code></p>
+</li>
+<li><p><code>go mod tidy</code></p>
+<p>=&gt; <code>go: found test/hello in test/hello v0.0.0-00010101000000-000000000000</code></p>
+</li>
+<li><p>再次运行,成功</p>
+</li>
+</ol>
+</li>
+<li><p>建议: 项目最好在最外层使用一个go mod文件</p>
 </li>
 </ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>go get -u github.com/spf13/cobra</code></p>
-<h2 id="为自己的项目创建一个Cli"><a href="#为自己的项目创建一个Cli" class="headerlink" title="为自己的项目创建一个Cli"></a>为自己的项目创建一个Cli</h2><p>使用Cobra Library实现一个自己项目的Cli</p>
-<h3 id="1-Create-rootCmd"><a href="#1-Create-rootCmd" class="headerlink" title="1. Create rootCmd"></a>1. Create rootCmd</h3><p><code>app/cmd/root.go:</code></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rootCmd = &amp;cobra.Command&#123;</span><br><span class="line">  Use:   <span class="string">"hugo"</span>,</span><br><span class="line">  Short: <span class="string">"Hugo is a very fast static site generator"</span>,</span><br><span class="line">  Long: <span class="string">`A Fast and Flexible Static Site Generator built with</span></span><br><span class="line"><span class="string">                love by spf13 and friends in Go.</span></span><br><span class="line"><span class="string">                Complete documentation is available at http://hugo.spf13.com`</span>,</span><br><span class="line">  Run: <span class="function"><span class="keyword">func</span><span class="params">(cmd *cobra.Command, args []<span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">    <span class="comment">// Do Stuff Here</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Execute</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> err := rootCmd.Execute(); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    fmt.Fprintln(os.Stderr, err)</span><br><span class="line">    os.Exit(<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-Create-your-main-go"><a href="#2-Create-your-main-go" class="headerlink" title="2. Create your main.go"></a>2. Create your main.go</h3><p>运行go编译后的二进制文件就会执行这个命令</p>
-<p>一般将go编译与rootCmd Use一样的二进制文件名<code>go build -o 指定名字</code></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"&#123;pathToYourApp&#125;/cmd"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  cmd.Execute()				<span class="comment">// 运行go编译后的二进制文件就会执行这个命令</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-Create-additional-commands"><a href="#3-Create-additional-commands" class="headerlink" title="3. Create additional commands"></a>3. Create additional commands</h3><p>可以定义额外的命令，通常在cmd/目录中给每个命令各自的文件。</p>
-<p>这一步是在创建<strong>子command</strong></p>
-<p>如果你想创建一个版本命令，你可以创建cmd/version。去填充它如下:</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cmd</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line">  <span class="string">"github.com/spf13/cobra"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">  rootCmd.AddCommand(versionCmd)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> versionCmd = &amp;cobra.Command&#123;</span><br><span class="line">  Use:   <span class="string">"version"</span>,</span><br><span class="line">  Short: <span class="string">"Print the version number of Hugo"</span>,</span><br><span class="line">  Long:  <span class="string">`All software has versions. This is Hugo's`</span>,</span><br><span class="line">  Run: <span class="function"><span class="keyword">func</span><span class="params">(cmd *cobra.Command, args []<span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"Hugo Static Site Generator v0.9 -- HEAD"</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
       
@@ -307,16 +440,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2021-04-05
+    2021-03-06
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-04-07
+    2021-10-29
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/04/05/技术贴/GoLang/Go语言-4-项目库/" title="Go语言-4-项目库" target="_blank">Go语言-4-项目库</a>
+    <a href="https://xwjahahahaha.github.io/2021/03/06/技术贴/GoLang/基础语法/Go语言-3-编译器与gomod/" title="Go语言-3-编译器与gomod" target="_blank">Go语言-3-编译器与gomod</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/04/05/技术贴/GoLang/Go语言-4-项目库/" title="Go语言-4-项目库" target="_blank">https://xwjahahahaha.github.io/2021/04/05/技术贴/GoLang/Go语言-4-项目库/</a>
+    <a href="https://xwjahahahaha.github.io/2021/03/06/技术贴/GoLang/基础语法/Go语言-3-编译器与gomod/" title="Go语言-3-编译器与gomod" target="_blank">https://xwjahahahaha.github.io/2021/03/06/技术贴/GoLang/基础语法/Go语言-3-编译器与gomod/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -465,7 +598,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/04/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-4-%E9%A1%B9%E7%9B%AE%E5%BA%93/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/03/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-3-%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%8Egomod/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -482,18 +615,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/04/06/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-04/%E6%97%A5%E8%AE%B0-0152/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/13/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-03/%E6%97%A5%E8%AE%B0-0138/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          日记_0152
+          日记_0138
         
       </div>
     </a>
   
   
-    <a href="/2021/04/05/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/116-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">116-填充每个节点的下一个右侧节点指针</div>
+    <a href="/2021/03/06/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-03/%E6%97%A5%E8%AE%B0-0137/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">日记_0137</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -520,7 +653,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一、命令行cli工具Cobra"><span class="toc-number">2.</span> <span class="toc-text">一、命令行cli工具Cobra</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本"><span class="toc-number">2.1.</span> <span class="toc-text">基本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为自己的项目创建一个Cli"><span class="toc-number">2.3.</span> <span class="toc-text">为自己的项目创建一个Cli</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Create-rootCmd"><span class="toc-number">2.3.1.</span> <span class="toc-text">1. Create rootCmd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Create-your-main-go"><span class="toc-number">2.3.2.</span> <span class="toc-text">2. Create your main.go</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Create-additional-commands"><span class="toc-number">2.3.3.</span> <span class="toc-text">3. Create additional commands</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#其他"><span class="toc-number">1.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Goland-IDE"><span class="toc-number">1.1.</span> <span class="toc-text">1.Goland IDE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-goland无法识别go-mod的依赖包"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. goland无法识别go mod的依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用go-mod模式导致本地包无法导入问题"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 使用go mod模式导致本地包无法导入问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-goland调试"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. goland调试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单调试"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">简单调试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#详细配置"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">详细配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-go的包管理"><span class="toc-number">1.2.</span> <span class="toc-text">4.1 go的包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Module综述"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">Go Module综述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-PROXY"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">Go PROXY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Get"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">Go Get</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#go-mod与go-sum文件"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">go.mod与go.sum文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下载位置"><span class="toc-number">1.2.0.5.</span> <span class="toc-text">下载位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Build多环境编译"><span class="toc-number">1.2.0.6.</span> <span class="toc-text">Go Build多环境编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-init"><span class="toc-number">1.2.0.7.</span> <span class="toc-text">Go init</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GoMod模式本地包导入问题"><span class="toc-number">1.2.0.8.</span> <span class="toc-text">GoMod模式本地包导入问题</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

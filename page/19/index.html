@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 548
+			总文章数 546
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,164 +183,26 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/小技巧/m1芯片Mac无法调试Goland的解决方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/其他/mqtt协议与go语言实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/m1%E8%8A%AF%E7%89%87Mac%E6%97%A0%E6%B3%95%E8%B0%83%E8%AF%95Goland%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">m1芯片Mac无法调试Goland的解决方案</a>
+      <a class="article-title" href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%85%B6%E4%BB%96/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/">mqtt协议与go语言实现</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/m1%E8%8A%AF%E7%89%87Mac%E6%97%A0%E6%B3%95%E8%B0%83%E8%AF%95Goland%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%85%B6%E4%BB%96/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/m1%E8%8A%AF%E7%89%87Mac%E6%97%A0%E6%B3%95%E8%B0%83%E8%AF%95Goland%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="archive-article-date">
-  	<time datetime="2021-07-12T03:20:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">334字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>查询了很多资料文章，下面这篇给了启发，记录一下我的解决方案</p>
-<p><a href="https://blog.csdn.net/zsi386/article/details/116357850?spm=1001.2014.3001.5501" target="_blank" rel="noopener">https://blog.csdn.net/zsi386/article/details/116357850?spm=1001.2014.3001.5501</a></p>
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>我的环境：</p>
-<ul>
-<li><p>go version :  go1.16.5 darwin/arm64.  (下载时记得下载arm架构的)</p>
-</li>
-<li><p>goland version: 2020.3</p>
-</li>
-<li><p>mac version:Big Sur 11.4 MacBook Air m1芯片</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/MvQldJ.png" alt="MvQldJ"> </p>
-</li>
-</ul>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/m1%E8%8A%AF%E7%89%87Mac%E6%97%A0%E6%B3%95%E8%B0%83%E8%AF%95Goland%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-技术贴/GoLang/mqtt协议与go语言实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/">mqtt协议与go语言实现</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+<a href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%85%B6%E4%BB%96/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
   	<time datetime="2021-07-12T01:11:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
 </a>
         <!-- 开始添加字数统计-->
@@ -446,7 +308,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%85%B6%E4%BB%96/mqtt%E5%8D%8F%E8%AE%AE%E4%B8%8Ego%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
         </p>
       
 
@@ -689,26 +551,26 @@
 
 
   
-    <article id="post-技术贴/GoLang/Go语言-6-grpc与微服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/微服务/grpc与微服务-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-6-grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">Go语言-6-grpc与微服务</a>
+      <a class="article-title" href="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%BE%AE%E6%9C%8D%E5%8A%A1/grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1-1/">grpc与微服务-1</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-6-grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%BE%AE%E6%9C%8D%E5%8A%A1/grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1-1/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-6-grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="archive-article-date">
+<a href="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%BE%AE%E6%9C%8D%E5%8A%A1/grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1-1/" class="archive-article-date">
   	<time datetime="2021-07-08T07:24:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-08</time>
 </a>
         <!-- 开始添加字数统计-->
@@ -832,7 +694,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%AF%AD%E8%A8%80-6-grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/08/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%BE%AE%E6%9C%8D%E5%8A%A1/grpc%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1-1/">展开全文 >></a>
         </p>
       
 
@@ -1042,6 +904,142 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/07/05/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0194/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-知识贴/计算理论基础/计算理论基础-3-图灵机与DFA最小化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-3-%E5%9B%BE%E7%81%B5%E6%9C%BA%E4%B8%8EDFA%E6%9C%80%E5%B0%8F%E5%8C%96/">计算理论基础-3-图灵机与DFA最小化</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/06/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-3-%E5%9B%BE%E7%81%B5%E6%9C%BA%E4%B8%8EDFA%E6%9C%80%E5%B0%8F%E5%8C%96/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/06/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-3-%E5%9B%BE%E7%81%B5%E6%9C%BA%E4%B8%8EDFA%E6%9C%80%E5%B0%8F%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2021-06-26T06:04:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-26</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">769字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="七、Turing-Machine-图灵机"><a href="#七、Turing-Machine-图灵机" class="headerlink" title="七、Turing Machine 图灵机"></a>七、Turing Machine 图灵机</h1><h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><p>$TM = (Q,\Sigma,\Gamma,\delta，q_0，q_{accept}， q_{reject})$</p>
+<ol>
+<li>Q ：有限状态集合</li>
+<li>$\Sigma$ : 输入字母表, 不包括空白字符</li>
+<li>$\Gamma$ ：磁带字母表 (tape alphabet),    $_ \in \Gamma, \Sigma \subseteq \Gamma$ （$_$就是空格）</li>
+<li>$\delta$ : 转移函数</li>
+<li>$q_0$ : 起始状态  $q_{0} \in Q$</li>
+<li>$q_{accept}$ : 接受状态    $q_{accept} \in Q$</li>
+<li>$q_{reject}$ : 拒绝状态， $q_{reject} \in Q,  \ q <em>{reject} \neq q</em>{accept}$</li>
+</ol>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/06/26/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-3-%E5%9B%BE%E7%81%B5%E6%9C%BA%E4%B8%8EDFA%E6%9C%80%E5%B0%8F%E5%8C%96/">展开全文 >></a>
         </p>
       
 
