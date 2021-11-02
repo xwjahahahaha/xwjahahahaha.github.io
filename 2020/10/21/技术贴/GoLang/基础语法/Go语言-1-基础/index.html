@@ -61,7 +61,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201118161512.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122183834.png">
 <meta property="article:published_time" content="2020-10-21T11:18:59.000Z">
-<meta property="article:modified_time" content="2021-10-29T10:30:24.380Z">
+<meta property="article:modified_time" content="2021-11-01T09:19:43.803Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -119,7 +119,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 546
+			总文章数 554
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -510,7 +510,7 @@
 
 <h3 id="7-5-闭包"><a href="#7-5-闭包" class="headerlink" title="7.5 闭包"></a>7.5 闭包</h3><h4 id="基本介绍："><a href="#基本介绍：" class="headerlink" title="基本介绍："></a>基本介绍：</h4><p>闭包就是<font color='red'>一个<strong>函数</strong>和与其<strong>相关的引用环境</strong>组合</font>的一个整体(实体)</p>
 <p>例子：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AddUpper</span><span class="params">()</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span>)</span> <span class="title">int</span></span>&#123;</span><br><span class="line">	<span class="comment">//对n做了初始化，以后每次都不会初始化了，类似于类中的字段</span></span><br><span class="line">	n := <span class="number">10</span></span><br><span class="line">	str := <span class="string">"Hello"</span></span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(i <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">		n += i</span><br><span class="line">		str += <span class="keyword">string</span>(<span class="number">36</span>)</span><br><span class="line">		fmt.Printf(str)</span><br><span class="line">		<span class="keyword">return</span> n</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	upper := AddUpper()</span><br><span class="line">	fmt.Printf(<span class="string">"%d\n"</span>, upper(<span class="number">1</span>))</span><br><span class="line">	fmt.Printf(<span class="string">"%d\n"</span>, upper(<span class="number">2</span>))</span><br><span class="line">	fmt.Printf(<span class="string">"%d\n"</span>, upper(<span class="number">3</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Hello$11</span></span><br><span class="line"><span class="comment">Hello$$13</span></span><br><span class="line"><span class="comment">Hello$$$16</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">AddUpper</span><span class="params">()</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span>)</span> <span class="title">int</span></span>&#123;</span><br><span class="line">	<span class="comment">//对n做了初始化，以后每次都不会初始化了，类似于类中的字段</span></span><br><span class="line">	n := <span class="number">10</span></span><br><span class="line">	str := <span class="string">"Hello"</span></span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(i <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">		n += i</span><br><span class="line">		str += <span class="keyword">string</span>(<span class="number">36</span>)</span><br><span class="line">		fmt.Printf(str)</span><br><span class="line">		<span class="keyword">return</span> n</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	upper := AddUpper()</span><br><span class="line">	fmt.Printf(<span class="string">"%d\n"</span>, upper())</span><br><span class="line">	fmt.Printf(<span class="string">"%d\n"</span>, upper())</span><br><span class="line">	fmt.Printf(<span class="string">"%d\n"</span>, upper())</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Hello$11</span></span><br><span class="line"><span class="comment">Hello$$13</span></span><br><span class="line"><span class="comment">Hello$$$16</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>函数的理解：</strong></p>
 <p><font color='green'>闭包是类, 函数是操作，n 是字段。函数和它使用到n 构成闭包。</font></p>
@@ -595,6 +595,7 @@
 </li>
 <li><p><code>s += &quot;xx&quot;</code>大量数据+=的方式不够高效，推荐的方式<code>strings.Join</code>函数</p>
 <p><code>func Join(elems []string, sep string) string</code> 参数1: 需要合并的所有字符串数组，参数二：每个字符串之间的分隔符</p>
+<p>或者使用<code>bytes.Buffer</code>方式</p>
 </li>
 </ul>
 <h3 id="6-10-内置函数"><a href="#6-10-内置函数" class="headerlink" title="6.10 内置函数"></a>6.10 内置函数</h3><ul>
@@ -646,6 +647,10 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test01</span><span class="params">(nums [4]<span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> index, val := <span class="keyword">range</span> nums&#123;</span><br><span class="line">		nums[index] = val + <span class="number">10</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">"test01中的数组："</span>,nums)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test02</span><span class="params">(nums *[4]<span class="keyword">int</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> index, val := <span class="keyword">range</span> nums&#123;</span><br><span class="line">		nums[index] = val + <span class="number">10</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">"test02中的数组："</span>, nums)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//值传递与引用传递</span></span><br><span class="line"><span class="comment">//值传递</span></span><br><span class="line">test01(nums)		<span class="comment">// 值传递。不改变原数组</span></span><br><span class="line">fmt.Println(<span class="string">"main中的数组："</span>, nums)</span><br><span class="line"><span class="comment">//引用传递</span></span><br><span class="line">test02(&amp;nums)</span><br><span class="line">fmt.Println(<span class="string">"main中的数组："</span>, nums)</span><br><span class="line"></span><br><span class="line"><span class="comment">//test01中的数组： [13 14 15 16]</span></span><br><span class="line"><span class="comment">//main中的数组： [3 4 5 6]</span></span><br><span class="line"><span class="comment">//test02中的数组： &amp;[13 14 15 16]</span></span><br><span class="line"><span class="comment">//main中的数组： [13 14 15 16]</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>长度是数组类型的一部分，在<strong>传递函数参数时需要考虑数组的长度</strong></p>
+</li>
+<li><p>如果数据中的元素可以比较，那么数组就可以直接比较，如果两个数组的值完全相同则返回true</p>
+<p><code>[2]int{1, 2} == [...]int{1, 2}</code>返回true</p>
+<p>注意：切片无法直接比较</p>
 </li>
 </ol>
 <h2 id="8-切片"><a href="#8-切片" class="headerlink" title="8.切片"></a>8.切片</h2><p><strong>切片是数组的一个引用，因此切片是<font color='red'>引用类型</font>，在进行传递时，遵守引用传递的机制。</strong></p>
@@ -719,7 +724,7 @@
 
 <p>==<strong>append操作可能会导致原本使用同一个底层数组的两个Slice变量变为使用不同的底层数组。</strong>==</p>
 <p>==<strong>所以, 切片在作为函数传参时,要注意在函数中不能append越界</strong>==</p>
-<h3 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h3><p>切片的拷贝操作</p>
+<h3 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h3><p>切片的拷贝操作（类似于for循环的逐元素拷贝）</p>
 <p>切片使用<strong>copy</strong> 内置函数完成拷贝，注意拷贝的两者间<font color='red'>空间独立</font></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">slice := []<span class="keyword">int</span>&#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>&#125;</span><br><span class="line">slice2 := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">20</span>)</span><br><span class="line"><span class="built_in">copy</span>(slice2, slice)</span><br><span class="line">fmt.Println(<span class="string">"slice = "</span>, slice)</span><br><span class="line">fmt.Println(<span class="string">"slice2 = "</span>, slice2)<span class="comment">//slice2 =  [2 3 4 4 6 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0]</span></span><br><span class="line">slice[<span class="number">0</span>] = <span class="number">9999</span></span><br><span class="line">fmt.Println(slice2[<span class="number">0</span>])<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
 
@@ -889,8 +894,6 @@
 <ul>
 <li><font color='red'><strong>函数传参数的时候</strong>，参数为值类型就值类型，参数要求指针类型就需要传地址</font></li>
 </ul>
-</li>
-<li><p>*<em>==结构体指针做函数返回值: 不能返回局部变量的地址值,可以返回局部变量的值== *</em>,因为局部变量保存在栈桢上,当函数调用结束后,栈桢释放导致地址变量指向的空间失效(不受系统保护了,可能会分配给其他变量)</p>
 </li>
 </ol>
 <h3 id="10-3-工厂模式"><a href="#10-3-工厂模式" class="headerlink" title="10.3 工厂模式"></a>10.3 工厂模式</h3><p><strong>Golang 的结构体没有构造函数</strong>，通常可以使用工厂模式来解决这个问题。</p>
@@ -1254,7 +1257,7 @@
     2020-10-21
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-10-29
+    2021-11-01
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/10/21/技术贴/GoLang/基础语法/Go语言-1-基础/" title="Go语言-1-基础" target="_blank">Go语言-1-基础</a>

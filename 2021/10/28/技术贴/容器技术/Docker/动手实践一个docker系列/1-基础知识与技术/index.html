@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>动手实现一个docker引擎-1 | 知识与头发不可兼得</title>
+  <title>1-基础知识与技术 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="学习自《自己动手写Docker》 作者：陈显鹭（花名：遥鹭）-阿里云高级研发工程师等 京东购买链接：https:&#x2F;&#x2F;item.jd.com&#x2F;10033552355433.html 其他资料：  https:&#x2F;&#x2F;www.cnblogs.com&#x2F;heyanan&#x2F;p&#x2F;7800284.html https:&#x2F;&#x2F;www.cnblogs.com&#x2F;Philip-Tell-Truth&#x2F;p&#x2F;6284475.htm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动手实现一个docker引擎-1">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2021/10/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAdocker%E5%BC%95%E6%93%8E-1/index.html">
+<meta property="og:title" content="1-基础知识与技术">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2021/10/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8E%E6%8A%80%E6%9C%AF/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="学习自《自己动手写Docker》 作者：陈显鹭（花名：遥鹭）-阿里云高级研发工程师等 京东购买链接：https:&#x2F;&#x2F;item.jd.com&#x2F;10033552355433.html 其他资料：  https:&#x2F;&#x2F;www.cnblogs.com&#x2F;heyanan&#x2F;p&#x2F;7800284.html https:&#x2F;&#x2F;www.cnblogs.com&#x2F;Philip-Tell-Truth&#x2F;p&#x2F;6284475.htm">
 <meta property="og:locale" content="zh_CN">
@@ -19,11 +19,24 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211028205147983.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/8geyMe.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/ItNpxb.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211031100831804.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211028230603400.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211029165014390.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/GHqSyk.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/8T4RPY.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211030233301325.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211031092033846.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/u6ByLy.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/x0UWFs.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211101193901382.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/mJmFWQ.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/ocpDDK.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/Jng8oK.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/P7lzMt.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/aJnSgh.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/cOIHnY.png">
 <meta property="article:published_time" content="2021-10-28T12:14:59.000Z">
-<meta property="article:modified_time" content="2021-10-29T15:30:55.385Z">
+<meta property="article:modified_time" content="2021-11-02T07:36:19.337Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -81,7 +94,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 546
+			总文章数 554
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -192,21 +205,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/容器技术/Docker/动手实践一个docker系列/动手实现一个docker引擎-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/容器技术/Docker/动手实践一个docker系列/1-基础知识与技术" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      动手实现一个docker引擎-1
+      1-基础知识与技术
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/10/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAdocker%E5%BC%95%E6%93%8E-1/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/10/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="pageViews">0</span>次
   </a>
 
         
@@ -216,7 +229,7 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2021/10/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAdocker%E5%BC%95%E6%93%8E-1/" class="archive-article-date">
+<a href="/2021/10/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8E%E6%8A%80%E6%9C%AF/" class="archive-article-date">
   	<time datetime="2021-10-28T12:14:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-28</time>
 </a>
         <!-- 开始添加字数统计-->
@@ -226,7 +239,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">5.2k字</span>
+        <span class="post-count">8.2k字</span>
       </span>
     </span>
 
@@ -235,7 +248,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">20分</span>
+        <span class="post-count">32分</span>
       </span>
     </span>
 </div>
@@ -255,6 +268,7 @@
 <ul>
 <li><a href="https://www.cnblogs.com/heyanan/p/7800284.html" target="_blank" rel="noopener">https://www.cnblogs.com/heyanan/p/7800284.html</a></li>
 <li><a href="https://www.cnblogs.com/Philip-Tell-Truth/p/6284475.html" target="_blank" rel="noopener">https://www.cnblogs.com/Philip-Tell-Truth/p/6284475.html</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/166393945" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/166393945</a></li>
 </ul>
 </blockquote>
 <blockquote>
@@ -338,10 +352,12 @@
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/8geyMe.png" alt="8geyMe" style="zoom: 50%;" />
 
 <p>问：启动容器需要执行以上几步？ 答：0步</p>
-<h2 id="2-2-Linux-namespace"><a href="#2-2-Linux-namespace" class="headerlink" title="2.2 Linux namespace"></a>2.2 Linux namespace</h2><h3 id="1-基础介绍"><a href="#1-基础介绍" class="headerlink" title="1. 基础介绍"></a>1. 基础介绍</h3><p>Linux实现隔离的方式： <a href="http://link.zhihu.com/?target=http%3A//man7.org/linux/man-pages/man7/namespaces.7.html">namespaces(7)</a></p>
+<h2 id="2-2-Linux-namespace-资源隔离"><a href="#2-2-Linux-namespace-资源隔离" class="headerlink" title="2.2 Linux namespace 资源隔离"></a>2.2 Linux namespace 资源隔离</h2><h3 id="1-基础介绍"><a href="#1-基础介绍" class="headerlink" title="1. 基础介绍"></a>1. 基础介绍</h3><p>Linux实现隔离的方式： <a href="http://link.zhihu.com/?target=http%3A//man7.org/linux/man-pages/man7/namespaces.7.html">namespaces(7)</a></p>
 <p>命名空间将全局系统资源包装在一个抽象中 使名称空间内的进程看起来拥有自己的全局资源的独立实例。全局资源的修改对同一个命名空间下的其他进程是可见的，对于其他命名空间是不可见的。命名空间的一个用途是实现容器。</p>
 <p>Linux Namespace各种命名空间：</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/ItNpxb.png" alt="ItNpxb"></p>
+<p>中文简版（6种）：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211031100831804.png" alt="image-20211031100831804"></p>
 <p>第二列显示了用于在各种api中指定名称空间类型的标志值（系统调用参数），第三列标识了手册页中关于命名空间的详细信息，最后一列标识命名空间对应隔离的资源</p>
 <p>Namespace能够实现在同一台主机下UID级别的隔离，给每一个UID的用户虚拟化出一个Namespace，这样多个用户之间可以访问系统资源的同时互相之间还实现了隔离。</p>
 <p>从每个用户的角度看，每个命名空间都像一台单独的linux一样，有自己的init进程，并且pid不断递增</p>
@@ -475,7 +491,45 @@
 <p>（注意，这里不能使用ps、top等命令查看，因为会调用/proc内容，后面会解决这个问题）</p>
 <h3 id="6-Mount-Namespace"><a href="#6-Mount-Namespace" class="headerlink" title="6. Mount Namespace"></a>6. Mount Namespace</h3><p><a href="https://man7.org/linux/man-pages/man7/mount_namespaces.7.html" target="_blank" rel="noopener">mount_namespaces(7)</a></p>
 <p>负责隔离各个进程看到的挂载点视图，让每一个进程看到的文件系统层次是不同的。这也是Linux第一个实现的Namespace类型，所以注意他的flag是<code>CLONE_NEWNS</code>（new Namespace的缩写）</p>
-<p>修改代码:</p>
+<h4 id="1-Mount命令"><a href="#1-Mount命令" class="headerlink" title="1. Mount命令"></a>1. Mount命令</h4><p>在挂载了<code>/proc</code>的进程下可以使用<code>Mount</code>命令</p>
+<p><code>mount</code>命令主要用于挂载linux中的文件系统等操作</p>
+<p>关于此命令的详细使用可以查看：<a href="https://man7.org/linux/man-pages/man8/mount.8.html" target="_blank" rel="noopener">mount(8) — Linux manual page</a> </p>
+<p>这里列出常用的几个并解释：</p>
+<ul>
+<li><p><code>mount</code> : 输出当前所有的设备、挂载目录以及类型</p>
+</li>
+<li><p><code>mount -t type device dir</code><br><strong>device</strong>：指定要挂载的设备，比如磁盘、光驱等。<br><strong>dir</strong>：指定把文件系统挂载到哪个目录。<br><strong>type</strong>：指定挂载的文件系统类型，一般不用指定，mount 命令能够自行判断。<br><strong>options</strong>：指定挂载参数，比如 ro 表示以只读方式挂载文件系统。</p>
+<p>告诉内核将在device上(类型为type)上找到的文件系统附加到目录dir。选项<code>-t type</code>是可选的, 不写的话通常会自动检测。 </p>
+</li>
+<li><p><code>mount --bind olddir newdir</code></p>
+<p>将文件系统层次结构的一部分重新挂载到其他地方，调用之后相同的内容可以在两个地方访问。重要的是要理解“bind”不会在内核VFS中创建任何二类或特殊的节点。“绑定”只是附加文件系统的另一个操作。</p>
+</li>
+</ul>
+<h5 id="shared-subtree"><a href="#shared-subtree" class="headerlink" title="shared subtree"></a>shared subtree</h5><p>Mount有一个重要的地方，就是它的<strong>shared subtree</strong>机制：</p>
+<p>该机制的出现主要是为了解决Mount Namespace操作不方便的问题：当宿主机有新的磁盘挂载后，我们希望能够通知所有的其他Namespace挂载这个磁盘，但是如果是完全隔离的状态，那么是需要每个都手动操作，非常麻烦。所以就出现了shared subtree机制，这个机制主要有两个关键点：</p>
+<ol>
+<li><p>peer group</p>
+<p>表示一个或者多个挂载点的集合，有下面两种情况会分到一个集合（group）：</p>
+<ul>
+<li>通过<code>--bind</code>操作挂载的源挂载点（必须是一个挂载点）与目的挂载点</li>
+<li>新生成mount ns复制过去的挂载点在同一个集合</li>
+</ul>
+</li>
+<li><p><strong>propagate type 传播属性</strong></p>
+<p>上述的问题依靠这个属性解决。传播属性重新定义了挂载对象/点之间的关系，定义的关系包括：</p>
+<ul>
+<li>共享关系： 一个挂载对象的挂载事件会传播到另一个挂载对象，反之亦然 （双向）</li>
+<li>从属关系：一个挂载对象的挂载事件会传播给另一个，反之不会 （单向）</li>
+</ul>
+<p>一个挂载的状态可以有以下几种：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/8T4RPY.png" alt="8T4RPY"></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211030233301325.png" alt="image-20211030233301325"></p>
+<p>​    默认情况下，所有挂载状态都是私有的，改变状态的方法如下所示：</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mount --make-shared mountpoint					// 共享</span><br><span class="line">mount --make-slave mountpoint						// 从属</span><br><span class="line">mount --make-private mountpoint					// 私有</span><br><span class="line">mount --make-unbindable mountpoint			// 设置不可被绑定</span><br><span class="line">// 有r前缀的表示递归的修改挂载点以及其子目录</span><br><span class="line">mount --make-rshared mountpoint</span><br><span class="line">mount --make-rslave mountpoint</span><br><span class="line">mount --make-rprivate mountpoint</span><br><span class="line">mount --make-runbindable mountpoint</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-实践-1"><a href="#2-实践-1" class="headerlink" title="2. 实践"></a>2. 实践</h4><p>修改代码:</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWIPC | syscall.CLONE_NEWPID | syscall.CLONE_NEWNS,</span><br></pre></td></tr></table></figure>
 
 <p>编译启动：</p>
@@ -487,9 +541,6 @@
 
 <p>这是宿主机的<code>/proc</code>，我们还需要手动的将<code>/proc</code> mount(挂载)到我们自己的Namespace下</p>
 <p>使用命令<code>mount -t proc proc /proc</code>将宿主机的<code>proc</code>文件系统挂载到自己的Namespace下的<code>/proc</code>目录上</p>
-<blockquote>
-<p>mount 命令用来挂载文件系统。其基本命令格式为：<br><code>mount -t type [-o options] device dir</code><br><strong>device</strong>：指定要挂载的设备，比如磁盘、光驱等。<br><strong>dir</strong>：指定把文件系统挂载到哪个目录。<br><strong>type</strong>：指定挂载的文件系统类型，一般不用指定，mount 命令能够自行判断。<br><strong>options</strong>：指定挂载参数，比如 ro 表示以只读方式挂载文件系统。</p>
-</blockquote>
 <p>再次查看<code>/proc</code>文件系统：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ls /proc</span></span><br><span class="line">1          cgroups   devices      fb           ioports   key-users    loadavg  modules       partitions   slabinfo  sysrq-trigger  uptime             zoneinfo</span><br><span class="line">5          cmdline   diskstats    filesystems  irq       kmsg         locks    mounts        sched_debug  softirqs  sysvipc        version</span><br><span class="line">acpi       consoles  dma          fs           kallsyms  kpagecgroup  mdstat   mtrr          schedstat    stat      thread-self    version_signature</span><br><span class="line">buddyinfo  cpuinfo   driver       interrupts   kcore     kpagecount   meminfo  net           scsi         swaps     timer_list     vmallocinfo</span><br><span class="line">bus        crypto    execdomains  iomem        keys      kpageflags   misc     pagetypeinfo  self         sys       tty            vmstat</span><br></pre></td></tr></table></figure>
 
@@ -497,7 +548,20 @@
 <p>使用<code>ps -ef</code>查看进程：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ps -ef</span></span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">root         1     0  0 22:21 pts/1    00:00:00 sh</span><br><span class="line">root         8     1  0 22:34 pts/1    00:00:00 ps -ef</span><br></pre></td></tr></table></figure>
 
-<p>可以看到这时候就只能看到自己Namespace下的进程了，因为依赖的<code>/proc</code>文件已经被隔离了</p>
+<p>可以看到这时候就只能看到自己Namespace下的进程了</p>
+<p>我们回到宿主机，发现宿主机的<code>/proc</code>不能使用了，这就是因为宿主机的Namespace文件中本来对挂载点<code>/proc</code>设置的就是共享挂载，所以我们使用clone复制的时候，新的Mount Namespace也是共享挂载，两者是共享和传播的方式。</p>
+<p>回到宿主机通过查看<code>cat /proc/self/mountinfo</code>当前宿主机NS的挂载点信息：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211031092033846.png" alt="image-20211031092033846"></p>
+<p><code>/proc</code>等系统的挂载点都是<code>shared</code>的状态</p>
+<p>为了让新建的Mount Namespace不影响其他的Mount Namespace，所以我们需要设置为私有挂载模式：</p>
+<p>一样的编译启动新的Mount Namespace，但是这次挂载的操作不同：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将/proc目录设置为私有挂载</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mount --make-rprivate /proc</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 挂载/proc</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mount -t proc proc /proc</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ls /proc</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/u6ByLy.png" alt="u6ByLy"></p>
+<p>通过运行可以看到在新的NS中我们实现了隔离</p>
+<p>现在返回原来的NS，直接查看<code>/proc</code>看看是否受到影响</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/x0UWFs.png" alt="x0UWFs"></p>
+<p>可以看到并没有收到影响。我们不需要再重新挂载了，实现了隔离。</p>
 <p>mount实现了和外部空间的隔离，在本Namespace下挂载的文件系统不回影响外部，<font color='#e54d42'><strong>所以这也是docker数据卷的特性原因之一</strong></font></p>
 <h3 id="7-User-Namespace"><a href="#7-User-Namespace" class="headerlink" title="7. User Namespace"></a>7. User Namespace</h3><p>User Namespace主要隔离用户的用户组ID。比较常见的做法是将宿主机上的一个非root用户在新建的User Namespace中映射成一个root用户，这意味着这个进程在User Namespace内部是有root权限的。</p>
 <p><strong>在Linux Kernel 3.8开始非root进程也可以创建User Namespace了，并且实现了在新创的User Namespace中拥有root权限</strong></p>
@@ -533,11 +597,85 @@
 </blockquote>
 <p>运行程序，在新的Network Namespace中查看网络：</p>
 <p>运行的结果是：啥也没有。所以已经处于隔离状态了。</p>
-<hr>
-<p>下一节将会继续学习基础原理中的Linux Cgroups，今天也留下一个疑问等待明天处理：</p>
+<h2 id="2-3-Linux-Cgroups-资源限制"><a href="#2-3-Linux-Cgroups-资源限制" class="headerlink" title="2.3 Linux Cgroups 资源限制"></a>2.3 Linux Cgroups 资源限制</h2><p>在Namespace中，我们只实现了隔离，但是怎样<strong>限制</strong>每个容器空间的大小呢，这就要使用到Cgroups</p>
+<p>Linux Cgroups(Control Groups)提供了对一组进程以及将来子进程的资源限制，包括CPU、内存、存储与网络等</p>
+<p>使用Cgroups可以方便的限制某个资源的占用并且可以实时的监控和统计信息</p>
 <blockquote>
-<p>疑问：为什么创建了新的Mount Namespace中子进程挂载了<code>/proc</code>, 宿主机主进程Namespace就失去了<code>/proc</code>的挂载了呢？不是隔离了吗？</p>
+<p>Control Groups，通常被称为cgroups，是Linux内核的一个特性，它允许进程被组织成分层的组，这些组可以被限制和监视各种类型的资源的使用。<strong>内核的cgroup接口是通过一个名为cgroupfs的伪文件系统提供的。分组是在核心cgroup内核代码中实现的，而资源跟踪和限制是在一组每个资源类型的子系统(内存、CPU等)中实现的。</strong></p>
 </blockquote>
+<p>最初发布的cgroups是在linux 2.6.24中运行的，但是随后的不协调的更新导致了cgroups分为了两个版本维护：v1和v2 </p>
+<p>v2发布在linux 3.10之后，v1成为了老版本，因为兼容性没有被移除</p>
+<p>详细内容见：<a href="https://man7.org/linux/man-pages/man7/cgroups.7.html" target="_blank" rel="noopener">cgroups(7) — Linux manual page</a></p>
+<h3 id="1-三大组件"><a href="#1-三大组件" class="headerlink" title="1. 三大组件"></a>1. 三大组件</h3><p>Cgroups构成主要是三个组件：Cgroup、Subsystem、Hierarchy</p>
+<h4 id="Cgroup"><a href="#Cgroup" class="headerlink" title="Cgroup"></a>Cgroup</h4><p>cgroup用于对进程进行分组管理的机制，一个cgroup包含一组进程，然后可以以cgroup为单位来进行subsystem的各种参数配置。</p>
+<h4 id="Subsystem"><a href="#Subsystem" class="headerlink" title="Subsystem"></a>Subsystem</h4><p>subsystem是一组资源控制的模块，包含如下几项：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211101193901382.png" alt="image-20211101193901382"></p>
+<p>每个subsystem关联到相应的cgroup上并对其中的进程进行资源的限制与控制。这些subsystem都是逐步合并到内核中的。</p>
+<p>查看自己linux内核支持的subsystem：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装cgroup命令工具</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> apt-get install cgroup-bin</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> lssubsys</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/mJmFWQ.png" alt="mJmFWQ"></p>
+<h4 id="Hierarchy"><a href="#Hierarchy" class="headerlink" title="Hierarchy"></a>Hierarchy</h4><p>hierarchy的作用是将一组cgroup串成一个树状的结构，这样的一棵树就可以称为一个hierarchy</p>
+<p><strong>cgroup是一组进程的集合， hierarchy是一组cgroup的集合</strong></p>
+<p>通过这样的树结构，cgroups可以实现<strong>继承</strong></p>
+<p>例如：将多个进程设置为一组cgroup，并在其中设置了限制cpu的使用率。但是其中一个特殊的进程活动需要限制磁盘的I/O，如果单独设置就可能会影响其他同cgroup的进程。此时就可以将这个进程单独化为一个新的cgroup2，让其继承于cgroup1，这样单独对cgroup2设置限制就不会影响到cgroup1的其他进程。</p>
+<h4 id="三者关系"><a href="#三者关系" class="headerlink" title="三者关系"></a>三者关系</h4><ul>
+<li>系统创建hierarchy之后，默认创建一个cgrouop根节点，系统会将所有进程加入到此cgroup中</li>
+<li>一个subsystem只能附加到一个hierarchy上（一对一的关系）</li>
+<li>一个hierarchy可以附加多个subsystem（一对多的关系）</li>
+<li>一个进程可以作为多个cgroup的成员，但是这些cgroup不能在一个hierarchy上（hierarchy与进程一对一）</li>
+<li>一个进程fork出的子进程与父进程在同一个cgroup上，当然也可以通过操作移动</li>
+</ul>
+<h3 id="2-配置与操作Cgroups"><a href="#2-配置与操作Cgroups" class="headerlink" title="2. 配置与操作Cgroups"></a>2. 配置与操作Cgroups</h3><p>kernel为了让cgroups的配置更加直观，通过一个虚拟的树状文件系统配置Cgroups，通过层级的目录虚拟出Cgroup树(hierarchy)。</p>
+<p>配置案例：</p>
+<h4 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mkdir cgroup-test		<span class="comment"># 创建挂载点</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 挂载一个hierarchy， -o表示添加可选项</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo mount -t cgroup -o none,name=cgroup-test cgroup-test ./cgroup-test</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看挂载点信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat /proc/self/mountinfo</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/ocpDDK.png" alt="ocpDDK"></p>
+<p>可以看到刚刚设置的挂载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 挂载后可以在目录下看到生成了许多默认文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tree ./cgroup-test</span></span><br></pre></td></tr></table></figure>
+
+<p>默认文件以及其解释如下：</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/Jng8oK.png" alt="Jng8oK" style="zoom:150%;" />
+
+<h4 id="2-创建子cgroup"><a href="#2-创建子cgroup" class="headerlink" title="2. 创建子cgroup"></a>2. 创建子cgroup</h4><p>创建两个子cgroup</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo mkdir cgroup-1</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo mkdir cgroup-2</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tree</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/P7lzMt.png" alt="P7lzMt"></p>
+<p>可以看到在一个cgroup的目录下创建文件夹时，内核会把这个文件夹标记为子cgroup创建必要文件并<strong>继承父cgroup的属性</strong></p>
+<h4 id="3-移动进程"><a href="#3-移动进程" class="headerlink" title="3. 移动进程"></a>3. 移动进程</h4><p>一个进程在一个hierarchy上只能存在于一个cgroup，移动进程cgroup修改task文件即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> $$</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将我的终端进程移动到cgroup-1中</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> cgroup-1</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo sh -c <span class="string">"echo $$ &gt;&gt; tasks"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat /proc/17795/cgroup</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/aJnSgh.png" alt="aJnSgh"></p>
+<h4 id="4-subsystem限制进程资源"><a href="#4-subsystem限制进程资源" class="headerlink" title="4. subsystem限制进程资源"></a>4. subsystem限制进程资源</h4><p>上面在创建hierarchy的之后并没有指定关联到任何的subsystem，但是系统默认给每个subsystem创建了一个默认的hierarchy，例如memory的hierarchy</p>
+<p>在subsystem的根目录下的memory目录，这是一个hierarchy</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mount | grep memory</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ls /sys/fs/cgroup/</span></span><br></pre></td></tr></table></figure>
+
+<p>下面就通过在这个hierarchy中创建cgroup限制如下进程占用的内存资源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在没有限制的情况下，启动一个占用内存的stress进程</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> apt install stress</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> stress --vm-bytes 200m --vm-keep -m 1</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建一个cgroup</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo mkdir <span class="built_in">limit</span>-memory-test &amp;&amp; <span class="built_in">cd</span> <span class="built_in">limit</span>-memory-test</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置最大占用内存为100MB</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo sh -c <span class="string">"echo  "</span>100m<span class="string">" &gt; memory.limit_in_bytes"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat memory.limit_in_bytes</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将当前进程移动到此group</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo sh -c <span class="string">"echo $$ &gt; tasks"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次运行占用内存200MB的stress进程</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> stress --vm-bytes 200m --vm-keep -m 1</span></span><br></pre></td></tr></table></figure>
+
+<p>发现200m的压力测试启动失败（我这里与书上的测试结果不同，不知道为什么），只有小于这个限制的stress才可以跑起来</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stress: info: [17728] dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd</span><br><span class="line">stress: FAIL: [17728] (415) &lt;-- worker 17729 got signal 9</span><br><span class="line">stress: WARN: [17728] (417) now reaping child worker processes</span><br><span class="line">stress: FAIL: [17728] (451) failed run completed in 0s</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Docker如何使用Cgroups"><a href="#3-Docker如何使用Cgroups" class="headerlink" title="3. Docker如何使用Cgroups"></a>3. Docker如何使用Cgroups</h3><p>通过实例查看一个docker容器怎样配置Cgroups</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置内存限制启动容器</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo docker run -itd -m 128m ubuntu</span></span><br></pre></td></tr></table></figure>
+
+<p>docker会为每个容器在系统的hierarchy中创建cgroup</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /sys/fs/cgroup/memory/docker/b496830a00213173ec4d43aee2ae01be6c524cda8e6f71e66e1defb90e10c32e</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看cgroup中进程使用的内存大小</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat memory.usage_in_bytes</span></span><br></pre></td></tr></table></figure>
+
+<p>docker为每个容器创建cgroup并通过cgroup配置资源限制与监控</p>
+<h3 id="4-Go实现通过cgroup限制容器资源"><a href="#4-Go实现通过cgroup限制容器资源" class="headerlink" title="4. Go实现通过cgroup限制容器资源"></a>4. Go实现通过cgroup限制容器资源</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">	<span class="string">"os/exec"</span></span><br><span class="line">	<span class="string">"path"</span></span><br><span class="line">	<span class="string">"strconv"</span></span><br><span class="line">	<span class="string">"syscall"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 挂载了memory subsystem的hierarchy的根目录位置</span></span><br><span class="line"><span class="keyword">const</span> cgroupMemoryHierarchyMount = <span class="string">"/sys/fs/cgroup/memory"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"os.Args[0] is %s\n"</span>, os.Args[<span class="number">0</span>])</span><br><span class="line">	<span class="comment">// /proc/self/exe 它代表当前程序</span></span><br><span class="line">	<span class="keyword">if</span> os.Args[<span class="number">0</span>] == <span class="string">"/proc/self/exe"</span> &#123;</span><br><span class="line">		<span class="comment">// 容器进程执行函数</span></span><br><span class="line">		fmt.Printf(<span class="string">"current pid %d\n"</span>, syscall.Getegid())	<span class="comment">// 获得自己Namespace下的pid</span></span><br><span class="line">		cmd := exec.Command(<span class="string">"sh"</span>, <span class="string">"-c"</span>, <span class="string">`stress --vm-bytes 60m --vm-keep -m 1`</span>)</span><br><span class="line">		cmd.SysProcAttr=&amp;syscall.SysProcAttr&#123;&#125;</span><br><span class="line">		cmd.Stdin = os.Stdin</span><br><span class="line">		cmd.Stdout = os.Stdout</span><br><span class="line">		cmd.Stderr = os.Stderr</span><br><span class="line">		<span class="keyword">if</span> err := cmd.Run(); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Errorf(<span class="string">"run err : %s \n"</span>, err.Error())</span><br><span class="line">			os.Exit(<span class="number">1</span>)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 执行当前程序</span></span><br><span class="line">	cmd := exec.Command(<span class="string">"/proc/self/exe"</span>)</span><br><span class="line">	<span class="comment">// fork一个子进程并设置Namespace</span></span><br><span class="line">	cmd.SysProcAttr = &amp;syscall.SysProcAttr&#123;</span><br><span class="line">		Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID | syscall.CLONE_NEWNS,</span><br><span class="line">	&#125;</span><br><span class="line">	cmd.Stdin = os.Stdin</span><br><span class="line">	cmd.Stdout = os.Stdout</span><br><span class="line">	cmd.Stderr = os.Stderr</span><br><span class="line">	<span class="comment">// start启动一个命令，但是不会等待其运行结束</span></span><br><span class="line">	<span class="keyword">if</span> err := cmd.Start(); err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Errorf(<span class="string">"start err : %s\n"</span>, err.Error())</span><br><span class="line">		os.Exit(<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 得到fork出来的进程在外部命名空间的pid</span></span><br><span class="line">	fmt.Printf(<span class="string">"cmd pid is %v\n"</span>, cmd.Process.Pid)</span><br><span class="line">	<span class="comment">// 在系统默认创建挂载了memory subsystem的Hierarchy上创建新的cgroup</span></span><br><span class="line">	os.Mkdir(path.Join(cgroupMemoryHierarchyMount, <span class="string">"testmemorylimit"</span>), <span class="number">0755</span>)</span><br><span class="line">	<span class="comment">// 将容器进程(cmd进程)放到这个cgroup中(在task文件中写入进程id)</span></span><br><span class="line">	ioutil.WriteFile(path.Join(cgroupMemoryHierarchyMount, <span class="string">"testmemorylimit"</span>, <span class="string">"tasks"</span>), []<span class="keyword">byte</span>(strconv.Itoa(cmd.Process.Pid)), <span class="number">0644</span>)</span><br><span class="line">	<span class="comment">// 限制cgroup进程使用</span></span><br><span class="line">	ioutil.WriteFile(path.Join(cgroupMemoryHierarchyMount, <span class="string">"testmemorylimit"</span>, <span class="string">"memory.limit_in_bytes"</span>), []<span class="keyword">byte</span>(<span class="string">"50m"</span>), <span class="number">0644</span>)</span><br><span class="line">	<span class="comment">// 等待进程结束</span></span><br><span class="line">	cmd.Process.Wait()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/cOIHnY.png" alt="cOIHnY"></p>
+<p><code>/proc/self/exe</code>它代表当前执行的程序，是一个软链接. <code>os.Args[0]</code>就是当前执行文件路径</p>
+<p>运行<code>go run 2-cgroups.go</code>：</p>
+<p>首先，当前执行路径是go编译器在tmp里面临时编译的可执行文件路径（见输出第一行），所以<code>if os.Args[0] == &quot;/proc/self/exe&quot; {...}</code>不会进入</p>
+<p>而是使用cmd创建隔离Namespace环境再次执行当前程序（创建一个新的进程），因为采用的是<code>cmd.Start()</code>并不会等待此次执行结束（第二次执行当前程序），所以先输出了底下的<code>cmd pid is 31669</code>，然后一系列操作将这个新的进程设置了cgroup的内存限制为<code>50m</code>。</p>
+<p>随后已经第二次执行也同步开始，符合<code>if</code>条件进入if体内，输出当前进程的<code>pid</code>为<code>0</code>（因为<code>PID Namespace</code>的隔离），值得注意的是这个进程与上面输出的<code>31669</code>进程是同一个进程，只是在外部<code>Namespace</code>中看此进程是<code>31669</code>,而在新的Namespace中其被隔离为<code>0</code>. 所以上面的进程限制就是设置在此进程。</p>
+<p>随后在子进程中启动<code>stress</code>压力测试程序，内存占用要求为<code>60m</code>，因为收到了限制，所以无法启动，发生了报错。</p>
+<p>可以尝试修改启动的限制，当在限制下启动是没有问题的。所以说明我们的内存限制起了作用。</p>
+<h2 id="2-4-Union-File-System"><a href="#2-4-Union-File-System" class="headerlink" title="2.4 Union File System"></a>2.4 Union File System</h2><p>Union File System简称UnionFS，是一种为Linux、FreeBSD和NetBSD操作系统设计的</p>
+<p>UnionFS<strong>把其他文件系统联合到一个联合挂载点的文件系统服务</strong></p>
 
       
       
@@ -559,13 +697,13 @@
     2021-10-28
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-10-29
+    2021-11-02
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/10/28/技术贴/容器技术/Docker/动手实践一个docker系列/动手实现一个docker引擎-1/" title="动手实现一个docker引擎-1" target="_blank">动手实现一个docker引擎-1</a>
+    <a href="https://xwjahahahaha.github.io/2021/10/28/技术贴/容器技术/Docker/动手实践一个docker系列/1-基础知识与技术/" title="1-基础知识与技术" target="_blank">1-基础知识与技术</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/10/28/技术贴/容器技术/Docker/动手实践一个docker系列/动手实现一个docker引擎-1/" title="动手实现一个docker引擎-1" target="_blank">https://xwjahahahaha.github.io/2021/10/28/技术贴/容器技术/Docker/动手实践一个docker系列/动手实现一个docker引擎-1/</a>
+    <a href="https://xwjahahahaha.github.io/2021/10/28/技术贴/容器技术/Docker/动手实践一个docker系列/1-基础知识与技术/" title="1-基础知识与技术" target="_blank">https://xwjahahahaha.github.io/2021/10/28/技术贴/容器技术/Docker/动手实践一个docker系列/1-基础知识与技术/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -710,7 +848,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/10/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAdocker%E5%BC%95%E6%93%8E-1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/10/28/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B8%8E%E6%8A%80%E6%9C%AF/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -765,7 +903,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、容器与开发语言"><span class="toc-number">1.</span> <span class="toc-text">一、容器与开发语言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Kernel？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是Kernel？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker容器特点："><span class="toc-number">1.2.</span> <span class="toc-text">docker容器特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器与虚拟机"><span class="toc-number">1.3.</span> <span class="toc-text">容器与虚拟机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、基础技术"><span class="toc-number">2.</span> <span class="toc-text">二、基础技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-容器的启动过程"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 容器的启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Linux-namespace"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Linux namespace</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基础介绍"><span class="toc-number">2.2.1.</span> <span class="toc-text">1. 基础介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看进程所有命名空间"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">查看进程所有命名空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单独查看命名空间"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">单独查看命名空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-命名空间API"><span class="toc-number">2.2.2.</span> <span class="toc-text">2. 命名空间API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-UTS-Namespace"><span class="toc-number">2.2.3.</span> <span class="toc-text">3. UTS Namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-IPC-Namespace"><span class="toc-number">2.2.4.</span> <span class="toc-text">4. IPC Namespace</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-进程间通讯IPC基本概念"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">1. 进程间通讯IPC基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实践"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">2. 实践</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-PID-Namespace"><span class="toc-number">2.2.5.</span> <span class="toc-text">5. PID Namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Mount-Namespace"><span class="toc-number">2.2.6.</span> <span class="toc-text">6. Mount Namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-User-Namespace"><span class="toc-number">2.2.7.</span> <span class="toc-text">7. User Namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Network-Namespace"><span class="toc-number">2.2.8.</span> <span class="toc-text">8. Network Namespace</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、容器与开发语言"><span class="toc-number">1.</span> <span class="toc-text">一、容器与开发语言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Kernel？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是Kernel？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker容器特点："><span class="toc-number">1.2.</span> <span class="toc-text">docker容器特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器与虚拟机"><span class="toc-number">1.3.</span> <span class="toc-text">容器与虚拟机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、基础技术"><span class="toc-number">2.</span> <span class="toc-text">二、基础技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-容器的启动过程"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 容器的启动过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Linux-namespace-资源隔离"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Linux namespace 资源隔离</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基础介绍"><span class="toc-number">2.2.1.</span> <span class="toc-text">1. 基础介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看进程所有命名空间"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">查看进程所有命名空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单独查看命名空间"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">单独查看命名空间</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-命名空间API"><span class="toc-number">2.2.2.</span> <span class="toc-text">2. 命名空间API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-UTS-Namespace"><span class="toc-number">2.2.3.</span> <span class="toc-text">3. UTS Namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-IPC-Namespace"><span class="toc-number">2.2.4.</span> <span class="toc-text">4. IPC Namespace</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-进程间通讯IPC基本概念"><span class="toc-number">2.2.4.1.</span> <span class="toc-text">1. 进程间通讯IPC基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实践"><span class="toc-number">2.2.4.2.</span> <span class="toc-text">2. 实践</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-PID-Namespace"><span class="toc-number">2.2.5.</span> <span class="toc-text">5. PID Namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Mount-Namespace"><span class="toc-number">2.2.6.</span> <span class="toc-text">6. Mount Namespace</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Mount命令"><span class="toc-number">2.2.6.1.</span> <span class="toc-text">1. Mount命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#shared-subtree"><span class="toc-number">2.2.6.1.1.</span> <span class="toc-text">shared subtree</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实践-1"><span class="toc-number">2.2.6.2.</span> <span class="toc-text">2. 实践</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-User-Namespace"><span class="toc-number">2.2.7.</span> <span class="toc-text">7. User Namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Network-Namespace"><span class="toc-number">2.2.8.</span> <span class="toc-text">8. Network Namespace</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Linux-Cgroups-资源限制"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Linux Cgroups 资源限制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-三大组件"><span class="toc-number">2.3.1.</span> <span class="toc-text">1. 三大组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Cgroup"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">Cgroup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Subsystem"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">Subsystem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hierarchy"><span class="toc-number">2.3.1.3.</span> <span class="toc-text">Hierarchy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三者关系"><span class="toc-number">2.3.1.4.</span> <span class="toc-text">三者关系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-配置与操作Cgroups"><span class="toc-number">2.3.2.</span> <span class="toc-text">2. 配置与操作Cgroups</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-初始化"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">1. 初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-创建子cgroup"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">2. 创建子cgroup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-移动进程"><span class="toc-number">2.3.2.3.</span> <span class="toc-text">3. 移动进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-subsystem限制进程资源"><span class="toc-number">2.3.2.4.</span> <span class="toc-text">4. subsystem限制进程资源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Docker如何使用Cgroups"><span class="toc-number">2.3.3.</span> <span class="toc-text">3. Docker如何使用Cgroups</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Go实现通过cgroup限制容器资源"><span class="toc-number">2.3.4.</span> <span class="toc-text">4. Go实现通过cgroup限制容器资源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-Union-File-System"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 Union File System</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
