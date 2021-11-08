@@ -15,11 +15,13 @@
 <meta property="og:site_name" content="知识与头发不可兼得">
 <meta property="og:description" content="整理最近看面经的重要点">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211106141557437.png">
 <meta property="article:published_time" content="2021-10-31T06:02:43.000Z">
-<meta property="article:modified_time" content="2021-10-31T07:11:18.092Z">
+<meta property="article:modified_time" content="2021-11-07T11:31:59.904Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211106141557437.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -73,7 +75,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 554
+			总文章数 564
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -218,7 +220,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">386字</span>
+        <span class="post-count">2.4k字</span>
       </span>
     </span>
 
@@ -227,7 +229,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">8分</span>
       </span>
     </span>
 </div>
@@ -242,20 +244,134 @@
         <p>整理最近看面经的重要点</p>
 <a id="more"></a>
 
+<p>面试要点：</p>
+<ul>
+<li>由点到面，把一个点知道的内容展开描述；如果可以的话可以多与其他语言对比</li>
+</ul>
 <h1 id="一、基础语法细节"><a href="#一、基础语法细节" class="headerlink" title="一、基础语法细节"></a>一、基础语法细节</h1><h2 id="1-make与new的区别是什么"><a href="#1-make与new的区别是什么" class="headerlink" title="1. make与new的区别是什么"></a>1. make与new的区别是什么</h2><ul>
-<li><p>new：只接受一个参数即类型（自定义类型也可以），返回指向该类型的指针，并赋值为该类型的零值*</p>
+<li><p>new：只接受一个参数即类型（自定义类型也可以），主要用于一些值类型的创建（int、string、struct, slice也可以），返回指向该类型的<strong>指针</strong>，并赋值为该类型的零值</p>
 </li>
-<li><p>make：只用于chan、map、slice的内存创建，返回的就是类型本身的对象而不是其指针（因为这仨个类型本省就是引用类型了）</p>
+<li><p>make：只用于一些内置的数据结构(chan、map、slice)的内存创建，切片返回的是其对应的<strong>结构体</strong>，而map、channel返回的都是其<strong>指针</strong></p>
 </li>
 </ul>
 <h2 id="2-Slice"><a href="#2-Slice" class="headerlink" title="2. Slice"></a>2. Slice</h2><h3 id="1-底层原理"><a href="#1-底层原理" class="headerlink" title="1.底层原理"></a>1.底层原理</h3><p>相比于数据是动态的，Slice本身是一个数据结构，分为data、len、cap三个字段，data指向底层数组的一个起始位置，len表示切片元素的个数，cap是底层数组的全部大小。初始化的时候省略cap时会讲cap设置与len一样，当向切片添加元素的时候如果元素个数超出了cap，那么底层会重新分配一个数组（2倍）并将原来的值复制过来。</p>
-<h2 id="2-函数传参注意事项"><a href="#2-函数传参注意事项" class="headerlink" title="2.函数传参注意事项"></a>2.函数传参注意事项</h2><p>slice作为函数传参数可能在函数中添加元素导致底层数组的扩大，所以函数中修改无效</p>
+<h2 id="2-函数传slice注意事项"><a href="#2-函数传slice注意事项" class="headerlink" title="2.函数传slice注意事项"></a>2.函数传slice注意事项</h2><p>slice作为函数传参数可能在函数中添加元素导致底层数组的扩大，所以函数中修改无效</p>
 <p>两种解决方法：</p>
 <ol>
 <li>参数中传递切片的指针</li>
 <li>函数中return返回，调用的时候用原切片接收</li>
 </ol>
-<h2 id="3-类型可比较问题"><a href="#3-类型可比较问题" class="headerlink" title="3. 类型可比较问题"></a>3. 类型可比较问题</h2><h2 id="4-go怎么从源码编译到二进制文件"><a href="#4-go怎么从源码编译到二进制文件" class="headerlink" title="4. go怎么从源码编译到二进制文件"></a>4. go怎么从源码编译到二进制文件</h2><h1 id="二、进阶语法特点"><a href="#二、进阶语法特点" class="headerlink" title="二、进阶语法特点"></a>二、进阶语法特点</h1><h2 id="1-goroutine协程"><a href="#1-goroutine协程" class="headerlink" title="1. goroutine协程"></a>1. goroutine协程</h2><h2 id="2-GC机制"><a href="#2-GC机制" class="headerlink" title="2. GC机制"></a>2. GC机制</h2><h2 id="3-调度模型"><a href="#3-调度模型" class="headerlink" title="3. 调度模型"></a>3. 调度模型</h2><h2 id="4-内存管理"><a href="#4-内存管理" class="headerlink" title="4. 内存管理"></a>4. 内存管理</h2><h2 id="5-Channel"><a href="#5-Channel" class="headerlink" title="5. Channel"></a>5. Channel</h2><h1 id="三、工程类、实践类"><a href="#三、工程类、实践类" class="headerlink" title="三、工程类、实践类"></a>三、工程类、实践类</h1><h2 id="1-生产者消费者模型"><a href="#1-生产者消费者模型" class="headerlink" title="1. 生产者消费者模型"></a>1. 生产者消费者模型</h2>
+<h2 id="3-类型可比较问题"><a href="#3-类型可比较问题" class="headerlink" title="3. 类型可比较问题"></a>3. 类型可比较问题</h2><p><strong>可用直接用==比较：</strong></p>
+<p>对于go语言中的基本类型都可以比较，例如int、string、bool等。</p>
+<p>可以比较的必须是<em>同类型</em>：</p>
+<p>如果数组的元素类型是基本类型，那么两个数组之间也可以比较。</p>
+<p>同理，如果结构体的元素基本类型，那么这个结构体的实例之间也可以直接比较</p>
+<p>指针可以比较，但是比较的是指针保存的地址，而不是指向的值</p>
+<p><strong>不可以用==比较</strong></p>
+<p><em>不同类型</em>一定不能比较</p>
+<p>对于slice切片、map、函数变量都是不能够直接比较的, 需要比较的话需要使用for循环比较元素</p>
+<p>可比较的性质主要体现在map的key与switch上，都必须选择可以比较的，如果实在想用不可比较的类型，那么可以将不可比较的类型进行一个转换。</p>
+<h2 id="4-go怎么从源码编译到二进制文件"><a href="#4-go怎么从源码编译到二进制文件" class="headerlink" title="4. go怎么从源码编译到二进制文件"></a>4. go怎么从源码编译到二进制文件</h2><h3 id="1-总体过程"><a href="#1-总体过程" class="headerlink" title="1. 总体过程"></a>1. 总体过程</h3><p>go语言编译的总体过程：（可以通过<code>go build -n xxx.go</code>查看整个过程）</p>
+<p><strong>创建临时目录 =&gt; 查找依赖信息 =&gt; 编译 =&gt; 连接 =&gt; 生成可执行文件 =&gt; 复制到当前项目目录下</strong></p>
+<p>go语言执行run的过程：</p>
+<p><strong>创建临时目录 =&gt; 查找依赖信息 =&gt; 编译 =&gt; 连接 =&gt; 生成可执行文件 =&gt; 执行</strong></p>
+<h3 id="2-编译过程"><a href="#2-编译过程" class="headerlink" title="2. 编译过程"></a>2. 编译过程</h3><p>四个阶段：</p>
+<ol>
+<li><p><strong>词法和语法分析</strong></p>
+<p>用词法解释器将源文件中的字符串转换成为Token，然后将这些Token再通过语法分析器分析语法生成抽象语法树AST，一个go文件就对应一个AST</p>
+</li>
+<li><p><strong>类型检查</strong></p>
+<p>对于每个抽象语法树进行类型检查，保证没有类型错误。并且还会对一些函数进行拓展，比如make就会拓展成<code>runtime.makeslice</code></p>
+</li>
+<li><p><strong>中间代码的生成</strong></p>
+<p>经过语法分析和类型检查之后就不会有语法错误和类型错误了，这时候编译器就会将项目中的抽象语法树的所有函数放入编译队列中，每个goroutine将从中获取需要的函数将抽象语法树转化为中间代码。</p>
+<p>这个过程中还会使用<em>静态单赋值SSA</em>进行代码的一个优化，例如取出无用变量、片段等</p>
+</li>
+<li><p><strong>机器码的生成</strong></p>
+<p>go源代码中有对应各个cpu指令架构的包，使用这些包生成不同的架构的机器码</p>
+<p>在编译的过程中也可以通过<code>GOARCH</code> <code>GOOS</code>进行交叉编译</p>
+</li>
+</ol>
+<h2 id="5-string转-byte内存拷贝"><a href="#5-string转-byte内存拷贝" class="headerlink" title="5. string转[]byte内存拷贝"></a>5. string转[]byte内存拷贝</h2><p>会发生类型拷贝。因为go语言中string类型是不可变的，而[]byte类型是可变的，所以string转换[]byte是需要内存拷贝的。（强类型转换都会发生底层数据的内存拷贝）</p>
+<p>优化处理：</p>
+<p>在底层转换两者，把<code>StringHeader</code>的地址转换为<code>SliceHeader</code>。可以使用go语言中的unsafe包完成这个操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*StringHeader 是字符串在go的底层结构。*/</span></span><br><span class="line"><span class="keyword">type</span> StringHeader <span class="keyword">struct</span> &#123;</span><br><span class="line"> Data <span class="keyword">uintptr</span></span><br><span class="line"> Len  <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*SliceHeader 是切片在go的底层结构。*/</span></span><br><span class="line"><span class="keyword">type</span> SliceHeader <span class="keyword">struct</span> &#123;</span><br><span class="line"> Data <span class="keyword">uintptr</span></span><br><span class="line"> Len  <span class="keyword">int</span></span><br><span class="line"> Cap  <span class="keyword">int</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">	<span class="string">"unsafe"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s := <span class="string">"xxxwwwjjj"</span></span><br><span class="line">	<span class="comment">// 拿到s的地址</span></span><br><span class="line">	sAddr := unsafe.Pointer(&amp;s)</span><br><span class="line">	<span class="comment">// 把字符串s转换为底层StringHeader</span></span><br><span class="line">	stringHeader := (*reflect.StringHeader)(sAddr)</span><br><span class="line">	<span class="keyword">var</span> sBytes []<span class="keyword">byte</span></span><br><span class="line">	<span class="comment">// 拿到sBytes的指针</span></span><br><span class="line">	sBytesAddr := unsafe.Pointer(&amp;sBytes)</span><br><span class="line">	<span class="comment">// 把字节数组转换为底层SliceHeader</span></span><br><span class="line">	sBytesHeader := (*reflect.SliceHeader)(sBytesAddr)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 赋值操作</span></span><br><span class="line">	sBytesHeader.Data = stringHeader.Data</span><br><span class="line">	sBytesHeader.Len = stringHeader.Len</span><br><span class="line">	sBytesHeader.Cap = stringHeader.Len</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">"s = %s, sBytes = %s\n"</span>, s, sBytes)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：这样不会发生字符串的底层拷贝，但是这样使用需要慎重，因为字节数组不能再改动！</p>
+<h2 id="6-静态类型语言与动态类型语言"><a href="#6-静态类型语言与动态类型语言" class="headerlink" title="6. 静态类型语言与动态类型语言"></a>6. 静态类型语言与动态类型语言</h2><ul>
+<li>静态语言的变量在编译时就要确定其类型，变量要申明其类型，也叫强类型语言(java、c/c++、go)，动态类型语言则在运行时确定类型，不用申明变量类型，也叫弱类型语言（python，js）</li>
+<li>静态语言编译时会进行类型匹配检查，所以不能变量的类型要确定，转换要在代码中体现。动态语言的变量在执行期间是可以改变的，与生俱来多态性质</li>
+<li>静态语言规则要求高，代码安全性好，但是编写会复杂一点。动态语言的代码更加简洁，可以把精力放在业务上，但是排错可能会比较麻烦</li>
+</ul>
+<h2 id="7-go语言的特点"><a href="#7-go语言的特点" class="headerlink" title="7. go语言的特点"></a>7. go语言的特点</h2><ul>
+<li>语言层面支持并发，而不是程序设计上支持并发。（一个<code>go</code>即可开启协程不用关系细节，而其他例如<code>java</code>还需要进程池等代码操作）</li>
+<li></li>
+</ul>
+<h1 id="二、进阶语法特点"><a href="#二、进阶语法特点" class="headerlink" title="二、进阶语法特点"></a>二、进阶语法特点</h1><h2 id="1-goroutine协程"><a href="#1-goroutine协程" class="headerlink" title="1. goroutine协程"></a>1. goroutine协程</h2><h3 id="1-1-进程的基本工作状态"><a href="#1-1-进程的基本工作状态" class="headerlink" title="1.1 进程的基本工作状态"></a>1.1 进程的基本工作状态</h3><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211106141557437.png" alt="image-20211106141557437" style="zoom: 33%;" />
+
+<h3 id="1-2-进程、线程、协程三者对比"><a href="#1-2-进程、线程、协程三者对比" class="headerlink" title="1.2 进程、线程、协程三者对比"></a>1.2 进程、线程、协程三者对比</h3><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th>角色</th>
+<th>优点</th>
+<th>缺点</th>
+<th>资源共享</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">进程</td>
+<td>系统资源调度的基本单位</td>
+<td>稳定，独占资源</td>
+<td>切换时资源消耗大</td>
+<td>共享堆、栈</td>
+</tr>
+<tr>
+<td align="center">线程</td>
+<td>操作系统执行的基本单元，争抢CPU时间轮片</td>
+<td>比进程轻量（1-8MB）</td>
+<td>切换开销较小，有时会因为共享资源阻塞等待</td>
+<td>共享堆，不共享栈（标准进程）</td>
+</tr>
+<tr>
+<td align="center">协程</td>
+<td>轻量级别的线程</td>
+<td>比线程更加轻量（2kb），通过<strong>调度模型</strong>避免等待阻塞，更加高效。是<strong>用户态</strong>而不是内核态，由goruntime调度（进程、线程都是内核调度）在进程中开启</td>
+<td>不与操作系统硬件相关，无法实现标准线程的多并发能力</td>
+<td>共享堆，不共享栈</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-协程轻量、高效的原因-协程与进程对比"><a href="#1-3-协程轻量、高效的原因-协程与进程对比" class="headerlink" title="1.3 协程轻量、高效的原因 / 协程与进程对比"></a>1.3 协程轻量、高效的原因 / 协程与进程对比</h3><ol>
+<li><p>内存占用</p>
+<p>协程内存占用2KB，如果不够会动态增加，而进程为了防止栈溢出一般占用一个较大的内存（1—8MB）</p>
+</li>
+<li><p>创建与销毁</p>
+<p>协程是用户态的，由goruntime管理，可以说是模拟出来的，创建与销毁不会涉及内核资源的处理（内核级别的交互），而进程则是需要进入内核进行创建与销毁。</p>
+</li>
+<li><p>调度切换</p>
+<p>进程之间的切换因为保存上下文、公平竞争等原因所以切换的消耗很大、速度很慢（1000-1500ns）。</p>
+<p>协程之间调度算法切换的时间会小很多（200ns）</p>
+</li>
+<li><p>复杂性</p>
+<p>进程之间通讯复杂，成本高不能创建多个进程。如果使用少量进程的非阻塞执行那么代码编写上也变得复杂</p>
+<p>携程之间通过channel通信，channel自带安全资源同步与共享，代码编写上的逻辑也更加的简单</p>
+</li>
+</ol>
+<h2 id="2-进程调度模型GMP"><a href="#2-进程调度模型GMP" class="headerlink" title="2. 进程调度模型GMP"></a>2. 进程调度模型GMP</h2><h3 id="2-1-M-N模型"><a href="#2-1-M-N模型" class="headerlink" title="2.1 M:N模型"></a>2.1 M:N模型</h3><p>在内核态中创建了N个进程，在用户态中有M个携程，并且M&gt;&gt;N，这M个携程共享内核中的N个进程</p>
+<p>对于同一个时刻下，内核中的一个线程只执行一个携程，如果携程遇到了I/O或者其他阻塞（锁、网络），那么就会使用另一个携程挂在这个进程上，让这个进程继续执行</p>
+<h3 id="2-2-GMP怎么调度的"><a href="#2-2-GMP怎么调度的" class="headerlink" title="2.2 GMP怎么调度的"></a>2.2 GMP怎么调度的</h3><h2 id="3-谈谈GC机制"><a href="#3-谈谈GC机制" class="headerlink" title="3. 谈谈GC机制"></a>3. 谈谈GC机制</h2><h2 id="4-内存管理"><a href="#4-内存管理" class="headerlink" title="4. 内存管理"></a>4. 内存管理</h2><h2 id="5-Channel"><a href="#5-Channel" class="headerlink" title="5. Channel"></a>5. Channel</h2><h2 id="6-标准包"><a href="#6-标准包" class="headerlink" title="6. 标准包"></a>6. 标准包</h2><h3 id="1-content"><a href="#1-content" class="headerlink" title="1. content"></a>1. content</h3><h2 id="7-内存逃逸"><a href="#7-内存逃逸" class="headerlink" title="7. 内存逃逸"></a>7. 内存逃逸</h2><h2 id="8-go的新版本功能"><a href="#8-go的新版本功能" class="headerlink" title="8.go的新版本功能"></a>8.go的新版本功能</h2><h1 id="三、工程类、实践类"><a href="#三、工程类、实践类" class="headerlink" title="三、工程类、实践类"></a>三、工程类、实践类</h1><h2 id="1-生产者消费者模型"><a href="#1-生产者消费者模型" class="headerlink" title="1. 生产者消费者模型"></a>1. 生产者消费者模型</h2><h2 id="2-实现一个进程安全的Set"><a href="#2-实现一个进程安全的Set" class="headerlink" title="2. 实现一个进程安全的Set"></a>2. 实现一个进程安全的Set</h2><h2 id="3-协程访问共享资源与循环变量捕获问题"><a href="#3-协程访问共享资源与循环变量捕获问题" class="headerlink" title="3. 协程访问共享资源与循环变量捕获问题"></a>3. 协程访问共享资源与循环变量捕获问题</h2><p>以下程序有什么问题：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">total := <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;</span><br><span class="line">    sum += i</span><br><span class="line">    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        total += i</span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">"total:%d sum %d"</span>, total, sum)</span><br></pre></td></tr></table></figure>
+
+<p>问题：</p>
+<ol>
+<li>协程访问共享资源要通信协调、主进程要等到所有子进程</li>
+<li>延迟函数执行需要捕获循环变量</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	total, sum := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">	<span class="keyword">var</span> wg sync.WaitGroup</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;</span><br><span class="line">		sum += i</span><br><span class="line">		j := i				<span class="comment">// 捕获循环变量</span></span><br><span class="line">		wg.Add(<span class="number">1</span>)</span><br><span class="line">		<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">			total += j</span><br><span class="line">			wg.Done()</span><br><span class="line">		&#125;()</span><br><span class="line">	&#125;</span><br><span class="line">	wg.Wait()</span><br><span class="line">	fmt.Printf(<span class="string">"total:%d sum %d\n"</span>, total, sum)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-实现一个简单的客户端-服务器模型"><a href="#4-实现一个简单的客户端-服务器模型" class="headerlink" title="4. 实现一个简单的客户端/服务器模型"></a>4. 实现一个简单的客户端/服务器模型</h2><h2 id="5-实现一个tcp连接传输数据"><a href="#5-实现一个tcp连接传输数据" class="headerlink" title="5. 实现一个tcp连接传输数据"></a>5. 实现一个tcp连接传输数据</h2>
       
       
       <!-- 添加版权声明 -->
@@ -276,7 +392,7 @@
     2021-10-31
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-10-31
+    2021-11-07
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/10/31/技术贴/GoLang/面试/go语言面经总结/" title="go语言面经总结" target="_blank">go语言面经总结</a>
@@ -482,7 +598,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基础语法细节"><span class="toc-number">1.</span> <span class="toc-text">一、基础语法细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-make与new的区别是什么"><span class="toc-number">1.1.</span> <span class="toc-text">1. make与new的区别是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Slice"><span class="toc-number">1.2.</span> <span class="toc-text">2. Slice</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-底层原理"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.底层原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-函数传参注意事项"><span class="toc-number">1.3.</span> <span class="toc-text">2.函数传参注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-类型可比较问题"><span class="toc-number">1.4.</span> <span class="toc-text">3. 类型可比较问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-go怎么从源码编译到二进制文件"><span class="toc-number">1.5.</span> <span class="toc-text">4. go怎么从源码编译到二进制文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、进阶语法特点"><span class="toc-number">2.</span> <span class="toc-text">二、进阶语法特点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-goroutine协程"><span class="toc-number">2.1.</span> <span class="toc-text">1. goroutine协程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-GC机制"><span class="toc-number">2.2.</span> <span class="toc-text">2. GC机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-调度模型"><span class="toc-number">2.3.</span> <span class="toc-text">3. 调度模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-内存管理"><span class="toc-number">2.4.</span> <span class="toc-text">4. 内存管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Channel"><span class="toc-number">2.5.</span> <span class="toc-text">5. Channel</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、工程类、实践类"><span class="toc-number">3.</span> <span class="toc-text">三、工程类、实践类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-生产者消费者模型"><span class="toc-number">3.1.</span> <span class="toc-text">1. 生产者消费者模型</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基础语法细节"><span class="toc-number">1.</span> <span class="toc-text">一、基础语法细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-make与new的区别是什么"><span class="toc-number">1.1.</span> <span class="toc-text">1. make与new的区别是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Slice"><span class="toc-number">1.2.</span> <span class="toc-text">2. Slice</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-底层原理"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.底层原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-函数传slice注意事项"><span class="toc-number">1.3.</span> <span class="toc-text">2.函数传slice注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-类型可比较问题"><span class="toc-number">1.4.</span> <span class="toc-text">3. 类型可比较问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-go怎么从源码编译到二进制文件"><span class="toc-number">1.5.</span> <span class="toc-text">4. go怎么从源码编译到二进制文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-总体过程"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 总体过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编译过程"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. 编译过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-string转-byte内存拷贝"><span class="toc-number">1.6.</span> <span class="toc-text">5. string转[]byte内存拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-静态类型语言与动态类型语言"><span class="toc-number">1.7.</span> <span class="toc-text">6. 静态类型语言与动态类型语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-go语言的特点"><span class="toc-number">1.8.</span> <span class="toc-text">7. go语言的特点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、进阶语法特点"><span class="toc-number">2.</span> <span class="toc-text">二、进阶语法特点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-goroutine协程"><span class="toc-number">2.1.</span> <span class="toc-text">1. goroutine协程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-进程的基本工作状态"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1 进程的基本工作状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-进程、线程、协程三者对比"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.2 进程、线程、协程三者对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-协程轻量、高效的原因-协程与进程对比"><span class="toc-number">2.1.3.</span> <span class="toc-text">1.3 协程轻量、高效的原因 &#x2F; 协程与进程对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进程调度模型GMP"><span class="toc-number">2.2.</span> <span class="toc-text">2. 进程调度模型GMP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-M-N模型"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 M:N模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-GMP怎么调度的"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 GMP怎么调度的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-谈谈GC机制"><span class="toc-number">2.3.</span> <span class="toc-text">3. 谈谈GC机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-内存管理"><span class="toc-number">2.4.</span> <span class="toc-text">4. 内存管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Channel"><span class="toc-number">2.5.</span> <span class="toc-text">5. Channel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-标准包"><span class="toc-number">2.6.</span> <span class="toc-text">6. 标准包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-content"><span class="toc-number">2.6.1.</span> <span class="toc-text">1. content</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-内存逃逸"><span class="toc-number">2.7.</span> <span class="toc-text">7. 内存逃逸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-go的新版本功能"><span class="toc-number">2.8.</span> <span class="toc-text">8.go的新版本功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、工程类、实践类"><span class="toc-number">3.</span> <span class="toc-text">三、工程类、实践类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-生产者消费者模型"><span class="toc-number">3.1.</span> <span class="toc-text">1. 生产者消费者模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-实现一个进程安全的Set"><span class="toc-number">3.2.</span> <span class="toc-text">2. 实现一个进程安全的Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-协程访问共享资源与循环变量捕获问题"><span class="toc-number">3.3.</span> <span class="toc-text">3. 协程访问共享资源与循环变量捕获问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-实现一个简单的客户端-服务器模型"><span class="toc-number">3.4.</span> <span class="toc-text">4. 实现一个简单的客户端&#x2F;服务器模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-实现一个tcp连接传输数据"><span class="toc-number">3.5.</span> <span class="toc-text">5. 实现一个tcp连接传输数据</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

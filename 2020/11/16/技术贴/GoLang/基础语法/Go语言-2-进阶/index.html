@@ -72,7 +72,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/oQnga5.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/p1edob.png">
 <meta property="article:published_time" content="2020-11-16T08:26:40.000Z">
-<meta property="article:modified_time" content="2021-10-29T06:11:07.118Z">
+<meta property="article:modified_time" content="2021-11-06T07:16:21.053Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 554
+			总文章数 564
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -325,7 +325,7 @@
 <p>同步机制在线程中完成 =&gt; 线程同步</p>
 <p>同步机制在进程中完成 =&gt; 进程同步</p>
 <p>同步机制在协程中完成 =&gt; 协程同步</p>
-<h3 id="1-3-协程"><a href="#1-3-协程" class="headerlink" title="1.3 协程"></a>1.3 协程</h3><p>协程: <code>Coroutine</code>也叫轻量级的线程,其最大的优势在于轻量级,轻量级可以达到只对应一个函数</p>
+<h3 id="1-3-协程"><a href="#1-3-协程" class="headerlink" title="1.3 协程"></a>1.3 协程</h3><p>协程: <code>goroutine</code>也叫轻量级的线程,其最大的优势在于轻量级,轻量级可以达到只对应一个函数</p>
 <p>Python、Lua、Ruset都有协程的概念</p>
 <p><font color='red'> 进程、线程的并发时为了争夺cpu的使用权,提高cpu执行的速度, 而协程的并发是为了提高程序执行的效率(在线程阻塞等待时进一步的利用其进行工作)</font></p>
 <h3 id="1-4-进程、线程、协程总结"><a href="#1-4-进程、线程、协程总结" class="headerlink" title="1.4 进程、线程、协程总结"></a>1.4 进程、线程、协程总结</h3><p>三者都可以完成并发.</p>
@@ -362,7 +362,7 @@
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/4jwZav.png" alt="4jwZav"></p>
 <p><strong><font color='red'>Go 协程的特点：</font></strong></p>
 <p><font color='red'> <strong>相比于其他程序在程序设计层面上实现并发,Go是从语言层面就支持并发</strong></font></p>
-<p>1) <strong>有==独立的==栈空间</strong><br>2) <strong>==共享==程序堆空间</strong><br>3) <strong>调度由用户控制</strong><br>4) 协程是轻量级的线程</p>
+<p>1) <strong>有==独立的==栈空间</strong><br>2) <strong>==共享==程序堆空间</strong><br>3) <strong>调度由用户控制</strong><br>4) 协程是轻量级的线程<br>5) 协程是是<strong>用户态</strong>的</p>
 <h3 id="1-6-协程的使用："><a href="#1-6-协程的使用：" class="headerlink" title="1.6 协程的使用："></a>1.6 协程的使用：</h3><p>传统的写法，会先执行test，在执行主线程下面的内容</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span>  &#123;</span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;=<span class="number">10</span>; i++ &#123;</span><br><span class="line">		fmt.Println(<span class="string">"test : Hello"</span>)</span><br><span class="line">		time.Sleep(time.Second)	<span class="comment">//每一秒休眠一次</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	test()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i:=<span class="number">0</span>; i&lt;=<span class="number">10</span>; i++ &#123;</span><br><span class="line">		fmt.Println(<span class="string">"main : Hello"</span>)</span><br><span class="line">		time.Sleep(time.Second)	<span class="comment">//每一秒休眠一次</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -963,7 +963,7 @@
     2020-11-16
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-10-29
+    2021-11-06
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/11/16/技术贴/GoLang/基础语法/Go语言-2-进阶/" title="Go语言-2-进阶" target="_blank">Go语言-2-进阶</a>

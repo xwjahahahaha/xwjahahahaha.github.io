@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
   <title>Go语言-3-编译器与gomod | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="其他1.Goland IDE1. goland无法识别go mod的依赖包解决方法: 在编辑器设置GOPROXY, 这样goland就会识别索引你项目使用go mod在GOPATH&#x2F;pkg&#x2F;mod文件夹下的依赖包">
+  <meta name="description" content="学习自：  https:&#x2F;&#x2F;draveness.me&#x2F;golang&#x2F;docs&#x2F;part1-prerequisite&#x2F;ch02-compile&#x2F;golang-compile-intro   1.Goland IDE1. goland无法识别go mod的依赖包解决方法: 在编辑器设置GOPROXY, 这样goland就会识别索引你项目使用go mod在GOPATH&#x2F;pkg&#x2F;mod文件夹下的依赖包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go语言-3-编译器与gomod">
 <meta property="og:url" content="https://xwjahahahaha.github.io/2021/03/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-3-%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%8Egomod/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="其他1.Goland IDE1. goland无法识别go mod的依赖包解决方法: 在编辑器设置GOPROXY, 这样goland就会识别索引你项目使用go mod在GOPATH&#x2F;pkg&#x2F;mod文件夹下的依赖包">
+<meta property="og:description" content="学习自：  https:&#x2F;&#x2F;draveness.me&#x2F;golang&#x2F;docs&#x2F;part1-prerequisite&#x2F;ch02-compile&#x2F;golang-compile-intro   1.Goland IDE1. goland无法识别go mod的依赖包解决方法: 在编辑器设置GOPROXY, 这样goland就会识别索引你项目使用go mod在GOPATH&#x2F;pkg&#x2F;mod文件夹下的依赖包">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/PtyEVd.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/wfe1hF.png">
@@ -21,8 +21,14 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/9Xjlvv.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/LI32j8.jpg">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/SEdKFD.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/ztrAut.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/jG4Fvj.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/6aqjZr.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211103200313757.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/fRr6Zl.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/nZFOIH.png">
 <meta property="article:published_time" content="2021-03-06T08:43:53.000Z">
-<meta property="article:modified_time" content="2021-10-29T02:47:48.286Z">
+<meta property="article:modified_time" content="2021-11-03T12:17:57.907Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -80,7 +86,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 554
+			总文章数 564
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -225,7 +231,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.3k字</span>
+        <span class="post-count">5.5k字</span>
       </span>
     </span>
 
@@ -234,7 +240,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">9分</span>
+        <span class="post-count">22分</span>
       </span>
     </span>
 </div>
@@ -246,11 +252,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="1-Goland-IDE"><a href="#1-Goland-IDE" class="headerlink" title="1.Goland IDE"></a>1.Goland IDE</h2><h3 id="1-goland无法识别go-mod的依赖包"><a href="#1-goland无法识别go-mod的依赖包" class="headerlink" title="1. goland无法识别go mod的依赖包"></a>1. goland无法识别go mod的依赖包</h3><p>解决方法: 在编辑器设置GOPROXY, 这样goland就会识别索引你项目使用go mod在<code>GOPATH/pkg/mod</code>文件夹下的依赖包</p>
+        <blockquote>
+<p>学习自：</p>
+<ul>
+<li><a href="https://draveness.me/golang/docs/part1-prerequisite/ch02-compile/golang-compile-intro" target="_blank" rel="noopener">https://draveness.me/golang/docs/part1-prerequisite/ch02-compile/golang-compile-intro</a></li>
+</ul>
+</blockquote>
+<h1 id="1-Goland-IDE"><a href="#1-Goland-IDE" class="headerlink" title="1.Goland IDE"></a>1.Goland IDE</h1><h2 id="1-goland无法识别go-mod的依赖包"><a href="#1-goland无法识别go-mod的依赖包" class="headerlink" title="1. goland无法识别go mod的依赖包"></a>1. goland无法识别go mod的依赖包</h2><p>解决方法: 在编辑器设置GOPROXY, 这样goland就会识别索引你项目使用go mod在<code>GOPATH/pkg/mod</code>文件夹下的依赖包</p>
 <a id="more"></a>
 
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/PtyEVd.png" alt="PtyEVd"></p>
-<h3 id="2-使用go-mod模式导致本地包无法导入问题"><a href="#2-使用go-mod模式导致本地包无法导入问题" class="headerlink" title="2. 使用go mod模式导致本地包无法导入问题"></a>2. 使用go mod模式导致本地包无法导入问题</h3><p>因为使用go module进行包管理, 所以引用包路径不再是从<code>GOPATH/src</code>开始的相对位置</p>
+<h2 id="2-使用go-mod模式导致本地包无法导入问题"><a href="#2-使用go-mod模式导致本地包无法导入问题" class="headerlink" title="2. 使用go mod模式导致本地包无法导入问题"></a>2. 使用go mod模式导致本地包无法导入问题</h2><p>因为使用go module进行包管理, 所以引用包路径不再是从<code>GOPATH/src</code>开始的相对位置</p>
 <ol>
 <li><p>查看你项目下的go.mod文件</p>
 </li>
@@ -261,7 +273,7 @@
 <p><code>import &quot;github.com/user/nameservice/[本地包名/路径]&quot;</code></p>
 </li>
 </ol>
-<h3 id="3-goland调试"><a href="#3-goland调试" class="headerlink" title="3. goland调试"></a>3. goland调试</h3><h4 id="简单调试"><a href="#简单调试" class="headerlink" title="简单调试"></a>简单调试</h4><ol>
+<h2 id="3-goland调试"><a href="#3-goland调试" class="headerlink" title="3. goland调试"></a>3. goland调试</h2><h3 id="简单调试"><a href="#简单调试" class="headerlink" title="简单调试"></a>简单调试</h3><ol>
 <li><p>在断点代码处打上红色断点</p>
 </li>
 <li><p>选择项目包右键Debugger</p>
@@ -271,7 +283,7 @@
 <li><p>F7下一步</p>
 </li>
 </ol>
-<h4 id="详细配置"><a href="#详细配置" class="headerlink" title="详细配置"></a>详细配置</h4><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/JfUTLr.png" alt="JfUTLr"></p>
+<h3 id="详细配置"><a href="#详细配置" class="headerlink" title="详细配置"></a>详细配置</h3><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/JfUTLr.png" alt="JfUTLr"></p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/9Xjlvv.png" alt="9Xjlvv"></p>
 <p>补充说明:</p>
 <p>Run Kind </p>
@@ -285,8 +297,8 @@
 <li>这个参数是编译好了之后的二进制文件执行的参数, 例如<code>./main.exe a b c</code> 这里就填写<code>a b c</code></li>
 </ul>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/LI32j8.jpg" alt="LI32j8"></p>
-<h2 id="4-1-go的包管理"><a href="#4-1-go的包管理" class="headerlink" title="4.1 go的包管理"></a>4.1 go的包管理</h2><p>此部分内容来源于：<a href="http://c.biancheng.net/view/5712.html" target="_blank" rel="noopener">http://c.biancheng.net/view/5712.html</a></p>
-<h4 id="Go-Module综述"><a href="#Go-Module综述" class="headerlink" title="Go Module综述"></a>Go Module综述</h4><p>go module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。</p>
+<h1 id="2-go的包管理"><a href="#2-go的包管理" class="headerlink" title="2. go的包管理"></a>2. go的包管理</h1><p>此部分内容来源于：<a href="http://c.biancheng.net/view/5712.html" target="_blank" rel="noopener">http://c.biancheng.net/view/5712.html</a></p>
+<h2 id="Go-Module综述"><a href="#Go-Module综述" class="headerlink" title="Go Module综述"></a>Go Module综述</h2><p>go module 是Go语言从 1.11 版本之后官方推出的版本管理工具，并且从 Go1.13 版本开始，go module 成为了Go语言默认的依赖管理工具。</p>
 <p>Modules 官方定义为：</p>
 <p>Modules 是相关 Go 包的集合，是源代码交换和版本控制的单元。Go语言命令直接支持使用 Modules，包括记录和解析对其他模块的依赖性，Modules 替换旧的基于 GOPATH 的方法，来指定使用哪些源文件。</p>
 <p>==如何使用 Modules？==</p>
@@ -347,7 +359,7 @@
 </tbody></table>
 <!-- more -->
 
-<h4 id="Go-PROXY"><a href="#Go-PROXY" class="headerlink" title="Go PROXY"></a>Go PROXY</h4><p>proxy 顾名思义就是代理服务器的意思。大家都知道，国内的网络有防火墙的存在，这导致有些Go语言的第三方包我们无法直接通过<code>go get</code>命令获取。GOPROXY 是Go语言官方提供的一种通过中间代理商来为用户提供包下载服务的方式。要使用 GOPROXY 只需要设置环境变量 GOPROXY 即可。</p>
+<h2 id="Go-PROXY"><a href="#Go-PROXY" class="headerlink" title="Go PROXY"></a>Go PROXY</h2><p>proxy 顾名思义就是代理服务器的意思。大家都知道，国内的网络有防火墙的存在，这导致有些Go语言的第三方包我们无法直接通过<code>go get</code>命令获取。GOPROXY 是Go语言官方提供的一种通过中间代理商来为用户提供包下载服务的方式。要使用 GOPROXY 只需要设置环境变量 GOPROXY 即可。</p>
 <p>目前公开的代理服务器的地址有：</p>
 <ul>
 <li>goproxy.io；</li>
@@ -358,7 +370,7 @@
 <p>MacOS 或 Linux 下设置 GOPROXY 的命令为：</p>
 <p>export GOPROXY=<a href="https://goproxy.cn,direct" target="_blank" rel="noopener">https://goproxy.cn,direct</a></p>
 <p>Go语言在 1.13 版本之后 GOPROXY 默认值为 <a href="https://proxy.golang.org，在国内可能会存在下载慢或者无法访问的情况，所以十分建议大家将" target="_blank" rel="noopener">https://proxy.golang.org，在国内可能会存在下载慢或者无法访问的情况，所以十分建议大家将</a> GOPROXY 设置为国内的 goproxy.cn。</p>
-<h4 id="Go-Get"><a href="#Go-Get" class="headerlink" title="Go Get"></a>Go Get</h4><p>使用go get命令下载指定版本的依赖包</p>
+<h2 id="Go-Get"><a href="#Go-Get" class="headerlink" title="Go Get"></a>Go Get</h2><p>使用go get命令下载指定版本的依赖包</p>
 <p>执行<code>go get</code>命令，在下载依赖包的同时还可以指定依赖包的版本。</p>
 <ul>
 <li>运行<code>go get -u</code>命令会将项目中的包升级到最新的次要版本或者修订版本；</li>
@@ -367,7 +379,7 @@
 </ul>
 <p>提示：<code>go get [包名]@[版本号]</code>命令中版本号可以是 x.y.z 的形式，例如 go get <a href="mailto:foo@v1.2.3">foo@v1.2.3</a>，也可以是 git 上的分支或 tag，例如 go get foo@master，还可以是 git 提交时的哈希值，例如 go get foo@e3702bed2。</p>
 <p>-d    让命令程序只执行下载动作，而不执行安装动作。<br>-f    仅在使用-u标记时才有效。该标记会让命令程序忽略掉对已下载代码包的导入路径的检查。如果下载并安装的代码包所属的项目是你从别人那里Fork过来的，那么这样做就尤为重要了。<br>-fix    让命令程序在下载代码包后先执行修正动作，而后再进行编译和安装。<br>-insecure    允许命令程序使用非安全的scheme（如HTTP）去下载指定的代码包。如果你用的代码仓库（如公司内部的Gitlab）没有HTTPS支持，可以添加此标记。请在确定安全的情况下使用它。<br>-t    让命令程序同时下载并安装指定的代码包中的测试源码文件中依赖的代码包。<br>-u    让命令利用网络来更新已有代码包及其依赖包。默认情况下，该命令只会从网络上下载本地不存在的代码包，而不会更新已有的代码包。<br>-v    打印出被构建的代码包的名字<br>-x    打印出用到的命令</p>
-<h4 id="go-mod与go-sum文件"><a href="#go-mod与go-sum文件" class="headerlink" title="go.mod与go.sum文件"></a>go.mod与go.sum文件</h4><p>go.mod 提供了 module、require、replace 和 exclude 四个命令：</p>
+<h2 id="go-mod与go-sum文件"><a href="#go-mod与go-sum文件" class="headerlink" title="go.mod与go.sum文件"></a>go.mod与go.sum文件</h2><p>go.mod 提供了 module、require、replace 和 exclude 四个命令：</p>
 <ul>
 <li>module 语句指定包的名字（路径）；</li>
 <li>require 语句指定的依赖项模块；</li>
@@ -390,15 +402,15 @@
 <p>或者</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replace golang.org/x/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a =&gt; github.com/golang/crypto v0<span class="number">.0</span><span class="number">.0</span><span class="number">-20190313024323</span>-a1f597ede03a</span><br></pre></td></tr></table></figure>
 
-<h4 id="下载位置"><a href="#下载位置" class="headerlink" title="下载位置"></a>下载位置</h4><p>一般的下载位置在<code>GOPATH/pkg</code>目录下,使用<code>go module</code>下载位置在<code>GOPATH/src/mod</code>下</p>
-<h4 id="Go-Build多环境编译"><a href="#Go-Build多环境编译" class="headerlink" title="Go Build多环境编译"></a>Go Build多环境编译</h4><p><a href="https://www.cnblogs.com/Tiago/p/6409533.html" target="_blank" rel="noopener">https://www.cnblogs.com/Tiago/p/6409533.html</a></p>
+<h2 id="下载位置"><a href="#下载位置" class="headerlink" title="下载位置"></a>下载位置</h2><p>一般的下载位置在<code>GOPATH/pkg</code>目录下,使用<code>go module</code>下载位置在<code>GOPATH/src/mod</code>下</p>
+<h2 id="Go-Build多环境编译"><a href="#Go-Build多环境编译" class="headerlink" title="Go Build多环境编译"></a>Go Build多环境编译</h2><p><a href="https://www.cnblogs.com/Tiago/p/6409533.html" target="_blank" rel="noopener">https://www.cnblogs.com/Tiago/p/6409533.html</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build ./</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./</span><br><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=arm go build ./</span><br></pre></td></tr></table></figure>
 
-<h4 id="Go-init"><a href="#Go-init" class="headerlink" title="Go init"></a>Go init</h4><ul>
+<h2 id="Go-init"><a href="#Go-init" class="headerlink" title="Go init"></a>Go init</h2><ul>
 <li>在GoPath下使用<code>go mod init</code>,默认生成的module 名称是从GoPath/src目录下开始算的</li>
 <li>不在GoPath下, 需要使用<code>go mod init [example.com/m/v1]</code>自定义本地包名称, 包内import默认就是从此自定义module名下开始算 </li>
 </ul>
-<h4 id="GoMod模式本地包导入问题"><a href="#GoMod模式本地包导入问题" class="headerlink" title="GoMod模式本地包导入问题"></a>GoMod模式本地包导入问题</h4><ul>
+<h2 id="GoMod模式本地包导入问题"><a href="#GoMod模式本地包导入问题" class="headerlink" title="GoMod模式本地包导入问题"></a>GoMod模式本地包导入问题</h2><ul>
 <li><p>出现情况: <strong>多重go mod</strong></p>
 <p>使用本地私有包中含有mod, 项目总体还有一个go mod</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/SEdKFD.png" alt="SEdKFD"></p>
@@ -422,6 +434,126 @@
 <li><p>建议: 项目最好在最外层使用一个go mod文件</p>
 </li>
 </ul>
+<h1 id="3-go程序的编译与运行"><a href="#3-go程序的编译与运行" class="headerlink" title="3. go程序的编译与运行"></a>3. go程序的编译与运行</h1><h2 id="1-build和run"><a href="#1-build和run" class="headerlink" title="1. build和run"></a>1. build和run</h2><p><code>go build</code>命令有许多选项：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> go <span class="built_in">help</span> build</span></span><br><span class="line">...</span><br><span class="line">-n 不执行地打印流程中用到的命令</span><br><span class="line">-x 执行并打印流程中用到的命令，要注意下它与-n选项的区别</span><br><span class="line">-work 打印编译时的临时目录路径，并在结束时保留。默认情况下，编译结束会删除该临时目录。</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>我们创建一个最简单的go文件：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"hello"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>go build -n test.go</code></p>
+<p>输出如下信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> go build -n test.go</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">command</span>-line-arguments</span></span><br><span class="line"><span class="meta">#</span></span><br><span class="line"></span><br><span class="line">mkdir -p $WORK/b001/</span><br><span class="line">cat &gt;$WORK/b001/importcfg &lt;&lt; 'EOF' # internal</span><br><span class="line"><span class="meta">#</span><span class="bash"> import config</span></span><br><span class="line">packagefile fmt=/Users/xwj/sdk/go1.16.5/pkg/darwin_arm64/fmt.a</span><br><span class="line">packagefile runtime=/Users/xwj/sdk/go1.16.5/pkg/darwin_arm64/runtime.a</span><br><span class="line">EOF</span><br><span class="line">cd /Users/xwj/projects/go_projects/src/go_Advance_text/main</span><br><span class="line">/Users/xwj/sdk/go1.16.5/pkg/tool/darwin_arm64/compile -o $WORK/b001/_pkg_.a -trimpath "$WORK/b001=&gt;" -shared -p main -complete -buildid 2N2BhTZO3OKXdy5gIUjY/2N2BhTZO3OKXdy5gIUjY -goversion go1.16.5 -D _/Users/xwj/projects/go_projects/src/go_Advance_text/main -importcfg $WORK/b001/importcfg -pack ./test.go</span><br><span class="line">/Users/xwj/sdk/go1.16.5/pkg/tool/darwin_arm64/buildid -w $WORK/b001/_pkg_.a # internal</span><br><span class="line">cat &gt;$WORK/b001/importcfg.link &lt;&lt; 'EOF' # internal</span><br><span class="line">packagefile command-line-arguments=$WORK/b001/_pkg_.a</span><br><span class="line">......</span><br><span class="line">packagefile path=/Users/xwj/sdk/go1.16.5/pkg/darwin_arm64/path.a</span><br><span class="line">EOF</span><br><span class="line">mkdir -p $WORK/b001/exe/</span><br><span class="line">cd .</span><br><span class="line">/Users/xwj/sdk/go1.16.5/pkg/tool/darwin_arm64/link -o $WORK/b001/exe/a.out -importcfg $WORK/b001/importcfg.link -buildmode=exe -buildid=0Jkx3V8tc3QCM4Z59Smq/2N2BhTZO3OKXdy5gIUjY/2N2BhTZO3OKXdy5gIUjY/0Jkx3V8tc3QCM4Z59Smq -extld=clang $WORK/b001/_pkg_.a</span><br><span class="line">/Users/xwj/sdk/go1.16.5/pkg/tool/darwin_arm64/buildid -w $WORK/b001/exe/a.out # internal</span><br><span class="line">mv $WORK/b001/exe/a.out test</span><br></pre></td></tr></table></figure>
+
+<p>过程看起来很乱，仔细观看下来可以发现主要由几部分组成，分别是：</p>
+<ul>
+<li>创建临时目录，mkdir -p $WORK/b001/</li>
+<li>查找依赖信息，cat &gt;$WORK/b001/importcfg &lt;&lt; ‘EOF’… </li>
+<li>执行源代码编译，/Users/xwj/sdk/go1.16.5/pkg/tool/darwin_arm64/compile -o … </li>
+<li>收集链接库文件，cat &gt;$WORK/b001/importcfg.link &lt;&lt; ‘EOF’</li>
+<li>生成可执行文件，/Users/xwj/sdk/go1.16.5/pkg/tool/darwin_arm64/link -o…</li>
+<li>移动可执行文件，mv $WORK/b001/exe/a.out test</li>
+</ul>
+<p>其实整个过程类似于c/c++：</p>
+<p><strong>创建临时目录=&gt;查找依赖=&gt;编译=&gt;收集链接裤文件(连接)=&gt;可执行文件=&gt;移动到当前目录下</strong></p>
+<p><code>go run</code>命令也有这些参数，我们可以再执行一下<code>go run -x test.go</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> go run -x test.go  </span></span><br><span class="line">WORK=/var/folders/s9/6mpqpft95y1dsj6hk8b_syth0000gn/T/go-build587868206</span><br><span class="line">mkdir -p $WORK/b001/</span><br><span class="line">cat &gt;$WORK/b001/importcfg &lt;&lt; 'EOF' # internal</span><br><span class="line"><span class="meta">#</span><span class="bash"> import config</span></span><br><span class="line">packagefile fmt=/Users/xwj/sdk/go1.16.5/pkg/darwin_arm64/fmt.a</span><br><span class="line">packagefile runtime=/Users/xwj/sdk/go1.16.5/pkg/darwin_arm64/runtime.a</span><br><span class="line">EOF</span><br><span class="line">cd /Users/xwj/projects/go_projects/src/go_Advance_text/main</span><br><span class="line">/Users/xwj/sdk/go1.16.5/pkg/tool/darwin_arm64/compile -o $WORK/b001/_pkg_.a -trimpath "$WORK/b001=&gt;" -shared -p main -complete -buildid FxrIcYVgVhEP6J6UDglp/FxrIcYVgVhEP6J6UDglp -dwarf=false -goversion go1.16.5 -D _/Users/xwj/projects/go_projects/src/go_Advance_text/main -importcfg $WORK/b001/importcfg -pack ./test.go</span><br><span class="line">/Users/xwj/sdk/go1.16.5/pkg/tool/darwin_arm64/buildid -w $WORK/b001/_pkg_.a # internal</span><br><span class="line">cp $WORK/b001/_pkg_.a /Users/xwj/Library/Caches/go-build/fe/fe6e260767f5c790cc2fab1dbc9b4ae0b2800717737785de94110ef68a2cb27b-d # internal</span><br><span class="line">cat &gt;$WORK/b001/importcfg.link &lt;&lt; 'EOF' # internal</span><br><span class="line">packagefile command-line-arguments=$WORK/b001/_pkg_.a</span><br><span class="line">...</span><br><span class="line">packagefile path=/Users/xwj/sdk/go1.16.5/pkg/darwin_arm64/path.a</span><br><span class="line">EOF</span><br><span class="line">mkdir -p $WORK/b001/exe/</span><br><span class="line">cd .</span><br><span class="line">/Users/xwj/sdk/go1.16.5/pkg/tool/darwin_arm64/link -o $WORK/b001/exe/test -importcfg $WORK/b001/importcfg.link -s -w -buildmode=exe -buildid=PMQmOSMwG-dF6Sbf84Ef/FxrIcYVgVhEP6J6UDglp/HlysvLj3tn4evhT3AOuk/PMQmOSMwG-dF6Sbf84Ef -extld=clang $WORK/b001/_pkg_.a</span><br><span class="line"><span class="meta">$</span><span class="bash">WORK/b001/exe/<span class="built_in">test</span></span></span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
+
+<p><code>run</code>的流程就很清楚了，最后一步有所改变：</p>
+<p><strong>创建临时目录=&gt;查找依赖=&gt;编译=&gt;收集链接裤文件(连接)=&gt;可执行文件=&gt;执行</strong></p>
+<p>那么能否拿到这个临时生成的可执行文件？默认是不行的，在<code>go run</code>最后会把临时目录删除。我们可以使用–<code>work</code>保留这个目录。演示过程如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> go run -x --work hello.go</span></span><br><span class="line">WORK=/var/folders/s9/6mpqpft95y1dsj6hk8b_syth0000gn/T/go-build846171112</span><br><span class="line">...</span><br><span class="line"><span class="meta">$</span><span class="bash">WORK/b001/exe/<span class="built_in">test</span></span></span><br><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+
+<p>打印了临时目录路径<code>WORK</code>，通过mv命令我们就可以把run生成的test文件拷贝到当前目录，如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /var/folders/s9/6mpqpft95y1dsj6hk8b_syth0000gn/T/go-build846171112 ./</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/ztrAut.png" alt="ztrAut"></p>
+<p>执行一下<code>test</code>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./go-build846171112/b001/exe/<span class="built_in">test</span> </span></span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
+
+<p>得到了预期的输出</p>
+<h2 id="2-编译过程"><a href="#2-编译过程" class="headerlink" title="2. 编译过程"></a>2. 编译过程</h2><h3 id="1-预备知识"><a href="#1-预备知识" class="headerlink" title="1. 预备知识"></a>1. 预备知识</h3><h4 id="抽象语法树AST"><a href="#抽象语法树AST" class="headerlink" title="抽象语法树AST"></a>抽象语法树AST</h4><p><a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" target="_blank" rel="noopener">抽象语法树</a>（Abstract Syntax Tree、AST），是源代码语法的结构的一种抽象表示，它用树状的方式表示编程语言的语法结构<a href="https://draveness.me/golang/docs/part1-prerequisite/ch02-compile/golang-compile-intro/#fn:1" target="_blank" rel="noopener">1</a>。其中每个节点代表源代码中的一个元素，每一颗子树代表一个语法元素</p>
+<p>例如<code>2*3+7</code>, 编译器的语法分析阶段会生成如下图所示的抽象语法树</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/jG4Fvj.png" alt="抽象语法树" style="zoom:67%;" />
+
+<p>编译器在执行完语法分析之后会输出一个抽象语法树，这个抽象语法树会辅助编译器进行<strong>语义分析</strong>，我们可以用它来确定语法正确的程序是否存在一些类型不匹配的问题。</p>
+<h4 id="静态单赋值SSA"><a href="#静态单赋值SSA" class="headerlink" title="静态单赋值SSA"></a>静态单赋值SSA</h4><p><a href="https://en.wikipedia.org/wiki/Static_single_assignment_form" target="_blank" rel="noopener">静态单赋值</a>（Static Single Assignment、SSA）是中间代码的特性，如果中间代码具有静态单赋值的特性，那么每个变量就只会被赋值一次<a href="https://draveness.me/golang/docs/part1-prerequisite/ch02-compile/golang-compile-intro/#fn:2" target="_blank" rel="noopener">2</a>。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x := <span class="number">1</span></span><br><span class="line">x := <span class="number">2</span></span><br><span class="line">y := x</span><br></pre></td></tr></table></figure>
+
+<p>经过简单的分析，我们就能够发现上述的代码第一行的赋值语句 <code>x := 1</code> 不会起到任何作用。下面是具有 SSA 特性的中间代码，我们可以清晰地发现变量 <code>y_1</code> 和 <code>x_1</code> 是没有任何关系的，所以在机器码生成时就可以省去 <code>x := 1</code> 的赋值，通过减少需要执行的指令优化这段代码。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x_1 := <span class="number">1</span></span><br><span class="line">x_2 := <span class="number">2</span></span><br><span class="line">y_1 := x_2</span><br></pre></td></tr></table></figure>
+
+<p>静态单赋值是一个<strong>代码优化</strong>的方法, 所以属于编译器后端的一部分。除了SSA还有很多其他的编译优化方法</p>
+<h4 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h4><p><a href="https://en.wikipedia.org/wiki/Instruction_set_architecture" target="_blank" rel="noopener">指令集</a><a href="https://draveness.me/golang/docs/part1-prerequisite/ch02-compile/golang-compile-intro/#fn:4" target="_blank" rel="noopener">4</a>，很多开发者在都会遇到在本地开发环境编译和运行正常的代码，在生产环境却无法正常工作，这种问题背后会有多种原因，而不同机器使用的不同指令集可能是原因之一。</p>
+<p>使用<code>uname -m</code>可以查看自己机器的指令集信息</p>
+<p>x86 是目前比较常见的指令集，除了 x86 之外，还有 arm 等指令集，苹果最新 Macbook 的自研芯片就使用了 arm 指令集，不同的处理器使用了不同的架构和机器语言，所以很多编程语言为了在不同的机器上运行需要将源代码根据架构翻译成不同的机器代码。</p>
+<p><strong>复杂指令集计算机（CISC）</strong>和<strong>精简指令集计算机（RISC）</strong>是两种遵循不同设计理念的指令集，从名字我们就可以推测出这两种指令集的区别：</p>
+<ul>
+<li>复杂指令集：通过增加指令的类型减少需要执行的指令数；</li>
+<li>精简指令集：使用更少的指令类型完成目标的计算任务；</li>
+</ul>
+<p>没有绝对的优劣，特定场景特定使用</p>
+<h3 id="2-编译原理与核心过程"><a href="#2-编译原理与核心过程" class="headerlink" title="2. 编译原理与核心过程"></a>2. 编译原理与核心过程</h3><p>逻辑上过程可以分为四个阶段：</p>
+<p><strong>1. 词法与语法分析、2. 类型检查和AST转换、3. 通用SSA生成、 4.机器代码生成</strong></p>
+<h4 id="词法与语法分析"><a href="#词法与语法分析" class="headerlink" title="词法与语法分析"></a>词法与语法分析</h4><ul>
+<li><p><strong>词法分析</strong>的作用就是解析源代码文件，将文件中的字符串序列转换为Token序列，方便后面的解析，执行词法分析的程序称为<strong>词法解析器(lexer)</strong></p>
+<p>例如：<code>package</code>, <code>json</code>, <code>import</code>, <code>(</code>, <code>io</code>, <code>)</code>, …</p>
+</li>
+<li><p>语法分析的输入就是词法分析的输出Token序列，语法分析器按规定好的文法(Grammar)解析Token序列构建抽象语法树(AST)，执行语法分析的程序就是<strong>语法解析器</strong></p>
+<p>例如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">"json.go": SourceFile &#123;</span><br><span class="line">    PackageName: "json",</span><br><span class="line">    ImportDecl: []Import&#123;</span><br><span class="line">        "io",</span><br><span class="line">    &#125;,</span><br><span class="line">    TopLevelDecl: ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每个AST都对应着一个单独的go文件</p>
+</li>
+</ul>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/6aqjZr.png" alt="6aqjZr" style="zoom:67%;" />
+
+<p>解析过程中的任何错误都会被解析器发现并将消息打印到标准输出上，整个编译过程也会终止。</p>
+<h4 id="类型检查"><a href="#类型检查" class="headerlink" title="类型检查"></a>类型检查</h4><p>拿到一组文件的抽象语法树之后，go的编译器会对语法树中的定义和使用的类型进行检查，类型检查会按照以下的顺序分别验证和处理不同类型的节点：</p>
+<ol>
+<li>常量、类型和函数名及类型；</li>
+<li>变量的赋值和初始化；</li>
+<li>函数和闭包的主体；</li>
+<li>哈希键值对的类型；</li>
+<li>导入函数体；</li>
+<li>外部的声明；</li>
+</ol>
+<p>通过对抽象语法树的便利，会对每个子树的类型进行验证，保证节点不存在类型错误。如果出现错误就会暴露出来。</p>
+<p>除了类型的检查还会展开和改写一些内建的函数，例如make 关键字在这个阶段会根据子树的结构被替换成 <a href="https://draveness.me/golang/tree/runtime.makeslice" target="_blank" rel="noopener"><code>runtime.makeslice</code></a> 或者 <a href="https://draveness.me/golang/tree/runtime.makechan" target="_blank" rel="noopener"><code>runtime.makechan</code></a> 等函数。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211103200313757.png" alt="image-20211103200313757" style="zoom:67%;" />
+
+<h4 id="中间代码生成"><a href="#中间代码生成" class="headerlink" title="中间代码生成"></a>中间代码生成</h4><p>当我们将源文件转换成了抽象语法树、对整棵树的语法进行解析并进行类型检查之后，就可以认为当前文件中的代码<strong>不存在语法错误和类型错误的问题</strong>了。Go 语言的编译器就会将输入的抽象语法树转换成<strong>中间代码</strong>。</p>
+<p>在类型检查之后，编译器会通过 <a href="https://draveness.me/golang/tree/cmd/compile/internal/gc.compileFunctions" target="_blank" rel="noopener"><code>cmd/compile/internal/gc.compileFunctions</code></a> 编译整个 Go 语言项目中的全部函数放入编译队列中等待goroutine的调用，并发执行的goroutine会将所有函数对应的抽象语法树转换成对应的中间代码</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/fRr6Zl.png" alt="fRr6Zl" style="zoom:67%;" />
+
+<p>go语言的中间代码会使用静态单赋值SSA进行代码优化，所以在这一阶段我们能够分析出代码中的无用变量和片段并对代码进行优化</p>
+<h4 id="机器码的生成"><a href="#机器码的生成" class="headerlink" title="机器码的生成"></a>机器码的生成</h4><p>Go 语言源代码的 <a href="https://github.com/golang/go/tree/master/src/cmd/compile/internal" target="_blank" rel="noopener"><code>src/cmd/compile/internal</code></a> 目录中包含了很多机器码生成相关的包，<strong>不同类型的 CPU 分别使用了不同的包生成机器码</strong>，其中包括 amd64、arm、arm64、mips、mips64、ppc64、s390x、x86 和 wasm，其中比较有趣的就是 WebAssembly（Wasm）<a href="https://draveness.me/golang/docs/part1-prerequisite/ch02-compile/golang-compile-intro/#fn:7" target="_blank" rel="noopener">7</a>了。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ GOARCH=wasm GOOS=js <span class="keyword">go</span> build -o lib.wasm main.<span class="keyword">go</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以使用上述的命令将 Go 的源代码编译成能够在浏览器上运行 WebAssembly 文件，当然除了这种新兴的二进制指令格式之外，Go 语言经过编译还可以运行在几乎全部的主流机器上，不过它的兼容性在除 Linux 和 Darwin 之外的机器上可能还有一些问题.</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/nZFOIH.png" alt="nZFOIH" style="zoom:67%;" />
+
+<h4 id="编译器入口"><a href="#编译器入口" class="headerlink" title="编译器入口"></a>编译器入口</h4><p>Go 语言的编译器入口在 <a href="https://github.com/golang/go/blob/master/src/cmd/compile/internal/gc/main.go" target="_blank" rel="noopener"><code>src/cmd/compile/internal/gc/main.go</code></a> 文件中，其中 600 多行的 <a href="https://draveness.me/golang/tree/cmd/compile/internal/gc.Main" target="_blank" rel="noopener"><code>cmd/compile/internal/gc.Main</code></a> 就是 Go 语言编译器的主程序，该函数会先获取命令行传入的参数并更新编译选项和配置，随后会调用 <a href="https://draveness.me/golang/tree/cmd/compile/internal/gc.parseFiles" target="_blank" rel="noopener"><code>cmd/compile/internal/gc.parseFiles</code></a> 对输入的文件进行词法与语法分析得到对应的抽象语法树：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Main</span><span class="params">(archInit <span class="keyword">func</span>(*Arch)</span>)</span> &#123;</span><br><span class="line">	...</span><br><span class="line">	lines := parseFiles(flag.Args())</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>得到抽象语法树后会分<strong>九个阶段</strong>对抽象语法树进行更新和编译，就像我们在上面介绍的，抽象语法树会经历类型检查、SSA 中间代码生成以及机器码生成三个阶段：</p>
+<ol>
+<li>检查常量、类型和函数的类型；</li>
+<li>处理变量的赋值；</li>
+<li>对函数的主体进行类型检查；</li>
+<li>决定如何捕获变量；</li>
+<li>检查内联函数的类型；</li>
+<li>进行<strong>逃逸分析</strong>；</li>
+<li>将闭包的主体转换成引用的捕获变量；</li>
+<li>编译顶层函数；</li>
+<li>检查外部依赖的声明；</li>
+</ol>
+<p>对整个编译过程有一个顶层的认识之后，我们重新回到词法和语法分析后的具体流程，在这里编译器会对生成语法树中的节点执行类型检查，除了常量、类型和函数这些顶层声明之外，它还会检查变量的赋值语句、函数主体等结构：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(xtop); i++ &#123;</span><br><span class="line">     n := xtop[i]</span><br><span class="line">     <span class="keyword">if</span> op := n.Op; op != ODCL &amp;&amp; op != OAS &amp;&amp; op != OAS2 &amp;&amp; (op != ODCLTYPE || !n.Left.Name.Param.Alias) &#123;</span><br><span class="line">       xtop[i] = typecheck(n, ctxStmt)</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(xtop); i++ &#123;</span><br><span class="line">	n := xtop[i]</span><br><span class="line">	<span class="keyword">if</span> op := n.Op; op == ODCL || op == OAS || op == OAS2 || op == ODCLTYPE &amp;&amp; n.Left.Name.Param.Alias &#123;</span><br><span class="line">		xtop[i] = typecheck(n, ctxStmt)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>类型检查会遍历传入节点的全部子节点，这个过程会展开和重写 <code>make</code> 等关键字，在类型检查会改变语法树中的一些节点，不会生成新的变量或者语法树，这个过程的结束也意味着源代码中已经不存在语法和类型错误，中间代码和机器码都可以根据抽象语法树正常生成。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">initssaconfig()</span><br><span class="line"></span><br><span class="line">	peekitabs()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(xtop); i++ &#123;</span><br><span class="line">		n := xtop[i]</span><br><span class="line">		<span class="keyword">if</span> n.Op == ODCLFUNC &#123;</span><br><span class="line">			funccompile(n)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	compileFunctions()</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i, n := <span class="keyword">range</span> externdcl &#123;</span><br><span class="line">		<span class="keyword">if</span> n.Op == ONAME &#123;</span><br><span class="line">			externdcl[i] = typecheck(externdcl[i], ctxExpr)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	checkMapKeys()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在主程序运行的最后，编译器会将顶层的函数编译成中间代码并根据目标的 CPU 架构生成机器码，不过在这一阶段也有可能会再次对外部依赖进行类型检查以验证其正确性。</p>
 
       
       
@@ -443,7 +575,7 @@
     2021-03-06
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-10-29
+    2021-11-03
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/03/06/技术贴/GoLang/基础语法/Go语言-3-编译器与gomod/" title="Go语言-3-编译器与gomod" target="_blank">Go语言-3-编译器与gomod</a>
@@ -653,7 +785,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#其他"><span class="toc-number">1.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Goland-IDE"><span class="toc-number">1.1.</span> <span class="toc-text">1.Goland IDE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-goland无法识别go-mod的依赖包"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. goland无法识别go mod的依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-使用go-mod模式导致本地包无法导入问题"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 使用go mod模式导致本地包无法导入问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-goland调试"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. goland调试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单调试"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">简单调试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#详细配置"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">详细配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-go的包管理"><span class="toc-number">1.2.</span> <span class="toc-text">4.1 go的包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Module综述"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">Go Module综述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-PROXY"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">Go PROXY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Get"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">Go Get</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#go-mod与go-sum文件"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">go.mod与go.sum文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下载位置"><span class="toc-number">1.2.0.5.</span> <span class="toc-text">下载位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-Build多环境编译"><span class="toc-number">1.2.0.6.</span> <span class="toc-text">Go Build多环境编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Go-init"><span class="toc-number">1.2.0.7.</span> <span class="toc-text">Go init</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GoMod模式本地包导入问题"><span class="toc-number">1.2.0.8.</span> <span class="toc-text">GoMod模式本地包导入问题</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Goland-IDE"><span class="toc-number">1.</span> <span class="toc-text">1.Goland IDE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-goland无法识别go-mod的依赖包"><span class="toc-number">1.1.</span> <span class="toc-text">1. goland无法识别go mod的依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用go-mod模式导致本地包无法导入问题"><span class="toc-number">1.2.</span> <span class="toc-text">2. 使用go mod模式导致本地包无法导入问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-goland调试"><span class="toc-number">1.3.</span> <span class="toc-text">3. goland调试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单调试"><span class="toc-number">1.3.1.</span> <span class="toc-text">简单调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详细配置"><span class="toc-number">1.3.2.</span> <span class="toc-text">详细配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-go的包管理"><span class="toc-number">2.</span> <span class="toc-text">2. go的包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Go-Module综述"><span class="toc-number">2.1.</span> <span class="toc-text">Go Module综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go-PROXY"><span class="toc-number">2.2.</span> <span class="toc-text">Go PROXY</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go-Get"><span class="toc-number">2.3.</span> <span class="toc-text">Go Get</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#go-mod与go-sum文件"><span class="toc-number">2.4.</span> <span class="toc-text">go.mod与go.sum文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载位置"><span class="toc-number">2.5.</span> <span class="toc-text">下载位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go-Build多环境编译"><span class="toc-number">2.6.</span> <span class="toc-text">Go Build多环境编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go-init"><span class="toc-number">2.7.</span> <span class="toc-text">Go init</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GoMod模式本地包导入问题"><span class="toc-number">2.8.</span> <span class="toc-text">GoMod模式本地包导入问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-go程序的编译与运行"><span class="toc-number">3.</span> <span class="toc-text">3. go程序的编译与运行</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-build和run"><span class="toc-number">3.1.</span> <span class="toc-text">1. build和run</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-编译过程"><span class="toc-number">3.2.</span> <span class="toc-text">2. 编译过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-预备知识"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. 预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#抽象语法树AST"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">抽象语法树AST</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#静态单赋值SSA"><span class="toc-number">3.2.1.2.</span> <span class="toc-text">静态单赋值SSA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指令集"><span class="toc-number">3.2.1.3.</span> <span class="toc-text">指令集</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编译原理与核心过程"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. 编译原理与核心过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#词法与语法分析"><span class="toc-number">3.2.2.1.</span> <span class="toc-text">词法与语法分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类型检查"><span class="toc-number">3.2.2.2.</span> <span class="toc-text">类型检查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中间代码生成"><span class="toc-number">3.2.2.3.</span> <span class="toc-text">中间代码生成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#机器码的生成"><span class="toc-number">3.2.2.4.</span> <span class="toc-text">机器码的生成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编译器入口"><span class="toc-number">3.2.2.5.</span> <span class="toc-text">编译器入口</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>

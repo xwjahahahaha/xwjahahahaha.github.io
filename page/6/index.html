@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 554
+			总文章数 564
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/算法/剑指Offer/剑指Offer29-顺时针打印矩阵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/包学习/go项目cli与配置文件：cobra与viper项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">剑指Offer29.顺时针打印矩阵</a>
+      <a class="article-title" href="/2021/10/07/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%8C%85%E5%AD%A6%E4%B9%A0/go%E9%A1%B9%E7%9B%AEcli%E4%B8%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9Acobra%E4%B8%8Eviper%E9%A1%B9%E7%9B%AE/">go项目cli与配置文件：cobra与viper项目</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/10/07/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%8C%85%E5%AD%A6%E4%B9%A0/go%E9%A1%B9%E7%9B%AEcli%E4%B8%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9Acobra%E4%B8%8Eviper%E9%A1%B9%E7%9B%AE/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/09/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/" class="archive-article-date">
-  	<time datetime="2021-09-20T05:53:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-20</time>
+<a href="/2021/10/07/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%8C%85%E5%AD%A6%E4%B9%A0/go%E9%A1%B9%E7%9B%AEcli%E4%B8%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9Acobra%E4%B8%8Eviper%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+  	<time datetime="2021-10-07T11:47:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-07</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">448字</span>
+        <span class="post-count">1.9k字</span>
       </span>
     </span>
 
@@ -221,7 +221,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">8分</span>
       </span>
     </span>
 </div>
@@ -233,23 +233,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/" target="_blank" rel="noopener">剑指 Offer 29. 顺时针打印矩阵</a></p>
-<p>难度简单</p>
-<p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix &#x3D; [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line">输出：[1,2,3,6,9,8,7,4,5]</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix &#x3D; [[1,2,3,4],[5,6,7,8],[9,10,11,12]]</span><br><span class="line">输出：[1,2,3,4,8,12,11,10,9,5,6,7]</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>限制：</strong></p>
+        <blockquote>
+<p>参考资料：</p>
 <ul>
-<li><code>0 &lt;= matrix.length &lt;= 100</code></li>
-<li><code>0 &lt;= matrix[i].length &lt;= 100</code></li>
+<li><p><a href="https://github.com/spf13/cobra" target="_blank" rel="noopener">https://github.com/spf13/cobra</a></p>
+</li>
+<li><p><a href="https://github.com/spf13/viper" target="_blank" rel="noopener">https://github.com/spf13/viper</a></p>
+</li>
+<li><p><a href="https://github.com/spf13/cobra/blob/master/user_guide.md" target="_blank" rel="noopener">https://github.com/spf13/cobra/blob/master/user_guide.md</a></p>
+</li>
 </ul>
-<p>注意：本题与主站 54 题相同：<a href="https://leetcode-cn.com/problems/spiral-matrix/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/spiral-matrix/</a></p>
+</blockquote>
+<p>作者<a href="https://github.com/spf13" target="_blank" rel="noopener">spf13</a>有两个明星项目—cobra &amp; viper （眼睛蛇与蝮蛇）</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/zTvvSe.png" alt="cobra和viper的代表图案"></p>
+<p>能够帮助我们的go项目添加cmd应用以及读取初始的配置文件，并且两者还可以高效配合使用。</p>
+<p>本文就记录了一下这两个项目的基本使用方式（也是个人使用的记录），方便快速上手，如果想更详细了解的话可以去官网查看详细的文档.</p>
         
       
       
@@ -296,10 +294,6 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -307,7 +301,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/10/07/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%8C%85%E5%AD%A6%E4%B9%A0/go%E9%A1%B9%E7%9B%AEcli%E4%B8%8E%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9Acobra%E4%B8%8Eviper%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
         </p>
       
 
@@ -341,27 +335,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2021-09/日记-0228" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/包学习/go调用python3-go-python3包的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/20/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0228/">日记_0228</a>
+      <a class="article-title" href="/2021/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%8C%85%E5%AD%A6%E4%B9%A0/go%E8%B0%83%E7%94%A8python3-go-python3%E5%8C%85%E7%9A%84%E4%BD%BF%E7%94%A8/">go调用python3:go-python3包的使用</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/20/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0228/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%8C%85%E5%AD%A6%E4%B9%A0/go%E8%B0%83%E7%94%A8python3-go-python3%E5%8C%85%E7%9A%84%E4%BD%BF%E7%94%A8/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/09/20/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0228/" class="archive-article-date">
-  	<time datetime="2021-09-20T01:31:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-20</time>
+<a href="/2021/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%8C%85%E5%AD%A6%E4%B9%A0/go%E8%B0%83%E7%94%A8python3-go-python3%E5%8C%85%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2021-10-06T08:00:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-06</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -370,7 +364,298 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">269字</span>
+        <span class="post-count">3.6k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">17分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>参考资料：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/150253406" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/150253406</a></p>
+<p><a href="https://blog.csdn.net/skyztttt/article/details/8115086" target="_blank" rel="noopener">https://blog.csdn.net/skyztttt/article/details/8115086</a></p>
+<p><a href="https://poweruser.blog/embedding-python-in-go-338c0399f3d5" target="_blank" rel="noopener">https://poweruser.blog/embedding-python-in-go-338c0399f3d5</a></p>
+<p>包地址：</p>
+<p>python2：<a href="https://github.com/sbinet/go-python" target="_blank" rel="noopener">https://github.com/sbinet/go-python</a></p>
+<p>python3：<a href="https://github.com/DataDog/go-python3" target="_blank" rel="noopener">https://github.com/DataDog/go-python3</a></p>
+</blockquote>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/06/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%8C%85%E5%AD%A6%E4%B9%A0/go%E8%B0%83%E7%94%A8python3-go-python3%E5%8C%85%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/区块链/Cosmos/Ethermint/Ethermint-2-tharsisethermint" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/04/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/Ethermint/Ethermint-2-tharsisethermint/">Ethermint-2-tharsis/ethermint</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/10/04/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/Ethermint/Ethermint-2-tharsisethermint/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/10/04/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/Ethermint/Ethermint-2-tharsisethermint/" class="archive-article-date">
+  	<time datetime="2021-10-04T07:51:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-04</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">897字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">4分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong>记录使用tharsis/ethermint的一些操作记录与错误总结</strong></p>
+<p><strong>注意:</strong>目前ethermint转移到了新的项目地址：<a href="https://github.com/tharsis/ethermint.git" target="_blank" rel="noopener">https://github.com/tharsis/ethermint.git</a></p>
+<p>老的项目地址是：<a href="https://github.com/cosmos/ethermint.git，官网文档地址：https://docs.ethermint.zone" target="_blank" rel="noopener">https://github.com/cosmos/ethermint.git，官网文档地址：https://docs.ethermint.zone</a></p>
+<p>需要注意的是<strong>官网教程对应老版本（cosmos）的ethermint</strong>, 会有所冲突。</p>
+<p><strong>本文使用的是新版本的ethermint，另一篇是老版本的ethermint</strong>，可以看这篇 <a href="https://blog.csdn.net/weixin_43988498/article/details/120613591" target="_blank" rel="noopener">Ethermint-1-cosmos/ethermint</a></p>
+<p>建议先按官网教程熟悉老版本！</p>
+</blockquote>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/04/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Cosmos/Ethermint/Ethermint-2-tharsisethermint/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-随笔/每日一记/日记/2021-10/日记-0230" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/02/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-10/%E6%97%A5%E8%AE%B0-0230/">日记_0230</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/10/02/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-10/%E6%97%A5%E8%AE%B0-0230/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/10/02/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-10/%E6%97%A5%E8%AE%B0-0230/" class="archive-article-date">
+  	<time datetime="2021-10-02T00:55:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-02</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">272字</span>
       </span>
     </span>
 
@@ -392,7 +677,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="学习规划"><a href="#学习规划" class="headerlink" title="学习规划:"></a>学习规划:</h2><h3 id="8月"><a href="#8月" class="headerlink" title="8月"></a>8月</h3><ul>
-<li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li>
+<li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做</del></li>
+<li><input checked="" disabled="" type="checkbox"> <del>完全部的案例</del>,<del>并且熟悉SDK</del></li>
 <li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li>
 <li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li>
 <li><input checked="" disabled="" type="checkbox"> 专利一篇(金链积分)</li>
@@ -456,7 +742,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/20/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0228/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/10/02/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-10/%E6%97%A5%E8%AE%B0-0230/">展开全文 >></a>
         </p>
       
 
@@ -490,27 +776,27 @@
 
 
   
-    <article id="post-技术贴/算法/剑指Offer/剑指Offer28-对称的二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/网络编程/P2P/P2P网络编程-3-案例实践：PubSub" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer28-%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/">剑指Offer28.对称的二叉树</a>
+      <a class="article-title" href="/2021/09/26/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-3-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9APubSub/">P2P网络编程-3-案例实践：PubSub</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer28-%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/26/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-3-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9APubSub/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer28-%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2021-09-17T07:25:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-17</time>
+<a href="/2021/09/26/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-3-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9APubSub/" class="archive-article-date">
+  	<time datetime="2021-09-26T05:59:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-26</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -519,7 +805,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">534字</span>
+        <span class="post-count">871字</span>
       </span>
     </span>
 
@@ -528,7 +814,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -540,27 +826,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof/" target="_blank" rel="noopener">剑指 Offer 28. 对称的二叉树</a></p>
-<p>难度简单</p>
-<p>请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。</p>
-<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
-<p><code>1  / \ 2  2 / \ / \3  4 4  3</code><br>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1  &#x2F; \ 2  2  \  \  3   3</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [1,2,2,3,4,4,3]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [1,2,2,null,3,null,3]</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>限制：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 &lt;&#x3D; 节点个数 &lt;&#x3D; 1000</span><br></pre></td></tr></table></figure>
-
-<p>注意：本题与主站 101 题相同：<a href="https://leetcode-cn.com/problems/symmetric-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/symmetric-tree/</a></p>
+        <p>libp2p网络通信中还有一种方式就是PubSub模式，也称订阅发布的模式，官方给出了订阅发布模式的一个案例=&gt; 聊天室</p>
+<p>在此学习记录一下</p>
+<p>官方代码地址：<a href="https://github.com/libp2p/go-libp2p/tree/master/examples/pubsub" target="_blank" rel="noopener">https://github.com/libp2p/go-libp2p/tree/master/examples/pubsub</a></p>
         
       
       
@@ -607,10 +875,6 @@
         		<li class="article-tag-list-item">
         			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -618,307 +882,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer28-%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-技术贴/算法/剑指Offer/剑指Offer27-二叉树的镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer27-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/">剑指Offer27.二叉树的镜像</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer27-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer27-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/" class="archive-article-date">
-  	<time datetime="2021-09-17T03:08:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-17</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">184字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/" target="_blank" rel="noopener">剑指 Offer 27. 二叉树的镜像</a></p>
-<p>请完成一个函数，输入一个二叉树，该函数输出它的镜像。</p>
-<p>例如输入：</p>
-<pre><code>4</code></pre><p>   /   <br>  2     7<br> / \   / <br>1   3 6   9<br>镜像输出：</p>
-<pre><code>4</code></pre><p>   /   <br>  7     2<br> / \   / <br>9   6 3   1</p>
-<p>示例 1：</p>
-<p>输入：root = [4,2,7,1,3,6,9]<br>输出：[4,7,2,9,6,3,1]</p>
-<p>限制：</p>
-<p>0 &lt;= 节点个数 &lt;= 1000</p>
-<p>注意：本题与主站 226 题相同：<a href="https://leetcode-cn.com/problems/invert-binary-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/invert-binary-tree/</a></p>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer27-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2021-09/日记-0227" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0227/">日记_0227</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/09/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0227/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/09/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0227/" class="archive-article-date">
-  	<time datetime="2021-09-17T00:39:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-17</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">270字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="学习规划"><a href="#学习规划" class="headerlink" title="学习规划:"></a>学习规划:</h2><h3 id="8月"><a href="#8月" class="headerlink" title="8月"></a>8月</h3><ul>
-<li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li>
-<li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li>
-<li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li>
-<li><input checked="" disabled="" type="checkbox"> 专利一篇(金链积分)</li>
-<li><input checked="" disabled="" type="checkbox"> 华为区块链比赛</li>
-<li><input checked="" disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)  </li>
-</ul>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-09/%E6%97%A5%E8%AE%B0-0227/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/26/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/P2P/P2P%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-3-%E6%A1%88%E4%BE%8B%E5%AE%9E%E8%B7%B5%EF%BC%9APubSub/">展开全文 >></a>
         </p>
       
 
@@ -954,7 +918,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/111/">111</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/113/">113</a><a class="extend next" rel="next" href="/page/7/">下一页</a>
     </nav>
   
 
