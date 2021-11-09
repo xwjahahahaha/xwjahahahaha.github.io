@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 564
+			总文章数 567
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -182,6 +182,584 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-技术贴/solidity智能合约/合约/隐私计算/DGHV:整数上的同态加密(3)-golang、智能合约实现尝试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E5%90%88%E7%BA%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/">DGHV:整数上的同态加密(3)-golang、智能合约实现尝试</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E5%90%88%E7%BA%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/08/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E5%90%88%E7%BA%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" class="archive-article-date">
+  	<time datetime="2021-08-25T01:17:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.3k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">5分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基于DGHV的同态加密"><a href="#基于DGHV的同态加密" class="headerlink" title="基于DGHV的同态加密"></a>基于DGHV的同态加密</h1><p>基本概念、学习笔记、参考内容：</p>
+<blockquote>
+<p>概念、个人笔记：</p>
+<ol>
+<li><a href="https://blog.csdn.net/weixin_43988498/article/details/118802616" target="_blank" rel="noopener">同态加密的原理详解与go实践</a></li>
+<li><a href="https://blog.csdn.net/weixin_43988498/article/details/119459857" target="_blank" rel="noopener">DGHV:整数上的同态加密(1)-算法构建</a></li>
+<li><a href="https://blog.csdn.net/weixin_43988498/article/details/119570507" target="_blank" rel="noopener">DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图</a></li>
+</ol>
+<p>参考：</p>
+<ol>
+<li>论文：<a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2020&filename=AQJS202009005&v=kzaijASy61Kjw7dUtnNnML6O%25mmd2Bv886ZZ4Mq9RnlqNape%25mmd2BABO%25mmd2Bfioot2MYlYfxTEcj" target="_blank" rel="noopener">《一种基于智能合约的全同态加密方法》</a></li>
+<li>[1] M. Dijk, C. Gentry, S. Halevi, and V.Vaikuntanathan. Fully homomorphic encryption over the integers[J]. Applications of Cryptographic Techniques: Springer, Berlin, 2010, 24-43.</li>
+<li><a href="http://blog.sciencenet.cn/blog-411071-617182.html" target="_blank" rel="noopener">http://blog.sciencenet.cn/blog-411071-617182.html</a></li>
+</ol>
+</blockquote>
+<blockquote>
+<p><font color='#e54d42'><strong>同态加密等计算量大的算法不适合在合约中计算，合约仅作为测试</strong></font></p>
+</blockquote>
+<blockquote>
+<p>本项目代码地址: <a href="https://github.com/xwjahahahaha/DGHV" target="_blank" rel="noopener">https://github.com/xwjahahahaha/DGHV</a></p>
+</blockquote>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E5%90%88%E7%BA%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-知识贴/密码学/隐私计算/同态加密/DGHV/DGHV:整数上的同态加密(3)-golang、智能合约实现尝试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/">DGHV:整数上的同态加密(3)-golang、智能合约实现尝试</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" class="archive-article-date">
+  	<time datetime="2021-08-25T01:17:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.3k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">5分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基于DGHV的同态加密"><a href="#基于DGHV的同态加密" class="headerlink" title="基于DGHV的同态加密"></a>基于DGHV的同态加密</h1><p>基本概念、学习笔记、参考内容：</p>
+<blockquote>
+<p>概念、个人笔记：</p>
+<ol>
+<li><a href="https://blog.csdn.net/weixin_43988498/article/details/118802616" target="_blank" rel="noopener">同态加密的原理详解与go实践</a></li>
+<li><a href="https://blog.csdn.net/weixin_43988498/article/details/119459857" target="_blank" rel="noopener">DGHV:整数上的同态加密(1)-算法构建</a></li>
+<li><a href="https://blog.csdn.net/weixin_43988498/article/details/119570507" target="_blank" rel="noopener">DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图</a></li>
+</ol>
+<p>参考：</p>
+<ol>
+<li>论文：<a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2020&filename=AQJS202009005&v=kzaijASy61Kjw7dUtnNnML6O%25mmd2Bv886ZZ4Mq9RnlqNape%25mmd2BABO%25mmd2Bfioot2MYlYfxTEcj" target="_blank" rel="noopener">《一种基于智能合约的全同态加密方法》</a></li>
+<li>[1] M. Dijk, C. Gentry, S. Halevi, and V.Vaikuntanathan. Fully homomorphic encryption over the integers[J]. Applications of Cryptographic Techniques: Springer, Berlin, 2010, 24-43.</li>
+<li><a href="http://blog.sciencenet.cn/blog-411071-617182.html" target="_blank" rel="noopener">http://blog.sciencenet.cn/blog-411071-617182.html</a></li>
+</ol>
+</blockquote>
+<blockquote>
+<p><font color='#e54d42'><strong>同态加密等计算量大的算法不适合在合约中计算，合约仅作为测试</strong></font></p>
+</blockquote>
+<blockquote>
+<p>本项目代码地址: <a href="https://github.com/xwjahahahaha/DGHV" target="_blank" rel="noopener">https://github.com/xwjahahahaha/DGHV</a></p>
+</blockquote>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-知识贴/数学/Shapley-Value全解析与公式推导" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">Shapley_Value全解析与公式推导</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="archive-article-date">
+  	<time datetime="2021-08-18T11:05:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-18</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">4.3k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">15分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<blockquote>
+<p>学习参考资料：</p>
+<p><a href="https://baike.baidu.com/item/shapley值法/5909624" target="_blank" rel="noopener">https://baike.baidu.com/item/shapley值法/5909624</a></p>
+<p><a href="https://www.zhihu.com/question/23180647" target="_blank" rel="noopener">https://www.zhihu.com/question/23180647</a></p>
+<p><a href="https://www.bilibili.com/video/BV1MA41137iv?from=search&amp;seid=9563739550004489326" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1MA41137iv?from=search&amp;seid=9563739550004489326</a></p>
+<p><a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFD2013&amp;filename=SSJS201304007&amp;v=gINqgtNlfA%25mmd2BN%25mmd2BweW6Jg1PX2lPFQWcExU%25mmd2FRrv9Opswp8%25mmd2BXPAZYTlGhuoRIhIeCBaz" target="_blank" rel="noopener">https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFD2013&amp;filename=SSJS201304007&amp;v=gINqgtNlfA%25mmd2BN%25mmd2BweW6Jg1PX2lPFQWcExU%25mmd2FRrv9Opswp8%25mmd2BXPAZYTlGhuoRIhIeCBaz</a></p>
+</blockquote>
+<p>1951年，由诺贝尔得主Shapley提出，用于公平地定量<strong>评估用户边际贡献度</strong>的常用指标，起源于合作博弈，并用于广泛的领域，包括使用Shapley Value作为ML特征的选择，对训练数据的重要性进行排序</p>
+<blockquote>
+<p>百度百科：</p>
+<p>基于Shapley值进行联盟成员的利益分配体现了各盟员对联盟总目标的贡献程度，避免了分配上的平均主义，比任何一种仅按资源投入价值、<a href="https://baike.baidu.com/item/资源配置效率/11064708" target="_blank" rel="noopener">资源配置效率</a>及将二者相结合的分配方式都更具合理性和公平性，也体现了各盟员相互博弈的过程。但Shapley值法的利益分配方案尚未考虑联盟成员的风险分担因素，<strong>实质上隐含着各盟员风险分担均等的假设</strong>，<strong>因此，对于联盟成员风险分担不等或风险分担存在较大差异的状况，需要根据风险分担大小对Shapley值法的利益分配方案做出适当的修正。</strong>另需要注意利用Shapley值法进行利益分配应具备的前提条件是：要求每个参与人对在不同联盟组合状态下的利益要有一个较为准确的预期；此外，还要对这种复杂的计算方式有一个清楚的了解。知识联盟的总产出有时可能是不确定的，不同联盟组合状态下的收益也可能是不确定的，这会在一定程度上影响Shapley值法的应用。对于总效用不确定的情况，为了获取一个比较合理的不同联盟组合状态下的效用值，可以采用AHP法、ANP法、模糊数学等综合评价方法来估算各种联盟组合状态下的可能效用值，从而获得shapley值法所需要的数据，再进行具体利益分配上的计算 [1] 。</p>
+</blockquote>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-随笔/每日一记/日记/2021-08/日记-0218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0218/">日记_0218</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0218/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0218/" class="archive-article-date">
+  	<time datetime="2021-08-18T00:47:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-18</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">310字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li>
+<li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li>
+</ul>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0218/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
   
     <article id="post-技术贴/小技巧/Parallels17新版本-让MacM1享受Windows11的配置全流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -320,578 +898,9 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2021-08/日记-0217" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0217/">日记_0217</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0217/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/08/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0217/" class="archive-article-date">
-  	<time datetime="2021-08-16T01:50:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-16</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">312字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul>
-<li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li>
-<li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li>
-</ul>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/16/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0217/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-知识贴/论文/FL And BlockChain/《FedCoin-A-Peer-to-Peer-Payment-System-for-Federated-Learning》精读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/13/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8AFedCoin-A-Peer-to-Peer-Payment-System-for-Federated-Learning%E3%80%8B%E7%B2%BE%E8%AF%BB/">《FedCoin:A_Peer-to-Peer_Payment_System_for_Federated_Learning》精读</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/13/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8AFedCoin-A-Peer-to-Peer-Payment-System-for-Federated-Learning%E3%80%8B%E7%B2%BE%E8%AF%BB/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/08/13/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8AFedCoin-A-Peer-to-Peer-Payment-System-for-Federated-Learning%E3%80%8B%E7%B2%BE%E8%AF%BB/" class="archive-article-date">
-  	<time datetime="2021-08-13T11:40:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-13</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<blockquote>
-<p>这个项目做了一个演示视频：</p>
-<p><a href="http://demo.blockchain-neu.com/home/" target="_blank" rel="noopener">http://demo.blockchain-neu.com/home/</a></p>
-<p>从代码上来看貌似只有前端的数据模拟过程，实际的完整的代码运行还在编写？</p>
-</blockquote>
-<blockquote>
-<p>部分基础概念学习来自于：</p>
-</blockquote>
-<h1 id="一、基本信息与前置知识"><a href="#一、基本信息与前置知识" class="headerlink" title="一、基本信息与前置知识"></a>一、基本信息与前置知识</h1><h2 id="1-1-基本信息"><a href="#1-1-基本信息" class="headerlink" title="1.1 基本信息"></a>1.1 基本信息</h2><p><a href="https://arxiv.org/abs/2002.11711" target="_blank" rel="noopener">FedCoin: A Peer-to-Peer Payment System for Federated Learning</a></p>
-<ul>
-<li>来源：<a href="https://www.baidu.com/s?wd=FedCoin:+A+Peer-to-Peer+Payment+System+for+Federated+Learning&tn=84053098_3_dg&ie=utf-8" target="_blank" rel="noopener">arXiv</a></li>
-<li>作者：Yuan Liu1∗ , Shuai Sun1 , Zhengpeng Ai1 and Shuangfeng Zhang1 , Zelei Liu2 , Han Yu2</li>
-<li>出版期刊/会议：arXiv预收录</li>
-<li>分区：\</li>
-<li>出版时间：2020/02/26</li>
-</ul>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge/paper//" class="article-tag-list-link color1">paper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/13/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E8%AE%BA%E6%96%87/FL%20And%20BlockChain/%E3%80%8AFedCoin-A-Peer-to-Peer-Payment-System-for-Federated-Learning%E3%80%8B%E7%B2%BE%E8%AF%BB/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-技术贴/机器学习/联邦学习/联邦学习实战-2-用FATE从零实现横向逻辑回归" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">联邦学习实战-2-用FATE从零实现横向逻辑回归</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" class="archive-article-date">
-  	<time datetime="2021-08-13T08:05:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-13</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">3.5k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">15分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、安装FATE平台"><a href="#一、安装FATE平台" class="headerlink" title="一、安装FATE平台"></a>一、安装FATE平台</h1><p>FATE是微众银行开源的联邦学习框架</p>
-<blockquote>
-<p>官方地址：<a href="https://fate.fedai.org" target="_blank" rel="noopener">https://fate.fedai.org</a></p>
-<p>文档：<a href="https://fate.readthedocs.io/en/latest/_build_temp/standalone-deploy/doc/Fate-standalone_deployment_guide_zh.html" target="_blank" rel="noopener">https://fate.readthedocs.io/en/latest/_build_temp/standalone-deploy/doc/Fate-standalone_deployment_guide_zh.html</a></p>
-<p><a href="https://github.com/FederatedAI/Practicing-Federated-Learning/tree/main/chapter05_FATE_HFL" target="_blank" rel="noopener">https://github.com/FederatedAI/Practicing-Federated-Learning/tree/main/chapter05_FATE_HFL</a></p>
-</blockquote>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/13/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98-2-%E7%94%A8FATE%E4%BB%8E%E9%9B%B6%E5%AE%9E%E7%8E%B0%E6%A8%AA%E5%90%91%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2021-08/日记-0215" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/10/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0215/">日记_0215</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/10/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0215/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/08/10/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0215/" class="archive-article-date">
-  	<time datetime="2021-08-10T01:49:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-10</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">309字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul>
-<li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li>
-<li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li>
-</ul>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/10/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0215/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/113/">113</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/114/">114</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
     </nav>
   
 
@@ -1149,10 +1158,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">machine_learn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -45,7 +45,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211107162042595.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/t9uU29.png">
 <meta property="article:published_time" content="2021-11-06T06:37:41.000Z">
-<meta property="article:modified_time" content="2021-11-07T11:31:27.747Z">
+<meta property="article:modified_time" content="2021-11-09T05:33:40.511Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -103,7 +103,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 564
+			总文章数 567
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -248,7 +248,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">6.4k字</span>
+        <span class="post-count">6.3k字</span>
       </span>
     </span>
 
@@ -327,15 +327,12 @@
 <ul>
 <li><p><strong>单一全局互斥锁(Sched.Lock)和集中状态存储</strong></p>
 <pre><code>导致所有 goroutine 相关操作，比如：创建、结束、重新调度等都要上锁。</code></pre></li>
-<li><p><strong>Goroutine 传递问题</strong></p>
-<pre><code>M 经常在 各个M 之间传递”可运行”的 goroutine，这导致调度延迟增大以及额外的性能损耗（刚创建的 G 放到了全局队列，而不是本地 M 执行，不必要的开销和延迟）。</code></pre><blockquote>
-<p><font color='#39b54a'>可能刚刚M1运行着一个G，但是这个G阻塞了，那么就会将其放回到全局队列中，M2又拿到了这个G，这样一个G在不同的M之间来回传递增加了很多开销（需要来回访问全局锁）</font></p>
-</blockquote>
+<li><p><strong>Goroutine 亲缘性问题</strong><br> 刚创建的 G 放到了全局队列，而不是本地 M 执行，被其他M抢占，亲缘性不好。</p>
 </li>
 <li><p><strong>Per-M 持有内存缓存 (M.mcache)</strong></p>
 <pre><code>每个 M 持有 mcache 和 stack alloc，然而只有在 M 运行 Go 代码时才需要使用的内存(每个 mcache 可以高达2mb)，当 M 在处于 syscall 时并不需要。运行 Go 代码和阻塞在 syscall 的 M 的比例高达1:100，造成了很大的浪费。同时内存亲缘性也较差。G 当前在 M运 行后对 M 的内存进行了预热，因为现在 G 调度到同一个 M 的概率不高，数据局部性不好。</code></pre></li>
 <li><p><strong>严重的线程阻塞/解锁</strong></p>
-<pre><code>在系统调用的情况下，工作线程经常被阻塞和取消阻塞，这增加了很多开销。比如 M 找不到G，此时 M 就会进入频繁阻塞/唤醒来进行检查的逻辑，以便及时发现新的 G 来执行。</code></pre><blockquote>
+<pre><code>在系统调用的情况下，工作线程经常被阻塞和取消阻塞，这增加了很多开销。比如 M 找不到G，此时 M 就会进入频繁阻塞/唤醒来进行检查的逻辑，以便及时发现新的 G 来执行。在GM模型中，当M没有任务后会休眠，一旦有新的G再唤醒，这样的不断的休眠唤醒效率很低（后面就添加了M自旋）</code></pre><blockquote>
 <p>by Dmitry Vyukov “Scalable Go Scheduler Design Doc”</p>
 </blockquote>
 </li>
@@ -370,7 +367,7 @@
 </li>
 <li><p>创建P0：首先会创建<strong>逻辑 CPU （不是物理CPU核数）核数个 P ，存储在 sched 的 空闲链表(pidle)。</strong>然后绑定P0与M0</p>
 </li>
-<li><p>新建任务G到 P0 本地队列，M0 的 g0 会创建一个 指向<code>runtime.main()</code>的 G ，并放到 P0 的本地队列。</p>
+<li><p>新建任务G（就是main）到 P0 本地队列，M0 的 g0 会创建一个指向<code>runtime.main()</code>的 G ，并放到 P0 的本地队列。</p>
 </li>
 <li><p><code>runtime.main()</code>: 启动 sysmon 线程M1；启动 GC 协程；执行 init，即代码中的各种 init 函数；执行 <code>main.main</code> 函数。</p>
 </li>
@@ -388,7 +385,7 @@
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/YvpWjn.png" alt="YvpWjn" style="zoom:50%;" />
 
 <p>(G7阻塞进入等待模式)</p>
-<p>然后，<code>g0</code>替换goroutine并进行第一轮调度：</p>
+<p>然后，<code>g0</code><strong>替换</strong>goroutine并进行第一轮调度：</p>
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/ROY4zI.png" alt="ROY4zI" style="zoom:50%;" />
 
 <p>在调度期间，<strong>本地队列拥有优先级(但不是一定就在本地队列中调度，优先级详细见Scheduler)</strong>，并且goroutine 2 (G2) 现在将运行：</p>
@@ -460,12 +457,13 @@
 
 <h3 id="3-Goroutine-Recycle-回收"><a href="#3-Goroutine-Recycle-回收" class="headerlink" title="3. Goroutine Recycle 回收"></a>3. Goroutine Recycle 回收</h3><p>G 很容易创建，栈很小以及快速的上下文切换。基于这些原因，开发人员非常喜欢并使用它们。</p>
 <p>然而，<strong>一个产生许多 <code>shortlive</code>的 G 的程序将花费相当长的时间来<u>创建和销毁</u>它们。</strong></p>
-<p>每个 P 维护一个<code>freelist G</code>(类似于本地队列<code>local queue</code>的空闲G队列)，保持这个列表是本地的，这样做的好处是不使用任何锁来 push/get 一个空闲的 G。当 G 退出当前工作时，它将被 push 到这个空闲列表中。</p>
+<p>每个 P 维护一个<code>freelist G</code>(<strong>就是本地队列<code>local queue</code></strong>)，保持这个列表是本地的，这样做的好处是不使用任何锁来 push/get 一个空闲的 G。当 G 退出当前工作时，它将被 push 到这个空闲列表中。</p>
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/igXjJM.png" alt="igXjJM" style="zoom: 33%;" />
 
-<p>为了更好地分发空闲的 G ，调度器也有自己的列表。它实际上有两个列表：<strong>一个包含已分配栈的 G，另一个包含释放过堆栈的 G（无栈）。</strong></p>
+<p>为了<strong>更好地分发空闲的 G ，调度器也有自己的列表。</strong>它实际上有两个列表：<strong>一个包含已分配栈的 G，另一个包含释放过堆栈的 G（无栈）。</strong></p>
 <p>锁保护<code>central list</code>(中心列表)，因为任何 M 都可以访问它。</p>
-<p>当本地列表长度超过64时，调度程序持有的列表从 P 获取 G。然后<u><em>一半的</em> G 将移动到中心列表</u>。需求回收 G 是一种节省分配成本的好方法。但是，由于堆栈是动态增长的，现有的G 最终可能会有一个大栈。<u>因此，当堆栈增长（即超过2K）时，Go 不会保留这些栈。</u></p>
+<p><strong>本地队列满的解决方法：</strong>当本地列表长度超过64时，调度程序持有的列表从 P 获取 G。然后<u><em>一半的</em> G 将移动到中心列表</u>。需求回收 G 是一种节省分配成本的好方法。</p>
+<p>但是，由于堆栈是动态增长的，现有的G 最终可能会有一个大栈。<u>因此，当堆栈增长（即超过2K）时，Go 不会保留这些栈。</u>（<font color='#39b54a'>拓展过栈空间的go都不会保留</font>）</p>
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/flSm54.png" alt="flSm54" style="zoom:50%;" />
 
 <h3 id="4-Schedule优先级与Work-stealing"><a href="#4-Schedule优先级与Work-stealing" class="headerlink" title="4. Schedule优先级与Work-stealing"></a>4. Schedule优先级与Work-stealing</h3><p>M 绑定的 P 没有可执行的 goroutine 时，它会去<strong>按照优先级</strong>去抢占任务：</p>
@@ -1059,10 +1057,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">machine_learn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
               </li>
              
               <li class="article-tag-list-item">

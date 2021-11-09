@@ -6,20 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>设计一个最小栈 | 知识与头发不可兼得</title>
+  <title>12-runtime-2-内存分配原理 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。  push(x) —— 将元素 x 推入栈中。  pop() —— 删除栈顶的元素。  top() —— 获取栈顶元素。  getMin() —— 检索栈中的最小元素。">
+  <meta name="description" content="学习自：  极客时间《go进阶训练营》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计一个最小栈">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2020/06/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E6%9C%80%E5%B0%8F%E6%A0%88/index.html">
+<meta property="og:title" content="12-runtime-2-内存分配原理">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2021/11/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/12-runtime-2-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="问题描述设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。  push(x) —— 将元素 x 推入栈中。  pop() —— 删除栈顶的元素。  top() —— 获取栈顶元素。  getMin() —— 检索栈中的最小元素。">
+<meta property="og:description" content="学习自：  极客时间《go进阶训练营》">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-09T09:11:00.000Z">
-<meta property="article:modified_time" content="2021-02-13T07:49:16.166Z">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/nmjzK3.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/OnTiL2.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/CUd4Vj.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/UsG3l0.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/vqctDy.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/OqdYP8.png">
+<meta property="article:published_time" content="2021-11-09T05:09:42.000Z">
+<meta property="article:modified_time" content="2021-11-09T06:50:39.431Z">
 <meta property="article:author" content="DDDemons hide">
-<meta property="article:tag" content="java">
+<meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/nmjzK3.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -73,7 +80,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 564
+			总文章数 567
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -184,21 +191,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-技术贴/算法/设计一个最小栈" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-技术贴/GoLang/Go进阶训练营/12-runtime-2-内存分配原理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      设计一个最小栈
+      12-runtime-2-内存分配原理
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/06/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E6%9C%80%E5%B0%8F%E6%A0%88/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/11/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/12-runtime-2-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%8E%9F%E7%90%86/" class="pageViews">0</span>次
   </a>
 
         
@@ -208,8 +215,8 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2020/06/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E6%9C%80%E5%B0%8F%E6%A0%88/" class="archive-article-date">
-  	<time datetime="2020-06-09T09:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-09</time>
+<a href="/2021/11/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/12-runtime-2-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-11-09T05:09:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-09</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -218,7 +225,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
+        <span class="post-count">2.2k字</span>
       </span>
     </span>
 
@@ -227,7 +234,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
+        <span class="post-count">7分</span>
       </span>
     </span>
 </div>
@@ -239,68 +246,100 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
+        <blockquote>
+<p>学习自：</p>
 <ul>
-<li><p>push(x) —— 将元素 x 推入栈中。</p>
-</li>
-<li><p>pop() —— 删除栈顶的元素。</p>
-</li>
-<li><p>top() —— 获取栈顶元素。</p>
-</li>
-<li><p>getMin() —— 检索栈中的最小元素。</p>
+<li>极客时间《go进阶训练营》</li>
+<li></li>
+</ul>
+</blockquote>
 <a id="more"></a>
-<p>示例:</p>
+
+<h1 id="一、堆栈-amp-逃逸分析"><a href="#一、堆栈-amp-逃逸分析" class="headerlink" title="一、堆栈 &amp; 逃逸分析"></a>一、堆栈 &amp; 逃逸分析</h1><h2 id="1-堆和栈的定义"><a href="#1-堆和栈的定义" class="headerlink" title="1. 堆和栈的定义"></a>1. 堆和栈的定义</h2><p>Go 有两个地方可以分配内存：一个全局堆空间用来动态分配内存，另一个是每个 goroutine 都有的自身栈空间。</p>
+<ul>
+<li><p>栈</p>
+<pre><code>栈区的内存一般由编译器自动进行分配和释放，&lt;u&gt;其中存储着函数的入参以及局部变量，这些参数会随着函数的创建而创建，函数的返回而销毁。&lt;/u&gt;(通过 CPU push &amp; release)。一个函数可以通过帧指针直接访问帧内的内存，但是访问帧外的内存需要间接访问。</code></pre><p>​    <strong>栈的内存分配是从高位往低位拓展，堆则是反过来。</strong></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/nmjzK3.png" alt="nmjzK3" style="zoom: 33%;" />
+
+<p>​    <strong>栈帧</strong>：用来给函数运行<strong>提供内存空间</strong>。取内存于stack上。当函数调用时，产生栈帧，当函数调用结束时，释放栈帧。</p>
+<p>​    <strong>栈帧存储：</strong>1.局部变量 2.形参（与局部变量地位等同） 3. 内存字段描述值</p>
+<p>​    一个函数就对应一个栈</p>
+<p>​    以32位的内存4G的空间为例：</p>
+<p>​    <img src="http://xwjpics.gumptlu.work/qinniu_uPic/OnTiL2.png" alt="OnTiL2" style="zoom: 33%;" /></p>
+</li>
+<li><p>堆</p>
+<pre><code>堆区的内存一般由编译器和工程师自己共同进行管理分配，**交给 Runtime GC 来释放**。&lt;u&gt;堆上分配必须找到一块足够大的内存来存放新的变量数据。后续释放时，垃圾回收器扫描堆空间寻找不再被使用的对象。&lt;/u&gt;   </code></pre><blockquote>
+<p><strong>任何时候一个值在函数的堆栈框架的范围之外被共享，它将被放置(或分配)在堆上。</strong><br><font color='#39b54a'>在go语言中，编译器分析出局部变量产生了逃逸的行为，那么会将该变量设置在堆上（逃逸分析）。这是go的编译器自动实现的，而在C语言中，这需要程序员手动操作，否则会发生错误。</font></p>
+</blockquote>
+<p><strong>栈分配廉价，堆分配昂贵</strong>。stack allocation is cheap and heap allocation is expensive.</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/CUd4Vj.png" alt="CUd4Vj" style="zoom:50%;" />
+
 </li>
 </ul>
-<p>输入：</p>
-<p><code>[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]</code></p>
-<p><code>[[],[-2],[0],[-3],[],[],[],[]]</code></p>
-<p>输出：</p>
-<p><code>[null,null,null,null,-3,null,0,-2]</code></p>
-<p>解释：</p>
-<p>MinStack minStack = new MinStack();</p>
-<p>minStack.push(-2);</p>
-<p>minStack.push(0);</p>
-<p>minStack.push(-3);</p>
-<p>minStack.getMin();   –&gt; 返回 -3.</p>
-<p>minStack.pop();</p>
-<p>minStack.top();      –&gt; 返回 0.</p>
-<p>minStack.getMin();   –&gt; 返回 -2.</p>
-<p>提示：</p>
-<p>pop、top 和 getMin 操作总是在 非空栈 上调用。</p>
-<blockquote>
-<p>来源：力扣（LeetCode）</p>
-</blockquote>
-<blockquote>
-<p>链接：<a href="https://leetcode-cn.com/problems/min-stack" target="_blank" rel="noopener">https://leetcode-cn.com/problems/min-stack</a></p>
-</blockquote>
-<blockquote>
-<p>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-</blockquote>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>本题可用数组、链表实现栈结构（直接使用写好的API，本题的意义也没了）</p>
-<p>本题的关键在于解决getMin查找最小元素的方法上。可使用<strong>辅助栈</strong>方法，栈中每加入一个元素，将其与辅助存储中的栈顶元素（当前最小值）比较,只有小于才插入当前值，否则还是插入最小值。弹出元素时，辅助栈也一起弹。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>使用写好的API，很简单，无意义</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="comment">//用LinkedList结构实现栈</span></span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;Integer&gt; stackList;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        stackList = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        stackList.push(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        stackList.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> stackList.getFirst();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Collections.min(stackList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MinStack obj = new MinStack();</span></span><br><span class="line"><span class="comment"> * obj.push(x);</span></span><br><span class="line"><span class="comment"> * obj.pop();</span></span><br><span class="line"><span class="comment"> * int param_3 = obj.top();</span></span><br><span class="line"><span class="comment"> * int param_4 = obj.getMin();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-逃逸分析"><a href="#2-逃逸分析" class="headerlink" title="2. 逃逸分析"></a>2. 逃逸分析</h2><h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><p>​    写过其他语言，比如 C 的同学都知道，有明确的栈和堆的相关概念。而 <strong>Go 声明语法并没有提到栈和堆，而是交给 Go 编译器决定在哪分配内存，保证程序的正确性</strong>，在 <u>Go FAQ</u> 里面提到这么一段解释：</p>
+<p>​    从正确的角度来看，你不需要知道。<strong>Go 中的每个变量只要有引用就会一直存在。变量的存储位置(堆还是栈)和语言的语义无关。</strong><font color='#e54d42'>go语言中，<strong>堆栈空间的分配</strong>不依靠语法上的关键字<strong>即由系统分配（编译器分析代码）而不是代码层面上的指定</strong></font></p>
+<p>​    存储位置对于写出高性能的程序确实有影响。如果可能，Go 编译器将为该函数的堆栈侦(stack frame)中的函数分配本地变量。但是<u>如果编译器在函数返回后无法证明变量未被引用，则编译器必须在会被垃圾回收的堆上分配变量以避免悬空指针错误</u>。此外，<u>如果局部变量非常大，将它存储在堆而不是栈上可能更有意义。</u></p>
+<p>​    <u>在当前编译器中，如果变量存在取址，则该变量是堆上分配的候选变量。</u>（取地址不一定就会分配到堆上，只是候选）但是基础的逃逸分析可以将那些生存不超过函数返回值的变量识别出来，并且因此可以分配在栈上。</p>
+<p>堆栈的分配规则如下：</p>
+<ul>
+<li><p>函数退出后不再使用则将该变量<strong>优先</strong>分配在栈中</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">F</span><span class="params">()</span></span> &#123;</span><br><span class="line">	temp := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">0</span>, <span class="number">20</span>)</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数退出之后<strong>返回了该变量的引用或者把指针赋值给全局变量等继续引用的方式</strong>，那么<strong>一定</strong>就会把该变量分配在堆中（因为后续还要使用，所以不会放在栈上）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">F</span><span class="params">()</span> []<span class="title">int</span></span>&#123;</span><br><span class="line">	a := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">0</span>, <span class="number">20</span>)</span><br><span class="line">	<span class="keyword">return</span> a		<span class="comment">// 继续引用</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者这样的逃逸</span></span><br><span class="line"><span class="keyword">var</span> global *<span class="keyword">int</span>	</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">F2</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="keyword">var</span> x <span class="keyword">int</span></span><br><span class="line">  x = <span class="number">1</span></span><br><span class="line">  global = &amp;x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>1.效率低下，打败17%，原因：使用链表找最小元素值，使用普通遍历会很慢</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**链表节点类**/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> value;</span><br><span class="line">        <span class="keyword">private</span> Node next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**链表类**/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">MyList</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Node headNode;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//用链表结构实现栈</span></span><br><span class="line">    <span class="keyword">private</span> MyList stackList;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        stackList = <span class="keyword">new</span> MyList();</span><br><span class="line">        Node firstNode = <span class="keyword">new</span> Node();</span><br><span class="line">        <span class="comment">//头结点的next作为栈的出入口</span></span><br><span class="line">        stackList.headNode = firstNode;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        Node newNode = <span class="keyword">new</span> Node();</span><br><span class="line">        newNode.value = x;</span><br><span class="line">        newNode.next = <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//连接到下一个节点</span></span><br><span class="line">        <span class="comment">//先让新的节点连接上后面的链表,是null也无妨，刚刚好</span></span><br><span class="line">        newNode.next = <span class="keyword">this</span>.stackList.headNode.next;</span><br><span class="line">        <span class="comment">//头结点连上新节点</span></span><br><span class="line">        <span class="keyword">this</span>.stackList.headNode.next = newNode;       </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//弹出头结点的第一个元素</span></span><br><span class="line">        <span class="keyword">this</span>.stackList.headNode.next = <span class="keyword">this</span>.stackList.headNode.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.stackList.headNode.next.value;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//1. 顺序遍历，打擂台  时间复杂度O(N) (N很大时，重复调用查找时间复杂度会很大)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       </span><br><span class="line">        Node node = <span class="keyword">this</span>.stackList.headNode.next;</span><br><span class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">while</span>(node != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(node.value &lt; min)</span><br><span class="line">                min = node.value;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>逃逸</strong>：当一个对象的指针被多个方法、线程引用时，就可以称这个指针发生了逃逸</p>
+<blockquote>
+<p><font color='#e54d42'>“通过检查<strong>变量的作用域是否超出了它所在的栈</strong>来决定是否将它分配在堆上”的技术，其中“变量的作用域超出了它所在的栈”这种行为即被称为<strong>逃逸</strong></font></p>
+</blockquote>
+<p><strong>逃逸分析</strong>：分析一个变量是分配在栈上还是堆上。逃逸分析在大多数语言里属于静态分析：在编译期由静态代码分析来决定一个值是否能被分配在栈帧上，还是需要“逃逸”到堆上。</p>
+<p><strong>为什么要逃逸分析</strong>：让合适的变量存在合适的地方，节省GC内存回收的压力</p>
+<p><strong>编译器逃逸分析原理：</strong> 就是上面的分配原则，如果函数中的变量被多个引用就分配到堆上，Go中的变量只有在编译器可以证明在函数返回后不会再被引用的，才分配到栈上，其他情况下都是分配到堆上。</p>
+<h3 id="2-查看是否逃逸的方法"><a href="#2-查看是否逃逸的方法" class="headerlink" title="2. 查看是否逃逸的方法"></a>2. 查看是否逃逸的方法</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">()</span> *<span class="title">int</span></span> &#123;</span><br><span class="line">    t := <span class="number">3</span></span><br><span class="line">    <span class="keyword">return</span> &amp;t  <span class="comment">//返回对局部变量的引用</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    x := foo()</span><br><span class="line">    fmt.Println(*x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>2.使用辅助存储,将时间复杂度降到O(1) 打败80%</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**链表节点类**/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> value;</span><br><span class="line">        <span class="keyword">private</span> Node next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**链表类**/</span></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">MyList</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Node headNode;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//用链表结构实现栈</span></span><br><span class="line">    <span class="keyword">private</span> MyList stackList;</span><br><span class="line">    <span class="comment">//辅助链表，存储最小值</span></span><br><span class="line">    <span class="keyword">private</span> MyList helpList; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//数据链表</span></span><br><span class="line">        stackList = <span class="keyword">new</span> MyList();</span><br><span class="line">        Node firstNode = <span class="keyword">new</span> Node();</span><br><span class="line">        <span class="comment">//头结点的next作为栈的出入口</span></span><br><span class="line">        stackList.headNode = firstNode;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//辅助链表</span></span><br><span class="line">        helpList = <span class="keyword">new</span> MyList();</span><br><span class="line">        Node firstHelpNode = <span class="keyword">new</span> Node();</span><br><span class="line">        helpList.headNode = firstHelpNode;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//数据链表：</span></span><br><span class="line">        Node newNode = <span class="keyword">new</span> Node();</span><br><span class="line">        newNode.value = x;</span><br><span class="line">        <span class="comment">//连接到下一个节点</span></span><br><span class="line">        <span class="comment">//先让新的节点连接上后面的链表,是null也无妨，刚刚好</span></span><br><span class="line">        newNode.next = <span class="keyword">this</span>.stackList.headNode.next;</span><br><span class="line">        <span class="comment">//头结点连上新节点</span></span><br><span class="line">        <span class="keyword">this</span>.stackList.headNode.next = newNode;     </span><br><span class="line"></span><br><span class="line">        <span class="comment">//辅助链表:</span></span><br><span class="line">        <span class="comment">//如果新插入的节点值，比当前辅助链表最上面的值（最小值）还小就插入</span></span><br><span class="line">        Node copyNode = <span class="keyword">new</span> Node();</span><br><span class="line">        copyNode.value = x;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.helpList.headNode.next != <span class="keyword">null</span> &amp;&amp; x &gt;= <span class="keyword">this</span>.helpList.headNode.next.value)</span><br><span class="line">            <span class="comment">//栈不为空,但插入的数不是最小值，重复插入最小值</span></span><br><span class="line">            copyNode.value = <span class="keyword">this</span>.helpList.headNode.next.value;</span><br><span class="line">        <span class="comment">//栈为空或当前值小于最小值，那么插入当前值</span></span><br><span class="line">        copyNode.next = <span class="keyword">this</span>.helpList.headNode.next;</span><br><span class="line">        <span class="keyword">this</span>.helpList.headNode.next = copyNode;      </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//弹出数据链表元素</span></span><br><span class="line">        <span class="keyword">this</span>.stackList.headNode.next = <span class="keyword">this</span>.stackList.headNode.next.next;</span><br><span class="line">        <span class="comment">//弹出辅助链表元素</span></span><br><span class="line">        <span class="keyword">this</span>.helpList.headNode.next = <span class="keyword">this</span>.helpList.headNode.next.next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.stackList.headNode.next.value;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.helpList.headNode.next.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行查看：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//-m: 查看逃逸过程；-l: 禁止函数内联</span><br><span class="line"><span class="meta">$</span><span class="bash"> go build -gcflags <span class="string">'-m -l'</span> main.go</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>作者：gumptlu</p>
-</blockquote>
-<blockquote>
-<p>链接：<a href="https://leetcode-cn.com/problems/min-stack/solution/shi-yong-lian-biao-xie-yi-ge-zhan-by-gumptlu/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/min-stack/solution/shi-yong-lian-biao-xie-yi-ge-zhan-by-gumptlu/</a></p>
-</blockquote>
-<blockquote>
-<p>来源：力扣（LeetCode）</p>
-</blockquote>
-<blockquote>
-<p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-</blockquote>
+<p>输出结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">command</span>-line-arguments</span></span><br><span class="line">./main.go:11:2: moved to heap: t				// t 逃逸到了堆上</span><br><span class="line">./main.go:17:13: ... argument does not escape		 </span><br><span class="line">./main.go:17:14: *x escapes to heap			// x 逃逸到了堆上</span><br></pre></td></tr></table></figure>
 
+<p>逃逸我们可以理解，x逃逸是因为fmt输出语句的参数为空接口类型，编译期间很难确定其参数的具体类型，也会发生逃逸。</p>
+<h3 id="3-逃逸案例"><a href="#3-逃逸案例" class="headerlink" title="3. 逃逸案例"></a>3. 逃逸案例</h3><img src="http://xwjpics.gumptlu.work/qinniu_uPic/UsG3l0.png" alt="UsG3l0" style="zoom:50%;" />
+
+<ul>
+<li><p>需要手动切换堆栈的问题: <strong>超过栈帧(stack frame)</strong></p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/vqctDy.png" alt="vqctDy"></p>
+<p>当一个函数被调用时，会在两个相关的帧边界间进行上下文切换。从调用函数切换到被调用函数，如果函数调用时需要传递参数，那么这些参数值也要传递到被调用函数的帧边界中。<strong>Go 语言中帧边界间的数据传递是按*<u>值</u>*传递的。</strong>任何在函数 getRandom 中的变量在函数返回时，都将不能访问。Go 查找所有变量超过当前函数栈侦的，把它们分配到堆上，避免 outlive 变量。</p>
+</li>
+<li><p>go编译器的逃逸分析的作用</p>
+<p>上述情况中，num 变量不能指向之前的栈。<strong>Go 查找所有变量超过当前函数栈侦的，把它们分配到堆上，避免 outlive 变量。变量 tmp 在栈上分配，<font color='#e54d42'>但是它包含了指向堆内存的地址</font>，</strong>所以可以安全的从一个函数的栈侦复制到另外一个函数的栈帧。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/OqdYP8.png" alt="OqdYP8" style="zoom: 33%;" />
+
+</li>
+</ul>
+<p>还存在大量其他的 case 会出现逃逸，比较典型的就是 “<strong>多级间接赋值容易导致逃逸</strong>”，<u><strong>这里的多级间接指的是，对某个引用类对象中的引用类成员进行赋值</strong></u>。</p>
+<blockquote>
+<p><strong><font color='#e54d42'>记住公式：<code>Data.Field=Value</code>如果<code>Data.Field</code>都是引用类的数据类型，则会导致<code>Value</code>的逃逸</font></strong></p>
+</blockquote>
+<p>Go 语言中的引用类数据类型有 func, interface, slice, map, chan, *Type ：</p>
+<ul>
+<li>一个值被分享到函数栈帧范围之外</li>
+<li>在 for 循环外申明，在 for 循环内分配，同理闭包</li>
+<li>发送指针或者带有指针的值到 channel 中</li>
+<li>在一个切片上存储指针或带指针的值</li>
+<li>slice 的背后数组被重新分配了</li>
+<li><em>在 interface 类型上调用方法</em></li>
+<li>….</li>
+</ul>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h3><ol>
+<li>Go编译器会在编译期对考察变量的作用域，并作一系列检查，如果<strong>它的作用域</strong>在运行期间对编译器一直是可知的，那么就会分配到栈上；</li>
+<li>堆上动态分配内存比栈上静态分配内存，开销大很多；尽可能的将不使用的变量减少引用，放在栈上减少GC的压力，栈会随函数执行完毕后直接回收。</li>
+<li>变量分配在栈上需要能在编译期确定它的作用域，否则会分配到堆上；</li>
+<li><font color='#e54d42'><strong>函数传递变量的指针可以避免复制值的开销，但是这种情况不是一定的，因为复制值的过程在栈上进行这个的开销远比变量逃逸后在堆上动态分配内存少的多</strong></font></li>
+</ol>
+<h1 id="二、连续栈"><a href="#二、连续栈" class="headerlink" title="二、连续栈"></a>二、连续栈</h1><h1 id="三、内存结构"><a href="#三、内存结构" class="headerlink" title="三、内存结构"></a>三、内存结构</h1><h1 id="四、优化实践"><a href="#四、优化实践" class="headerlink" title="四、优化实践"></a>四、优化实践</h1>
       
       
       <!-- 添加版权声明 -->
@@ -379,28 +418,13 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -450,7 +474,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2020/06/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E6%9C%80%E5%B0%8F%E6%A0%88/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/11/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/12-runtime-2-%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E5%8E%9F%E7%90%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -467,18 +491,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/06/10/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-6/%E6%97%A5%E8%AE%B0-0012/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/11/09/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2/415-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          日记_0012
+          415.字符串相加
         
       </div>
     </a>
   
   
-    <a href="/2020/06/09/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-6/%E6%97%A5%E8%AE%B0-0011/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日记_0011</div>
+    <a href="/2021/11/09/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-11/%E6%97%A5%E8%AE%B0-0244/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">日记_0244</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -505,7 +529,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题思路"><span class="toc-number">2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">3.</span> <span class="toc-text">代码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、堆栈-amp-逃逸分析"><span class="toc-number">1.</span> <span class="toc-text">一、堆栈 &amp; 逃逸分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-堆和栈的定义"><span class="toc-number">1.1.</span> <span class="toc-text">1. 堆和栈的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-逃逸分析"><span class="toc-number">1.2.</span> <span class="toc-text">2. 逃逸分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基本概念"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查看是否逃逸的方法"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 查看是否逃逸的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-逃逸案例"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 逃逸案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-总结"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. 总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、连续栈"><span class="toc-number">2.</span> <span class="toc-text">二、连续栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、内存结构"><span class="toc-number">3.</span> <span class="toc-text">三、内存结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、优化实践"><span class="toc-number">4.</span> <span class="toc-text">四、优化实践</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -799,10 +823,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">machine_learn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,8 +16,14 @@
 <meta property="og:description" content="整理最近看面经的重要点">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211106141557437.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211106161429689.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/llOn2F-20211106165131708.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/MLBbwa.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/G7WkRM.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/BzHxuL-20211109102510047.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/t9uU29.png">
 <meta property="article:published_time" content="2021-10-31T06:02:43.000Z">
-<meta property="article:modified_time" content="2021-11-07T11:31:59.904Z">
+<meta property="article:modified_time" content="2021-11-09T05:33:18.566Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -75,7 +81,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 564
+			总文章数 567
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -220,7 +226,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.4k字</span>
+        <span class="post-count">4.3k字</span>
       </span>
     </span>
 
@@ -229,7 +235,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
+        <span class="post-count">15分</span>
       </span>
     </span>
 </div>
@@ -338,30 +344,107 @@
 <tr>
 <td align="center">协程</td>
 <td>轻量级别的线程</td>
-<td>比线程更加轻量（2kb），通过<strong>调度模型</strong>避免等待阻塞，更加高效。是<strong>用户态</strong>而不是内核态，由goruntime调度（进程、线程都是内核调度）在进程中开启</td>
-<td>不与操作系统硬件相关，无法实现标准线程的多并发能力</td>
+<td>比线程更加轻量（2kb），通过<strong>调度模型</strong>避免线程等待阻塞，更加高效。是<strong>用户态</strong>而不是内核态，由goruntime调度（进程、线程都是内核调度）在进程中开启</td>
+<td>不与操作系统硬件相关，无法实现标准线程的多并发能力，性能还是受限于系统物理CPU核心数</td>
 <td>共享堆，不共享栈</td>
 </tr>
 </tbody></table>
 <h3 id="1-3-协程轻量、高效的原因-协程与进程对比"><a href="#1-3-协程轻量、高效的原因-协程与进程对比" class="headerlink" title="1.3 协程轻量、高效的原因 / 协程与进程对比"></a>1.3 协程轻量、高效的原因 / 协程与进程对比</h3><ol>
 <li><p>内存占用</p>
-<p>协程内存占用2KB，如果不够会动态增加，而进程为了防止栈溢出一般占用一个较大的内存（1—8MB）</p>
+<p>协程内存占用2KB，如果不够会<strong>动态增加</strong>，而进程为了防止栈溢出一般占用一个较大的内存（1—8MB）</p>
 </li>
-<li><p>创建与销毁</p>
-<p>协程是用户态的，由goruntime管理，可以说是模拟出来的，创建与销毁不会涉及内核资源的处理（内核级别的交互），而进程则是需要进入内核进行创建与销毁。</p>
-</li>
-<li><p>调度切换</p>
-<p>进程之间的切换因为保存上下文、公平竞争等原因所以切换的消耗很大、速度很慢（1000-1500ns）。</p>
-<p>协程之间调度算法切换的时间会小很多（200ns）</p>
+<li><p>用户态与内核态</p>
+<p>协程是用户态的，由goruntime管理，可以说是模拟出来的，创建与销毁不会涉及内核资源的处理（内核级别的交互），而进程则是需要进入内核进行创建与销毁。内核态的进程之间的切换因为保存上下文、公平竞争等原因所以切换的消耗很大、速度很慢（1000-1500ns）。协程之间调度算法切换的时间会小很多（200ns）</p>
 </li>
 <li><p>复杂性</p>
 <p>进程之间通讯复杂，成本高不能创建多个进程。如果使用少量进程的非阻塞执行那么代码编写上也变得复杂</p>
 <p>携程之间通过channel通信，channel自带安全资源同步与共享，代码编写上的逻辑也更加的简单</p>
 </li>
 </ol>
-<h2 id="2-进程调度模型GMP"><a href="#2-进程调度模型GMP" class="headerlink" title="2. 进程调度模型GMP"></a>2. 进程调度模型GMP</h2><h3 id="2-1-M-N模型"><a href="#2-1-M-N模型" class="headerlink" title="2.1 M:N模型"></a>2.1 M:N模型</h3><p>在内核态中创建了N个进程，在用户态中有M个携程，并且M&gt;&gt;N，这M个携程共享内核中的N个进程</p>
+<h2 id="2-携程调度模型GMP"><a href="#2-携程调度模型GMP" class="headerlink" title="2. 携程调度模型GMP"></a>2. 携程调度模型GMP</h2><h3 id="2-1-M-N模型"><a href="#2-1-M-N模型" class="headerlink" title="2.1 M:N模型"></a>2.1 M:N模型</h3><p>在内核态中创建了N个进程，在用户态中有M个携程，并且M&gt;&gt;N，这M个携程共享内核中的N个进程</p>
 <p>对于同一个时刻下，内核中的一个线程只执行一个携程，如果携程遇到了I/O或者其他阻塞（锁、网络），那么就会使用另一个携程挂在这个进程上，让这个进程继续执行</p>
-<h3 id="2-2-GMP怎么调度的"><a href="#2-2-GMP怎么调度的" class="headerlink" title="2.2 GMP怎么调度的"></a>2.2 GMP怎么调度的</h3><h2 id="3-谈谈GC机制"><a href="#3-谈谈GC机制" class="headerlink" title="3. 谈谈GC机制"></a>3. 谈谈GC机制</h2><h2 id="4-内存管理"><a href="#4-内存管理" class="headerlink" title="4. 内存管理"></a>4. 内存管理</h2><h2 id="5-Channel"><a href="#5-Channel" class="headerlink" title="5. Channel"></a>5. Channel</h2><h2 id="6-标准包"><a href="#6-标准包" class="headerlink" title="6. 标准包"></a>6. 标准包</h2><h3 id="1-content"><a href="#1-content" class="headerlink" title="1. content"></a>1. content</h3><h2 id="7-内存逃逸"><a href="#7-内存逃逸" class="headerlink" title="7. 内存逃逸"></a>7. 内存逃逸</h2><h2 id="8-go的新版本功能"><a href="#8-go的新版本功能" class="headerlink" title="8.go的新版本功能"></a>8.go的新版本功能</h2><h1 id="三、工程类、实践类"><a href="#三、工程类、实践类" class="headerlink" title="三、工程类、实践类"></a>三、工程类、实践类</h1><h2 id="1-生产者消费者模型"><a href="#1-生产者消费者模型" class="headerlink" title="1. 生产者消费者模型"></a>1. 生产者消费者模型</h2><h2 id="2-实现一个进程安全的Set"><a href="#2-实现一个进程安全的Set" class="headerlink" title="2. 实现一个进程安全的Set"></a>2. 实现一个进程安全的Set</h2><h2 id="3-协程访问共享资源与循环变量捕获问题"><a href="#3-协程访问共享资源与循环变量捕获问题" class="headerlink" title="3. 协程访问共享资源与循环变量捕获问题"></a>3. 协程访问共享资源与循环变量捕获问题</h2><p>以下程序有什么问题：</p>
+<h3 id="2-2-谈谈go进程调度模型"><a href="#2-2-谈谈go进程调度模型" class="headerlink" title="2.2 谈谈go进程调度模型"></a>2.2 谈谈go进程调度模型</h3><h4 id="GM模型"><a href="#GM模型" class="headerlink" title="GM模型"></a>GM模型</h4><p>go语言调度模型最早是go 1.2前采用的是GM模型，G是携程，M就是工作线程</p>
+<p><strong>实现逻辑/流程：</strong>把所有的G都放到一个全局队列中，这个队列的访问需要锁机制，每个线程M从其中获得一个G然后执行。一旦G阻塞（IO、channel等待或Syscall）就会进入parked状态返回到全局队列中，在随后重新被争夺执行。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211106161429689.png" style="zoom: 33%;" />
+
+<p><strong>缺点：</strong>1. 全局的互斥大锁限制了执行效率，每个线程都可能会阻塞于这个全局队列。所有 goroutine 相关操作，比如：创建、结束、重新调度等都要上锁。2. 亲缘性问题，新创建的G就放在全局而不是本地运行，可能会被其他M执行，亲缘性不好。3. Mcache缓存浪费。M需要为执行的G创建mcache缓存（2MB），而这个缓存在M执行syscall系统调用的时候是不需要的，造成了浪费。4.在GM模型中，当M没有任务后会休眠，一旦有新的G再唤醒，这样的不断的休眠唤醒效率很低（后面就添加了M自旋）</p>
+<h4 id="GMP模型"><a href="#GMP模型" class="headerlink" title="GMP模型"></a>GMP模型</h4><p>随后就出现了新的GMP调度机制：P是一个上下文环境，它为每个在其上的M创建了一个本地队列，P与M之间是一一绑定的，数量可使用runtime.GOMAXPROCS 来设定。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/llOn2F-20211106165131708.png" style="zoom: 33%;" />
+
+<p><strong>改进：</strong>1. 为每个M维护一个本地队列，类似于本地缓冲区，这样就避免频繁的访问全局队列。2.将mcache等一些资源浪费放到了P中，防止了资源浪费。 3. work-stealing调度算法。可以从别的M的本地队列中偷取G执行。</p>
+<h3 id="2-3-goroutine的生命周期"><a href="#2-3-goroutine的生命周期" class="headerlink" title="2.3 goroutine的生命周期"></a>2.3 goroutine的生命周期</h3><ol start="0">
+<li><p>整个程序始于一段汇编，而在随后的<code>runtime·rt0_go</code>（也是汇编程序）中，会执行很多初始化工作。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/MLBbwa.png" alt="MLBbwa" style="zoom:50%;" />
+</li>
+<li><p>绑定 M0 和 g0，M0就是程序的主线程，程序启动必然会拥有一个主线程(运行主函数<code>main()</code>)，这个就是 M0。g0 负责调度，即 shedule() 函数。</p>
+</li>
+<li><p>创建P0：首先会创建<strong>逻辑 CPU （不是物理CPU核数）核数个 P ，存储在 sched 的 空闲链表(pidle)。</strong>然后绑定P0与M0</p>
+</li>
+<li><p>新建任务G（就是main）到 P0 本地队列，M0 的 g0 会创建一个指向<code>runtime.main()</code>的 G ，并放到 P0 的本地队列。</p>
+</li>
+<li><p><code>runtime.main()</code>: 启动 sysmon 线程M1；启动 GC 协程；执行 init，即代码中的各种 init 函数；执行 <code>main.main</code> 函数。</p>
+</li>
+</ol>
+<h3 id="2-4-g0的作用"><a href="#2-4-g0的作用" class="headerlink" title="2.4 g0的作用"></a>2.4 g0的作用</h3><p>g0是每个系统线程创建的第一个携程就是g0，是一个特殊的goroutine，它与一般的goroutine不同有一个较大的固定的栈</p>
+<ol>
+<li><p><strong>Goroutine创建</strong>。当调用<code>go func(){ ... }()</code>或<code>go myFunction()</code>时，Go会将函数创建委托给<code>g0</code>，然后再将其<u>放置在本地队列中</u>。<u><strong>新创建的goroutine优先运行，并放置在本地队列的顶部。</strong></u></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/G7WkRM.png" alt="G7WkRM" style="zoom:50%;" />
+</li>
+<li><p><strong>找寻调度新的goroutine，负责G之间的切换</strong></p>
+</li>
+<li><p><strong>Defer方法分配。</strong></p>
+</li>
+<li><p><strong>GC操作</strong>，例如stw，扫描goroutine的栈以及一些标清操作。</p>
+</li>
+<li><p><strong>栈增长</strong>。在需要时，Go会增加goroutine的大小。该操作由<code>g0</code>在prolog方法中完成。</p>
+</li>
+</ol>
+<h3 id="2-5-G的切换过程"><a href="#2-5-G的切换过程" class="headerlink" title="2.5 G的切换过程"></a>2.5 G的切换过程</h3><p>G切换原因：</p>
+<ul>
+<li>G 阻塞时：系统调用、互斥锁或 chan。阻塞的 G 进入睡眠模式/进入队列，并允许Go 安排和运行等待其他的 G。</li>
+<li>在函数调用期间，如果 G 必须扩展其堆栈。这个断点允许 Go 调度另一个 G 并避免运行 G 占用CPU。</li>
+</ul>
+<p>在这些情况下，当前G变为Parked，当前G会切换到g0，运行调度程序的g0会替换当前G在M上执行，寻找下一个<em>优先级</em>的G然后切换到该G运行</p>
+<p>在 Go 中，G 的切换相当轻便，其中需要保存的状态仅仅涉及以下两个：</p>
+<ul>
+<li><strong>Goroutine 在停止运行前执行的指令</strong>，程序当前要运行的指令是记录在程序计数器（PC）中的， G 稍后将在同一指令处恢复运行；</li>
+<li><strong>G 的堆栈</strong>，以便在再次运行时还原局部变量；在切换之前，堆栈将被保存，以便在 G 再次运行时进行恢复</li>
+</ul>
+<p><strong>从 G 到 g0 或从 g0 到 G 的切换是相当迅速的，它们只包含少量固定的指令。</strong>相反，对于调度阶段，调度程序需要检查许多资源以便确定下一个要运行的 G。</p>
+<h3 id="2-6-Schedule优先级"><a href="#2-6-Schedule优先级" class="headerlink" title="2.6 Schedule优先级"></a>2.6 Schedule优先级</h3><p>M 绑定的 P 没有可执行的 goroutine 时，它会去<strong>按照优先级</strong>去抢占任务<code>runtime.schedule</code>：</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/BzHxuL-20211109102510047.png" alt="BzHxuL" style="zoom:33%;" />
+
+<ul>
+<li>1/61的概率直接去全局队列中寻找新的G</li>
+<li>如果没有找到，检查本地队列有没有G</li>
+<li>如果还没有找到：<ul>
+<li>尝试向其他P的本地队列中偷取G（work-stealing）</li>
+<li>还没找到，检查全局队列获取G</li>
+<li>还没找到，找寻一些网络处理的G</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><font color='#e54d42'>核心思路：避免饥饿，首先防止全局队列饥饿，然后是本地队列等等</font></p>
+</blockquote>
+<h3 id="2-7-work-stealing"><a href="#2-7-work-stealing" class="headerlink" title="2.7 work-stealing"></a>2.7 work-stealing</h3><p>为了保证公平性，<strong>从随机位置上的 P 开始</strong>，而且遍历的顺序也<strong>随机化</strong>了(选择一个小于 GOMAXPROCS，且和它互为质数的步长)，<strong>保证遍历的顺序也随机化了。</strong></p>
+<h3 id="2-8-M线程的自旋"><a href="#2-8-M线程的自旋" class="headerlink" title="2.8 M线程的自旋"></a>2.8 M线程的自旋</h3><p>自旋简单来说就是当M没有挂载G时，会一直不断的寻找新的G（采用上面的优先级调度算法）。虽然会消耗少量的CPU资源，但是降低了 M 的上下文切换成本，提高了性能。</p>
+<p>如果当前有空闲的P但是没有自旋的M，那么P会在M的空闲列表中唤醒一个M，如果空闲列表中也没有，那么就会新创建一个M然后自旋寻找新的G执行（保证至少有个M在自旋）</p>
+<h3 id="2-9-syscall系统调用与sysmon系统监视"><a href="#2-9-syscall系统调用与sysmon系统监视" class="headerlink" title="2.9 syscall系统调用与sysmon系统监视"></a>2.9 syscall系统调用与sysmon系统监视</h3><p>go有自己封装的系统调用，使用封装的系统调用让P才会触发新的调度（因为系统调用会阻塞），触发系统调用会让M处于syscall状态。</p>
+<p>sysmon是一个系统级别的goroutine，不需要挂载P，运行期间始终执行。通过一个循环去监控各个M执行的G，如果时间过长（阻塞），那么就会主动发送信号将M与P断开（信号式抢占）。sysmon的循环周期会不断缩减，为了避免空转，如果一段时间未发现长时间的调用，那么就会睡眠一段时间然后在循环。</p>
+<p>Sysmon的主要作用：</p>
+<ul>
+<li>释放闲置超过5分钟的 span 物理内存；</li>
+<li>如果超过2分钟没有垃圾回收，强制执行；</li>
+<li><u><em>将长时间未处理的 netpoll 添加到全局队列；</em></u></li>
+<li><em>向长时间运行的 G 任务发出抢占调度；</em> （信号抢占）</li>
+<li><em>收回因 syscall 长时间阻塞的 P</em>；</li>
+</ul>
+<h3 id="2-10-communicate-and-wait问题"><a href="#2-10-communicate-and-wait问题" class="headerlink" title="2.10 communicate-and-wait问题"></a>2.10 communicate-and-wait问题</h3><p>使用channel机制的时候，本方G阻塞在channel的一端，等待读取；当另一端写入channel后，本方G就应该立马执行。但是因为goroutine的调度模型，P维护了一个本地队列顺序，阻塞的G活跃后不会直接立即挂载执行，所以就会产生延迟（要依靠别的P偷取）</p>
+<p>解决方式就是Go 1.5 在 P 中引入了<code>runnext</code> 特殊的一个字段，可以高优先级执行 unblock G （插队）。加速channel通信机制的时间效率。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/t9uU29.png" alt="t9uU29" style="zoom: 25%;" />
+
+<h2 id="3-谈谈GC机制"><a href="#3-谈谈GC机制" class="headerlink" title="3. 谈谈GC机制"></a>3. 谈谈GC机制</h2><h2 id="4-内存管理"><a href="#4-内存管理" class="headerlink" title="4. 内存管理"></a>4. 内存管理</h2><h2 id="5-Channel"><a href="#5-Channel" class="headerlink" title="5. Channel"></a>5. Channel</h2><h2 id="6-标准包"><a href="#6-标准包" class="headerlink" title="6. 标准包"></a>6. 标准包</h2><h3 id="1-content"><a href="#1-content" class="headerlink" title="1. content"></a>1. content</h3><h2 id="7-内存逃逸"><a href="#7-内存逃逸" class="headerlink" title="7. 内存逃逸"></a>7. 内存逃逸</h2><h2 id="8-go的新版本功能"><a href="#8-go的新版本功能" class="headerlink" title="8. go的新版本功能"></a>8. go的新版本功能</h2><h1 id="三、工程类、实践类"><a href="#三、工程类、实践类" class="headerlink" title="三、工程类、实践类"></a>三、工程类、实践类</h1><h2 id="1-生产者消费者模型"><a href="#1-生产者消费者模型" class="headerlink" title="1. 生产者消费者模型"></a>1. 生产者消费者模型</h2><h2 id="2-实现一个进程安全的Set"><a href="#2-实现一个进程安全的Set" class="headerlink" title="2. 实现一个进程安全的Set"></a>2. 实现一个进程安全的Set</h2><h2 id="3-协程访问共享资源与循环变量捕获问题"><a href="#3-协程访问共享资源与循环变量捕获问题" class="headerlink" title="3. 协程访问共享资源与循环变量捕获问题"></a>3. 协程访问共享资源与循环变量捕获问题</h2><p>以下程序有什么问题：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">total := <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;</span><br><span class="line">    sum += i</span><br><span class="line">    <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        total += i</span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">"total:%d sum %d"</span>, total, sum)</span><br></pre></td></tr></table></figure>
 
 <p>问题：</p>
@@ -392,7 +475,7 @@
     2021-10-31
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-11-07
+    2021-11-09
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/10/31/技术贴/GoLang/面试/go语言面经总结/" title="go语言面经总结" target="_blank">go语言面经总结</a>
@@ -598,7 +681,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基础语法细节"><span class="toc-number">1.</span> <span class="toc-text">一、基础语法细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-make与new的区别是什么"><span class="toc-number">1.1.</span> <span class="toc-text">1. make与new的区别是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Slice"><span class="toc-number">1.2.</span> <span class="toc-text">2. Slice</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-底层原理"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.底层原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-函数传slice注意事项"><span class="toc-number">1.3.</span> <span class="toc-text">2.函数传slice注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-类型可比较问题"><span class="toc-number">1.4.</span> <span class="toc-text">3. 类型可比较问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-go怎么从源码编译到二进制文件"><span class="toc-number">1.5.</span> <span class="toc-text">4. go怎么从源码编译到二进制文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-总体过程"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 总体过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编译过程"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. 编译过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-string转-byte内存拷贝"><span class="toc-number">1.6.</span> <span class="toc-text">5. string转[]byte内存拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-静态类型语言与动态类型语言"><span class="toc-number">1.7.</span> <span class="toc-text">6. 静态类型语言与动态类型语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-go语言的特点"><span class="toc-number">1.8.</span> <span class="toc-text">7. go语言的特点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、进阶语法特点"><span class="toc-number">2.</span> <span class="toc-text">二、进阶语法特点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-goroutine协程"><span class="toc-number">2.1.</span> <span class="toc-text">1. goroutine协程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-进程的基本工作状态"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1 进程的基本工作状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-进程、线程、协程三者对比"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.2 进程、线程、协程三者对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-协程轻量、高效的原因-协程与进程对比"><span class="toc-number">2.1.3.</span> <span class="toc-text">1.3 协程轻量、高效的原因 &#x2F; 协程与进程对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-进程调度模型GMP"><span class="toc-number">2.2.</span> <span class="toc-text">2. 进程调度模型GMP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-M-N模型"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 M:N模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-GMP怎么调度的"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 GMP怎么调度的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-谈谈GC机制"><span class="toc-number">2.3.</span> <span class="toc-text">3. 谈谈GC机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-内存管理"><span class="toc-number">2.4.</span> <span class="toc-text">4. 内存管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Channel"><span class="toc-number">2.5.</span> <span class="toc-text">5. Channel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-标准包"><span class="toc-number">2.6.</span> <span class="toc-text">6. 标准包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-content"><span class="toc-number">2.6.1.</span> <span class="toc-text">1. content</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-内存逃逸"><span class="toc-number">2.7.</span> <span class="toc-text">7. 内存逃逸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-go的新版本功能"><span class="toc-number">2.8.</span> <span class="toc-text">8.go的新版本功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、工程类、实践类"><span class="toc-number">3.</span> <span class="toc-text">三、工程类、实践类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-生产者消费者模型"><span class="toc-number">3.1.</span> <span class="toc-text">1. 生产者消费者模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-实现一个进程安全的Set"><span class="toc-number">3.2.</span> <span class="toc-text">2. 实现一个进程安全的Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-协程访问共享资源与循环变量捕获问题"><span class="toc-number">3.3.</span> <span class="toc-text">3. 协程访问共享资源与循环变量捕获问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-实现一个简单的客户端-服务器模型"><span class="toc-number">3.4.</span> <span class="toc-text">4. 实现一个简单的客户端&#x2F;服务器模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-实现一个tcp连接传输数据"><span class="toc-number">3.5.</span> <span class="toc-text">5. 实现一个tcp连接传输数据</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、基础语法细节"><span class="toc-number">1.</span> <span class="toc-text">一、基础语法细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-make与new的区别是什么"><span class="toc-number">1.1.</span> <span class="toc-text">1. make与new的区别是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Slice"><span class="toc-number">1.2.</span> <span class="toc-text">2. Slice</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-底层原理"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.底层原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-函数传slice注意事项"><span class="toc-number">1.3.</span> <span class="toc-text">2.函数传slice注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-类型可比较问题"><span class="toc-number">1.4.</span> <span class="toc-text">3. 类型可比较问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-go怎么从源码编译到二进制文件"><span class="toc-number">1.5.</span> <span class="toc-text">4. go怎么从源码编译到二进制文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-总体过程"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 总体过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编译过程"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. 编译过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-string转-byte内存拷贝"><span class="toc-number">1.6.</span> <span class="toc-text">5. string转[]byte内存拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-静态类型语言与动态类型语言"><span class="toc-number">1.7.</span> <span class="toc-text">6. 静态类型语言与动态类型语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-go语言的特点"><span class="toc-number">1.8.</span> <span class="toc-text">7. go语言的特点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、进阶语法特点"><span class="toc-number">2.</span> <span class="toc-text">二、进阶语法特点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-goroutine协程"><span class="toc-number">2.1.</span> <span class="toc-text">1. goroutine协程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-进程的基本工作状态"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1 进程的基本工作状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-进程、线程、协程三者对比"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.2 进程、线程、协程三者对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-协程轻量、高效的原因-协程与进程对比"><span class="toc-number">2.1.3.</span> <span class="toc-text">1.3 协程轻量、高效的原因 &#x2F; 协程与进程对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-携程调度模型GMP"><span class="toc-number">2.2.</span> <span class="toc-text">2. 携程调度模型GMP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-M-N模型"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 M:N模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-谈谈go进程调度模型"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 谈谈go进程调度模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GM模型"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">GM模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GMP模型"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">GMP模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-goroutine的生命周期"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3 goroutine的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-g0的作用"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.4 g0的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-G的切换过程"><span class="toc-number">2.2.5.</span> <span class="toc-text">2.5 G的切换过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-Schedule优先级"><span class="toc-number">2.2.6.</span> <span class="toc-text">2.6 Schedule优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-work-stealing"><span class="toc-number">2.2.7.</span> <span class="toc-text">2.7 work-stealing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-M线程的自旋"><span class="toc-number">2.2.8.</span> <span class="toc-text">2.8 M线程的自旋</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-syscall系统调用与sysmon系统监视"><span class="toc-number">2.2.9.</span> <span class="toc-text">2.9 syscall系统调用与sysmon系统监视</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-communicate-and-wait问题"><span class="toc-number">2.2.10.</span> <span class="toc-text">2.10 communicate-and-wait问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-谈谈GC机制"><span class="toc-number">2.3.</span> <span class="toc-text">3. 谈谈GC机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-内存管理"><span class="toc-number">2.4.</span> <span class="toc-text">4. 内存管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Channel"><span class="toc-number">2.5.</span> <span class="toc-text">5. Channel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-标准包"><span class="toc-number">2.6.</span> <span class="toc-text">6. 标准包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-content"><span class="toc-number">2.6.1.</span> <span class="toc-text">1. content</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-内存逃逸"><span class="toc-number">2.7.</span> <span class="toc-text">7. 内存逃逸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-go的新版本功能"><span class="toc-number">2.8.</span> <span class="toc-text">8. go的新版本功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、工程类、实践类"><span class="toc-number">3.</span> <span class="toc-text">三、工程类、实践类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-生产者消费者模型"><span class="toc-number">3.1.</span> <span class="toc-text">1. 生产者消费者模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-实现一个进程安全的Set"><span class="toc-number">3.2.</span> <span class="toc-text">2. 实现一个进程安全的Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-协程访问共享资源与循环变量捕获问题"><span class="toc-number">3.3.</span> <span class="toc-text">3. 协程访问共享资源与循环变量捕获问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-实现一个简单的客户端-服务器模型"><span class="toc-number">3.4.</span> <span class="toc-text">4. 实现一个简单的客户端&#x2F;服务器模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-实现一个tcp连接传输数据"><span class="toc-number">3.5.</span> <span class="toc-text">5. 实现一个tcp连接传输数据</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -892,10 +975,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">machine_learn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
               </li>
              
               <li class="article-tag-list-item">
