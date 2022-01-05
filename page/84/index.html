@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 567
+			总文章数 633
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/Linux/VBox工具虚拟CentOS-7系统-实现联网配置以及Xshell连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/基础语法/Go语言-1-基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/VBox%E5%B7%A5%E5%85%B7%E8%99%9A%E6%8B%9FCentOS-7%E7%B3%BB%E7%BB%9F-%E5%AE%9E%E7%8E%B0%E8%81%94%E7%BD%91%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8AXshell%E8%BF%9E%E6%8E%A5/">VBox工具虚拟CentOS-7系统-实现联网配置以及Xshell连接</a>
+      <a class="article-title" href="/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/">Go语言-1-基础</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/VBox%E5%B7%A5%E5%85%B7%E8%99%9A%E6%8B%9FCentOS-7%E7%B3%BB%E7%BB%9F-%E5%AE%9E%E7%8E%B0%E8%81%94%E7%BD%91%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8AXshell%E8%BF%9E%E6%8E%A5/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/08/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/VBox%E5%B7%A5%E5%85%B7%E8%99%9A%E6%8B%9FCentOS-7%E7%B3%BB%E7%BB%9F-%E5%AE%9E%E7%8E%B0%E8%81%94%E7%BD%91%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8AXshell%E8%BF%9E%E6%8E%A5/" class="archive-article-date">
-  	<time datetime="2020-08-20T11:51:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
+<a href="/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2020-10-21T11:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-21</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">615字</span>
+        <span class="post-count">22.1k字</span>
       </span>
     </span>
 
@@ -221,7 +221,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">90分</span>
       </span>
     </span>
 </div>
@@ -233,16 +233,164 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Virtual-Box配置CentOS7网络"><a href="#Virtual-Box配置CentOS7网络" class="headerlink" title="Virtual Box配置CentOS7网络"></a>Virtual Box配置CentOS7网络</h1><p>看帖：<a href="https://www.cnblogs.com/wxw16/p/6256796.html" target="_blank" rel="noopener">https://www.cnblogs.com/wxw16/p/6256796.html</a></p>
-<p>学习做个记录，以便以后使用。</p>
-<p>Virtual Box可选的网络接入方式包括：</p>
+        <h1 id="一、引子"><a href="#一、引子" class="headerlink" title="一、引子"></a>一、引子</h1><p>文章主要结合尚硅谷Go语言教程以及博学谷、<a href="http://c.biancheng.net/view/3990.html等其他资料整理，侵删" target="_blank" rel="noopener">http://c.biancheng.net/view/3990.html等其他资料整理，侵删</a></p>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/golang//" class="article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/21/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/Go%E8%AF%AD%E8%A8%80-1-%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/Linux/使用虚拟机搭建集群环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83/">使用虚拟机搭建集群环境</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/10/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83/" class="archive-article-date">
+  	<time datetime="2020-10-19T00:59:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-19</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.8k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">6分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、工具与环境"><a href="#一、工具与环境" class="headerlink" title="一、工具与环境"></a>一、工具与环境</h1><blockquote>
+<p>虚拟机： virtual box    版本：6.1.2</p>
+<p>管理工具： vagrant   版本：2.2.10</p>
+<p>虚拟机： Ubuntu 18.04</p>
+<p>远程访问 ： Xshell</p>
+</blockquote>
+<p>Vagrant是一个基于Ruby的工具,用于创建和部署虚拟化开发环境,总之简单的说vagrant就是一款管理虚拟机的工具官网</p>
 <ul>
-<li>NAT 网络地址转换模式(NAT,Network Address Translation)</li>
-<li>Bridged Adapter 桥接模式</li>
-<li>Internal 内部网络模式</li>
-<li>Host-only Adapter 主机模式</li>
+<li><p>使用Vagrant的好处：</p>
+<p>1、为了开发环境与生产环境一致（很多开发环境为windows而生产环境为linux），不至于出现在开发环境正常而移步到正式生产环境时出现各种问题，而vagrant通过共享文件，可以实现<font color='orange'>在主机（windows）下的IDE编写代码操作，直接在虚拟机（linux）中运行展示出效果</font>。</p>
+<p>2、在vagrant中<font color='orange'>只需要搭配一次开发环境</font>，然后就可以将搭配好的环境系统镜像打包发送给其他的同事用了，其他同事只需要下载vagrant和virtualBox，然后配置下共享目录后就可以开发了，再也不需要关心配置环境的问题了。</p>
+<p>3、目前好多扩展如swoole、redis等对linux支持更好，甚至有些只支持linux，所以采用虚拟机，再也不需要为学习新技术找借口了。</p>
+</li>
 </ul>
-<p>具体的区别网上的资料很多，就不再描述了，下面是一个最直接有效的配置，<strong>配置CentOS7虚拟机里面能上外网，而主机与CentOS7虚拟机也能连通</strong>。不论是学习还是使用，基本都能够满足。不废话，直接上图！</p>
+<p>安装Vagrant：<a href="https://www.vagrantup.com/downloads" target="_blank" rel="noopener">https://www.vagrantup.com/downloads</a></p>
+<p>直接下载安装即可，不需要其他配置，<u>重启</u>后即可用。</p>
         
       
       
@@ -300,7 +448,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/20/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/VBox%E5%B7%A5%E5%85%B7%E8%99%9A%E6%8B%9FCentOS-7%E7%B3%BB%E7%BB%9F-%E5%AE%9E%E7%8E%B0%E8%81%94%E7%BD%91%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8AXshell%E8%BF%9E%E6%8E%A5/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/19/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83/">展开全文 >></a>
         </p>
       
 
@@ -334,27 +482,27 @@
 
 
   
-    <article id="post-技术贴/区块链/Ethereum/Web3js/Web3-js的学习-6-编译、部署、测试合约完整流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2020-10/日记-0085" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Web3js/Web3-js%E7%9A%84%E5%AD%A6%E4%B9%A0-6-%E7%BC%96%E8%AF%91%E3%80%81%E9%83%A8%E7%BD%B2%E3%80%81%E6%B5%8B%E8%AF%95%E5%90%88%E7%BA%A6%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/">Web3-js的学习(6)-编译、部署、测试合约完整流程</a>
+      <a class="article-title" href="/2020/10/19/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0085/">日记_0085</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Web3js/Web3-js%E7%9A%84%E5%AD%A6%E4%B9%A0-6-%E7%BC%96%E8%AF%91%E3%80%81%E9%83%A8%E7%BD%B2%E3%80%81%E6%B5%8B%E8%AF%95%E5%90%88%E7%BA%A6%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/19/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0085/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/08/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Web3js/Web3-js%E7%9A%84%E5%AD%A6%E4%B9%A0-6-%E7%BC%96%E8%AF%91%E3%80%81%E9%83%A8%E7%BD%B2%E3%80%81%E6%B5%8B%E8%AF%95%E5%90%88%E7%BA%A6%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-08-18T12:18:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
+<a href="/2020/10/19/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0085/" class="archive-article-date">
+  	<time datetime="2020-10-19T00:46:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-19</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -363,7 +511,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
+        <span class="post-count">90字</span>
       </span>
     </span>
 
@@ -372,7 +520,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -384,12 +532,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h1><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20200818202110.png" alt=""></p>
-<p>注：<strong>这里的web3js代码是基于1.0.0以上的版本。</strong></p>
-<p>一般的开发流程：</p>
-<blockquote>
-<p>写智能合约 =&gt; 编译 =&gt; 部署到ganache测试环境 =&gt; 测试 =&gt; 通过geth发布到私有网络</p>
-</blockquote>
+        <h2 id="近期待办任务："><a href="#近期待办任务：" class="headerlink" title="近期待办任务："></a>近期待办任务：</h2><ol>
+<li>HyperLedger Fabric超级账本</li>
+<li>计网ppt演讲</li>
+<li>复习整理密码学 </li>
+<li>密码学DES的实现</li>
+<li>看区块链专利</li>
+<li>机器学习算法 线性回归</li>
+<li>Linux</li>
+<li>Go区块链构建区块链网络</li>
+</ol>
+<h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><ol>
+<li><del>多节点实验室集群环境的搭建</del></li>
+<li><del>多节点的学习</del></li>
+<li><del>计网ppt演讲</del></li>
+</ol>
         
       
       
@@ -422,11 +579,149 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">block_chain</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">web3js</a>
+        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/19/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-10/%E6%97%A5%E8%AE%B0-0085/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-技术贴/Linux/常用Linux命令整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/">常用Linux命令整理</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2020/10/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-10-18T13:13:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-18</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.6k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">6分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Ubuntu-18-04"><a href="#1-Ubuntu-18-04" class="headerlink" title="1.Ubuntu 18.04"></a>1.Ubuntu 18.04</h1><h2 id="开启SSH"><a href="#开启SSH" class="headerlink" title="开启SSH"></a>开启SSH</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 检查ssh服务是否开启</span></span><br><span class="line">sudo ps -e | grep ssh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果出现“xxxx? 00:00:00 sshd”,代表服务开启</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果没反应则开始配置</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 尝试开启服务，如果显示找不到命令，则安装openssh-server</span></span><br><span class="line">sudo /etc/init.d/ssh start</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install openssh-server</span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次检查</span></span><br><span class="line">sudo ps -e | grep ssh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动服务</span></span><br><span class="line">sudo /etc/init.d/ssh start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 检查服务</span></span><br><span class="line">sudo service ssh status </span><br><span class="line"><span class="meta">#</span><span class="bash"> 防火墙添加规则</span></span><br><span class="line">sudo ufw allow 22</span><br></pre></td></tr></table></figure>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -442,7 +737,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/block-chain//" class="article-tag-list-link color2">block_chain</a>
+        			<a href="/categories/technical/linux//" class="article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -451,7 +746,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Ethereum/Web3js/Web3-js%E7%9A%84%E5%AD%A6%E4%B9%A0-6-%E7%BC%96%E8%AF%91%E3%80%81%E9%83%A8%E7%BD%B2%E3%80%81%E6%B5%8B%E8%AF%95%E5%90%88%E7%BA%A6%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/18/%E6%8A%80%E6%9C%AF%E8%B4%B4/Linux/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/">展开全文 >></a>
         </p>
       
 
@@ -485,321 +780,27 @@
 
 
   
-    <article id="post-随笔/每日一记/日记/2020-8/日记-0058" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/区块链/Fabric/Fabric框架的学习-6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0058/">日记_0058</a>
+      <a class="article-title" href="/2020/10/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-6/">Fabric框架的学习-6</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0058/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/10/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-6/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2020/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0058/" class="archive-article-date">
-  	<time datetime="2020-08-18T06:42:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">34字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="今日完成的任务："><a href="#今日完成的任务：" class="headerlink" title="今日完成的任务："></a>今日完成的任务：</h2><blockquote>
-<ol>
-<li><del>DApp流程结束，编译、部署脚本的学习结束</del></li>
-<li><del>跑步5公里</del></li>
-<li><del>Linux的继续学习</del></li>
-</ol>
-</blockquote>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2020-8/%E6%97%A5%E8%AE%B0-0058/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/周记/2020-8/周记-0008" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0008/">周记_0008</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0008/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/08/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0008/" class="archive-article-date">
-  	<time datetime="2020-08-17T00:27:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-17</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">194字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="上周完成任务汇总："><a href="#上周完成任务汇总：" class="headerlink" title="上周完成任务汇总："></a>上周完成任务汇总：</h2><ol>
-<li>web3js脚本学习结束，DApp开发流程的学习。</li>
-<li>鸟哥的Linux私房菜 =》p179。</li>
-<li>MIT 分布式系统视频课两节=》课程介绍、分布式系统所面临的重要待解决问题。</li>
-</ol>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/17/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E5%91%A8%E8%AE%B0/2020-8/%E5%91%A8%E8%AE%B0-0008/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-技术贴/solidity智能合约/体验开发一个DApp的流程-简单投票DApp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E4%BD%93%E9%AA%8C%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AADApp%E7%9A%84%E6%B5%81%E7%A8%8B-%E7%AE%80%E5%8D%95%E6%8A%95%E7%A5%A8DApp/">体验开发一个DApp的流程-简单投票DApp</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2020/08/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E4%BD%93%E9%AA%8C%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AADApp%E7%9A%84%E6%B5%81%E7%A8%8B-%E7%AE%80%E5%8D%95%E6%8A%95%E7%A5%A8DApp/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2020/08/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E4%BD%93%E9%AA%8C%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AADApp%E7%9A%84%E6%B5%81%E7%A8%8B-%E7%AE%80%E5%8D%95%E6%8A%95%E7%A5%A8DApp/" class="archive-article-date">
-  	<time datetime="2020-08-16T08:55:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-16</time>
+<a href="/2020/10/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-6/" class="archive-article-date">
+  	<time datetime="2020-10-16T07:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -817,7 +818,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -829,9 +830,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="开发准备"><a href="#开发准备" class="headerlink" title="开发准备"></a>开发准备</h1><p>主要学习开发一个DApp的流程，合约的设计与逻辑不是重点，所以对于投票合约内容做了简化。</p>
-<h2 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h2><p>DApp中的D指的是decentralization，DApp的意思就是去中心化的应用。</p>
-<p>ganache是相对于geth更加方便的一个区块链测试平台，项目中使用ganache。其前身是大名鼎鼎的testRPC。</p>
+        <h1 id="十、Fabric核心梳理"><a href="#十、Fabric核心梳理" class="headerlink" title="十、Fabric核心梳理"></a>十、Fabric核心梳理</h1><h2 id="10-1-fabric网络小结"><a href="#10-1-fabric网络小结" class="headerlink" title="10.1 fabric网络小结"></a>10.1 fabric网络小结</h2><p><img src="http://xwjpics.gumptlu.work/qiniu_picGo/20201016150737.png" alt=""></p>
         
       
       
@@ -864,11 +863,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">block_chain</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">DApp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -884,7 +879,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical/block-chain//" class="article-tag-list-link color2">block_chain</a>
+        			<a href="/categories/technical/fabric//" class="article-tag-list-link color2">fabric</a>
         		</li>
       		
 		</ul>
@@ -893,7 +888,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E4%BD%93%E9%AA%8C%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AADApp%E7%9A%84%E6%B5%81%E7%A8%8B-%E7%AE%80%E5%8D%95%E6%8A%95%E7%A5%A8DApp/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/16/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%8C%BA%E5%9D%97%E9%93%BE/Fabric/Fabric%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AD%A6%E4%B9%A0-6/">展开全文 >></a>
         </p>
       
 
@@ -929,7 +924,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/83/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/82/">82</a><a class="page-number" href="/page/83/">83</a><span class="page-number current">84</span><a class="page-number" href="/page/85/">85</a><a class="page-number" href="/page/86/">86</a><span class="space">&hellip;</span><a class="page-number" href="/page/114/">114</a><a class="extend next" rel="next" href="/page/85/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/83/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/82/">82</a><a class="page-number" href="/page/83/">83</a><span class="page-number current">84</span><a class="page-number" href="/page/85/">85</a><a class="page-number" href="/page/86/">86</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" href="/page/85/">下一页</a>
     </nav>
   
 
@@ -941,7 +936,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-			&copy; 2021 DDDemons hide
+			&copy; 2022 DDDemons hide
 			<span class="post-meta-divider">|</span>
 			<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 			<script>

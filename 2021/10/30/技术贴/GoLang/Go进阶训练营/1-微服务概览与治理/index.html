@@ -31,8 +31,10 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/L9rv1Z.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/X1R8Ap.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/tBSJr3-20211030190848785.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211208201221609.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/VdTLiF.png">
 <meta property="article:published_time" content="2021-10-30T05:46:18.000Z">
-<meta property="article:modified_time" content="2021-10-30T11:48:31.939Z">
+<meta property="article:modified_time" content="2021-12-08T12:30:27.986Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -90,7 +92,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 567
+			总文章数 633
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -235,7 +237,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.1k字</span>
+        <span class="post-count">4.6k字</span>
       </span>
     </span>
 
@@ -244,7 +246,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">14分</span>
+        <span class="post-count">16分</span>
       </span>
     </span>
 </div>
@@ -269,19 +271,19 @@
 <p><a href="https://www.zhihu.com/question/42061683" target="_blank" rel="noopener">https://www.zhihu.com/question/42061683</a></p>
 <p>微服务就是SOA的一种实践，微服务起源于SOA，本质上都是面向服务的架构，微服务比SOA拆分更小一点，有更加细致的定义：</p>
 <ul>
-<li><p>小即是美：小的服务代码少、易测试、维护</p>
+<li><p><strong>小即是美</strong>：小的服务代码少、易测试、维护</p>
 </li>
-<li><p>单一职责：一个服务只需要做好一件事</p>
+<li><p><strong>单一职责</strong>：一个服务只需要做好一件事</p>
 </li>
-<li><p>尽可能早的创建原型：尽早的定义API，建立服务契约，达成服务间沟通的一致性约定，完善的事以后再做</p>
+<li><p><strong>尽可能早的创建原型</strong>：尽早的定义API，建立服务契约，达成服务间沟通的一致性约定，完善的事以后再做</p>
 <blockquote>
 <p><font color='#39b54a'>类似于前后端开发，事先商量好API，然后大家再一起开发</font></p>
 </blockquote>
 </li>
-<li><p>可移植性比效率更重要：服务间的轻量级交互协议在效率与可移植性二者之间，首要考虑兼容性和可移植性</p>
+<li><p><strong>可移植性比效率更重要</strong>：服务间的轻量级交互协议在效率与可移植性二者之间，首要考虑兼容性和可移植性</p>
 </li>
 </ul>
-<h3 id="2-微服务定义"><a href="#2-微服务定义" class="headerlink" title="2. 微服务定义"></a>2. 微服务定义</h3><p>围绕业务功能构建，每个服务关注单一的业务，服务间采用轻量级的通信机制，可以全自动独立部署，可以使用不同的编程语言与数据存储技术。微服务架构通过业务拆分实现服务的组件化，通过组件的组合又可以实现快速的开发系统，业务单一的服务组件又可以独立部署。</p>
+<h3 id="2-微服务定义"><a href="#2-微服务定义" class="headerlink" title="2. 微服务定义"></a>2. 微服务定义</h3><p>围绕业务功能构建，<u>每个服务关注单一的业务</u>，<u>服务间采用轻量级的通信机制</u>，可以<u>全自动独立部署</u>，可以<u>使用不同的编程语言与数据存储技术</u>。微服务架构<u>通过业务拆分实现服务的组件化</u>，通过<u>组件的组合又可以实现快速的开发系统</u>，业务单一的服务组件又可以独立部署。</p>
 <p>主要特点如下：</p>
 <ul>
 <li>原子服务</li>
@@ -310,7 +312,7 @@
 <p><font color='#e54d42'>本质上就是多个微服务组合完成一个完整的用户场景/应用</font></p>
 </blockquote>
 <h2 id="1-4-按业务组织服务"><a href="#1-4-按业务组织服务" class="headerlink" title="1.4. 按业务组织服务"></a>1.4. 按业务组织服务</h2><p>工作模型改变：</p>
-<p>从原本的烟囱式： UI-&gt;中间件开发-&gt;测试-&gt;运维-&gt;监控 改变为：<strong>面向服务全栈</strong>，you build it, you fix it, 对完成这项服务的整个流程负责，因为你是最清楚的</p>
+<p>从原本的烟囱式： <code>UI-&gt;中间件开发-&gt;测试-&gt;运维-&gt;监控</code> 改变为：<strong>面向服务全栈</strong>，<code>you build it, you fix it</code>, 对完成这项服务的整个流程负责，因为你是最清楚的</p>
 <p>运维、测试等则负责开发更加高效的平台/工具提供开发人员使用</p>
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211030150042170.png" alt="image-20211030150042170" style="zoom: 50%;" />
 
@@ -325,15 +327,15 @@
 </ul>
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211030150309490.png" alt="image-20211030150309490" style="zoom: 50%;" />
 
-<h2 id="1-6-基础设置自动化"><a href="#1-6-基础设置自动化" class="headerlink" title="1.6. 基础设置自动化"></a>1.6. 基础设置自动化</h2><p>无自动化不微服务，自动化包括测试和部署。单一进程的传统应用被拆分为一系列的多进程服务后，意味着开发、调试、测试、监控和部署的复杂度都会相应增大，必须要有合适的自动化基础设施来支持微服务架构模式，否则开发、运维成本将大大增加。</p>
+<h2 id="1-6-基础设置自动化"><a href="#1-6-基础设置自动化" class="headerlink" title="1.6. 基础设置自动化"></a>1.6. 基础设置自动化</h2><p><strong>无自动化不微服务</strong>，自动化包括测试和部署。<u>单一进程的传统应用被拆分为一系列的多进程服务后</u>，意味着开发、调试、测试、监控和部署的复杂度都会相应增大，必须要有合适的自动化基础设施来支持微服务架构模式，否则开发、运维成本将大大增加。</p>
 <ul>
-<li>CICD：Gitlab + Gitlab Hooks + k8s</li>
-<li>Testing：测试环境、单元测试、API自动化测试</li>
-<li>在线运行时：k8s，以及一系列监控 Prometheus、ELK（日志采集）、Conrtol Panle</li>
+<li><code>CICD</code>：Gitlab + Gitlab Hooks + k8s</li>
+<li><code>Testing</code>：测试环境、单元测试、API自动化测试</li>
+<li>在线运行时：<code>k8s</code>，以及一系列监控 <code>Prometheus、ELK（日志采集）、Conrtol Panle</code></li>
 </ul>
 <p>企业的自动化流程：</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211030151841269.png" alt="image-20211030151841269"></p>
-<h2 id="1-7-可用性与兼容性设计"><a href="#1-7-可用性与兼容性设计" class="headerlink" title="1.7. 可用性与兼容性设计"></a>1.7. 可用性与兼容性设计</h2><p>著名的 Design For Failure 思想（<strong>每一行代码都考虑是否会出错</strong>），微服务架构采用粗粒度的进程间通信（<strong>将请求设计为批量的请求</strong>），引入了额外的复杂性和需要处理的新问题，如网络延迟、消息格式、负载均衡和容错，忽略其中任何一点都属于对“分布式计算的误解”。</p>
+<h2 id="1-7-可用性与兼容性设计"><a href="#1-7-可用性与兼容性设计" class="headerlink" title="1.7. 可用性与兼容性设计"></a>1.7. 可用性与兼容性设计</h2><p>著名的 <code>Design For Failure</code>思想（<strong>每一行代码都考虑是否会出错</strong>），微服务架构采用粗粒度的进程间通信（<strong>将请求设计为批量的请求</strong>），引入了额外的复杂性和需要处理的新问题，如网络延迟、消息格式、负载均衡和容错，忽略其中任何一点都属于对“分布式计算的误解”。</p>
 <p>可用性主要需要掌握以下几点：</p>
 <ul>
 <li>隔离</li>
@@ -357,10 +359,10 @@
 <li>多终端兼容逻辑复杂，每个服务都需要处理。</li>
 <li>统一逻辑无法收敛，比如安全认证、限流。</li>
 </ul>
-<p><font color='#e54d42'>需要面向用户业务场景的API而不要面向资源的API，业务场景的需求才是根本</font></p>
+<p><font color='#e54d42'>需要面向<strong>用户业务场景</strong>的API而不要面向资源的API，业务场景的需求才是根本</font></p>
 <p>所以需要内聚模式配合改进：</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/CVEWwO.png" alt="CVEWwO"></p>
-<p>​    新增了一个 app-interface 用于统一的协议出口，在服务内进行大量的 dataset join，按照业务场景来设计<strong>粗粒度的 API</strong>，给后续服务的演进带来的很多优势：</p>
+<p>​    新增了一个 <code>app-interface</code> 用于<strong>统一的协议出口</strong>，在服务内进行大量的 <code>dataset join</code>，按照业务场景来设计<strong>粗粒度的 API</strong>，给后续服务的演进带来的很多优势：</p>
 <ul>
 <li>轻量交互：协议精简、聚合。</li>
 <li>差异服务：数据裁剪以及聚合、针对终端定制化API。</li>
@@ -371,13 +373,13 @@
 <p>但是可能面临的问题就是单点故障，单一的BFF故障会导致全体崩溃。</p>
 <p>改进：</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211030154325953.png" alt="image-20211030154325953"></p>
-<p>多BFF分类负责聚合API服务，每个BFF核心负责的其实是<strong>数据的组装</strong>（从各个下游API中组装数据）</p>
+<p>多BFF分类负责聚合API服务，<font color='#e54d42'>每个BFF核心负责的其实是<strong>数据的组装</strong>（从各个下游API中组装数据）</font></p>
 <p>BFF设计模式也叫做API聚合：</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/PCg8mS.png" alt="PCg8mS"></p>
-<p>但是当业务多了之后，BFF的数量也逐步上升，更新一个下游横向切面的模块会导致非常多的BFF跟着需要更新，很多跨横切面逻辑，比如安全认证，日志监控，限流熔断等。随着时间的推移，代码变得越来越复杂，技术债越堆越多。</p>
-<p>改进：将所有面向横向切面的服务都放在最上层引入<code>API Gateway</code>, 把业务集成度高的BFF层和通用功能服务层API Gateway进行了分层处理</p>
+<p>但是当业务多了之后，BFF的数量也逐步上升，更新一个下游横向切面的模块会导致非常多的BFF跟着需要更新，很多<strong>跨横切面逻辑</strong>，比如<strong>安全认证，日志监控，限流熔断</strong>等。随着时间的推移，代码变得越来越复杂，技术债越堆越多。</p>
+<p>改进：将所有面向横向切面的服务都放在最上层引入<code>API Gateway</code>, 把业务集成度高的BFF层和通用功能服务层<code>API Gateway</code>进行了分层处理</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/NazW3s.png" alt="NazW3s"></p>
-<p>在新的架构中，网关承担了重要的角色，它是解耦拆分和后续升级迁移的利器。在网关的配合下，单块 BFF 实现了解耦拆分（不需要关心横向切面的服务），各业务线团队可以独立开发和交付各自的微服务，研发效率大大提升。另外，把跨横切面逻辑从 BFF 剥离到网关上去以后，BFF 的开发人员可以更加专注业务逻辑交付，实现了架构上的<strong>关注分离(Separation of Concerns)</strong>。</p>
+<p>在新的架构中，网关承担了重要的角色，它是解耦拆分和后续升级迁移的利器。在网关的配合下，单块 BFF 实现了解耦拆分（不需要关心横向切面的服务），各业务线团队可以独立开发和交付各自的微服务，研发效率大大提升。另外，<u>把跨横切面逻辑从 BFF 剥离到网关上去以后，BFF 的开发人员可以更加专注业务逻辑交付</u>，实现了架构上的<strong>关注分离(Separation of Concerns)</strong>。</p>
 <p>我们业务流量流转过程实际为：</p>
 <p>移动端 -&gt; API Gateway -&gt; BFF -&gt; Mircoservice（微服务），在 FE Web业务中，BFF 可以是 nodejs 来做服务端渲染(SSR，Server-Side Rendering)，注意这里忽略了上游的 CDN、4/7层负载均衡(ELB) （这些都是在API Gateway之上）。</p>
 <p><strong>BFF与API Gateway的区别：</strong></p>
@@ -388,29 +390,29 @@
 <h2 id="2-2-Mircoservice的划分"><a href="#2-2-Mircoservice的划分" class="headerlink" title="2.2 Mircoservice的划分"></a>2.2 Mircoservice的划分</h2><p>如何划分微服务的边界，每个业务场景微服务划分的依据是不同的</p>
 <p>在实际项目中通常会采用两种不同的方式划分服务边界，即通过<strong>业务职能(Business Capability)</strong>或是 <strong>DDD 的限界上下文(Bounded Context)</strong>。</p>
 <ul>
-<li>Business Capability 业务职能<pre><code>由公司内部不同部门提供的职能。例如客户服务部门提供客户服务的职能，财务部门提供财务相关的职能。</code></pre></li>
-<li>Bounded Context 限界上下文<pre><code>限界上下文是 DDD 中用来划分不同业务边界的元素，这里业务边界的含义是“解决不同业务问题”的问题域和对应的解决方案域，为了解决某种类型的业务问题，贴近领域知识，也就是业务。</code></pre></li>
+<li><code>Business Capability</code> 业务职能<pre><code>由公司内部不同部门提供的职能。例如客户服务部门提供客户服务的职能，财务部门提供财务相关的职能。</code></pre></li>
+<li><code>Bounded Context</code> 限界上下文<pre><code>限界上下文是 DDD 中用来划分不同业务边界的元素，这里业务边界的含义是“解决不同业务问题”的问题域和对应的解决方案域，为了解决某种类型的业务问题，贴近领域知识，也就是业务。</code></pre></li>
 </ul>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/mb2Zfh.png" alt="mb2Zfh"></p>
-<p>能够闭环的解决用户的一个应用场景的就应该设计为一个服务</p>
+<p><u>能够闭环的解决用户的一个应用场景的就应该设计为一个服务</u></p>
 <p><strong>CQRS（Command Query Responsibility Segregation）</strong>将应用程序分为两部分：<strong>命令端和查询端</strong>（简单来说就是读写分离）。命令端处理程序创建，更新和删除请求，并在数据更改时发出事件。查询端通过针对一个或多个物化视图执行查询来处理查询，这些物化视图通过订阅数据更改时发出的事件流而保持最新. </p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/D4b9jw.png" alt="D4b9jw"></p>
-<p>在稿件服务演进过程中，我们发现围绕着创作稿件、审核稿件、最终发布稿件有大量的逻辑揉在一块，其中稿件本身的状态也有非常多种，但是<u>最终前台用户只关注稿件能否查看</u>，我们依赖稿件数据库 binlog 以及订阅 binlog 的中间件 canal，将我们的稿件结果发布到消息队列 kafka 中，最终消费数据独立组建一个稿件查阅结果数据库，并对外提供一个独立查询服务，来拆分复杂架构和业务。</p>
+<p>在稿件服务演进过程中，我们发现围绕着创作稿件、审核稿件、最终发布稿件有大量的逻辑揉在一块，其中稿件本身的状态也有非常多种，但是<u>最终前台用户只关注稿件能否查看</u>，我们依赖稿件数据库 <code>binlog</code> 以及订阅<code>binlog</code>的中间件<code>canal</code>，将我们的稿件结果发布到消息队列 <code>kafka</code> 中，最终消费数据独立组建一个稿件查阅结果数据库，并对外提供一个独立查询服务，来拆分复杂架构和业务。</p>
 <p>我们架构也从 <code>Polling publisher</code> -&gt; <code>Transaction log tailing</code> 进行了演进(Pull vs Push)。</p>
-<h2 id="2-3-Mircoservice安全"><a href="#2-3-Mircoservice安全" class="headerlink" title="2.3 Mircoservice安全"></a>2.3 Mircoservice安全</h2><p>对于外网的请求来说，我们通常在 API Gateway 进行统一的认证拦截，一旦认证成功，我们会使用 JWT 方式通过 RPC 元数据传递的方式带到 BFF 层，BFF 校验 Token 完整性后把身份信息注入到应用的 Context 中，BFF 到其他下层的微服务，建议是直接在 RPC Request 中带入用户身份信息(UserID)请求服务。</p>
+<h2 id="2-3-Mircoservice安全"><a href="#2-3-Mircoservice安全" class="headerlink" title="2.3 Mircoservice安全"></a>2.3 Mircoservice安全</h2><p>对于外网的请求来说，我们通常在<code>API Gateway</code> 进行统一的认证拦截，一旦认证成功，我们会使用<code>JWT</code> 方式通过<code>RPC</code> 元数据传递的方式带到 <code>BFF</code>层，<code>BFF</code> 校验<code>Token</code> 完整性后把身份信息注入到应用的 <code>Context</code>中，<code>BFF</code> 到其他下层的微服务，建议是直接在<code>RPC Request</code>中带入用户身份信息(<code>UserID</code>)请求服务。</p>
 <ul>
 <li>API Gateway -&gt; BFF -&gt; Service    </li>
 <li>Biz Auth  -&gt; JWT -&gt; Request Args</li>
 </ul>
-<p>对于服务内部（内网安全），一般要区分身份认证（jrpc证书等方式）和授权（RBAC等）。</p>
+<p>对于服务内部（内网安全），一般要区分身份认证（<code>jrpc</code>证书等方式）和授权（<code>RBAC</code>等）。</p>
 <ul>
-<li>Full Trust （知道身份，通讯过程也加密）</li>
-<li>Half Trust （知道身份，通讯过程不加密）</li>
-<li>Zero Trust （都可以连接）</li>
+<li><code>Full Trust</code> （知道身份，通讯过程也加密）</li>
+<li><code>Half Trust</code>（知道身份，通讯过程不加密）</li>
+<li><code>Zero Trust</code> （都可以连接）</li>
 </ul>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/dPseq0.png" alt="dPseq0"></p>
-<p>授权变化：用户Token -&gt; JWT Token -&gt; Access Token（内网token）-&gt; 用户ID</p>
-<h1 id="三、gRPC与服务发现"><a href="#三、gRPC与服务发现" class="headerlink" title="三、gRPC与服务发现"></a>三、gRPC与服务发现</h1><h2 id="3-1-gRPC"><a href="#3-1-gRPC" class="headerlink" title="3.1 gRPC"></a>3.1 gRPC</h2><h3 id="什么是RPC？"><a href="#什么是RPC？" class="headerlink" title="什么是RPC？"></a>什么是RPC？</h3><p>对比表解释：</p>
+<p>授权变化：用户<code>Token -&gt; JWT Token -&gt; Access Token（内网token）-&gt; 用户ID</code></p>
+<h1 id="三、gRPC与服务发现"><a href="#三、gRPC与服务发现" class="headerlink" title="三、gRPC与服务发现"></a>三、gRPC与服务发现</h1><h2 id="3-1-gRPC"><a href="#3-1-gRPC" class="headerlink" title="3.1 gRPC"></a>3.1 gRPC</h2><h3 id="1-什么是RPC？"><a href="#1-什么是RPC？" class="headerlink" title="1. 什么是RPC？"></a>1. 什么是RPC？</h3><p>对比表解释：</p>
 <table>
 <thead>
 <tr>
@@ -439,24 +441,24 @@
 <td>TCP协议的接口实现，面向传输层进行网络编程</td>
 </tr>
 </tbody></table>
-<p><strong>RPC是一种网络调用设计、框架，其面向服务而不是通信协议</strong>。使用的通讯协议只是其中的一部分，其中可能使用的就是Http协议，是在Http协议概念的上层，其主要<strong>在上层构建的一些优化通信</strong>，例如：负载均衡、寻址、序列化与反序列化</p>
-<h3 id="grpc"><a href="#grpc" class="headerlink" title="grpc"></a>grpc</h3><p>官网的解释： “A high-performance, open-source universal RPC framework”</p>
-<p>gRPC是谷歌开源的一个 <strong>RPC 框架</strong>，面向移动和 <strong>HTTP/2</strong> 设计。</p>
+<p><strong>RPC是一种网络调用设计、框架，其面向服务而不是通信协议</strong>。使用的通讯协议只是其中的一部分，其中可能使用的就是<code>Http</code>协议，是在<code>Http</code>协议概念的上层，其主要<strong>在上层构建的一些优化通信</strong>，例如：负载均衡、寻址、序列化与反序列化</p>
+<h3 id="2-grpc"><a href="#2-grpc" class="headerlink" title="2. grpc"></a>2. grpc</h3><p>官网的解释： <code>“A high-performance, open-source universal RPC framework”</code></p>
+<p>gRPC是谷歌开源的一个 <strong>RPC 框架</strong>，面向移动和 <strong>HTTP2</strong> 设计。</p>
 <ul>
 <li>内容交换格式采用<strong>ProtoBuf</strong>(Google Protocol Buffers)，开源已久，提供了一种灵活、高效、自动序列化结构数据的机制，作用与XML，Json类似，但使用二进制，（反）序列化速度快，压缩效率高。</li>
-<li>传输协议 采用http2，性能比http1.1好了很多</li>
+<li>传输协议 采用<code>http2</code>，性能比<code>http1.1</code>好了很多</li>
 </ul>
 <p>和很多RPC系统一样，服务端负责实现定义好的接口并处理客户端的请求，客户端根据接口描述直接调用需要的服务。客户端和服务端可以分别使用gPRC支持的不同语言实现。</p>
-<p>ProtoBuf 具有强大的IDL（interface description language，接口描述语言）和相关工具集（主要是protoc）。用户写好.proto描述文件后，protoc可以将其编译成众多语言的接口代码。</p>
+<p><code>ProtoBuf</code>具有强大的IDL（interface description language，接口描述语言）和相关工具集（主要是protoc）。用户写好.proto描述文件后，protoc可以将其编译成众多语言的接口代码。</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/L9rv1Z.png" alt="L9rv1Z"></p>
 <p>gRPC的优势：</p>
 <ul>
 <li>多语言：语言中立，支持多种语言。</li>
-<li>轻量级、高性能：序列化支持 PB(Protocol Buffer)和 JSON，PB 是一种语言无关的高性能序列化框架。</li>
+<li>轻量级、高性能：序列化支持 <code>PB(Protocol Buffer)</code>和 <code>JSON</code>，<code>PB</code> 是一种语言无关的高性能序列化框架。</li>
 <li>可插拔</li>
 <li>IDL：基于文件定义服务，通过 proto3 工具生成指定语言的数据结构、服务端接口以及客户端 Stub。</li>
 <li>设计理念</li>
-<li>移动端：基于标准的 HTTP2 设计，支持双向流、消息头压缩、单 TCP 的多路复用、服务端推送等特性，这些特性使得 gRPC 在移动端设备上更加省电和节省网络流量。</li>
+<li>移动端：基于标准的 <code>HTTP2</code>设计，<strong>支持双向流、消息头压缩、单<code>TCP</code> 的多路复用、服务端推送</strong>等特性，这些特性使得 <code>gRPC</code> 在移动端设备上更加省电和节省网络流量。</li>
 </ul>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/X1R8Ap.png" alt="X1R8Ap"></p>
 <ul>
@@ -464,7 +466,9 @@
 <p>如图所示<code>service</code>并不是一个对象，<code>message</code>也不是一个引用</p>
 <p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/tBSJr3-20211030190848785.png" alt="tBSJr3"></p>
 </li>
-<li><p>负载无关的：不同的服务需要使用不同的消息类型和编码，例如 protocol buffers、JSON、XML 和 Thrift。<br>流：Streaming API。</p>
+<li><p>负载无关的：不同的服务需要使用不同的消息类型和编码，例如 <code>protocol buffers</code>、<code>JSON</code>、<code>XML</code> 和 <code>Thrift</code>。</p>
+</li>
+<li><p>流：<code>Streaming API</code>。</p>
 </li>
 <li><p>阻塞式和非阻塞式：支持异步和同步处理在客户端和服务端间交互的消息序列。</p>
 </li>
@@ -472,8 +476,36 @@
 </li>
 <li><p>标准化状态码：客户端通常以有限的方式响应 API 调用返回的错误。</p>
 </li>
+<li><p>grpc的定义规范严苛，输入输出都是约定好的，而json+http的方式一般对于json的格式时不做约束的，比较宽松，http表达能力弱，并且每一个request都需要等到response，这在内网时不需要的。</p>
+</li>
 </ul>
-<h1 id="四、多集群与多租户"><a href="#四、多集群与多租户" class="headerlink" title="四、多集群与多租户"></a>四、多集群与多租户</h1>
+<h3 id="3-HealthCheck"><a href="#3-HealthCheck" class="headerlink" title="3. HealthCheck"></a>3. HealthCheck</h3><p><code>gRPC</code> 有一个标准的健康检测协议（<strong>内置</strong>），在<code>gRPC</code> 的 所有语言实现中基本都提供了生成代码和用于设置运行状态的功能。</p>
+<p><strong><u>主动</u>健康检查 <em>health check</em>，可以在服务提供者服务不稳定时，被消费者所感知，临时从负载均衡中摘除，减少错误请求。</strong>当服务提供者重新稳定后，<em>health check</em> 成功，重新加入到消费者的负载均衡，恢复请求。</p>
+<p> <em>health check*，同样也被用于<u>外挂</u>方式的容器健康检测， 或者流量检测</em>(k8s liveness &amp; readiness)*。</p>
+<blockquote>
+<p><font color='#39b54a'>服务发现/注册的两种方式：</font></p>
+<p><font color='#39b54a'><strong>主动注册：</strong>当服务提供方初始化完成后主动发送消息给服务发现方注册</font></p>
+<p><font color='#39b54a'><strong>外挂方式：</strong> k8s中通过不断检测一个服务提供者的healthCheck接口，一旦发现其服务可用后就帮其在Discovery中注册</font></p>
+</blockquote>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211208201221609.png" alt="image-20211208201221609" style="zoom:50%;" />
+
+<p><strong>平滑发布/下线：</strong></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/VdTLiF.png" alt="VdTLiF" style="zoom:50%;" />
+
+<p>平滑下线的一般流程：</p>
+<ol>
+<li><p>向服务提供方发送<code>kill</code>信号(<code>SIGTERM</code>优雅的退出)</p>
+</li>
+<li><p>向服务注册/发现方发送一个注销请求，注销自己</p>
+</li>
+<li><p>将自己返回给health check的响应设置为失败，优雅的退出</p>
+</li>
+<li><p>使用grpc的<code>shutdown</code>接口</p>
+</li>
+<li><p>如果发现服务提供方容器一直无法退出（10～60s内），那么就强制<code>kill -9</code>发送<code>SIGKILL</code>信号退出</p>
+</li>
+</ol>
+<h3 id="4-服务发现-客户端发现"><a href="#4-服务发现-客户端发现" class="headerlink" title="4. 服务发现-客户端发现"></a>4. 服务发现-客户端发现</h3><h1 id="四、多集群与多租户"><a href="#四、多集群与多租户" class="headerlink" title="四、多集群与多租户"></a>四、多集群与多租户</h1>
       
       
       <!-- 添加版权声明 -->
@@ -494,7 +526,7 @@
     2021-10-30
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-10-30
+    2021-12-08
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2021/10/30/技术贴/GoLang/Go进阶训练营/1-微服务概览与治理/" title="1-微服务概览与治理" target="_blank">1-微服务概览与治理</a>
@@ -700,7 +732,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、微服务概览"><span class="toc-number">1.</span> <span class="toc-text">一、微服务概览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-单体架构"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 单体架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-微服务起源"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 微服务起源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SOA服务与微服务"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. SOA服务与微服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-微服务定义"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 微服务定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-微服务的缺点"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 微服务的缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-组件服务化"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 组件服务化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-按业务组织服务"><span class="toc-number">1.4.</span> <span class="toc-text">1.4. 按业务组织服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-去中心化"><span class="toc-number">1.5.</span> <span class="toc-text">1.5. 去中心化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-基础设置自动化"><span class="toc-number">1.6.</span> <span class="toc-text">1.6. 基础设置自动化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-可用性与兼容性设计"><span class="toc-number">1.7.</span> <span class="toc-text">1.7. 可用性与兼容性设计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、微服务设计"><span class="toc-number">2.</span> <span class="toc-text">二、微服务设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-API-Gateway的演进"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 API Gateway的演进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Mircoservice的划分"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Mircoservice的划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Mircoservice安全"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Mircoservice安全</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、gRPC与服务发现"><span class="toc-number">3.</span> <span class="toc-text">三、gRPC与服务发现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-gRPC"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 gRPC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是RPC？"><span class="toc-number">3.1.1.</span> <span class="toc-text">什么是RPC？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grpc"><span class="toc-number">3.1.2.</span> <span class="toc-text">grpc</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、多集群与多租户"><span class="toc-number">4.</span> <span class="toc-text">四、多集群与多租户</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、微服务概览"><span class="toc-number">1.</span> <span class="toc-text">一、微服务概览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-单体架构"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 单体架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-微服务起源"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 微服务起源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SOA服务与微服务"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. SOA服务与微服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-微服务定义"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 微服务定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-微服务的缺点"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 微服务的缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-组件服务化"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 组件服务化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-按业务组织服务"><span class="toc-number">1.4.</span> <span class="toc-text">1.4. 按业务组织服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-去中心化"><span class="toc-number">1.5.</span> <span class="toc-text">1.5. 去中心化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-基础设置自动化"><span class="toc-number">1.6.</span> <span class="toc-text">1.6. 基础设置自动化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-可用性与兼容性设计"><span class="toc-number">1.7.</span> <span class="toc-text">1.7. 可用性与兼容性设计</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、微服务设计"><span class="toc-number">2.</span> <span class="toc-text">二、微服务设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-API-Gateway的演进"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 API Gateway的演进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Mircoservice的划分"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Mircoservice的划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Mircoservice安全"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Mircoservice安全</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、gRPC与服务发现"><span class="toc-number">3.</span> <span class="toc-text">三、gRPC与服务发现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-gRPC"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 gRPC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是RPC？"><span class="toc-number">3.1.1.</span> <span class="toc-text">1. 什么是RPC？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-grpc"><span class="toc-number">3.1.2.</span> <span class="toc-text">2. grpc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-HealthCheck"><span class="toc-number">3.1.3.</span> <span class="toc-text">3. HealthCheck</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-服务发现-客户端发现"><span class="toc-number">3.1.4.</span> <span class="toc-text">4. 服务发现-客户端发现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、多集群与多租户"><span class="toc-number">4.</span> <span class="toc-text">四、多集群与多租户</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -748,7 +780,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-			&copy; 2021 DDDemons hide
+			&copy; 2022 DDDemons hide
 			<span class="post-meta-divider">|</span>
 			<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 			<script>

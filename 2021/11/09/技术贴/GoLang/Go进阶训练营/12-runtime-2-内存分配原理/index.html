@@ -21,8 +21,24 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/UsG3l0.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/vqctDy.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/OqdYP8.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/anPrHn-20211111142321213.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/MOYgIq.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211111095415722.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/Twd538.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/ZaiH3E.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/X25Kj7.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/sL3a1R-20211112154927027.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/RMb7CJ.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/HeIivs.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/evwtXN.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/GDwBB2.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/WoTLoF.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/OBFgcY.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/a4PtWE.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/cCKQkL.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/K7w6uc.png">
 <meta property="article:published_time" content="2021-11-09T05:09:42.000Z">
-<meta property="article:modified_time" content="2021-11-09T06:50:39.431Z">
+<meta property="article:modified_time" content="2021-11-12T07:49:50.925Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -80,7 +96,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 567
+			总文章数 633
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -225,7 +241,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.2k字</span>
+        <span class="post-count">5.5k字</span>
       </span>
     </span>
 
@@ -234,7 +250,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">7分</span>
+        <span class="post-count">19分</span>
       </span>
     </span>
 </div>
@@ -339,7 +355,175 @@
 <li>变量分配在栈上需要能在编译期确定它的作用域，否则会分配到堆上；</li>
 <li><font color='#e54d42'><strong>函数传递变量的指针可以避免复制值的开销，但是这种情况不是一定的，因为复制值的过程在栈上进行这个的开销远比变量逃逸后在堆上动态分配内存少的多</strong></font></li>
 </ol>
-<h1 id="二、连续栈"><a href="#二、连续栈" class="headerlink" title="二、连续栈"></a>二、连续栈</h1><h1 id="三、内存结构"><a href="#三、内存结构" class="headerlink" title="三、内存结构"></a>三、内存结构</h1><h1 id="四、优化实践"><a href="#四、优化实践" class="headerlink" title="四、优化实践"></a>四、优化实践</h1>
+<h1 id="二、连续栈"><a href="#二、连续栈" class="headerlink" title="二、连续栈"></a>二、连续栈</h1><h2 id="1-分段栈-Segmented-stacks"><a href="#1-分段栈-Segmented-stacks" class="headerlink" title="1. 分段栈(Segmented stacks)"></a>1. 分段栈(Segmented stacks)</h2><p>Go 应用程序运行时，<strong>每个 goroutine 都维护着一个自己的栈区，这个栈区只能自己使用不能被其他 goroutine 使用。</strong>栈区的初始大小是2KB(比 x86_64 架构下线程的默认栈2M要小很多)，<strong>在 goroutine 运行的时候栈区会按照需要增长和收缩</strong>，占用的内存最大限制的默认值在64位系统上是1GB。</p>
+<ul>
+<li>v1.0 ~ v1.1 — 最小栈内存空间为 4KB</li>
+<li>v1.2 — 将最小栈内存提升到了 8KB</li>
+<li>v1.3 — 使用连续栈替换之前版本的分段栈</li>
+<li>v1.4 — 将最小栈内存降低到了 2KB</li>
+</ul>
+<p>分段栈的实例图如下：</p>
+<p>如果栈的空间不够，那么就会分配一个更大的空间，然后指向它。这样的好处是不需要内存的拷贝就可以实现扩容。</p>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/anPrHn-20211111142321213.png" alt=""></p>
+<p>但是也面临着<code>Hot split</code>热分裂的问题：</p>
+<p>当前的分段栈的实现方式存在 “hot split” 问题，<strong>如果栈快满了，那么下一次的函数调用会强制触发栈扩容。当函数返回时，新分配的 “stack chunk” 会被清理掉。如果这个函数调用产生的范围是在一个循环中，会导致严重的性能问题，频繁的<code>alloc/free</code>。</strong></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/MOYgIq.png" alt="MOYgIq" style="zoom:50%;" />
+
+<p>Go 不得不在1.2版本把栈默认大小改为8KB，降低触发热分裂的问题，但是每个 goroutine 内存开销就比较大了。直到实现了连续栈(<code>contiguous stack</code>)，栈大小才改为2KB。</p>
+<h2 id="2-连续栈-contiguous-stack"><a href="#2-连续栈-contiguous-stack" class="headerlink" title="2. 连续栈(contiguous stack)"></a>2. 连续栈(contiguous stack)</h2><p>采用<strong>复制栈</strong>的实现方式，在热分裂场景中不会频发释放内存，<strong>即不像分配一个新的内存块并链接到老的栈内存块，而是<u>会分配一个两倍大的内存块并把老的内存块内容<em>复制</em>到新的内存块里</u></strong>，当栈缩减回之前大小时，我们不需要做任何事情。</p>
+<ul>
+<li><code>runtime.newstack</code> 分配更大的栈内存空间</li>
+<li><code>runtime.copystack</code>将旧栈中的内容复制到新栈中</li>
+<li>*<u>将指向旧栈对应变量的指针重新指向新栈</u>*</li>
+<li><code>runtime.stackfree</code> 销毁并回收旧栈的内存空间</li>
+</ul>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211111095415722.png" alt="image-20211111095415722" style="zoom:50%;" />
+
+<p>如果之前扩容到了很大的空间，但是目前程序的使用率却不高，那么GC也会<strong>栈缩容</strong>：</p>
+<p>如果栈区的空间使用率不超过1/4，那么在垃圾回收的时候使用 <code>runtime.shrinkstack</code> 进行<strong>栈缩容</strong>，同样使用 copystack拷贝到一个小栈空间继续使用</p>
+<h2 id="3-栈扩容"><a href="#3-栈扩容" class="headerlink" title="3. 栈扩容"></a>3. 栈扩容</h2><p>Go 运行时判断栈空间是否足够，所以在<code>call function</code>调用新的函数的时候会插入<code>runtime.morestack</code>，但每个函数调用都判定的话，成本比较高。</p>
+<p>所以go的做法是：在编译期间通过计算 <code>sp</code>、<code>func stack framesize</code> 确定需要哪个函数调用中插入 <code>runtime.morestack</code>。</p>
+<p>具体的规则如下：</p>
+<ul>
+<li>当函数是叶子节点（就是此函数之后不再调用其他函数了），且栈帧小于等于 112 ，不插入指令</li>
+<li>当叶子函数栈帧大小为 120 -128 或者 非叶子函数栈帧大小为 0 -128，SP &lt; <code>stackguard0</code></li>
+<li>当函数栈帧大小为 128 - 4096<ul>
+<li>SP - framesize &lt; <code>stackguard0</code> - <code>StackSmall</code></li>
+</ul>
+</li>
+<li>大于 StackBig<ul>
+<li>SP-<code>stackguard</code>+<code>StackGuard</code> &lt;= framesize + (<code>StackGuard</code>-<code>StackSmall</code>)</li>
+</ul>
+</li>
+</ul>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/Twd538.png" alt="Twd538" style="zoom: 33%;" />
+
+<p>可以认为<code>stackguard0</code>就是一个保底线，如果大于这个保底线就会优先通过判断大小、减法等判断是否需要扩容，能够不插入<code>morestack</code>就不插入，为了性能考量。</p>
+<h1 id="三、内存结构"><a href="#三、内存结构" class="headerlink" title="三、内存结构"></a>三、内存结构</h1><h2 id="1-编码时的内存优化技巧"><a href="#1-编码时的内存优化技巧" class="headerlink" title="1. 编码时的内存优化技巧"></a>1. 编码时的内存优化技巧</h2><ul>
+<li>小对象结构体的合并</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> A <span class="keyword">struct</span> &#123;...&#125;</span><br><span class="line"><span class="keyword">type</span> B <span class="keyword">struct</span> &#123;</span><br><span class="line">  a	A								<span class="comment">// 组合模式</span></span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line">newB := <span class="built_in">new</span>(B)			<span class="comment">// 这样只会创建一个B的对象，但是A对象也得到了初始化</span></span><br></pre></td></tr></table></figure>
+
+<p>​    这样可以节省对象的数量，节省GC扫描的时间</p>
+<ul>
+<li><p>bytes.Buffer</p>
+<p>一开始使用就创建较大的合适空间，防止扩展</p>
+</li>
+<li><p>slice、map预创建</p>
+<p>一开始make就确定大小而不是创建一个空的，不断append</p>
+</li>
+<li><p>长调用栈</p>
+<p>长调用指的是goroutine在短时间内不会被释放掉（例如网络传输等），这时内存栈的调用就会比较多。大量的defer也会影响代码的效率</p>
+</li>
+<li><p>避免频繁创建临时对象</p>
+<p>在一个高频率的环境下频繁的创建对象会给GC带来压力。例如Http编程中不断的request和require的过程每次都new一个新对象的话，性能会不是很好。解决方式是：1.保存对象变量复用 2.sigpool</p>
+</li>
+<li><p>字符串拼接<code>strings.Builder</code></p>
+<p>比<code>bytes.buffer</code>的方式更高效</p>
+</li>
+<li><p>不必要的memory copy</p>
+<p>例如文件复制的时候创建一个中间buffer，在writer与reader之间传递。其实<code>io.copy</code>实现的逻辑更加高效，其没新创建一个buffer而是直接使用reader的buffer，避免拷贝</p>
+</li>
+<li><p>分析内存逃逸</p>
+</li>
+</ul>
+<h2 id="2-内存管理"><a href="#2-内存管理" class="headerlink" title="2. 内存管理"></a>2. 内存管理</h2><p><code>TCMalloc</code>是<code>Thread Cache Malloc</code> 的简称，是Go 内存管理的起源，Go的内存管理是借鉴了<code>TCMalloc</code>。内存的管理一直面临着两个问题：</p>
+<ul>
+<li>内存碎片<pre><code>随着内存不断的申请和释放，内存上会存在大量的碎片，降低内存的使用率。为了解决内存碎片，可以将2个连续的未使用的内存块合并，减少碎片。</code></pre></li>
+</ul>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/ZaiH3E.png" alt="ZaiH3E" style="zoom:50%;" />
+
+<ul>
+<li>大锁<pre><code>**同一进程下的所有线程共享相同的内存空间，它们申请内存时需要加锁**，如果不加锁就存在同一块内存被2个线程同时访问的问题。</code></pre></li>
+</ul>
+<h3 id="1-内存概念"><a href="#1-内存概念" class="headerlink" title="1. 内存概念"></a>1. 内存概念</h3><p>我们需要先知道几个重要的概念：</p>
+<ul>
+<li><strong>page: 内存页</strong>，一块 8K 大小的内存空间。Go 与操作系统之间的内存申请和释放，都是以 page 为单位的。</li>
+<li><strong>span: 内存块</strong>，一个或多个连续的 page 组成一个 span。</li>
+<li><strong>sizeclass: 空间规格</strong>，每个 span 都带有一个 sizeclass，标记着该 span 中的 page 应该如何使用。（例如图中分割的8、16、32等规格）</li>
+<li><strong>object: 对象</strong>，用来<strong>存储一个变量数据内存空间</strong>，一个 span 在初始化时，会被切割成一堆等大的 object。假设 object 的大小是 16B，span 大小是 8K，那么就会把 span 中的 page 就会被初始化 8K / 16B = 512 个 object。</li>
+</ul>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/X25Kj7.png" alt="X25Kj7" style="zoom: 33%;" />
+
+<h3 id="2-再谈mcache"><a href="#2-再谈mcache" class="headerlink" title="2. 再谈mcache"></a>2. 再谈mcache</h3><p>当程序里发生了 32kb 以下的小块内存申请时（new一个对象其小于32k），Go 会从一个叫<strong><code>mcache</code></strong>的本地缓存给程序分配内存。<strong>这样的一个内存块里叫做 <code>mspan</code>，它是要给程序分配内存时的分配单元。</strong></p>
+<blockquote>
+<p><font color='#39b54a'>在GMP模型调度时说道过这个mcache，原本的模型调度方式是mcache挂载在M上，当M调用系统调用的时候不会使用goutine的内存，所以这是一个额外的负担。后来的GMP将mcache转移到了P上，解决了这个问题</font></p>
+</blockquote>
+<p>在 Go 的调度器模型里，每个线程  M 会绑定给一个处理器 P，在单一粒度的时间里只能做多处理运行一个 goroutine，<strong>每个 P 都会绑定一个上面说的本地缓存 mcache</strong>。<strong>当需要进行内存分配时，当前运行的 goroutine 会从 mcache 中查找可用的 mspan。从本地 mcache 里分配内存时不需要加锁，这种分配策略效率更高。</strong></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/sL3a1R-20211112154927027.png" style="zoom:50%;" />
+
+<p><font color='#e54d42'>mcache的作用：为线程内存分配提供一个本地缓存，快速分配避免访问全局内存大锁</font></p>
+<p>申请内存时都分给他们一个 mspan 这样的单元会不会产生浪费。其实<strong><code>mcache</code>持有的这一系列的<code>mspan</code>并不都是统一大小的，而是按照大小，从8kb 到 32kb 分了大概 67*2 类的 mspan。</strong></p>
+<blockquote>
+<p><font color='#39b54a'>*2的原因在于每个对象还有scan、noscan两个种类，在后面的GC机制中会详细阐述</font></p>
+</blockquote>
+<p><strong>每个内存页分为多级固定大小的“空闲列表”，这有助于减少碎片。</strong>类似的思路在<code>Linux Kernel</code>、<code>Memcache</code>都可以见到<code>Slab-Allactor</code>。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/RMb7CJ.png" alt="RMb7CJ" style="zoom: 33%;" />
+
+<blockquote>
+<p><font color='#39b54a'>也就是说，go解决内存碎片/内存分配的方法是通过在mcache中挂载的一系列mspan上用不同/多级sizeclass规格的设置不同的大小规格，这样细粒度越小，分配内存时的适配性就更强，产生的碎片就越小</font></p>
+</blockquote>
+<h3 id="3-mcentral"><a href="#3-mcentral" class="headerlink" title="3. mcentral"></a>3. mcentral</h3><p>如果分配内存时<code>mcachce</code>里没有空闲的对口 <code>sizeclass</code> 的 mspan 了，Go 里还为每种类别的 mspan 维护着一个 <code>mcentral</code>。</p>
+<p><strong><code>mcentral</code>的作用是为所有 mcache 提供切分好的 mspan 资源。</strong>每个<code>central</code>会持有一种特定大小的全局 mspan 列表，包括已分配出去的和未分配出去的。 每个 <code>mcentral</code>对应一种 mspan，<strong>当工作线程的 mcache 中没有合适(也就是特定大小的)的mspan 时就会从 <code>mcentral</code>去获取。</strong></p>
+<p><strong><code>mcentral</code> 被所有的工作线程共同享有，</strong>存在多个 goroutine 竞争的情况，因此<strong>从 <code>mcentral</code> 获取资源时需要加锁。</strong><code>mcentral</code>里维护着两个双向链表，non empty 表示链表里还有空闲的 mspan 待分配。empty 表示这条链表里的 mspan 都被分配了object 或缓存 mcache 中。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/HeIivs.png" alt="HeIivs" style="zoom: 33%;" />
+
+<blockquote>
+<p><font color='#39b54a'>如果P的本地mcache不够用了/没有合适的了，那么就会向全局的mcentral中索取合适的mspan使用，但是这个过程就需要加锁了。</font></p>
+</blockquote>
+<blockquote>
+<p><font color='#e54d42'><strong>mcache的核心设计思路与P的本地队列有异曲同工之处。都是为了避免全局大锁的限制，在本地制造缓存，并且为了防止内存碎片将细粒度下拉到很小</strong>。</font></p>
+</blockquote>
+<p>程序申请内存的时候，mcache 里已经没有合适的空闲 mspan了，那么工作线程就会像下图这样去 <code>mcentral</code> 里去申请。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/evwtXN.png" alt="evwtXN" style="zoom:50%;" />
+
+<p>mcache 从 <code>mcentral</code>获取和归还 mspan 的流程：</p>
+<ul>
+<li><p><strong>获取 加锁</strong>；从 non empty 链表找到一个可用的mspan；并将其从 non empty 链表删除；将取出的 mspan 加入到 empty 链表；将 mspan 返回给工作线程；解锁。</p>
+</li>
+<li><p><strong>归还 加锁</strong>；将 mspan 从 empty 链表删除；将mspan 加入到 non empty 链表；解锁。</p>
+</li>
+</ul>
+<p><strong><code>mcentral</code>是 sizeclass 相同的 span 会以链表的形式组织在一起</strong>, 就是指该 span 用来存储哪种大小的对象。</p>
+<h3 id="4-mheap"><a href="#4-mheap" class="headerlink" title="4. mheap"></a>4. mheap</h3><p><strong>当 <code>mcentral</code> 没有空闲的 mspan 时，会向 <code>mheap</code>申请。而 <code>mheap</code>没有资源时，会向操作系统申请新内存。</strong></p>
+<p><strong><code>mheap</code>主要用于大对象的内存分配，以及管理未切割的 mspan，用于给<code>mcentral</code>切割成小对象。</strong></p>
+<p><code>mheap</code>中含有<u>所有规格</u>的<code>mcentral</code>，所以当一个 mcache 从 mcentral 申请 mspan 时，<u>只需要在独立的 mcentral 中使用锁，并不会影响申请其他规格的 mspan。</u></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/GDwBB2.png" alt="GDwBB2" style="zoom:50%;" />
+
+<p><strong><font color='#e54d42'>整体分配的过程：mcache本地mspan =&gt; mcentral =&gt; mheap =&gt; 操作系统</font></strong></p>
+<p><u>所有 mcentral 的集合则是存放于 <code>mheap</code> 中的</u>。<code>mheap</code>里的 <u>arena 区域是真正的堆区</u>，运行时会将 8KB 看做一页，这些内存页中存储了所有在堆上初始化的对象。运行时使用二维的<code>runtime.heapArena</code>数组管理所有的内存，每个 <code>runtime.heapArena</code> 都会管理 64MB 的内存。</p>
+<p>如果 arena 区域没有足够的空间，会调用 <code>runtime.mheap.sysAlloc</code>从操作系统中申请更多的内存。（如下图：<strong>Go 1.11 前</strong>的内存布局）</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/WoTLoF.png" alt="WoTLoF" style="zoom:67%;" />
+
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/OBFgcY.png" alt="OBFgcY" style="zoom:50%;" />
+
+<h3 id="5-tiny"><a href="#5-tiny" class="headerlink" title="5. tiny"></a>5. tiny</h3><p>对于小于16字节的对象(且无指针)，Go 语言将其划分为了tiny 对象。划分 <strong>tiny 对象的主要目的是为了处理极小的字符串和独立的转义变量。</strong>对 json 的基准测试表明，使用 tiny 对象减少了12%的分配次数和20%的堆大小。tiny 对象会被放入class 为2的 span 中。</p>
+<ul>
+<li>首先查看之前分配的元素中是否有空余的空间</li>
+<li>如果当前要分配的大小不够，例如要分配16字节的大小，这时就需要找到下一个空闲的元素</li>
+</ul>
+<p>tiny 分配的第一步是<u>尝试利用分配过的前一个元素的空间</u>，达到<strong>节约内存</strong>的目的。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/a4PtWE.png" alt="a4PtWE" style="zoom: 33%;" />
+
+
+
+<h3 id="6-大于32kb内存分配"><a href="#6-大于32kb内存分配" class="headerlink" title="6. 大于32kb内存分配"></a>6. 大于32kb内存分配</h3><p>Go 没法使用工作线程的本地缓存 mcache 和全局中心缓存 mcentral 上管理超过32KB的内存分配，所以对于那些<strong>超过32KB的内存申请，会直接从堆上(mheap)上分配对应的数量的内存页(每页大小是8KB)给程序。</strong></p>
+<p>历史版本的过程中，搜索满足需求大小的内存空间使用的方法：</p>
+<ul>
+<li>freelist</li>
+<li>treap （二叉搜索树）</li>
+<li>radix tree + pagecache （1.14之后）</li>
+</ul>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/cCKQkL.png" alt="cCKQkL" style="zoom:50%;" />
+
+<h3 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a>7. 总结</h3><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/K7w6uc.png" alt="K7w6uc"></p>
+<p><strong>一般小对象通过 mspan 分配内存；大对象则直接由 mheap 分配内存。</strong></p>
+<ul>
+<li>Go 在程序启动时，会向操作系统申请一大块内存，由 mheap 结构全局管理(现在 Go 版本不需要连续地址了，所以不会申请一大堆地址)</li>
+<li>Go 内存管理的基本单元是 mspan，每种 mspan 可以分配特定大小的 object。</li>
+<li><strong>mcache, mcentral, mheap 是 Go 内存管理的三大组件，mcache 管理线程在本地缓存的 mspan；mcentral 管理全局的 mspan 供给所有线程</strong></li>
+</ul>
+
       
       
       <!-- 添加版权声明 -->
@@ -350,7 +534,33 @@
 
 <!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare" style="margin-top: 50px; background-color: #f6f6f6; margin: 10px;">
+    <strong class="author">本文作者：</strong>
+    
+      DDDemons hide
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2021-11-09
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2021-11-12
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="https://xwjahahahaha.github.io/2021/11/09/技术贴/GoLang/Go进阶训练营/12-runtime-2-内存分配原理/" title="12-runtime-2-内存分配原理" target="_blank">12-runtime-2-内存分配原理</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="https://xwjahahahaha.github.io/2021/11/09/技术贴/GoLang/Go进阶训练营/12-runtime-2-内存分配原理/" title="12-runtime-2-内存分配原理" target="_blank">https://xwjahahahaha.github.io/2021/11/09/技术贴/GoLang/Go进阶训练营/12-runtime-2-内存分配原理/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="http://xwjpics.gumptlu.work/qiniu_picGo/20200806212345.png"/></a>
+    
+  </div>
 
 <!-- 添加版权声明》 -->
       
@@ -425,6 +635,17 @@
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -529,7 +750,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、堆栈-amp-逃逸分析"><span class="toc-number">1.</span> <span class="toc-text">一、堆栈 &amp; 逃逸分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-堆和栈的定义"><span class="toc-number">1.1.</span> <span class="toc-text">1. 堆和栈的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-逃逸分析"><span class="toc-number">1.2.</span> <span class="toc-text">2. 逃逸分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基本概念"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查看是否逃逸的方法"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 查看是否逃逸的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-逃逸案例"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 逃逸案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-总结"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. 总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、连续栈"><span class="toc-number">2.</span> <span class="toc-text">二、连续栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、内存结构"><span class="toc-number">3.</span> <span class="toc-text">三、内存结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、优化实践"><span class="toc-number">4.</span> <span class="toc-text">四、优化实践</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、堆栈-amp-逃逸分析"><span class="toc-number">1.</span> <span class="toc-text">一、堆栈 &amp; 逃逸分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-堆和栈的定义"><span class="toc-number">1.1.</span> <span class="toc-text">1. 堆和栈的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-逃逸分析"><span class="toc-number">1.2.</span> <span class="toc-text">2. 逃逸分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-基本概念"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查看是否逃逸的方法"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 查看是否逃逸的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-逃逸案例"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 逃逸案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-总结"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. 总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、连续栈"><span class="toc-number">2.</span> <span class="toc-text">二、连续栈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-分段栈-Segmented-stacks"><span class="toc-number">2.1.</span> <span class="toc-text">1. 分段栈(Segmented stacks)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-连续栈-contiguous-stack"><span class="toc-number">2.2.</span> <span class="toc-text">2. 连续栈(contiguous stack)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-栈扩容"><span class="toc-number">2.3.</span> <span class="toc-text">3. 栈扩容</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、内存结构"><span class="toc-number">3.</span> <span class="toc-text">三、内存结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-编码时的内存优化技巧"><span class="toc-number">3.1.</span> <span class="toc-text">1. 编码时的内存优化技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-内存管理"><span class="toc-number">3.2.</span> <span class="toc-text">2. 内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-内存概念"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. 内存概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-再谈mcache"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. 再谈mcache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-mcentral"><span class="toc-number">3.2.3.</span> <span class="toc-text">3. mcentral</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-mheap"><span class="toc-number">3.2.4.</span> <span class="toc-text">4. mheap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-tiny"><span class="toc-number">3.2.5.</span> <span class="toc-text">5. tiny</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-大于32kb内存分配"><span class="toc-number">3.2.6.</span> <span class="toc-text">6. 大于32kb内存分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-总结"><span class="toc-number">3.2.7.</span> <span class="toc-text">7. 总结</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -577,7 +798,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-			&copy; 2021 DDDemons hide
+			&copy; 2022 DDDemons hide
 			<span class="post-meta-divider">|</span>
 			<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 			<script>

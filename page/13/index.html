@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 567
+			总文章数 633
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -183,27 +183,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-技术贴/solidity智能合约/合约/隐私计算/DGHV:整数上的同态加密(3)-golang、智能合约实现尝试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/算法/链表/142-环形链表II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E5%90%88%E7%BA%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/">DGHV:整数上的同态加密(3)-golang、智能合约实现尝试</a>
+      <a class="article-title" href="/2021/11/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/142-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II/">142.环形链表II</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E5%90%88%E7%BA%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/11/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/142-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/08/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E5%90%88%E7%BA%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2021-08-25T01:17:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
+<a href="/2021/11/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/142-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II/" class="archive-article-date">
+  	<time datetime="2021-11-12T11:43:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-12</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -212,7 +212,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.3k字</span>
+        <span class="post-count">461字</span>
       </span>
     </span>
 
@@ -221,7 +221,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -233,27 +233,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基于DGHV的同态加密"><a href="#基于DGHV的同态加密" class="headerlink" title="基于DGHV的同态加密"></a>基于DGHV的同态加密</h1><p>基本概念、学习笔记、参考内容：</p>
-<blockquote>
-<p>概念、个人笔记：</p>
-<ol>
-<li><a href="https://blog.csdn.net/weixin_43988498/article/details/118802616" target="_blank" rel="noopener">同态加密的原理详解与go实践</a></li>
-<li><a href="https://blog.csdn.net/weixin_43988498/article/details/119459857" target="_blank" rel="noopener">DGHV:整数上的同态加密(1)-算法构建</a></li>
-<li><a href="https://blog.csdn.net/weixin_43988498/article/details/119570507" target="_blank" rel="noopener">DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图</a></li>
-</ol>
-<p>参考：</p>
-<ol>
-<li>论文：<a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2020&filename=AQJS202009005&v=kzaijASy61Kjw7dUtnNnML6O%25mmd2Bv886ZZ4Mq9RnlqNape%25mmd2BABO%25mmd2Bfioot2MYlYfxTEcj" target="_blank" rel="noopener">《一种基于智能合约的全同态加密方法》</a></li>
-<li>[1] M. Dijk, C. Gentry, S. Halevi, and V.Vaikuntanathan. Fully homomorphic encryption over the integers[J]. Applications of Cryptographic Techniques: Springer, Berlin, 2010, 24-43.</li>
-<li><a href="http://blog.sciencenet.cn/blog-411071-617182.html" target="_blank" rel="noopener">http://blog.sciencenet.cn/blog-411071-617182.html</a></li>
-</ol>
-</blockquote>
-<blockquote>
-<p><font color='#e54d42'><strong>同态加密等计算量大的算法不适合在合约中计算，合约仅作为测试</strong></font></p>
-</blockquote>
-<blockquote>
-<p>本项目代码地址: <a href="https://github.com/xwjahahahaha/DGHV" target="_blank" rel="noopener">https://github.com/xwjahahahaha/DGHV</a></p>
-</blockquote>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">142. 环形链表 II</a></p>
+<p>难度中等1244</p>
+<p>给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 <code>null</code>。</p>
+<p>为了表示给定链表中的环，我们使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意，<code>pos</code> 仅仅是用于标识环的情况，并不会作为参数传递到函数中。</strong></p>
+<p><strong>说明：</strong>不允许修改给定的链表。</p>
         
       
       
@@ -281,13 +265,28 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/leetcode//" class="article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -296,7 +295,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E5%90%88%E7%BA%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/11/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/142-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II/">展开全文 >></a>
         </p>
       
 
@@ -330,27 +329,27 @@
 
 
   
-    <article id="post-知识贴/密码学/隐私计算/同态加密/DGHV/DGHV:整数上的同态加密(3)-golang、智能合约实现尝试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/GoLang/Go进阶训练营/12-runtime-3-GC机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/">DGHV:整数上的同态加密(3)-golang、智能合约实现尝试</a>
+      <a class="article-title" href="/2021/11/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/12-runtime-3-GC%E6%9C%BA%E5%88%B6/">12-runtime-3-GC机制</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/11/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/12-runtime-3-GC%E6%9C%BA%E5%88%B6/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2021-08-25T01:17:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
+<a href="/2021/11/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/12-runtime-3-GC%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2021-11-12T06:38:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-12</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -359,7 +358,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.3k字</span>
+        <span class="post-count">5.2k字</span>
       </span>
     </span>
 
@@ -368,7 +367,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
+        <span class="post-count">18分</span>
       </span>
     </span>
 </div>
@@ -380,28 +379,228 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基于DGHV的同态加密"><a href="#基于DGHV的同态加密" class="headerlink" title="基于DGHV的同态加密"></a>基于DGHV的同态加密</h1><p>基本概念、学习笔记、参考内容：</p>
+        <a id="more"></a>
+
+<h1 id="一、GC原理"><a href="#一、GC原理" class="headerlink" title="一、GC原理"></a>一、GC原理</h1><p>GC(Garbage Collection)现代高级编程语言管理内存的方式分为两种：自动和手动，像 C、C++、rust 等编程语言使用手动管理内存的方式，工程师编写代码过程中需要主动申请或者释放内存；而 PHP、Java 和 Go 等语言使用自动的内存管理系统，有内存分配器和垃圾收集器来代为分配和回收内存，其中垃圾收集器就是我们常说的 GC。主流的垃圾回收算法：</p>
+<ul>
+<li><strong>引用计数</strong>（python、PHP）</li>
+<li><strong>追踪式垃圾回收</strong></li>
+</ul>
+<p>Go 现在用的三色标记法就属于追踪式垃圾回收算法的一种。(go的gc机制也是不断的在更改，到了1.8才算的上及格)</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/da0cKV.png" alt="da0cKV" style="zoom:50%;" />
+
+<h2 id="1-Mark-amp-Sweep-标记清除法"><a href="#1-Mark-amp-Sweep-标记清除法" class="headerlink" title="1. Mark &amp; Sweep 标记清除法"></a>1. Mark &amp; Sweep 标记清除法</h2><ul>
+<li><p>STW</p>
+<p>stop the world, GC 的一些阶段需要停止所有的 mutator 以确定当前内存的引用关系。<strong>这便是很多人对 GC 担心的来源，这也是 GC 算法优化的重点。（减少暂停的时间）</strong></p>
+</li>
+<li><p>Root</p>
+<p>根对象是 mutator <strong>不需要通过其他对象就可以直接访问到的对象</strong>。比如<u>全局对象，栈对象中的数据</u>等。通过Root对象。可以追踪到其他存活的对象。</p>
+</li>
+</ul>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/eu2ZPz.png" alt="eu2ZPz" style="zoom: 33%;" />
+
 <blockquote>
-<p>概念、个人笔记：</p>
+<p><font color='#39b54a'>例如上图所示：停止所有的mutator然后才能确定所有的引用关系，将有引用的mutator标记为红色，没有被引用的就是绿色。清除掉所有绿色的即可</font></p>
+</blockquote>
+<p>Mark Sweep 两个阶段：标记(Mark)和 清除(Sweep)两个阶段</p>
+<p>这个算法就是严格按照<strong>追踪式算法</strong>的思路来实现的：</p>
+<ul>
+<li>Stop the World</li>
+<li>Mark：通过 Root 和 Root 直接/间接访问到的对象， 来寻找所有可达的对象，并进行标记。</li>
+<li>Sweep：对堆对象迭代，已标记的对象置位标记。所有<strong>未标记的对象加入freelist， 可用于再分配。</strong></li>
+<li>Start the Wrold</li>
+</ul>
+<p>这个算法最大的问题是 GC 执行期间需要把整个程序完全暂停，朴素的 Mark Sweep 是整体 STW，并且分配速度慢，内存碎片率高。</p>
+<p>go v1.1版本中, STW可能是秒级，因为在整个过程中整个程序要全部暂停，然后进行扫描</p>
+<p>随后进行了改进：</p>
+<p><strong>go v1.3版本后，只有标记过程需要 STW，因为对象引用关系如果在标记阶段做了修改，会影响标记结果的正确性。</strong>并引入了并发GC：</p>
+<p><strong>并发 GC</strong> 分为两层含义：</p>
+<ul>
+<li>每个 mark 或 sweep 本身是多个线程(协程)执行的(concurrent)</li>
+<li>mutator 应用程序和 collector 内存分配器也同时运行(background)</li>
+</ul>
+<p>concurrent 这一层是比较好实现的, GC 时整体进行STW，那么对象引用关系不会再改变，对 mark 或者sweep 任务进行分块，就能多个线程(协程) conncurrent 执行任务 mark 或 sweep。</p>
+<p>而对于 backgroud 这一层, 也就是说 mutator 和 mark，sweep 同时运行，则相对复杂。</p>
+<ul>
+<li>1.3<strong>以前</strong>的版本使用标记-清扫的方式，<strong>整个过程</strong>都需要 STW。</li>
+<li>1.3版本分离了标记和清扫的操作，<strong>标记过程STW，清扫过程并发执行</strong>。</li>
+</ul>
+<p>backgroup sweep 是比较容易实现的，因为 mark 后，哪些对象是存活，哪些是要被 sweep 是已知的，sweep 的是不再引用的对象。<strong>sweep 结束前，这些对象不会再被分配到，所以 sweep 和 mutator 运行共存</strong>。<strong>无论全局还是栈不可能能访问的到这些对象，可以安全清理。</strong></p>
+<blockquote>
+<p><font color='#39b54a'>其实sweep与mutator运行共存是很好理解的，因为已经STW扫描了全部栈上的对象，如果一个对象没有被引用，那么其就不可能再被访问到，后续也不可能再使用，所以可以安全的直接清理</font></p>
+</blockquote>
+<ul>
+<li><strong>1.5版本在标记过程中使用三色标记法</strong>。<strong>标记和清扫都并发执行的，但<u>标记阶段的前后需要 STW 一定时间</u>来做 GC 的准备工作和栈的re-scan。</strong></li>
+</ul>
+<h2 id="2-Tri-color-Mark-amp-Sweep-三色标记法"><a href="#2-Tri-color-Mark-amp-Sweep-三色标记法" class="headerlink" title="2. Tri-color Mark &amp; Sweep 三色标记法"></a>2. Tri-color Mark &amp; Sweep 三色标记法</h2><p>三色标记是对标记清除法的改进，标记清除法在整个执行时要求长时间 STW，Go 从1.5版本开始改为三色标记法，<strong>初始将所有内存标记为白色，然后将 roots 加入待扫描队列(进入队列即被视为变成灰色)，然后使用并发 goroutine 扫描队列中的指针，如果指针还引用了其他指针，那么被引用的也进入队列，被扫描的对象视为黑色。</strong></p>
+<ul>
+<li>白色对象：<strong>潜在的垃圾</strong>，其内存可能会被垃圾收集器回收。</li>
+<li>黑色对象：<strong>活跃的对象</strong>，包括不存在任何引用外部指针的对象以及从根对象可达的对象，<strong>垃圾回收器不会扫描这些对象的子对象。</strong></li>
+<li>灰色对象 ：<strong>活跃的对象</strong>，因为存在指向白色对象的外部指针，垃圾收集器会扫描这些对象的子对象。</li>
+</ul>
+<blockquote>
+<p><font color='#39b54a'>未扫描时所有对象为白色，然后将roots（全局对象、栈数据等）标记为灰色，进入待扫描队列，然后经过一系列的扫描，如果一个对象被引用就加入扫描队列标记为灰色，过程中被扫描过的对象就是黑色</font></p>
+</blockquote>
+<p>垃圾收集器从 root 开始然后跟随指针递归整个内存空间。*<em>分配于 <code>noscan</code>的 <code>span</code> 的对象(mcache会区分这两种mspan),不会进行下一步扫描。 (因为这些对象不含有指针，所以不用下一步扫描了) *</em></p>
+<p>然而，此过程不是由同一个 goroutine 完成的，每个指针都排队在工作池中 然后，先看到的被标记为工作协程的后台协程从该池中出队，扫描对象，然后将在其中找到的指针排入队列。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/r7m7CB.png" alt="r7m7CB" style="zoom: 33%;" />
+
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/nT4XUm.png" alt="nT4XUm" style="zoom:50%;" />
+
+<p>染色流程：</p>
+<ul>
+<li><p>一开始所有对象被认为是白色</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/CXHfHm.png" alt="CXHfHm" style="zoom:33%;" />
+</li>
+<li><p>根节点(stacks，heap，global variables)被染色为灰色</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/z8Ux7p.png" alt="z8Ux7p" style="zoom: 33%;" />
+
+<p>​    此时S2会被直接被标记为黑色，因为他是noscan对象</p>
+</li>
+</ul>
+<p>一旦主流程走完，gc会：</p>
+<ul>
+<li><p>选一个灰色对象，标记为黑色（S1）</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/sOodQk.png" alt="sOodQk" style="zoom:33%;" />
+</li>
+<li><p>遍历这个对象的所有指针，标记所有其引用的对象为灰色（上图S2被标灰）</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/HaELTI.png" alt="HaELTI" style="zoom:33%;" />
+
+</li>
+</ul>
+<p>最终直到所有对象需要被染色。</p>
+<p>标记结束后，<strong>黑色对象是内存中正在使用的对象，而白色对象是要收集的对象</strong>。</p>
+<p>由于struct2的实例是在匿名函数中创建的，并且无法从堆栈访问，因此它保持为白色，可以清除。（对应于上图的白色S2）</p>
+<p><strong>颜色在内部实现原理：</strong></p>
+<p><strong>每个 span 中有一个名为 <code>gcmarkBits</code>的位图属性，该属性跟踪扫描，并将相应的位设置为1。</strong>(标记是否被扫描过)</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/16gSw8.png" alt="16gSw8" style="zoom:50%;" />
+
+<h2 id="3-Write-Barrier"><a href="#3-Write-Barrier" class="headerlink" title="3. Write Barrier"></a>3. Write Barrier</h2><p>1.5版本在标记过程中使用三色标记法。回收过程主要有四个阶段，其中，标记和清扫都并发执行的，但<strong>标记阶段的前后需要 STW 一定时间来做GC 的准备工作和栈的 re-scan。</strong></p>
+<p>各个版本gc效率对比：</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/pnpbKC.png" alt="pnpbKC" style="zoom:67%;" />
+
+<p>使用并发的垃圾回收，也就是<strong>多个 Mutator 与 Mark 并发执行（不需要整个标记阶段都停止）</strong>，<u>想要在<font color='#e54d42'><strong>并发或者增量的标记算法（程序边执行边标记）</strong></font>中保证正确性，我们需要达成以下两种三色不变性(Tri-color invariant)中的任意一种：</u></p>
+<ul>
+<li><strong>强三色不变性</strong>：<u>黑色对象不会指向白色对象</u>，只会指向灰色对象或者黑色对象。</li>
+<li><strong>弱三色不变性</strong> ：如果需要黑色对象可以指向白色对象，那么就一定需要黑色对象指向的白色对象必须包含一条从灰色对象经由多个白色对象的可达路径。</li>
+</ul>
+<p>可以看出，一个白色对象被黑色对象引用，是注定无法通过这个黑色对象来保证自身存活的，与此同时，如果所有能到达它的灰色对象与它之间的可达关系全部遭到破坏，那么这个白色对象必然会被视为垃圾清除掉。 故当上述两个条件同时满足时，就会出现<strong>对象丢失的问题</strong>。<strong>如果这个白色对象下游还引用了其他对象，并且这条路径是指向下游对象的唯一路径，那么他们也是必死无疑的。</strong></p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211112162556193.png" alt="image-20211112162556193" style="zoom:50%;" />
+
+
+
+<p>为了防止这种现象的发生，最简单的方式就是 STW，直接禁止掉其他用户程序对对象引用关系的干扰，但是 STW 的过程有明显的资源浪费，对所有的用户程序都有很大影响，<strong>如何能在保证对象不丢失的情况下合理的尽可能的提高 GC 效率，减少 STW 时间呢？</strong></p>
+<h3 id="Dijkstra-写屏障"><a href="#Dijkstra-写屏障" class="headerlink" title="Dijkstra 写屏障"></a>Dijkstra 写屏障</h3><p><strong>插入屏障拦截将白色指针插入黑色对象的操作，标记其对应对象为灰色状态，这样就不存在黑色对象引用白色对象的情况了，满足强三色不变式，在插入指针 f 时将 C 对象标记为灰色。</strong></p>
+<blockquote>
+<p><font color='#39b54a'>一旦一个黑色对象指向一个白色对象，那么就把这个白色对象变为灰色。也就是上面的第二步的时候直接将C标记为灰色</font></p>
+</blockquote>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/puBFlQ.png" alt="puBFlQ" style="zoom:50%;" />
+
+<p>其实具体的做法就是在编译期间在你的代码上强制插入了一段代码让这个C变成了灰色</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/JIPpCG.png" alt="JIPpCG" style="zoom:50%;" />
+
+<p>如果对栈上的写做拦截，那么流程代码会非常复杂，并且性能下降会非常大，得不偿失。根据局部性的原理来说，其实我们程序跑起来，大部分的其实都是操作在栈上，函数参数啊、函数调用导致的压栈出栈、局部变量啊，协程栈，这些如果也弄起写屏障，那么可想而知了，根本就不现实，复杂度和性能就是越不过去的坎。</p>
+<p><strong>所以go 1.5只对堆上的对象做这个拦截操作/写屏障</strong></p>
 <ol>
-<li><a href="https://blog.csdn.net/weixin_43988498/article/details/118802616" target="_blank" rel="noopener">同态加密的原理详解与go实践</a></li>
-<li><a href="https://blog.csdn.net/weixin_43988498/article/details/119459857" target="_blank" rel="noopener">DGHV:整数上的同态加密(1)-算法构建</a></li>
-<li><a href="https://blog.csdn.net/weixin_43988498/article/details/119570507" target="_blank" rel="noopener">DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图</a></li>
+<li>内存屏障只是对应一段特殊的代码；</li>
+<li>内存屏障这段代码在编译期间生成；</li>
+<li>内存屏障本质上<strong>在运行期间拦截内存写操作，相当于一个 hook 调用</strong></li>
 </ol>
-<p>参考：</p>
+<p>Go 团队在实现上选择了在标记阶段完成时暂停程序、将所有栈对象标记为灰色并重新扫描，在活跃 goroutine 非常多的程序中，重新扫描的过程需要占用 10 ~ 100ms 的时间。</p>
+<p><strong>1.5版本的整体过程：</strong></p>
 <ol>
-<li>论文：<a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2020&filename=AQJS202009005&v=kzaijASy61Kjw7dUtnNnML6O%25mmd2Bv886ZZ4Mq9RnlqNape%25mmd2BABO%25mmd2Bfioot2MYlYfxTEcj" target="_blank" rel="noopener">《一种基于智能合约的全同态加密方法》</a></li>
-<li>[1] M. Dijk, C. Gentry, S. Halevi, and V.Vaikuntanathan. Fully homomorphic encryption over the integers[J]. Applications of Cryptographic Techniques: Springer, Berlin, 2010, 24-43.</li>
-<li><a href="http://blog.sciencenet.cn/blog-411071-617182.html" target="_blank" rel="noopener">http://blog.sciencenet.cn/blog-411071-617182.html</a></li>
+<li>初始化 GC 任务，包括<strong>开启写屏障(write barrier)和开启辅助 GC(mutator assist)</strong>，统计 root 对象的任务数量等，这个过程需要 STW（非常快）。</li>
+<li>扫描所有 root 对象，包括全局指针和 goroutine(G) 栈上的指针(<strong>扫描对应 G 栈时需停止该 G</strong>)，将其加入标记队列(灰色队列)，并循环处理灰色队列的对象，直到灰色队列为空，<strong>该过程后台并行执行</strong>。</li>
+<li>完成标记工作，<strong>重新扫描(re-scan)全局指针和栈</strong>。因为 Mark 和 mutator 是并行的，所以在 Mark 过程中可能会有新的对象分配和指针赋值，这个时候就需要通过写屏障(write barrier)记录下来，re-scan 再检查一下，这个过程也是会 STW 的。</li>
+<li>按照标记结果回收所有的白色对象，该过程后台并行执行。</li>
 </ol>
-</blockquote>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/oBUQRD.png" alt="oBUQRD"></p>
 <blockquote>
-<p><font color='#e54d42'><strong>同态加密等计算量大的算法不适合在合约中计算，合约仅作为测试</strong></font></p>
+<p><font color='#39b54a'>在编译阶段就通过写屏障将堆上的上述情况进行拦截，栈上的不管。然后扫描标记与内存创建、应用程序并行运行，在完成标记之前再re-scan标记刚刚并行期间以及栈上所有的未被引用的对象，最后统一删除清理</font></p>
 </blockquote>
+<h3 id="Yuasa-删屏障"><a href="#Yuasa-删屏障" class="headerlink" title="Yuasa 删屏障"></a>Yuasa 删屏障</h3><p>删除屏障也是<strong>拦截写操作</strong>的，但是是<strong>通过保护灰色对象到白色对象的路径不会断</strong>来实现的。如下图例中，在删除指针 e 时将对象 C 标记为灰色，这样 C 下游的所有白色对象，即使会被黑色对象引用，最终也还是会被扫描标记的，满足了弱三色不变式。这种方式的<strong>回收精度低</strong>，<strong>一个对象即使被删除了最后一个指向它的指针也依旧可以活过这一轮</strong>，在下一轮 GC 中被清理掉。(一个本来就需要删除的白色对象需要在下一轮才会被回收)</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/Wapt6e.png" alt="Wapt6e" style="zoom:50%;" />
+
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/StITg9.png" alt="StITg9" style="zoom: 50%;" />
+
+<h3 id="混合屏障"><a href="#混合屏障" class="headerlink" title="混合屏障"></a>混合屏障</h3><p>插入屏障和删除屏障各有优缺点：</p>
+<p><strong>Dijkstra 的插入写屏障在标记开始时<em>无需 STW（只需要一小段的STW开启它）</em>，可直接开始，并发进行</strong>，<strong>但结束时需要 STW 来重新扫描栈</strong>，标记栈上引用的白色对象的存活；</p>
+<p>Yuasa 的<strong>删除写屏障则<u>需要在 GC 开始时 STW 扫描堆栈</u>来记录初始快照，</strong>这个过程会保护开始时刻的所有存活对象，但<strong>结束时无需 STW。</strong></p>
+<p><strong>Go1.8 混合写屏障结合了Yuasa的删除写屏障和Dijkstra的插入写屏障</strong></p>
+<p>Golang 中的混合写屏障满足的是变形的弱三色不变式，<font color='#e54d42'><strong>同样允许黑色对象引用白色对象，白色对象处于灰色保护状态，但是只由堆上的灰色对象保护。</strong></font></p>
+<p>例如，一个堆上的灰色对象B，引用白色对象C，在GC并发运行的过程中，如果栈已扫描置黑，而赋值器将指向C的唯一指针从B中删除，并让栈上其他对象引用它，这时，写屏障会在删除指向白色对象C的指针的时候就将C对象置灰，就可以保护下来了，且它下游的所有对象都处于被保护状态。 </p>
+<p>如果对象B在栈上，引用堆上的白色对象C，将其引用关系删除，且新增一个黑色对象到对象C的引用，那么就需要通过shade(ptr)来保护了，在指针插入黑色对象时会触发对对象C的置灰操作。如果栈已经被扫描过了，那么栈上引用的对象都是灰色或受灰色保护的白色对象了，所以就没有必要再进行这步操作。</p>
 <blockquote>
-<p>本项目代码地址: <a href="https://github.com/xwjahahahaha/DGHV" target="_blank" rel="noopener">https://github.com/xwjahahahaha/DGHV</a></p>
+<ul>
+<li><p><font color='#e54d42'>写屏障：对于堆上的黑色对象，如果已经变为黑色再引用一个白色对象，那么就将这个白色对象变为灰色保护起来。（写屏障对堆上的强三色不变性处理）</font></p>
+</li>
+<li><p><font color='#e54d42'>删屏障：对于栈上的灰色对象，如果其和一个黑色对象同时引用一个白色对象，当运行时删除了灰色对象对白色对象的引用的时候就将这个白色对象变为灰色。（这保证了栈上所有对象不会出错，弥补了写屏障对栈不处理的缺点）</font></p>
+</li>
+</ul>
 </blockquote>
-        
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/f6mhsY.png" alt="f6mhsY" style="zoom:50%;" />
+
+<p><strong>所以，只需要一开始的扫描STW，后续不再需要重新扫描了，因为后面的白色由灰色来保护（删屏障）</strong></p>
+<p>由于结合了 Yuasa 的删除写屏障和 Dijkstra 的插入写屏障的优点，<font color='#e54d42'>只需要在开始时并发扫描各个goroutine 的栈，使其变黑并一直保持，这个过程不需要 STW，而标记结束后，因为栈在扫描后始终是黑色的，也无需再进行 re-scan 操作了，减少了 STW 的时间。</font></p>
+<p><strong>为了移除栈的重扫描过程</strong>，除了引入混合写屏障之外，在垃圾收集的标记阶段，<strong>我们还需要将创建的所有新对象都标记成黑色，防止新分配的栈内存和堆内存中的对象被错误地回收</strong>，因为栈内存在标记阶段最终都会变为黑色，所以不再需要重新扫描栈空间。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/bDHanw.png" alt="bDHanw" style="zoom: 50%;" />
+
+<h3 id="Sweep"><a href="#Sweep" class="headerlink" title="Sweep"></a>Sweep</h3><p>Sweep 让 Go 知道哪些内存可以重新分配使用，然而，Sweep 过程并不会处理释放的对象内存置为0(<code>zeroing the memory</code>)。而是在分配重新使用的时候，重新<code>reset bit</code>。</p>
+<blockquote>
+<p><font color='#39b54a'>在释放的时候不会将其内存空间重制为0，而是在<strong>再次使用的时候将其设置为0</strong>。也就是说标记了对象0、1之后，再次使用该内存空间的时候如果是0（可清除）那么才将其所有位清空为0</font></p>
+</blockquote>
+<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/YLH8Gt.png" alt="YLH8Gt"></p>
+<p>每个 span 内有一个 <code>bitmap allocBits</code>，他表示上一次 GC 之后每一个 object 的分配情况</p>
+<p>1：表示已分配，0：表示未使用或释放。</p>
+<p>内部还使用了 <code>uint64 allocCache(deBruijn)</code>，加速寻找 freeobject。</p>
+<p>这个<code>allocBits</code>怎样赋值呢？</p>
+<p>GC 将会启动去释放不再被使用的内存。在标记期间，GC 会用一个位图<code>gcmarkBits</code> 来跟踪在使用中的内存。<br>正在被使用的内存被标记为黑色，然而当前执行并不能够到达的那些内存会保持为白色。</p>
+<p>现在，我们可以使用<code>gcmarkBits</code>精确查看可用于分配的内存。<strong>Go 使用 <code>gcmarkBits</code> 赋值了<code>allocBits</code></strong>，这个操作就是内存清理。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/NicGa3.png" alt="NicGa3" style="zoom:50%;" />
+
+<p>然而必须每个 扫描一遍 来一次类似的处理，需要耗费大量时间。Go 的目标是在清理内存时不阻碍执行，并为此提供了两种策略：</p>
+<p>Go 提供两种方式来清理内存：</p>
+<ul>
+<li><p><strong>在后台启动一个 worker 等待清理内存，一个一个 mspan 处理</strong><br>当开始运行程序时，Go 将设置一个后台运行的 Worker(唯一的任务就是去清理内存)，它将进入睡眠状态并等待内存段扫描。</p>
+</li>
+<li><p><strong>当申请分配内存时候 lazy 触发</strong></p>
+<p>当应用程序 goroutine 尝试在堆内存中分配新内存时，会触发该操作。<strong>清理导致的延迟和吞吐量降低被分散到每次内存分配时。</strong></p>
+</li>
+</ul>
+<p>清理内存段的<strong>第二种方式是即时执行</strong>。但是，由于这些内存段已经被分发到每一个处理器 P 的本地缓存 mcache 中，因此很难追踪首先清理哪些内存。这就是为什么 <strong>Go 首先将所有内存段移动到 mcentral 的原因。然后，它将会让本地缓存 mcache 再次请求它们，去即时清理。</strong></p>
+<p>即时扫描确保所有内存段都会得到清理（节省资源），同时不会阻塞程序执行。</p>
+<p>由于后台只有一个 worker 在清理内存块，清理过程可能会花费一些时间。但是，我们可能想知道如果另一个 GC 周期在一次清理过程中启动会发生什么。在这种情况下，这个运行 GC 的 Goroutine 就会在开始标记阶段前去协助完成剩余的清理工作。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211112183631161.png" alt="image-20211112183631161" style="zoom:50%;" />
+
+<h2 id="4-Stop-The-World"><a href="#4-Stop-The-World" class="headerlink" title="4. Stop The World"></a>4. Stop The World</h2><p>在垃圾回收机制 (GC) 中，”Stop the World” (STW) 是一个重要阶段。顾名思义， 在 “Stop the World” 阶段， <strong>当前运行的所有程序将被暂停， 扫描内存的 root 节点和添加<u>写屏障</u> (write barrier) 。</strong></p>
+<p>这个阶段的第一步， 是抢占所有正在运行的 goroutine（sysmon发送信号量抢占），被抢占之后， 这些 goroutine 会被悬停在一个相对安全的状态。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/9FfIXL.png" alt="9FfIXL" style="zoom:50%;" />
+
+
+
+<p>处理器 P (无论是正在运行代码的处理器还是已在 idle 列表中的处理器)， 都会被被标记成停止状态 (stopped)， 不再运行任何代码。 调度器把每个处理器的 M  从各自对应的处理器 P 分离出来， 放到 idle 列表中去。</p>
+<p>对于 Goroutine 本身， 他们会被放到一个全局队列中等待。</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211112183915560.png" alt="image-20211112183915560" style="zoom:50%;" />
+
+
+
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/KbT2m6.png" alt="KbT2m6" style="zoom: 33%;" />
+
+
+
+<p>运行时中有 GC<code>Percentage</code>的配置选项，默认情况下为100。</p>
+<p>此值表示在下一次垃圾收集必须启动之前可以分配多少新内存的比率。将 GC 百分比设置为100意味着，基于在垃圾收集完成后标记为活动的堆内存量，下次垃圾收集前，堆内存使用可以增加100%。</p>
+<p>如果超过2分钟没有触发，会强制触发 GC。</p>
+<blockquote>
+<p>使用环境变量 GODEBUG 和 gctrace = 1选项生成GC trace GODEBUG=gctrace=1 ./app</p>
+</blockquote>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/CUQ2nC.png" alt="CUQ2nC" style="zoom:50%;" />
+
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/lFwUfq.png" alt="lFwUfq" style="zoom:50%;" />
+
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/xqFqyM.png" alt="xqFqyM" style="zoom: 33%;" />
+
+
       
       
       <!-- 添加版权声明 -->
@@ -434,7 +633,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
         		</li>
       		
 		</ul>
@@ -443,7 +642,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/11/12/%E6%8A%80%E6%9C%AF%E8%B4%B4/GoLang/Go%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/12-runtime-3-GC%E6%9C%BA%E5%88%B6/">展开全文 >></a>
         </p>
       
 
@@ -477,27 +676,27 @@
 
 
   
-    <article id="post-知识贴/数学/Shapley-Value全解析与公式推导" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/每日一记/日记/2021-11/日记-0247" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">Shapley_Value全解析与公式推导</a>
+      <a class="article-title" href="/2021/11/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-11/%E6%97%A5%E8%AE%B0-0247/">日记_0247</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/11/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-11/%E6%97%A5%E8%AE%B0-0247/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="archive-article-date">
-  	<time datetime="2021-08-18T11:05:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-18</time>
+<a href="/2021/11/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-11/%E6%97%A5%E8%AE%B0-0247/" class="archive-article-date">
+  	<time datetime="2021-11-12T00:54:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-12</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -506,146 +705,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.3k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">15分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<blockquote>
-<p>学习参考资料：</p>
-<p><a href="https://baike.baidu.com/item/shapley值法/5909624" target="_blank" rel="noopener">https://baike.baidu.com/item/shapley值法/5909624</a></p>
-<p><a href="https://www.zhihu.com/question/23180647" target="_blank" rel="noopener">https://www.zhihu.com/question/23180647</a></p>
-<p><a href="https://www.bilibili.com/video/BV1MA41137iv?from=search&amp;seid=9563739550004489326" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1MA41137iv?from=search&amp;seid=9563739550004489326</a></p>
-<p><a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFD2013&amp;filename=SSJS201304007&amp;v=gINqgtNlfA%25mmd2BN%25mmd2BweW6Jg1PX2lPFQWcExU%25mmd2FRrv9Opswp8%25mmd2BXPAZYTlGhuoRIhIeCBaz" target="_blank" rel="noopener">https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFD2013&amp;filename=SSJS201304007&amp;v=gINqgtNlfA%25mmd2BN%25mmd2BweW6Jg1PX2lPFQWcExU%25mmd2FRrv9Opswp8%25mmd2BXPAZYTlGhuoRIhIeCBaz</a></p>
-</blockquote>
-<p>1951年，由诺贝尔得主Shapley提出，用于公平地定量<strong>评估用户边际贡献度</strong>的常用指标，起源于合作博弈，并用于广泛的领域，包括使用Shapley Value作为ML特征的选择，对训练数据的重要性进行排序</p>
-<blockquote>
-<p>百度百科：</p>
-<p>基于Shapley值进行联盟成员的利益分配体现了各盟员对联盟总目标的贡献程度，避免了分配上的平均主义，比任何一种仅按资源投入价值、<a href="https://baike.baidu.com/item/资源配置效率/11064708" target="_blank" rel="noopener">资源配置效率</a>及将二者相结合的分配方式都更具合理性和公平性，也体现了各盟员相互博弈的过程。但Shapley值法的利益分配方案尚未考虑联盟成员的风险分担因素，<strong>实质上隐含着各盟员风险分担均等的假设</strong>，<strong>因此，对于联盟成员风险分担不等或风险分担存在较大差异的状况，需要根据风险分担大小对Shapley值法的利益分配方案做出适当的修正。</strong>另需要注意利用Shapley值法进行利益分配应具备的前提条件是：要求每个参与人对在不同联盟组合状态下的利益要有一个较为准确的预期；此外，还要对这种复杂的计算方式有一个清楚的了解。知识联盟的总产出有时可能是不确定的，不同联盟组合状态下的收益也可能是不确定的，这会在一定程度上影响Shapley值法的应用。对于总效用不确定的情况，为了获取一个比较合理的不同联盟组合状态下的效用值，可以采用AHP法、ANP法、模糊数学等综合评价方法来估算各种联盟组合状态下的可能效用值，从而获得shapley值法所需要的数据，再进行具体利益分配上的计算 [1] 。</p>
-</blockquote>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2021-08/日记-0218" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0218/">日记_0218</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0218/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0218/" class="archive-article-date">
-  	<time datetime="2021-08-18T00:47:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-18</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">310字</span>
+        <span class="post-count">199字</span>
       </span>
     </span>
 
@@ -666,9 +726,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="论文阅读梳理："><a href="#论文阅读梳理：" class="headerlink" title="论文阅读梳理："></a>论文阅读梳理：</h2><h3 id="粗读："><a href="#粗读：" class="headerlink" title="粗读："></a>粗读：</h3><ul>
-<li><input checked="" disabled="" type="checkbox"> 网上资料学习:闪电网络</li>
-<li><input disabled="" type="checkbox"> Advances_and_Open_Problems_in_Federated_Learning</li>
+        <h2 id="学习规划"><a href="#学习规划" class="headerlink" title="学习规划:"></a>学习规划:</h2><h3 id="8月"><a href="#8月" class="headerlink" title="8月"></a>8月</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li>
+<li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li>
+<li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li>
+<li><input checked="" disabled="" type="checkbox"> 专利一篇(金链积分)</li>
+<li><input checked="" disabled="" type="checkbox"> 华为区块链比赛</li>
+<li><input checked="" disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)  </li>
+</ul>
+<h3 id="9月"><a href="#9月" class="headerlink" title="9月"></a>9月</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 论文实验 编码实现FedSharing（Cosmos、p2p）)</li>
 </ul>
         
       
@@ -727,7 +794,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/18/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0218/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/11/12/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-11/%E6%97%A5%E8%AE%B0-0247/">展开全文 >></a>
         </p>
       
 
@@ -761,27 +828,27 @@
 
 
   
-    <article id="post-技术贴/小技巧/Parallels17新版本-让MacM1享受Windows11的配置全流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-技术贴/容器技术/Docker/动手实践一个docker系列/3-构造镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/Parallels17%E6%96%B0%E7%89%88%E6%9C%AC-%E8%AE%A9MacM1%E4%BA%AB%E5%8F%97Windows11%E7%9A%84%E9%85%8D%E7%BD%AE%E5%85%A8%E6%B5%81%E7%A8%8B/">Parallels17新版本:让MacM1享受Windows11的配置全流程</a>
+      <a class="article-title" href="/2021/11/11/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/3-%E6%9E%84%E9%80%A0%E9%95%9C%E5%83%8F/">3-构造镜像</a>
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/Parallels17%E6%96%B0%E7%89%88%E6%9C%AC-%E8%AE%A9MacM1%E4%BA%AB%E5%8F%97Windows11%E7%9A%84%E9%85%8D%E7%BD%AE%E5%85%A8%E6%B5%81%E7%A8%8B/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/11/11/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/3-%E6%9E%84%E9%80%A0%E9%95%9C%E5%83%8F/" class="pageViews">0</span>次
   </a>
 
         
         
-<a href="/2021/08/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/Parallels17%E6%96%B0%E7%89%88%E6%9C%AC-%E8%AE%A9MacM1%E4%BA%AB%E5%8F%97Windows11%E7%9A%84%E9%85%8D%E7%BD%AE%E5%85%A8%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2021-08-17T01:32:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-17</time>
+<a href="/2021/11/11/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/3-%E6%9E%84%E9%80%A0%E9%95%9C%E5%83%8F/" class="archive-article-date">
+  	<time datetime="2021-11-11T14:09:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-11</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -790,7 +857,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
+        <span class="post-count">5.5k字</span>
       </span>
     </span>
 
@@ -799,7 +866,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
+        <span class="post-count">24分</span>
       </span>
     </span>
 </div>
@@ -811,17 +878,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[TOC]</p>
-<p>Parallels Desktop是很多Mac用户使用虚拟机的常用软件，现在Parallels Desktop 17版本已经发布！</p>
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/UdoYYw.png" alt="UdoYYw" style="zoom:40%;" />
-
-<p>17版本与微软合作一起提高了Windows11在Mac m1上的兼容性</p>
-<p>已经有up做了测试，可以看看顺滑程度：<a href="https://www.bilibili.com/video/BV1Co4y1m783?p=1&share_medium=iphone&share_plat=ios&share_session_id=DFA74A3E-E8CE-49F9-9063-B2DE4601F4E1&share_source=WEIXIN&share_tag=s_i&timestamp=1629126544&unique_k=3SP924" target="_blank" rel="noopener">专为 M1 Mac 和 Win11 优化！体验 Parallels 17 带来的畅快新感受</a></p>
-<p>可以说日常办公的丝滑程度与一体机无异以及可上手的游戏体验（评论区说lol可以120帧）真的让人心动！</p>
-<p>这里就记录一下配置的全流程</p>
-<blockquote>
-<p><font color='#e54d42'><strong>所有需要的资源可以在文章底部获取！</strong></font></p>
+        <blockquote>
+<p>学习自《自己动手写Docker》</p>
+<p>作者：<a href="https://www.zhihu.com/people/chen-xian-lu-10/activities" target="_blank" rel="noopener">陈显鹭（花名：遥鹭）-阿里云高级研发工程师</a>等</p>
+<p>京东购买链接：<a href="https://item.jd.com/10033552355433.html" target="_blank" rel="noopener">https://item.jd.com/10033552355433.html</a></p>
+<p>其他链接:</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/101096040" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/101096040</a></li>
+<li><a href="https://www.chaochaogege.com/2019/09/11/2/" target="_blank" rel="noopener">https://www.chaochaogege.com/2019/09/11/2/</a></li>
+</ul>
 </blockquote>
+<p>[TOC]</p>
         
       
       
@@ -849,6 +916,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -864,7 +942,159 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/17/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%B0%8F%E6%8A%80%E5%B7%A7/Parallels17%E6%96%B0%E7%89%88%E6%9C%AC-%E8%AE%A9MacM1%E4%BA%AB%E5%8F%97Windows11%E7%9A%84%E9%85%8D%E7%BD%AE%E5%85%A8%E6%B5%81%E7%A8%8B/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/11/11/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/Docker/%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%B8%80%E4%B8%AAdocker%E7%B3%BB%E5%88%97/3-%E6%9E%84%E9%80%A0%E9%95%9C%E5%83%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-随笔/每日一记/日记/2021-11/日记-0246" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/11/11/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-11/%E6%97%A5%E8%AE%B0-0246/">日记_0246</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/11/11/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-11/%E6%97%A5%E8%AE%B0-0246/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/11/11/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-11/%E6%97%A5%E8%AE%B0-0246/" class="archive-article-date">
+  	<time datetime="2021-11-11T00:59:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-11</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">180字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="学习规划"><a href="#学习规划" class="headerlink" title="学习规划:"></a>学习规划:</h2><h3 id="8月"><a href="#8月" class="headerlink" title="8月"></a>8月</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> cosmos项目架构熟悉,<del>做完全部的案例</del>,<del>并且熟悉SDK</del></li>
+<li><input checked="" disabled="" type="checkbox"> 科技部编程比赛项目实现(使用cosmos)</li>
+<li><input checked="" disabled="" type="checkbox"> Go公链实现项目(simple_bitcoin)</li>
+<li><input checked="" disabled="" type="checkbox"> 专利一篇(金链积分)</li>
+<li><input checked="" disabled="" type="checkbox"> 华为区块链比赛</li>
+<li><input checked="" disabled="" type="checkbox"> 第一篇论文初稿(blockchain + FL)  </li>
+</ul>
+<h3 id="9月"><a href="#9月" class="headerlink" title="9月"></a>9月</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 论文实验 编码实现FedSharing（Cosmos、p2p）)</li>
+</ul>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/11/11/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-11/%E6%97%A5%E8%AE%B0-0246/">展开全文 >></a>
         </p>
       
 
@@ -900,7 +1130,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/114/">114</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/127/">127</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
     </nav>
   
 
@@ -912,7 +1142,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-			&copy; 2021 DDDemons hide
+			&copy; 2022 DDDemons hide
 			<span class="post-meta-divider">|</span>
 			<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 			<script>

@@ -61,7 +61,7 @@
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201118161512.png">
 <meta property="og:image" content="http://xwjpics.gumptlu.work/qiniu_picGo/20201122183834.png">
 <meta property="article:published_time" content="2020-10-21T11:18:59.000Z">
-<meta property="article:modified_time" content="2021-11-05T06:49:17.074Z">
+<meta property="article:modified_time" content="2021-11-11T02:41:40.661Z">
 <meta property="article:author" content="DDDemons hide">
 <meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
@@ -119,7 +119,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 567
+			总文章数 633
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -273,7 +273,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">89分</span>
+        <span class="post-count">90分</span>
       </span>
     </span>
 </div>
@@ -615,6 +615,9 @@
 <p><code>func Join(elems []string, sep string) string</code> 参数1: 需要合并的所有字符串数组，参数二：每个字符串之间的分隔符</p>
 <p>或者使用<code>bytes.Buffer</code>方式:</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ss := []<span class="keyword">string</span>&#123;<span class="string">"xxx"</span>, <span class="string">"yyy"</span>, <span class="string">"zzz"</span>&#125;</span><br><span class="line">	<span class="keyword">var</span> buf bytes.Buffer</span><br><span class="line">	<span class="keyword">for</span> _, s := <span class="keyword">range</span> ss &#123;</span><br><span class="line">		buf.Write([]<span class="keyword">byte</span>(s))</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(buf.String())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有一种方式：<code>strings.Builder</code>更加高效</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	strs := []<span class="keyword">string</span>&#123;<span class="string">"xxx"</span>, <span class="string">"dwq"</span>, <span class="string">"htgw"</span>, <span class="string">"1das2312"</span>&#125;</span><br><span class="line">	<span class="keyword">var</span> sb strings.Builder			<span class="comment">// 底层维护了一个字节数组</span></span><br><span class="line">	<span class="keyword">for</span> _, s := <span class="keyword">range</span> strs &#123;</span><br><span class="line">		<span class="comment">// strings.Builder.WriteString的过程就是不断像底层字节数组append，很高效</span></span><br><span class="line">		sb.WriteString(s)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(sb.String())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>string字符串转[]byte会导致底层内存的复制，怎样优化呢？</p>
 <p>因为go语言中string类型是不可变的，而[]byte类型是可变的，所以string转换[]byte是需要内存拷贝的。（强类型转换都会发生底层数据的内存拷贝）</p>
@@ -1298,7 +1301,7 @@
     2020-10-21
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-11-05
+    2021-11-11
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://xwjahahahaha.github.io/2020/10/21/技术贴/GoLang/基础语法/Go语言-1-基础/" title="Go语言-1-基础" target="_blank">Go语言-1-基础</a>
@@ -1556,7 +1559,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-			&copy; 2021 DDDemons hide
+			&copy; 2022 DDDemons hide
 			<span class="post-meta-divider">|</span>
 			<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 			<script>
