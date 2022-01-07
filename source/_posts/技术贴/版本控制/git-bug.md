@@ -14,7 +14,7 @@ date: 2022-01-07 11:22:04
 
 <!-- more -->
 
-#### 1. 密码权限问题
+## 1. 密码权限问题
 
 ---
 
@@ -30,7 +30,7 @@ date: 2022-01-07 11:22:04
 >
 > 删除之前的码云凭证，然后重新push即可
 
-#### 2. Updates were rejected because the tip of your current branch is behind
+## 2. Updates were rejected because the tip of your current branch is behind
 
 ! [rejected]        master -> master (non-fast-forward)
 error: failed to push some refs to 'git@github.com:xxxxxxx.git'
@@ -63,7 +63,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 `$ git push -u origin [name]`
 
-#### 3. error: pathspec 'master' did not match any file(s) known to git
+## 3. error: pathspec 'master' did not match any file(s) known to git
 
 ```shell
 git branch   # 查看自己的分支,检查master是否在自己分支
@@ -71,14 +71,18 @@ git fetch		 # 构建所有的分支
 git checkout mast # 转换分支
 ```
 
-#### 4.remote设置了远程仓库，但是看不到分支
+## 4.remote设置了远程仓库，但是看不到分支
 
 `git remote update origin --prune`
 
-#### 5. fatal: Not a valid object name: ‘master‘
+## 5. fatal: Not a valid object name: ‘master‘
 
 先add、commit再操作
 
+## 6.warning: LF will be replaced by CRLF in 解决办法
 
+原因是存在符号转义问题
 
+windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：、
 
+`git config --global core.autocrlf false`

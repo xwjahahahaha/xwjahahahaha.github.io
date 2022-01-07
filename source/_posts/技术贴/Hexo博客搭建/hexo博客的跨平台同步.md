@@ -112,3 +112,7 @@ hexo的工作流程：
 
 * 每次换一个主机编写的时候都先git pull一下避免分支冲突
 * 可以选一个主机作为固定的hexo 部署
+
+> 参考：
+>
+> * https://dora-cmon.github.io/posts/454ba26/
