@@ -1,0 +1,644 @@
+---
+title: git版本控制
+tags:
+  - git
+categories:
+  - technical
+  - git
+toc: true
+declare: true
+date: 2021-02-16 20:30:18
+---
+
+[TOC]
+
+### 一、引言
+
+---
+
+> * 在单人开发过程中，需要进行版本管理，以利于开发进度的控制。
+>
+> * 在多人开发过程中，不仅需要**版本管理**，还需要进行**多人协同控制**。
+
+<!-- more -->
+
+### 二、介绍
+
+---
+
+> * Git是一个**开源的分布式版本控制系统**，用于敏捷高效地处理任何或小或大的项目。
+> * Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。
+> * 官网：https://git-scm.com/
+
+### 三、Git安装
+
+---
+
+#### 3.1 下载Git
+
+> 下载Git <https://git-scm.com/downloads>
+
+#### 3.2 安装
+
+> 安装，除了安装位置外，其他一直下一步即可
+
+#### 3.3 基本配置（设置全局变量和密钥对）
+
+> * 安装后，打开git的cmd窗口 ，自报家门
+>
+> * 如下信息会在提交代码时要使用，记录在你的每次提交中。以后才知道哪次提交是谁做的。
+
+```shell
+git config --global user.name "Your Name"  #用户名
+git config --global user.email "email@example.com"  #邮箱
+# 查看信息
+git config -l 
+```
+
+设置公钥匙钥对
+
+```shell
+ssh-keygen -t rsa -C "email@example.com"
+```
+
+一直回车,出现Y按Y, 会在/Users/***/路径下生成一个.ssh文件夹，密钥就存储在其中。
+
+![a47KLR](http://xwjpics.gumptlu.work/qinniu_uPic/a47KLR.png)
+
+到git仓库添加密钥
+
+![sFMn91](http://xwjpics.gumptlu.work/qinniu_uPic/sFMn91.png)
+
+#### 3.4 测试
+
+> 测试：cmd中执行 ,查看git版本
+
+```cmd
+git version  
+```
+
+#### 3.5 git clone下载慢解决
+
+Github国内镜像网站有[github.com.cnpmjs.org](https://github.com.cnpmjs.org/)和[git.sdut.me/](https://git.sdut.me/)
+
+在clone某个项目的时候将github.com替换为github.com.cnpmjs.org即可。
+
+### 四、架构
+
+---
+
+> * 版本库：工作区中有一个**隐藏目录** `.git`，**这个目录不属于工作区，而是git的 `版本库`，是git管理的所有内容** 
+>
+> * 暂存区：版本库中包含一个临时区域，保存下一步要提交的文件
+>
+> * 分支：版本库中包含若干分支，提交的文件存储在分支中
+
+|                            架构图                            |
+| :----------------------------------------------------------: |
+| ![sLzrdk](http://xwjpics.gumptlu.work/qinniu_uPic/sLzrdk.png) |
+
+### 五、仓库
+
+---
+
+> 对应的就是一个[目录]()，这个目录中的所有文件被git管理起来。
+>
+> 以后会将一个[项目的根目录]()，作为仓库。
+>
+> 仓库中的每个文件的改动 都由git跟踪。
+
+#### 5.1 新建仓库
+
+> 选择一个目录，执行指令：[git init]()
+
+|                           新建仓库                           |                           仓库目录                           |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ![image-20210216205341427](/Users/xwj/Library/Application Support/typora-user-images/image-20210216205341427.png) | <img src="http://xwjpics.gumptlu.work/qinniu_uPic/PU8ELh.png" alt="PU8ELh" /> |
+
+#### 5.2 工作区
+
+> 执行[git init]()的目录即为工作区，如上例，[D:\repo1]()目录即为工作区【不包含[.git]()目录】
+
+> 所有文件，都首先在工作区新建，然后可以存入仓库(版本库)，进行版本控制。
+
+#### 5.3 暂存区
+
+> 暂存区也在 [.git]() 目录内，工作区的文件进入仓库时，要先进入暂存区。
+
+#### 5.4 分支
+
+> 版本控制，简单说，就是记录文件的诸多版本，分支就是这些版本的最终记录位置。
+
+### 六、基本操作
+
+---
+
+#### 6.1 查看仓库状态
+
+> 执行 [git  status]() 可以看到工作区中文件的状态
+
+|                 未记录过的文件，是未跟踪状态                 |
+| :----------------------------------------------------------: |
+| ![xO3NjM](http://xwjpics.gumptlu.work/qinniu_uPic/xO3NjM.png) |
+
+#### 6.2 暂存文件
+
+> 执行 [git add .]() 将工作区中的文件全部[存入暂存区]()
+
+|                  将工作区中的文件存入暂存区                  |
+| :----------------------------------------------------------: |
+| ![dQEOq0](http://xwjpics.gumptlu.work/qinniu_uPic/dQEOq0.png) |
+
+#### 6.3 提交文件
+
+> 执行 [git commit -m "这里写提交的描述信息"]() 作用是==将暂存区的**所有文件**存入分支==，==形成一个新版本==
+
+|                    提交文件，形成一个版本                    |
+| :----------------------------------------------------------: |
+| ![bgbtO1](http://xwjpics.gumptlu.work/qinniu_uPic/bgbtO1.png) |
+
+### 七、远程仓库
+
+---
+
+> 第5章中的仓库，其实是本地仓库。
+>
+> 当多人协同开发时，每人都在自己的本地仓库维护版本。
+>
+> 但很重要的一点是，多人之间需要共享代码、合并代码，此时就需要一个[远程仓库]()。
+
+#### 7.1 远程仓库工作模式
+
+|                       远程仓库工作模式                       |
+| :----------------------------------------------------------: |
+| ![9otguV](http://xwjpics.gumptlu.work/qinniu_uPic/9otguV.png) |
+
+#### 7.2 远程仓库选型
+
+> * 有很多远程仓库可以选择，比如 github(<https://github.com/>),码云(<https://gitee.com/>)，**注意github或者是码云都不是远程仓库而是git服务器，可以在其上构建远程仓库**；
+>
+>    此两种可以注册自己测试使用，但如果是商业项目，需要更多支持需要付费。
+>
+> * 公司内部也可以有自己构建的远程仓库(<http://qianfeng.qfjava.cn:8087/users/sign_in>)。
+
+#### 7.3 基本操作
+
+> 每个开发人员，在面对远程仓库时，会面临的一些基本操作。
+
+##### 7.3.1 注册git服务器账号
+
+> 在 [码云](https://gitee.com/) 注册账号，并登录。
+>
+> 进入公司后，很可能会使用公司自己搭建的git服务器，则账号向领导索要即可
+
+##### 7.3.2 新建远程仓库
+
+ ![5kSA5g](http://xwjpics.gumptlu.work/qinniu_uPic/5kSA5g.png)
+
+##### 7.3.3 本地关联远程仓库
+
+> 本文档中选用仓库的 https协议的地址，**将此地址关联到本地git中**
+>
+> `git remote add origin [https地址\ssh地址]`添加远程地址
+>
+> `git remote -v`查看本地仓库目前关联的地址
+
+|           如此后，本地即可用“origin” 代指远程仓库            |
+| :----------------------------------------------------------: |
+| ![wXpCOC](http://xwjpics.gumptlu.work/qinniu_uPic/wXpCOC.png) |
+
+#####  推送文件到远程仓库
+
+> 将本地仓库中已经commit的内容push到远程仓库，以共享自己的代码。
+
+|                             push                             |
+| :----------------------------------------------------------: |
+| ![bRdmkS](http://xwjpics.gumptlu.work/qinniu_uPic/bRdmkS.png) |
+
+|                     在github服务器上查看                     |
+| :----------------------------------------------------------: |
+| ![8ZpEC4](http://xwjpics.gumptlu.work/qinniu_uPic/8ZpEC4.png) |
+
+##### 7.3.5 克隆远程仓库
+
+> 如果仓库已经由别人创建完毕，我们需要其中的内容，则可以通过 [git clone]() 将其复制到本地。
+>
+> ==`git clone xxxx.git`默认克隆的master分支,并且只有master分支，可以通过`git fetch`获取所有的分支==
+>
+>  ==`git clone -b [分支名] xxxx.git`指定克隆的分支==
+
+|          新建目录“repo2”，然后在其中执行 git clone           |
+| :----------------------------------------------------------: |
+| ![NHnMO2](http://xwjpics.gumptlu.work/qinniu_uPic/NHnMO2.png) |
+
+##### 7.3.6 代码共享
+
+> 多人协同开发时，写好代码的[git push]() 上传到远程仓库；需要代码的 [git pull]() 拉取代码即可。 
+>
+> ==存==：有人将本地文件push到远程仓库：`git push origin master`
+>
+> ==取==：重点：此时另一方如果想获得更新，则需要做一次拉取 `git pull origin master`
+
+![WkOGvK](http://xwjpics.gumptlu.work/qinniu_uPic/WkOGvK.png)
+
+##### 7.3.7 命令汇总
+
+| 命令                                               | 描述                                         |
+| -------------------------------------------------- | -------------------------------------------- |
+| git   remote   add  标识名(一般为origin)  远程地址 | 本地关联远程仓库                             |
+| git   push  标识名  master                         | 将本地仓库内容上传到远程仓库                 |
+| git   pull  标识名   master                        | 从远程仓库下载内容到本地仓库                 |
+| git   clone  [-b 分支名] 远程地址                  | 将远程仓库复制到本地，并自动形成一个本地仓库 |
+| git fetch                                          | 获取所有的分支                               |
+
+==git clone 与 git pull 的区别在于：当本地为空的时候初始**第一次**使用时使用git clone，以后每次更新都采用git pull==
+
+##### 7.3.8 origin
+
+Git里面的origin就是一个名字，它是在你clone一个托管在Github上代码库时，**git为你默认创建的指向这个远程代码库的<u>*标签*</u>。**
+
+你的代码库(repository)可以存放在你的电脑里，同时你也可以把代码库托管到Github的服务器上。**在默认情况下，origin指向的就是你本地的代码库托管在Github上的版本。**
+
+**origin指向的是repository，master只是这个repository中默认创建的第一个branch**。(git push origin master )当你git push的时候因为origin和master都是默认创建的。
+
+### 八、分支
+
+---
+
+#### 8.1 分支简介
+
+> * 分支，是一个个版本最终存储的位置。
+>
+> * 分支，就是一条时间线，每次[git commit]()形成一个个版本，一个个版本依次存储在分支的一个个提交点上。
+
+| 分支由多个提交点组成，分支上会有一个指针，默认总是指向最新的提交点 |
+| :----------------------------------------------------------: |
+| ![SlW3Kr](http://xwjpics.gumptlu.work/qinniu_uPic/SlW3Kr.png) |
+
+==每次提交的新版本中陈旧的内容/未修改的内容在新版本中只保留其一个链接而不是在复制一份，这是一种优化方式==
+
+#### 8.2 分支操作
+
+##### 8.2.1 查看分支
+
+> * 查看当前仓库的分支 [git branch]()
+>
+> * 仓库中默认只有 master 分支
+>
+> * 执行[git commit]()时，默认是在master分支上保存版本。
+
+|                      默认只有master分支                      |
+| :----------------------------------------------------------: |
+| ![4MqN0F](http://xwjpics.gumptlu.work/qinniu_uPic/4MqN0F.png) |
+
+##### 8.2.2 创建分支
+
+> * 在商业项目开发过程中，我们==不会轻易的在[master]()分支上做操作。==
+>
+> * 我们==会新建一个[开发用的分支]()，在此分支上做版本的记录。==
+>
+>   ==当代码确实没有问题时，才会将开发分支上成熟的代码版本添加到[master]()分支上。==
+>
+> * 保证开发过程中，可以及时记录版本，又保证[master]()分支上每个提交点都是稳健版本。
+>
+> * `git branch 新分支名`
+>
+> * 前面有*号的代表当前使用的分支，默认是主分支
+
+|                           创建分支                           |
+| :----------------------------------------------------------: |
+| ![QZazBX](http://xwjpics.gumptlu.work/qinniu_uPic/QZazBX.png) |
+
+##### 8.2.3 切换分支
+
+> * 默认情况下，当前使用的分支是 master分支
+> * 可以切换到 dev分支，则后续的[git commit]() 便会在dev分支上新建版本(提交点)
+> * `git checkout 分支名`
+
+|                           切换分支                           |
+| :----------------------------------------------------------: |
+| ![FO5C0A](http://xwjpics.gumptlu.work/qinniu_uPic/FO5C0A.png) |
+
+|                       再次查看分支情况                       |
+| :----------------------------------------------------------: |
+| ![9rE8pI](http://xwjpics.gumptlu.work/qinniu_uPic/9rE8pI.png) |
+
+##### 8.2.4 修改分支名
+
+需要将分支br_rename_old修改为br_rename_new，执行如下步骤：
+1、执行命令git checkout br_rename_old切换到br_rename_old分支，如果已经在这个分支下，可以不执行此步骤
+2、执行命令git pull origin br_rename_old将代码更新到和远程仓库一致
+3、执行命令git branch -m br_rename_old br_rename_new将本地仓库的br_rename_old的名称修改为br_rename_new
+4、执行命令git push origin --delete br_rename_old将远程分支br_rename_old删除
+5、执行命令git push --set-upstream origin br_rename_new将本地分支push到远程仓库
+#### 8.3 新建分支细节
+
+> 新建分支时，新分支，默认有哪些内容？分支中包含了哪些次提交？
+
+##### 8.3.1 新分支初始内容
+
+> 每个分支都有一个[指针]()，==新建一个分支，首先是新建一个[指针]()。==
+>
+> 而且新分支的指针会和当前分支指向[同一个提交点]()。
+>
+> 新分支包含的提交点就是从第一个提交点到分支指针指向的提交点。
+
+|    每个分支都有一个指针，新建一个分支，首先是新建一个指针    |
+| :----------------------------------------------------------: |
+| ![xefRyi](http://xwjpics.gumptlu.work/qinniu_uPic/xefRyi.png) |
+
+##### 8.3.2 多分支走向
+
+> 在master分支和新分支，分别进行 [git add]() 和 [git commit]()
+>
+> 分支情况如下图：
+
+|           master分支未动，在dev分支增加一次commit            |
+| :----------------------------------------------------------: |
+| ![JvXtbD](http://xwjpics.gumptlu.work/qinniu_uPic/JvXtbD.png) |
+
+|      master分支增加一个commit，dev分支再增加一个commit       |
+| :----------------------------------------------------------: |
+| ![CswXUi](http://xwjpics.gumptlu.work/qinniu_uPic/CswXUi.png) |
+
+##### 8.3.3 分支提交日志
+
+> 查看分支的提交日志，进而看到**当前分支中提交点的详细情况**。
+>
+>  简略的查看 `git log --oneline`
+>
+> 带图的查看：`git log --oneline --graph`
+>
+> 详细的查看：`git log`
+
+|                    查看当前分支的提交日志                    |
+| :----------------------------------------------------------: |
+| ![qZBQLz](http://xwjpics.gumptlu.work/qinniu_uPic/qZBQLz.png) |
+
+
+
+#### 8.4 分支合并
+
+> 两个分支内容的合并
+
+> [git merge 分支a]()  当前分支合并到分支a
+
+> 合并的方式有两种：**快速合并 和  三方合并**。
+
+##### 8.4.1 快速合并
+
+> ==如果分支A当前的修改，是完全基于分支B的修改而来，则B分支合并A分支，就是====**移动指针**即可==。
+>
+> 要求：**主分支不动，其他分支一直更新**
+
+|                        合并前分支状态                        |
+| :----------------------------------------------------------: |
+| ![4FQKBX](http://xwjpics.gumptlu.work/qinniu_uPic/4FQKBX.png) |
+
+|               快速合并效果（master 合并 dev）                |
+| :----------------------------------------------------------: |
+| ![ZueTRL](http://xwjpics.gumptlu.work/qinniu_uPic/ZueTRL.png) |
+
+##### 8.4.2 三方合并
+
+> 在下图的情况下直接移动指针是不可以的，master会丢失自己原本的状态，所以需要三方合并
+>
+> 在不具备快速合并的条件下，会采用三方合并。
+>
+> **这个合并是git帮忙做的，其实我们是不用担心的**
+
+|                       合并前，分支状态                       |
+| :----------------------------------------------------------: |
+| ![Jmt6jL](http://xwjpics.gumptlu.work/qinniu_uPic/Jmt6jL.png) |
+
+| 三方合并，==将`2`和`3`的更改都累加在`1`上，形成新的提交点==  |
+| :----------------------------------------------------------: |
+| ![awiIY2](http://xwjpics.gumptlu.work/qinniu_uPic/awiIY2.png) |
+
+> 三方合并,它是把两个分支的最新快照（2 和 3）以及二者最近的共同祖先（1）进行三方合并，合并的结果是生成一个新的快照（并提交）
+
+##### 8.4.3 合并冲突
+
+> 两个分支进行合并，但它们含有对**同一个文件**的修改，则在合并时出现冲突，git无法决断该保留改文件哪个分支的修改。
+
+###### 8.4.3.1 冲突演示
+
+> 场景模拟如下：
+>
+> master分支修改hig.txt文件
+>
+> dev分支修改hig.txt
+>
+> 对同一个文件做了不同的修改
+
+> 然后在master分支 合并 dev分支
+
+|                         合并dev分支                          |
+| :----------------------------------------------------------: |
+| ![3BpSsd](http://xwjpics.gumptlu.work/qinniu_uPic/3BpSsd.png) |
+
+> 此时，打开hig.txt 文件：
+
+|         冲突后，git会将两个分支的内容都展示在文件中          |
+| :----------------------------------------------------------: |
+| ![97live](http://xwjpics.gumptlu.work/qinniu_uPic/97live.png) |
+
+###### 8.4.3.2 冲突解决
+
+> 出现冲突后，如要由两个开发人员当面协商，该如何取舍，为冲突文件定义最终内容。
+>
+> 解决方案：
+>
+> 1. 保留某一方的，删除另一方的
+> 2. 保留双方的
+> 3. 但无论如何，要记得删除  [<<<<  ====  >>>>]() 这些
+> 4. 本质是两人协商为冲突的内容，定制出合理的内容。
+> 5. 根据协商，再次编辑文件
+
+|                    提交 再次编辑后的文件                     |
+| :----------------------------------------------------------: |
+| ![8Thl31](http://xwjpics.gumptlu.work/qinniu_uPic/8Thl31.png) |
+
+### 九、IDE关联Git（以goland为例）
+
+---
+
+#### 9.1 关联Git
+
+> [File > Settings]()  关联过程是自动的
+
+|                 此处关联是Idea可以自动完成的                 |
+| :----------------------------------------------------------: |
+| ![Foq2va](http://xwjpics.gumptlu.work/qinniu_uPic/Foq2va.png) |
+
+#### 9.2 创建仓库
+
+> * 新建项目后，将项目目录创建为git仓库
+>
+> * 注意： ==要在建仓库**前**，设置[忽略文件 ".gitignore"]()==
+>
+>   ==作用：被忽略的文件会被版本记录忽略，版本中不包含它们。==
+>
+>   范围：**不需要和其他开发共享的文件**，具体见下图。
+
+
+
+|                  创建仓库前，先添加忽略文件                  |
+| :----------------------------------------------------------: |
+| ![ZImtlk](http://xwjpics.gumptlu.work/qinniu_uPic/ZImtlk.png) |
+
+#### 9.3 提交-commit
+
+> 创建好仓库后，做第一次提交。
+
+![sj1Kqh](http://xwjpics.gumptlu.work/qinniu_uPic/sj1Kqh.png)
+
+#### 9.4 创建分支
+
+> 新建开发分支
+>
+> 点击右下角链接
+
+#### 9.5 上传到远程仓库(push)
+
+> * 请首先参照第7章，创建一个远程仓库。
+>
+> * 要求是裸库，且建议库名和项目名同名。
+
+#### 9.6 复制到本地仓库(clone)
+
+> 如果有建好的远程仓库，比如公司内已经在用的仓库，或者github，码云上的一些公开仓库，
+>
+> 可以将远程仓库的项目复制到本地使用。
+
+#### 9.7 更新本地项目
+
+> 如果远程仓库有更新，则你的本地项目也需要一起更新。
+
+#### 9.8 冲突解决
+
+> 合并分支时，如果出现冲突，则需要解决冲突。
+>
+> 当远端的文件与本地尚未上传远端的文件不同时，在本地拉取更新时就会造成冲突。 
+
+|                 冲突出现，弹窗中可以选择如下                 |
+| :----------------------------------------------------------: |
+| ![6fFLr8](http://xwjpics.gumptlu.work/qinniu_uPic/6fFLr8.png) |
+
+两人协商保留什么代码然后修改即可
+
+也可以直接修改冲突文件，然后commit即可
+
+### 十、多人协同开发
+
+---
+
+> 多人开发协同，git操作
+
+#### 10.1 项目管理员( 项目经理 )
+
+> 1> 由管理员负责创建一个远程库，初始的库中什么也没有，为裸库。库的名称建议和项目同名
+
+> 2> 管理员会在idea中创建一个初始项目,其中包含.gitignore文件。                                                                                          	 
+>
+> 并在项目根目录下 建立本地库。并建立 dev分支。
+
+> 3> 管理员将本地库上传到远程库
+
+> 4> 将其他开发人员拉入远程库的 [开发成员列表中]() ，使得其他开发人员可以访问该远程库。
+
+#### 10.2 开发人员
+
+> * 初始化：在idea中clone 远程库，获得项目。会建立本地库
+>
+> * 后续的开发中，都要在dev分支上进行。开发完一个功能并测试通过后就commit 	 提交到本地的dev分支中，然后 上传(push)到远程dev分支中。	
+>
+> * 需要更新项目内容时，通过 pull 从远程仓库拉取内容。																   	
+>
+> * 注意：==多人协同时，每次在 push 到远程库前，都先做一次pull==，一来是把远程最新内容合并到本地，二来是核实本地内容是否和远程内容有冲突。
+>
+> * 后续的开发，会接到一个个的功能任务，往复操作 2>、3>、4> 而已。
+
+### 十一、经典问题
+
+#### 1. 密码权限问题
+
+---
+
+> 在使用https协议做push时，如果曾经使用过码云，但密码有过改动，此时会报错
+>
+> 之前的账号凭证与新的git账号凭证对不上，所以会出现以下问题：
+
+|                      使用https协议报错                       |
+| :----------------------------------------------------------: |
+| ![Iey1TN](http://xwjpics.gumptlu.work/qinniu_uPic/Iey1TN.png) |
+
+> 解决方案:  [控制面板  》 凭据管理器 》]() 删除对应凭证，再次使用时会提示重新输入密码。
+>
+> 删除之前的码云凭证，然后重新push即可
+
+#### 2. Updates were rejected because the tip of your current branch is behind
+
+! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'git@github.com:xxxxxxx.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+解决:
+
+有如下几种解决方法：
+
+1.使用强制push的方法：
+
+`$ git push -u origin master -f `
+
+这样会使远程修改丢失，一般是不可取的，尤其是多人协作开发的时候。
+
+2.push前先将远程repository修改pull下来
+
+`$ git pull origin master`切换
+
+`$ git push -u origin master`
+
+3.若不想merge远程和本地修改，可以先创建新的分支：
+
+`$ git branch [name]`
+
+然后push
+
+`$ git push -u origin [name]`
+
+#### 3. error: pathspec 'master' did not match any file(s) known to git
+
+```shell
+git branch   # 查看自己的分支,检查master是否在自己分支
+git fetch		 # 构建所有的分支
+git checkout mast # 转换分支
+```
+
+#### 4.remote设置了远程仓库，但是看不到分支
+
+`git remote update origin --prune`
+
+#### 5. fatal: Not a valid object name: ‘master‘
+
+先add、commit再操作
+
+### 十二、常用组合操作
+
+#### 1. Fork别人的仓库魔改
+
+```shell
+git clone [仓库http地址]
+cd 
+git remote rm origin.  # 删除原本分支
+git remote add origin [你fork的分之地址]
+# 做一些本地修改
+git pull origin [主分支]
+git push origin [主分支]
+```
+
+
+

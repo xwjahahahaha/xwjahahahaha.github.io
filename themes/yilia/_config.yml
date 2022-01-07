@@ -1,0 +1,193 @@
+# Header
+
+menu:
+  我的主页: /
+  随笔/日记: /categories/随笔/
+  技术贴: /categories/technical/
+  知识贴: /categories/knowledge/
+  论文库: /categories/knowledge/paper/
+
+# SubNav
+subnav:
+  github: "https://github.com/xwjahahahaha"
+  weibo: "https://weibo.com/5996333097/profile?rightmod=1&wvr=6&mod=personinfo"
+  #rss: "#"
+  #zhihu: "#"
+  qq: "http://wpa.qq.com/msgrd?v=3&uin=1438575858&site=qq&menu=yes"
+  weixin: "http://xwjpics.gumptlu.work/qiniu_picGo/20200530160501.png"
+  #jianshu: "#"
+  #douban: "#"
+  #segmentfault: "#"
+  #bilibili: "#"
+  #acfun: "#"
+  mail: "gumptlu@163.com"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"
+
+rss: /atom.xml
+
+# 是否需要修改 root 路径
+# 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，
+# 请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。
+root: /
+
+# Content
+
+# 文章太长，截断按钮文字
+#excerpt_link: more
+# 文章卡片右下角常驻链接，不需要请设置为false
+show_all_link: '展开全文'
+# 数学公式
+mathjax: false
+# 是否在新窗口打开链接
+open_in_new: false
+
+# 打赏
+# 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
+reward_type: 2
+# 打赏wording
+reward_wording: '谢谢你请我吃糖果'
+# 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
+alipay: http://xwjpics.gumptlu.work/qiniu_picGo/20200622214236.png
+# 微信二维码图片地址
+weixin: http://xwjpics.gumptlu.work/qiniu_picGo/20200622214127.png
+
+# 目录
+# 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
+toc: 1
+# 根据自己的习惯来设置，如果你的目录标题习惯有标号，置为true即可隐藏hexo重复的序号；否则置为false
+toc_hide_index: true
+# 目录为空时的提示
+toc_empty_wording: '目录，不存在的…'
+
+# 是否有快速回到顶部的按钮
+top: true
+
+# Miscellaneous
+baidu_analytics: ''
+google_analytics: ''
+favicon: /favicon.png
+
+
+#你的头像url
+avatar: http://xwjpics.gumptlu.work/qiniu_picGo/touxiang.gif
+
+
+
+
+#是否开启分享
+share_jia: true
+
+#评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus；5、Gitment
+#不需要使用某项，直接设置值为false，或注释掉
+#具体请参考wiki：https://github.com/litten/hexo-theme-yilia/wiki/
+
+#1、多说
+duoshuo: false
+
+#2、网易云跟帖
+wangyiyun: false
+
+#3、畅言
+changyan_appid: false
+changyan_conf: false
+
+#4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
+disqus: false
+
+# #5、Gitment
+# gitment_owner: xwjahahahaha      #你的 GitHub ID
+# gitment_repo: 'xwjahahahaha.github.io'        #存储评论的 repo
+# gitment_oauth:
+#   client_id: 'bec61ad17a6be5e42a36'           #client ID
+#   client_secret: '1f411e87b172dbaf5805e8b02658c1feb66e9383'       #client secret
+
+#6. Gitalk   还没弄好
+gitalk: 
+  enable: false    #用来做启用判断可以不用
+  clientID: 'bec61ad17a6be5e42a36'    #Github上生成的
+  clientSecret: '1f411e87b172dbaf5805e8b02658c1feb66e9383'   #同上
+  repo: 'http://xwjahahahaha.github.io'    #评论所在的github project
+  owner: xwjahahahaha    #github用户名
+  admin: xwjahahahaha    #可以初始化评论issue的github账户名称
+  distractionFreeMode: true
+
+#7. livere 来比力
+# livere_uid: MTAyMC81MDU3MS8yNzA1NA
+
+#8、Valine https://valine.js.org
+valine:
+  appid:  PRU7YlXLIjbRR7nv7GkFd4Gs-gzGzoHsz #Leancloud应用的appId
+  appkey: adbsK9q1R5eC4lK2H7kr8Xap #Leancloud应用的appKey
+  verify: true #验证码
+  notify: true #评论回复提醒
+  avatar: /favicon.png #评论列表头像样式：
+  placeholder: 评论请先在上方填写信息哦~~ 欢迎畅所欲言！ #评论框占位符
+
+
+
+# 样式定制 - 一般不需要修改，除非有很强的定制欲望…
+style:
+  # 头像上面的背景颜色 ##4d4d4d
+  header: '#4d4d4d'
+  # 右滑板块背景 #linear-gradient(200deg,#a0cfe4,#e8c37e)
+  slider: 'linear-gradient(200deg,#ccc,#000)'
+
+# slider的设置
+slider:
+  # 是否默认展开tags板块
+  showTags: true
+
+# 智能菜单
+# 如不需要，将该对应项置为false
+# 比如
+#smart_menu:
+#  friends: false
+smart_menu:
+  innerArchive: '所有文章'
+  friends: '友链'
+  aboutme: '关于我'
+
+friends:
+  大佬室友Ambi的博客: https://sakura.ambitlu.work/
+  区块链Daniel大佬的博客: https://daniel520.gitee.io/daniel-blog/
+  # 友情链接3: http://localhost:4000/
+  # 友情链接4: http://localhost:4000/
+  # 友情链接5: http://localhost:4000/
+  # 友情链接6: http://localhost:4000/
+
+aboutme: 博主只是个菜鸟,重庆邮电大学计科研究生一枚.
+
+
+#文章结束
+#0关闭文章结束提示 2全开 1需要在文章开头加上 
+essayending_type: 2 
+essayending: true
+
+
+# add post views leancloud添加浏览量
+leancloud_visitors:
+  enable: true
+  app_id: PRU7YlXLIjbRR7nv7GkFd4Gs-gzGzoHsz
+  app_key: adbsK9q1R5eC4lK2H7kr8Xap
+
+#添加一下js插件的 CDN地址
+js_cdn:
+  jquery: https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js
+  av : //cdn1.lncld.net/static/js/2.5.0/av-min.js
+
+#开启不算子访问统计
+busuanzi:
+  enable: true
+
+# 版权声明
+#在需要进行版权声明的文章的md文件头部，设置属性declare: true。
+#版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明
+declare:
+  declare_type: 1
+  licensee_url: https://creativecommons.org/licenses/by-nc-sa/4.0/        #当前应用的版权协议地址。
+  licensee_name: 'CC BY-NC-SA 4.0'                                        #版权协议的名称
+  licensee_alias: '知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议'       # alias别名
+  licensee_img: http://xwjpics.gumptlu.work/qiniu_picGo/20200806212345.png    #版权协议的Logo
