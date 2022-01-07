@@ -6,29 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xwjahahahaha.github.io">
-  <title>DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图 | 知识与头发不可兼得</title>
+  <title>DGHV:整数上的同态加密(3)-golang、智能合约实现尝试 | 知识与头发不可兼得</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="上一节我们学习了DGHV somewhat同态（类全同态加密）的基本构建：   DGHV:整数上的同态加密(1)-算法构建   这一节将更进一步的探讨S 一、再谈同态加密通过一些资料的查看，对同态加密的几个要点再做一些补充 定义一个同态加密方案H由一个四元组组成: $H &#x3D; {KeyGen, Enc,Dec,Eval}$  $KeyGen$: 密钥生成函数 $Enc、Dec$ : 加密解密函数 $">
+  <meta name="description" content="基于DGHV的同态加密基本概念、学习笔记、参考内容：  概念、个人笔记：  同态加密的原理详解与go实践 DGHV:整数上的同态加密(1)-算法构建 DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图  参考：  论文：《一种基于智能合约的全同态加密方法》 [1] M. Dijk, C. Gentry, S. Halevi, and V.Vaikuntanathan. Fully homo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图">
-<meta property="og:url" content="https://xwjahahahaha.github.io/2021/08/09/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(2)-%E8%A7%A3%E5%86%B3%E5%99%AA%E5%A3%B0%E4%B8%8E%E6%9E%84%E5%BB%BA%E5%85%A8%E5%90%8C%E6%80%81%E8%93%9D%E5%9B%BE/index.html">
+<meta property="og:title" content="DGHV:整数上的同态加密(3)-golang、智能合约实现尝试">
+<meta property="og:url" content="https://xwjahahahaha.github.io/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%863-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/index.html">
 <meta property="og:site_name" content="知识与头发不可兼得">
-<meta property="og:description" content="上一节我们学习了DGHV somewhat同态（类全同态加密）的基本构建：   DGHV:整数上的同态加密(1)-算法构建   这一节将更进一步的探讨S 一、再谈同态加密通过一些资料的查看，对同态加密的几个要点再做一些补充 定义一个同态加密方案H由一个四元组组成: $H &#x3D; {KeyGen, Enc,Dec,Eval}$  $KeyGen$: 密钥生成函数 $Enc、Dec$ : 加密解密函数 $">
+<meta property="og:description" content="基于DGHV的同态加密基本概念、学习笔记、参考内容：  概念、个人笔记：  同态加密的原理详解与go实践 DGHV:整数上的同态加密(1)-算法构建 DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图  参考：  论文：《一种基于智能合约的全同态加密方法》 [1] M. Dijk, C. Gentry, S. Halevi, and V.Vaikuntanathan. Fully homo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210809222516222.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210809222605156.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/N9ygQe.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/puVZ48.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/EpiYGH.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/H0Jqxa.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/Ypf4rn.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/Ana8DN.png">
-<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/WTlYZB.png">
-<meta property="article:published_time" content="2021-08-09T08:46:38.000Z">
-<meta property="article:modified_time" content="2021-08-10T07:14:10.897Z">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/MwFMIc.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210812230115286.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/KBUSK7.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/ns3yge.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/Zf6t09.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/hJzStL.png">
+<meta property="og:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210812230914554.png">
+<meta property="article:published_time" content="2021-08-25T01:17:22.000Z">
+<meta property="article:modified_time" content="2022-01-07T01:37:35.257Z">
 <meta property="article:author" content="DDDemons hide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210809222516222.png">
+<meta name="twitter:image" content="http://xwjpics.gumptlu.work/qinniu_uPic/MwFMIc.png">
   
     <link rel="alternative" href="/atom.xml" title="知识与头发不可兼得" type="application/atom+xml">
   
@@ -82,7 +80,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 633
+			总文章数 634
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -193,21 +191,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-知识贴/密码学/隐私计算/同态加密/DGHV/DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-知识贴/密码学/隐私计算/同态加密/DGHV/DGHV:整数上的同态加密3-golang、智能合约实现尝试" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图
+      DGHV:整数上的同态加密(3)-golang、智能合约实现尝试
     </h1>
   
 
 <!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
 
   <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/09/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(2)-%E8%A7%A3%E5%86%B3%E5%99%AA%E5%A3%B0%E4%B8%8E%E6%9E%84%E5%BB%BA%E5%85%A8%E5%90%8C%E6%80%81%E8%93%9D%E5%9B%BE/" class="pageViews">0</span>次
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%863-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" class="pageViews">0</span>次
   </a>
 
         
@@ -217,8 +215,8 @@
 		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
 	</span>
 
-<a href="/2021/08/09/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(2)-%E8%A7%A3%E5%86%B3%E5%99%AA%E5%A3%B0%E4%B8%8E%E6%9E%84%E5%BB%BA%E5%85%A8%E5%90%8C%E6%80%81%E8%93%9D%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2021-08-09T08:46:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-09</time>
+<a href="/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%863-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" class="archive-article-date">
+  	<time datetime="2021-08-25T01:17:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
 </a>
         <!-- 开始添加字数统计-->
         
@@ -227,7 +225,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.9k字</span>
+        <span class="post-count">1.3k字</span>
       </span>
     </span>
 
@@ -236,7 +234,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">10分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -248,171 +246,99 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上一节我们学习了DGHV somewhat同态（类全同态加密）的基本构建：</p>
+        <h1 id="基于DGHV的同态加密"><a href="#基于DGHV的同态加密" class="headerlink" title="基于DGHV的同态加密"></a>基于DGHV的同态加密</h1><p>基本概念、学习笔记、参考内容：</p>
 <blockquote>
+<p>概念、个人笔记：</p>
 <ol>
+<li><a href="https://blog.csdn.net/weixin_43988498/article/details/118802616" target="_blank" rel="noopener">同态加密的原理详解与go实践</a></li>
 <li><a href="https://blog.csdn.net/weixin_43988498/article/details/119459857" target="_blank" rel="noopener">DGHV:整数上的同态加密(1)-算法构建</a></li>
+<li><a href="https://blog.csdn.net/weixin_43988498/article/details/119570507" target="_blank" rel="noopener">DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图</a></li>
+</ol>
+<p>参考：</p>
+<ol>
+<li>论文：<a href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFDLAST2020&filename=AQJS202009005&v=kzaijASy61Kjw7dUtnNnML6O%25mmd2Bv886ZZ4Mq9RnlqNape%25mmd2BABO%25mmd2Bfioot2MYlYfxTEcj" target="_blank" rel="noopener">《一种基于智能合约的全同态加密方法》</a></li>
+<li>[1] M. Dijk, C. Gentry, S. Halevi, and V.Vaikuntanathan. Fully homomorphic encryption over the integers[J]. Applications of Cryptographic Techniques: Springer, Berlin, 2010, 24-43.</li>
+<li><a href="http://blog.sciencenet.cn/blog-411071-617182.html" target="_blank" rel="noopener">http://blog.sciencenet.cn/blog-411071-617182.html</a></li>
 </ol>
 </blockquote>
-<p>这一节将更进一步的探讨S</p>
-<h1 id="一、再谈同态加密"><a href="#一、再谈同态加密" class="headerlink" title="一、再谈同态加密"></a>一、再谈同态加密</h1><p>通过一些资料的查看，对同态加密的几个要点再做一些补充</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>一个同态加密方案H由一个四元组组成:</p>
-<p>$H = {KeyGen, Enc,Dec,Eval}$</p>
-<ul>
-<li>$KeyGen$: 密钥生成函数</li>
-<li>$Enc、Dec$ : 加密解密函数</li>
-<li>$Eval$​ : 评估函数，用于验证加密算法的正确性, 如果Eval函数可以运行任意功能的函数，那么就是全同态加密 </li>
-</ul>
+<blockquote>
+<p><font color='#e54d42'><strong>同态加密等计算量大的算法不适合在合约中计算，合约仅作为测试</strong></font></p>
+</blockquote>
+<blockquote>
+<p>本项目代码地址: <a href="https://github.com/xwjahahahaha/DGHV" target="_blank" rel="noopener">https://github.com/xwjahahahaha/DGHV</a></p>
+</blockquote>
 <a id="more"></a>
 
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>一般分为三类：</p>
+<h1 id="基本设计"><a href="#基本设计" class="headerlink" title="基本设计"></a>基本设计</h1><h2 id="1-随机数"><a href="#1-随机数" class="headerlink" title="1. 随机数"></a>1. 随机数</h2><p>我们所说的随机函数都是伪随机函数即PRF</p>
+<p>随机函数的一般构成是：<code>随机种子 +  随机数生成算法</code></p>
+<p>目前有很多优秀的伪随机算法已经实现，但是在区块链智能合约上的最大困难是<strong>区块链的封闭性</strong></p>
+<p>可以将区块链看作一个封闭式的信息世界，所以不像一般网络中有丰富的熵增源.</p>
+<p>Solidity通常采用keccak256哈希函数 作为随机数的生成器，该函数有一定的随机数性质，但是随机数生成的过程容易被攻击。</p>
+<p>传统的随机数生成过程需要本结点的 Nonce值作为随机数种子，恶意节点会大量计算Nonce的值，直到随机事件的结果对自己有利，所以项目采用区块时间戳作为随机种子。</p>
+<p>使用线性求余法生成随机数，再采用keccak256 Hash函数将区块时间戳与随机数合并取最终的随机数</p>
+<p>生成公式如下：<br>$$<br>\begin{cases} X_{n+1} = (aX_n+c)\  mod\  m, \ n \geq 0 \ R_{n+1} = keccak256(x_{n+1} \ + \ Block_TimeStamp) \ mod \ k \end{cases}\begin{cases} X_{n+1} = (aX_n+c)\  mod\  m, \ n \geq 0 \ R_{n+1} = keccak256(x_{n+1} \ + \ Block_TimeStamp) \ mod \ k \end{cases}<br>$$</p>
+<h2 id="2-整数上的全同态加密"><a href="#2-整数上的全同态加密" class="headerlink" title="2. 整数上的全同态加密"></a>2. 整数上的全同态加密</h2><p>定义一套<strong>对称加密</strong>方法：</p>
+<p>$keyGen(\lambda)$根据安全参数$\lambda$生成一个<strong>大奇数$p$</strong>密钥, $\eta$（bit）是生成密钥$p$的位数</p>
+<p>$Encrypto(pk, m)$表示加密,其中$pk$表示公钥, m是明文，根据Dijk中的规定$m \in {0,1}$也即明文m只有一位;</p>
+<p> $r, q$都是正随机数, 长度分别为$\rho、 \gamma$ , 其中的要求是$q&gt;p$ 且 $q$是公开的 , $r$是一个随机小整数（可为负数）</p>
+<p>则加密过程为:<br>$$<br>Encrypto(pk, m) = m + 2r + pq<br>$$<br>对应的解密过程$Decrypto(sk, c)$, 其中$sk$表示私钥、$c$表示密文:<br>$$<br>Decrypto(sk, c) = (c \ mod  \ p) \ mod \ 2 = （c - p* \ulcorner\dfrac{c}{p}\lrcorner）mod \ 2 = Lsb(c) \ XOR \ Lsb(\ulcorner\dfrac{c}{p}\lrcorner)<br>$$</p>
+<p>这里是对称加密，所以公钥和私钥是相同的，即$pk =sk = p$</p>
+<p><strong>正确性的验证：</strong></p>
+<p>对于解密算法显然可以看出$mod \ p$将$pq$项消除，$mod2$将随机数$r$项消除，最后的结果就是$m$</p>
+<p><strong>安全性讨论：</strong></p>
+<p>论文中已说明当参数$r \approx 2 ^{\sqrt{\eta}} , q \approx 2^{\eta^3}$时，该方案是安全的</p>
+<h1 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h1><p>合约实现了输入为单Bit（即$m \in {0, 1}$）的<strong>加法同态加密</strong>（使用对称秘钥）</p>
+<h2 id="step-1-选择参数"><a href="#step-1-选择参数" class="headerlink" title="step_1 选择参数"></a>step_1 选择参数</h2><p>编译、运行<code>syn_DGHV.go</code></p>
+<p>对于参数η，加法同态始终满足，但是乘法同态满足有要求（因为算法噪音）：</p>
 <ul>
-<li><p>部分同态加密(Partially Homomorphic Encrypto， PHE)</p>
-<p>​    - 只实现了部分算法的同态性</p>
-<ul>
-<li>加法同态，例如Paillier</li>
-<li>乘法同态，例如RSA算法和ElGamal算法</li>
+<li>经测试η&gt;=9时，乘法同态满足（小于9时不稳定，可见评估结果输出）</li>
+<li>智能合约中3&lt;=η&lt;=5, 因为η过大会导致参数q过大无法部署合约（solidity最大为int256，没有大数操作）</li>
 </ul>
-</li>
-<li><p>些许同态加密（Somewhat Homomorphic Encrypto，SHE）</p>
-<p>​    - 在密文上执行的操作只能是有限次数的（因为噪声）</p>
-<ul>
-<li>例如：<strong>DGHV</strong>、BV、BGN</li>
-</ul>
-</li>
-<li><p>全同态加密（Fully Homomorphic Encrypto，FHE）</p>
-<p>​    - 允许密文无限次的使用加法和乘法操作</p>
-<ul>
-<li>例如：Gentry提出的FHE算法</li>
-</ul>
-</li>
-</ul>
-<h1 id="二、解决噪声-Bootstappable"><a href="#二、解决噪声-Bootstappable" class="headerlink" title="二、解决噪声-Bootstappable"></a>二、解决噪声-Bootstappable</h1><p>上一节主要说到噪音的影响以及应对措施：密文刷新</p>
-<p>密文刷新需要解密中间过程的密文，解密就需要私钥，<strong>但是直接使用私钥是不安全的，或者说现实的某些情况下这样的做法是不可靠的</strong>, 所以又遇到了麻烦</p>
-<p>但是麻烦也可以解决，这里我们就来详细的了解一下这个降低噪声的方法也即bootstappable</p>
-<p>首先需要介绍一下Evaluate算法：</p>
-<h2 id="2-1-Evaluate算法"><a href="#2-1-Evaluate算法" class="headerlink" title="2.1 Evaluate算法"></a>2.1 Evaluate算法</h2><p>其组成如下：$Evaluate = (pk, f, c1, c2, c3…)$​ ， $pk、c$都不解释了，分别是公钥和密文</p>
-<p>那么$f$是什么呢？</p>
-<p>首先需要了解一个概念: Permitted founctions （许可函数集）也称Permitted circuit</p>
-<p>组成其集合元素的函数要求是: <strong>同态成立</strong> 也即两个密文经过函数运算后的结果解密后与两个明文直接运算结果相同（也就是基本的同态性）</p>
-<h2 id="2-2-同态解密"><a href="#2-2-同态解密" class="headerlink" title="2.2 同态解密"></a>2.2 同态解密</h2><p>在介绍之前，先看一个小故事</p>
-<h3 id="小故事一则"><a href="#小故事一则" class="headerlink" title="小故事一则"></a>小故事一则</h3><p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210809222516222.png" alt="image-20210809222516222"></p>
-<p>(也就是<a href="https://blog.csdn.net/weixin_43988498/article/details/118802616" target="_blank" rel="noopener">同态加密的原理详解与go实践</a>中给出的例子)</p>
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210809222605156.png" alt="image-20210809222605156" style="zoom:30%;" />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go build -o dghv.exe ./ &amp;&amp; chmod +x dghv.exe</span><br><span class="line">./dghv.exe 5		# 参数1：η （建议&gt;=9, 合约中&lt;=5）</span><br></pre></td></tr></table></figure>
 
-<p>​    但是Alice遇到了新的问题：</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/N9ygQe.png" alt="N9ygQe"></p>
-<hr>
-<p>现在先考虑一个问题<strong>解密算法</strong>本身是不是属于这个集合（许可函数集）？（下面的过程可能有点绕，我会尽量讲清楚）</p>
-<p><strong>我们先假设其属于，后续会讨论</strong></p>
-<p>现在模拟如下的场景：</p>
-<p>一个明文$m$，两对公私钥：$pk_1,sk_1,pk_2,sk_2$</p>
-<p>现在做如下操作:</p>
-<ol>
-<li>将$m$通过公钥$pk_1$加密生成$c_1$，再将$c_1$通过$pk_2$加密得到$c^*$</li>
-<li>将$sk_2$通过$pk_2$加密得到$s^*$​  （对没错，将私钥加密）</li>
-<li>将$m$通过$pk_2$加密得到$c_2$</li>
+<p>运行结果中包含：</p>
+<ul>
+<li>生成的秘钥<code>p</code></li>
+<li>参数<code>q</code></li>
+</ul>
+<p>输出示例（输出包含了多组测试，选择一组参数即可）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">==============================================</span><br><span class="line">p =  31</span><br><span class="line">q = 42535295865117307932921825928971026418</span><br><span class="line">m0 = 0, m1 = 1</span><br><span class="line">解密结果：n0 = 0, n1 = 1</span><br><span class="line">加法测试：0 + 1 , true</span><br><span class="line">加法测试：0 + 0 , true</span><br><span class="line">加法测试：1 + 1 , true</span><br><span class="line">加法测试：1 + 0 , true</span><br><span class="line">==============================================</span><br><span class="line">乘法测试：0 * 1 , true</span><br><span class="line">乘法测试：0 * 0 , true</span><br><span class="line">乘法测试：1 * 1 , true</span><br><span class="line">乘法测试：1 * 0 , true</span><br><span class="line">==============================================</span><br></pre></td></tr></table></figure>
+
+<h2 id="step-2-部署合约，输入参数"><a href="#step-2-部署合约，输入参数" class="headerlink" title="step_2 部署合约，输入参数"></a>step_2 部署合约，输入参数</h2><p>以remix IDE为例</p>
+<p>输出初始化参数：</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/MwFMIc.png" alt="MwFMIc" style="zoom:67%;" />
+
+<h2 id="step-3-测试"><a href="#step-3-测试" class="headerlink" title="step_3 测试"></a>step_3 测试</h2><img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210812230115286.png" alt="image-20210812230115286" style="zoom:67%;" />
+
+<p>1的密文为：1318594171818636545920576603798101818973</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/KBUSK7.png" alt="KBUSK7" style="zoom:67%;" />
+
+<p>0的密文为：1318594171818636545920576603798101818962</p>
+<h4 id="同态加法"><a href="#同态加法" class="headerlink" title="同态加法"></a>同态加法</h4><p>1+0 = 1</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/ns3yge.png" alt="ns3yge" style="zoom:67%;" />
+
+<p>1+1 = 0</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/Zf6t09.png" alt="Zf6t09" style="zoom:67%;" />
+
+<p>0+0 = 0</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/hJzStL.png" alt="hJzStL" style="zoom:67%;" />
+
+<h1 id="拓展与改进"><a href="#拓展与改进" class="headerlink" title="拓展与改进"></a>拓展与改进</h1><ol>
+<li><p>在合约中实现字符串<strong>大数的基本计算</strong>就可以实现合约上的同态乘法（或许有更好的办法）</p>
+</li>
+<li><p>虽然输入只支持1bit，但是可以通过组合电路实现高阶的计算：</p>
+<ul>
+<li>同态加法 等价于 逻辑异或</li>
+<li>同态乘法 等价于 逻辑与</li>
+<li>逻辑与与逻辑异或具有完备性，可以实现组合电路任意高阶计算</li>
+</ul>
+<p>（图片来自论文）</p>
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210812230914554.png" alt="image-20210812230914554" style="zoom: 50%;" />
+</li>
+<li><p>设计电路时注意使用Bootstappable算法减少噪声，不然会失效</p>
+</li>
 </ol>
-<p>上述过程图示就是：</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/puVZ48.png" alt="puVZ48"></p>
-<p>现在通过$s^<em>、c^</em>$​ 两个密文来评估函数Dec</p>
-<p>考虑以下公式是否成立？</p>
-<p>$Dec(sk_2, Dec(s^<em>,c^</em>)) == Dec(sk_1,c_1)$​​</p>
-<p>因为解密算法的同态性，所以等式上述是成立的，解释如下：</p>
-<p>首先确定明密文关系：$sk_1、c_1$​​ 如果看作明文，那么根据上述操作可知，其密文分别就是$s^<em>、c^</em>$​, 都是通过公钥$pk_2$加密得到的</p>
-<p>那么对于密文$s^<em>、c^</em>$使用函数Dec的结果解密（也就是再用$sk_2$解密一次即公式最外层的Dec）与明文$sk_1、c_1$的函数直接运算即Dec两者的结果是相同的！</p>
-<p>那么在观察等式的右边$Dec(sk_1,c_1)$的结果是什么？没错就是$m$​ (通过$sk_1$解密密文$c_1$的结果为$m$)</p>
-<p>则$Dec(sk_2,Dec(s^<em>,c^</em>)) = m$​, 那么反推，x通过私钥$sk_2$解密能够得到m，那么x是什么？没错！就是密文$c_2$  !!</p>
-<p>那么，可得$Dec(s^<em>,c^</em>) = c_2$​, 一个私钥($sk_1$)的加密去解密一个密文($c_1$)的加密得到的结果是一个新的密文就是$c_2$​​</p>
-<p>$c_2$是明文$m$在公钥$pk_2$​下加密的密文，这是一个什么密文呢？对了！<strong>新鲜的密文（没有经过密文计算！！！）</strong></p>
-<blockquote>
-<p><font color='#39b54a'>是不是有点像魔术，就像原来一个人穿的是西装，现在你没有看到这个人换衣服的情况下， 魔术师只是施了一下魔法，这个人立刻就换了一身运动服，人还是原来那个人， 只是包装变了。这也是 Gentry 思想中一个最重要的特性:<font color='#e54d42'><strong>同态解密</strong></font>。</font></p>
-</blockquote>
-<p>结合上面的小故事，$sk_2$就是新的钥匙</p>
-<h2 id="2-3-重加密技术"><a href="#2-3-重加密技术" class="headerlink" title="2.3 重加密技术"></a>2.3 重加密技术</h2><p>说了半天，同态解密能做什么？降低噪音</p>
-<p>当两个密文运算后得到一个新的密文，这个密文是不是会有很大的噪音？</p>
-<p>那么下面我们就将这个运算后的密文做一次同态解密就可以相当于一个新鲜的密文了，并且新鲜的密文的噪音是很小的，所以实现了降噪的目的</p>
-<blockquote>
-<p><font color='#39b54a'>事实上，同态解密后的密文比新鲜的密文噪音<strong>稍微大一些</strong></font></p>
-</blockquote>
-<p>这一个手法就叫做<font color='#e54d42'><strong>重加密技术</strong></font></p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/EpiYGH.png" alt="EpiYGH"></p>
-<p>如图，经过重加密技术例如乘法的高噪音问题就可以缓解很多，产生的密文$c^*$可以接着下一步的密文同态计算</p>
-<p>解密的过程也是从外到里一层层解密</p>
-<blockquote>
-<p><font color='#e54d42'>总结： 因为直接通过私钥解密密文不够安全，所以利用解密算法本身就具有的同态性，借助第二对公私钥分别将密文私钥加密再解密（$Dec(s^<em>, c^</em>)$）得到新鲜的密文减少噪音继续运算</font></p>
-</blockquote>
-<h2 id="2-4-增强电路"><a href="#2-4-增强电路" class="headerlink" title="2.4 增强电路"></a>2.4 增强电路</h2><p>降低噪声的下一步是为了下一次的运算，所以<strong>增强电路</strong>就是指解密电路 + 一个门电路（可以是加法门电路或者乘法门电路等基本电路）</p>
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/H0Jqxa.png" alt="增强电路" style="zoom:50%;" />
-
-<p>（图中的加法门电路只是一个例子）</p>
-<p>因为多次的重加密，所以需要多对公私钥，即产生了以下序列：</p>
-<ul>
-<li>公钥序列：${pk_1,pk_2,pk_3…}$</li>
-<li>私钥序列：$sk_1^<em>,sk_2^</em>,sk_3^<em>….$   其中$sk_i^</em>$是用公钥$pk_{i+1}$​加密得到的密文</li>
-</ul>
-<p><strong>运算电路的每一层都对应一对公钥与私钥</strong></p>
-<p>例如：</p>
-<hr>
-<ul>
-<li><p>第一层：公私钥$pk_1、sk_2$​</p>
-<p>第一层重加密时使用第二层电路的公钥$pk_2$ 分别加密$sk_1$和密文得到$sk_1^*$ 以及新鲜的密文即明文通过$pk_2$加密的结果，然后将这两者输入解密电路</p>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p>第二层：公私钥$pk_2 、sk_2$</p>
-<p>第二层重加密时使用第三层电路的公钥$pk_3$​​​​ 分别加密$sk_2$​​​​和密文得到$sk_2^<em>$​​​​ 以及新鲜的密文即*</em>第一层电路的输出**通过$pk_3$​​​​​​加密的结果，然后将这两者输入解密电路, 解密电路将输出一个密文，该密文是对明文用$pk_3$加密的结果</p>
-</li>
-</ul>
-<hr>
-<p>如此不断的运行….</p>
-<p>这样公私钥的数量与电路的深度成<strong>线性</strong>的依赖关系</p>
-<p><font color='#39b54a'>如果被加密的私钥泄露了也不会影响密钥本身的安全的话，那么称之为<strong>circular security</strong>， 如果方案满足这个条件那么就不需要那么多对公私钥了，后续的所有公私钥对都可以公用一对，这样就不用提前预算电路深度从而计算公私钥对的数量</font></p>
-<p>上述的方案证明其circular security还是很困难，但是目前可以认为其不会遭受攻击</p>
-<p><font color='#e54d42'><strong>结论：如果解密电路是在$Evaluate$所执行的$Permiitted functions$的集合中，那么就可称该方案是$Bootstrappable$​</strong></font></p>
-<h1 id="三、构建全同态电路"><a href="#三、构建全同态电路" class="headerlink" title="三、构建全同态电路"></a>三、构建全同态电路</h1><p>一个什么样的方案是全同态的？</p>
-<p>如果一个方案能够对密文进行任意功能的计算，而且运算的结果所得的密文是紧凑的，同时Evaluate算法即运算是有效的，那么就可称该方案是全同态的，可用下式子说明：</p>
-<p><img src="http://xwjpics.gumptlu.work/qinniu_uPic/Ypf4rn.png" alt="全同态公式"></p>
-<ul>
-<li>紧凑性：密文不过于膨胀即生成的密文大小要小（这里可能理解有误）</li>
-<li>有效的：Evaluate算法能够在有效时间内计算完成</li>
-<li>任意的：f函数可以表示任意功能的计算</li>
-<li>正确的：同态性的体现，即加密的密文的结果解密与直接f运算的结果是相同的</li>
-</ul>
-<h2 id="有效性与任意性"><a href="#有效性与任意性" class="headerlink" title="有效性与任意性"></a>有效性与任意性</h2><p>怎样衡量Evaluate算法的有效性呢？有效性就是在有限时间内运算结束，那么关键就是通过算法的<strong>复杂度</strong>来衡量（最直接的方法是通过在图灵机上运算 f 的时间来衡量）</p>
-<p>Evaluate的复杂度依赖于其中的函数f, 那么f可能包含各种各样功能的函数，这样难以去计算</p>
-<p>所以我们回归最基础的运算，将其拆解为一些简单的布尔电路，例如“与”电路、“或” 电路、“非”电路。而这些电路是可以组合成任意电路的，也就是说<strong>可以表示任意功能的电路</strong>。</p>
-<p>这样就可以将任意的函数f拆解为一些简单的布尔电路去衡量了</p>
-<p>下面讨论任意性：</p>
-<p>我们选择AND电路和XOR电路来考量，因为这两个电路是具有<strong>完备性质的即可以表示出任意的功能的复杂电路</strong></p>
-<p>首先考虑的问题是证明这两个电路属于Evaluate的Permitted functions集合，否则一切都是白谈</p>
-<p>AND电路即与门，回忆真值表：</p>
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/Ana8DN.png" alt="与门真值表" style="zoom: 67%;" />
-
-<p>显然可以发现AND电路/与门就是二进制的<strong>乘法</strong></p>
-<p>同理XOR电路就是二进制的<strong>加法</strong>（不再解释）</p>
-<p>对于我们所述的方案一次二进制加法运算或者一次二进制的乘法运算是能够正确执行的即满足解密正确性的，所以就一定属于$Permitted functions$</p>
-<p>证明了其属于Evaluate的Permitted functions集合，又因为其完备性即可表示任意功能计算，那么全同态要求的<strong>f任意性质</strong>就解决了</p>
-<h2 id="正确性"><a href="#正确性" class="headerlink" title="正确性"></a>正确性</h2><p>前面任意性质解决了，但是这两个基础电路构成的任意功能计算就一定是正确的吗？？</p>
-<p>前面说过了我们的方案是有噪声的，所以将这两个基础电路多次的组合会导致正确性的失效即解密失败！</p>
-<p>那么，有什么办法解决呢？对了！前面一直在说的<strong>重加密技术</strong>！</p>
-<p>具体做法：</p>
-<p>核心： 在任何密文进入AND电路或XOR电路之前，先让其进入解密电路进行重加密降低噪音，接了解密电路的 AND 电路或 XOR 电路就称为增强电路。</p>
-<p>例如：</p>
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/WTlYZB.png" alt="示例" style="zoom:45%;" />
-
-<p>那么正确性至此也得以证明！</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>现在，我们通过基础电门AND电路和XOR电路的特性以及重加密技术实现了全同态的所有四个特性要求</p>
-<p>是不是足以构建全同态的蓝图了呢？</p>
-<p>再等等，还有一个关键点只是假设没有证明：解密电路/解密算法是否属于Permitted functions集合呢？？？</p>
-<p>先说结论：不是，但是可以优化让其是！</p>
-<p>Ok，剩下的留给下一节再继续学习</p>
-<blockquote>
-<p>本文学习自：</p>
-<p><a href="http://bbs.sciencenet.cn/home.php?mod=space&amp;uid=411071&amp;do=blog&amp;id=651836" target="_blank" rel="noopener">http://bbs.sciencenet.cn/home.php?mod=space&amp;uid=411071&amp;do=blog&amp;id=651836</a></p>
-<p>感谢<strong>陈智罡老师</strong>的博客分析资源！</p>
-</blockquote>
+<p>欢迎Start，后续会继续更新</p>
 
       
       
@@ -431,16 +357,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2021-08-09
+    2021-08-25
     <br>
     <strong class="update-time">最后更新：</strong>
-    2021-08-10
+    2022-01-07
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/08/09/知识贴/密码学/隐私计算/同态加密/DGHV/DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图/" title="DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图" target="_blank">DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图</a>
+    <a href="https://xwjahahahaha.github.io/2021/08/25/知识贴/密码学/隐私计算/同态加密/DGHV/DGHV:整数上的同态加密3-golang、智能合约实现尝试/" title="DGHV:整数上的同态加密(3)-golang、智能合约实现尝试" target="_blank">DGHV:整数上的同态加密(3)-golang、智能合约实现尝试</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://xwjahahahaha.github.io/2021/08/09/知识贴/密码学/隐私计算/同态加密/DGHV/DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图/" title="DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图" target="_blank">https://xwjahahahaha.github.io/2021/08/09/知识贴/密码学/隐私计算/同态加密/DGHV/DGHV:整数上的同态加密(2)-解决噪声与构建全同态蓝图/</a>
+    <a href="https://xwjahahahaha.github.io/2021/08/25/知识贴/密码学/隐私计算/同态加密/DGHV/DGHV:整数上的同态加密3-golang、智能合约实现尝试/" title="DGHV:整数上的同态加密(3)-golang、智能合约实现尝试" target="_blank">https://xwjahahahaha.github.io/2021/08/25/知识贴/密码学/隐私计算/同态加密/DGHV/DGHV:整数上的同态加密3-golang、智能合约实现尝试/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -519,7 +445,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        			<a href="/categories/knowledge//" class="article-tag-list-link color5">knowledge</a>
         		</li>
       		
 		</ul>
@@ -574,7 +500,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/08/09/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(2)-%E8%A7%A3%E5%86%B3%E5%99%AA%E5%A3%B0%E4%B8%8E%E6%9E%84%E5%BB%BA%E5%85%A8%E5%90%8C%E6%80%81%E8%93%9D%E5%9B%BE/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xwjahahahaha.github.io/2021/08/25/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/DGHV/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%863-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -591,18 +517,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/10/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0215/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/08/25/%E6%8A%80%E6%9C%AF%E8%B4%B4/solidity%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/%E5%90%88%E7%BA%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/DGHV:%E6%95%B4%E6%95%B0%E4%B8%8A%E7%9A%84%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86(3)-golang%E3%80%81%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E5%AE%9E%E7%8E%B0%E5%B0%9D%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          日记_0215
+          DGHV:整数上的同态加密(3)-golang、智能合约实现尝试
         
       </div>
     </a>
   
   
-    <a href="/2021/08/09/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-08/%E6%97%A5%E8%AE%B0-0214/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日记_0214</div>
+    <a href="/2021/08/18/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E6%95%B0%E5%AD%A6/Shapley-Value%E5%85%A8%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Shapley_Value全解析与公式推导</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -629,7 +555,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、再谈同态加密"><span class="toc-number">1.</span> <span class="toc-text">一、再谈同态加密</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-number">1.2.</span> <span class="toc-text">分类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、解决噪声-Bootstappable"><span class="toc-number">2.</span> <span class="toc-text">二、解决噪声-Bootstappable</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Evaluate算法"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Evaluate算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-同态解密"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 同态解密</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#小故事一则"><span class="toc-number">2.2.1.</span> <span class="toc-text">小故事一则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-重加密技术"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 重加密技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-增强电路"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 增强电路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、构建全同态电路"><span class="toc-number">3.</span> <span class="toc-text">三、构建全同态电路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#有效性与任意性"><span class="toc-number">3.1.</span> <span class="toc-text">有效性与任意性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正确性"><span class="toc-number">3.2.</span> <span class="toc-text">正确性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基于DGHV的同态加密"><span class="toc-number">1.</span> <span class="toc-text">基于DGHV的同态加密</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本设计"><span class="toc-number">2.</span> <span class="toc-text">基本设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-随机数"><span class="toc-number">2.1.</span> <span class="toc-text">1. 随机数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-整数上的全同态加密"><span class="toc-number">2.2.</span> <span class="toc-text">2. 整数上的全同态加密</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#功能测试"><span class="toc-number">3.</span> <span class="toc-text">功能测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#step-1-选择参数"><span class="toc-number">3.1.</span> <span class="toc-text">step_1 选择参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#step-2-部署合约，输入参数"><span class="toc-number">3.2.</span> <span class="toc-text">step_2 部署合约，输入参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#step-3-测试"><span class="toc-number">3.3.</span> <span class="toc-text">step_3 测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#同态加法"><span class="toc-number">3.3.0.1.</span> <span class="toc-text">同态加法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#拓展与改进"><span class="toc-number">4.</span> <span class="toc-text">拓展与改进</span></a></li></ol>
                     </div>
                 </span>
             </div>

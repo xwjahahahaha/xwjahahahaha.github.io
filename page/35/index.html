@@ -70,7 +70,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 633
+			总文章数 634
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -182,6 +182,162 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-知识贴/密码学/隐私计算/同态加密/同态加密的原理详解与go实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/16/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86%E7%9A%84%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E4%B8%8Ego%E5%AE%9E%E8%B7%B5/">知识贴/密码学/隐私计算/同态加密/同态加密的原理详解与go实践</a>
+    </h1>
+  
+
+<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
+
+  <a href="javascript:;" class="archive-article-date">
+      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/16/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86%E7%9A%84%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E4%B8%8Ego%E5%AE%9E%E8%B7%B5/" class="pageViews">0</span>次
+  </a>
+
+        
+        
+<a href="/2021/07/16/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86%E7%9A%84%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E4%B8%8Ego%E5%AE%9E%E8%B7%B5/" class="archive-article-date">
+  	<time datetime="2021-07-16T03:01:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-16</time>
+</a>
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">3k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">11分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>学习资料来源：</p>
+<p>知乎VenusBlockChain: <a href="https://zhuanlan.zhihu.com/p/110210315" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/110210315</a></p>
+<p>知乎刘巍然：<a href="https://www.zhihu.com/question/27645858/answer/37598506" target="_blank" rel="noopener">https://www.zhihu.com/question/27645858/answer/37598506</a></p>
+<p><a href="https://blog.csdn.net/Gouph/article/details/106179325" target="_blank" rel="noopener">https://blog.csdn.net/Gouph/article/details/106179325</a></p>
+</blockquote>
+<h1 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h1><h2 id="1-1-同态加密"><a href="#1-1-同态加密" class="headerlink" title="1.1 同态加密"></a>1.1 同态加密</h2><p><strong><em>什么是同态加密？</em></strong></p>
+<p>提出第一个构造出全同态加密（Fully Homomorphic Encryption）[Gen09]的Craig Gentry给出的直观定义最好：</p>
+<blockquote>
+<p>A way to delegate processing of your data, without giving away access to it.</p>
+<p>一种委托数据处理的方法，但是让你不丧失对数据的所有权</p>
+</blockquote>
+<p><font color='#e54d42'>同态加密对于数据安全来说，不像一般的加密方案只关注<strong>数据存储安全</strong>，攻击者无法从密文中获得任何信息, 对加密数据的任何改动操作都会造成解密的错误。而同态加密关注于<strong>数据的处理安全</strong>，其提供了一种对加密数据处理的功能，且处理过程中无法得知原始内容，同时数据经过操作后还能够解密得到处理好的结果。</font></p>
+<p>同态加密（Homomorphic Encryption）允许对密文处理后仍然是加密的结果。即对密文直接进行处理，跟对明文进行处理后再对处理结果加密，得到的结果相同。从抽象代数的角度讲，保持了同态性。</p>
+<p>同态加密是<strong>基于数学难题</strong>的计算复杂性理论的密码学技术，它的概念可以简单的解释为：对经过同态加密的数据进行密文运算处理得到一个输出，这一输出解密结果与用同一方法处理未加密的原始数据得到的输出结果是一样的。</p>
+        
+      
+      
+      <!-- 添加版权声明 -->
+      
+        <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+      
+      <!-- 添加版权声明 -->
+
+
+      <!-- 添加文章结束 -->
+      
+      <!-- 添加文章结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical//" class="article-tag-list-link color5">technical</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/technical/golang//" class="article-tag-list-link color2">golang</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/16/%E7%9F%A5%E8%AF%86%E8%B4%B4/%E5%AF%86%E7%A0%81%E5%AD%A6/%E9%9A%90%E7%A7%81%E8%AE%A1%E7%AE%97/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86/%E5%90%8C%E6%80%81%E5%8A%A0%E5%AF%86%E7%9A%84%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E4%B8%8Ego%E5%AE%9E%E8%B7%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
   
     <article id="post-技术贴/算法/剑指Offer/剑指Offer15-二进制中1的个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -823,215 +979,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/07/14/%E6%8A%80%E6%9C%AF%E8%B4%B4/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87Offer/%E5%89%91%E6%8C%87Offer14-II-%E5%89%AA%E7%BB%B3%E5%AD%90II/">展开全文 >></a>
-        </p>
-      
-
-      
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-随笔/每日一记/日记/2021-07/日记-0197" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/">日记_0197</a>
-    </h1>
-  
-
-<!-- 添加的阅读量 html 代码 ，span 给的 id 是文章的 url 作为唯一的 key 值 -->
-
-  <a href="javascript:;" class="archive-article-date">
-      <i class="icon-smile icon"></i> 阅读数:<span id="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/" class="pageViews">0</span>次
-  </a>
-
-        
-        
-<a href="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/" class="archive-article-date">
-  	<time datetime="2021-07-14T03:21:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-14</time>
-</a>
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">498字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><table>
-<thead>
-<tr>
-<th>任务</th>
-<th>每天</th>
-<th>开发-云容器技术</th>
-<th>项目与框架</th>
-<th>科研-区块链(FL+BC)</th>
-<th>预备事宜</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1.</td>
-<td><strong>英语单词</strong></td>
-<td>go基础</td>
-<td>SimpleBitcoin</td>
-<td>FL/分布式存储论文一周一篇细读</td>
-<td>准备参加<strong>编程类的比赛或者拿编程证书</strong></td>
-</tr>
-<tr>
-<td>2.</td>
-<td>语法课看完</td>
-<td>go网络编程、Web框架</td>
-<td>联邦学习框架</td>
-<td>写专利</td>
-<td>看比赛资讯，准备<strong>区块链比赛</strong></td>
-</tr>
-<tr>
-<td>3.</td>
-<td><font color='red'>六级</font></td>
-<td>go数据库、ORM、go高级编程</td>
-<td></td>
-<td>机器学习课程</td>
-<td>为<strong>研二实习</strong>做准备</td>
-</tr>
-<tr>
-<td>4.</td>
-<td>Leetcode</td>
-<td>go容器技术docker、k8s</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>5.</td>
-<td></td>
-<td>go微服务与任务调度</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>6.</td>
-<td></td>
-<td>看源码docker、k8s、Fabric、以太坊、比特币等</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>7.</td>
-<td></td>
-<td>Linux、C++</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-        
-      
-      
-      <!-- 添加版权声明 -->
-      
-        <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-      
-      <!-- 添加版权声明 -->
-
-
-      <!-- 添加文章结束 -->
-      
-      <!-- 添加文章结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/每日一记//" class="article-tag-list-link color5">每日一记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/14/%E9%9A%8F%E7%AC%94/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/%E6%97%A5%E8%AE%B0/2021-07/%E6%97%A5%E8%AE%B0-0197/">展开全文 >></a>
         </p>
       
 
