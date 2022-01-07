@@ -2,4 +2,3 @@ git pull
 git add .
 git commit -m "new blog"
 git push
-hexo g -d
