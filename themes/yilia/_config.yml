@@ -40,9 +40,9 @@ root: /
 # 文章卡片右下角常驻链接，不需要请设置为false
 show_all_link: '展开全文'
 # 数学公式
-mathjax: false
+mathjax: true
 # 是否在新窗口打开链接
-open_in_new: false
+open_in_new: true
 
 # 打赏
 # 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
@@ -56,7 +56,7 @@ weixin: http://xwjpics.gumptlu.work/qiniu_picGo/20200622214127.png
 
 # 目录
 # 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
-toc: 1
+toc: 2
 # 根据自己的习惯来设置，如果你的目录标题习惯有标号，置为true即可隐藏hexo重复的序号；否则置为false
 toc_hide_index: true
 # 目录为空时的提示
@@ -72,7 +72,7 @@ favicon: /favicon.png
 
 
 #你的头像url
-avatar: http://xwjpics.gumptlu.work/qiniu_picGo/touxiang.gif
+avatar: /touxiang.png
 
 
 
@@ -158,7 +158,7 @@ friends:
   # 友情链接5: http://localhost:4000/
   # 友情链接6: http://localhost:4000/
 
-aboutme: 博主只是个菜鸟,重庆邮电大学计科研究生一枚.
+aboutme: 学生党,重庆邮电大学计科研究生一枚.
 
 
 #文章结束
@@ -183,8 +183,8 @@ busuanzi:
   enable: true
 
 # 版权声明
-#在需要进行版权声明的文章的md文件头部，设置属性declare: true。
-#版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明
+# 在需要进行版权声明的文章的md文件头部，设置属性declare: true。
+# 版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明
 declare:
   declare_type: 1
   licensee_url: https://creativecommons.org/licenses/by-nc-sa/4.0/        #当前应用的版权协议地址。
