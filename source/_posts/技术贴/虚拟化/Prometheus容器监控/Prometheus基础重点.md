@@ -49,9 +49,12 @@ Prometheus server从各个exporter拉取数据，或者间接地通过网关Push
 
 * 中心化server不支持拓展，容灾问题（社区目前已经有一些高可用的方案）
 
-# 二、export
+# 二、配置文件
 
-
+* global : 全局共享配置
+* scrape_configs : 添加需要获取指标的节点数据
+* 
+* 
 
 
 

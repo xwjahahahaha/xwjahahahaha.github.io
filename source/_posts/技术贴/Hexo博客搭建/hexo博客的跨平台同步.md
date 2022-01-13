@@ -84,6 +84,14 @@ hexo的工作流程：
 
 8. 旧主机同理同步这个sync分支，先git init再添加remote，最后git pull，应该是一样的内容
 
+9. 最后把整个page仓库设置为private私有，这样就比较安全了（现在github私有仓库如果只有几个写作者貌似免费）
+
+   setting往下拉：
+
+   (我是已经改动过了)
+
+   ![image-20220111160118977](http://xwjpics.gumptlu.work/image-20220111160118977.png)
+
 注意：新旧主机都必须在sync分支下，master分支的操作交给hexo我们不用管
 
 此时就完成了新主机这边的部署，接下来就是同步

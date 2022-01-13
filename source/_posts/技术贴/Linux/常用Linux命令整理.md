@@ -10,7 +10,7 @@ declare: true
 date: 2020-10-18 21:13:50
 ---
 
-# 1.Ubuntu 18.04 
+# 1. Ubuntu 18.04 
 
 ## 开启SSH
 
@@ -218,16 +218,16 @@ scp [可选参数] file_source file_target
 /usr/sbin/nginx -s reload # 重启
 ```
 
-# 7.端口相关
+# 7. 端口相关
 
-**1）查找被占用的端口：**
+**查找被占用的端口：**
 
 ```shell
 netstat -tln | grep 8000
 tcp        0      0 192.168.2.106:8000      0.0.0.0:*               LISTEN  
 ```
 
-**2）查看被占用端口的PID：**
+**查看被占用端口的PID：**
 
 ```shell
 sudo lsof -i:8000
@@ -241,13 +241,11 @@ nginx   851 www-data    6u  IPv4  15078      0t0  TCP 192.168.2.106:8000 (LISTEN
 nginx   852 www-data    6u  IPv4  15078      0t0  TCP 192.168.2.106:8000 (LISTEN)
 ```
 
-**3）kill掉该进程**
+**开启某一端口：**
 
-```shell
-sudo kill -9 850
-```
+`sudo /sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT`
 
-# 8.unzip命令
+# 8. unzip命令
 
 ```shell
 unzip [-cflptuvz][-agCjLMnoqsVX][-P <密码>][.zip文件][文件][-d <目录>][-x <文件>] 或 unzip [-Z]
@@ -269,10 +267,108 @@ unzip [-cflptuvz][-agCjLMnoqsVX][-P <密码>][.zip文件][文件][-d <目录>][-
 
 -j 不重建文档的目录结构，把所有文件解压到同一目录下。
 
-# 9. 磁盘存储
+# 9. 磁盘相关
 
 ```shell
 du -sh [path]   # 显示文件大小
 df -h   # 显示磁盘空间
 ```
+
+
+挂载另一个磁盘：
+
+https://blog.csdn.net/dongyuxu342719/article/details/82702357
+
+Linux fdisk 是一个创建和维护分区表的程序，它兼容 DOS 类型的分区表、BSD 或者 SUN 类型的磁盘列表。
+
+```shell
+su -            // ROOT用户
+df -h           // 查看已挂载磁盘的使用情况
+fdisk -l        // 查看所有磁盘信息
+fdisk /dev/sdb  // 进入某一个磁盘，此时就进入了fdisk控制台，注意这里不能具体到分区只能指定到磁盘(例如sda、sdb等)，进入后可以看到分区
+// fdisk控制台中的基本命令：
+n               // 在此磁盘新建分区
+p               // 查看磁盘所有已有分区
+l               // 显示分区类型
+t               // 设置分区类型id
+d               // 删除一个分区
+w               // 保存退出（所有操作生效最后都需要此操作）
+
+
+// 有时候重写了分区表但是可能会看不到分区：
+partprobe /dev/sdb    // 该命令可以不重启查看分区，如果提示正忙那么可能需要重启才可
+
+
+// 新建分区后需要格式化文件类型
+mkfs.ext4 /dev/sdb1 
+
+
+// 新挂载的分区让其每次重启都挂载则需要修改配置文件
+vim /etc/fstab          //按格式填入
+```
+
+# 10. linux工具
+
+## 1. ReadLink
+
+* 作用：确定一个链接类型文件的真正执行文件
+
+* 常用：
+
+  * `-f` 递归的不断通过链接确定最终的真正的执行文件
+
+    `readlink -f $path` 如果`$path`没有链接/不是链接文件，就显示自己本身的绝对路径，**可用来确定当前文件的绝对路径**
+    
+    shell脚本语言中：
+    
+    ```shell
+    BASEDIR="$(dirname $(readlink -f "$0"))"  # 获取当前执行文件的绝对父目录路径
+    ```
+
+
+* 例子：
+
+    ```shell
+    #系统中的awk命令到底是执行哪个可以执行文件呢？
+    $ readlink /usr/bin/awk  
+    /etc/alternatives/awk  ----> 其实这个还是一个符号连接  
+    $ readlink /etc/alternatives/awk  
+    /usr/bin/gawk  ----> 这个才是真正的可执行文件  
+    ```
+
+## 2. Diff
+
+https://www.cnblogs.com/wangqiguo/p/5793448.html
+
+* 作用：比较两个文本文件的不同，并输出不同的行，不会改变原文件的内容
+
+* 输出：输出的内容代表**第一个文件应该怎样操作才可以变得和第二个文件一样**
+
+  * 默认的normal模式：
+
+    输出中第一行数字表示修改行号区间，字母表示操作(a=add,c=change,d=delete)
+
+    输出下面的行<表示左边的文件要修改的具体行，>右边文件具体的行
+
+* 其他模式：Context、Unified模式
+
+## 3. Patch
+
+https://www.runoob.com/linux/linux-comm-patch.html
+
+* 作用：补丁工具，让用户利用设置修补文件的方式，修改，更新原始文件
+
+* 使用： 一般都会结合diff使用：https://www.cnblogs.com/cute/archive/2011/04/29/2033011.html
+  * 命令`diff A B > C` ,一般A是原始文件，B是修改后的文件，C称为A的补丁文件。
+  * `patch A C `  就能得到B(还是A文件，内容变成了B), 这一步叫做对A打上了B的名字为C的补丁。
+  * `patch -R B C `  (B还是A文件，只不过内容是B)就可以将A文件内容重新还原到A了。
+* `rej`文件：打补丁的时候如果原本的文件对应补丁的内容已经有了并且还使用了强制模式，那么就会冲突，会自动生成`.rej`文件需要手动处理（修改补丁包/源文件）
+
+> 其他常用操作文章：https://www.cnblogs.com/hellokitty2/p/7674237.html
+
+
+
+
+
+
 

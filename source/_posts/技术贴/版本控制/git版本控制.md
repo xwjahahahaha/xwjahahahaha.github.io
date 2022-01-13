@@ -573,5 +573,12 @@ git pull origin [主分支]
 git push origin [主分支]
 ```
 
+### 十二、命令功能检索大全
 
+#### git clone
+
+`git clone --depth 1  --branch [分支名] [XXXX].git`
+
+- depth用于指定克隆深度，为1即表示只克隆最近一次commit
+- 适合用 git clone --depth=1 的场景：**你只是想clone最新版本来使用或学习，而不是参与整个项目的开发工作**
 
