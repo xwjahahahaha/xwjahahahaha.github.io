@@ -22,9 +22,9 @@ Nginx 专为性能优化而开发， 性能是其最重要的考量,实现上非
 
 ## 反向代理
 
-正向代理： 如果把局域网外的 Internet 想象成一个巨大的资源库，则局域网中的客户端要访 问 Internet，则需要通过代理服务器来访问，这种代理服务就称为正向代理。
+正向代理： 如果把局域网外的 Internet 想象成一个巨大的资源库，则局域网中的客户端要访问 Internet，则需要通过代理服务器来访问，这种代理服务就称为正向代理。
 
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210728094233095.png" alt="image-20210728094233095" style="zoom:50%;" />
+![image-20220113162345754](/Users/xwj/Library/Application Support/typora-user-images/image-20220113162345754.png)
 
 
 

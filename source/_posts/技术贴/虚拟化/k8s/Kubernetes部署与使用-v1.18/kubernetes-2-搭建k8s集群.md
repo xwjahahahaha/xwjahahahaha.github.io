@@ -197,14 +197,14 @@ $ kubectl get nodes
 
 向集群添加新节点，执行在kubeadm init输出的kubeadm join命令：(如果没找到可以用下面的命令再创建)
 
-```
+```shell
 $ kubeadm join 192.168.1.11:6443 --token esce21.q6hetwm8si29qxwn \
     --discovery-token-ca-cert-hash sha256:00603a05805807501d7181c3d60b478788408cfe6cedefedb1f97569708be9c5
 ```
 
 默认token有效期为24小时，当过期之后，该token就不可用了。这时就需要重新创建token，操作如下：
 
-```
+```shell
 kubeadm token create --print-join-command
 ```
 
