@@ -43,7 +43,7 @@ $ src/redis-server
 $ src/redis-cli
 redis> set foo bar
 OK
-redis> get foo
+redis> get foo	
 "bar"
 ```
 

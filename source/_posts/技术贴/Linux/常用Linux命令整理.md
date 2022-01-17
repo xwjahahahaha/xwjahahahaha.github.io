@@ -10,6 +10,10 @@ declare: true
 date: 2020-10-18 21:13:50
 ---
 
+[TOC]
+
+
+
 # 1. Ubuntu 18.04 
 
 ## 开启SSH
@@ -366,9 +370,7 @@ https://www.runoob.com/linux/linux-comm-patch.html
 
 > 其他常用操作文章：https://www.cnblogs.com/hellokitty2/p/7674237.html
 
+# 11.tar
 
-
-
-
-
+* `tar -xf file_name.tar -C /target/directory`  解压到制定目录 
 

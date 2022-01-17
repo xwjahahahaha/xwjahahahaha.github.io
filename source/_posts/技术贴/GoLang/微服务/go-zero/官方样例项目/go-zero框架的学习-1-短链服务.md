@@ -1,0 +1,566 @@
+---
+title: go-zero框架的学习-1-短链服务
+tags:
+  - null
+categories:
+  - technical
+  - null
+toc: true
+declare: true
+date: 2022-01-17 09:13:24
+---
+
+> * https://go-zero.dev/cn/
+> * https://github.com/zeromicro/zero-doc/blob/main/doc/shorturl.md
+
+记录重点和难点
+
+<!-- more -->
+
+[TOC]
+
+
+
+# 一、短链服务
+
+地址：https://github.com/zeromicro/zero-doc/blob/main/doc/shorturl.md
+
+**需求/功能/目的：将长URL经过程序计算（取Hash）转换为短URL（一一对应）**，整体框架如下：
+
+![image-20220117092937647](http://xwjpics.gumptlu.work/image-20220117092937647.png)
+
+- 这里只用了 `Transform RPC` 一个微服务，并不是说 `API Gateway `只能调用一个微服务，只是为了最简演示 `API Gateway `如何调用` RPC `微服务而已
+- 在真正项目里要尽可能每个微服务使用自己的数据库，数据边界要清晰
+
+## 1. 准备工作
+
+* 安装etcd、mysql、redis
+  * etcd：https://github.com/etcd-io/etcd/releases/
+  * mysql：[Linux 下 MySQL 安装与配置](https://www.linuxidc.com/Linux/2019-12/161832.htm#:~:text=Linux%20%E4%B8%8B%20MySQL%20%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE%201%20%E3%80%81%E4%B8%8B%E8%BD%BDMysql%E3%80%82%202%20%E3%80%81%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85%E5%8C%85,Starting%20MySQL.%2011%20%E3%80%81%E4%BF%AE%E6%94%B9%E5%85%81%E8%AE%B8%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5.%20Linux%E5%85%AC%E7%A4%BE%E7%9A%84RSS%E5%9C%B0%E5%9D%80%20%EF%BC%9A%20https%3A%2F%2Fwww.linuxidc.com%2FrssFeed.aspx%20)
+  * redis: [redis的安装](https://blog.csdn.net/qq_39135287/article/details/83474865)
+* 其他见链接
+
+## 2. 编写API Gateway代码
+
+* 创建工作目录 `shorturl` 和 `shorturl/api`
+
+* `go mod init shorturl`
+
+* 在 `shorturl/api` 目录下通过 **`goctl`** 生成 `api/shorturl.api`：
+
+  `goctl api -o shorturl.api`
+
+`shorturl.api`:
+
+```go
+
+syntax = "v1"
+
+type (
+    expandReq {
+        shorten string `from:"shorten"`
+    }
+    expandResp {
+        url string `json:"url"`
+    }
+)
+
+type (
+    shortenReq {
+        url string `from:"url"`
+    }
+    shortenResp {
+        shorten string `json:"shorten"`
+    }
+)
+
+
+service shorturl-api {      
+	@server(
+        handler: ShortenHandler
+    )
+    get /shorten(shortenReq) returns(shortenResp)
+    @server(
+        handler: ExpandHandler
+    )
+    get /expand(expandReq) returns(expandResp)
+}
+```
+
+1. `service shorturl-api`：表示service的名称
+2. `@server`：定义server服务端用到的属性
+3. `handler`：定义服务端handler(请求处理函数)的名字
+4. `get /shorten(shortenReq) returns(shortenResp)`：定义了get方法的路由、请求参数(`shortenReq`)、返回参数(`shortenResp`)
+
+* 使用 goctl 生成 API Gateway 代码
+
+  `goctl api go -api shorturl.api -dir .`
+
+生成的文件结构如下：
+
+```shell
+.
+├── api
+│   ├── etc
+│   │   └── shorturl-api.yaml         // 配置文件
+│   ├── internal
+│   │   ├── config
+│   │   │   └── config.go             // 定义配置依赖，对应于yaml文件
+│   │   ├── handler
+│   │   │   ├── expandhandler.go      // 实现 expandHandler
+│   │   │   ├── routes.go             // 定义路由处理
+│   │   │   └── shortenhandler.go     // 实现 shortenHandler
+│   │   ├── logic
+│   │   │   ├── expandlogic.go        // 实现 ExpandLogic
+│   │   │   └── shortenlogic.go       // 实现 ShortenLogic
+│   │   ├── svc
+│   │   │   └── servicecontext.go     // 定义 ServiceContext
+│   │   └── types
+│   │       └── types.go              // 定义请求、返回结构体
+│   ├── shorturl.api
+│   └── shorturl.go                   // main 入口定义
+├── go.mod
+└── go.sum
+```
+
+* 启动 API Gateway 服务，默认侦听在 8888 端口, 测试：
+
+  ```shell
+  $ curl -i "http://localhost:8888/shorten?url=http://www.xiaoheiban.cn"
+  HTTP/1.1 200 OK
+  Content-Type: application/json
+  X-Trace-Id: 5407c590f4b4b7d20dccd3fde99178bf
+  Date: Mon, 17 Jan 2022 07:14:02 GMT
+  Content-Length: 4
+  
+  null
+  ```
+
+  返回一个null值，因为没有编写逻辑，下面在rpc服务中实现业务逻辑
+
+## 3. 编写 transform rpc 服务
+
+- 在 `shorturl` 目录下创建 `rpc` 目录
+
+- 在 `rpc/transform` 目录下编写 `transform.proto` 文件
+
+  可以通过命令生成 proto 文件模板
+
+  ```
+  goctl rpc template -o transform.proto
+  ```
+
+  修改后文件内容如下：
+
+  ```protobuf
+  syntax = "proto3";
+  
+  package transform;
+  
+  message expandReq {
+      string shorten = 1;
+  }
+  
+  message expandResp {
+      string url = 1;
+  }
+  
+  message shortenReq {
+      string url = 1;
+  }
+  
+  message shortenResp {
+      string shorten = 1;
+  }
+  
+  service transformer {
+      rpc expand(expandReq) returns(expandResp);
+      rpc shorten(shortenReq) returns(shortenResp);
+  }
+  ```
+
+* 用 `goctl` 生成 rpc 代码，在 `rpc/transform` 目录下执行命令
+
+    ```
+    goctl rpc proto -src transform.proto -dir .
+    ```
+    
+    文件结构如下（我的和官方文章的不太一样）：
+    
+    ```shell
+    .
+    ├── etc
+    │   └── transform.yaml			// 配置文件
+    ├── internal
+    │   ├── config
+    │   │   └── config.go			// 配置定义一些依赖，对应于yaml文件
+    │   ├── logic
+    │   │   ├── expandlogic.go		// expand 业务逻辑编写的地方
+    │   │   └── shortenlogic.go		// shorten 业务逻辑编写的地方
+    │   ├── server
+    │   │   └── transformerserver.go	// 调用入口，不需要修改
+    │   └── svc
+    │       └── servicecontext.go		// 定义 ServiceContext，传递依赖
+    ├── transform
+    │   └── transform.pb.go
+    ├── transformer
+    │   └── transformer.go				// 提供了外部调用方法，无需修改
+    ├── transform.go
+    └── transform.proto
+    ```
+
+* 直接可以运行，如下：
+
+    ```go
+    $ go run transform.go -f etc/transform.yaml
+    Starting rpc server at 127.0.0.1:8080...
+    ```
+
+* 查看服务是否注册
+
+  ```shell
+  $ETCDCTL_API=3 
+  etcdctl get transform.rpc --prefix			# 使用etcd工具查看键值，注意后台要开启etcd服务
+  transform.rpc/7587851893787585061
+  127.0.0.1:8080
+  ```
+
+  `etc/transform.yaml` 文件里可以修改侦听端口等配置
+
+## 4. 修改 API Gateway 代码调用 transform rpc 服务
+
+* 修改配置文件 `shorturl-api.yaml`，增加如下内容
+
+  ```yaml
+  Name: shorturl-api
+  Host: 0.0.0.0
+  Port: 8888
+  Transform:
+    Etcd:
+      Hosts:
+      - localhost:2379
+      Key: transform.rpc
+  ```
+
+​		通过 etcd 自动去发现可用的 transform 服务
+
+* 修改 `internal/config/config.go` 如下，增加 transform 服务依赖
+
+  ```go
+  type Config struct {
+    rest.RestConf
+    Transform zrpc.RpcClientConf     // 手动代码
+  }
+  ```
+
+* 修改 `internal/svc/servicecontext.go`，如下：
+
+  ```go
+  type ServiceContext struct {
+    Config    config.Config
+    Transformer transformer.Transformer                                          // 手动代码
+  }
+  
+  func NewServiceContext(c config.Config) *ServiceContext {
+    return &ServiceContext{
+      Config:    c,
+      Transformer: transformer.NewTransformer(zrpc.MustNewClient(c.Transform)),  // 手动代码
+    }
+  }
+  ```
+
+  **通过` ServiceContext `在不同业务逻辑之间传递依赖**
+
+* 修改 `internal/logic/expandlogic.go` 里的 `Expand` 方法，如下：
+
+  ```go
+  func (l *ExpandLogic) Expand(req types.ExpandReq) (*types.ExpandResp, error) {
+  	// 调用transformer接口的的Expand方法，传递请求req给其进一步处理，并返回结果
+  	resp, err := l.svcCtx.Transformer.Expand(l.ctx, &transform.ExpandReq{
+  		Shorten: req.Shorten,
+  	})
+  	if err != nil {
+  		return &types.ExpandResp{}, err
+  	}
+  	return &types.ExpandResp{
+  		Url: resp.Url,
+  	}, nil
+  }
+  ```
+
+​		通过调用 `transformer` 的 `Expand` 方法实现短链恢复到 `url`
+
+* 修改 `internal/logic/shortenlogic.go`，如下：
+
+  ```go
+  func (l *ShortenLogic) Shorten(req types.ShortenReq) (*types.ShortenResp, error) {
+  	resp, err := l.svcCtx.Transformer.Shorten(l.ctx, &transform.ShortenReq{
+  		Url: req.Url,
+  	})
+  	if err != nil {
+  		return &types.ShortenResp{}, nil
+  	}
+  	return &types.ShortenResp{
+  		Shorten: resp.Shorten,
+  	}, nil
+  }
+  ```
+
+​		通过调用 `transformer` 的 `Shorten` 方法实现` url `到短链的变换
+
+## 5. 定义数据库表结构，并生成 CRUD+cache 代码
+
+- shorturl 下创建 `rpc/transform/model` 目录：`mkdir -p rpc/transform/model`
+
+- 在 `rpc/transform/model` 目录下编写创建 shorturl 表的 sql 文件 `shorturl.sql`，如下：
+
+  ```sql
+  CREATE TABLE `shorturl`
+  (
+    `shorten` varchar(255) NOT NULL COMMENT 'shorten key',
+    `url` varchar(255) NOT NULL COMMENT 'original url',
+    PRIMARY KEY(`shorten`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  ```
+
+- 创建 DB 和 table
+
+  进入mysql控制台，然后：
+
+  ```shell
+  create database gozero;
+  ```
+
+  ```shell
+  source shorturl.sql;   # 如果找不到可以直接使用绝对路径
+  ```
+
+  ```shell
+  mysql> show tables;
+  +------------------+
+  | Tables_in_gozero |
+  +------------------+
+  | shorturl         |
+  +------------------+
+  1 row in set (0.00 sec)
+  ```
+
+- 在 `rpc/transform/model` 目录下执行如下命令生成 CRUD+cache 代码，`-c` 表示使用 `redis cache`
+
+  ```
+  goctl model mysql ddl -c -src shorturl.sql -dir .
+  ```
+
+  也可以用 `datasource` 命令代替 `ddl` 来指定数据库链接直接从 schema 生成
+
+  生成后的文件结构如下：
+
+  ```shell
+  rpc/transform/model
+  ├── shorturl.sql
+  ├── shorturlmodel.go              // CRUD+cache 代码
+  └── vars.go                       // 定义常量和变量
+  ```
+
+  `shorturlmodel.go`中就已经帮我们创建好了对数据库表的CRUD代码以及缓存
+
+## 6. 修改 shorten/expand rpc 代码调用 crud+cache 代码
+
+- 修改 `rpc/transform/etc/transform.yaml`，增加如下内容：
+
+  ```yaml
+  DataSource: root:password@tcp(localhost:3306)/gozero
+  Table: shorturl
+  Cache:
+    - Host: localhost:6379
+  ```
+
+  可以使用多个 redis 作为 cache，支持 redis 单点或者 redis 集群. （记得提前开启redis服务）
+
+- 修改 `rpc/transform/internal/config/config.go`，如下：
+
+  ```go
+  type Config struct {
+    zrpc.RpcServerConf
+    DataSource string             // 手动代码
+    Table      string             // 手动代码
+    Cache      cache.CacheConf    // 手动代码
+  }
+  ```
+
+  增加了 mysql 和 redis cache 配置
+
+- 修改 `rpc/transform/internal/svc/servicecontext.go`，如下：
+
+  ```go
+  type ServiceContext struct {
+  	Config config.Config
+  	Model  model.ShorturlModel			// 数据库实例
+  }
+  
+  func NewServiceContext(c config.Config) *ServiceContext {
+  	return &ServiceContext{
+  		Config: c,
+  		Model: model.NewShorturlModel(sqlx.NewMysql(c.DataSource), c.Cache),
+  	}
+  }
+  ```
+
+- 修改 `rpc/transform/internal/logic/expandlogic.go`，如下：
+
+  编写rpc transformer的逻辑：查询数据库
+
+  ```go
+  func (l *ExpandLogic) Expand(in *transform.ExpandReq) (*transform.ExpandResp, error) {
+  	// 查询数据库
+  	res, err := l.svcCtx.Model.FindOne(in.Shorten)
+  	if err != nil {
+  		return nil, err
+  	}
+  	return &transform.ExpandResp{
+  		Url: res.Url,
+  	}, nil
+  }
+  ```
+
+- 修改 `rpc/transform/internal/logic/shortenlogic.go`，如下：
+
+  逻辑：将原本的Url链接 => 取Hash=>插入数据库
+
+  ```go
+  func (l *ShortenLogic) Shorten(in *transform.ShortenReq) (*transform.ShortenResp, error) {
+  	//将原本的Url链接 => 取Hash=>插入数据库
+  	key := hash.Md5Hex([]byte(in.Url))[:6]
+  	_, err := l.svcCtx.Model.Insert(&model.Shorturl{
+  		Shorten: key,
+  		Url:     in.Url,
+  	})
+  	if err != nil {
+  		return nil, err
+  	}
+  	return &transform.ShortenResp{
+  		Shorten: key,
+  	}, nil
+  }
+  
+  ```
+
+  至此代码修改完成
+
+  **注意：**
+
+  1. `undefined cache`，你需要 `import "github.com/tal-tech/go-zero/core/stores/cache"`
+  2. `undefined model, sqlx, hash` 等，你需要在文件中
+
+  ```
+  import "shorturl/rpc/transform/model"
+  
+  import "github.com/tal-tech/go-zero/core/stores/sqlx"
+  ```
+
+## 7. 完整的调用
+
+先启动, 注意启动顺序，先启动`transform.rpc`再启动`API Gateway`
+
+```shell
+go run transform.go -f etc/transform.yaml
+go run shorturl.go -f etc/shorturl-api.yaml 
+```
+
+测试调用：
+
+```shell
+# curl -i "http://localhost:8888/shorten?url=http://www.xiaoheiban.cn"
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Trace-Id: b0e50284f8ea8baf3800c0c1f90457c4
+Date: Mon, 17 Jan 2022 09:19:46 GMT
+Content-Length: 20
+
+{"shorten":"f35b2a"}
+```
+
+```shell
+curl1 -i "http://localhost:8888/expand?shorten=f35b2a"
+HTTP/1.1 200 OK
+Content-Type: application/json
+X-Trace-Id: 524f6bdd04e6e11191130fe9d7a17dfa
+Date: Mon, 17 Jan 2022 12:21:07 GMT
+Content-Length: 34
+
+{"url":"http://www.xiaoheiban.cn"}
+```
+
+需要注意的是一个url只能调用一次，不然重复的键插入数据库会造成错误：
+
+` error: Error 1062: Duplicate entry 'f35b2a' for key 'shorturl.PRIMARY'"}`
+
+所以可以修改代码逻辑:
+
+`rpc/transform/internal/logic/shortenlogic.go`
+
+```go
+func (l *ShortenLogic) Shorten(in *transform.ShortenReq) (*transform.ShortenResp, error) {
+	//将原本的Url链接 => 查询是否存在 => 取Hash=> 插入数据库
+	key := hash.Md5Hex([]byte(in.Url))[:6]
+	res, _ := l.svcCtx.Model.FindOne(key) // 注意：这里不需要处理错误，不然新的url请求会无法查询到提示错误
+	if res != nil {
+		// 如果已经有了就返回已经存在,其实最好是返回两个字段
+		return &transform.ShortenResp{
+			Shorten: fmt.Sprintf("此URL已设置短链:%s", key),
+		}, nil
+	}
+	_, err := l.svcCtx.Model.Insert(&model.Shorturl{
+		Shorten: key,
+		Url:     in.Url,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &transform.ShortenResp{
+		Shorten: key,
+	}, nil
+}
+```
+
+# 二、bug记录
+
+## 3.1 各类import依赖问题
+
+解决：清空`go mod`文件，然后`go mod tidy`
+
+## 3.2 rpc error: code = Unknown desc = NOAUTH Authentication required.
+
+问题描述：`curl1 -i "http://localhost:8888/expand?shorten=f35b2a"`时提示此错误
+
+原因：redis设置了访问密码
+
+解决：
+
+* 去掉redis的密码，`/usr/local/redis/redis.conf` 注释掉`requirepass xxxx`这一行
+* 配置transformer的配置文件，加上密码
+
+## 3.3 transform写入数据库错误
+
+` error: Error 1062: Duplicate entry 'f35b2a' for key 'shorturl.PRIMARY'"}`
+
+看log字面意思是数据库中已经有这个键值了， 查询mysql数据库，因为
+
+```shell
+mysql> select * from shorturl;
++---------+--------------------------+
+| shorten | url                      |
++---------+--------------------------+
+| d41d8c  |                          |
+| f35b2a  | http://www.xiaoheiban.cn |
++---------+--------------------------+
+2 rows in set (0.00 sec)
+```
+
+发现确实存在，所以报错，修改原代码逻辑，见上方
+
+## 3.4  rpc error: code = Unknown desc = sql: no rows in result set"
+
+原因：没有先设置短链再柴勋短链，直接查询会在mysql中查询不到报错
+
+解决：先插入再查询
