@@ -292,10 +292,11 @@ kubeadm token create --print-join-command
 
 ```shell
 sudo kubeadm reset				# 只有master节点
-rm -rf .kube/
+rm -rf /root/.kube/
 sudo rm -rf /etc/kubernetes/
 sudo rm -rf /var/lib/kubelet/
 sudo rm -rf /var/lib/etcd
+sudo rm -rf /etc/cni/net.d
 apt-get --purge remove kubectl kubelet kubeadm 
 ```
 
