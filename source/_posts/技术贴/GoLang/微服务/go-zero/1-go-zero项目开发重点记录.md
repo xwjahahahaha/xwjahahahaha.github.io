@@ -107,19 +107,187 @@ https://go-zero.dev/cn/dev-flow.html
 
 https://go-zero.dev/cn/jwt.html
 
+## 1. Jwt Token的组成
 
+* jwt组成
 
+![UY7YbE](http://xwjpics.gumptlu.work/UY7YbE.png)
 
+* Header：同步由以下json结构生成，生成的方式是将整个json字符串经过Base64Url编码
 
+  ```json
+  {
+    "typ": "JWT",			// 表示是一个JWT字符串
+    "alg": "HS256"		// 表示Hash摘要算法
+  }
+  ```
 
+* Payload: 用来承载需要传递的数据，其一个属性对成为claim标准，这样为claim标准，同样Base64Url编码
 
+  ```json
+  {
+    "sub": "123456",
+    "name": "Jone",
+    "admin": true
+  }
+  ```
 
+* Signature: 将前两个字符串加一个`.`拼接然后通过head头中的hash摘要算法处理
 
+## 2. 项目使用重点：
 
+* api描述文件中，如果路由需要鉴权，那么在其上添加鉴权的`@server`就表示开启
 
+  ```go
+  @server(
+      jwt: Auth
+  )
+  service search-api {
+      @handler search
+      get /search/do (SearchReq) returns (SearchReply)
+  }
+  
+  
+  service search-api {
+      @handler ping
+      get /search/ping
+  }
+  ```
 
+  `/search/do`有鉴权功能，而`/search/ping`路由不需要jwt鉴权
 
+* `jwt token`的鉴权是go-zero内部已经封装了，你只需在api文件中定义服务时简单的声明一下即可。
 
+* 项目添加Jwt Token验证的整体流程如下：
+
+![Snipaste_2022-01-19_11-31-52](http://xwjpics.gumptlu.work/Snipaste_2022-01-19_11-31-52.png)
+
+* **token中的负载claims（k/v对），在验证方可以通过req拿到，gozero会将用户生成token时传入的kv原封不动的放在http.Request的Context中，会传递到逻辑层的l.ctx中**
+
+​		可以用于进一步的验证用户身份（例如IP等）
+
+# 五、实现中间件
+
+## 1. 中间件原理
+
+中间件就是**包装原始应用并并添加一些额外的功能**，也就是在请求的过程中新增一层，最大的特点就是封装好之后可以实现简单的拔插。
+
+例如在一个http请求的处理过程中加入例如log记录、权限管理等中间操作，一个语句就可以使用
+
+一般会有两个函数：
+
+* `Next()`：让请求进入下一层。（在`gin`中做了优化也可以不写）
+* `Abort()`：中断在当前层
+
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/uFzPJb.png" alt="uFzPJb" style="zoom: 50%;" />
+
+## 2. 项目中使用
+
+* go-zero有两种中间件：
+
+  * 路由中间件：只适用于用于某一个路由，规则取决于`api`中`@server`是否放在该路由服务上方
+
+    ```go
+    @server(
+    	// 开启jwt鉴权
+    	jwt: Auth
+    	middleware: Example // 路由中间件申明
+    )
+    service search-api {
+    	@handler search
+    	get /search/do (SearchReq) returns (SearchReply)
+    }
+    ```
+
+  * 全局中间件：所有路由都会使用的中间件，服务范围是整个服务, 可以直接在服务`main`函数添加`rest.Server.Use()`即可
+
+    ```go
+    func main() {
+    	flag.Parse()
+    
+    	var c config.Config
+    	conf.MustLoad(*configFile, &c)
+    
+    	ctx := svc.NewServiceContext(c)
+    	server := rest.MustNewServer(c.RestConf)
+    	defer server.Stop()
+    	
+    	// 使用全局中间件
+    	server.Use(func(next http.HandlerFunc) http.HandlerFunc {
+    		return func(writer http.ResponseWriter, request *http.Request) {
+    			logx.Infof("全局中间件触发")
+    			next(writer, request)
+    		}
+    	})
+    	
+    	handler.RegisterHandlers(server, ctx)
+    
+    	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)
+    	server.Start()
+    }
+    ```
+
+* 添加了路由中间件配置会自动生成一个`middleware`文件夹，在其中编写逻辑
+
+* 把其他服务传递给中间件：用闭包的方式调用
+
+  ```go
+  // 模拟的其它服务实体
+  type AnotherService struct{}
+  
+  func (s *AnotherService) GetToken() string {
+      return stringx.Rand()
+  }
+  
+  // 常规中间件
+  func middleware(next http.HandlerFunc) http.HandlerFunc {
+      return func(w http.ResponseWriter, r *http.Request) {
+          w.Header().Add("X-Middleware", "static-middleware")
+          next(w, r)
+      }
+  }
+  
+  // 调用其它服务的中间件
+  func middlewareWithAnotherService(s *AnotherService) rest.Middleware {
+      return func(next http.HandlerFunc) http.HandlerFunc {
+          return func(w http.ResponseWriter, r *http.Request) {
+              w.Header().Add("X-Middleware", s.GetToken())
+              next(w, r)
+          }
+      }
+  }
+  ```
+
+# 六、RPC编写和调用
+
+* go-zero使用zrpc实现在多个子服务之间调用，zrpc基于grpc实现
+* 大多数RPC服务都是该子服务给其他子服务提供的数据调用接口
+* 一个服务的api与rpc是独立的，独立启动、服务，但是api需要在rpc服务启动之后启动，这样才能够服务发现
+
+# 七、错误处理
+
+错误信息都是以plain text形式返回的。业务中还会定义一些业务性错误，常用做法都是通过 `code`、`msg` 两个字段来进行业务处理结果描述，并且希望能够以json响应体来进行响应。
+
+- 业务处理正常
+
+  ```json
+    {
+      "code": 0,
+      "msg": "successful",
+      "data": {
+        ....
+      }
+    }
+  ```
+
+- 业务处理异常
+
+  ```json
+    {
+      "code": 10001,
+      "msg": "参数错误"
+    }
+  ```
 
 # bug记录
 
@@ -136,4 +304,31 @@ https://go-zero.dev/cn/jwt.html
 解决：
 
 `goctl model mysql ddl -src user.sql -dir . -c`
+
+## 2. empty etcd hosts
+
+错误描述：启动service调用rpc的etcd服务发现配置时启动报如上错误
+
+原因：yaml配置文件编写错误
+
+解决：Etcd配置上面要添加具体的RPC名与config.go对应
+
+```yaml
+UserRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: user.rpc
+```
+
+```go
+type Config struct {
+	rest.RestConf
+	Auth struct {
+		AccessSecret string
+		AccessExpire int64
+	}
+	UserRpc zrpc.RpcClientConf
+}
+```
 
