@@ -291,7 +291,7 @@ kubeadm token create --print-join-command
 删除之前的环境：
 
 ```shell
-sudo kubeadm reset				# 只有master节点
+sudo kubeadm reset				
 rm -rf /root/.kube/
 sudo rm -rf /etc/kubernetes/
 sudo rm -rf /var/lib/kubelet/
@@ -306,6 +306,8 @@ apt-get --purge remove kubectl kubelet kubeadm
 iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
 ipvsadm -C
 ```
+
+执行`ifconfig`会发现还有一些虚拟`veth`、`cni`、`flannel`等设备都可以通过`ip link delete xxx`删除掉
 
 ## 2. kubelet与docker驱动不同启动失败
 
@@ -388,6 +390,29 @@ master init启动卡在:
 
 `pod_workers.go:918] "Error syncing pod, skipping" err="...`
 
-原因：顺序错误，应该先join连接好节点，然后再使用CNI插件，这样才会正常安装
+原因：
 
-解决：所有worknode加入后再次尝试
+* 应该先join连接好节点，然后再使用CNI插件
+* 查看日志`kubectl logs kube-flannel-ds-8f6kg -n kube-system`发现请求其他公网服务器的内网Ip导致了错误
+
+解决：
+
+* 需要对所有其他公网服务器的内网IP在Master主机上同样做Iptables映射
+
+* 注意：注意查看其他公网服务器的内网IP是否会和Master本机的其他内网服务IP冲突，我就是和docker0网桥的Ip冲突，导致即使配置了Iptables转发还是不能ping通
+
+* 上面问题的解决：因为阿里云轻量服务器内网不可修改（云服务器可以改），所以选择了修改docker的默认网桥docker0
+
+  修改docker0 IP教程见: https://www.jianshu.com/p/69fc2d9656e7 （注意不要有运行的容器）
+
+## 7. kube-flannel插件无法启动
+
+错误描述：
+
+```shell
+E0119 16:43:48.760009       1 main.go:235] Failed to create SubnetManager: error retrieving pod spec for 'kube-system/kube-flannel-ds-6nhcm': Get "https://10.96.0.1:443/api/v1/namespaces/kube-system/pods/kube-flannel-ds-6nhcm": dial tcp 10.96.0.1:443: i/o timeout
+```
+
+原因：
+
+解决：
