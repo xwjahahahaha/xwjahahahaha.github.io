@@ -84,7 +84,7 @@ of this helper program; chances are you did not intend to run this program.
 
 一般：`/lib64/ld-linux-x86-64.so.2`
 
-`i386`:
+`i386`: `"/lib/ld-linux.so.2"`
 
 ## ARM
 
