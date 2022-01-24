@@ -86,6 +86,7 @@ $ kubeadm join <Master节点的IP和端口 >
 # 关闭防火墙
 systemctl stop firewalld
 systemctl disable firewalld
+ufw disable # ubuntu
 
 # 关闭selinux
 sed -i 's/enforcing/disabled/' /etc/selinux/config  # 永久
