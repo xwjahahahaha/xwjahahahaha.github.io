@@ -448,7 +448,7 @@ func (c *ClusterManager) Collect(ch chan<- prometheus.Metric) {
 			c.OOMCountDesc,
 			prometheus.CounterValue,	// 表明指标的类型Counter
 			float64(oomCount),
-			host,						// 设置主机名的标签
+			host,						// 设置主机名的host标签的值
 		)
 	}
 	for host, ramUsage := range ramUsageByHost {
@@ -499,4 +499,59 @@ func main() {
 }
 ```
 
-如果直接执行上面函数，不会获取任何的参数，因为程序将自动推出，我们并未定义`http`接口去暴露数据出来，因此数据在执行的时候还需要定义一个`httphandler`来处理`http`请求。
+如果直接执行上面函数，不会获取任何的参数，因为程序将自动推出，我们并未定义`http`接口去暴露数据出来，因此数据在执行的时候还需要定义一个`httphandler`来处理`http`请求。完整的
+
+```go
+func main() {
+	managerDB := NewClusterManager("db")
+	managerCA := NewClusterManager("ca")
+	// Since we are dealing with custom Collector implementations, it might
+	// be a good idea to try it out with a pedantic registry.
+	// 注册自定义的集群收集器
+	reg := prometheus.NewPedanticRegistry()
+	reg.MustRegister(managerDB)
+	reg.MustRegister(managerCA)
+
+	gatherers := prometheus.Gatherers{
+		prometheus.DefaultGatherer,
+		reg,
+	}
+
+	h := promhttp.HandlerFor(gatherers,
+		promhttp.HandlerOpts{
+			ErrorHandling: promhttp.ContinueOnError,
+		})
+	http.HandleFunc("/metrics", func(w http.ResponseWriter, r *http.Request) {
+		h.ServeHTTP(w, r)
+	})
+	fmt.Println("Start server at :8080")
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		fmt.Errorf("error occur when start server %v", err)
+		os.Exit(1)
+	}
+}
+```
+
+**其中`prometheus.Gatherers`用来定义一个采集数据的收集器集合，可以`merge`多个不同的采集数据到一个结果集合**，**这里我们传递了缺省的`DefaultGatherer`，所以他在输出中也会包含go运行时指标信息**。同时包含reg是我们之前生成的一个注册对象，用来自定义采集数据。
+
+`promhttp.HandlerFor()`函数传递之前的`Gatherers`对象，并返回一个`httpHandler`对象，这个`httpHandler`对象可以调用其自身的`ServeHTTP`函数来接手`http`请求，并返回响应。其中**`promhttp.HandlerOpts`定义了采集过程中如果发生错误时，继续采集其他的数据。**
+
+promhttp.HandlerFor()函数传递之前的Gatherers对象，并返回一个httpHandler对象，这个httpHandler对象可以调用其自身的ServHTTP函数来接手http请求，并返回响应。其中promhttp.HandlerOpts定义了采集过程中如果发生错误时，继续采集其他的数据。
+
+启动后测试获取指标`curl localhost:8080/metrics`:
+
+```shell
+# HELP clustermanager_oom_crashes_total Number of OOM crashes.
+# TYPE clustermanager_oom_crashes_total counter
+clustermanager_oom_crashes_total{host="bar.example.org",zone="ca"} 318
+clustermanager_oom_crashes_total{host="bar.example.org",zone="db"} 887
+clustermanager_oom_crashes_total{host="foo.example.org",zone="ca"} 81
+clustermanager_oom_crashes_total{host="foo.example.org",zone="db"} 81
+# HELP clustermanager_ram_usage_bytes RAM usage as reported to the cluster manager.
+# TYPE clustermanager_ram_usage_bytes gauge
+clustermanager_ram_usage_bytes{host="bar.example.org",zone="ca"} 15.651925473279125
+clustermanager_ram_usage_bytes{host="bar.example.org",zone="db"} 43.771418718698015
+clustermanager_ram_usage_bytes{host="foo.example.org",zone="ca"} 6.563701921747622
+clustermanager_ram_usage_bytes{host="foo.example.org",zone="db"} 66.45600532184905
+```
+
