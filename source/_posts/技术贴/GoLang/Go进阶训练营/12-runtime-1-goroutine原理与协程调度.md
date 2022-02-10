@@ -72,6 +72,8 @@ Goroutines 在同一个用户地址空间里并行独立执行 functions，chann
 
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/aW228R.png" alt="aW228R" style="zoom:50%;" />
 
+![image-20220208151656329](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220208151656329.png)
+
 Go 创建 M 个线程(CPU 执行调度的单元，内核的 task_struct)，之后创建的 N 个 goroutine 都会依附在这 M 个线程上执行，即 M:N 模型。它们能够同时运行，与线程类似，但相比之下非常轻量。因此，程序运行时，Goroutines 的个数应该是远大于线程的个数的（phread 是内核线程？）。
 
 **同一个时刻，一个线程只能跑一个 goroutine。**当 goroutine 发生阻塞 (chan 阻塞、mutex、syscall 等等) 时，Go 会把当前的 goroutine 调度走，让其他 goroutine 来继续执行，而不是让线程阻塞休眠，尽可能多的分发任务出去，让 CPU 忙。
