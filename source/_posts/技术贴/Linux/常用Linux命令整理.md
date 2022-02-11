@@ -370,7 +370,57 @@ https://www.runoob.com/linux/linux-comm-patch.html
 
 > 其他常用操作文章：https://www.cnblogs.com/hellokitty2/p/7674237.html
 
+## 4. xargs
+
+https://www.runoob.com/linux/linux-comm-xargs.html
+
+* 作用：一般配合管道使用，可以将管道或标准输入（stdin）数据转换成命令行参数，也能够从文件的输出中读取数据。捕获一个命令的输出，然后传递给另外一个命令。
+* 使用： `somecommand |xargs -item  command`
+
+## 5. dirname
+
+* 作用：dirname命令去除文件名中的非目录部分，删除最后一个“\”后面的路径，显示父目录。 
+
+* 语法：`dirname [选项] 参数`
+
+* 例子：
+
+  ```shell
+  [root@liang ~]# dirname /etc/httpd/
+  /etc
+  ```
+
+### 6. BASH_SOURCE
+
+* 作用：`BASH_SOURCE`表示的是用户所在的目录到脚本的路径。()
+
+* 使用：
+
+  ```shell
+  #!/bin/bash
+  echo ${BASH_SOURCE}  # 或者用BASH_SOURCE[0]一样
+  ```
+
+  ```shell
+  [root@hadoop01 sbin]# ./test 
+  ./test
+  [root@hadoop01 sbin]# cd ..
+  [root@hadoop01 hadoop-2.7.7]# sbin/test 
+  sbin/test
+  ```
+
+  
+
+
+
+
+
+
+
 # 11.tar
 
 * `tar -xf file_name.tar -C /target/directory`  解压到制定目录 
 
+# 12. 查找文件
+
+* `find / -name <文件名>`
