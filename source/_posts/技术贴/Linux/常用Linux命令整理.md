@@ -409,13 +409,12 @@ https://www.runoob.com/linux/linux-comm-xargs.html
   sbin/test
   ```
 
-  
+### 7. Trap
 
-
-
-
-
-
+* 作用：捕捉信号并作出相应的处理
+* 使用：`trap 'COMMAND' <信号名或信号值>      `
+  * 可以捕捉的信号有：HUP INT等
+  * 不适用捕捉的信号：KILL  TERM
 
 # 11.tar
 
