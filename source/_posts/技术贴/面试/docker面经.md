@@ -561,6 +561,40 @@ SaaS（软件即服务），PaaS（平台即服务）和IaaS（基础架构即�
 
 Faas(function as a service) 函数即服务
 
+## 28. 容器操作相关
+
+* 退出容器时自动删除这个容器：添加`-rm`参数`docker run --rm -it <镜像名>`
+* 查看镜像支持的env：`docker run <镜像名> env`
+* 退出一个正在交互的容器终端而不终止它：核心就是不让容器的初始进程结束
+  * `ctrl c`
+    * 不指定`-t`, 在docker attach时设置`--sig-proxy=false` (默认为`true`)，SIGINT信号不会发送到容器中PID为1的进程，而是被docker attach进程响应
+    * 指定`-t`, 此时`--sig-proxy=false`不起作用，`-i`时会将信号发送至初始进程导致退出，不`-i`时只会退出attach的进程
+  * `ctrl p` + `ctrl q `(需要同时指定`-it`选项)
+  * https://www.cnblogs.com/doujianli/p/10048707.html
+
+## 29.  容器退出后，`docker ps`命令看不到，数据会被删除吗？
+
+不会，当前容器处于exited状态，可以通过`docker ps -a`查看，只有将容器删除数据才会被删除
+
+## 30. docker -i、-t、-d参数
+
+| –detach      | -d   | 在后台运行容器，并且打印容器id。                             |
+| ------------ | ---- | ------------------------------------------------------------ |
+| –interactive | -i   | 即使没有连接，也要保持标准输入保持打开状态，一般与 -t 连用。 |
+| –tty         | -t   | 分配一个伪tty，一般与 -i 连用。                              |
+
+## 31.使用 docker port 命令映射容器的端口时，系统报错 Error: No public port ‘80’ published for ...，是什么意思?
+
+创建镜像时 Dockerfile 要指定正确的 EXPOSE 的端口，容器启动时指定 `PublishAllport=true`
+
+
+
+
+
+
+
+
+
 # 二、runc项目
 
 ## 1. 开发过程中遇到问题
