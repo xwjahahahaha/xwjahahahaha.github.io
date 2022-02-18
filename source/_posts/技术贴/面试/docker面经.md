@@ -587,9 +587,15 @@ Faas(function as a service) 函数即服务
 
 创建镜像时 Dockerfile 要指定正确的 EXPOSE 的端口，容器启动时指定 `PublishAllport=true`
 
+## 32. 了解runV吗？和runC的区别
 
+https://help.aliyun.com/document_detail/160288.html
 
+runV：安全沙箱
 
+区别：runV通过轻量级的VM实现运行的每个容器都是完全隔离的，享受单独的内核，更加安全
+
+![image-20220217172220302](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220217172220302.png)
 
 
 
