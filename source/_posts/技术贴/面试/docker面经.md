@@ -148,6 +148,29 @@ cpuacct记录了cpu的部分信息。
 
 对cpu资源的设置可以从2个维度考察：cpu使用百分比和cpu核数目。前者使用cpu subsystem进行配置，后者使用cpuset subsystem进行配置。
 
+### 5. CgroupsV2与V1的不同
+
+https://mikechengwei.github.io/2020/06/03/cgroup%E5%8E%9F%E7%90%86/
+
+* 结构不同
+
+  * 不同于 v1 版本， cgroup v2 版本只有一个层级 Hierarchy(层级).
+
+  * cgroup2 文件系统有一个根 Cgroup ，以 `0x63677270`数字来标识，**所有支持v2版本的子系统控制器会自动绑定到 v2的唯一层级上并绑定到根 Cgroup.**
+
+    <img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20220220211259940.png" alt="image-20220220211259940" style="zoom:50%;" />
+
+    在V2 版本中，因为只有一个层级，所有进程只绑定到cgroup的叶子节点。
+
+    - 父节点开启的子系统控制器控制到儿子节点，比如 A节点开启了memory controller，那么 C节点cgroup就可以控制进程的memory.
+    - 叶子节点不能控制开启哪些子系统的controller,因为叶子节点关联进程Id.所以非叶子节点不能控制进程的使用资源。
+
+  * v1 版本为了灵活一个进程可能绑定多个层级(Hierarchy)，但是通常是每个层级对应一个子系统，多层级就显得没有必要。所以**一个层级包含所有的子系统就比较简单容易管理**
+
+* 线程模式
+
+  * `Cgroup` v2 版本支持线程模式，将 `threaded` 写入到 cgroup.type 就会开启 Thread模式。**当开始线程模式后，一个进程的所有线程属于同一个cgroup**,会采用Tree结构进行管理。
+
 ## 5.Union File System 联合文件系统 - 文件存储引擎
 
 ### 1. 基本概念
@@ -596,10 +619,6 @@ runV：安全沙箱
 区别：runV通过轻量级的VM实现运行的每个容器都是完全隔离的，享受单独的内核，更加安全
 
 ![image-20220217172220302](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220217172220302.png)
-
-
-
-
 
 # 二、runc项目
 

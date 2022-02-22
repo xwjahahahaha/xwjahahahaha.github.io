@@ -190,3 +190,69 @@ func myAtoi(s string) int {
 
 ```
 
+二刷
+
+二刷
+```go
+func myAtoi(s string) int {
+    newAM := NewStateMachine()
+    for i := range s {
+        newAM.readNewByte(s[i])
+    }
+
+    return newAM.sign * newAM.number
+}
+
+type autoMechine struct {
+    state int
+    table [4][4]int
+    sign int
+    number int
+}
+
+func NewStateMachine() *autoMechine {
+    // 横坐标：0: start, 1: signed, 2: in_number, 3: end
+    // 纵坐标：0: 空格, 1: 符号, 2: 数字, 3: 其他
+    table := [4][4]int{
+        [4]int{0, 1, 2, 3}, 
+        [4]int{3, 3, 2, 3},
+        [4]int{3, 3, 2, 3},
+        [4]int{3, 3, 3, 3},
+    }
+    return &autoMechine{0, table, 1, 0}
+}
+
+func (am *autoMechine) readNewByte(c byte) {
+    // 判读操作
+    var opt int
+    switch {
+        case c == ' ':
+            opt = 0
+        case c == '+' || c == '-':
+            opt = 1
+        case c >= '0' && c <= '9': 
+            opt = 2
+        default:
+            opt = 3
+    }
+    
+    // 转换状态
+    am.state = am.table[am.state][opt]
+
+    // 注意要状态转变完之后再计算结果，因为状态的转换有先后序关系
+    if am.state == 2 {
+        // 计算数
+        am.number = am.number * 10 + int(c-'0')
+        // 处理溢出
+        if am.sign == 1 && am.number > math.MaxInt32 {
+            am.number = math.MaxInt32
+        }
+        if am.sign == -1 && (-1 * am.number) < math.MinInt32 {   
+            am.number = -1 * math.MinInt32  // 注意这里要*-1
+        }
+    }else if am.state == 1 && c == '-' {
+        am.sign = -1
+    }
+}
+```
+
