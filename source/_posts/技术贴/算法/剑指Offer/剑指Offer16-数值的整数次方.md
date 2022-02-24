@@ -114,3 +114,40 @@ func myPow(x float64, n int) float64 {
 }
 ```
 
+二刷
+
+```go
+func myPow(x float64, n int) float64 {
+    // 特殊情况, 0^0=1
+    if n == 0 {
+        return 1
+    }
+    if x == 0 {
+        return 0
+    }
+
+    if n < 0 {
+        return 1 / pow(x, -n)
+    }
+    
+    return pow(x, n)
+}
+
+// 快速幂（二分法）
+func pow(x float64, n int) float64 {
+    if n == 1 {
+        return x
+    }
+    if n == 0 {
+        return 1
+    }
+
+    half := pow(x, n/2)
+    if n % 2 == 0 {
+        return half * half
+    }else {
+        return half * half * x
+    }
+}
+```
+

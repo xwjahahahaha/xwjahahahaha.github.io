@@ -171,6 +171,23 @@ https://mikechengwei.github.io/2020/06/03/cgroup%E5%8E%9F%E7%90%86/
 
   * `Cgroup` v2 版本支持线程模式，将 `threaded` 写入到 cgroup.type 就会开启 Thread模式。**当开始线程模式后，一个进程的所有线程属于同一个cgroup**,会采用Tree结构进行管理。
 
+### 6、cgroups作用范围
+
+对于系统进程调度的方式中，cgrous只适用于普通调度，而不适用于实时调度
+
+* 普通调度：关注周转时间
+* 实时调度：关注响应时间，实时性要求非常高
+
+适用的进程调度算法是：CFS（Completely Fair [Scheduler](https://so.csdn.net/so/search?q=Scheduler&spm=1001.2101.3001.7020)的缩写，即完全公平调度器，负责进程调度）
+
+https://blog.csdn.net/XD_hebuters/article/details/79623130
+
+现在一般的linux都是CFS的进程调度算法，其他较老的算法，cgroups也不会生效
+
+* FIFO：先进先出
+* RR: 时间片轮转
+* CFS：公平调度
+
 ## 5.Union File System 联合文件系统 - 文件存储引擎
 
 ### 1. 基本概念
