@@ -38,7 +38,7 @@ func TestXxx(*testing.T)
 
 在这些函数中，使用 Error, Fail 或相关方法来发出失败信号。
 
-注意：**<font color='red'>函数开头的Test是固定的写法</font>**，<font color='red'>**后面的Xxx第一个字母要大写</font>****
+注意：**<font color='red'>函数开头的Test是固定的写法</font>**，<font color='red'>后面的Xxx第一个字母要大写</font>
 
 使用例子：
 
