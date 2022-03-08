@@ -10,12 +10,10 @@ declare: true
 date: 2022-01-10 16:42:05：
 ---
 
-> 自：
->
 > 参考自：
 >
 > * 官网文档https://prometheus.io/docs/introduction/first_steps/
-> * https://prometheus.io/docs/guides/go-application/
+>* https://prometheus.io/docs/guides/go-application/
 > * https://blog.csdn.net/easylife206/article/details/102480764
 > * https://blog.csdn.net/u014029783/article/details/80001251
 

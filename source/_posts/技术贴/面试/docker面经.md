@@ -171,7 +171,7 @@ https://mikechengwei.github.io/2020/06/03/cgroup%E5%8E%9F%E7%90%86/
 
   * `Cgroup` v2 版本支持线程模式，将 `threaded` 写入到 cgroup.type 就会开启 Thread模式。**当开始线程模式后，一个进程的所有线程属于同一个cgroup**,会采用Tree结构进行管理。
 
-### 6、cgroups作用范围
+### 6. Cgroups作用范围
 
 对于系统进程调度的方式中，cgrous只适用于普通调度，而不适用于实时调度
 
@@ -187,6 +187,13 @@ https://blog.csdn.net/XD_hebuters/article/details/79623130
 * FIFO：先进先出
 * RR: 时间片轮转
 * CFS：公平调度
+
+### 7. Cgroups软限制和硬限制 
+
+* **硬限制**
+  进程可以使用的CPU资源最多只能是配置的参数，超过参数就会出发资源隔离机制
+* **软限制**
+  在系统资源闲的情况下，进程使用的CPU资源可以超过配置的参数，但是当系统资源紧张时，就会触发资源隔离机制，将进程可以使用的资源限制在配置的参数内部
 
 ## 5.Union File System 联合文件系统 - 文件存储引擎
 
