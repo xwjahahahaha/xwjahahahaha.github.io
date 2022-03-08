@@ -20,11 +20,11 @@ date: 2022-01-18 14:29:46
 
 # 一、go-zero的CI/CD的生态
 
-![image-20220118143444909](http://xwjpics.gumptlu.work/image-20220118143444909.png)
+![image-20220118143444909](D:\Users\sangfor\Desktop\image-20220118143444909.png)
 
 # 二、一般的开发流程
 
-![image-20220118141013688](http://xwjpics.gumptlu.work/image-20220118141013688.png)
+![image-20220118141013688](D:\Users\sangfor\Desktop\image-20220118141013688.png)
 
 https://go-zero.dev/cn/dev-flow.html
 
@@ -111,7 +111,7 @@ https://go-zero.dev/cn/jwt.html
 
 * jwt组成
 
-![UY7YbE](http://xwjpics.gumptlu.work/UY7YbE.png)
+![UY7YbE](D:\Users\sangfor\Desktop\UY7YbE.png)
 
 * Header：同步由以下json结构生成，生成的方式是将整个json字符串经过Base64Url编码
 
@@ -160,7 +160,7 @@ https://go-zero.dev/cn/jwt.html
 
 * 项目添加Jwt Token验证的整体流程如下：
 
-![Snipaste_2022-01-19_11-31-52](http://xwjpics.gumptlu.work/Snipaste_2022-01-19_11-31-52.png)
+![Snipaste_2022-01-19_11-31-52](D:\Users\sangfor\Desktop\Snipaste_2022-01-19_11-31-52.png)
 
 * **token中的负载claims（k/v对），在验证方可以通过req拿到，gozero会将用户生成token时传入的kv原封不动的放在http.Request的Context中，会传递到逻辑层的l.ctx中**
 
@@ -179,7 +179,7 @@ https://go-zero.dev/cn/jwt.html
 * `Next()`：让请求进入下一层。（在`gin`中做了优化也可以不写）
 * `Abort()`：中断在当前层
 
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/uFzPJb.png" alt="uFzPJb" style="zoom: 50%;" />
+<img src="D:\Users\sangfor\Desktop\uFzPJb.png" alt="uFzPJb" style="zoom: 50%;" />
 
 ## 2. 项目中使用
 
