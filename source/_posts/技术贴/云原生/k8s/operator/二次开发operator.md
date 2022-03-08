@@ -10,11 +10,7 @@ declare: true
 date: 2022-02-22 11:26:21
 ---
 
-
-
 > * https://www.bilibili.com/video/BV1zE411j7ky
-
-
 
 # 一、operator概述
 
@@ -36,7 +32,7 @@ date: 2022-02-22 11:26:21
 
 ## 1.3 k8s中controller的运行模式
 
-![image-20220222115157678](http://xwjpics.gumptlu.work/image-20220222115157678.png)
+<img src="http://xwjpics.gumptlu.work/image-20220222115157678.png" alt="image-20220222115157678"  />
 
 * 整体是一个循环调用的过程：
   * 不断的从API Server中监听资源变换
@@ -54,10 +50,11 @@ date: 2022-02-22 11:26:21
 
 https://github.com/operator-framework/operator-sdk
 
-```shell
-git clone https://github.com/operator-framework/operator-sdk
-make install  # 安装二进制工具
-```
+Operator版本：0.15.1
+
+* 版本变化较大，不同版本目录结构不同
+
+0.15.1版本安装教程见：https://v1-15-x.sdk.operatorframework.io/docs/installation/
 
 ## 2.2 搭建docker registry
 
@@ -70,6 +67,10 @@ docker run -d -p 5000:5000 --restart always --name registry -v ~/docker-data/doc
 ```
 
 > 作用：创建一个registry的容器，挂载宿主机~/docker-data/docker_registry到容器存储镜像，持久化存储防止容器重启后镜像文件丢失，并映射本地端口5000到容器
+
+创建成功：
+
+![image-20220308010825456](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220308010825456.png)
 
 > 报错：
 >
@@ -89,7 +90,7 @@ docker run -d -p 5000:5000 --restart always --name registry -v ~/docker-data/doc
 "insecure-registries": ["mock.com:5000"]
 ```
 
-> 注意：mock.com是本地配置的假域名，在`/etc/hosts`中配置`127.0.0.1 mock.com`
+> 注意：`mock.com`是本地配置的假域名，在`/etc/hosts`中配置`127.0.0.1 mock.com`
 
 查看仓库镜像：
 
