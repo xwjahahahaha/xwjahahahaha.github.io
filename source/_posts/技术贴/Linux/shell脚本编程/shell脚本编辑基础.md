@@ -62,13 +62,13 @@ shell脚本从上至下依次执行，中途有错误则中断
      ```shell
      # 可以理解为全局变量，在当前操作系统中可全局访问
      # 分类
-     	- 系统自带
-     		例如： -PWD  -PATH
-     	- 用户自定义
-     		- 将普通变量提升为系统变量  前面加个set或export
-     		GOPATH=/home/zoro/go/src ->普通环境变量
-     		set GOPATH=/home/zoro/go/src ->系统环境变量
-     		export GOPATH=/home/zore/go/src ->系统环境变量
+     - 系统自带
+     例如： -PWD  -PATH
+     - 用户自定义
+     - 将普通变量提升为系统变量  前面加个set或export
+     GOPATH=/home/zoro/go/src ->普通环境变量
+     set GOPATH=/home/zoro/go/src ->系统环境变量
+     export GOPATH=/home/zore/go/src ->系统环境变量
      ```
 
 * 位置变量
@@ -99,7 +99,7 @@ shell脚本从上至下依次执行，中途有错误则中断
 
   * $@: 给脚本传递的所有参数
 
-  * $?: 脚本执行完成之后的状态，成功==0 or 失败！=0
+  * $?: 脚本执行完成之后的状态，成功==0 or 失败!=0
 
   * $$: 脚本进程执行之后对应的进程ID
 

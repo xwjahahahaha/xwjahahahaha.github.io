@@ -139,3 +139,62 @@ func matchCore(s, p string, i, j int) bool {
 
 * <font color='#e54d42'>逻辑产生分支即多种情况可以使用多个递归并用逻辑表达式连接的结构编写代码</font>
 
+牛客二刷：
+
+```go
+package main
+
+/**
+ * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+ *
+ * 
+ * @param str string字符串 
+ * @param pattern string字符串 
+ * @return bool布尔型
+*/
+func match( str string ,  pattern string ) bool {
+    n, m := len(str), len(pattern)
+    if n == 0 && m == 0 {        // 匹配完毕
+        return true
+    }else if m == 0 {
+        return false            // 当匹配字符串为空串但str不是空串时一定返回false
+    }else if n == 0 {
+        // 当str为空串时，只有这一种情况才会匹配，否则直接返回false
+        if m == 2 && pattern[1] == '*' {
+            return true
+        }
+        return false
+    }
+    // 比较两个字符
+    // 判断模式字符串的下一个字符是*号
+    if m > 1 && pattern[1] == '*' {
+        // 是*号，则分类讨论
+        // 判断第一个字符是否相同
+        if str[0] == pattern[0] || pattern[0] == '.' {
+            // 相同
+            // 1. *只匹配一次的情况
+            if match(str[1:], pattern[2:]) {
+                return true
+            }
+            // 2. *多次匹配
+            if match(str[1:], pattern) {
+                return true
+            }
+            // 3. *不匹配，即使相同也不匹配,也有这种情况
+            if match(str, pattern[2:]) {
+                return true
+            }
+        }else {
+            // 4. 因为不同，所以只能不匹配
+            return match(str, pattern[2:])
+        }
+    }else {
+        // 不是则直接匹配
+        if pattern[0] == '.' || pattern[0] == str[0] {
+            return match(str[1:], pattern[1:])
+        }
+    }
+    return false
+}
+```
+

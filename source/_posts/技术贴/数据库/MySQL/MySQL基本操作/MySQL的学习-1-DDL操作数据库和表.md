@@ -120,7 +120,7 @@ Structured Query Language：结构化查询语言
 * 创建数据库，并指定字符集
 	* create database 数据库名称 character set 字符集名;
 * 练习： 创建db4数据库，判断是否存在，并制定字符集为gbk
-	* create database if not exists db4 character set gbk;
+	* create database if not exists dbch4 character set gbk;
 
 ![](http://xwjpics.gumptlu.work/qinniu_uPic/20200822205242.png)
 

@@ -32,7 +32,7 @@ date: 2020-10-08 10:38:28
 
 ![](http://xwjpics.gumptlu.work/qiniu_picGo/20201008113235.png)
 
-`并且之前已经将这些命令加入到`/usr/local/bin`全局变量下了
+并且之前已经将这些命令加入到`/usr/local/bin`全局变量下了
 
 **命令手册：**
 
@@ -155,8 +155,6 @@ PeerOrgs:
 小练习：
 
 要求：
-
-
 
 ![](http://xwjpics.gumptlu.work/qiniu_picGo/20201008133034.png)
 

@@ -34,7 +34,7 @@ Nginx 专为性能优化而开发， 性能是其最重要的考量,实现上非
 
 反向代理，其实**客户端对代理是无感知的**，因为**客户端不需要任何配置就可以访问**，我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，在返回给客户端，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器 IP 地址。
 
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/ZdvBx8.png" alt="ZdvBx8" style="zoom:50%;" />
+![image-20220323103228036](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220323103228036.png)
 
 ## 负载均衡
 
