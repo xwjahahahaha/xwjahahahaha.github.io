@@ -65,7 +65,7 @@ server{
 
     location /auth {
 	    internal;
-        proxy_set_header X-Original-URI $request_uri;
+      proxy_set_header X-Original-URI $request_uri;
 	    proxy_pass_request_body off;
 	    proxy_set_header Content-Length "";
 	    proxy_pass http://looklook:8001/identity/v1/verify/token;
@@ -96,7 +96,7 @@ server{
    }
 
 
-    location ~ /order/ {
+   location ~ /order/ {
        auth_request /auth;
        auth_request_set $user $upstream_http_x_user;
        proxy_set_header x-user $user;
