@@ -105,3 +105,31 @@ https://www.jianshu.com/p/dc85066fe1fe
 手动运行 `node node_modules/esbuild/install.js` 来解决`esbuild`安装问题
 
 然后再`npm run serve`
+
+# 六、looklook镜像各个API/RPC启动失败，admin-api镜像也启动失败
+
+错误描述：
+
+都是因为这个导致都编译失败
+
+![image-20220429214853283](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220429214853283.png)
+
+![image-20220429224725148](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220429224725148.png)
+
+解决：都是依赖的问题，重新复制了仓库原版的`go.mod`文件内容然后`go mod tidy`解决了
+
+# 七、构建好创建用户时报错
+
+错误描述：
+
+![image-20220430153422506](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220430153422506.png)
+
+解决： 使用最新版本代码，重新部署
+
+# 八、Kibana页面中没有looklook的index
+
+错误描述：
+
+![image-20220502213507231](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220502213507231.png)
+
+解决：

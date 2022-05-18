@@ -116,8 +116,6 @@ https://go-zero.dev/cn/jwt.html
 
 * jwt组成
 
-![UY7YbE](D:\Users\sangfor\Desktop\UY7YbE.png)
-
 * Header：同步由以下json结构生成，生成的方式是将整个json字符串经过Base64Url编码
 
   ```json

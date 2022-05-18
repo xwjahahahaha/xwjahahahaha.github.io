@@ -30,8 +30,8 @@ date: 2021-11-21 09:33:26
 
 ---
 
-* docker本质上是一个进程，通过`rootfs`将不同操作系统的文件、配置和目录、依赖打包成镜像，所有启动的容器与宿主机共享一个内核（操作系统的灵魂内核是与宿主机共享的），只需要模拟内核的输入输出而不需要模拟硬件的输入输出，是操作系统级别的虚拟化，各个容器运行在用户态。所以docker启动很快，而且占用内存小。
-* docker 通过资源隔离和资源限制按需构建镜像并通过联合文件系统保证了文件的隔离性，所以docker的体积较小，移植性很好（`docker hub`）
+* `docker`本质上是一个进程，通过`rootfs`将不同操作系统的文件、配置和目录、依赖打包成镜像，所有启动的容器与宿主机共享一个内核（操作系统的灵魂内核是与宿主机共享的），只需要模拟内核的输入输出而不需要模拟硬件的输入输出，是操作系统级别的虚拟化，各个容器运行在用户态。所以`docker`启动很快，而且占用内存小。
+* `docker` 通过资源隔离和资源限制按需构建镜像并通过联合文件系统保证了文件的隔离性，所以docker的体积较小，移植性很好（`docker hub`）
 
 不同层次上的虚拟化:
 
@@ -43,21 +43,21 @@ date: 2021-11-21 09:33:26
 
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211028205122292.png" alt="image-20211028205122292" style="zoom: 50%;" />
 
-docker容器：
+`docker`容器：
 
-（注意：图中将docker引擎放在类似于Hypervisor的位置，这是不对的，因为docker引擎也只是一个宿主机的进程，负责容器隔离环境的是宿主机操作系统本身）
+（注意：图中将`docker`引擎放在类似于`Hypervisor`的位置，这是不对的，因为`docker`引擎也只是一个宿主机的进程，负责容器隔离环境的是宿主机操作系统本身）
 
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211028205147983.png" alt="image-20211028205147983" style="zoom: 50%;" />
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20220505104011195.png" alt="image-20220505104011195" style="zoom: 25%;" />
 
 ## 2. 容器的启动过程
 
-docker的启动比一般的linux进程启动多了几步：
+`docker`的启动比一般的`linux`进程启动多了几步：
 
 1. 复制父进程为一个新的子进程，父子进程上下文完全一致
-2. 然后自定义子进程的rootfs，将子进程的根目录变为这个根目录（pivot-root）
-3. 使用Namespace隔离，PID NS让当前进程号变为0，HostName NS让容器重新命名一个新主机名，还有用户名隔离User NS、进程间通讯隔离IPC NS、网络隔离Network NS等，这些都是高版本的linux内核提供的
+2. 然后自定义子进程的`rootfs`，将子进程的根目录变为这个根目录（`pivot-root`）
+3. 使用`Namespace`隔离，`PID NS`让当前进程号变为0，`HostName NS`让容器重新命名一个新主机名，还有用户名隔离`User NS`、进程间通讯隔离`IPC NS`、网络隔离`Network NS`等，这些都是高版本的`linux`内核提供的
 
-因为docker的第一个进程已经实现了隔离，所以容器后续的子进程再复制就不用再做隔离了，天然继承了父进程的上下文环境。
+因为`docker`的第一个进程已经实现了隔离，所以容器后续的子进程再复制就不用再做隔离了，天然继承了父进程的上下文环境。
 
 ## 3. Namespace-资源隔离
 
@@ -82,9 +82,9 @@ docker的启动比一般的linux进程启动多了几步：
 
 | API        | 官方解释                                                     | 简单解释                                                     |
 | ---------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| clone(2)   | 系统调用创建一个新进程。如果调用的flags参数指定了上面列出的一个或多个`CLONE_NEW*`标志，则新的命名空间是为每个标志创建，并且子进程被创建为这些命名空间的成员。 | 创建一个新进程，可以通过`CLONE_NEW*`参数指定哪些命名空间被创建，并且他们的子进程也会被包含在这些Namespace中 |
+| clone(2)   | 系统调用创建一个新进程。如果调用的flags参数指定了上面列出的一个或多个`CLONE_NEW*`标志，则新的命名空间是为每个标志创建，并且子进程被创建为这些命名空间的成员。 | 创建一个新进程，可以通过`CLONE_NEW*`参数指定哪些命名空间被创建，并且他们的子进程也会被包含在这些`Namespace`中 |
 | setns(2)   | 系统调用允许调用进程加入现有的命名空间。                     | 当前进程切到指定的命名空间                                   |
-| unshare(2) | 系统调用的调用进程移动到新的命名空间。如果调用的标志参数 指定列出的一个或多个`CLONE_NEW*`标志上面，然后为每个标志创建新的命名空间，并且调用进程成为这些命名空间的成员。（这个系统调用还实现了许多功能与命名空间无关。） | 调用进程移动到**新的**命名空间                               |
+| unshare(2) | 系统调用的调用进程移动到新的命名空间。如果调用的标志参数 指定列出的一个或多个`CLONE_NEW*`标志上面，然后为每个标志创建新的命名空间，并且调用进程成为这些命名空间的成员。（这个系统调用还实现了许多功能与命名空间无关） | 调用进程移动到**新的**命名空间                               |
 | ioctl(2)   | 发现有关命名空间的信息。                                     | 输出命名空间的信息                                           |
 
 ### 3. 项目中如何实现Namespace
@@ -155,7 +155,7 @@ docker的启动比一般的linux进程启动多了几步：
 
 cpu的控制可以划分为两种策略：
 
-* 完全公平的调度策略CFS
+* 完全公平的调度策略`CFS`
 
   * 按限额/使用上限
 
@@ -302,11 +302,11 @@ NUMA架构的解决：
 
 ### 3. 分类
 
-|              |            适用系统            | 是否合并内核 |                           版本要求                           | 优点/特点                                                    | 缺点                                        |
-| :----------- | :----------------------------: | :----------: | :----------------------------------------------------------: | ------------------------------------------------------------ | ------------------------------------------- |
-| AUFS         | 多用于 Ubuntu 和 Debian 系统中 |      否      |                >=3.1, 内核>=4.0请使用Overlay2                | Docker 最早使用的文件系统驱动，稳定                          | 代码可读性差（被拒绝合并到内核的原因）      |
+|              |            适用系统            | 是否合并内核 |                           版本要求                           |                          优点/特点                           | 缺点                                        |
+| :----------- | :----------------------------: | :----------: | :----------------------------------------------------------: | :----------------------------------------------------------: | ------------------------------------------- |
+| AUFS         | 多用于 Ubuntu 和 Debian 系统中 |      否      |                >=3.1, 内核>=4.0请使用Overlay2                |             Docker 最早使用的文件系统驱动，稳定              | 代码可读性差（被拒绝合并到内核的原因）      |
 | Devicemapper |       Red Hat 或 CentOS        |      是      |                      Linux 内核 >=2.6.9                      | 不同于其他，其使用的存储是块级别的存储，使用映射块设备的技术框架, 比文件系统效率高，稳定，docker默认的联合文件系统 | 只用于CentOS或Red hat系列                   |
-| Overlay      |     Ubuntu等等大多数linux      |      是      |                       Linux内核>=3.18                        | AUFS的继承，合并到了Linux内核                                | 只工作在两层，并且运行时可能有一些意外的bug |
+| Overlay      |     Ubuntu等等大多数linux      |      是      |                       Linux内核>=3.18                        |                AUFS的继承，合并到了Linux内核                 | 只工作在两层，并且运行时可能有一些意外的bug |
 | Overlay2     |     Ubuntu等等大多数linux      |      是      | Docker >=17.06.02,  Red Hat 或 CentOS 内核>=3.10.0-514 其他linux发行版内核>=4.0 | overlay2在inode优化上更加高效，最高128层，已合并到内核，速度更快，主流 | 仍然年轻，不稳定，生产环境使用要慎重        |
 
 ![image-20220325111208158](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220325111208158.png)
@@ -422,7 +422,7 @@ docker使用了瘦供给的快照技术（快照就是数据在某一个时间�
     1. `docker commit 容器名称 新镜像名称`: 将当前容器打包成一个镜像
     2. `docker build -t 容器名:tag .`: 使用Dockfile构建
 
-* 容器：容器是镜像运行的实体，在镜像文件的基础上创建上层容器层。
+* 容器：容器是镜像运行的实体，在镜像文件的基础上创建上层容器层
 * 仓库：用来存储和分发Docker镜像。镜像仓库分为公有和私有
 
 ## 8. Docker架构理解
@@ -490,7 +490,7 @@ Docker Swarm - Docker 群是原生的 Docker 集群服务工具。它将一群 D
 
 * Bridge：
 
-  多个Veth通信的时候，就可以通过Bridge实现，Bridge虚拟设备是用来桥接的网络设备，它相当于现实生活中的**交换机**，可以连接不同的网络设备，当请求到达Bridge设备时，可以通过报文中的Mac地址进行广播或转发。
+  多个`Veth`通信的时候，就可以通过`Bridge`实现，`Bridge`虚拟设备是用来桥接的网络设备，它相当于现实生活中的**交换机**，可以连接不同的网络设备，当请求到达`Bridge`设备时，可以通过报文中的`Mac`地址进行广播或转发。
 
 * Iptables：
 
@@ -498,7 +498,7 @@ Docker Swarm - Docker 群是原生的 Docker 集群服务工具。它将一群 D
 
   经常使用两种策略：
 
-  * MASQUERADE
+  * `MASQUERADE`
 
     能够让容器内对外部的请求变为宿主机的网卡的IP请求
 
@@ -507,7 +507,7 @@ Docker Swarm - Docker 群是原生的 Docker 集群服务工具。它将一群 D
     $ sudo iptables -t nat -A POSTROUTING -s 172.18.0.0/24 -o eth0 -j MASQUERADE
     ```
 
-  * DNAT：
+  * `DNAT`：
 
     将容器内部网络地址的端口映射到外部去
 
@@ -706,7 +706,7 @@ Vagrant 类似于 Boot2Docker(一款运行 Docker 的最小内核)，是**一套
 
 Docker 不是虚拟机，而是进程隔离，对于资源的消耗很少，单一开发环境下 Vagrant 是虚拟机上的封装，虚拟机本身会消耗资源。
 
-## 27. xaaS
+## 27. xaas
 
 SaaS（软件即服务），PaaS（平台即服务）和IaaS（基础架构即服务）
 
@@ -778,7 +778,7 @@ runV：安全沙箱
 
 `Mount NS`的一个**坑**：即使实现了隔离，但是在容器中挂载`/proc`文件夹会导致宿主机的`/proc`文件夹失去挂载
 
-需要在容器的init进程中实现Mount传播机制的手动改动：
+需要在容器的init进程中实现`Mount`传播机制的手动改动：
 
 ```go
 if err := syscall.Mount("/", "/", "", syscall.MS_REC | syscall.MS_PRIVATE, ""); err != nil {
@@ -801,7 +801,7 @@ if err := syscall.Mount("/", "/", "", syscall.MS_REC | syscall.MS_PRIVATE, ""); 
 
 ### 3. `Cgroups`的配置注意事项：
 
-配置cpuset的时候需要先配置`cpuset.mems`即给cpu node分配内存，因为我的机器只有一个node即node 0，所以填写0即可，然后再配置其他例如`cpuset.cpus`，否则会报错：no space left on device
+配置cpuset的时候需要先配置`cpuset.mems`即给cpu node分配内存，因为我的机器只有一个node即node 0，所以填写0即可，然后再配置其他例如`cpuset.cpus`，否则会报错：`no space left on device`
 
 ### 4. bridge转发失败
 
@@ -821,15 +821,85 @@ if err := syscall.Mount("/", "/", "", syscall.MS_REC | syscall.MS_PRIVATE, ""); 
 
   这个命令执行命令的内容就是调用自己，执行内置的`init`命令
 
-* 然后先不执行子命令而是先配置：
+* 然后先不执行子命令而是先==配置CMD==：
 
-  * **资源隔离：**配置它的一系列Namespace
+  * **资源隔离：**配置它的一系列`Namespace`
 
-  * **命令传输：**父进程命令的传输：设置了一个管道机制`os.Pipe()`，将读的一端文件句柄配置到这个命令，写的一端返回
+     ![9K9IWB](http://xwjpics.gumptlu.work/qinniu_uPic/9K9IWB-20220428182326207.png)
+
+  * **命令传输：**父进程命令的传输：设置了一个管道机制`os.Pipe()`，将读的一端文件句柄配置到这个命令`cmd.ExtraFiles`，写的一端返回
+
+     ![image-20211111211611539](http://xwjpics.gumptlu.work/qinniu_uPic/image-20211111211611539.png)
 
   * **标准输出：**如果是`-t`交互式命令，那么就把这个命令的标准输出、输入、错误重新定向到当前；如果是`-d`后台运行就把所有的输出重定位写入到一个log文件中
 
   * **文件隔离/挂载：**在`/var/fs/aufs/`创建AUFS的文件空间(容器的读写层、镜像层/init只读层、挂载到联合挂载点)如果设置了`volume`还需要在这里挂载
+
+     ```go
+     // NewWorkSpace
+     // @Description: 创建新的文件工作空间
+     // @param rootURL
+     // @param mntURL
+     // @param volume 是否使用数据卷
+     func NewWorkSpace(rootURL, ImageTarPath, mntURL, volume, cId string) {
+     	// 验证tar包路径的合法性并返回镜像包名称
+     	imageName := VerifyImageTar(ImageTarPath)
+     	if imageName == "" {
+     		return
+     	}
+     	CreateReadOnlyLayer(rootURL, ImageTarPath, imageName)      // 创建init只读层
+     	CreateWriteLayer(rootURL, cId)                    			// 创建读写层
+     	CreateMountPoint(rootURL, imageName, mntURL, cId) 			// 创建mnt文件夹并挂载
+     	if volume != "" {
+     		// 数据卷操作
+     		volumeUrls, err := volumeUrlExtract(volume)
+     		if err != nil {
+     			log.Log.Warn(err)
+     			return
+     		}
+     		// 挂载Volume
+     		MountVolume(mntURL, volumeUrls)
+     		log.Log.Infof("success establish volume : %s", strings.Join(volumeUrls, ""))
+     	}
+     }
+     
+     // MountVolume
+     // @Description: 挂载数据卷
+     // @param mntUrl
+     // @param volumeUrl
+     func MountVolume(mntUrl string, volumeUrl []string)  {
+     	// 1. 创建宿主机文件目录
+     	parentUrl, containerUrl := volumeUrl[0], filepath.Join(mntUrl, volumeUrl[1])
+     	if has, err := dirOrFileExist(parentUrl); err == nil && !has {
+     		// 当宿主机没有此文件时，创建文件夹
+     		if err := os.Mkdir(parentUrl, 0777); err != nil {
+     			log.LogErrorFrom("MountVolume", "Mkdir", err)
+     			return
+     		}
+     	}
+     	// 2. 在容器目录中创建挂载点目录
+     	if has, err := dirOrFileExist(containerUrl); err == nil && has {
+     		// 如果有此文件夹，则先删除
+     		if err := os.RemoveAll(containerUrl); err != nil {
+     			log.LogErrorFrom("MountVolume", "RemoveAll", err)
+     			return
+     		}
+     	}
+     	// 容器中创建文件夹
+     	if err := os.Mkdir(containerUrl, 0777); err != nil {
+     		log.LogErrorFrom("MountVolume", "Mkdir", err)
+     		return
+     	}
+     	// 3. 将宿主机的文件目录挂载到容器挂载点
+     	dirs := "dirs=" + parentUrl
+     	cmd := exec.Command("mount", "-t", "aufs", "-o", dirs, "myDockerVolume", containerUrl)
+     	cmd.Stdout = os.Stdout
+     	cmd.Stderr = os.Stderr
+     	if err := cmd.Run(); err != nil {
+     		log.Log.Errorf("Mount volume failed. %v", err)
+     	}
+     }
+     ```
 
      `cmd := exec.Command("mount", "-t", "aufs", "-o", dirs, "mnt_" + cId[:4], mntURL)`
 
@@ -839,23 +909,50 @@ if err := syscall.Mount("/", "/", "", syscall.MS_REC | syscall.MS_PRIVATE, ""); 
 
 * `exec.Start()`init子命令进程执行，但主进程不等待其执行结束
 
-* `init`子命令在管道的读取端阻塞等待父进程写入命令，一旦写入命令：
+* ==init子命令==在管道的读取端阻塞等待父进程写入命令，一旦写入命令：
 
-  1. 设置根目录挂载模式为递归私有
+  1. 设置根目录挂载模式为递归私有，同时借助挂载隔离实现根目录所有文件挂载的隔离
 
      `syscall.Mount("/", "/", "", syscall.MS_REC | syscall.MS_PRIVATE, "")`
 
-  2. `pivot_root:` 将指定的容器运行目录变为根目录
+  2. `pivot_root:` 将指定的容器运行目录变为根目录 然后`Chdir`到根目录
 
   3. 挂载`/proc`。这样容器里面看到的进程号就是只有自己的init了
 
   4. 通过`syscall.Exec()`系统调用将管道用户写入的进程命令执行起来并**覆盖掉**本来的`init`命令
 
-* 主进程此时继续执行（此时父进程有子进程的PID`parent.Process.Pid`）：
+* ==宿主机NS下主进程==此时继续执行（此时父进程有子进程的PID`parent.Process.Pid`）：
+  
   * 记录容器信息到文件(为了列表查看)
+  
   * 发送运行附带的容器命令给管道
+  
   * 如果容器有连接网络的需求的话执行连接网络
-  * 根据启动的配置设置容器的资源隔离
+  
+  * 根据启动的配置设置容器的资源限制`cgroups`
+  
+    ```go
+    // 创建cgroup manager并通过调用set和apply设置资源限制并在容器上生效
+    containerCM := cgroups.NewCgroupManager(cgroupName + "_" + cId)
+    // 设置资源限制
+    containerCM.Set(res)
+    ```
+  
+    子系统统一接口实现：
+  
+    ```go
+    // Subsystem 子系统统一接口，每个子系统都实现如下四个方法
+    // 这里cgroup抽象成为了path，因为cgroup在层级树的路径就是虚拟文件系统的路径
+    type Subsystem interface {
+    	Name() string                      // 返回子系统的名字
+    	Set(string, *ResourceConfig) error // 设置某个cgroup在这个子系统中的资源限制（设置子系统限制文件的内容）
+    	Apply(string, int) error           // 将进程添加到某个cgroup中
+    	Remove(string) error               // 移除某个cgroup
+    }
+    ```
+  
+    ![image-20211110220424037](http://xwjpics.gumptlu.work/qinniu_uPic/image-20211110220424037.png)
+  
   * 如果是交互式那么就等待容器的结束并关闭一些资源（AUFS文件、容器信息、资源限制等），如果是后台式的话主进程输出容器的唯一ID结束
 
 ## 3. 容器资源限制Cgroups的设计
@@ -919,7 +1016,7 @@ docker的实现是通过containerd以及containerd-shim实现docker daemon和run
 
 * 核心思路：父进程的结束不需要等待子进程，让子进程变为孤儿进程由宿主机的1号进程托管，从而实现容器不宕机
 
-查看容器的实现就是扫描创建容器时创建的容器json信息文件夹，然后格式化输出出来
+查看容器的实现就是扫描创建容器时创建的容器json信息文件夹`/var/run/mydocker`，然后格式化输出出来
 
 ## 8. 容器的进入容器exec实现
 
@@ -985,8 +1082,36 @@ c的函数前加入`__attribute__((constructor))` 类似于构造函数，用来
 * **网络驱动：**是项目中网桥的抽象接口，不同的驱动对网络的创建、连接、销毁的策略不同。主要包含了创建网络、删除网络、连接容器Veth网络端点到网络，移除容器的网络端点方法
 
 * **IPAM：**使用位图算法分配和释放网络的IP
-  * IPAM.Allocate(subnet *net.IPNet): 从指定的subnet网段中分配IP地址
-  * IPAM.Release(subnet net.IPNet, padder net.IP): 从指定的subnet网段中释放指定的IP地址
+  * `IPAM.Allocate(subnet *net.IPNet)`: 从指定的subnet网段中分配IP地址
+  * `IPAM.Release(subnet net.IPNet, padder net.IP)`: 从指定的subnet网段中释放指定的IP地址
+
+```go
+// Network 网络
+type Network struct {
+	Name    string     `json:"name"`     // 网络名
+	IpRange *net.IPNet `json:"ip_range"` // 地址段
+	Driver  string     `json:"driver"`   // 网络驱动名
+}
+
+// Endpoint 网络端点
+type Endpoint struct {
+	ID          string           `json:"id"`           // ID
+	Device      netlink.Veth     `json:"dev"`          // Veth设备
+	IpAddress   net.IP           `json:"ip"`           // IP地址
+	MacAddress  net.HardwareAddr `json:"mac"`          // mac地址
+	PortMapping []string         `json:"port_mapping"` // 端口映射
+	Network     *Network         // 网络
+}
+
+// NetworkDriver 网络驱动
+type NetworkDriver interface {
+	Name() string                                          // 驱动名
+	Create(subnet string, name string) (*Network, error)   // 创建网络
+	Delete(network *Network) error                         // 删除网络
+	Connect(network *Network, endpoint *Endpoint) error    // 连接容器网络端点到网络
+	Disconnect(network *Network, endpoint *Endpoint) error // 从网络中移除容器的网络端点
+}
+```
 
 ## 13. 容器的Bridge网络怎样实现的
 
@@ -1067,7 +1192,7 @@ go的`netlink`包提供了一些操作网络接口、路由表等配置的工具
 6. **配置端口映射, 暴露容器端口**
 
    ```go
-   fmt.Sprintf("-t nat -A PREROUTING -p tcp -m tcp --dport %s -j DNAT --to-destination %s:%s", portMapping[0], ep.IpAddress.String(), portMapping[1])
+   fmt2.Sprintf("-t nat -A PREROUTING -p tcp -m tcp --dport %s -j DNAT --to-destination %s:%s", portMapping[0], ep.IpAddress.String(), portMapping[1])
    ```
 
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20211117163124138.png" alt="image-20211117163124138" style="zoom: 33%;" />

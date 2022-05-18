@@ -40,7 +40,7 @@ date: 2021-03-06 16:43:53
 
 1. 在断点代码处打上红色断点
 2. 选择项目包右键Debugger
-3. 选择 go build …..
+3. 选择 `go build …..`
 
 3. F7下一步
 
@@ -64,3 +64,38 @@ Program argument:
 
 ![LI32j8](http://xwjpics.gumptlu.work/qinniu_uPic/LI32j8.jpg)
 
+### 远程调试
+
+* 在远程主机上安装`dlv`
+
+  `go get -u github.com/go-delve/delve/cmd/dlv`
+
+* 在goland上创建`deployment`自动同步
+
+* 在goland上创建`go remote`，填入远程IP和端口
+
+  ![image-20220509162343261](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220509162343261.png)
+
+* 在远程主机项目中运行：
+
+  `dlv debug --headless --listen=:2345 --api-version=2 --accept-multiclient `
+
+  此命令会编译并运行go项目，如果还附带参数的话，可以在后面加上参数，例如:
+
+  `dlv debug --headless --listen=:2345 --api-version=2 --accept-multiclient -- [参数]`
+
+  然后远程服务器就会监听2345端口（如果是云服务器记得打开防火墙规则）
+
+* 在goland的代码中打断点，开始调试
+
+## 4. 设置import顺序
+
+设置自动编排import的顺序：
+
+1. 标准包
+2. 本地项目包
+3. 外部包(`GitHub`)
+
+按图示勾选上即可：
+
+![image-20220510091446619](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220510091446619.png)

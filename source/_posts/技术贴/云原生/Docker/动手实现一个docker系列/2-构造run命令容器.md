@@ -402,7 +402,7 @@ func (r *ResourceConfig) String() string {
 }
 ```
 
-因为memory、cpu、cpuset三个子系统都是类似的实现上面接口的方法，所以只以`memory.go`来描述，其他类似不在放代码（**可以在github上clone的代码中查看**）。
+因为memory、cpu、cpuset三个子系统都是类似的实现上面接口的方法，所以只以`memory.go`来描述，其他类似不在放代码（**可以在github上clone的代码中查看**）。
 
 ```go
 package subsystems

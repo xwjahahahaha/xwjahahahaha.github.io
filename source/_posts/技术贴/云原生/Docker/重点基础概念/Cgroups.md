@@ -503,3 +503,13 @@ https://blog.csdn.net/XD_hebuters/article/details/79623130
 * **软限制**
   在系统资源闲的情况下，进程使用的CPU资源可以超过配置的参数，但是当系统整体资源紧张时，就会触发资源隔离机制，将进程可以使用的资源限制在软限制配置的参数内部
 
+# 八、CFS完全公平调度策略
+
+https://blog.csdn.net/XD_hebuters/article/details/79623130
+
+CFS是英文`Completely Fair Scheduler`的缩写，即完全公平调度器，负责进程调度。在`Linux Kernel 2.6.23`之后采用，它负责将CPU资源，分配给正在执行的进程，目标在于最大化程式互动效能，最小化整体CPU的运用。使用**红黑树**来实现，算法效率为`O(log(n))`
+
+cfs定义一种新的模型，它给cfs_rq（cfs的run queue）中的每一个进程安排一个虚拟时钟，`vruntime`。如果一个进程得以执行，随着时间的增长（即一个个tick的到来），其`vruntime`将不断增大。没有得到执行的进程`vruntime`不变。**调度器总是选择`vruntime`值最低的进程执行**。这就是所谓的“完全公平”。对于不同进程，优先级高的进程vruntime增长慢，以至于它能得到更多的运行时间。
+
+用红黑树的架构保存多个调度实体，每个调度实体就对应一个进程，通过此结构快速找到`vruntime`最低的进程执行
+
