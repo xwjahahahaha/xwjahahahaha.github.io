@@ -19,6 +19,7 @@ date: 2022-05-17 10:49:44
 > * https://davidlovezoe.club/wordpress/archives/874
 > * https://davidlovezoe.club/wordpress/archives/988
 > * 极客时间《eBPF核心技术与实战》
+> * https://zhuanlan.zhihu.com/p/44922656
 
 # 一、背景与基础
 
@@ -196,21 +197,25 @@ eBPF可以在内核和应用的任意位置进行插桩，主要借助于两种�
 
 ## 2.2 `.elf`文件处于程序编译的什么阶段？
 
+**可执行与可链接格式** （英语：Executable and Linkable Format，缩写 ELF，此前的写法是 **Extensible Linking Format**），常被称为 **ELF格式**，在[计算](https://zh.m.wikipedia.org/wiki/计算_(计算机科学))中，是一种用于[可执行](https://zh.m.wikipedia.org/wiki/可执行)文件、[目标代码](https://zh.m.wikipedia.org/wiki/目标代码)、[共享库](https://zh.m.wikipedia.org/wiki/共享库)和[核心转储](https://zh.m.wikipedia.org/wiki/核心转储)（core dump）的标准[文件格式](https://zh.m.wikipedia.org/wiki/文件格式)。
 
+* 编译：
 
+  高级语言 -> 汇编语言 -> 机器语言 ： 高级语言最终变为机器语言这样的过程可以统称为编译，具体的方法基本有两种：编译型和解释型
 
+  据此也可分为两大类：一种是编译型语言，例如`C，C++，Java`，另一种是解释型语言，例如`Python、Ruby、MATLAB 、JavaScript`
 
+* 四个步骤：
 
+  - 预处理（Preprocessing）
 
+  - 编译（Compilation）
 
+  - 汇编（Assembly）
 
+  - 链接（Linking）
 
-
-
-
-
-
-
+    ![image-20220519092739182](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220519092739182.png)
 
 ## eBPF技术概览
 
@@ -334,7 +339,7 @@ eBPF程序使用的主要数据结构是`eBPF map`（键值对）数据结构，
 
 ## 3.2 借助BCC工具
 
-### 1. bcc出现原因？什么是BCC(BPF Compiler Conllection)？
+### 1. bcc出现原因？什么是BCC？
 
 * 出现原因：
 
@@ -342,7 +347,7 @@ eBPF程序使用的主要数据结构是`eBPF map`（键值对）数据结构，
 
 * BCC是什么：
 
-  一个BPF编译器集合，包括**用于编写、编译和加载`eBPF`程序的工具链，以及用于调试和诊断性能问题的示例程序和久经考验的工具**，并向上提供了高级语言支持`Python、C++`等
+  `BPF Compiler Conllection`, 一个BPF编译器集合，包括**用于编写、编译和加载`eBPF`程序的工具链，以及用于调试和诊断性能问题的示例程序和久经考验的工具**，并向上提供了高级语言支持`Python、C++`等
 
 > 代码仓库：https://github.com/iovisor/bcc
 
@@ -364,29 +369,24 @@ bcc工具大全：
 
 # 四、环境搭建
 
+## 1. `linux`环境搭建
 
+最好使用最新版本的内核才能够使用大部分的功能，可以通过`vagrant`创建一个linux虚拟机
 
+```shell
+sudo apt-get install virtualbox vagrant
+vagrant init ubuntu/impish64
+vagrant up
+vagrant ssh  # 连接到虚拟机
+uanme -a
+lsb_release -a
+```
 
-
-
-
-
-
-
-
-# 三、eBPF实践demos
-
-> 我的环境（虚拟机）
+> 如果嫌麻烦可以用大佬已经做好的docker镜像，一步到位不用担心环境（bcc也在）：
 >
-> * `Ubuntu 18.04.6 LTS`
-> * `Linux node2 4.15.0-48-generic`
-> * `clang：11.1.0`
-> * `llvm：11.1.0`
-> * `cMake: 3.23.1`
+> `https://github.com/Jun10ng/ebpf-docker-for-desktop`
 
-## 1. BCC的`hello_word`(python)
-
-### 1. 环境准备
+## 2. `bcc`环境搭建
 
 前提：`a Linux kernel version 4.1 or newer is required` 此外，内核应该已经编译并设置了以下标志
 
@@ -412,18 +412,45 @@ CONFIG_IKHEADERS=y
 
 (我的文件在`vim /boot/config-4.15.0-48-generic `, 注意除非重新编译，否则此文件不能更改)
 
-[安装`BCC`官方教程](https://github.com/iovisor/bcc/blob/master/INSTALL.md#kernel-configuration)
+[建议按照安装`BCC`官方教程](https://github.com/iovisor/bcc/blob/master/INSTALL.md#kernel-configuration)
+
+最简单的方式：包管理器安装
 
 ```shell
 # 第一种方式：包安装
 sudo apt-get install bpfcc-tools linux-headers-$(uname -r)
+```
+
+比较复杂的方式（不建议）：
+
+```shell
+
 # 第二种方式：源码安装（包括下面的安装和编译）
-# 安装clang和llvm(注意：apt包管理安装的版本可能是旧版本)
-sudo apt-get install clang llvm
+# Trusty (14.04 LTS) and older
+VER=trusty
+echo "deb http://llvm.org/apt/$VER/ llvm-toolchain-$VER-3.7 main
+deb-src http://llvm.org/apt/$VER/ llvm-toolchain-$VER-3.7 main" | \
+  sudo tee /etc/apt/sources.list.d/llvm.list
+wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
+sudo apt-get update
+
+# For Bionic (18.04 LTS)
 sudo apt-get -y install bison build-essential cmake flex git libedit-dev \
-  libllvm6.0 llvm-6.0-dev libclang-6.0-dev python zlib1g-dev libelf-dev libfl-dev python3-distutils 
-# 安装python相关
-sudo apt-get install python3-pip python3-setuptools
+  libllvm6.0 llvm-6.0-dev libclang-6.0-dev python zlib1g-dev libelf-dev libfl-dev python3-distutils
+
+# For Eoan (19.10) or Focal (20.04.1 LTS)
+sudo apt install -y bison build-essential cmake flex git libedit-dev \
+  libllvm7 llvm-7-dev libclang-7-dev python zlib1g-dev libelf-dev libfl-dev python3-distutils
+  
+# For Hirsute (21.04) or Impish (21.10)
+sudo apt install -y bison build-essential cmake flex git libedit-dev libllvm11 llvm-11-dev libclang-11-dev python zlib1g-dev libelf-dev libfl-dev python3-distutils
+
+# For other versions
+sudo apt-get -y install bison build-essential cmake flex git libedit-dev \
+  libllvm3.7 llvm-3.7-dev libclang-3.7-dev python zlib1g-dev libelf-dev python3-distutils
+
+# For Lua support
+sudo apt-get -y install luajit luajit-5.1-dev
 ```
 
 安装和编译`bcc`
@@ -431,18 +458,22 @@ sudo apt-get install python3-pip python3-setuptools
 ```shell
 git clone https://github.com/iovisor/bcc.git
 mkdir bcc/build; cd bcc/build
-cmake ..
+cmake ..   # 注意使用的llvm环境是哪一个
 make
 sudo make install
-cmake -DPYTHON_CMD=python3 .. # build python3 binding
+cmake -DPYTHON_CMD=python3 .. # build python3 binding 绑定到python3而不是python2
 pushd src/python/
 make
 # 安装到/usr/lib/python3/dist-packages/下
 sudo make install
-popd
+popd				# 返回栈顶目录
 ```
 
-### 2. 编写与运行
+# 五、eBPF实践demos
+
+## 5.1 使用BCC工具
+
+### 1. python ebpf 监控内核clone
 
 ```python
 #!/usr/bin/python
@@ -459,13 +490,188 @@ from bcc import BPF
 BPF(text='int kprobe__sys_clone(void *ctx) { bpf_trace_printk("Hello, World!\\n"); return 0; }').trace_print()
 ```
 
+解释：
+
+* `bpf_trace_printk`是一个`BPF`的辅助函数, 其作用是打印输出，由于运行在内核中，所以打印输出并不是标准输出，而是内核调试文件`/sys/kernel/debug/tracing/trace_pipe`
+* `BPF(text=“xxx”)`：表示传入要执行的`eBPF`源代码, 并依托BPF模块编译为字节码
+* `trace_print()`：读取内核文件`/sys/kernel/debug/tracing/trace_pipe`到标准输出
+
 运行`sudo ././helloword.py` 或者`sudo /usr/bin/python3 ./helloword.py `
 
-![image-20220518153951506](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220518153951506.png)
+![image-20220519095327510](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220519095327510.png)
 
 **效果：一旦内核中发生了`clone`, 就打印`Hello World!`**
 
-## 2. linux内核源码自带样例
+输出解释：
+
+* `systemd-xxx`：是进程的名字-PID
+* `[001]`: 表示CPU编号
+* `……`：表示一系列选项
+* `182.317265`：表示时间戳
+* `do_sys_open`: 表示函数名
+
+### 2.  python + C ebpf 监控打开文件
+
+> 注意，此Demo需要内核`5.6`以上
+
+编写代码`hello.c`
+
+```c
+int hello_world(void *ctx) 
+{
+    bpf_trace_printk("Hello, World!\n");
+    return 0;
+}
+```
+
+编写代码`hello.py`
+
+```python
+#!/usr/bin/python3
+# 1) import bcc library
+from bcc import BPF
+
+# 2) load BPF program
+b = BPF(src_file="hello.c")
+# 3) attach kprobe
+b.attach_kprobe(event="do_sys_openat2", fn_name="hello_world")
+# 4) read and print /sys/kernel/debug/tracing/trace_pipe
+b.trace_print()
+```
+
+测试：
+
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20220519143340214.png" alt="image-20220519143340214" style="zoom:50%;" />
+
+输出的问题：
+
+* 可能不需要某些输出，例如CPU编号等
+* 输出格式不够灵活
+* 所有的`eBPF`程序都会输出到`trace_pipe`文件，比较混乱
+
+### 3. 改进程序：使用BPF映射Map
+
+> 注意，此Demo需要内核`5.6`以上
+
+为了解决输出凌乱的问题，我们借助`map`映射来交互
+
+`BCC`为了简化和`BPF`的交互，定义了一系列的[库函数和辅助宏定义](https://github.com/iovisor/bcc/blob/master/docs/reference_guide.md)
+
+比如可以使用`BPF_PERF_OUTPUT`定义一个`Perf`事件类型的`BPF`映射map
+
+https://github.com/iovisor/bcc/blob/master/docs/reference_guide.md#2-bpf_perf_output
+
+```c
+// 包含头文件
+#include <uapi/linux/openat2.h>
+#include <linux/sched.h>
+
+// 定义数据结构
+struct data_t {
+  u32 pid;
+  u64 ts;
+  char comm[TASK_COMM_LEN];
+  char fname[NAME_MAX];
+};
+
+// 定义性能事件映射map
+BPF_PERF_OUTPUT(events);
+```
+
+然后在eBPF程序中，填充这个数据结构，并调用`perf_submit()`提交到刚刚定义的性能映射中
+
+```c
+// 定义kprobe处理函数
+int hello_world(struct pt_regs *ctx, int dfd, const char __user * filename, struct open_how *how)
+{
+  struct data_t data = { };
+
+  // 获取PID和时间
+  data.pid = bpf_get_current_pid_tgid();
+  data.ts = bpf_ktime_get_ns();
+
+  // 获取进程名
+  if (bpf_get_current_comm(&data.comm, sizeof(data.comm)) == 0)
+  {
+    bpf_probe_read(&data.fname, sizeof(data.fname), (void *)filename);
+  }
+
+  // 提交性能事件
+  events.perf_submit(ctx, &data, sizeof(data));
+  return 0;
+}
+```
+
+> 以bpf开头的都是BPF提供的辅助函数，如：
+>
+> * `bpf_get_current_pid_tgid`: 用于获取进程的`pid`和`tgid`（线程组`ID`，同一个进程下的所有线程都是同一个`tgid`）,该函数返回一个`64`位的`uint`值，高32位为线程组`tgid`，低32为进程的`pid`
+> * `bpf_ktime_get_ns`:  获取系统从启动以来执行的时间, 单位纳秒
+> * `bpf_get_current_comm`: 获取进程名，并将进程名复制到预定义的缓冲区中
+> * `bpf_probe_read`:  从指定指针处读取固定大小的数据，这里用于读取进程打开的文件名
+>
+> 如果理解`hello_world`函数的入参？
+>
+> * `struct pt_regs *ctx` : bcc默认的参数
+> * ` int dfd, const char __user * filename, struct open_how *how`：这些参数都是`openat2`函数的参数
+>
+> 所以，编写`eBPF`程序的时候都可以在`ctx`后加入对应系统调用接口的入参即可，在`eBP`F执行的时候会自动进行参数绑定
+>
+> 为什么`data_t`的c结构体最后会在`python`中读取为`python`对象, 此过程透明?
+>
+> * `perf_submit`传入的c对象/结构会通过event方法自动转换为python对象(`bcc`脚本的功劳)
+
+然后在用户态程序借助该map对应的辅助函数`open_perf_buffer()`，向其中传入一个回调函数处理从`perf`事件类型的`BPF`映射中读取到的数据:
+
+```Python
+from bcc import BPF
+
+# 1) load BPF program
+b = BPF(src_file="trace-open.c")
+b.attach_kprobe(event="do_sys_openat2", fn_name="hello_world")
+
+# 2) print header
+print("%-18s %-16s %-6s %-16s" % ("TIME(s)", "COMM", "PID", "FILE"))
+
+# 3) define the callback for perf event
+start = 0
+def print_event(cpu, data, size):   # cpu, data, size 三个参数都是bbc框架默认使用的
+    global start
+    event = b["events"].event(data)
+    if start == 0:
+            start = event.ts
+    time_s = (float(event.ts - start)) / 1000000000
+    print("%-18.9f %-16s %-6d %-16s" % (time_s, event.comm, event.pid, event.fname))
+
+# 4) loop with callback to print_event
+# 定义一个events的Perf事件映射，然后循环读取
+b["events"].open_perf_buffer(print_event)  # 传入回调函数jie
+while 1:
+    try:
+        b.perf_buffer_poll()
+    except KeyboardInterrupt:
+        exit()
+```
+
+> 注意：`events`要和`eBPF`程序匹配，只是一个自定义的map名字
+>
+> `perf_buffer_poll`是不是一个非阻塞函数？
+>
+> * 其作用就是对所有的`perf`缓冲区`buff`调用回调函数，然后结束，所以外层要用一个for循环
+
+执行结果：
+
+![image-20220519203413623](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220519203413623.png)
+
+结果较为清晰
+
+流程总结：
+
+* 在`eBPF`程序中定义要捕获的对象结构
+* 定义`kprobe`处理函数，通过`bpf`提供的辅助函数获取必要信息填充对象结构
+* 将填充好的对象结构放入/提交到`map`中存储（给用户态程序获取做准备）
+* 用户态程序通过在`open_perf_buffer`传入回调函数并编写逻辑，处理从缓冲区中读取的`map`中的对象
+
+## 5.2 linux内核源码自带样例
 
 ### 1. 环境准备
 
@@ -510,20 +716,20 @@ sudo make menuconfig
 sudo make samples/bpf/ # or  make M=samples/bpf
 ```
 
-### 3. 执行
+### 3. 执行测试
 
 编译完成的所有样例都可以直接执行尝试：
 
 ![image-20220518174209994](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220518174209994.png)
 
-## 3. golang编写相关demo
+## 5.3 golang编写相关demo
 
 > 参考：
 >
 > * https://blog.csdn.net/susu_xi/article/details/124147863
 > * https://blog.csdn.net/susu_xi/article/details/124202867
 
-### 1. Hello World：监控文件被打开
+### 1. 监控文件被打开
 
 BPF工作的一个简易的流程是：`BPF`程序注入内核hook点之后，当hook点处的系统调用被调用时，BPF程序就会执行
 
@@ -538,6 +744,106 @@ BPF工作的一个简易的流程是：`BPF`程序注入内核hook点之后，�
 
 核心要使用的包就是[github.com/iovisor/gobpf/bcc](https://github.com/iovisor/gobpf)
 
+安装依赖
+
+```shell
+go get -u "github.com/iovisor/gobpf/bcc"
+go get -u "github.com/iovisor/gobpf/pkg/tracepipe"
+```
+
+`hello.go`
+
+```go
+package main
+
+import (
+	"fmt"
+	bpf "github.com/iovisor/gobpf/bcc"
+	"github.com/iovisor/gobpf/pkg/tracepipe"
+	"os"
+)
+
+import "C"
+
+const source string = `
+#include <uapi/linux/ptrace.h>
+
+int kprobe__do_sys_open(struct pt_regs *ctx, void *dummy, char* fname) 
+{
+	char buf[256];
+	bpf_probe_read(&buf, sizeof(buf), (void *) fname );
+  u32 pid = bpf_get_current_pid_tgid() >> 32;
+  bpf_trace_printk("pid=%d, file= %s\n", pid, &buf);
+	return 0;
+}
+`
+
+func main() {
+  // 加载模块
+	m := bpf.NewModule(source, []string{})
+	defer m.Close()
+	// 加载探针
+	kp, err := m.LoadKprobe("kprobe__do_sys_open")
+	if err != nil {
+		fmt.Printf("Failed to load kprobe count: %s\n", err)
+		os.Exit(1)
+	}
+	
+  // 对应系统调用函数埋入探针
+	err = m.AttachKprobe("do_sys_open", kp, -1)
+	if err != nil {
+		fmt.Printf("Failed to attach kprobe to strlen: %s\n", err)
+		os.Exit(1)
+	}
+
+  // 逐行读取tracepipe中的数据，如果输出没有换行，就不会读取到数据
+	tp, err := tracepipe.New()
+	if err != nil {
+		fmt.Printf("tracepipe.New err: %s\n", err)
+		os.Exit(1)
+	}
+
+	defer tp.Close()
+	channel, errChannel := tp.Channel()
+	for {
+		select {
+		case event := <-channel:
+			fmt.Printf("%+v\n", event)
+		case err := <-errChannel:
+			fmt.Printf("%+v\n", err)
+		}
+	}
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 5.4 bcc-tools中的`profile`详解
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -548,27 +854,28 @@ BPF工作的一个简易的流程是：`BPF`程序注入内核hook点之后，�
 
 # 四、遇到的问题总结
 
-## 1. bcc python helloword遇到的问题
+## 4.1 环境构建遇到的问题
 
-错误描述：编译`bcc`时`cmake`报错：
+### 1. BCC工具编译
 
-![image-20220517195322553](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220517195322553.png)
+错误描述：编译`bcc`时`cmake Warning`：
+
+![image-20220519110150982](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220519110150982.png)
 
 原因：缺少依赖
 
-解决：
+解决：这些错误其实都不影响后面的编译（可能部分功能会影响，例如`debug`），同样会构建成功
+
+> 相关参考`issue`:
+>
+> * https://github.com/iovisor/bcc/issues/3601
+> * https://github.com/isage/lua-imagick/issues/16
 
 ```shell
+sudo apt install libdebuginfod-dev    # 我尝试了并不能直接下载
+sudo apt install libluajit-5.1-dev
 sudo apt install arping netperf
 ```
-
----
-
-错误描述：apt的库中无法找到`netperf`
-
-![image-20220517195649379](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220517195649379.png)
-
-解决：去官网找tar包下载手动make源码安装
 
 ---
 
@@ -647,15 +954,27 @@ sudo apt install arping netperf
    make
    sudo make install
    cmake -DPYTHON_CMD=python3 .. # build python3 binding
-   # 将目录添加到堆栈
+   # 将目录添加到目录堆栈顶，简单理解就是进入这个目录，和popd一起使用
    pushd src/python/   
    make
    # 安装到/usr/lib/python3/dist-packages/下
    sudo make install
-   popdma
+   popd	# 返回栈顶目录
    ```
 
-----
+---
+
+问题描述：编译`bcc`的时候`cmake ..`失败
+
+![image-20220519191926700](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220519191926700.png)
+
+原因：检查`ls /usr/lib/llvm-13/lib/`下是否有如下所需要的依赖（`.a`后缀）
+
+![image-20220519192513782](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220519192513782.png)
+
+如果没有的话安装`sudo apt-get install libclang-13-dev` (中间的版本号对应你的`clang`版本)
+
+## 4.2 bcc demos 遇到的问题
 
 **注意默认使用的`python`源,** 检查不要用`anaconda3`的`python3`或者是系统默认的`python2`，否则会报如下错误：
 
@@ -683,7 +1002,7 @@ lrwxrwxrwx 1 lywh lywh 9 3月  28 14:28 /home/lywh/anaconda3/bin/python -> pytho
 
 `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 15CF4D18AF4F7421`
 
-## 2. linux内核源码自带样例遇到的问题
+## 4.2 linux内核源码自带样例遇到的问题
 
 错误描述：编译`samples/bpf/`出现问题：
 
@@ -694,3 +1013,28 @@ lrwxrwxrwx 1 lywh lywh 9 3月  28 14:28 /home/lywh/anaconda3/bin/python -> pytho
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20220518164951510.png" alt="image-20220518164951510" style="zoom:57%;" />
 
 将71行的`#ifdef`改为`#if` (注意，谨慎修改)
+
+----
+
+错误描述：
+
+写`Python + C ebpf 监控打开文件`demo的时候执行`sudo ./hello.py`出错：
+
+![image-20220519133845251](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220519133845251.png)
+
+原因：可能是执行的`Python`版本用到2.7了。。
+
+解决：在程序末尾加上`;`后可以执行，后来删除掉分号后也可以执行了，很诡异
+
+错误描述：
+
+![image-20220519133731209](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220519133731209.png)
+
+原因：版本内核太低`4.15`
+
+https://man7.org/linux/man-pages/man2/openat2.2.html#VERSIONS
+
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20220519140256941.png" alt="image-20220519140256941" style="zoom:67%;" />
+
+解决：
+
