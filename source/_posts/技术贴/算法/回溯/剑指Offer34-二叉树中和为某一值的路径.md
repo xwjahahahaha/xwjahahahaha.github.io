@@ -95,3 +95,40 @@ func pathSum(root *TreeNode, target int) [][]int {
 }
 ```
 
+二刷：
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+// 回溯
+func pathSum(root *TreeNode, target int) [][]int {
+    res := [][]int{}
+    sum, path := 0, []int{}
+    var dfs func(*TreeNode) 
+    dfs = func(root *TreeNode) {
+        if root == nil {
+            return
+        }
+
+        sum += root.Val
+        path = append(path, root.Val)
+        // 判断是不是满足结果
+        if root.Left == nil && root.Right == nil && sum == target {
+            res = append(res, append([]int(nil), path...))
+        }
+        dfs(root.Left)
+        dfs(root.Right)  
+        sum -= root.Val
+        path = path[:len(path)-1]
+    }
+    dfs(root)
+    return res
+}
+```
+

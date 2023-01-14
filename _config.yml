@@ -95,7 +95,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: false  # 不想显示博客了 2022-6-26
+# theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

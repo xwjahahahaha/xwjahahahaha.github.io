@@ -41,7 +41,7 @@ date: 2021-10-31 14:02:43
 
 * `make`
 
-  * 只用于三种内置的数据结构(chan、map、slice)的内存创建，会在编译期变为对应的例如`makeSlice`、`makeChannel`等函数
+  * 只用于三种内置的数据结构(`chan、map、slice`)的内存创建，会在编译期变为对应的例如`makeSlice`、`makeChannel`等函数
 
     ```go
     func make(t Type, size ...IntegerType) Type
@@ -99,7 +99,7 @@ slice作为函数传参数可能在函数中添加元素导致底层数组的扩
     > 	var i interface{} = p
     > 	fmt.Println(i == p) // true
     > 	fmt.Println(p == nil) // true
-    > 	fmt.Println(i == nil) // false  因为
+    > 	fmt.Println(i == nil) // false  
     > }
     > ```
 
@@ -226,9 +226,33 @@ func main() {
 
 多个string拼接更加高效的方式：
 
-* `strings.join`
-* `strings.Bulider`
+> 高效的原因：https://leileiluoluo.com/posts/efficent-string-concatenation-in-golang.html
+
+* 一般的方式`+=`
+
+  * 不高效的原因：字符串是不可变的，当拼接两个字符串的时候需要将原本的两个字符串复制到一个新的底层字节数组中，然后返回新的字节数组，旧的交给垃圾回收，如果有大量这样的操作那么会非常的低效
+
 * `bytes.buffer`
+
+  ```go
+  buf := bytes.NewBufferString("hello")
+  buf.WriteString(" world") // fmt.Fprint(buf, " world")
+  ```
+
+  * 因为buffer是一个变长的字节缓冲区，内部维护了一个[]byte动态数组，当需要合并的时候会将新的字符串/字节数组加入到缓冲中，因为有缓冲所以旧的数组是无需拷贝的，所以就更加的高效
+
+* `strings.Bulider`
+
+  ```go
+  var builder strings.Builder
+  builder.WriteString("hello") // fmt.Fprint(&builder, "hello")
+  ```
+
+  * 和buffer一个道理，也是内部维护了一个字节数组
+
+* `strings.join`
+
+  其内部也是通过`strings.Builder`实现的
 
 ## 6. 静态类型语言与动态类型语言
 
@@ -409,18 +433,20 @@ bmap数据结构中的指针让多个bucket链接成为一个链表，所以整�
 
 判断扩充的条件，就是哈希表中的`加载因子`(即loadFactor)。
 
-`加载因子`是一个阈值，一般表示为：散列包含的元素数除以位置总数。
+`加载因子`是一个阈值，一般表示为：散列包含的元素数除以位置总数
 
 是一种“产生冲突机会”和“空间使用”的平衡与折中：
 
 * `加载因子`越小，说明空间空置率高，空间使用率小，冲突率比较低
 * `加载因子`越大，说明空间利用率上去了，但是“产生冲突机会”高了
 
-go中的计算方式：
+go中map的`加载因子`计算方式：
 
 ```go
 map长度 / 2^B   // B：当前已经扩容的次数
 ```
+
+阈值是`6.5`。其中`B`可以理解为已扩容的次数。当Go的`map`长度增长到大于`加载因子`所需的`map`长度时，Go语言就会将产生一个新的bucket数组，然后把旧的bucket数组移到一个属性字段`oldbucket`中。
 
 扩容过程：
 
@@ -458,7 +484,7 @@ https://geektutu.com/post/hpg-struct-alignment.html
 
 * cpu根据自己的位数一次性读取对应字节的数据（例如16位一次读取1个字节），如果结构体的设计不得体（内存不对齐）那么就会导致一个结构体的读取次数过多效率变低，内存对齐就是期望避免这样的事发生提高效率
 
-  <img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20220309002433958.png" alt="image-20220309002433958" style="zoom:50%;" />
+  ![image-20220810153516268](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220810153516268.png)
 
 ### 怎么实现内存对齐优化？
 
@@ -466,11 +492,11 @@ https://geektutu.com/post/hpg-struct-alignment.html
 * 合理布局减少内存占用，可以按照字节数（可以通过`unsafe.Sizeof`获取类型字节数）由小到大排列结构体中的字段，这样占用的字节数会更少
   * 原因在于`unsafe.Alignof`的计算方式是当前已知字段的最大值，如果较大的值放在前面会一开始就设置较大的对齐倍数从而导致内存空间的浪费（具体可见链接中的例子）
   * go编译器不会自动帮我们调整顺序，因为这不利于跨平台的数据传输（序列化之后结构体字段顺序对不上）
-* 空结构体`struct{}`不应该放在结构体的最后一个字段，因为空结构体本身不占字节，但是如果放在最后一个字段并且有指针指向其时，返回的地址在结构体之外（因为结构体本身不占字节），所以可能会有内存泄漏的问题，所以go会给其创建额外的内存保证安全，会浪费内存。
+* 空结构体`struct{}`不应该放在结构体的最后一个字段，因为空结构体本身不占字节，但是如果放在最后一个字段并且有指针指向其时，返回的地址在结构体之外（因为结构体本身不占字节），所以可能会有内存泄漏的问题，所以go会给其创建额外的内存保证安全，会浪费内存
 
 ## 20. go的context
 
-[]: /Users/xwj/blog/source/_posts/技术贴/GoLang/开发基础模块/go的context使用.md
+[go的context使用](/Users/xwj/blog/source/_posts/技术贴/GoLang/开发基础模块/go的context使用.md)
 
 ## 21. 什么是协程泄露(Goroutine Leak)
 
@@ -495,15 +521,41 @@ https://hoverzheng.github.io/post/technology-blog/go/goroutine-leak%E5%92%8C%E8%
 * 在创建一个协程的时候就应该考虑这个协程如何被中止
 * 主线程在结束前或者任务结束前告知各个子协程终止，而不是让其忙等，可以用channel也可以传递ctx
 
-## 22. go的指针与c的指针的区别
+## 22. go的指针与c的指针的区别（unsafe）
 
+> * https://www.cnblogs.com/cheyunhua/p/15302200.html
 
+总结几点：
 
+* go和c一样都有`取地址&`和 `解引用*`的操作
 
+* go 的数组名不是首元素地址，而c语言是
 
+* c语言支持指针运算，但是go是不支持指针运算的
 
+  * 但是在 Go 标准库中提供了一个 `unsafe` 包用于编译阶段绕过 Go 语言的类型系统，直接操作内存，但是也和名字一样是unsafe的
 
+    我们可以利用 `unsafe` 包来实现指针运算：
 
+    ```go
+    func Alignof(x ArbitraryType) uintptr
+    func Offsetof(x ArbitraryType) uintptr
+    func Sizeof(x ArbitraryType) uintptr
+    type ArbitraryType
+    func Slice(ptr *ArbitraryType, len IntegerType) []ArbitraryType
+    type IntegerType
+    type Pointer
+    func Add(ptr Pointer, len IntegerType) Pointer
+    ```
+
+    - `uintptr` : go 的内置类型。是一个无符号整数，用来存储地址，支持数学运算。常与 `unsafe.Pointer` 配合做指针运算
+    - `unsafe.Pointer` : 表示指向任意类型的指针，可以和**任何类型的指针互相转换**（类似 C 语言中的 `void*` 类型的指针），也可以和 `uintptr` 互相转换
+    - `unsafe.Sizeof` : 返回操作数在内存中的字节大小，参数可以是任意类型的表达式，例如 `fmt.Println(unsafe.Sizeof(uint32(0)))` 的结果为 `4`
+    - `unsafe.Offsetof` : 函数的参数必须是一个字段 `x.f`，然后返回 f 字段相对于 x 起始地址的偏移量，用于**计算结构体成员的偏移量**
+
+## 23.如何限制goroutine的大小
+
+https://boilingfrog.github.io/2021/04/14/%E6%8E%A7%E5%88%B6goroutine%E7%9A%84%E6%95%B0%E9%87%8F/#%E6%8E%A7%E5%88%B6goroutine%E6%95%B0%E9%87%8F
 
 # 二、进阶语法特点
 
@@ -533,6 +585,8 @@ https://hoverzheng.github.io/post/technology-blog/go/goroutine-leak%E5%92%8C%E8%
 
 ## 2. 协程调度模型GMP
 
+![image-20220810195345235](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220810195345235.png)
+
 ### 2.1 M:N模型
 
 在内核态中创建了N个进程，在用户态中有M个携程，并且M>>N，这M个协程共享内核中的N个进程
@@ -543,7 +597,7 @@ https://hoverzheng.github.io/post/technology-blog/go/goroutine-leak%E5%92%8C%E8%
 
 #### GM模型
 
-go语言调度模型最早是go 1.2前采用的是GM模型，G是协程，M就是内核线程
+go语言调度模型最早是go 1.2前采用的是GM模型，G是协程，M就是**内核线程**
 
 **实现逻辑/流程：**把所有的G都放到一个全局队列中，这个队列的访问需要锁机制，每个线程M从其中获得一个G然后执行。一旦G阻塞（IO、channel等待或Syscall）就会进入parked状态返回到全局队列中，在随后重新被争夺执行。
 
@@ -634,7 +688,7 @@ M 绑定的 P 没有可执行的 goroutine 时，它会去**按照优先级**去
 
 go有自己封装的系统调用，使用封装的系统调用让P才会触发新的调度（因为系统调用会阻塞），触发系统调用会让M处于syscall状态。
 
-sysmon是一个系统级别的goroutine，不需要挂载P，运行期间始终执行。通过一个循环去监控各个M执行的G，如果时间过长（阻塞），那么就会主动发送信号将M与P断开（信号式抢占）。sysmon的循环周期会不断缩减，为了避免空转，如果一段时间未发现长时间的调用，那么就会睡眠一段时间然后在循环。
+sysmon是一个系统级别的goroutine，不需要挂载P，运行期间始终执行。通过一个循环去监控各个M执行的G，如果时间过长（阻塞），那么就会**主动发送信号将M与P断开（信号式抢占）**。sysmon的循环周期会不断缩减，为了避免空转，如果一段时间未发现长时间的调用，那么就会睡眠一段时间然后在循环。
 
 Sysmon的主要作用：
 
@@ -662,7 +716,7 @@ Sysmon的主要作用：
 
 ​	以32位的内存4G的空间为例：
 
-​	<img src="http://xwjpics.gumptlu.work/qinniu_uPic/OnTiL2-20211111092200699.png" alt="OnTiL2" style="zoom: 33%;" />
+​	<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20220810230527059.png" alt="image-20220810230527059" style="zoom:30%;" />
 
 ### 2. 描述逃逸分析过程
 
@@ -690,7 +744,7 @@ go语言中的逃逸分析的基本逻辑就是：
 
 每个goroutine都会维护一个自己的内存栈（2kb），相互之间隔离，在运行的过程中会扩充与收缩
 
-最开始go开发团队采用的是**分段栈**的机制，就是当需要扩容的时候并不会复制的当前的内容，而是创建一个更大的空间，然后指向那个空间，实现扩容。
+最开始go开发团队采用的是**分段栈**的机制，就是当需要扩容的时候并不会复制的当前的内容，而是创建一个更大的空间，然后指向那个空间，实现扩容
 
 但是这样的机制的缺点就是会出现热分裂的问题，如果在一个循环中调用了一个函数，因为当前栈空间不足就需要创建额外的栈空间，然后指向，随后执行完毕后又将其回收，在循环中往复这个过程就会不断的重复创建、回收，效率低下。
 
@@ -706,6 +760,8 @@ go语言中的逃逸分析的基本逻辑就是：
 如果栈区的空间使用率不超过1/4，那么在垃圾回收的时候使用 `runtime.shrinkstack` 进行**栈缩容**，同样使用 copystack拷贝到一个小栈空间继续使用
 
 ### 4. 内存管理机制
+
+完整见[runtime内存分配原理](/Users/xwj/blog/source/_posts/技术贴/GoLang/Go进阶训练营/12-runtime-2-内存分配原理.md)
 
 ![K7w6uc](http://xwjpics.gumptlu.work/qinniu_uPic/K7w6uc-20211111142228647.png)
 
@@ -802,7 +858,7 @@ go语言中的逃逸分析的基本逻辑就是：
 3. 从工作池中不断取出灰色对象，将其所有下一层引用加入工作池/灰色队列，将其本身变为黑色
 4. 如果一个对象存储的span标记了noscan，那么扫描后直接将其标记为黑色
 5. 工作池的读取扫描是后台多个goroutine并行的，不断的循环扫描，直到工作池为空
-6. 完成标记工作后，需要重新扫描re-scan整个全局指针和栈，因为在扫描于内存分配并行，可能会有新的对象分配和指针赋值，这就需要用写屏障记录下来，这个阶段也需要STW。
+6. 完成标记工作后，需要重新扫描re-scan整个全局指针和栈，因为在扫描与内存分配并行，可能会有新的对象分配和指针赋值，这就需要用写屏障记录下来，这个阶段也需要STW。
 7. 按照标记结果并行回收白色对象
 
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/oBUQRD.png" alt="oBUQRD" style="zoom:67%;" />
@@ -885,7 +941,7 @@ go为每一个内存块mspan中的每个对象创建了对应的`bitmap allocBit
 
 ### 1. 介绍一下channel
 
-channel是go语言中用于多个协程goroutine之间通信、同步的一个数据结构。正是如此，channel在内存中一定会被分配到**堆**上。
+channel是go语言中用于多个协程goroutine之间通信、同步的一个数据结构。正是如此，channel在内存中一定会被分配到**堆**上
 
 channel的特点是：
 
@@ -981,14 +1037,13 @@ go语言中的锁：
 
   * 写锁被解锁后，所有因操作锁定读锁而被阻塞的 goroutine 会被唤醒，并都可以成功锁定读锁
 
-  * 读锁被解锁后，在没有被其他读锁锁定的前提下，所有因操作锁定写锁而
+  * 读锁被解锁后，在没有被其他读锁锁定的前提下，所有因操作锁定写锁而被阻塞的 Goroutine，其中等待时间最长的一个 Goroutine 会被唤醒
 
-  被阻塞的 Goroutine，其中等待时间最长的一个 Goroutine 会被唤醒
 
 思想（乐观锁和悲观锁是两种思想，用于解决并发场景下的数据竞争问题）：
 
 * **悲观锁**：操作数据的时候非常悲观，认为别人也会同时修改数据，因此操作的时候直接将数据锁住，直到操作结束才释放。 **（go的`Mutex`是悲观锁）**
-* **乐观锁：**操作数据的时候非常乐观，认为别人不会同时修改数据，只是在执行更新的时候判断一下别人是否修改了数据，如果修改了就放弃此次修改操作，没修改就继续修改
+* **乐观锁：**操作数据的时候非常乐观，认为别人不会同时修改数据，只是在执行更新的时候判断一下别人是否修改了数据，如果修改了就放弃此次修改操作（就是没获取到锁），没修改就继续修改
 
 go实现乐观与悲观锁：
 
@@ -1268,8 +1323,29 @@ func main() {
 
 原理：
 
-* WaitGroup 主要**维护了 2 个计数器**，一个是请求计数器 v，一个是等待计数器 w，二者组成一个64bit 的值，请求计数器占高 32bit，等待计数器占低 32bit。
-* **每次Add执行，请求计数器v加1**，**Done方法执行，等待计数器减1**，**v为 0 时通过信号量唤醒 Wait()。**
+> https://zhuanlan.zhihu.com/p/344973865
+
+简化后的数据结构如下:
+
+```go
+type WaitGroup struct {
+    counter int32
+    waiter  uint32
+    sema    uint32
+}
+```
+
+- *`counter` 代表目前尚未完成的个数。`WaitGroup.Add(n)` 将会导致 `counter += n`, 而 `WaitGroup.Done()` 将导致 `counter--`。*
+- `waiter` 代表目前已调用 `WaitGroup.Wait` 的 goroutine 的个数。
+- `sema` 对应于 golang 中 runtime 内部的信号量的实现。WaitGroup 中会用到 sema 的两个相关函数，`runtime_Semacquire` 和 `runtime_Semrelease`。`runtime_Semacquire` 表示增加一个信号量，并挂起 当前 goroutine。`runtime_Semrelease` 表示减少一个信号量，并唤醒 sema 上其中一个正在等待的 goroutine
+
+WaitGroup 的整个调用过程可以简单地描述成下面这样：
+
+1. 当调用 `WaitGroup.Add(n)` 时，counter 将会自增: `counter += n`
+
+2. 当调用 `WaitGroup.Wait()` 时，会将 `waiter++`。同时调用 `runtime_Semacquire(semap)`, 增加信号量，并挂起当前 goroutine。
+
+3. 当调用 `WaitGroup.Done()` 时，将会 `counter--`。如果自减后的 counter 等于 0，说明 WaitGroup 的等待过程已经结束，则需要调用 `runtime_Semrelease` 释放信号量，唤醒正在 `WaitGroup.Wait` 的 goroutine
 
 ### 7. Sync.Once
 
@@ -1385,7 +1461,7 @@ func main() {
 
 ### 反射的一般作用
 
-[]: /Users/xwj/blog/source/_posts/技术贴/GoLang/开发基础模块/Go语言-2-进阶.md
+[Go语言-2-进阶]( /Users/xwj/blog/source/_posts/技术贴/GoLang/开发基础模块/Go语言-2-进阶.md)
 
 在不知道类型的情况下，可以更新变量、在运行时查看其值、调用该类型方法或者直接对齐布局进行操作
 
@@ -1438,7 +1514,6 @@ func main() {
   )
   
   //使用反射的方式来获取结构体的tag 标签, 遍历字段的值，修改字段值，调用结构体方法
-  
   
   type Monster struct {
   	Name string	`json:"name"`
@@ -1649,7 +1724,7 @@ func main() {
 ```go
 // 变为串行
 func main() {
-	ch1 := make(chan int, 1)
+	ch1 := make(chan int, 1)			// 注意要初始化为1，否则同步channel会报死锁
 	ch2 := make(chan int, 1)
 	ch3 := make(chan int, 1)
 	ch3 <- 0

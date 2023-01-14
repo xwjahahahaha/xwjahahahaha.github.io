@@ -142,6 +142,8 @@ EOF
 
 ##### 3.2 添加阿里云YUM软件源
 
+centos：
+
 ```shell
 $ cat > /etc/yum.repos.d/kubernetes.repo << EOF
 [kubernetes]
@@ -153,6 +155,20 @@ repo_gpgcheck=0
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 EOF
 ```
+
+ubuntu：
+
+```shell
+apt-get update && apt-get install -y apt-transport-https curl
+
+curl -s https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
+
+tee /etc/apt/sources.list.d/kubernetes.list <<-'EOF'
+deb https://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main
+EOF
+```
+
+> ubuntu安装k8s流程完整文章：https://developer.aliyun.com/article/853741
 
 ##### 3.3 安装kubeadm，kubelet和kubectl
 

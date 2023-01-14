@@ -55,3 +55,42 @@ func search( nums []int ,  target int ) int {
 }
 ```
 
+二刷：
+
+找到第一个>=目标值的数
+
+```go
+package main
+
+/**
+ * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+ *
+ * 如果目标值存在返回下标，否则返回 -1
+ * @param nums int整型一维数组 
+ * @param target int整型 
+ * @return int整型
+*/
+func search( nums []int ,  target int ) int {
+    if len(nums) == 0 {
+        return -1
+    }
+    
+    l, r := 0, len(nums)
+    res := len(nums)
+    for l < r {
+        mid := (r-l)/2 + l
+        if nums[mid] >= target {
+            r = mid
+            res = mid
+        }else {
+            l = mid+1
+        }
+    }
+    
+    if nums[res] != target {
+        return -1
+    }
+    return res
+}
+```
+

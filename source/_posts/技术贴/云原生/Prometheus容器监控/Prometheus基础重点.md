@@ -512,7 +512,7 @@ func main() {
 
 	gatherers := prometheus.Gatherers{
 		prometheus.DefaultGatherer,
-		reg,
+		reg
 	}
 
 	h := promhttp.HandlerFor(gatherers,

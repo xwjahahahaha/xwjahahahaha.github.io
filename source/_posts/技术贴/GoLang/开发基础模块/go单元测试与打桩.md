@@ -179,3 +179,48 @@ func Test（t *testing）{
 } 
 ```
 
+## 2.3 convey + monkey的使用
+
+Convey  + Monkey : https://blog.csdn.net/wslyk606/article/details/81938777
+
+`go get -u github.com/smartystreets/goconvey`
+
+` go get -u github.com/agiledragon/gomonkey`
+
+```go
+package v1
+
+import (
+	"github.com/agiledragon/gomonkey"
+	. "github.com/smartystreets/goconvey/convey"
+
+	"testing"
+)
+
+const (
+	rightTest = `
+funcA() arg1; funcB(arg2_);func## 2
+funcA() arg1; funcB(arg2_);func##;funcA() arg1; funcB(arg2_);func## 6
+`
+	errorTest = `
+Unable to find kernel headers. Try rebuilding kernel with CONFIG_IKHEADERS=m 
+(module) or installing the kernel; development package for your running kernel version. 1321
+`
+)
+
+func TestCheckoutBPFOutput(t *testing.T) {
+	Convey("TestCheckoutBPFOutput", t, func() {
+		patch := gomonkey.ApplyFunc(getDockerStorageDriver, func() (string, error) {
+			return "", nil
+		})
+		defer patch.Reset()
+		Convey("pass", t, func() {
+			So(checkoutBPFOutput(rightTest), ShouldBeTrue)
+		})
+		Convey("error", t, func() {
+			So(checkoutBPFOutput(errorTest), ShouldBeFalse)
+		})
+	})
+}
+```
+

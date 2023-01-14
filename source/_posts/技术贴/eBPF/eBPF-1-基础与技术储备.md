@@ -6,8 +6,8 @@ categories:
   - technical
   - null
 toc: true
-  declare: true
-  date: 2022-05-17 10:49:44
+declare: true
+date: 2022-05-17 10:49:44
 ---
 
 
@@ -195,8 +195,6 @@ BPF的功能升级版，[Alexei Starovoitov](https://twitter.com/alexei_ast)为�
 BPF虚拟机的内部架构
 
 ![image-20220521192823981](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220521192823981.png)
-
-
 
 ### 7. eBPF的执行流程是什么？
 
@@ -441,7 +439,7 @@ eBPF是在内核层面使用非常低的损耗实现观测，这与传统的用�
 * 传统性能分析工具可以作为分析的起点
 * 然后再使用`BPF`跟踪工具进一步分析
 
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20220521164355616.png" alt="image-20220521164355616" style="zoom:67%;" />
+![image-20220628181410185](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220628181410185.png)
 
 ### 4. 调用栈回溯(`stack-trace`)
 
@@ -468,9 +466,16 @@ eBPF是在内核层面使用非常低的损耗实现观测，这与传统的用�
 
 读取`RBP`的值遍历以此值为头部的链表，同时在固定偏移位置获取返回地址(`+8`)，从而轻松的实现栈回溯
 
+基本工作原理：
+
+* 调用栈帧链表头部地址始终保存在RBP寄存器(X86_64)中(X86中是使用ebp寄存器保存栈帧地址，esp保存栈顶指针)
+* 函数的返回地址位置始终在RBP的值指向位置+8的偏移量
+* 任何调试器或跟踪器在中断程序之后就可以通过读取RBP的地址值作为链表头部进行不断的回溯
+
 > 注：
 >
 > * `RBP`不一定在所有体系结构中都为保存栈头部地址，也可以用作通用寄存器
+> * 正因为
 > * `gcc`编译时默认不开启帧指针，通过`-fno-omit-frame-pointer`来开启，开启的性能消耗很低并且给栈回溯带来的收益很大
 > * 帧指针并不是唯一的栈回溯方法，还可以通过调试信息(`debuginfo`)、`LBR`以及`ORC`实现
 
@@ -478,7 +483,7 @@ eBPF是在内核层面使用非常低的损耗实现观测，这与传统的用�
 
 * 调试信息(`debuginfo`)
 
-  将软件的额外调试信息以软件的调试信息包来提供(包含了`DWARF`格式的`ELF`调试信息)，`BPF`目前还不支持, 此技术非常耗费处理器资源
+  将软件的额外调试信息以软件的调试信息包来提供(包含了`DWARF(Debugging With Attributed Record Formats)`格式的`ELF`调试信息)，`BPF`目前还不支持, 此技术非常耗费处理器资源，但是前端`BCC、bpftrace`是支持使用调试信息文件进行符号解析的
 
 * `LBR`
 

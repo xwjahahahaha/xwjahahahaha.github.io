@@ -180,3 +180,59 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
+二刷：
+
+```go
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+	f1, f2 := filp(l1), filp(l2)
+	p1, p2 := f1, f2
+	resHead := &ListNode{}
+	t := resHead
+	carry := 0
+	for p1 != nil || p2 != nil {
+		n1, n2 := 0, 0
+		if p1 != nil {
+			n1 = p1.Val
+		}
+
+		if p2 != nil {
+			n2 = p2.Val
+		}
+
+		sum := n1 + n2 + carry
+		carry = sum / 10
+		t.Next = &ListNode{sum - carry*10, nil}
+		if p1 != nil {
+			p1 = p1.Next
+		}
+		if p2 != nil {
+			p2 = p2.Next
+		}
+		t = t.Next
+	}
+
+	if carry != 0 {
+		t.Next = &ListNode{carry, nil}
+	}
+
+	return filp(resHead.Next)
+}
+
+func filp(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+
+	s, f := head, head.Next
+	for f != nil {
+		t := f.Next
+		f.Next = s
+		s = f
+		f = t
+	}
+	head.Next = nil
+
+	return s
+}
+```
+

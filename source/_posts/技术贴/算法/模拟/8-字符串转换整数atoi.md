@@ -126,6 +126,8 @@ date: 2022-01-14 22:21:16
 
 ## 解题思路及代码
 
+![image-20220818164555637](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220818164555637.png)
+
 ```go
 // 状态机
 type stateMachine struct {
@@ -192,7 +194,6 @@ func myAtoi(s string) int {
 
 二刷
 
-二刷
 ```go
 func myAtoi(s string) int {
     newAM := NewStateMachine()
@@ -254,5 +255,58 @@ func (am *autoMechine) readNewByte(c byte) {
         am.sign = -1
     }
 }
+```
+
+三刷：
+
+```go
+var stateTable = [][]int {
+    []int{0, 1, 2, 3},
+    []int{3, 3, 2, 3},
+    []int{3, 3, 2, 3},
+    []int{3, 3, 3, 3},
+}
+
+// 状态: 0, 1, 2, 3: start, signed, in_number, end
+// opt: 0, 1, 2, 3: 空格, +/-, 数字字符, others
+func myAtoi(s string) int {
+    res := 0
+    state, signed := 0, 1
+    for _, opt := range s {
+        if opt == ' ' {
+            if state = stateTable[state][0]; state == 3 {       // 判断状态, 如果是结束状态就立即结束循环
+                break
+            }   
+        }else if opt >= '0' && opt <= '9' {
+            if state = stateTable[state][2]; state == 3 {
+                break
+            }
+            num := int(opt-'0')
+            if res == 0 {
+                res += num
+            }else {
+                res = res*10 + num 
+            }
+            // 考虑整数溢出问题
+            if signed == 1 && res > math.MaxInt32 {
+                res = math.MaxInt32
+            }
+            if signed == -1 && res > -math.MinInt32 {
+                res = -math.MinInt32
+            }
+        }else if opt == '+' || opt == '-' {
+            if state = stateTable[state][1]; state == 3 {
+                break
+            }
+            if opt == '-' {
+                signed *= -1
+            }
+        }else {
+            break
+        }
+    }
+
+    return signed*res
+} 
 ```
 

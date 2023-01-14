@@ -83,3 +83,35 @@ func quickMul(x float64, n int) float64 {
 }
 ```
 
+二刷：
+
+```go
+func myPow(x float64, n int) float64 {
+    if x == 0.0 {
+        return 0.0
+    }
+    if n == 0 {
+        return 1.0
+    }
+    if n < 0 {
+        return 1/powHelp(x, n)
+    }
+
+    return powHelp(x, n)
+}
+
+// 快速幂计算
+func powHelp(x float64, n int) float64 {
+    if n == 0 {
+        return 1.0
+    }
+
+    t := powHelp(x, n/2)
+    if n%2 == 0 {
+        return t*t
+    }else {
+        return t*t*x
+    }
+}
+```
+

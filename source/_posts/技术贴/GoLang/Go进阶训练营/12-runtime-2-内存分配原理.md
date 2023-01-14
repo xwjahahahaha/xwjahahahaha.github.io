@@ -13,7 +13,6 @@ date: 2021-11-09 13:09:42
 > 学习自：
 >
 > * 极客时间《go进阶训练营》
-> * 
 
 <!-- more -->
 
@@ -370,7 +369,7 @@ mcache 从 `mcentral `获取和归还 mspan 的流程：
 
 对于小于16字节的对象(且无指针)，Go 语言将其划分为了tiny 对象。划分 **tiny 对象的主要目的是为了处理极小的字符串和独立的转义变量。**对 json 的基准测试表明，使用 tiny 对象减少了12%的分配次数和20%的堆大小。tiny 对象会被放入class 为2的 span 中。
 
-* 首先查看之前分配的元素中是否有空余的空间
+* 首先查看**之前分配**的元素中是否有空余的空间
 * 如果当前要分配的大小不够，例如要分配16字节的大小，这时就需要找到下一个空闲的元素
 
 tiny 分配的第一步是<u>尝试利用分配过的前一个元素的空间</u>，达到**节约内存**的目的。
@@ -389,7 +388,7 @@ Go 没法使用工作线程的本地缓存 mcache 和全局中心缓存 mcentral
 * treap （二叉搜索树）
 * radix tree + pagecache （1.14之后）
 
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/cCKQkL.png" alt="cCKQkL" style="zoom:50%;" />
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20220824090956314.png" alt="image-20220824090956314" style="zoom: 40%;" />
 
 ### 7. 总结
 

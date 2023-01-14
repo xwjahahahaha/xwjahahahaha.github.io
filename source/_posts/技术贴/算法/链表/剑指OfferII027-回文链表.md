@@ -110,3 +110,83 @@ func flipList(head, end *ListNode) *ListNode {
 }
 ```
 
+二刷：
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func isPalindrome(head *ListNode) bool {
+    if head == nil || head.Next == nil {
+        return true
+    }
+
+    sum := 0
+    p := head
+    for p != nil {
+        sum ++
+        p = p.Next
+    }
+    
+    half := sum/2-1
+    p = head
+    for i:=0; i<half; i++ {
+        p = p.Next
+    }
+
+    // 判断奇偶
+    var t1, t2 *ListNode
+    if sum % 2 == 0 {
+        t1, t2 = p, p.Next
+    }else {
+        t1, t2 = p, p.Next.Next
+    }
+
+    // 断开
+    t1.Next = nil
+    // 翻转前半部分
+    tmp1, tmp2 := t1, t2        // 记录
+    t1 = filp(head)
+    defer func() {
+        // 复原
+        filp(tmp1)
+        tmp1.Next = tmp2
+    }()
+    for t1 != nil && t2 != nil {
+        if t1.Val != t2.Val {
+            return false
+        }
+
+        t1 = t1.Next
+        t2 = t2.Next
+    }
+
+    if !(t1 == nil && t2 == nil) {
+        return false
+    }
+
+    return true
+}
+
+func filp(head *ListNode) *ListNode {
+    if head == nil || head.Next == nil {
+        return head
+    }
+
+    p1, p2 := head, head.Next
+    for p2 != nil {
+        t := p2.Next
+        p2.Next = p1
+        p1 = p2
+        p2 = t
+    }
+
+    head.Next = nil
+    return p1
+}
+```
+

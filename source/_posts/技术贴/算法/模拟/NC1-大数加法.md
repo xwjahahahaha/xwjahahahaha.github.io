@@ -95,3 +95,45 @@ func solve( s string ,  t string ) string {
 }
 ```
 
+二刷：
+
+```go
+package main
+
+/**
+ * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+ * 计算两个数之和
+ * @param s string字符串 表示第一个整数
+ * @param t string字符串 表示第二个整数
+ * @return string字符串
+*/
+func solve( s string ,  t string ) string {
+    m, n := len(s), len(t)
+    p1, p2 := m-1, n-1
+    res, carry := "", 0
+    
+    for p1 >= 0 || p2 >= 0 {
+        num1, num2 := 0, 0
+        if p1 >= 0 {
+            num1 = int(s[p1]-'0')
+        }
+        if p2 >= 0 {
+            num2 = int(t[p2]-'0')
+        }
+        
+        sum := num1 + num2 + carry
+        res = string(sum%10+'0') + res
+        carry = sum/10
+        
+        p1--; p2--
+    }
+    
+    // 处理carry剩余
+    if carry != 0 {
+        res = string(carry+'0') + res
+    }
+    
+    return res
+}
+```
+
