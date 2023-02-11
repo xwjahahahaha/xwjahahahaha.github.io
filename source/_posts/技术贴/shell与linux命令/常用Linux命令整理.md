@@ -497,3 +497,52 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
 sudo apt-get update
 ```
 
+# 14.开机自启脚本设置
+
+> https://zhuanlan.zhihu.com/p/405184491
+
+1. 创建我们需要开机自启动的脚本，例如test.sh，其内容如下：
+
+```bash
+#!/bin/bash
+
+cd ~/
+touch 11111111111.txt
+```
+
+**注意，开头一定要加上：**
+
+```text
+#!/bin/bash
+```
+
+2. 在/etc/systemd/user目录下创建一个systemd服务文件, 命名为user-defined.service, 内容如下：
+
+```bash
+[Unit]
+After=network.service
+
+[Service]
+ExecStart=/home/hqc/test.sh
+
+[Install]
+WantedBy=default.target
+```
+
+其中，After表示服务何时启动，After=network.service 表示网络连接完成后，启动我们的服务；ExecStart表示我们的脚本（步骤1中的test.sh)的路径；WantedBy默认填default.target。
+
+注意，ExecStart=/home/hqc/test.sh 这里一定不能用 ~/ 来代替/home/$USER
+
+3. 将systemd服务文件和我们的脚本更改权限，使其可执行。
+
+```bash
+sudo chmod 744 ~/test.sh
+sudo chmod 664 /etc/systemd/user/user-defined.service
+```
+
+4. 重新加载系统的systemd服务文件，并启用我们自己写的user-defined.service文件。
+
+```bash
+sudo systemctl daemon-reload
+systemctl --user enable user-defined.service
+```
