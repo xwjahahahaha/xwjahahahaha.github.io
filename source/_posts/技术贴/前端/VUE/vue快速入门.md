@@ -99,7 +99,7 @@ el挂载的标签：注意不建议挂载在其他标签，**一般挂载在div�
 
 ![](http://xwjpics.gumptlu.work/qiniu_picGo/20201107223337.png)
 
-## 2.1 v-test指令
+## 2.1 v-text指令
 
 ```html
 <body> 
@@ -392,9 +392,195 @@ v-on带参数：
 </body>
 ```
 
+## 2.9 插槽slot、slot-scope、v-slot
+
+> * https://juejin.cn/post/6844903555837493256
+> * https://www.bilibili.com/video/BV1qC4y147UR/?spm_id_from=333.337.search-card.all.click&vd_source=52e3776de8b0541a4e4db8921bcd8d6d
+
+<img src="http://xwjpics.gumptlu.work/image-20230215143541085.png" alt="image-20230215143541085" style="zoom:50%;" />
+
+**插槽，也就是slot，是组件的一块HTML模板，这块模板显示不显示、以及怎样显示由父组件来决定。**子组件中写了插槽，父组件则负责往插槽中添加内容
+
+### 匿名插槽 slot
+
+**单个插槽**是vue的官方叫法，但是其实也可以叫它默认插槽或者与具名插槽相对，我们可以叫它匿名插槽。因为它不用设置name属性。子组件中。单个插槽可以放置在组件的任意位置，但是就像它的名字一样，一个组件中只能有一个该类插槽。
+
+例子：
+
+<img src="http://xwjpics.gumptlu.work/image-20230215144318216.png" alt="image-20230215144318216" style="zoom: 43%;" />
+
+效果如图：
+
+<img src="http://xwjpics.gumptlu.work/image-20230215144341697.png" alt="image-20230215144341697" style="zoom:50%;" />
+
+### 具名插槽 slot
+
+匿名插槽没有name属性，所以是匿名插槽，那么，插槽**加了name属性**，就变成了具名插槽。具名插槽可以在一个组件中出现N次，出现在不同的位置。下面的例子，就是一个有两个**具名插槽**和**单个插槽**的组件，这三个插槽被父组件用同一套css样式显示了出来，不同的是内容上略有区别。
+
+例子：
+
+父组件：
+
+```vue
+<template>
+  <div class="father">
+    <h3>这里是父组件</h3>
+    <child>
+      <div class="tmpl" slot="up">
+        <span>菜单1</span>
+        <span>菜单2</span>
+        <span>菜单3</span>
+        <span>菜单4</span>
+        <span>菜单5</span>
+        <span>菜单6</span>
+      </div>
+      <div class="tmpl" slot="down">
+        <span>菜单-1</span>
+        <span>菜单-2</span>
+        <span>菜单-3</span>
+        <span>菜单-4</span>
+        <span>菜单-5</span>
+        <span>菜单-6</span>
+      </div>
+      <div class="tmpl">
+        <span>菜单->1</span>
+        <span>菜单->2</span>
+        <span>菜单->3</span>
+        <span>菜单->4</span>
+        <span>菜单->5</span>
+        <span>菜单->6</span>
+      </div>
+    </child>
+  </div>
+</template>
+```
+
+子组件：
+
+```vue
+<template>
+  <div class="child">
+    // 具名插槽
+    <slot name="up"></slot>
+    <h3>这里是子组件</h3>
+    // 具名插槽
+    <slot name="down"></slot>
+    // 匿名插槽
+    <slot></slot>
+  </div>
+</template>
+```
+
+### 作用域插槽 | 带数据的插槽 slot-scope
+
+最后，就是我们的作用域插槽。这个稍微难理解一点。官方叫它作用域插槽，实际上，对比前面两种插槽，我们可以叫它带数据的插槽。什么意思呢，就是前面两种，都是在组件的template里面写, 但是**作用域插槽要求，在slot上面绑定数据**。也就是你得写成大概下面这个样子：
+
+```vue
+<slot name="up" :data="data"></slot>
+ export default {
+    data: function(){
+      return {
+        data: ['zhangsan','lisi','wanwu','zhaoliu','tianqi','xiaoba']
+      }
+    },
+}
+```
+
+我们前面说了，插槽最后显示不显示是看父组件有没有在child下面写模板，像下面那样：
+
+```vue
+<child>
+   html模板
+</child>
+```
+
+写了，插槽就总得在浏览器上显示点东西，东西就是html该有的模样，没写，插槽就是空壳子，啥都没有。 OK，我们说有html模板的情况，就是父组件会往子组件插模板的情况，那到底插一套什么样的样式呢，这由父组件的html+css共同决定，但是这套样式里面的内容呢？
+
+正因为作用域插槽绑定了一套数据，父组件可以拿来用。于是，情况就变成了这样：**样式父组件说了算，但内容可以显示子组件插槽绑定的**
+
+我们再来对比，作用域插槽跟单个插槽和具名插槽的区别，因为单个插槽和具名插槽不绑定数据，所以父组件提供的模板一般要既包括样式又包括内容，上面的例子中，你看到的文字，“菜单1”，“菜单2”都是父组件自己提供的内容；**而作用域插槽，父组件只需要提供一套样式（在确实用作用域插槽绑定的数据的前提下）**
+
+下面的例子，你就能看到，父组件提供了三种样式(分别是flex、ul、直接显示)，都没有提供数据，数据使用的都是子组件插槽自己绑定的那个数组（一堆人名的那个数组）
+
+父组件：
+
+```vue
+<template>
+  <div class="father">
+    <h3>这里是父组件</h3>
+    <!--第一次使用：用flex展示数据-->
+    <child>
+      <template slot-scope="user">
+        <div class="tmpl">
+          <span v-for="item in user.data">{{item}}</span>
+        </div>
+      </template>
+
+    </child>
+
+    <!--第二次使用：用列表展示数据-->
+    <child>
+      <template slot-scope="user">
+        <ul>
+          <li v-for="item in user.data">{{item}}</li>
+        </ul>
+      </template>
+
+    </child>
+
+    <!--第三次使用：直接显示数据-->
+    <child>
+      <template slot-scope="user">
+       {{user.data}}
+      </template>
+
+    </child>
+
+    <!--第四次使用：不使用其提供的数据, 作用域插槽退变成匿名插槽-->
+    <child>
+      我就是模板
+    </child>
+  </div>
+</template>
+```
+
+子组件：
+
+```vue
+<template>
+  <div class="child">
+    <h3>这里是子组件</h3>
+    // 作用域插槽
+    <slot  :data="data"></slot>
+  </div>
+</template>
+
+ export default {
+    data: function(){
+      return {
+        data: ['zhangsan','lisi','wanwu','zhaoliu','tianqi','xiaoba']
+      }
+    }
+}
+```
+
+效果：
+
+<img src="http://xwjpics.gumptlu.work/image-20230215145149939.png" alt="image-20230215145149939" style="zoom: 50%;" />
 
 
-## 2.9 备忘录
+
+
+
+
+
+
+
+
+
+
+
+## 2.10 备忘录
 
 ![](http://xwjpics.gumptlu.work/qiniu_picGo/20201108130342.png)
 

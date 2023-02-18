@@ -622,7 +622,7 @@ onLoad() {
 	export default {
 		// 应用初始化完成出发出发一次,全局只出发一次
 		onLaunch: function() {
-            //登录或一些全局变量的获取
+      //登录或一些全局变量的获取
 			console.log('App Launch')
 		},
 		//应用从后台切换到前台触发一次
@@ -870,5 +870,4 @@ https://www.jianshu.com/p/3259976b414b
 
   
 
-  
   

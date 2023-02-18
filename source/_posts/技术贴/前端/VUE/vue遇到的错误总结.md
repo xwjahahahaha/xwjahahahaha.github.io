@@ -10,7 +10,9 @@ declare: true
 date: 2020-11-08 21:26:56
 ---
 
-# 一、vue.js正确的放置位置
+# 一、语法使用问题
+
+## 1. vue.js正确的放置位置
 
 <font color='red'>vue报错：vue.js:634 [Vue warn]: Cannot find element: #app</font>
 
@@ -50,7 +52,7 @@ date: 2020-11-08 21:26:56
 </html>
 ```
 
-## 二、This和That
+## 2. This和That
 
 当在某一个函数中需要改变当前data中的某个字段，让页面改变时，获取变量需要使用this或者that引用。
 
@@ -83,7 +85,7 @@ created() {
 
 显然是不同的，所以如果在返回函数中使用this是无法改变数据值的。
 
-# 三、父页面异步调用接口数据通过props传参给子组件无法响应
+## 3. 父页面异步调用接口数据通过props传参给子组件无法响应
 
 **症状描述：子组件得到的一直是空值，不管是否写了witch监听**
 
@@ -126,3 +128,38 @@ export default {
 当然这种方法也有缺点：不适用于一些必要的显示组件，自行选择使用。
 
 另一种方法见：https://www.jianshu.com/p/4450b63a27fe  中的方法二
+
+## 4. slot-scope="text, record" 参数顺序
+
+使用table的`slot-scope="text, record"`参数的时候，如果想要在slot的渲染中的项中使用record，必须要写text和record，只写一个`slot-scope="record"`则其实默认是第一个参数即（`record`就是`text`）
+
+同理`slot-scope="text, record, index"`，一定要按顺序写且不能省略
+
+## 5. 如何在一些默认参数的响应事件中加入自己的参数
+
+在使用Ant + Vue框架的时候，input输入框自带一个响应事件：`onChange`，其描述如下：
+
+| 事件名称 | 说明                   | 回调参数    |
+| :------- | :--------------------- | :---------- |
+| change   | 输入框内容变化时的回调 | function(e) |
+
+默认使用：
+
+```vue
+<a-input @change="change" />
+...
+change(e) {
+	console.log(e)
+}
+```
+
+但是如果想在输入框改变的同时传入一些额外的变量则需要像如下这样写：
+
+```vue
+<a-input @change="change(record, index, $event)" />
+...
+change(record, index, e) {
+	console.log(record, index, e)
+}
+```
+

@@ -10,7 +10,7 @@ declare: true
 date: 2021-03-05 20:30:01
 ---
 
-# 基础语法陷阱
+# 一、基础语法陷阱
 
 <!-- more -->
 
@@ -81,4 +81,61 @@ os.Create("./src/main/A.txt")
 //E:\文档\Go\tire_api\src\main\log\A.txt
 os.Create("./src/main/log/A.txt")
 ```
+
+# 二、重点语法理解再记录
+
+## 1. omitempty
+
+https://blog.csdn.net/Edu_enth/article/details/124007406
+
+具体的一般会在结构体字段的后面描述这个字段的信息，让struct与json解耦，不管go中字段的名字如何变化，只要后面json的名字不变，那么就无需改动：
+
+```go
+AAA {
+  Name   string  `json:"name"`
+  Desc   string  `json:"desc"`
+  UserId int64   `json:"user_id"`
+  Rules  []Rule `json:"omitempty,rules"`
+}
+```
+
+添加`omitempty`的作用不是让Json -> 结构体时可以省略这个字段，而是当结构体->Json时如果没有此字段则省略
+
+此时请求的Json如果是如下：
+
+```json
+{
+    "name": "sg-001",
+    "desc": "安全组1",
+    "user_id": 111
+}
+```
+
+那么会报错：
+
+```shell
+error: type mismatch for field rules
+```
+
+那么如果想让Json->结构体时，一个字段不传递就默认为空不会报错，那么上述场景的解决方法就是改为如下:
+
+```go
+AAA {
+  ...
+  Rules  []*Rule `json:"omitempty,rules"`
+}
+```
+
+换结构体为其指针，此时如下请求就没问题了
+
+```json
+{
+    "name": "sg-001",
+    "desc": "安全组1",
+    "user_id": 111,
+    "rules": []
+}
+```
+
+
 
