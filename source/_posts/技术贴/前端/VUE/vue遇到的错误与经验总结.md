@@ -1,5 +1,5 @@
 ---
-title: vue遇到的错误总结
+title: vue遇到的错误与经验总结
 tags:
   - vue
 categories:
@@ -10,7 +10,7 @@ declare: true
 date: 2020-11-08 21:26:56
 ---
 
-# 一、语法使用问题
+# 总结Vue开发遇到的错误与经验
 
 ## 1. vue.js正确的放置位置
 
@@ -162,4 +162,92 @@ change(record, index, e) {
 	console.log(record, index, e)
 }
 ```
+
+## 6. 父组件向子组件传递Number类型的值时的静态传递
+
+> * https://www.cnblogs.com/saoge/p/15179659.html
+
+例如父组件与子组件协商好了一个类型：（在子组件A中）
+
+```vue
+props: {
+    direction: {
+        type: Number
+    }
+},
+```
+
+那么父组件如下直接写数字其实传递的是String：
+
+```vue
+<A direction=1></A>
+```
+
+会报错：
+
+`Invalid prop: type check failed for prop "direction". Expected Number with value 1, got String with value "1".`
+
+要改为动态类型的值并用v-bind绑定：
+
+```vue
+<A :direction=inDirection></A>
+...
+data() {
+    return {
+        inDirection: -1,
+    }
+},
+```
+
+## 7. Vue数据更新视图不更新的几种解决方案
+
+> * https://blog.csdn.net/bigbear00007/article/details/102594645
+
+vue不能检测以下变动的数组：
+
+1. 如果obj原本没有一个字段，新添加一个字段并改变值，那么是无法响应的
+2. 当你利用索引直接设置一个项时，vm.items[indexOfItem] = newValue
+3. 当你修改数组的长度时，例如： vm.items.length = newLength
+
+对象属性的添加或删除
+由于 Vue 会在初始化实例时对属性执行 getter/setter 转化过程，所以属性必须在 data 对象上存在才能让 Vue 转换它，这样才能让它是响应的。
+
+解决办法：
+
+使用 `Vue.set(object, key, value) `方法将响应属性添加到嵌套的对象上
+
+`Vue.set(vm.someObject, 'b', 2) `或者` this.$set(this.someObject,'b',2) `（这也是全局 Vue.set 方法的别名
+
+## 8. async/await关键字执行异步的时机
+
+* https://blog.csdn.net/qq_30385099/article/details/125805192
+
+总是在使用`async/await`配合使用的时候没有成功同步，其原因在于这对关键字只是在标记了`async`的函数内同步，而在调用该函数的地方是异步。
+
+```js
+// 模拟异步发数据
+function req(str) {
+	return new Promise((resolve, reject) => {
+		resolve(str)
+	})
+}
+// 请求方法,通过声明async/await,可等待异步完成之后再执行
+async function update(data) {
+	await req(data).then(result => {
+		str = result;
+		console.log("结果2:" + str); // 代码1
+	});
+	// 代码更新后区域
+	console.log("结果3:" + str); // 代码2
+}
+let str = "你好"; // 代码3
+update("hello"); // 代码4
+console.log("结果1:" + str); // 代码5
+```
+
+<img src="http://xwjpics.gumptlu.work/image-20230227103355005.png" alt="image-20230227103355005" style="zoom:50%;" />
+
+步骤：第一步将父级方法也就是update，声明为异步方法（async），然后再需要等待同步的地方标注为await，这样即可等待`req(data).then()`请求执行成功之后，再执行下面代码。注意：async必不可少，否则报错。
+
+分析：代码执行完3时，因为代码4声明为异步了，故先执行了代码5，执行请求时，发现请求为等待，故等then执行结束后，即执行了代码1，最后执行了代码2。所以代码2区域能够解决实际问题。虽然这样是**解决了update方法内部的同步代码问题，但是变相的将异步问题向上拋了**。update方法为异步了。
 
