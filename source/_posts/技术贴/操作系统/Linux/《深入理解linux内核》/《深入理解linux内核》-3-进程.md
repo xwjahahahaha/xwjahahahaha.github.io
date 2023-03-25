@@ -147,6 +147,8 @@ next、prev指针不必多说，这两个指针都包含在`list_head`的结构�
 
 进程链表将**所有的**进程描述符连接起来，每个进程的进程描述符`task_struct`都有一个`task`字段(`list_head`类型)，此类型连接前后双向的其他`task_struct`
 
+> linux进程中的实现中，不会在链表节点中添加链表数据，而是在数据(`task_struct`)中添加链表节点(`list_head`)
+
 整个链表的头是`init_task`描述符，也就是对应了系统的`init`进程（0号进程）
 
 > init_task的pre指向什么？ => 就是最后插入的task_struct的task字段啊，别忘记了双向链表
@@ -189,6 +191,9 @@ next、prev指针不必多说，这两个指针都包含在`list_head`的结构�
 p0创建了p1、p2、p3，而随后p3又创建了p4，其关系如下：
 
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20220814203743911.png" alt="image-20220814203743911" style="zoom:67%;" />
+
+> * childere.next： 指向孩子进程的第一个进程
+> * children.prev: 指向孩子进程的最后一个进程
 
 除了如上的关系，进程之间还可能有其他关系：是同一个进程组、登录会话、线程组等等（这些都是非亲属关系）
 

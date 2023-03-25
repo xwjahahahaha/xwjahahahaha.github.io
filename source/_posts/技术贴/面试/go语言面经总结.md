@@ -97,9 +97,9 @@ slice作为函数传参数可能在函数中添加元素导致底层数组的扩
     > func main() {
     > 	var p *int = nil
     > 	var i interface{} = p
-    > 	fmt.Println(i == p) // true
-    > 	fmt.Println(p == nil) // true
-    > 	fmt.Println(i == nil) // false  
+    > 	fmt.Println(i == p) // true 因为i是一个接口，它可以存储任意类型的值，这里存储的值是一个指针p，所以i等于p
+    > 	fmt.Println(p == nil) // true p本身就是一个指向int类型的空指针
+    > 	fmt.Println(i == nil) // false  i是一个接口类型，因为赋值p给了i，所以动态类型和动态类型值都不会是nil
     > }
     > ```
 
@@ -177,6 +177,8 @@ go语言执行run的过程：
 优化处理：
 
 在底层转换两者，把`StringHeader`的地址转换为`SliceHeader`。可以使用go语言中的`unsafe`包完成这个操作
+
+> unsafe.pointer是Go语言中的unsafe包提供的一种指针，它可以指向任何类型的数据，并且可以被更改，而普通指针只能指向某个特定类型的数据，并且不能被更改。
 
 ```go
 /*StringHeader 是字符串在go的底层结构。*/
@@ -262,7 +264,7 @@ func main() {
 
 ## 7. go语言的特点/与其他语言相比go有哪些好处
 
-* 语言层面支持并发，而不是程序设计上支持并发。（一个`go`即可开启协程不用关系细节，而其他例如`java`还需要进程池等代码操作）
+* 语言层面支持并发，而不是程序设计上支持并发。（一个`go`即可开启协程不用关心细节，而其他例如`java`还需要进程池等代码操作）
 * 自动垃圾回收比其他java、python更加有效，因为是并行GC
 * 生态：主要在于web中间件以及容器化等都很丰富
 
@@ -290,6 +292,11 @@ go 1.18新特性：
       return s
   }
   ```
+
+  > 为什么golang有了interface还要引入泛型？
+  >
+  > * 共通点：作为函数参数可以适配多个类型的传入
+  > * 核心不同点：使用interface只能支持类型的转换，不能对某一特定类型进行操作，在函数体内部，interface是不能够直接参与计算的，但是泛型可以（如上面的例子）
 
 * 工作区模式
 
@@ -378,7 +385,7 @@ func main() {
 
 defer一般用于处理成对的操作：打开、关闭连接；获得、释放锁；打开、关闭文件等。主要作用在于可以避免忘记资源的释放
 
-* 在return、goexit或panic宕机之后执行
+* 在return、goexit或panic宕机之**后**执行
 * 在调用栈被销毁之前执行。（所以可以在defer函数中输出调用栈，以及通过defer recover分类处理宕机）
 
 ## 14. rune、byte类型
