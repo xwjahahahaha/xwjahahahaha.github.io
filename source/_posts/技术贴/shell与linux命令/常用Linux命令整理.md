@@ -59,27 +59,38 @@ sudo ufw allow 22
 
 ## SSH免密连接
 
-A连接B服务器
+场景：**A想要连接B服务器**
 
-在待连接的主机A上:
+在主机A上:
+
+如果`.ssh`目录下没有`.pub`密钥，那么就按下面的生成：（有的话不用）
 
 `ssh-keygen -f xxx -t rsa` 生成指定的文件名xxx
 
-`ssh-copy-id -i xxx.pub HOST` 把公钥文件拷贝到指定的服务器，或者手动拷贝
+然后传输到服务器B上
+
+`ssh-copy-id -i xxx.pub <user>@<HOST>` 把公钥文件拷贝到指定的服务器，或者手动拷贝
+
+成功t后的截图：
+
+<img src="http://xwjpics.gumptlu.work/image-20220928141837903.png" alt="image-20220928141837903" style="zoom: 67%;" />
 
 > 上面的操作就会在服务器B上的`~/.ssh/authorized_keys`文件中加入一条已认证的信息，之后就不需要再输入密码了
 
 在`.ssh/config `配置文件下中加个密钥文件的定义（可以使用别名登陆）
 
 ```json
-HOST abc
+HOST <自定义的nickname>    // 例如node1
+    User <name>
     HostName 192.168.1.231
     IdentityFile ~/.ssh/xxx     // 注意这里放你的私钥名称
 ```
 
-成功后的截图：
+成功之后测试：（无需再次输入密码）
 
-![image-20220928141837903](http://xwjpics.gumptlu.work/qinniu_uPic/image-20220928141837903.png)
+```shell
+ssh node1
+```
 
 ## SSH连接过程
 

@@ -69,6 +69,16 @@ get /getOneRule(RuleGetOneReq) returns (RuleGetOneResp)
 `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
 ```
 
-## 3.  如何添加更多的CURD操作
+## 3. 如何添加更多的CURD操作
 
 默认`goctl model`生成的CURD代码可能无法满足需求，那
+
+## 4. 返回http状态码的原则
+
+对于go-zero我们可以自己创建自定义的错误类型，然后定制化返回错误(https://go-zero.dev/cn/docs/advance/error-handle)
+
+其中可以自己写状态码，一般情况下后端返回结果的httpcode状态，不能都是200，应该遵循以下规则
+
+- 如果是服务端能感知的错误就返回400（用户请求导致失败）（自定义的错误的http状态码应该为400，因为这是我们自定义的错误，能够感知到）
+- 如果是服务端本身的错误（无法感知的）那么就返回500（例如空指针等无法自定义感知到的错误）
+- 请求流程都成功了才返回200

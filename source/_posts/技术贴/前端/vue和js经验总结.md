@@ -90,21 +90,60 @@ data() {
 ## 4. Vue数据更新视图不更新的几种解决方案
 
 > * https://blog.csdn.net/bigbear00007/article/details/102594645
+> * https://www.cnblogs.com/ypSharing/p/updataHandler.html
 
-vue不能检测以下变动的数组：
+### 情况分类
 
-1. 如果obj原本没有一个字段，新添加一个字段并改变值，那么是无法响应的
-2. 当你利用索引直接设置一个项时，vm.items[indexOfItem] = newValue
-3. 当你修改数组的长度时，例如： vm.items.length = newLength
+vue页面视图不更新的情况如下：
 
-对象属性的添加或删除
-由于 Vue 会在初始化实例时对属性执行 getter/setter 转化过程，所以属性必须在 data 对象上存在才能让 Vue 转换它，这样才能让它是响应的。
+- [Vue 无法检测实例被创建时不存在于 data 中的 属性](https://www.cnblogs.com/ypSharing/p/updataHandler.html#1vue-无法检测实例被创建时不存在于-data-中的-属性)
+- [ Vue 无法检测‘对象属性’的添加或移除](https://www.cnblogs.com/ypSharing/p/updataHandler.html#2-vue-无法检测对象属性的添加或移除)
+- [Vue 不能检测利用数组索引直接修改一个数组项](https://www.cnblogs.com/ypSharing/p/updataHandler.html#3vue-不能检测利用数组索引直接修改一个数组项)
+- [Vue 不能监测直接修改数组长度的变化](https://www.cnblogs.com/ypSharing/p/updataHandler.html#4vue-不能监测直接修改数组长度的变化)
+- [在异步更新执行之前操作 DOM 数据不会变化](https://www.cnblogs.com/ypSharing/p/updataHandler.html#5在异步更新执行之前操作-dom-数据不会变化)
+- [循环嵌套层级太深，视图不更新？](https://www.cnblogs.com/ypSharing/p/updataHandler.html#6循环嵌套层级太深视图不更新)
+- [路由参数变化时，页面不更新（数据不更新）](https://www.cnblogs.com/ypSharing/p/updataHandler.html#7路由参数变化时页面不更新数据不更新)
+- [使用keep-alive之后数据无法实时更新问题](https://www.cnblogs.com/ypSharing/p/updataHandler.html#8使用keep-alive之后数据无法实时更新问题)
 
-解决办法：
+### 解决办法
+
+#### 1. Vue.set
 
 使用 `Vue.set(object, key, value) `方法将响应属性添加到嵌套的对象上
 
-`Vue.set(vm.someObject, 'b', 2) `或者` this.$set(this.someObject,'b',2) `（这也是全局 Vue.set 方法的别名
+`Vue.set(vm.someObject, 'b', 2) `或者` this.$set(this.someObject,'b',2) `(这也是全局 Vue.set 方法的别名)
+
+#### 2. 计算属性
+
+还可以使用计算属性解决。例如场景是：
+
+```js
+<a-step v-for="item in steps" :key="item.title" :title="item.title" />
+...
+data() {
+      return {
+          steps: [{ title: this.$t('sgroup.addnew.basicinfo') }, { title: this.$t('sgroup.addnew.relateVms') }, { title: this.$t('sgroup.addnew.rules') }],
+      }
+},
+```
+
+vue中使用国际化，动态返回的steps数组中的对象值要根据中英文选项动态变化，但是页面无法感知title的变化
+
+解决：
+
+删掉data中的steps，写一个同名的计算属性:
+
+```js
+computed: {
+    steps() {
+        return [
+            { title: this.$t('sgroup.addnew.basicinfo') },
+            { title: this.$t('sgroup.addnew.relateVms') },
+            { title: this.$t('sgroup.addnew.rules') }
+        ]
+    }
+},
+```
 
 ## 5. async/await关键字执行异步的时机
 
@@ -294,4 +333,33 @@ promise.then(function(result) {
 这是一种典型的**伪链式调用**，其不是链式调用，所做的就仅仅是添加promise的几个处理程序而已，所以，在上面的代码中，所有 `alert` 都显示相同的内容：`1`。
 
 <img src="http://xwjpics.gumptlu.work/image-20230301150644010.png" alt="image-20230301150644010" style="zoom:50%;" />
+
+## 7. 计算属性如何带参数
+
+> * https://blog.csdn.net/qq_42988836/article/details/106542901
+
+在使用计算属性的时候如果返回的是一个字符串值而不是一个函数是无法携带参数的，会报如下错：
+
+![image-20230427105909629](http://xwjpics.gumptlu.work/image-20230427105909629.png)
+
+解决方法：
+
+return一个函数
+
+```js
+// 计算select的样式
+computeSelectClass() {
+    return (record) => {
+        if (this.onlyShowMode) {
+            return 'special-select-showmode-style'
+        } else {
+            if (record.disabled) {
+                return 'special-select-disable-style'
+            } else {
+                return 'special-select-style'
+            }
+        }
+    }
+}
+```
 
