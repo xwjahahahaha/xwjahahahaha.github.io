@@ -143,7 +143,7 @@ $\frac{1}{n} * \frac{1}{C_{n-1}^{|s|-1}}$
 
 上式通过化简就可以推导出$w(|s|)$的函数了：
 
-<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20210818185451860.png" alt="image-20210818185451860" style="zoom:50%;" />
+<img src="http://xwjpics.gumptlu.work/qinniu_uPic/image-20230526200019771.png" alt="image-20230526200019771" style="zoom:33%;" />
 
 # 五、例子助理解
 
@@ -211,7 +211,7 @@ Shapley是满足匿名性、有效性、可加性和虚拟性四个性质的**�
 
 <img src="http://xwjpics.gumptlu.work/qinniu_uPic/Z03bKG.png" alt="Z03bKG" style="zoom: 67%;" />
 
-注意：如果联合建厂，那么污水处理厂应该建立在下游城镇。例如1，2联合建厂，那么按照河流的流向应该将厂建立在2城镇
+注意：如果联合建厂，那么污水处理厂应该建立在下游城镇。例如1，2联合建厂，那么按照河流的流向应该将厂建立在2城镇
 
 ---
 

@@ -508,7 +508,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
 sudo apt-get update
 ```
 
-# 14.开机自启脚本设置
+# 14. 开机自启脚本设置
 
 > https://zhuanlan.zhihu.com/p/405184491
 
