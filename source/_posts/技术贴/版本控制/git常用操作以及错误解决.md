@@ -218,3 +218,35 @@ subject是commit目的的简短描述，不超过50个字符。
 fix(DAO):用户查询缺少username属性 
 feat(Controller):用户查询接口开发
 ```
+
+## 9. git stash用法
+
+作用：Stash the changes in a dirty working directory away，通俗来说就是将本地暂时不想提交的修改先临时存储起来，特别在当前已经做了改动但是不想add到暂存区但是又要checkout到其他分支的时候（会消除当前修改）使用
+
+使用方式：`git stash save <自定义名字>`，类似于`git add xxx`但是存储不会放在同一个地方，相互不会影响
+
+`git stash`和`git add`是两个不同的Git命令，它们的作用和使用方式有所不同。
+
+1. `git stash`命令用于保存当前工作目录中的未提交的更改，以便您可以切换到其他分支或恢复到干净的工作目录状态。它的主要作用是将未提交的更改暂存起来，以便稍后恢复。`git stash`命令将未提交的更改保存为一个栈中的存储项，可以在需要时恢复。该命令通常用于**临时保存更改**，并在**切换分支或修复错误时使用**。
+
+   例如：
+   ```
+   git stash save "my changes"    // 将未提交的更改保存到stash中
+   git stash list                 // 列出所有的stash存储项
+   git stash apply stash@{0}      // 恢复指定的stash存储项
+   ```
+
+2. `git add`命令用于将工作目录中的更改添加到Git的暂存区（也称为索引）。这意味着您想要将这些更改包含在下一次提交中。通过运行`git add`命令，您可以选择性地将文件或更改添加到暂存区，然后可以使用`git commit`命令提交这些更改到版本库。
+
+## 10. 已经add后希望回滚
+
+撤销add进入暂存区的数据：
+
+```shell
+git rm --cached <文件名>
+```
+
+![image-20230706152215983](http://xwjpics.gumptlu.work/image-20230706152215983.png)
+
+可以看到目前的状态是删除状态，这样操作之后你的修改（例如上面的main.cpp文件）只是在本地文件上的修改，没有add到暂存区
+
