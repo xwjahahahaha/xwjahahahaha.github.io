@@ -57,56 +57,6 @@ sudo ufw allow 22
 >
 > ​	见上方
 
-## SSH免密连接
-
-场景：**A想要连接B服务器**
-
-在主机A上:
-
-如果`.ssh`目录下没有`.pub`密钥，那么就按下面的生成：（有的话不用）
-
-`ssh-keygen -f xxx -t rsa` 生成指定的文件名xxx
-
-然后传输到服务器B上
-
-`ssh-copy-id -i xxx.pub <user>@<HOST>` 把公钥文件拷贝到指定的服务器，或者手动拷贝
-
-成功t后的截图：
-
-<img src="http://xwjpics.gumptlu.work/image-20220928141837903.png" alt="image-20220928141837903" style="zoom: 67%;" />
-
-> 上面的操作就会在服务器B上的`~/.ssh/authorized_keys`文件中加入一条已认证的信息，之后就不需要再输入密码了
-
-在`.ssh/config `配置文件下中加个密钥文件的定义（可以使用别名登陆）
-
-```json
-HOST <自定义的nickname>    // 例如node1
-    User <name>
-    HostName 192.168.1.231
-    IdentityFile ~/.ssh/xxx     // 注意这里放你的私钥名称
-```
-
-成功之后测试：（无需再次输入密码）
-
-```shell
-ssh node1
-```
-
-## SSH连接过程
-
-### ssh连接
-
-1. 本地生成的一对秘钥，私钥（`~/.ssh/id_rsa`）和公钥（`~/.ssh/id_rsa.pub`）
-2. 公钥（`~/.ssh/id_rsa.pub`）应该保存在远程服务端的已认证的秘钥文件内（`~/.ssh/authorized_keys`）
-3. 连接过程：
-   - 1、本地向远程服务端发起连接
-   - 2、服务端随机生成一个字符串发送给发起登录的本地端
-   - 3、本地对该字符串使用私钥（`~/.ssh/id_rsa`）加密发送给服务端
-   - 4、服务端使用公钥（`~/.ssh/id_rsa.pub`）对私钥加密后的字符串进行解密
-   - 5、服务端对比解密后的字符串和第一次发送给客户端未加密的字符串，若一致则判断为登录成功
-
-https://www.jianshu.com/p/14027e35b900
-
 ## 操作本机MAC地址
 
 * 查看本机MAC地址
